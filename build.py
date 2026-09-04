@@ -415,7 +415,7 @@ FAQ = [
 ]
 SUPPORT = f"""
 <h1>Help</h1>
-<div class="card"><p>Something wrong with a scan, a warning, or the app? <a href="{href('report.html')}">Report it</a>; a person reads every report.</p></div>
+<div class="card"><p>Something wrong with a scan, a warning, or the app? <a href="{href('report.html')}">Report it</a>; a person reads every report. A site listed by mistake is reviewed the same day.</p></div>
 <div class="card"><p>Write to <a href="mailto:{EMAIL}">{EMAIL}</a>. It helps to include your phone model, your Android version, and what you were scanning if you can share it. Do not send a code that contains a password, a sign-in link, or anything you would not put in an email. We keep your message for as long as it takes to answer, then delete it.</p></div>
 
 <h2>Common questions</h2>
@@ -528,7 +528,8 @@ FORM_FIELDS = {"k": "entry.1094665394", "c": "entry.2112816314", "f": "entry.772
 FORM_KINDS = {"s": "A link, Wi-Fi network, payment address, or phone number that looks like a scam",
               "r": "The app read a code wrong, or could not read it",
               "d": "Product, book, medicine, or other details were wrong",
-              "o": "Something else: a mistake in the app, a translation, a suggestion"}
+              "o": "Something else: a mistake in the app, a translation, a suggestion",
+              "m": "My site or link is listed by mistake"}
 # The one script on the site, allowed by its hash in the content-security policy; no other script runs anywhere.
 REPORT_SCRIPT = ("(function(){var F=" + json.dumps(FORM_URL) + ",M=" + json.dumps(FORM_FIELDS) + ",K=" + json.dumps(FORM_KINDS) + ";"
                  "var p=new URLSearchParams(location.search),q=[];"
@@ -544,6 +545,7 @@ REPORT = f"""
 <p class="meta">A link that looks like a scam, a code the app read wrong, details that were wrong, or anything else that isn't right.</p>
 
 <div class="card"><p>A person reviews every report. Nothing is added to the safety list automatically, and Verdetto never says a link is safe. Please don't include passwords, payment details, or personal documents; if you came here from the app, the scanned text is already filled in, and you can remove anything private before you send it.</p></div>
+<div class="card"><p><strong>Listed by mistake?</strong> Choose "My site or link is listed by mistake". The page is fetched again the same day; if it is clean, the entry is suppressed from every source in the next list update, and the public feed that listed it gets a false-positive report from us. Our own entries and their evidence are public in the <a href="https://github.com/verdettoqr/link-safety-list/tree/main/own">list repository</a>.</p></div>
 
 <iframe id="report-form" title="Report form" src="{FORM_URL}?embedded=true" width="100%" height="1900" frameborder="0" marginheight="0" marginwidth="0" loading="lazy">Loading…</iframe>
 
