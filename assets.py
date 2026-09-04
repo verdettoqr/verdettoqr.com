@@ -53,7 +53,7 @@ og.paste(mark, (90, 135), mark)
 d = ImageDraw.Draw(og)
 d.text((520, 175), "Verdetto", font=font("seguisb.ttf", 92), fill=INK)
 d.text((524, 290), "QR & Barcode Scanner for Android", font=font("segoeui.ttf", 40), fill=TEAL)
-for i, line in enumerate(("See the link before it opens.", "No ads. No fake buttons.", "Reads damaged codes.")):
+for i, line in enumerate(("See the link before it opens.", "No ads. No fake buttons.", "Made for damaged codes.")):
     d.text((524, 372 + 46 * i), line, font=font("segoeui.ttf", 34), fill=VARIANT)
 d.text((524, 548), "verdettoqr.com", font=font("segoeui.ttf", 28), fill=TEAL)
 og.save(HERE / "og-image.png", optimize=True)
