@@ -2,6 +2,8 @@
 logo and card icons inlined as SVG symbols, so every page is self-contained:
 no scripts run, nothing loads from another host. Run assets.py first, then
 python build.py. Flip PUBLISH and DRAFT at publication."""
+import base64
+import hashlib
 import json
 import re
 from pathlib import Path
@@ -135,7 +137,7 @@ def page(name, title, description, body, ld=None, og_type="website", nav_key=Non
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; font-src 'self'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; font-src 'self'; script-src 'sha256-{REPORT_SCRIPT_HASH}'; frame-src https://docs.google.com; base-uri 'none'; form-action 'none'">
 <title>{title}</title>
 <meta name="description" content="{description}">
 <link rel="canonical" href="{canonical}">
@@ -172,7 +174,7 @@ def page(name, title, description, body, ld=None, og_type="website", nav_key=Non
 </div></main>
 <footer><div class="wrap">
   <p>&copy; 2026 Verdetto &middot; {ADDRESS} &middot; <a href="mailto:{EMAIL}">{EMAIL}</a></p>
-  <p class="links"><a href="{href('privacy.html')}">Privacy policy</a> &middot; <a href="{href('terms.html')}">Terms of use</a> &middot; <a href="{href('support.html')}">Help</a> &middot; <a href="{href('check-qr-code-link.html')}">How to check a QR code link</a> &middot; <a href="{href('support-the-work.html')}">Support the work</a> &middot; <a href="{href('press.html')}">Press kit</a></p>
+  <p class="links"><a href="{href('privacy.html')}">Privacy policy</a> &middot; <a href="{href('terms.html')}">Terms of use</a> &middot; <a href="{href('support.html')}">Help</a> &middot; <a href="{href('check-qr-code-link.html')}">How to check a QR code link</a> &middot; <a href="{href('support-the-work.html')}">Support the work</a> &middot; <a href="{href('report.html')}">Report a problem</a> &middot; <a href="{href('press.html')}">Press kit</a></p>
 </div></footer>
 </body>
 </html>
@@ -311,6 +313,9 @@ PRIVACY = f"""
 <h2>Purchases</h2>
 <p>The optional contribution inside the app is sold through Google Play. Google processes the payment under <a href="https://policies.google.com/privacy">its own privacy policy</a>; we never see your name, email address, or payment details. Google shows us, in its developer console, an order record for refunds and tax: at most an order number, the item, the amount and currency, and the country and postal code the purchase was made from. The app itself keeps only a note on your phone that a contribution was made, for the thank-you badge.</p>
 
+<h2>Reports you send</h2>
+<p>If you choose to report something, from the app or from this website, the report form is a Google Form that opens in your browser; the app itself sends nothing. The report contains only what you see on the form: the category, the scanned text if you leave it in, your description, where you found the code if you say, the app's version, and, only if you add it, your email address so we can reply. Reports are stored in Verdetto's Google account under <a href="https://policies.google.com/privacy">Google's privacy policy</a> and are used only to handle the report: a person reads it, and nothing is added to the warning list without that review. Reports are kept for up to two years and then deleted; write to us to have yours deleted sooner.</p>
+
 <h2>When you write to us</h2>
 <p>If you email us, we receive your address and what you wrote, and we use them to answer you. That is the only personal data we process, and we process it because you asked us something (in the European Union and the United Kingdom, that is a contract-like request and our legitimate interest in answering it). Your message stays in our mailbox like any email, is not added to any list, and is not shared or used for anything else. Ask, and we delete the thread.</p>
 
@@ -410,6 +415,7 @@ FAQ = [
 ]
 SUPPORT = f"""
 <h1>Help</h1>
+<div class="card"><p>Something wrong with a scan, a warning, or the app? <a href="{href('report.html')}">Report it</a>; a person reads every report.</p></div>
 <div class="card"><p>Write to <a href="mailto:{EMAIL}">{EMAIL}</a>. It helps to include your phone model, your Android version, and what you were scanning if you can share it. Do not send a code that contains a password, a sign-in link, or anything you would not put in an email. We keep your message for as long as it takes to answer, then delete it.</p></div>
 
 <h2>Common questions</h2>
@@ -515,6 +521,37 @@ NOT_FOUND = f"""
 </ul>
 """
 
+# The report form: a Google Form owned by the Verdetto Google account. The page embeds it and passes the app's
+# prefill through, so the app and every link only ever point at this page; the form behind it can change.
+FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfjC-Acjlr82CUOF-f5j3dPTkjQjArNrwaRJujiPiPb-PLH4g/viewform"
+FORM_FIELDS = {"k": "entry.1094665394", "c": "entry.2112816314", "f": "entry.772072017", "w": "entry.734527309", "v": "entry.1296385476"}
+FORM_KINDS = {"s": "A link, Wi-Fi network, payment address, or phone number that looks like a scam",
+              "r": "The app read a code wrong, or could not read it",
+              "d": "Product, book, medicine, or other details were wrong",
+              "o": "Something else: a mistake in the app, a translation, a suggestion"}
+# The one script on the site, allowed by its hash in the content-security policy; no other script runs anywhere.
+REPORT_SCRIPT = ("(function(){var F=" + json.dumps(FORM_URL) + ",M=" + json.dumps(FORM_FIELDS) + ",K=" + json.dumps(FORM_KINDS) + ";"
+                 "var p=new URLSearchParams(location.search),q=[];"
+                 "for(var k in M){var v=p.get(k);if(k==='k'){v=K[v]||null;}if(v){q.push(M[k]+'='+encodeURIComponent(v.slice(0,2000)));}}"
+                 "var s=q.length?'?usp=pp_url&'+q.join('&'):'';"
+                 "var i=document.getElementById('report-form');if(i){i.src=F+s+(s?'&':'?')+'embedded=true';}"
+                 "var a=document.getElementById('report-open');if(a){a.href=F+s;}})();")
+REPORT_SCRIPT_HASH = base64.b64encode(hashlib.sha256(REPORT_SCRIPT.encode("utf-8")).digest()).decode("ascii")
+
+REPORT = f"""
+<div class="prose">
+<h1>Report to Verdetto</h1>
+<p class="meta">A link that looks like a scam, a code the app read wrong, details that were wrong, or anything else that isn't right.</p>
+
+<div class="card"><p>A person reviews every report. Nothing is added to the safety list automatically, and Verdetto never says a link is safe. Please don't include passwords, payment details, or personal documents; if you came here from the app, the scanned text is already filled in, and you can remove anything private before you send it.</p></div>
+
+<iframe id="report-form" title="Report form" src="{FORM_URL}?embedded=true" width="100%" height="1900" frameborder="0" marginheight="0" marginwidth="0" loading="lazy">Loading…</iframe>
+
+<p>If the form does not load here, <a id="report-open" href="{FORM_URL}" rel="noopener" target="_blank">open it in a new tab</a>, or write to <a href="mailto:{EMAIL}">{EMAIL}</a>. The form is a Google Form; what you send is stored in Verdetto's Google account and is used only to handle your report. Details are in the <a href="{href('privacy.html')}">privacy policy</a>.</p>
+</div>
+<script>{REPORT_SCRIPT}</script>
+"""
+
 PRESS = f"""
 <div class="prose">
 <h1>Press kit</h1>
@@ -557,6 +594,7 @@ PAGES = {
     "support.html": ("Help - Verdetto", "Help for Verdetto: QR & Barcode Scanner. How to reach us and answers to common questions.", SUPPORT, FAQ_LD),
     "support-the-work.html": ("Support the work - Verdetto", "How Verdetto stays free with no ads and no tracking: one-time contributions from the people who use it, from $0.99 on Google Play" + (" or through GitHub Sponsors" if SPONSORS_LIVE else "") + ". Nothing is locked, and the app never asks.", SUPPORT_WORK, SUPPORT_WORK_LD),
     "check-qr-code-link.html": (GUIDE_TITLE + " - Verdetto", GUIDE_DESC, GUIDE, GUIDE_LD),
+    "report.html": ("Report to Verdetto", "Report a link that looks like a scam, a code the app read wrong, or anything else that isn't right in Verdetto: QR & Barcode Scanner. A person reviews every report.", REPORT, {"@type": "WebPage", "name": "Report to Verdetto", "publisher": ORG}),
     "press.html": ("Press kit - Verdetto", "The one-sentence description, boilerplate, checkable facts, and image assets for writing about Verdetto: QR & Barcode Scanner.", PRESS, {"@type": "WebPage", "name": "Press kit", "publisher": ORG}),
     "404.html": ("Page not found - Verdetto", "That page is not here.", NOT_FOUND, None),
 }

@@ -14,6 +14,7 @@ Official accounts: Mastodon https://mastodon.social/@VerdettoQR; Reddit https://
 - [Help](https://verdettoqr.com/support): Help for Verdetto: QR & Barcode Scanner. How to reach us and answers to common questions.
 - [Support the work](https://verdettoqr.com/support-the-work): How Verdetto stays free with no ads and no tracking: one-time contributions from the people who use it, from $0.99 on Google Play. Nothing is locked, and the app never asks.
 - [How to check a QR code link before you open it](https://verdettoqr.com/check-qr-code-link): Six things to look at in a QR code's link before you tap it: the domain, shortened links, lookalike names, the connection, downloads, and where the code was placed.
+- [Report to Verdetto](https://verdettoqr.com/report): Report a link that looks like a scam, a code the app read wrong, or anything else that isn't right in Verdetto: QR & Barcode Scanner. A person reviews every report.
 - [Press kit](https://verdettoqr.com/press): The one-sentence description, boilerplate, checkable facts, and image assets for writing about Verdetto: QR & Barcode Scanner.
 - [Política de privacidad](https://verdettoqr.com/privacy-es): Política de privacidad de Verdetto: QR & Barcode Scanner. Sin cuentas, sin anuncios, sin analítica. El escaneo ocurre en tu teléfono.
 - [Politique de confidentialité](https://verdettoqr.com/privacy-fr): Politique de confidentialité de Verdetto : QR & Barcode Scanner. Pas de compte, pas de publicité, pas d'analyse d'audience. Le scan se fait sur ton téléphone.
