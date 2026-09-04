@@ -6,12 +6,22 @@ Publisher: Verdetto, 1520 Belle View Blvd, Suite #5992, Alexandria, VA 22307, Un
 
 ## Pages
 
-- [Verdetto: QR & Barcode Scanner for Android](https://verdettoqr.com/): See the link before it opens. Free, no ads, no tracking. Built for damaged codes.
+- [Verdetto: QR & Barcode Scanner for Android](https://verdettoqr.com/): See the link before it opens. Free, no ads, no tracking. Made for damaged codes.
 - [Privacy policy](https://verdettoqr.com/privacy): Privacy policy for Verdetto: QR & Barcode Scanner. No accounts, no ads, no analytics. Scanning happens on your phone.
 - [Terms of use](https://verdettoqr.com/terms): Terms of use for Verdetto: QR & Barcode Scanner. What the safety checks are and are not, and that every decision on scanned content is yours.
 - [Help](https://verdettoqr.com/support): Help for Verdetto: QR & Barcode Scanner. How to reach us and answers to common questions.
 - [Support the work](https://verdettoqr.com/support-the-work): How Verdetto stays free with no ads: a one-time contribution from the people who use it. Where it goes and what it is not.
 - [How to check a QR code link before you open it](https://verdettoqr.com/check-qr-code-link): Six things to look at in a QR code's link before you tap it: the domain, shortened links, lookalike names, the connection, downloads, and where the code was placed.
+- [Política de privacidad](https://verdettoqr.com/privacy-es): Política de privacidad de Verdetto: QR & Barcode Scanner. Sin cuentas, sin anuncios, sin analítica. El escaneo ocurre en tu teléfono.
+- [Politique de confidentialité](https://verdettoqr.com/privacy-fr): Politique de confidentialité de Verdetto : QR & Barcode Scanner. Pas de compte, pas de publicité, pas d'analyse d'audience. Le scan se fait sur ton téléphone.
+- [Datenschutzerklärung](https://verdettoqr.com/privacy-de): Datenschutzerklärung für Verdetto: QR & Barcode Scanner. Keine Konten, keine Werbung, keine Analyse. Gescannt wird auf deinem Telefon.
+- [Política de privacidade](https://verdettoqr.com/privacy-pt-br): Política de privacidade do Verdetto: QR & Barcode Scanner. Sem contas, sem anúncios, sem análise de uso. A leitura acontece no seu telefone.
+- [Политика конфиденциальности](https://verdettoqr.com/privacy-ru): Политика конфиденциальности Verdetto: QR & Barcode Scanner. Без аккаунтов, без рекламы, без аналитики. Сканирование происходит на вашем телефоне.
+- [Kebijakan privasi](https://verdettoqr.com/privacy-id): Kebijakan privasi Verdetto: QR & Barcode Scanner. Tanpa akun, tanpa iklan, tanpa analitik. Pemindaian terjadi di ponsel Anda.
+- [プライバシーポリシー](https://verdettoqr.com/privacy-ja): Verdetto: QR & Barcode Scanner のプライバシーポリシー。アカウントなし、広告なし、分析なし。スキャンはお使いのスマートフォンの中で行われます。
+- [隐私政策](https://verdettoqr.com/privacy-zh-hans): Verdetto: QR & Barcode Scanner 的隐私政策。无账号，无广告，无分析。扫描在您的手机上完成。
+- [गोपनीयता नीति](https://verdettoqr.com/privacy-hi): Verdetto: QR & Barcode Scanner की गोपनीयता नीति। कोई खाता नहीं, कोई विज्ञापन नहीं, कोई विश्लेषण नहीं। स्कैन आपके फ़ोन पर होता है।
+- [سياسة الخصوصية](https://verdettoqr.com/privacy-ar): سياسة الخصوصية لتطبيق Verdetto: QR & Barcode Scanner. بلا حسابات، بلا إعلانات، بلا تحليلات. المسح يتم على هاتفك.
 
 ## Facts
 

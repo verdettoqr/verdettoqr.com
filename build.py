@@ -89,6 +89,7 @@ table{border-collapse:collapse;width:100%;font-size:.875rem;line-height:1.25rem;
 th,td{text-align:left;vertical-align:top;padding:.5rem .6rem;border-bottom:1px solid var(--outline-variant)}
 th{color:var(--on-surface-variant);font-weight:500;white-space:nowrap}
 td:first-child{min-width:12rem}
+p.langs{font-size:.8125rem;line-height:1.5;color:var(--on-surface-variant)}p.langs a[aria-current]{font-weight:600;text-decoration:none}
 details.more{margin:1rem 0}details.more summary{cursor:pointer;color:var(--primary);font-weight:500;font-size:.875rem;line-height:1.25rem;padding:.6rem .75rem;border-radius:20px;display:inline-block;background:var(--surface-container)}details.more[open] summary{margin-bottom:.5rem}
 footer{background:var(--surface-container);margin-top:2rem}
 footer .wrap{padding:1.5rem 1rem 2rem;color:var(--on-surface-variant);font-size:.875rem;line-height:1.25rem}
@@ -121,13 +122,14 @@ APP = {"@type": "SoftwareApplication", "name": "Verdetto: QR & Barcode Scanner",
        "description": "See the link before it opens. Free, no ads, no tracking. Made for damaged codes."}
 
 
-def page(name, title, description, body, ld=None, og_type="website", nav_key=None):
+def page(name, title, description, body, ld=None, og_type="website", nav_key=None, lang="en", rtl=False, alternates=None):
     nav = "".join(f'<a href="{href(h)}"{" aria-current=\"page\"" if h == name else ""}>{t}</a>' for h, t in NAV)
     banner = '<div class="draft" role="status">Draft for review. Not published.</div>\n' if DRAFT else ""
     ld_tag = f'<script type="application/ld+json">{json.dumps({"@context": "https://schema.org", **ld}, ensure_ascii=False)}</script>\n' if ld else ""
     canonical = url(name) if name != "404.html" else SITE + "/404"
+    alt_tags = "".join(f'<link rel="alternate" hreflang="{code}" href="{url(page_name)}">' + chr(10) for code, page_name in (alternates or []))
     return f"""<!doctype html>
-<html lang="en">
+<html lang="{lang}"{' dir="rtl"' if rtl else ''}>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -135,7 +137,7 @@ def page(name, title, description, body, ld=None, og_type="website", nav_key=Non
 <title>{title}</title>
 <meta name="description" content="{description}">
 <link rel="canonical" href="{canonical}">
-<meta name="theme-color" media="(prefers-color-scheme: light)" content="#E9F5F1">
+{alt_tags}<meta name="theme-color" media="(prefers-color-scheme: light)" content="#E9F5F1">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0F1312">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
@@ -213,14 +215,41 @@ HOME = f"""
 <div class="card callout"><p>That something is safe. "No warnings found" means none of its checks matched; opening is your call. <a href="{href('check-qr-code-link.html')}">How to check a link yourself</a>.</p></div>
 """
 
+# The privacy policy is offered in the app's eleven languages (the terms stay English: operator, 2026-09-04).
+# Translations live in _privacy/<code>.html (an underscore folder, so GitHub Pages does not serve the fragments);
+# the first line of a fragment is "<!-- title | description -->". {ADDRESS}, {EMAIL}, and {LANG_ROW} are filled in.
+PRIVACY_LANGS = [("en", "English", "privacy.html"), ("es", "Español", "privacy-es.html"), ("fr", "Français", "privacy-fr.html"),
+                 ("de", "Deutsch", "privacy-de.html"), ("pt-BR", "Português (Brasil)", "privacy-pt-br.html"), ("ru", "Русский", "privacy-ru.html"),
+                 ("id", "Bahasa Indonesia", "privacy-id.html"), ("ja", "日本語", "privacy-ja.html"), ("zh-Hans", "简体中文", "privacy-zh-hans.html"),
+                 ("hi", "हिन्दी", "privacy-hi.html"), ("ar", "العربية", "privacy-ar.html")]
+PRIVACY_ALTERNATES = [(code, page_name) for code, _, page_name in PRIVACY_LANGS] + [("x-default", "privacy.html")]
+
+
+def privacy_lang_row(current):
+    links = " &middot; ".join(
+        f'<a href="{href(page_name)}" lang="{code}" hreflang="{code}"{" aria-current=\"page\"" if code == current else ""}>{label}</a>'
+        for code, label, page_name in PRIVACY_LANGS)
+    return f'<p class="langs" aria-label="This policy in other languages">{links}</p>'
+
+
+def privacy_translation(code):
+    text = (HERE / "_privacy" / f"{code}.html").read_text(encoding="utf-8")
+    first, body = text.split(chr(10), 1)
+    m = re.match(r"<!--\s*(.*?)\s*\|\s*(.*?)\s*-->", first)
+    title, desc = m.group(1), m.group(2)
+    body = body.replace("{ADDRESS}", ADDRESS).replace("{EMAIL}", EMAIL).replace("{LANG_ROW}", privacy_lang_row(code)).replace("{TERMS_HREF}", href("terms.html"))
+    return title, desc, body
+
+
 PRIVACY = f"""
 <h1>Privacy policy</h1>
 <p class="meta">For Verdetto: QR &amp; Barcode Scanner, the Android app published by Verdetto. Effective date: September 4, 2026.</p>
+{privacy_lang_row("en")}
 
-<div class="card"><p><strong>In short.</strong> No accounts, no ads, no analytics. Scanning happens on your phone. With online lookups on, the default, only the address, domain, or number you scanned goes out, to the services in the table below. Nothing else leaves the phone, apart from your phone's own backup, which you can turn off. We do not collect, store, or sell any data about you. This website sets no cookies.</p></div>
+<div class="card"><p><strong>In short.</strong> No accounts, no ads, no analytics. Scanning happens on your phone. With online lookups on, the default, only the address, domain, or number you scanned goes out, to the services in the table below, and it goes straight from your phone to them, never through us. Nothing else leaves the phone, apart from your phone's own backup, which you can turn off. The only thing we ever receive is an email you choose to send us. We do not collect, store, sell, or share any data about you. This website sets no cookies.</p></div>
 
 <h2>Who we are</h2>
-<p>Verdetto, {ADDRESS}, United States. Contact: <a href="mailto:{EMAIL}">{EMAIL}</a>.</p>
+<p>Verdetto, {ADDRESS}, United States, a small business in Virginia. Contact: <a href="mailto:{EMAIL}">{EMAIL}</a>. Verdetto publishes the app and is the party responsible for this policy wherever a law asks for one. The app sends us nothing, and the one thing we process is the email you may send us, so we have not appointed a representative in the European Union or the United Kingdom or a data protection officer; that email address reaches the person who answers.</p>
 
 <h2>What the app does on your phone</h2>
 <ul>
@@ -232,7 +261,7 @@ PRIVACY = f"""
 </ul>
 
 <h2>What leaves the phone, and when</h2>
-<p>Online lookups are on by default and can be turned off in Settings. While they are on, the app may make these requests. Each carries only what is listed, the app's name, and your phone's internet address, which every internet request carries.</p>
+<p>Online lookups are on by default and can be turned off in Settings. While they are on, the app may make these requests. Each carries only what is listed, the app's name, and your phone's internet address, which every internet request carries. Your phone makes each request itself, at your instruction, to the service named; we are not part of it and do not receive, relay, or see it.</p>
 <table><thead><tr><th>What is sent</th><th>When</th><th>Who sees it</th></tr></thead><tbody>
 <tr><td>A request for a newer warning list</td><td>Once a day at most</td><td>GitHub, where we publish it</td></tr>
 <tr><td>A shortened link</td><td>When you scan one</td><td>The shortening service</td></tr>
@@ -245,7 +274,7 @@ PRIVACY = f"""
   <li><strong>Domain age.</strong> To tell you when a link's domain was registered, the app sends the domain name to rdap.org, a public directory that forwards the question to the domain's registry. The answer is kept on the phone for a week so the same domain is not asked about twice.</li>
   <li><strong>Product, book, medicine, music, and vehicle numbers.</strong> To show details, the app sends the number to the database that covers it: Open Food Facts and its sister databases (Open Beauty Facts, Open Pet Food Facts, Open Products Facts) for products, Open Library and the German and French national libraries for books, openFDA for US medicines and medical devices, MusicBrainz for music, Wikidata for product, magazine, and sheet-music numbers, and the NHTSA vehicle database for a vehicle identification number. Each request carries the number and the app's name, nothing else. Their answers are shown as given. Postal codes, Italian medicine codes, and airline and airport names are looked up in tables on the phone, so those never leave it.</li>
 </ul>
-<p>These services are run by others, have their own privacy policies, and may change or stop. With online lookups off, nothing leaves the phone.</p>
+<p>These services are run by others, in the United States and in Europe, and they process the request, including your phone's internet address, under their own privacy policies: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub</a>, <a href="https://about.rdap.org/">rdap.org</a> and the registry it forwards to, <a href="https://world.openfoodfacts.org/privacy">Open Food Facts</a>, <a href="https://archive.org/about/terms.php">Open Library</a> (the Internet Archive), the <a href="https://www.dnb.de/EN/Service/Datenschutz/datenschutz_node.html">German National Library</a>, the <a href="https://www.bnf.fr/fr/politique-de-confidentialite">French National Library</a>, <a href="https://www.fda.gov/about-fda/about-website/website-policies">openFDA</a> (the US Food and Drug Administration), <a href="https://metabrainz.org/privacy">MusicBrainz</a>, <a href="https://foundation.wikimedia.org/wiki/Policy:Privacy_policy">Wikidata</a> (the Wikimedia Foundation), and the NHTSA vehicle database (the US Department of Transportation). They may change or stop. With online lookups off, nothing leaves the phone.</p>
 
 <h2>Your phone's backup</h2>
 <p>Unless you turn off "Include in the phone's backup" in Settings, your history, settings, and your card ride along in your phone's own Android backup, the same way other apps' data does. That backup goes to your Google account under Google's policy; Verdetto never sees it. History includes what codes contained, such as a Wi-Fi password you scanned, so turn the setting off if you would rather it stayed on the phone.</p>
@@ -257,22 +286,39 @@ PRIVACY = f"""
 <p>The app asks for the camera, which it needs to scan, and for contacts access only if you fill your own card from your phone's profile. It uses the network only for the lookups described above, vibration for the buzz on scan, and, on Android 10 and older, the Wi-Fi setting needed to join a network you scanned. Joining a Wi-Fi network, adding a contact, or saving an event goes through the standard Android prompt for that action, and only when you choose it. The contribution goes through Google Play's own billing.</p>
 
 <h2>Purchases</h2>
-<p>The optional contribution inside the app is processed by Google Play. Google handles the payment under its own policy; the app receives only a confirmation that the purchase went through. We never see your payment details.</p>
+<p>The optional contribution inside the app is sold through Google Play. Google processes the payment under <a href="https://policies.google.com/privacy">its own privacy policy</a>; we never see your name, email address, or payment details. Google shows us, in its developer console, an order record for refunds and tax: at most an order number, the item, the amount and currency, and the country and postal code the purchase was made from. The app itself keeps only a note on your phone that a contribution was made, for the thank-you badge.</p>
+
+<h2>When you write to us</h2>
+<p>If you email us, we receive your address and what you wrote, and we use them to answer you. That is the only personal data we process, and we process it because you asked us something (in the European Union and the United Kingdom, that is a contract-like request and our legitimate interest in answering it). Your message stays in our mailbox like any email, is not added to any list, and is not shared or used for anything else. Ask, and we delete the thread.</p>
 
 <h2>Children</h2>
-<p>The app is not directed at children under 13 and collects no data from anyone.</p>
+<p>The app is not directed at children under 13, asks no one's age, builds no profile, and collects no data from anyone.</p>
 
 <h2>Keeping and deleting data</h2>
-<p>Everything the app keeps is on your phone, and in your phone's backup if you leave that on. Delete history entries in the app, or uninstall the app to remove all of it. We hold no data about you from the app, so there is nothing for us to delete or hand over. If you write to us, your message stays in our mailbox like any email; we do not add it to any list or share it.</p>
+<p>Everything the app keeps is on your phone, and in your phone's backup if you leave that on. Delete history entries in the app, or uninstall the app to remove all of it. We hold no data about you from the app, so there is nothing for us to delete or hand over.</p>
+
+<h2>Your rights</h2>
+<p>Wherever you live, you can ask what we hold about you and ask for a copy, a correction, or deletion, or object to our processing it. Because the app sends us nothing, what we hold is at most an email you sent us. Write to <a href="mailto:{EMAIL}">{EMAIL}</a>; we answer within the time your law sets, and in any case within a month. You may also complain to your data protection authority: in the European Economic Area, the authority of your country; in the United Kingdom, the Information Commissioner's Office; in Brazil, the ANPD; elsewhere, the authority your law names. In California and the other US states with privacy laws: we collect no personal information through the app, and we do not sell or share it.</p>
 
 <h2>This website</h2>
-<p>These pages are static. They set no cookies, run no analytics, have no forms, and load nothing from anywhere but this site. Our hosting provider may keep standard server logs, such as the address a page was requested from and when, under its own policy.</p>
+<p>These pages are static and hosted on <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#data-collection">GitHub Pages</a>. They set no cookies, run no analytics, have no forms, and load nothing from anywhere but this site. GitHub may keep standard server logs, such as the address a page was requested from and when, under its own privacy statement.</p>
 
 <h2>Changes</h2>
 <p>If this policy changes, the new version will be posted here with a new effective date.</p>
 
 <h2>Contact</h2>
 <p>Questions about privacy: <a href="mailto:{EMAIL}">{EMAIL}</a>.</p>
+
+<details class="more"><summary>Details for specific laws</summary>
+<ul>
+  <li><strong>European Economic Area and United Kingdom (GDPR, UK GDPR).</strong> Verdetto is the controller only for the email you send us, processed under Article 6(1)(b) and (f). The app's lookups are requests your phone makes to independent controllers, named above, at your instruction; we are not a party to them. You have the rights in Articles 15 to 21 and may complain under Article 77. No representative under Article 27 and no data protection officer have been appointed, because our processing is occasional, small, and low-risk. No automated decision-making or profiling takes place.</li>
+  <li><strong>Brazil (LGPD).</strong> Verdetto is the controlador for the email you send us, processed to answer your request (Article 7, V and IX). The contact for data-protection matters, the encarregado, is {EMAIL}. You have the rights in Article 18 and may complain to the ANPD. Requests are answered in Portuguese or the language you wrote in.</li>
+  <li><strong>Canada and Quebec.</strong> No personal information is collected through the app. The person in charge of the protection of personal information is reached at {EMAIL}, which also handles access and correction requests under Quebec's Law 25 and PIPEDA.</li>
+  <li><strong>Mexico.</strong> This page is the aviso de privacidad integral, and its summary above is the simplified notice: the responsible party is Verdetto at the address above, the only data processed is the email you send us, for the purpose of answering you, and ARCO rights are exercised by writing to {EMAIL}.</li>
+  <li><strong>Japan (APPI).</strong> We acquire no personal information through the app; an email you send us is used only to reply.</li>
+  <li><strong>India, Indonesia, Saudi Arabia, the United Arab Emirates, Egypt, Argentina, Colombia, Chile, Peru, Switzerland, Australia, Russia, and elsewhere.</strong> The same facts apply: the app sends us nothing, we keep nothing about you, and any right your law gives you is exercised by writing to {EMAIL}.</li>
+</ul>
+</details>
 """
 
 TERMS = f"""
@@ -283,6 +329,9 @@ TERMS = f"""
 
 <h2>The app</h2>
 <p>This app is free. Its safety list is open source today, and the app's own code will be published under an open license with its first release. It is provided as is and as available, without warranty of any kind, express or implied, including fitness for a particular purpose. It is not security software and not a substitute for security advice.</p>
+
+<h2>Who provides the app</h2>
+<p>Verdetto, {ADDRESS}, United States, a small business in Virginia. Contact: <a href="mailto:{EMAIL}">{EMAIL}</a>. Support requests and legal notices go to that address.</p>
 
 <h2>What the safety checks are</h2>
 <p>When you scan a code, the app looks at the content itself, on your phone, for known warning signs: hidden sign-in details, raw IP addresses, lookalike or imitation names, shortened links, unencrypted addresses, unusual ports, app or program downloads, unusually deep subdomains, script or file addresses, tracking parameters, premium-rate numbers, open Wi-Fi networks, and payment destinations. It also compares links, sites, and wallet addresses with a list of known phishing, malware, and scam entries kept on the phone, compiled from public sources (PhishTank, the CERT Polska warning list, PhishDestroy, PhishIndex, the polkadot-js phishing list, and the US Treasury's OFAC sanctions list). If you turn on online lookups, the app can download a newer list, follow a shortened link to where it leads, ask a domain's registry when it was registered, and send a product number to Open Food Facts and its sister databases, Open Library, the German and French national libraries, openFDA (medicines and medical devices), MusicBrainz, Wikidata, or the NHTSA vehicle database. Their answers are shown as given. Postal codes and Italian medicine codes are named from tables kept on the phone (GeoNames and the Italian Medicines Agency).</p>
@@ -296,8 +345,26 @@ TERMS = f"""
 <h2>Liability</h2>
 <p>To the fullest extent permitted by law, the developers and contributors of this app are not liable for any loss, damage, or harm arising from the use of the app or from acting on scanned content, including opening a link, joining a network, or relying on a check or a lookup.</p>
 
+<h2>Your rights as a consumer</h2>
+<p>Nothing in these terms takes away rights that the consumer law of your country gives you and that cannot be waived by agreement, including the guarantees of the Australian Consumer Law and the rights of consumers in the European Union, the United Kingdom, and Brazil. The Liability section applies only as far as your law allows: it does not exclude liability for intent or gross negligence, for death or personal injury caused by negligence, or for anything else the law does not let us exclude.</p>
+
 <h2>Your data</h2>
 <p>Online lookups are on by default and can be turned off in Settings. While on, only the address, domain, product number, or vehicle number goes to the named services (Open Food Facts and its sisters, Open Library, the German and French national libraries, openFDA for medicines and medical devices, MusicBrainz, Wikidata, and the NHTSA vehicle database); with them off, nothing leaves the phone. There are no ads, no analytics, and no accounts. The <a href="{href('privacy.html')}">privacy policy</a> has the details.</p>
+
+<h2>Contributions</h2>
+<p>The app is free and complete: every check and every decode is free for everyone, and nothing is locked. It offers one optional, one-time contribution, sold as an in-app item through Google Play from US$0.99 or the local equivalent, which pays for the work and earns a thank-you badge and the small extras listed on the Support screen as they arrive. The price in the purchase flow is the price you pay, including any tax Google Play charges. In the European Economic Area and the United Kingdom, Google is the merchant of record for the purchase; everywhere else, Verdetto is the seller and Google Play handles the payment. Refunds follow Google Play's refund policy and the consumer law of your country; if something went wrong, write to <a href="mailto:{EMAIL}">{EMAIL}</a> and we will help. Where Google Play's billing is unavailable, the contribution is not offered. A contribution buys no protection and no promise of future features. Verdetto is a small business, not a charity, and nothing about a contribution is tax-deductible.</p>
+
+<h2>Third-party services</h2>
+<p>The lookup services and the shortening services the app can ask are run by others under their own terms and privacy policies. Their answers are shown as given; they may change or stop, and we are not responsible for them.</p>
+
+<h2>Open source and trademarks</h2>
+<p>The safety list's pipeline is published under the MIT license, and the app's own code is intended to follow under an open license with its first release. Those licenses cover code. They do not cover the Verdetto name or logo, which stay ours. The app also includes work by others under their own licenses, listed under About, Licenses; the safety list names its sources and their terms in its repository.</p>
+
+<h2>Governing law</h2>
+<p>These terms are governed by the laws of the Commonwealth of Virginia, United States. If you are a consumer in a country whose law protects you regardless of that choice, that protection applies, and you may bring a claim before the courts of your own country.</p>
+
+<h2>Language</h2>
+<p>These terms are written in English. If a translation is ever provided, the English text is the reference, except where the law of your country says otherwise.</p>
 
 <h2>Changes</h2>
 <p>These terms may change with a new version of the app. The text in the installed version is the one that applies.</p>
@@ -403,6 +470,12 @@ PAGES = {
     "check-qr-code-link.html": (GUIDE_TITLE + " - Verdetto", GUIDE_DESC, GUIDE, GUIDE_LD),
     "404.html": ("Page not found - Verdetto", "That page is not here.", NOT_FOUND, None),
 }
+PAGE_LANG = {}  # name -> (lang, rtl, alternates) for pages that are not plain English
+PAGE_LANG["privacy.html"] = ("en", False, PRIVACY_ALTERNATES)
+for _code, _label, _page_name in PRIVACY_LANGS[1:]:
+    _title, _desc, _body = privacy_translation(_code)
+    PAGES[_page_name] = (_title, _desc, _body, {"@type": "WebPage", "name": _title.split(" - ")[0], "publisher": ORG, "inLanguage": _code})
+    PAGE_LANG[_page_name] = (_code, _code == "ar", PRIVACY_ALTERNATES)
 BENCH_PUBLISHED = False  # True once the benchmark page is cleared for the live site
 
 
@@ -412,7 +485,9 @@ def main():
         PAGES["how-we-test.html"] = bench.page_entry()
         NAV.append(("how-we-test.html", "Tests"))
     for name, (title, desc, body, ld) in PAGES.items():
-        html = page(name, title.replace("&", "&amp;"), desc.replace("&", "&amp;"), body, ld, "article" if name.startswith("check") else "website")
+        lang, rtl, alternates = PAGE_LANG.get(name, ("en", False, None))
+        html = page(name, title.replace("&", "&amp;"), desc.replace("&", "&amp;"), body, ld, "article" if name.startswith("check") else "website",
+                    lang=lang, rtl=rtl, alternates=alternates)
         (HERE / name).write_text(html, encoding="utf-8", newline="\n")
         print("wrote", name)
 
