@@ -85,6 +85,10 @@ p,li{margin:.5rem 0}
 .faq p strong{color:var(--on-surface);font-weight:500}
 .prose ol,.prose ul{padding-left:1.4rem}
 .prose li{margin:.6rem 0}
+table{border-collapse:collapse;width:100%;font-size:.875rem;line-height:1.25rem;display:block;overflow-x:auto;margin:1rem 0}
+th,td{text-align:left;vertical-align:top;padding:.5rem .6rem;border-bottom:1px solid var(--outline-variant)}
+th{color:var(--on-surface-variant);font-weight:500;white-space:nowrap}
+td:first-child{min-width:12rem}
 footer{background:var(--surface-container);margin-top:2rem}
 footer .wrap{padding:1.5rem 1rem 2rem;color:var(--on-surface-variant);font-size:.875rem;line-height:1.25rem}
 footer a{color:var(--primary)}
@@ -104,7 +108,7 @@ def url(name):
     return SITE + ("/" if name == "index.html" else "/" + name[:-5])
 
 
-NAV = (("privacy.html", "Privacy"), ("terms.html", "Terms"), ("support.html", "Support"), ("check-qr-code-link.html", "Guide"))
+NAV = [("privacy.html", "Privacy"), ("terms.html", "Terms"), ("support.html", "Support"), ("check-qr-code-link.html", "Guide")]
 
 ORG = {"@type": "Organization", "name": "Verdetto", "url": SITE + "/", "email": EMAIL, "logo": SITE + "/icon-512.png",
        "address": {"@type": "PostalAddress", "streetAddress": "1520 Belle View Blvd, Suite #5992", "addressLocality": "Alexandria",
@@ -131,7 +135,7 @@ def page(name, title, description, body, ld=None, og_type="website", nav_key=Non
 <link rel="canonical" href="{canonical}">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#E9F5F1">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0F1312">
-<link rel="icon" href="{href('icon.svg') if PUBLISH else 'icon.svg'}" type="image/svg+xml">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta property="og:type" content="{og_type}">
@@ -369,40 +373,52 @@ PAGES = {
     "check-qr-code-link.html": (GUIDE_TITLE + " - Verdetto", GUIDE_DESC, GUIDE, GUIDE_LD),
     "404.html": ("Page not found - Verdetto", "That page is not here.", NOT_FOUND, None),
 }
-for name, (title, desc, body, ld) in PAGES.items():
-    html = page(name, title.replace("&", "&amp;"), desc.replace("&", "&amp;"), body, ld, "article" if name.startswith("check") else "website")
-    (HERE / name).write_text(html, encoding="utf-8", newline="\n")
-    print("wrote", name)
+BENCH_PUBLISHED = False  # True once the benchmark page is cleared for the live site
 
-AI_CRAWLERS = ("GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-SearchBot", "PerplexityBot", "Google-Extended",
-               "Applebot-Extended", "CCBot", "Bingbot")
-(HERE / "robots.txt").write_text(
-    "User-agent: *\nAllow: /\n\n# AI crawlers and answer engines are welcome: these pages are written to be read and cited.\n"
-    + "".join(f"User-agent: {b}\nAllow: /\n\n" for b in AI_CRAWLERS)
-    + f"Sitemap: {SITE}/sitemap.xml\n", encoding="utf-8", newline="\n")
-urls = [n for n in PAGES if n != "404.html"]
-# llms.txt: the site in Markdown for language models, per the llms.txt convention
-(HERE / "llms.txt").write_text(
-    "# Verdetto\n\n"
-    "> Verdetto is a free QR code and barcode scanner for Android with no ads and no fake buttons. It shows the link "
-    "before it opens, reads damaged codes, and checks scanned content for warning signs on the phone. It never says "
-    "anything is safe: \"No warnings found\" means none of its checks matched.\n\n"
-    f"Publisher: Verdetto, {ADDRESS}, United States. Contact: {EMAIL}. Store title: \"Verdetto: QR & Barcode Scanner\". "
-    "Status: coming soon to Google Play.\n\n"
-    "## Pages\n\n"
-    + "".join(f"- [{t.replace(' - Verdetto', '')}]({url(n)}): {d}\n" for n, (t, d, _, _) in PAGES.items() if n != "404.html")
-    + "\n## Facts\n\n"
-    "- Platform: Android. Price: free. Ads: none. Accounts: none. Analytics: none.\n"
-    "- Scanning and every safety check run on the phone; online lookups (list updates, shortened-link destinations, "
-    "domain age, product details from Open Food Facts and Open Library) are on by default and can be turned off.\n"
-    "- Reads QR codes and barcodes including EAN, UPC, Code 128, Data Matrix, PDF417, and Aztec, including damaged ones.\n"
-    "- Scan history stays on the phone and can be deleted by the person.\n"
-    "- The only permission requested is the camera.\n"
-    "- An optional in-app contribution supports development; nothing is locked behind it.\n",
-    encoding="utf-8", newline="\n")
-(HERE / "sitemap.xml").write_text(
-    '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-    + "".join(f"  <url><loc>{url(n)}</loc><lastmod>{DATE}</lastmod></url>\n" for n in urls) + "</urlset>\n",
-    encoding="utf-8", newline="\n")
-(HERE / "CNAME").write_text("verdettoqr.com\n", encoding="utf-8", newline="\n")
-print("wrote robots.txt, sitemap.xml, llms.txt, CNAME")
+
+def main():
+    if BENCH_PUBLISHED:
+        import bench
+        PAGES["how-we-test.html"] = bench.page_entry()
+        NAV.append(("how-we-test.html", "Tests"))
+    for name, (title, desc, body, ld) in PAGES.items():
+        html = page(name, title.replace("&", "&amp;"), desc.replace("&", "&amp;"), body, ld, "article" if name.startswith("check") else "website")
+        (HERE / name).write_text(html, encoding="utf-8", newline="\n")
+        print("wrote", name)
+
+    AI_CRAWLERS = ("GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-SearchBot", "PerplexityBot", "Google-Extended",
+                   "Applebot-Extended", "CCBot", "Bingbot")
+    (HERE / "robots.txt").write_text(
+        "User-agent: *\nAllow: /\n\n# AI crawlers and answer engines are welcome: these pages are written to be read and cited.\n"
+        + "".join(f"User-agent: {b}\nAllow: /\n\n" for b in AI_CRAWLERS)
+        + f"Sitemap: {SITE}/sitemap.xml\n", encoding="utf-8", newline="\n")
+    urls = [n for n in PAGES if n != "404.html"]
+    # llms.txt: the site in Markdown for language models, per the llms.txt convention
+    (HERE / "llms.txt").write_text(
+        "# Verdetto\n\n"
+        "> Verdetto is a free QR code and barcode scanner for Android with no ads and no fake buttons. It shows the link "
+        "before it opens, reads damaged codes, and checks scanned content for warning signs on the phone. It never says "
+        "anything is safe: \"No warnings found\" means none of its checks matched.\n\n"
+        f"Publisher: Verdetto, {ADDRESS}, United States. Contact: {EMAIL}. Store title: \"Verdetto: QR & Barcode Scanner\". "
+        "Status: coming soon to Google Play.\n\n"
+        "## Pages\n\n"
+        + "".join(f"- [{t.replace(' - Verdetto', '')}]({url(n)}): {d}\n" for n, (t, d, _, _) in PAGES.items() if n != "404.html")
+        + "\n## Facts\n\n"
+        "- Platform: Android. Price: free. Ads: none. Accounts: none. Analytics: none.\n"
+        "- Scanning and every safety check run on the phone; online lookups (list updates, shortened-link destinations, "
+        "domain age, product details from Open Food Facts and Open Library) are on by default and can be turned off.\n"
+        "- Reads QR codes and barcodes including EAN, UPC, Code 128, Data Matrix, PDF417, and Aztec, including damaged ones.\n"
+        "- Scan history stays on the phone and can be deleted by the person.\n"
+        "- The only permission requested is the camera.\n"
+        "- An optional in-app contribution supports development; nothing is locked behind it.\n",
+        encoding="utf-8", newline="\n")
+    (HERE / "sitemap.xml").write_text(
+        '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        + "".join(f"  <url><loc>{url(n)}</loc><lastmod>{DATE}</lastmod></url>\n" for n in urls) + "</urlset>\n",
+        encoding="utf-8", newline="\n")
+    (HERE / "CNAME").write_text("verdettoqr.com\n", encoding="utf-8", newline="\n")
+    print("wrote robots.txt, sitemap.xml, llms.txt, CNAME")
+
+
+if __name__ == "__main__":
+    main()
