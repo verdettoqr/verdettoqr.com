@@ -26,7 +26,7 @@
 <meta name="twitter:title" content="Verdetto: QR &amp; Barcode Scanner for Android">
 <meta name="twitter:description" content="See the link before it opens. Free, no ads, no tracking. Made for damaged codes.">
 <meta name="twitter:image" content="https://verdettoqr.com/og-image.png">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Verdetto: QR & Barcode Scanner", "operatingSystem": "Android", "applicationCategory": "UtilitiesApplication", "url": "https://verdettoqr.com/", "image": "https://verdettoqr.com/icon-512.png", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Verdetto", "url": "https://verdettoqr.com/", "email": "support@verdettoqr.com", "logo": "https://verdettoqr.com/icon-512.png", "address": {"@type": "PostalAddress", "streetAddress": "1520 Belle View Blvd, Suite #5992", "addressLocality": "Alexandria", "addressRegion": "VA", "postalCode": "22307", "addressCountry": "US"}}, "description": "See the link before it opens. Free, no ads, no tracking. Made for damaged codes."}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Verdetto: QR & Barcode Scanner", "operatingSystem": "Android", "applicationCategory": "UtilitiesApplication", "url": "https://verdettoqr.com/", "image": "https://verdettoqr.com/icon-512.png", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "isAccessibleForFree": true, "publisher": {"@type": "Organization", "name": "Verdetto", "url": "https://verdettoqr.com/", "email": "support@verdettoqr.com", "logo": "https://verdettoqr.com/icon-512.png", "sameAs": ["https://mastodon.social/@VerdettoQR", "https://www.reddit.com/user/VerdettoQR/", "https://github.com/verdettoqr"], "address": {"@type": "PostalAddress", "streetAddress": "1520 Belle View Blvd, Suite #5992", "addressLocality": "Alexandria", "addressRegion": "VA", "postalCode": "22307", "addressCountry": "US"}}, "description": "See the link before it opens. Free, no ads, no tracking. Made for damaged codes."}</script>
 <style>
 /* Material 3 color roles, copied from the app's Theme.kt so the site and the app are one palette. */
 :root{--surface:#E9F5F1;--on-surface:#191C1B;--on-surface-variant:#3F4946;--primary:#006B5E;--on-primary:#FFFFFF;--surface-container:#D5E8E3;--surface-container-high:#CFE2DC;--outline:#6F7977;--outline-variant:#B4CAC4;--tertiary:#8A5A00;--on-tertiary:#FFFFFF}
@@ -65,7 +65,7 @@ p,li{margin:.5rem 0}
 .hero h1{margin:.25rem 0 .5rem}
 .hero p{font-size:1.125rem;line-height:1.75rem;margin:0}
 .hero .label{display:inline-flex;align-items:center;gap:.4rem;margin-top:1rem;color:var(--on-surface-variant);font-weight:500;font-size:.875rem;line-height:1.25rem}
-.hero .label svg{width:18px;height:18px}
+.hero .label svg{width:18px;height:18px}.hero .support{margin:.75rem 0 0;font-size:.9375rem;line-height:1.375rem;color:var(--on-surface-variant)}
 .shot{width:250px;height:auto;border-radius:20px;border:1px solid var(--outline-variant);background:var(--surface-container);display:block}
 .grid{display:grid;grid-template-columns:1fr;gap:.75rem;margin:1rem 0}
 .grid .card{margin:0;display:grid;grid-template-columns:auto 1fr;gap:.75rem;align-items:start}
@@ -150,6 +150,7 @@ footer a{color:var(--primary)}
     <h1>See the link before it opens.</h1>
     <p>A QR and barcode scanner for Android with no ads and no fake buttons. It shows what a code holds, checks it on your phone, and leaves the decision to you.</p>
     <span class="label"><svg aria-hidden="true"><use href="#ic-clock"/></svg>Coming soon to Google Play</span>
+    <p class="support">Free and ad-free because the people who use it pay for it. <a href="/support-the-work">How that works</a></p>
   </div>
   <img class="shot" src="screens/result-sheet.webp" width="540" height="1140" alt="The Verdetto result sheet showing a scanned QR code that leads to wikipedia.org, the No warnings found chip, and an Open button that names the site.">
 </div>
@@ -159,7 +160,7 @@ footer a{color:var(--primary)}
   <div class="card"><svg aria-hidden="true"><use href="#ic-eye"/></svg><div><h3>Look before it opens</h3><p>Nothing opens by itself unless you turn that on. You see the link first, with the site name on the button.</p></div></div>
   <div class="card"><svg aria-hidden="true"><use href="#ic-warning"/></svg><div><h3>Checked on your phone</h3><p>Hidden sign-ins, lookalike names, short links, downloads, open networks, numbers that charge you, and a warning list, all offline. The full list is in the <a href="/terms">Terms</a>.</p></div></div>
   <div class="card"><svg aria-hidden="true"><use href="#ic-scan"/></svg><div><h3>Built for damaged codes</h3><p>Faded, torn, and badly printed QR, EAN, UPC, Code 128, Data Matrix, PDF417, Aztec, and more.</p></div></div>
-  <div class="card"><svg aria-hidden="true"><use href="#ic-heart"/></svg><div><h3>Free, no ads, nothing collected</h3><p>Paid for by the people who use it, from $0.99, if they choose. <a href="/support-the-work">How that works</a>.</p></div></div>
+  <div class="card"><svg aria-hidden="true"><use href="#ic-heart"/></svg><div><h3>Free, no ads, nothing collected</h3><p>Nothing to sell and nothing collected. Every feature is free for everyone; the people who use it keep it that way.</p></div></div>
 </div>
 <details class="more"><summary>Everything it does</summary>
 <div class="grid">
@@ -180,7 +181,7 @@ footer a{color:var(--primary)}
 </div></main>
 <footer><div class="wrap">
   <p>&copy; 2026 Verdetto &middot; 1520 Belle View Blvd, Suite #5992, Alexandria, VA 22307 &middot; <a href="mailto:support@verdettoqr.com">support@verdettoqr.com</a></p>
-  <p class="links"><a href="/privacy">Privacy policy</a> &middot; <a href="/terms">Terms of use</a> &middot; <a href="/support">Help</a> &middot; <a href="/check-qr-code-link">How to check a QR code link</a> &middot; <a href="/support-the-work">Support the work</a></p>
+  <p class="links"><a href="/privacy">Privacy policy</a> &middot; <a href="/terms">Terms of use</a> &middot; <a href="/support">Help</a> &middot; <a href="/check-qr-code-link">How to check a QR code link</a> &middot; <a href="/support-the-work">Support the work</a> &middot; <a href="/press">Press kit</a></p>
 </div></footer>
 </body>
 </html>

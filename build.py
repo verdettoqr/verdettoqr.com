@@ -74,7 +74,7 @@ p,li{margin:.5rem 0}
 .hero h1{margin:.25rem 0 .5rem}
 .hero p{font-size:1.125rem;line-height:1.75rem;margin:0}
 .hero .label{display:inline-flex;align-items:center;gap:.4rem;margin-top:1rem;color:var(--on-surface-variant);font-weight:500;font-size:.875rem;line-height:1.25rem}
-.hero .label svg{width:18px;height:18px}
+.hero .label svg{width:18px;height:18px}.hero .support{margin:.75rem 0 0;font-size:.9375rem;line-height:1.375rem;color:var(--on-surface-variant)}
 .shot{width:250px;height:auto;border-radius:20px;border:1px solid var(--outline-variant);background:var(--surface-container);display:block}
 .grid{display:grid;grid-template-columns:1fr;gap:.75rem;margin:1rem 0}
 .grid .card{margin:0;display:grid;grid-template-columns:auto 1fr;gap:.75rem;align-items:start}
@@ -113,12 +113,14 @@ def url(name):
 NAV = [("support.html", "Help"), ("check-qr-code-link.html", "Guide"), ("support-the-work.html", "Support the work")]
 SPONSORS_LIVE = False  # True once the GitHub Sponsors profile is approved; the support page then links it
 
+SOCIAL = {"Mastodon": "https://mastodon.social/@VerdettoQR", "Reddit": "https://www.reddit.com/user/VerdettoQR/", "GitHub": "https://github.com/verdettoqr"}
 ORG = {"@type": "Organization", "name": "Verdetto", "url": SITE + "/", "email": EMAIL, "logo": SITE + "/icon-512.png",
+       "sameAs": list(SOCIAL.values()),
        "address": {"@type": "PostalAddress", "streetAddress": "1520 Belle View Blvd, Suite #5992", "addressLocality": "Alexandria",
                    "addressRegion": "VA", "postalCode": "22307", "addressCountry": "US"}}
 APP = {"@type": "SoftwareApplication", "name": "Verdetto: QR & Barcode Scanner", "operatingSystem": "Android",
        "applicationCategory": "UtilitiesApplication", "url": SITE + "/", "image": SITE + "/icon-512.png",
-       "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": ORG,
+       "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "isAccessibleForFree": True, "publisher": ORG,
        "description": "See the link before it opens. Free, no ads, no tracking. Made for damaged codes."}
 
 
@@ -170,7 +172,7 @@ def page(name, title, description, body, ld=None, og_type="website", nav_key=Non
 </div></main>
 <footer><div class="wrap">
   <p>&copy; 2026 Verdetto &middot; {ADDRESS} &middot; <a href="mailto:{EMAIL}">{EMAIL}</a></p>
-  <p class="links"><a href="{href('privacy.html')}">Privacy policy</a> &middot; <a href="{href('terms.html')}">Terms of use</a> &middot; <a href="{href('support.html')}">Help</a> &middot; <a href="{href('check-qr-code-link.html')}">How to check a QR code link</a> &middot; <a href="{href('support-the-work.html')}">Support the work</a></p>
+  <p class="links"><a href="{href('privacy.html')}">Privacy policy</a> &middot; <a href="{href('terms.html')}">Terms of use</a> &middot; <a href="{href('support.html')}">Help</a> &middot; <a href="{href('check-qr-code-link.html')}">How to check a QR code link</a> &middot; <a href="{href('support-the-work.html')}">Support the work</a> &middot; <a href="{href('press.html')}">Press kit</a></p>
 </div></footer>
 </body>
 </html>
@@ -188,6 +190,7 @@ HOME = f"""
     <h1>See the link before it opens.</h1>
     <p>A QR and barcode scanner for Android with no ads and no fake buttons. It shows what a code holds, checks it on your phone, and leaves the decision to you.</p>
     <span class="label">{ic('clock')}Coming soon to Google Play</span>
+    <p class="support">Free and ad-free because the people who use it pay for it. <a href="{href('support-the-work.html')}">How that works</a></p>
   </div>
   <img class="shot" src="screens/result-sheet.webp" width="540" height="1140" alt="The Verdetto result sheet showing a scanned QR code that leads to wikipedia.org, the No warnings found chip, and an Open button that names the site.">
 </div>
@@ -197,7 +200,7 @@ HOME = f"""
   <div class="card">{ic('eye')}<div><h3>Look before it opens</h3><p>Nothing opens by itself unless you turn that on. You see the link first, with the site name on the button.</p></div></div>
   <div class="card">{ic('warning')}<div><h3>Checked on your phone</h3><p>Hidden sign-ins, lookalike names, short links, downloads, open networks, numbers that charge you, and a warning list, all offline. The full list is in the <a href="{href('terms.html')}">Terms</a>.</p></div></div>
   <div class="card">{ic('scan')}<div><h3>Built for damaged codes</h3><p>Faded, torn, and badly printed QR, EAN, UPC, Code 128, Data Matrix, PDF417, Aztec, and more.</p></div></div>
-  <div class="card">{ic('heart')}<div><h3>Free, no ads, nothing collected</h3><p>Paid for by the people who use it, from $0.99, if they choose. <a href="{href('support-the-work.html')}">How that works</a>.</p></div></div>
+  <div class="card">{ic('heart')}<div><h3>Free, no ads, nothing collected</h3><p>Nothing to sell and nothing collected. Every feature is free for everyone; the people who use it keep it that way.</p></div></div>
 </div>
 <details class="more"><summary>Everything it does</summary>
 <div class="grid">
@@ -373,7 +376,7 @@ TERMS = f"""
 <p>Online lookups are on by default and can be turned off in Settings. While on, only the address, domain, product number, or vehicle number goes to the named services (Open Food Facts and its sisters, Open Library, the German and French national libraries, openFDA for medicines and medical devices, MusicBrainz, Wikidata, and the NHTSA vehicle database); with them off, nothing leaves the phone. There are no ads, no analytics, and no accounts. The <a href="{href('privacy.html')}">privacy policy</a> has the details.</p>
 
 <h2>Contributions</h2>
-<p>The app is free and complete: every check and every decode is free for everyone, and nothing is locked. It offers one optional, one-time contribution, sold as an in-app item through Google Play from US$0.99 or the local equivalent, which pays for the work and earns a thank-you badge and the small extras listed on the Support screen as they arrive. The price in the purchase flow is the price you pay, including any tax Google Play charges. In the European Economic Area and the United Kingdom, Google is the merchant of record for the purchase; everywhere else, Verdetto is the seller and Google Play handles the payment. Refunds follow Google Play's refund policy and the consumer law of your country; if something went wrong, write to <a href="mailto:{EMAIL}">{EMAIL}</a> and we will help. Where Google Play's billing is unavailable, the contribution is not offered. A contribution buys no protection and no promise of future features. Verdetto is a small business, not a charity, and nothing about a contribution is tax-deductible.</p>
+<p>The app is free and complete: every check and every decode is free for everyone, and nothing is locked. It offers one optional, one-time contribution, sold as an in-app item through Google Play from US$0.99 or the local equivalent, which pays for the work and earns a thank-you badge and the small extras listed on the Support screen as they arrive. The price in the purchase flow is the price you pay, including any tax Google Play charges. In the European Economic Area and the United Kingdom, Google is the merchant of record for the purchase; everywhere else, Verdetto is the seller and Google Play handles the payment. Refunds follow Google Play's refund policy and the consumer law of your country; if something went wrong, write to <a href="mailto:{EMAIL}">{EMAIL}</a> and we will help. Where Google Play's billing is unavailable, the contribution is not offered. A contribution buys no protection and no promise of future features. Verdetto is a small business; a contribution is a purchase, not a gift, and it brings no tax benefit.</p>
 
 <h2>Third-party services</h2>
 <p>The lookup services and the shortening services the app can ask are run by others under their own terms and privacy policies. Their answers are shown as given; they may change or stop, and we are not responsible for them.</p>
@@ -416,16 +419,46 @@ SUPPORT = f"""
 <p>Not sure what to look for in a link? Read <a href="{href('check-qr-code-link.html')}">how to check a QR code link before you open it</a>. Want to keep the app free for everyone? <a href="{href('support-the-work.html')}">Support the work</a>.</p>
 """
 
-SPONSOR_LINE = ('<p>If you would rather give from a browser, you can <a href="https://github.com/sponsors/verdettoqr">sponsor the project on GitHub</a>, monthly or once.</p>'
-                if SPONSORS_LIVE else '')
+SPONSORS_CARD = (f"""<div class="card">{ic('heart')}<div><h3>From a browser</h3><p>GitHub Sponsors, monthly ($2 or $5) or once ($3 or $10), through GitHub. It reaches the same place. <a href="https://github.com/sponsors/verdettoqr">Sponsor on GitHub</a></p></div></div>"""
+                 if SPONSORS_LIVE else
+                 f"""<div class="card">{ic('clock')}<div><h3>From a browser</h3><p>GitHub Sponsors is being set up. Until it opens, the app is the way to give.</p></div></div>""")
+SUPPORT_FAQ = [
+    ("Is Verdetto really free?",
+     "Yes. Every feature, every check, and every decode is free for everyone, with no ads and no tracking. A contribution is optional and changes nothing you can do."),
+    ("How does Verdetto make money?",
+     "From one-time contributions by the people who use it: from $0.99 in the app through Google Play" + (", or through GitHub Sponsors from a browser" if SPONSORS_LIVE else "") + ". There are no ads, no data sales, and no paid tier."),
+    ("What does a contribution unlock?",
+     "Nothing you need. Supporters get a badge in About that they can hide, and a few small extras as they arrive."),
+    ("Is a contribution a gift?",
+     "No. Verdetto is a small business, so a contribution is a purchase, and it brings no tax benefit."),
+    ("Will the app ask me for money?",
+     "Never. There are no prompts, banners, or reminders. The Support screen is there when you look for it, under Settings."),
+    ("Can I give from a computer?",
+     "Yes, through GitHub Sponsors, monthly or once." if SPONSORS_LIVE else "Not yet. GitHub Sponsors is being set up; this page will say when it opens."),
+]
 SUPPORT_WORK = f"""
 <h1>Support the work</h1>
-<p>Verdetto has no ads and nothing to sell, so the people who use it pay for it.</p>
-<div class="card"><p>In the app: Settings, then Support development. From $0.99, once, through Google Play; the app never sees your card. Give again whenever you like.</p></div>
-{SPONSOR_LINE}
-<p>It pays for the domain, the Play account, cheap test phones, and the time to keep the safety list and the reader current. Nothing is locked behind it, and the app never asks. Supporters get a badge in the app they can hide; a few small extras are planned.</p>
-<p class="meta">Verdetto is a small business, not a charity: a contribution is not a donation and is not tax-deductible.</p>
+<p>Verdetto has no ads and nothing to sell, so the people who use it pay for it. Every check and every decode is free for everyone, and the app never asks.</p>
+<div class="grid">
+  <div class="card">{ic('heart')}<div><h3>On your phone</h3><p>Settings, then Support development. From $0.99, once, with $2.99 suggested, through Google Play; the app never sees your card. Give again whenever you like.</p></div></div>
+  {SPONSORS_CARD}
+</div>
+
+<h2>Where it goes</h2>
+<p>The domain and the mailbox, the Google Play developer account, cheap test phones (the ones where scanners fail), and the time to keep the safety list and the reader current. About $25 a month keeps the lights on; everything above that goes to test phones and time.</p>
+
+<h2>What you get</h2>
+<p>A thank-you badge in About that you can hide, and the small extras listed on the Support screen as they arrive. Nothing you need: every feature stays free for everyone, and no check is ever held back.</p>
+
+<h2>What it is not</h2>
+<p class="meta">Verdetto is a small business. A contribution is a purchase, not a gift, and it brings no tax benefit. Refunds follow Google Play's{" or GitHub's" if SPONSORS_LIVE else ""} own policy and the law where you live.</p>
+
+<h2>Questions</h2>
+<div class="faq">
+""" + "\n".join(f"<p><strong>{q}</strong><br>\n{a}</p>\n" for q, a in SUPPORT_FAQ) + """
+</div>
 """
+SUPPORT_WORK_LD = {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in SUPPORT_FAQ]}
 FAQ_LD = {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]}
 
 GUIDE_TITLE = "How to check a QR code link before you open it"
@@ -482,13 +515,49 @@ NOT_FOUND = f"""
 </ul>
 """
 
+PRESS = f"""
+<div class="prose">
+<h1>Press kit</h1>
+<p class="meta">Everything needed to describe Verdetto accurately, in one place. Quote freely; the sentence below is the one we use everywhere.</p>
+
+<div class="card"><p><strong>In one sentence.</strong> Verdetto is a free QR code and barcode scanner for Android with no ads and no fake buttons. It shows the link before it opens, is built to read damaged codes, and checks scanned content for warning signs on the phone. It never says anything is safe: "No warnings found" means none of its checks matched.</p></div>
+
+<h2>Boilerplate</h2>
+<p>Verdetto: QR &amp; Barcode Scanner is a free Android app from Verdetto, a one-person software business in Alexandria, Virginia. It reads QR codes and barcodes, including damaged ones, shows the person exactly what a code contains before anything opens, and checks links, Wi-Fi networks, payment addresses, and phone numbers for known warning signs on the phone itself. Its list of known phishing and scam entries is compiled in the open from public feeds and verified on the device. The app has no ads, no accounts, and no analytics; an optional one-time contribution supports development, and nothing is locked behind it. Verdetto is pronounced "ver-DET-oh" and is Italian for verdict.</p>
+
+<h2>Facts you can check</h2>
+<ul>
+  <li>Platform: Android 8 and later. Price: free. Ads: none. Accounts: none. Analytics: none.</li>
+  <li>Scanning and every built-in check run on the phone. Online lookups are on by default and can be turned off with one switch.</li>
+  <li>Reads QR codes and barcodes including EAN, UPC, Code 128, Data Matrix, PDF417, and Aztec.</li>
+  <li>The safety list is built in the open at <a href="https://github.com/verdettoqr/link-safety-list">github.com/verdettoqr/link-safety-list</a> and refreshed four times a day; the app verifies its signature before use.</li>
+  <li>What the app never says: that a link, network, or product is safe. The wording is "No warnings found."</li>
+  <li>Privacy policy: <a href="{href('privacy.html')}">verdettoqr.com/privacy</a>. Terms: <a href="{href('terms.html')}">verdettoqr.com/terms</a>.</li>
+</ul>
+
+<h2>Assets</h2>
+<ul>
+  <li><a href="icon-512.png">App icon, 512 px PNG</a> and <a href="logo.svg">the icon as SVG</a>. Mint ground, deep teal QR mark, one amber finder.</li>
+  <li><a href="og-image.png">Share image, 1200 by 630</a> and <a href="play-header-4096x2304.jpg">wide banner, 4096 by 2304</a>.</li>
+  <li><a href="screens/result-sheet.webp">Result sheet screenshot</a>: a scanned link shown before it opens, with the "No warnings found" chip.</li>
+</ul>
+<p>Please do not alter the icon's colours or add effects; the mark is the brand.</p>
+
+<h2>Where to find us</h2>
+<ul>
+""" + "".join(f'  <li>{k}: <a href="{v}">{v}</a></li>\n' for k, v in SOCIAL.items()) + f"""  <li>Contact: <a href="mailto:{EMAIL}">{EMAIL}</a></li>
+</ul>
+</div>
+"""
+
 PAGES = {
     "index.html": ("Verdetto: QR & Barcode Scanner for Android", "See the link before it opens. Free, no ads, no tracking. Made for damaged codes.", HOME, APP),
     "privacy.html": ("Privacy policy - Verdetto", "Privacy policy for Verdetto: QR & Barcode Scanner. No accounts, no ads, no analytics. Scanning happens on your phone.", PRIVACY, {"@type": "WebPage", "name": "Privacy policy", "publisher": ORG}),
     "terms.html": ("Terms of use - Verdetto", "Terms of use for Verdetto: QR & Barcode Scanner. What the safety checks are and are not, and that every decision on scanned content is yours.", TERMS, {"@type": "WebPage", "name": "Terms of use", "publisher": ORG}),
     "support.html": ("Help - Verdetto", "Help for Verdetto: QR & Barcode Scanner. How to reach us and answers to common questions.", SUPPORT, FAQ_LD),
-    "support-the-work.html": ("Support the work - Verdetto", "How Verdetto stays free with no ads: a one-time contribution from the people who use it. Where it goes and what it is not.", SUPPORT_WORK, {"@type": "WebPage", "name": "Support the work", "publisher": ORG}),
+    "support-the-work.html": ("Support the work - Verdetto", "How Verdetto stays free with no ads and no tracking: one-time contributions from the people who use it, from $0.99 on Google Play" + (" or through GitHub Sponsors" if SPONSORS_LIVE else "") + ". Nothing is locked, and the app never asks.", SUPPORT_WORK, SUPPORT_WORK_LD),
     "check-qr-code-link.html": (GUIDE_TITLE + " - Verdetto", GUIDE_DESC, GUIDE, GUIDE_LD),
+    "press.html": ("Press kit - Verdetto", "The one-sentence description, boilerplate, checkable facts, and image assets for writing about Verdetto: QR & Barcode Scanner.", PRESS, {"@type": "WebPage", "name": "Press kit", "publisher": ORG}),
     "404.html": ("Page not found - Verdetto", "That page is not here.", NOT_FOUND, None),
 }
 PAGE_LANG = {}  # name -> (lang, rtl, alternates) for pages that are not plain English
@@ -529,6 +598,7 @@ def main():
         "anything is safe: \"No warnings found\" means none of its checks matched.\n\n"
         f"Publisher: Verdetto, {ADDRESS}, United States. Contact: {EMAIL}. Store title: \"Verdetto: QR & Barcode Scanner\". "
         "Status: coming soon to Google Play.\n\n"
+        "Official accounts: " + "; ".join(f"{k} {v}" for k, v in SOCIAL.items()) + ". Pronounced ver-DET-oh; Italian for verdict.\n\n"
         "## Pages\n\n"
         + "".join(f"- [{t.replace(' - Verdetto', '')}]({url(n)}): {d}\n" for n, (t, d, _, _) in PAGES.items() if n != "404.html")
         + "\n## Facts\n\n"
@@ -539,7 +609,9 @@ def main():
         "- Reads QR codes and barcodes including EAN, UPC, Code 128, Data Matrix, PDF417, and Aztec, and is built to read damaged ones.\n"
         "- Scan history stays on the phone (and in the phone's own backup unless that is turned off); scans older than 90 days clear unless starred; any entry can be deleted.\n"
         "- Permissions: the camera to scan; contacts only if the person fills their own card from the phone's profile.\n"
-        "- An optional one-time in-app contribution, from $0.99, supports development; nothing is locked behind it. Verdetto is a small business, not a charity.\n",
+        "- Funding: no ads, no data sales, no paid tier. An optional one-time in-app contribution, from $0.99 ($2.99 suggested) through Google Play, supports development"
+        + (", and GitHub Sponsors (https://github.com/sponsors/verdettoqr) is the browser route" if SPONSORS_LIVE else "")
+        + "; nothing is locked behind it, and the app never prompts for it. Verdetto is a small business; a contribution is a purchase, not a gift, and brings no tax benefit.\n",
         encoding="utf-8", newline="\n")
     (HERE / "sitemap.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'

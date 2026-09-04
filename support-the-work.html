@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; font-src 'self'; base-uri 'none'; form-action 'none'">
 <title>Support the work - Verdetto</title>
-<meta name="description" content="How Verdetto stays free with no ads: a one-time contribution from the people who use it. Where it goes and what it is not.">
+<meta name="description" content="How Verdetto stays free with no ads and no tracking: one-time contributions from the people who use it, from $0.99 on Google Play. Nothing is locked, and the app never asks.">
 <link rel="canonical" href="https://verdettoqr.com/support-the-work">
 <link rel="me" href="https://mastodon.social/@VerdettoQR">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#E9F5F1">
@@ -16,7 +16,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Verdetto">
 <meta property="og:title" content="Support the work - Verdetto">
-<meta property="og:description" content="How Verdetto stays free with no ads: a one-time contribution from the people who use it. Where it goes and what it is not.">
+<meta property="og:description" content="How Verdetto stays free with no ads and no tracking: one-time contributions from the people who use it, from $0.99 on Google Play. Nothing is locked, and the app never asks.">
 <meta property="og:url" content="https://verdettoqr.com/support-the-work">
 <meta property="og:image" content="https://verdettoqr.com/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -24,9 +24,9 @@
 <meta property="og:image:alt" content="Verdetto icon with the words QR &amp; Barcode Scanner for Android, See the link before it opens.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Support the work - Verdetto">
-<meta name="twitter:description" content="How Verdetto stays free with no ads: a one-time contribution from the people who use it. Where it goes and what it is not.">
+<meta name="twitter:description" content="How Verdetto stays free with no ads and no tracking: one-time contributions from the people who use it, from $0.99 on Google Play. Nothing is locked, and the app never asks.">
 <meta name="twitter:image" content="https://verdettoqr.com/og-image.png">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Support the work", "publisher": {"@type": "Organization", "name": "Verdetto", "url": "https://verdettoqr.com/", "email": "support@verdettoqr.com", "logo": "https://verdettoqr.com/icon-512.png", "address": {"@type": "PostalAddress", "streetAddress": "1520 Belle View Blvd, Suite #5992", "addressLocality": "Alexandria", "addressRegion": "VA", "postalCode": "22307", "addressCountry": "US"}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is Verdetto really free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Every feature, every check, and every decode is free for everyone, with no ads and no tracking. A contribution is optional and changes nothing you can do."}}, {"@type": "Question", "name": "How does Verdetto make money?", "acceptedAnswer": {"@type": "Answer", "text": "From one-time contributions by the people who use it: from $0.99 in the app through Google Play. There are no ads, no data sales, and no paid tier."}}, {"@type": "Question", "name": "What does a contribution unlock?", "acceptedAnswer": {"@type": "Answer", "text": "Nothing you need. Supporters get a badge in About that they can hide, and a few small extras as they arrive."}}, {"@type": "Question", "name": "Is a contribution a gift?", "acceptedAnswer": {"@type": "Answer", "text": "No. Verdetto is a small business, so a contribution is a purchase, and it brings no tax benefit."}}, {"@type": "Question", "name": "Will the app ask me for money?", "acceptedAnswer": {"@type": "Answer", "text": "Never. There are no prompts, banners, or reminders. The Support screen is there when you look for it, under Settings."}}, {"@type": "Question", "name": "Can I give from a computer?", "acceptedAnswer": {"@type": "Answer", "text": "Not yet. GitHub Sponsors is being set up; this page will say when it opens."}}]}</script>
 <style>
 /* Material 3 color roles, copied from the app's Theme.kt so the site and the app are one palette. */
 :root{--surface:#E9F5F1;--on-surface:#191C1B;--on-surface-variant:#3F4946;--primary:#006B5E;--on-primary:#FFFFFF;--surface-container:#D5E8E3;--surface-container-high:#CFE2DC;--outline:#6F7977;--outline-variant:#B4CAC4;--tertiary:#8A5A00;--on-tertiary:#FFFFFF}
@@ -65,7 +65,7 @@ p,li{margin:.5rem 0}
 .hero h1{margin:.25rem 0 .5rem}
 .hero p{font-size:1.125rem;line-height:1.75rem;margin:0}
 .hero .label{display:inline-flex;align-items:center;gap:.4rem;margin-top:1rem;color:var(--on-surface-variant);font-weight:500;font-size:.875rem;line-height:1.25rem}
-.hero .label svg{width:18px;height:18px}
+.hero .label svg{width:18px;height:18px}.hero .support{margin:.75rem 0 0;font-size:.9375rem;line-height:1.375rem;color:var(--on-surface-variant)}
 .shot{width:250px;height:auto;border-radius:20px;border:1px solid var(--outline-variant);background:var(--surface-container);display:block}
 .grid{display:grid;grid-template-columns:1fr;gap:.75rem;margin:1rem 0}
 .grid .card{margin:0;display:grid;grid-template-columns:auto 1fr;gap:.75rem;align-items:start}
@@ -145,16 +145,47 @@ footer a{color:var(--primary)}
 <main id="main"><div class="wrap">
 
 <h1>Support the work</h1>
-<p>Verdetto has no ads and nothing to sell, so the people who use it pay for it.</p>
-<div class="card"><p>In the app: Settings, then Support development. From $0.99, once, through Google Play; the app never sees your card. Give again whenever you like.</p></div>
+<p>Verdetto has no ads and nothing to sell, so the people who use it pay for it. Every check and every decode is free for everyone, and the app never asks.</p>
+<div class="grid">
+  <div class="card"><svg aria-hidden="true"><use href="#ic-heart"/></svg><div><h3>On your phone</h3><p>Settings, then Support development. From $0.99, once, with $2.99 suggested, through Google Play; the app never sees your card. Give again whenever you like.</p></div></div>
+  <div class="card"><svg aria-hidden="true"><use href="#ic-clock"/></svg><div><h3>From a browser</h3><p>GitHub Sponsors is being set up. Until it opens, the app is the way to give.</p></div></div>
+</div>
 
-<p>It pays for the domain, the Play account, cheap test phones, and the time to keep the safety list and the reader current. Nothing is locked behind it, and the app never asks. Supporters get a badge in the app they can hide; a few small extras are planned.</p>
-<p class="meta">Verdetto is a small business, not a charity: a contribution is not a donation and is not tax-deductible.</p>
+<h2>Where it goes</h2>
+<p>The domain and the mailbox, the Google Play developer account, cheap test phones (the ones where scanners fail), and the time to keep the safety list and the reader current. About $25 a month keeps the lights on; everything above that goes to test phones and time.</p>
+
+<h2>What you get</h2>
+<p>A thank-you badge in About that you can hide, and the small extras listed on the Support screen as they arrive. Nothing you need: every feature stays free for everyone, and no check is ever held back.</p>
+
+<h2>What it is not</h2>
+<p class="meta">Verdetto is a small business. A contribution is a purchase, not a gift, and it brings no tax benefit. Refunds follow Google Play's own policy and the law where you live.</p>
+
+<h2>Questions</h2>
+<div class="faq">
+<p><strong>Is Verdetto really free?</strong><br>
+Yes. Every feature, every check, and every decode is free for everyone, with no ads and no tracking. A contribution is optional and changes nothing you can do.</p>
+
+<p><strong>How does Verdetto make money?</strong><br>
+From one-time contributions by the people who use it: from $0.99 in the app through Google Play. There are no ads, no data sales, and no paid tier.</p>
+
+<p><strong>What does a contribution unlock?</strong><br>
+Nothing you need. Supporters get a badge in About that they can hide, and a few small extras as they arrive.</p>
+
+<p><strong>Is a contribution a gift?</strong><br>
+No. Verdetto is a small business, so a contribution is a purchase, and it brings no tax benefit.</p>
+
+<p><strong>Will the app ask me for money?</strong><br>
+Never. There are no prompts, banners, or reminders. The Support screen is there when you look for it, under Settings.</p>
+
+<p><strong>Can I give from a computer?</strong><br>
+Not yet. GitHub Sponsors is being set up; this page will say when it opens.</p>
+
+</div>
 
 </div></main>
 <footer><div class="wrap">
   <p>&copy; 2026 Verdetto &middot; 1520 Belle View Blvd, Suite #5992, Alexandria, VA 22307 &middot; <a href="mailto:support@verdettoqr.com">support@verdettoqr.com</a></p>
-  <p class="links"><a href="/privacy">Privacy policy</a> &middot; <a href="/terms">Terms of use</a> &middot; <a href="/support">Help</a> &middot; <a href="/check-qr-code-link">How to check a QR code link</a> &middot; <a href="/support-the-work">Support the work</a></p>
+  <p class="links"><a href="/privacy">Privacy policy</a> &middot; <a href="/terms">Terms of use</a> &middot; <a href="/support">Help</a> &middot; <a href="/check-qr-code-link">How to check a QR code link</a> &middot; <a href="/support-the-work">Support the work</a> &middot; <a href="/press">Press kit</a></p>
 </div></footer>
 </body>
 </html>

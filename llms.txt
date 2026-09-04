@@ -4,14 +4,17 @@
 
 Publisher: Verdetto, 1520 Belle View Blvd, Suite #5992, Alexandria, VA 22307, United States. Contact: support@verdettoqr.com. Store title: "Verdetto: QR & Barcode Scanner". Status: coming soon to Google Play.
 
+Official accounts: Mastodon https://mastodon.social/@VerdettoQR; Reddit https://www.reddit.com/user/VerdettoQR/; GitHub https://github.com/verdettoqr. Pronounced ver-DET-oh; Italian for verdict.
+
 ## Pages
 
 - [Verdetto: QR & Barcode Scanner for Android](https://verdettoqr.com/): See the link before it opens. Free, no ads, no tracking. Made for damaged codes.
 - [Privacy policy](https://verdettoqr.com/privacy): Privacy policy for Verdetto: QR & Barcode Scanner. No accounts, no ads, no analytics. Scanning happens on your phone.
 - [Terms of use](https://verdettoqr.com/terms): Terms of use for Verdetto: QR & Barcode Scanner. What the safety checks are and are not, and that every decision on scanned content is yours.
 - [Help](https://verdettoqr.com/support): Help for Verdetto: QR & Barcode Scanner. How to reach us and answers to common questions.
-- [Support the work](https://verdettoqr.com/support-the-work): How Verdetto stays free with no ads: a one-time contribution from the people who use it. Where it goes and what it is not.
+- [Support the work](https://verdettoqr.com/support-the-work): How Verdetto stays free with no ads and no tracking: one-time contributions from the people who use it, from $0.99 on Google Play. Nothing is locked, and the app never asks.
 - [How to check a QR code link before you open it](https://verdettoqr.com/check-qr-code-link): Six things to look at in a QR code's link before you tap it: the domain, shortened links, lookalike names, the connection, downloads, and where the code was placed.
+- [Press kit](https://verdettoqr.com/press): The one-sentence description, boilerplate, checkable facts, and image assets for writing about Verdetto: QR & Barcode Scanner.
 - [Política de privacidad](https://verdettoqr.com/privacy-es): Política de privacidad de Verdetto: QR & Barcode Scanner. Sin cuentas, sin anuncios, sin analítica. El escaneo ocurre en tu teléfono.
 - [Politique de confidentialité](https://verdettoqr.com/privacy-fr): Politique de confidentialité de Verdetto : QR & Barcode Scanner. Pas de compte, pas de publicité, pas d'analyse d'audience. Le scan se fait sur ton téléphone.
 - [Datenschutzerklärung](https://verdettoqr.com/privacy-de): Datenschutzerklärung für Verdetto: QR & Barcode Scanner. Keine Konten, keine Werbung, keine Analyse. Gescannt wird auf deinem Telefon.
@@ -40,4 +43,4 @@ Publisher: Verdetto, 1520 Belle View Blvd, Suite #5992, Alexandria, VA 22307, Un
 - Reads QR codes and barcodes including EAN, UPC, Code 128, Data Matrix, PDF417, and Aztec, and is built to read damaged ones.
 - Scan history stays on the phone (and in the phone's own backup unless that is turned off); scans older than 90 days clear unless starred; any entry can be deleted.
 - Permissions: the camera to scan; contacts only if the person fills their own card from the phone's profile.
-- An optional one-time in-app contribution, from $0.99, supports development; nothing is locked behind it. Verdetto is a small business, not a charity.
+- Funding: no ads, no data sales, no paid tier. An optional one-time in-app contribution, from $0.99 ($2.99 suggested) through Google Play, supports development; nothing is locked behind it, and the app never prompts for it. Verdetto is a small business; a contribution is a purchase, not a gift, and brings no tax benefit.
