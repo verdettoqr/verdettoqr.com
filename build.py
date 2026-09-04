@@ -209,7 +209,7 @@ HOME = f"""
   <div class="card">{ic('shield')}<div><h3>A warning list on the phone</h3><p>Links, sites, and wallet addresses are compared with known phishing, malware, scam, and sanctions entries, refreshed daily when online lookups are on.</p></div></div>
   <div class="card">{ic('barcode')}<div><h3>Looks things up</h3><p>Product, book, medicine, music, magazine, and vehicle numbers go to the open database that covers each, only when online lookups are on. The <a href="{href('privacy.html')}">privacy policy</a> names them.</p></div></div>
   <div class="card">{ic('history')}<div><h3>History that is yours</h3><p>On your phone, searchable, starrable, deletable with a swipe. Scans older than 90 days clear unless starred.</p></div></div>
-  <div class="card">{ic('offline')}<div><h3>Works offline</h3><p>Every built-in check runs on the phone. One switch turns the online lookups off, and product lookups have a switch of their own.</p></div></div>
+  <div class="card">{ic('offline')}<div><h3>Works offline</h3><p>Every built-in check runs on the phone, and an ID or license scan never leaves it. One switch turns the online lookups off, and product lookups have a switch of their own.</p></div></div>
   <div class="card">{ic('scan')}<div><h3>Made for the hand</h3><p>Quick Settings tile, batch mode, left-handed layout, results read aloud, a boarding pass at the gate, your own codes. Eleven languages.</p></div></div>
 </div>
 </details>
@@ -286,7 +286,7 @@ PRIVACY = f"""
 </ul>
 
 <h2>What leaves the phone, and when</h2>
-<p>Online lookups are on by default and can be turned off in Settings. Product lookups have a switch of their own under it. While they are on, the app may make these requests. Each carries only what is listed, the app's name, and your phone's internet address, which every internet request carries. Your phone makes each request itself, at your instruction, to the service named; we are not part of it and do not receive, relay, or see it.</p>
+<p>Online lookups are on by default and can be turned off in Settings. Product lookups have a switch of their own under it. While they are on, the app may make these requests. Each carries only what is listed, the app's name, and your phone's internet address, which every internet request carries. Your phone makes each request itself, at your instruction, to the service named; we are not part of it and do not receive, relay, or see it. A license or ID scan never leaves the phone, and the app never looks a person up.</p>
 <table><thead><tr><th>What is sent</th><th>When</th><th>Who sees it</th></tr></thead><tbody>
 <tr><td>A request for a newer warning list</td><td>Once a day at most</td><td>GitHub, where we publish it</td></tr>
 <tr><td>A shortened link</td><td>When you scan one</td><td>The shortening service and the sites it points to</td></tr>
@@ -366,7 +366,7 @@ TERMS = f"""
 <p>When you scan a code, the app looks at the content itself, on your phone, for known warning signs: hidden sign-in details, raw IP addresses, lookalike or imitation names, shortened links, unencrypted addresses, unusual ports, app or program downloads, unusually deep subdomains, script or file addresses, tracking and affiliate parameters, premium-rate numbers, open Wi-Fi networks, and payment destinations. It also compares links, sites, and wallet addresses with a list of known phishing, malware, and scam entries kept on the phone, compiled from public sources (PhishTank, the CERT Polska warning list, PhishDestroy, PhishIndex, the polkadot-js phishing list, and the US Treasury's OFAC sanctions list). If you turn on online lookups, the app can download a newer list, follow a shortened link to where it leads, ask a domain's registry when it was registered, and send a product number to Open Food Facts and its sister databases, Open Library, the German and French national libraries, openFDA (medicines and medical devices), MusicBrainz, Wikidata, or the NHTSA vehicle database. Their answers are shown as given. Postal codes and Italian medicine codes are named from tables kept on the phone (GeoNames and the Italian Medicines Agency).</p>
 
 <h2>What they are not</h2>
-<p>The checks do not open or inspect the page behind a link, cannot see what a network, contact, calendar entry, or product will do, and cannot catch every scam, unsafe site, or harmful code. "No warnings found" means none of the app's checks matched. It is never a statement that anything is safe, genuine, or trustworthy.</p>
+<p>The checks do not open or inspect the page behind a link, cannot see what a network, contact, calendar entry, or product will do, and cannot catch every scam, unsafe site, or harmful code. "No warnings found" means none of the app's checks matched. It is never a statement that anything is safe, genuine, or trustworthy. The app never looks a person up: a license or ID scan is shown from the barcode alone, with the age, the expiry, and the issuer worked out on the phone, and the app cannot tell a genuine card from a copy.</p>
 
 <h2>Your decisions</h2>
 <p>Whether to open a link, join a network, add a contact or event, dial a number, or act on any scanned content is your decision, made at your own risk. Automatic opening, when you turn it on, opens links you have not looked at; you accept that when you turn it on.</p>
