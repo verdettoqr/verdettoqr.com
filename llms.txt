@@ -40,7 +40,7 @@ Official accounts: Mastodon https://mastodon.social/@VerdettoQR; Reddit https://
 ## Facts
 
 - Platform: Android. Price: free. Ads: none. Accounts: none. Analytics: none.
-- Scanning and every built-in check run on the phone; online lookups (list updates, shortened-link destinations, domain age, and product, book, medicine, music, and vehicle details from Open Food Facts, Open Library, the German and French national libraries, openFDA, MusicBrainz, Wikidata, and the NHTSA vehicle database) are on by default and can be turned off.
+- Scanning and every built-in check run on the phone; online lookups (list updates, shortened-link destinations, domain age, and product, book, medicine, music, and vehicle details from Open Food Facts, Open Library, the German and French national libraries, openFDA, MusicBrainz, Wikidata, the NHTSA vehicle, recall, and crash-test databases, and the EPA fuel-economy database) are on by default and can be turned off.
 - Reads QR codes and barcodes including EAN, UPC, Code 128, Data Matrix, PDF417, and Aztec, and is built to read damaged ones.
 - Scan history stays on the phone (and in the phone's own backup unless that is turned off); scans older than 90 days clear unless starred; any entry can be deleted.
 - Permissions: the camera to scan; contacts only if the person fills their own card from the phone's profile.
