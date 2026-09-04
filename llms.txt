@@ -22,6 +22,16 @@ Publisher: Verdetto, 1520 Belle View Blvd, Suite #5992, Alexandria, VA 22307, Un
 - [隐私政策](https://verdettoqr.com/privacy-zh-hans): Verdetto: QR & Barcode Scanner 的隐私政策。无账号，无广告，无分析。扫描在您的手机上完成。
 - [गोपनीयता नीति](https://verdettoqr.com/privacy-hi): Verdetto: QR & Barcode Scanner की गोपनीयता नीति। कोई खाता नहीं, कोई विज्ञापन नहीं, कोई विश्लेषण नहीं। स्कैन आपके फ़ोन पर होता है।
 - [سياسة الخصوصية](https://verdettoqr.com/privacy-ar): سياسة الخصوصية لتطبيق Verdetto: QR & Barcode Scanner. بلا حسابات، بلا إعلانات، بلا تحليلات. المسح يتم على هاتفك.
+- [Términos de uso](https://verdettoqr.com/terms-es): Términos de uso de Verdetto: QR & Barcode Scanner. Qué son y qué no son las comprobaciones de seguridad, y que cada decisión sobre el contenido escaneado es tuya.
+- [Conditions d'utilisation](https://verdettoqr.com/terms-fr): Conditions d'utilisation de Verdetto : QR & Barcode Scanner. Ce que sont et ne sont pas les contrôles de sécurité, et le fait que chaque décision sur le contenu scanné t'appartient.
+- [Nutzungsbedingungen](https://verdettoqr.com/terms-de): Nutzungsbedingungen für Verdetto: QR & Barcode Scanner. Was die Sicherheitsprüfungen sind und nicht sind, und dass jede Entscheidung über gescannte Inhalte deine ist.
+- [Termos de uso](https://verdettoqr.com/terms-pt-br): Termos de uso do Verdetto: QR & Barcode Scanner. O que as verificações de segurança são e não são, e que toda decisão sobre o conteúdo lido é sua.
+- [Условия использования](https://verdettoqr.com/terms-ru): Условия использования Verdetto: QR & Barcode Scanner. Что такое проверки безопасности и чем они не являются, и что каждое решение об отсканированном содержимом принимаете вы.
+- [Ketentuan penggunaan](https://verdettoqr.com/terms-id): Ketentuan penggunaan Verdetto: QR & Barcode Scanner. Apa yang dimaksud dan tidak dimaksud dengan pemeriksaan keamanan, dan bahwa setiap keputusan atas isi yang dipindai ada di tangan Anda.
+- [利用規約](https://verdettoqr.com/terms-ja): Verdetto: QR & Barcode Scanner の利用規約。安全チェックが何であり何でないか、そしてスキャンした内容に関するあらゆる判断はあなた自身のものであること。
+- [使用条款](https://verdettoqr.com/terms-zh-hans): Verdetto: QR & Barcode Scanner 的使用条款。安全检查是什么、不是什么，以及关于扫描内容的每个决定都由您做出。
+- [उपयोग की शर्तें](https://verdettoqr.com/terms-hi): Verdetto: QR & Barcode Scanner की उपयोग की शर्तें। सुरक्षा जाँचें क्या हैं और क्या नहीं, और स्कैन की गई सामग्री पर हर निर्णय आपका है।
+- [شروط الاستخدام](https://verdettoqr.com/terms-ar): شروط الاستخدام لتطبيق Verdetto: QR & Barcode Scanner. ما هي فحوصات الأمان وما ليست عليه، وأن كل قرار بشأن المحتوى الممسوح هو قرارك.
 
 ## Facts
 

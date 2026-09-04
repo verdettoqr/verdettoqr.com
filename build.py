@@ -223,22 +223,41 @@ PRIVACY_LANGS = [("en", "English", "privacy.html"), ("es", "Español", "privacy-
                  ("id", "Bahasa Indonesia", "privacy-id.html"), ("ja", "日本語", "privacy-ja.html"), ("zh-Hans", "简体中文", "privacy-zh-hans.html"),
                  ("hi", "हिन्दी", "privacy-hi.html"), ("ar", "العربية", "privacy-ar.html")]
 PRIVACY_ALTERNATES = [(code, page_name) for code, _, page_name in PRIVACY_LANGS] + [("x-default", "privacy.html")]
+# The terms follow the same route since the operator's word of 2026-09-04 ("do 1": terms in the ten languages).
+TERMS_LANGS = [(code, label, page_name.replace("privacy", "terms")) for code, label, page_name in PRIVACY_LANGS]
+TERMS_ALTERNATES = [(code, page_name) for code, _, page_name in TERMS_LANGS] + [("x-default", "terms.html")]
+
+
+def lang_row(langs, current):
+    links = " &middot; ".join(
+        f'<a href="{href(page_name)}" lang="{code}" hreflang="{code}"{" aria-current=\"page\"" if code == current else ""}>{label}</a>'
+        for code, label, page_name in langs)
+    return f'<p class="langs" aria-label="This page in other languages">{links}</p>'
 
 
 def privacy_lang_row(current):
-    links = " &middot; ".join(
-        f'<a href="{href(page_name)}" lang="{code}" hreflang="{code}"{" aria-current=\"page\"" if code == current else ""}>{label}</a>'
-        for code, label, page_name in PRIVACY_LANGS)
-    return f'<p class="langs" aria-label="This policy in other languages">{links}</p>'
+    return lang_row(PRIVACY_LANGS, current)
 
 
-def privacy_translation(code):
-    text = (HERE / "_privacy" / f"{code}.html").read_text(encoding="utf-8")
+def translation(folder, langs, code):
+    """A translated legal page from <folder>/<code>.html: the first line is "<!-- title | description -->", and the
+    body takes {ADDRESS}, {EMAIL}, {LANG_ROW}, {TERMS_HREF}, and {PRIVACY_HREF} (the privacy page in the same language)."""
+    text = (HERE / folder / f"{code}.html").read_text(encoding="utf-8")
     first, body = text.split(chr(10), 1)
     m = re.match(r"<!--\s*(.*?)\s*\|\s*(.*?)\s*-->", first)
     title, desc = m.group(1), m.group(2)
-    body = body.replace("{ADDRESS}", ADDRESS).replace("{EMAIL}", EMAIL).replace("{LANG_ROW}", privacy_lang_row(code)).replace("{TERMS_HREF}", href("terms.html"))
+    privacy_page = next(p for c, _, p in PRIVACY_LANGS if c == code)
+    body = (body.replace("{ADDRESS}", ADDRESS).replace("{EMAIL}", EMAIL).replace("{LANG_ROW}", lang_row(langs, code))
+            .replace("{TERMS_HREF}", href("terms.html")).replace("{PRIVACY_HREF}", href(privacy_page)))
     return title, desc, body
+
+
+def privacy_translation(code):
+    return translation("_privacy", PRIVACY_LANGS, code)
+
+
+def terms_translation(code):
+    return translation("_terms", TERMS_LANGS, code)
 
 
 PRIVACY = f"""
@@ -324,11 +343,12 @@ PRIVACY = f"""
 TERMS = f"""
 <h1>Terms of use</h1>
 <p class="meta">For Verdetto: QR &amp; Barcode Scanner. Last updated: September 4, 2026.</p>
+{lang_row(TERMS_LANGS, "en")}
 
 <div class="card"><p><strong>In short.</strong> The app looks at what a code contains and tells you what it found. It never says anything is safe. Whether to open, join, dial, or act on scanned content is your decision. These are the same terms shown inside the app; if the two ever differ, the installed version applies.</p></div>
 
 <h2>The app</h2>
-<p>This app is free. Its safety list is open source today, and the app's own code will be published under an open license with its first release. It is provided as is and as available, without warranty of any kind, express or implied, including fitness for a particular purpose. It is not security software and not a substitute for security advice.</p>
+<p>This app is free. Its safety list is open source today, and the app's own code will be published under the MIT License with its first release. It is provided as is and as available, without warranty of any kind, express or implied, including fitness for a particular purpose. It is not security software and not a substitute for security advice.</p>
 
 <h2>Who provides the app</h2>
 <p>Verdetto, {ADDRESS}, United States, a small business in Virginia. Contact: <a href="mailto:{EMAIL}">{EMAIL}</a>. Support requests and legal notices go to that address.</p>
@@ -358,13 +378,13 @@ TERMS = f"""
 <p>The lookup services and the shortening services the app can ask are run by others under their own terms and privacy policies. Their answers are shown as given; they may change or stop, and we are not responsible for them.</p>
 
 <h2>Open source and trademarks</h2>
-<p>The safety list's pipeline is published under the MIT license, and the app's own code is intended to follow under an open license with its first release. Those licenses cover code. They do not cover the Verdetto name or logo, which stay ours. The app also includes work by others under their own licenses, listed under About, Licenses; the safety list names its sources and their terms in its repository.</p>
+<p>The safety list's pipeline is published under the MIT License, and the app's own code follows under the MIT License with its first release. Those licenses cover code. They do not cover the Verdetto name or logo, which stay ours. The app also includes work by others under their own licenses, listed under About, Licenses; the safety list names its sources and their terms in its repository.</p>
 
 <h2>Governing law</h2>
 <p>These terms are governed by the laws of the Commonwealth of Virginia, United States. If you are a consumer in a country whose law protects you regardless of that choice, that protection applies, and you may bring a claim before the courts of your own country.</p>
 
 <h2>Language</h2>
-<p>These terms are written in English. If a translation is ever provided, the English text is the reference, except where the law of your country says otherwise.</p>
+<p>These terms are written in English and offered in ten other languages. The English text is the reference, except where the law of your country says otherwise.</p>
 
 <h2>Changes</h2>
 <p>These terms may change with a new version of the app. The text in the installed version is the one that applies.</p>
@@ -472,10 +492,12 @@ PAGES = {
 }
 PAGE_LANG = {}  # name -> (lang, rtl, alternates) for pages that are not plain English
 PAGE_LANG["privacy.html"] = ("en", False, PRIVACY_ALTERNATES)
-for _code, _label, _page_name in PRIVACY_LANGS[1:]:
-    _title, _desc, _body = privacy_translation(_code)
-    PAGES[_page_name] = (_title, _desc, _body, {"@type": "WebPage", "name": _title.split(" - ")[0], "publisher": ORG, "inLanguage": _code})
-    PAGE_LANG[_page_name] = (_code, _code == "ar", PRIVACY_ALTERNATES)
+PAGE_LANG["terms.html"] = ("en", False, TERMS_ALTERNATES)
+for _langs, _alternates, _translate in ((PRIVACY_LANGS, PRIVACY_ALTERNATES, privacy_translation), (TERMS_LANGS, TERMS_ALTERNATES, terms_translation)):
+    for _code, _label, _page_name in _langs[1:]:
+        _title, _desc, _body = _translate(_code)
+        PAGES[_page_name] = (_title, _desc, _body, {"@type": "WebPage", "name": _title.split(" - ")[0], "publisher": ORG, "inLanguage": _code})
+        PAGE_LANG[_page_name] = (_code, _code == "ar", _alternates)
 BENCH_PUBLISHED = False  # True once the benchmark page is cleared for the live site
 
 
