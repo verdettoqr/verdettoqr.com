@@ -1,22 +1,23 @@
 # Verdetto
 
-> Verdetto is a free QR code and barcode scanner for Android with no ads and no fake buttons. It shows the link before it opens, reads damaged codes, and checks scanned content for warning signs on the phone. It never says anything is safe: "No warnings found" means none of its checks matched.
+> Verdetto is a free QR code and barcode scanner for Android with no ads and no fake buttons. It shows the link before it opens, is built to read damaged codes, and checks scanned content for warning signs on the phone. It never says anything is safe: "No warnings found" means none of its checks matched.
 
 Publisher: Verdetto, 1520 Belle View Blvd, Suite #5992, Alexandria, VA 22307, United States. Contact: support@verdettoqr.com. Store title: "Verdetto: QR & Barcode Scanner". Status: coming soon to Google Play.
 
 ## Pages
 
-- [Verdetto: QR & Barcode Scanner for Android](https://verdettoqr.com/): A QR code and barcode scanner for Android. No ads, no fake buttons. See the link before it opens. Reads damaged codes.
+- [Verdetto: QR & Barcode Scanner for Android](https://verdettoqr.com/): See the link before it opens. Free, no ads, no tracking. Built for damaged codes.
 - [Privacy policy](https://verdettoqr.com/privacy): Privacy policy for Verdetto: QR & Barcode Scanner. No accounts, no ads, no analytics. Scanning happens on your phone.
 - [Terms of use](https://verdettoqr.com/terms): Terms of use for Verdetto: QR & Barcode Scanner. What the safety checks are and are not, and that every decision on scanned content is yours.
-- [Support](https://verdettoqr.com/support): Support for Verdetto: QR & Barcode Scanner. How to reach us and answers to common questions.
+- [Help](https://verdettoqr.com/support): Help for Verdetto: QR & Barcode Scanner. How to reach us and answers to common questions.
+- [Support the work](https://verdettoqr.com/support-the-work): How Verdetto stays free with no ads: a one-time contribution from the people who use it. Where it goes and what it is not.
 - [How to check a QR code link before you open it](https://verdettoqr.com/check-qr-code-link): Six things to look at in a QR code's link before you tap it: the domain, shortened links, lookalike names, the connection, downloads, and where the code was placed.
 
 ## Facts
 
 - Platform: Android. Price: free. Ads: none. Accounts: none. Analytics: none.
-- Scanning and every safety check run on the phone; online lookups (list updates, shortened-link destinations, domain age, product details from Open Food Facts and Open Library) are on by default and can be turned off.
-- Reads QR codes and barcodes including EAN, UPC, Code 128, Data Matrix, PDF417, and Aztec, including damaged ones.
-- Scan history stays on the phone and can be deleted by the person.
-- The only permission requested is the camera.
-- An optional in-app contribution supports development; nothing is locked behind it.
+- Scanning and every built-in check run on the phone; online lookups (list updates, shortened-link destinations, domain age, and product, book, medicine, music, and vehicle details from Open Food Facts, Open Library, the German and French national libraries, openFDA, MusicBrainz, Wikidata, and the NHTSA vehicle database) are on by default and can be turned off.
+- Reads QR codes and barcodes including EAN, UPC, Code 128, Data Matrix, PDF417, and Aztec, and is built to read damaged ones.
+- Scan history stays on the phone (and in the phone's own backup unless that is turned off); scans older than 90 days clear unless starred; any entry can be deleted.
+- Permissions: the camera to scan; contacts only if the person fills their own card from the phone's profile.
+- An optional one-time in-app contribution, from $0.99, supports development; nothing is locked behind it. Verdetto is a small business, not a charity.

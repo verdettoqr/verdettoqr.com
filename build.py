@@ -10,7 +10,7 @@ HERE = Path(__file__).parent
 DRAFT = False       # True while drafting: shows the review banner
 PUBLISH = True      # True at publication: clean URLs in links (GitHub Pages serves /privacy for privacy.html)
 SITE = "https://verdettoqr.com"
-DATE = "2026-09-03"  # lastmod for the sitemap and the article; update when copy changes
+DATE = "2026-09-04"  # lastmod for the sitemap and the article; update when copy changes
 ADDRESS = "1520 Belle View Blvd, Suite #5992, Alexandria, VA 22307"
 EMAIL = "support@verdettoqr.com"
 
@@ -108,7 +108,8 @@ def url(name):
     return SITE + ("/" if name == "index.html" else "/" + name[:-5])
 
 
-NAV = [("privacy.html", "Privacy"), ("terms.html", "Terms"), ("support.html", "Support"), ("check-qr-code-link.html", "Guide")]
+NAV = [("privacy.html", "Privacy"), ("terms.html", "Terms"), ("support.html", "Help"), ("check-qr-code-link.html", "Guide"), ("support-the-work.html", "Support the work")]
+SPONSORS_LIVE = False  # True once the GitHub Sponsors profile is approved; the support page then links it
 
 ORG = {"@type": "Organization", "name": "Verdetto", "url": SITE + "/", "email": EMAIL, "logo": SITE + "/icon-512.png",
        "address": {"@type": "PostalAddress", "streetAddress": "1520 Belle View Blvd, Suite #5992", "addressLocality": "Alexandria",
@@ -116,7 +117,7 @@ ORG = {"@type": "Organization", "name": "Verdetto", "url": SITE + "/", "email": 
 APP = {"@type": "SoftwareApplication", "name": "Verdetto: QR & Barcode Scanner", "operatingSystem": "Android",
        "applicationCategory": "UtilitiesApplication", "url": SITE + "/", "image": SITE + "/icon-512.png",
        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": ORG,
-       "description": "A QR and barcode scanner for Android. No ads, no fake buttons. See the link before it opens. Reads damaged codes."}
+       "description": "See the link before it opens. Free, no ads, no tracking. Built for damaged codes."}
 
 
 def page(name, title, description, body, ld=None, og_type="website", nav_key=None):
@@ -165,7 +166,7 @@ def page(name, title, description, body, ld=None, og_type="website", nav_key=Non
 </div></main>
 <footer><div class="wrap">
   <p>&copy; 2026 Verdetto &middot; {ADDRESS} &middot; <a href="mailto:{EMAIL}">{EMAIL}</a></p>
-  <p class="links"><a href="{href('privacy.html')}">Privacy policy</a> &middot; <a href="{href('terms.html')}">Terms of use</a> &middot; <a href="{href('support.html')}">Support</a> &middot; <a href="{href('check-qr-code-link.html')}">How to check a QR code link</a></p>
+  <p class="links"><a href="{href('privacy.html')}">Privacy policy</a> &middot; <a href="{href('terms.html')}">Terms of use</a> &middot; <a href="{href('support.html')}">Help</a> &middot; <a href="{href('check-qr-code-link.html')}">How to check a QR code link</a> &middot; <a href="{href('support-the-work.html')}">Support the work</a></p>
 </div></footer>
 </body>
 </html>
@@ -181,7 +182,7 @@ HOME = f"""
   <div>
     <svg class="mark" role="img" aria-label="Verdetto icon"><use href="#logo"/></svg>
     <h1>See the link before it opens.</h1>
-    <p>Verdetto is a QR code and barcode scanner for Android with no ads and no fake buttons. It reads damaged codes, shows you exactly what a code contains, and checks it for warning signs on your phone before you act on it.</p>
+    <p>Verdetto is a QR code and barcode scanner for Android with no ads and no fake buttons. It is built to read damaged codes, shows you exactly what a code contains, and checks it for warning signs on your phone before you act on it.</p>
     <span class="label">{ic('clock')}Coming soon to Google Play</span>
   </div>
   <img class="shot" src="screens/result-sheet.webp" width="540" height="1140" alt="The Verdetto result sheet showing a scanned QR code that leads to wikipedia.org, the No warnings found chip, and an Open button that names the site.">
@@ -189,18 +190,20 @@ HOME = f"""
 
 <h2>What it does</h2>
 <div class="grid">
-  <div class="card">{ic('scan')}<div><h3>Reads damaged codes</h3><p>QR codes and barcodes: EAN, UPC, Code 128, Data Matrix, PDF417, Aztec, and more, including faded, torn, and poorly printed ones.</p></div></div>
-  <div class="card">{ic('eye')}<div><h3>Look before it opens</h3><p>Shows you the link, network, contact, event, or product first. Nothing opens by itself unless you turn that on.</p></div></div>
-  <div class="card">{ic('warning')}<div><h3>Warning signs, on the phone</h3><p>Hidden sign-in details, lookalike names, shortened links, unencrypted addresses, app downloads, premium-rate numbers, open Wi-Fi, and more.</p></div></div>
-  <div class="card">{ic('shield')}<div><h3>Known threats list</h3><p>Links, sites, and wallet addresses are compared with a list of known phishing, malware, and scam entries kept on your phone.</p></div></div>
-  <div class="card">{ic('barcode')}<div><h3>Product lookup</h3><p>Barcode numbers go to Open Food Facts and Open Library for product details when online lookups are on.</p></div></div>
-  <div class="card">{ic('history')}<div><h3>History that is yours</h3><p>Every scan stays on your phone: searchable, starrable, deletable with a swipe.</p></div></div>
-  <div class="card">{ic('offline')}<div><h3>Works offline</h3><p>Scanning and every check run on the phone. Online lookups are optional and one switch away.</p></div></div>
-  <div class="card">{ic('heart')}<div><h3>Free, no ads</h3><p>Everything is free. An optional contribution supports development, and nothing is locked behind it.</p></div></div>
+  <div class="card">{ic('scan')}<div><h3>Built for damaged codes</h3><p>QR codes and barcodes: EAN, UPC, Code 128, Data Matrix, PDF417, Aztec, and more, built to read the faded, torn, and poorly printed ones.</p></div></div>
+  <div class="card">{ic('eye')}<div><h3>Look before it opens</h3><p>Shows you what is in the code before anything happens. Nothing opens by itself unless you turn that on.</p></div></div>
+  <div class="card">{ic('warning')}<div><h3>Warning signs, on the phone</h3><p>Whether the address hides a sign-in, whether the name only looks familiar, whether it is a shortened link, a download, an open network, or a number that charges you. The full list is in the <a href="{href('terms.html')}">Terms</a>.</p></div></div>
+  <div class="card">{ic('shield')}<div><h3>A warning list on the phone</h3><p>Links, sites, and wallet addresses are compared with a list of known phishing, malware, scam, and sanctions entries kept on your phone, built from public sources and refreshed once a day when online lookups are on.</p></div></div>
+  <div class="card">{ic('barcode')}<div><h3>Looks things up</h3><p>Product, book, medicine, music, magazine, and vehicle numbers go to the open database that covers each (Open Food Facts, Open Library, the German and French national libraries, openFDA, MusicBrainz, Wikidata, the NHTSA vehicle database) when online lookups are on. Postal and Italian medicine codes are named from tables on the phone.</p></div></div>
+  <div class="card">{ic('history')}<div><h3>History that is yours</h3><p>Every scan stays on your phone: searchable, starrable, deletable with a swipe. Scans older than 90 days clear on their own unless you star them.</p></div></div>
+  <div class="card">{ic('offline')}<div><h3>Works offline</h3><p>Scanning and every built-in check run on the phone. Online lookups add where a short link leads, how old a domain is, and product details, and one switch turns them off.</p></div></div>
+  <div class="card">{ic('scan')}<div><h3>Made for the hand</h3><p>One tap to the camera from Quick Settings, batch mode that counts codes one after another, a left-handed layout, results read aloud, a boarding pass full screen at the gate, and your own codes: your card, a Wi-Fi network, a link, a contact, an event. In eleven languages.</p></div></div>
+  <div class="card">{ic('heart')}<div><h3>Free, no ads</h3><p>Everything is free, for everyone. The people who use it pay for it, with a one-time contribution from $0.99 if they choose to. <a href="{href('support-the-work.html')}">How that works</a>.</p></div></div>
 </div>
 
 <h2>Why another QR scanner</h2>
-<p>Most free QR code scanners on Android are ad-supported, and many put a fake "scan" or "open" button where the ad should be. Verdetto has no ads, so it has nothing to hide behind. Most scanners open a link the moment they read it. Verdetto shows you the link first, in full, with the site name on the button, so you decide. And most scanners give up on a torn sticker or a faded receipt; Verdetto is built to read damaged codes, because that is when the content matters most.</p>
+<p>Most free QR code scanners on Android are ad-supported, and some put a fake "scan" or "open" button where the ad should be. Verdetto has no ads, so it has nothing to hide behind. Most scanners open a link the moment they read it. Verdetto shows you the link first, in full, with the site name on the button, so you decide. And most scanners give up on a torn sticker or a faded receipt; Verdetto is built to read damaged codes, because that is when the content matters most.</p>
+<p>Verdetto is made by one person in Alexandria, Virginia, who got tired of scanner apps with fake buttons and links that open before you can read them. Write any time: <a href="mailto:{EMAIL}">{EMAIL}</a>.</p>
 
 <h2>What it will never tell you</h2>
 <div class="card callout"><p>That something is safe. Verdetto tells you what it checked and what it found. "No warnings found" means none of its checks matched, and the decision to open, join, or dial is always yours. If you want to know what to look for yourself, read <a href="{href('check-qr-code-link.html')}">how to check a QR code link before you open it</a>.</p></div>
@@ -208,9 +211,9 @@ HOME = f"""
 
 PRIVACY = f"""
 <h1>Privacy policy</h1>
-<p class="meta">For Verdetto: QR &amp; Barcode Scanner, the Android app published by Verdetto. Effective date: September 3, 2026.</p>
+<p class="meta">For Verdetto: QR &amp; Barcode Scanner, the Android app published by Verdetto. Effective date: September 4, 2026.</p>
 
-<div class="card"><p><strong>In short.</strong> The app has no accounts, no ads, and no analytics. Scanning happens on your phone. When online lookups are on, which is the default, only the address, domain, or product number you scanned goes to the services named below. Nothing else leaves the phone, and we do not collect, store, or sell any data about you. This website sets no cookies.</p></div>
+<div class="card"><p><strong>In short.</strong> The app has no accounts, no ads, and no analytics. Scanning happens on your phone. When online lookups are on, which is the default, only the address, domain, or number you scanned goes to the services named below. Nothing else leaves the phone, apart from your phone's own Android backup, which you can turn off in Settings. We do not collect, store, or sell any data about you. This website sets no cookies.</p></div>
 
 <h2>Who we are</h2>
 <p>Verdetto, {ADDRESS}, United States. Contact: <a href="mailto:{EMAIL}">{EMAIL}</a>.</p>
@@ -219,7 +222,7 @@ PRIVACY = f"""
 <ul>
   <li><strong>Camera.</strong> Camera frames are read on the phone to find and decode codes. They are not stored and not uploaded.</li>
   <li><strong>Images you choose.</strong> If you pick an image from your photos, it is read on the phone the same way and is not uploaded.</li>
-  <li><strong>Scan history.</strong> Decoded content is kept in a history on your phone so you can find it again. You can delete any entry, or clear the whole history, in the app.</li>
+  <li><strong>Scan history.</strong> Decoded content is kept in a history on your phone so you can find it again. Scans older than 90 days are cleared on their own unless you star them; Settings lets you choose 30, 90, or 365 days, or forever. You can delete any entry with a swipe, or clear the whole history, in the app. Driver's licenses and boarding passes are shown and not saved to history unless you turn that on in Settings.</li>
   <li><strong>Safety checks.</strong> The app inspects scanned content on the phone for warning signs and compares links, sites, and wallet addresses with a list of known phishing, malware, and scam entries that is stored on the phone. The comparison never sends what you scanned anywhere.</li>
   <li><strong>Settings.</strong> Your preferences are stored on the phone.</li>
 </ul>
@@ -227,18 +230,21 @@ PRIVACY = f"""
 <h2>What leaves the phone, and when</h2>
 <p>Online lookups are on by default and can be turned off in Settings. While they are on, the app may make these requests. Each carries only what is listed, plus your phone's internet address, which every internet request carries.</p>
 <ul>
-  <li><strong>Warning-list updates.</strong> The app downloads a newer copy of the warning list, at most once a day, from where we publish it. The request carries no scanned content. The app checks the list's signature before using it.</li>
+  <li><strong>Warning-list updates.</strong> The app downloads a newer copy of the warning list, at most once a day, from GitHub, where we publish it (github.com/verdettoqr/link-safety-list). GitHub sees the request the way it sees any download. The same download carries the lookup tables for postal codes, Italian medicines, and airline names. The request carries no scanned content, and the app checks the list's signature before using it.</li>
   <li><strong>Shortened links.</strong> To show you where a shortened link leads, the app asks the shortening service for its destination. That service sees the request the way it would see any visit to the short link. The destination page itself is not opened or inspected.</li>
-  <li><strong>Domain age.</strong> To tell you when a link's domain was registered, the app sends the domain name to the domain's registry.</li>
-  <li><strong>Product numbers.</strong> To show product details, the app sends the barcode number to Open Food Facts or its sister databases (Open Beauty Facts, Open Pet Food Facts, Open Products Facts), or an ISBN to Open Library. Their answers are shown as given.</li>
+  <li><strong>Domain age.</strong> To tell you when a link's domain was registered, the app sends the domain name to rdap.org, a public directory that forwards the question to the domain's registry. The answer is kept on the phone for a week so the same domain is not asked about twice.</li>
+  <li><strong>Product, book, medicine, music, and vehicle numbers.</strong> To show details, the app sends the number to the database that covers it: Open Food Facts and its sister databases (Open Beauty Facts, Open Pet Food Facts, Open Products Facts) for products, Open Library and the German and French national libraries for books, openFDA for US medicines and medical devices, MusicBrainz for music, Wikidata for product, magazine, and sheet-music numbers, and the NHTSA vehicle database for a vehicle identification number. Each request carries the number and the app's name, nothing else. Their answers are shown as given. Postal codes, Italian medicine codes, and airline and airport names are looked up in tables on the phone, so those never leave it.</li>
 </ul>
-<p>These services are run by others and have their own privacy policies. With online lookups off, nothing leaves the phone.</p>
+<p>These services are run by others, have their own privacy policies, and may change or stop. With online lookups off, nothing leaves the phone.</p>
+
+<h2>Your phone's backup</h2>
+<p>Unless you turn off "Include in the phone's backup" in Settings, your history, settings, and your card ride along in your phone's own Android backup, the same way other apps' data does. That backup goes to your Google account under Google's policy; Verdetto never sees it. History includes what codes contained, such as a Wi-Fi password you scanned, so turn the setting off if you would rather it stayed on the phone.</p>
 
 <h2>What never leaves the phone</h2>
 <p>Your scan history. The pages behind links, which the app never opens or inspects. Wi-Fi passwords, contacts, and calendar entries you scan. Anything about you.</p>
 
 <h2>Permissions</h2>
-<p>The app asks for the camera, which it needs to scan. It needs no other permission. Network access is used only for the lookups described above. Joining a Wi-Fi network, adding a contact, or saving an event goes through the standard Android prompt for that action, and only when you choose it.</p>
+<p>The app asks for the camera, which it needs to scan, and for contacts access only if you fill your own card from your phone's profile. It uses the network only for the lookups described above, vibration for the buzz on scan, and, on Android 10 and older, the Wi-Fi setting needed to join a network you scanned. Joining a Wi-Fi network, adding a contact, or saving an event goes through the standard Android prompt for that action, and only when you choose it. The contribution goes through Google Play's own billing.</p>
 
 <h2>Purchases</h2>
 <p>The optional contribution inside the app is processed by Google Play. Google handles the payment under its own policy; the app receives only a confirmation that the purchase went through. We never see your payment details.</p>
@@ -247,7 +253,7 @@ PRIVACY = f"""
 <p>The app is not directed at children under 13 and collects no data from anyone.</p>
 
 <h2>Keeping and deleting data</h2>
-<p>Everything the app keeps is on your phone. Delete history entries in the app, or uninstall the app to remove all of it. We hold no data about you, so there is nothing for us to delete or hand over.</p>
+<p>Everything the app keeps is on your phone, and in your phone's backup if you leave that on. Delete history entries in the app, or uninstall the app to remove all of it. We hold no data about you from the app, so there is nothing for us to delete or hand over. If you write to us, your message stays in our mailbox like any email; we do not add it to any list or share it.</p>
 
 <h2>This website</h2>
 <p>These pages are static. They set no cookies, run no analytics, have no forms, and load nothing from anywhere but this site. Our hosting provider may keep standard server logs, such as the address a page was requested from and when, under its own policy.</p>
@@ -261,15 +267,15 @@ PRIVACY = f"""
 
 TERMS = f"""
 <h1>Terms of use</h1>
-<p class="meta">For Verdetto: QR &amp; Barcode Scanner. Last updated: September 3, 2026.</p>
+<p class="meta">For Verdetto: QR &amp; Barcode Scanner. Last updated: September 4, 2026.</p>
 
 <div class="card"><p><strong>In short.</strong> The app looks at what a code contains and tells you what it found. It never says anything is safe. Whether to open, join, dial, or act on scanned content is your decision. These are the same terms shown inside the app; if the two ever differ, the installed version applies.</p></div>
 
 <h2>The app</h2>
-<p>This app is free and open source. It is provided as is and as available, without warranty of any kind, express or implied, including fitness for a particular purpose. It is not security software and not a substitute for security advice.</p>
+<p>This app is free. Its safety list is open source today, and the app's own code will be published under an open license with its first release. It is provided as is and as available, without warranty of any kind, express or implied, including fitness for a particular purpose. It is not security software and not a substitute for security advice.</p>
 
 <h2>What the safety checks are</h2>
-<p>When you scan a code, the app looks at the content itself, on your phone, for known warning signs: hidden sign-in details, raw IP addresses, lookalike or imitation names, shortened links, unencrypted addresses, unusual ports, app or program downloads, unusually deep subdomains, script or file addresses, tracking parameters, premium-rate numbers, open Wi-Fi networks, and payment destinations. It also compares links, sites, and wallet addresses with a list of known phishing, malware, and scam entries kept on the phone, compiled from public sources (PhishTank, the CERT Polska warning list, PhishDestroy, PhishIndex, and the polkadot-js phishing list). If you turn on online lookups, the app can download a newer list, follow a shortened link to where it leads, ask a domain's registry when it was registered, and send a product number to Open Food Facts, its sister databases, or Open Library. Their answers are shown as given.</p>
+<p>When you scan a code, the app looks at the content itself, on your phone, for known warning signs: hidden sign-in details, raw IP addresses, lookalike or imitation names, shortened links, unencrypted addresses, unusual ports, app or program downloads, unusually deep subdomains, script or file addresses, tracking parameters, premium-rate numbers, open Wi-Fi networks, and payment destinations. It also compares links, sites, and wallet addresses with a list of known phishing, malware, and scam entries kept on the phone, compiled from public sources (PhishTank, the CERT Polska warning list, PhishDestroy, PhishIndex, the polkadot-js phishing list, and the US Treasury's OFAC sanctions list). If you turn on online lookups, the app can download a newer list, follow a shortened link to where it leads, ask a domain's registry when it was registered, and send a product number to Open Food Facts and its sister databases, Open Library, the German and French national libraries, openFDA (medicines and medical devices), MusicBrainz, Wikidata, or the NHTSA vehicle database. Their answers are shown as given. Postal codes and Italian medicine codes are named from tables kept on the phone (GeoNames and the Italian Medicines Agency).</p>
 
 <h2>What they are not</h2>
 <p>The checks do not open or inspect the page behind a link, cannot see what a network, contact, calendar entry, or product will do, and cannot catch every scam, unsafe site, or harmful code. "No warnings found" means none of the app's checks matched. It is never a statement that anything is safe, genuine, or trustworthy.</p>
@@ -281,7 +287,7 @@ TERMS = f"""
 <p>To the fullest extent permitted by law, the developers and contributors of this app are not liable for any loss, damage, or harm arising from the use of the app or from acting on scanned content, including opening a link, joining a network, or relying on a check or a lookup.</p>
 
 <h2>Your data</h2>
-<p>Online lookups are on by default and can be turned off in Settings. While on, only the address, domain, or product number goes to the named services; with them off, nothing leaves the phone. There are no ads, no analytics, and no accounts. The <a href="{href('privacy.html')}">privacy policy</a> has the details.</p>
+<p>Online lookups are on by default and can be turned off in Settings. While on, only the address, domain, product number, or vehicle number goes to the named services (Open Food Facts and its sisters, Open Library, the German and French national libraries, openFDA for medicines and medical devices, MusicBrainz, Wikidata, and the NHTSA vehicle database); with them off, nothing leaves the phone. There are no ads, no analytics, and no accounts. The <a href="{href('privacy.html')}">privacy policy</a> has the details.</p>
 
 <h2>Changes</h2>
 <p>These terms may change with a new version of the app. The text in the installed version is the one that applies.</p>
@@ -291,24 +297,45 @@ FAQ = [
     ("It said \"No warnings found.\" Is the link safe?",
      "The app does not know, and it never says something is safe. \"No warnings found\" means none of its checks matched. Look at the address it shows you, and open it only if you would have opened it anyway."),
     ("Does it work offline?",
-     "Yes. Scanning and every safety check run on the phone. Online lookups add product details, link destinations, and domain age when you have a connection, and can be turned off in Settings."),
-    ("Why does it ask for the camera?", "To scan. It is the only permission the app asks for."),
+     "Yes. Scanning and every built-in check run on the phone. Online lookups add product details, where a short link leads, and how old a domain is when you have a connection, and can be turned off in Settings."),
+    ("Why does it ask for the camera?",
+     "To scan. It asks you for one other thing, and only if you use it: contacts access, once, when you fill your own card from your phone's profile. Joining a Wi-Fi network, adding a contact, or paying for a contribution goes through Android's or Google Play's own prompt."),
     ("How do I turn off online lookups?", "Settings, then Allow online lookups. With them off, nothing leaves the phone."),
-    ("How do I delete my history?", "Swipe an entry left, or use Clear history in Settings. History lives only on your phone; uninstalling the app removes it too."),
+    ("How do I delete my history?", "Swipe an entry left, or use Clear history in Settings. Scans older than 90 days are cleared on their own unless you star them; Settings lets you choose 30, 90, or 365 days, or forever. History lives only on your phone and in your phone's own backup if you leave that on; uninstalling the app removes it."),
     ("A code will not scan.",
      "Fill more of the screen with it, hold still, and let the camera focus. Damaged or faded codes take a moment longer. If it still will not read, send us a photo of the code if it is not sensitive."),
     ("What does the contribution unlock?",
-     "Nothing. Every feature is free. The contribution supports development, and you can hide the supporter badge if you prefer."),
+     "Nothing you need. Everything the app does stays free for everyone. Supporters get a badge in About that you can hide, and a few small extras are planned: an additional theme, a supporter app icon, early access to new features. No prompts, ever."),
 ]
 SUPPORT = f"""
-<h1>Support</h1>
-<div class="card"><p>Write to <a href="mailto:{EMAIL}">{EMAIL}</a>. It helps to include your phone model, your Android version, and what you were scanning if you can share it. Never send sign-in details or a code that contains them.</p></div>
+<h1>Help</h1>
+<div class="card"><p>Write to <a href="mailto:{EMAIL}">{EMAIL}</a>. It helps to include your phone model, your Android version, and what you were scanning if you can share it. Do not send a code that contains a password, a sign-in link, or anything you would not put in an email. We keep your message for as long as it takes to answer, then delete it.</p></div>
 
 <h2>Common questions</h2>
 <div class="faq">
 """ + "\n".join(f"<p><strong>{q}</strong><br>\n{a}</p>\n" for q, a in FAQ) + f"""
 </div>
-<p>Not sure what to look for in a link? Read <a href="{href('check-qr-code-link.html')}">how to check a QR code link before you open it</a>.</p>
+<p>Not sure what to look for in a link? Read <a href="{href('check-qr-code-link.html')}">how to check a QR code link before you open it</a>. Want to keep the app free for everyone? <a href="{href('support-the-work.html')}">Support the work</a>.</p>
+"""
+
+SPONSOR_LINE = ('<p>If you would rather give from a browser, you can <a href="https://github.com/sponsors/verdettoqr">sponsor the project on GitHub</a>, monthly or once.</p>'
+                if SPONSORS_LIVE else '<p>A way to give from a browser, through GitHub Sponsors, is coming; the link will appear here.</p>')
+SUPPORT_WORK = f"""
+<h1>Support the work</h1>
+<div class="card"><p><strong>In short.</strong> Verdetto has no ads and nothing to sell you, so the people who use it pay for it. A one-time contribution inside the app, from $0.99, keeps it free for everyone and pays for the work. Nothing is locked behind it, and the app never asks.</p></div>
+
+<h2>How to contribute</h2>
+<p>In the app, open Settings and choose Support development. You pick the amount, from $0.99, once; Google Play handles the payment and the app never sees your card. Give again whenever you like.</p>
+{SPONSOR_LINE}
+
+<h2>Where it goes</h2>
+<p>The domain and the mailbox, the Google Play developer account, cheap test phones (that is where scanners fail, so that is where the damaged-code work gets proven), and the time to keep the safety list and the barcode reader current.</p>
+
+<h2>What you get</h2>
+<p>A thank-you, a supporter badge in the app that you can hide, and a few small extras that are planned: an additional theme, a supporter app icon, early access to new features. Everything the app does stays free for everyone. No prompts, ever.</p>
+
+<h2>What this is not</h2>
+<p>Verdetto is a small business, not a charity, so a contribution is not a donation and is not tax-deductible. It is the price of keeping an app free and honest, paid by the people who want that.</p>
 """
 FAQ_LD = {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]}
 
@@ -330,7 +357,7 @@ GUIDE = f"""
 <p>Links through bit.ly, t.co, tinyurl, and similar services hide their destination on purpose. A code that shows one of these tells you nothing until it is expanded. Either expand it first, with a scanner that follows the short link and shows you where it ends up, or do not open it.</p>
 
 <h2>3. Look for lookalikes</h2>
-<p>The oldest trick is a domain that reads like a familiar one. Watch for a digit standing in for a letter (<code>paypa1.com</code>), an extra word or hyphen (<code>paypal-secure.com</code>), a familiar name pushed into the wrong place (<code>paypal.com.example.net</code>, where the domain is <code>example.net</code>), and letters from another alphabet that draw the same shape. If a name looks almost right, it is wrong.</p>
+<p>The oldest trick is a domain that reads like a familiar one. Watch for a digit standing in for a letter (<code>paypa1.com</code>), an extra word or hyphen (<code>paypal-secure.com</code>), a familiar name pushed into the wrong place (<code>paypal.com.example.net</code>, where the domain is <code>example.net</code>), and letters from another alphabet that draw the same shape. If a name looks almost right, treat it as wrong until you have typed the real one yourself.</p>
 
 <h2>4. Check the connection and the port</h2>
 <p>A link that starts with <code>http://</code> rather than <code>https://</code> sends everything you type in the open. A link with a number after the domain, such as <code>example.com:8080</code>, is talking to something other than an ordinary website. Neither proves a scam, but neither belongs on a code that asks you to sign in or pay.</p>
@@ -347,7 +374,7 @@ GUIDE = f"""
 <h2>If you already opened one</h2>
 <p>Close the page. If you typed a password, change it on the real site and anywhere else you used it. If you entered card details, tell your bank. If you installed something, uninstall it and run a scan with the security software already on the phone. Then delete the code from your history so you do not open it again by accident.</p>
 
-<div class="card callout"><p>Verdetto shows every link before it opens, expands shortened ones, and flags each of the patterns above on your phone, with no ads. <a href="{href('index.html')}">See what it does</a>.</p></div>
+<div class="card callout"><p>Verdetto shows every link before it opens, expands shortened ones when online lookups are on, and flags each of the patterns above on your phone. Free, with no ads, paid for by the people who use it. <a href="{href('index.html')}">See what it does</a>.</p></div>
 </div>
 """
 GUIDE_LD = {"@type": "Article", "headline": GUIDE_TITLE, "description": GUIDE_DESC, "datePublished": DATE, "dateModified": DATE,
@@ -360,16 +387,18 @@ NOT_FOUND = f"""
   <li><a href="{href('index.html')}">Home</a></li>
   <li><a href="{href('privacy.html')}">Privacy policy</a></li>
   <li><a href="{href('terms.html')}">Terms of use</a></li>
-  <li><a href="{href('support.html')}">Support</a></li>
+  <li><a href="{href('support.html')}">Help</a></li>
   <li><a href="{href('check-qr-code-link.html')}">How to check a QR code link before you open it</a></li>
+  <li><a href="{href('support-the-work.html')}">Support the work</a></li>
 </ul>
 """
 
 PAGES = {
-    "index.html": ("Verdetto: QR & Barcode Scanner for Android", "A QR code and barcode scanner for Android. No ads, no fake buttons. See the link before it opens. Reads damaged codes.", HOME, APP),
+    "index.html": ("Verdetto: QR & Barcode Scanner for Android", "See the link before it opens. Free, no ads, no tracking. Built for damaged codes.", HOME, APP),
     "privacy.html": ("Privacy policy - Verdetto", "Privacy policy for Verdetto: QR & Barcode Scanner. No accounts, no ads, no analytics. Scanning happens on your phone.", PRIVACY, {"@type": "WebPage", "name": "Privacy policy", "publisher": ORG}),
     "terms.html": ("Terms of use - Verdetto", "Terms of use for Verdetto: QR & Barcode Scanner. What the safety checks are and are not, and that every decision on scanned content is yours.", TERMS, {"@type": "WebPage", "name": "Terms of use", "publisher": ORG}),
-    "support.html": ("Support - Verdetto", "Support for Verdetto: QR & Barcode Scanner. How to reach us and answers to common questions.", SUPPORT, FAQ_LD),
+    "support.html": ("Help - Verdetto", "Help for Verdetto: QR & Barcode Scanner. How to reach us and answers to common questions.", SUPPORT, FAQ_LD),
+    "support-the-work.html": ("Support the work - Verdetto", "How Verdetto stays free with no ads: a one-time contribution from the people who use it. Where it goes and what it is not.", SUPPORT_WORK, {"@type": "WebPage", "name": "Support the work", "publisher": ORG}),
     "check-qr-code-link.html": (GUIDE_TITLE + " - Verdetto", GUIDE_DESC, GUIDE, GUIDE_LD),
     "404.html": ("Page not found - Verdetto", "That page is not here.", NOT_FOUND, None),
 }
@@ -397,7 +426,7 @@ def main():
     (HERE / "llms.txt").write_text(
         "# Verdetto\n\n"
         "> Verdetto is a free QR code and barcode scanner for Android with no ads and no fake buttons. It shows the link "
-        "before it opens, reads damaged codes, and checks scanned content for warning signs on the phone. It never says "
+        "before it opens, is built to read damaged codes, and checks scanned content for warning signs on the phone. It never says "
         "anything is safe: \"No warnings found\" means none of its checks matched.\n\n"
         f"Publisher: Verdetto, {ADDRESS}, United States. Contact: {EMAIL}. Store title: \"Verdetto: QR & Barcode Scanner\". "
         "Status: coming soon to Google Play.\n\n"
@@ -405,12 +434,13 @@ def main():
         + "".join(f"- [{t.replace(' - Verdetto', '')}]({url(n)}): {d}\n" for n, (t, d, _, _) in PAGES.items() if n != "404.html")
         + "\n## Facts\n\n"
         "- Platform: Android. Price: free. Ads: none. Accounts: none. Analytics: none.\n"
-        "- Scanning and every safety check run on the phone; online lookups (list updates, shortened-link destinations, "
-        "domain age, product details from Open Food Facts and Open Library) are on by default and can be turned off.\n"
-        "- Reads QR codes and barcodes including EAN, UPC, Code 128, Data Matrix, PDF417, and Aztec, including damaged ones.\n"
-        "- Scan history stays on the phone and can be deleted by the person.\n"
-        "- The only permission requested is the camera.\n"
-        "- An optional in-app contribution supports development; nothing is locked behind it.\n",
+        "- Scanning and every built-in check run on the phone; online lookups (list updates, shortened-link destinations, "
+        "domain age, and product, book, medicine, music, and vehicle details from Open Food Facts, Open Library, the German and "
+        "French national libraries, openFDA, MusicBrainz, Wikidata, and the NHTSA vehicle database) are on by default and can be turned off.\n"
+        "- Reads QR codes and barcodes including EAN, UPC, Code 128, Data Matrix, PDF417, and Aztec, and is built to read damaged ones.\n"
+        "- Scan history stays on the phone (and in the phone's own backup unless that is turned off); scans older than 90 days clear unless starred; any entry can be deleted.\n"
+        "- Permissions: the camera to scan; contacts only if the person fills their own card from the phone's profile.\n"
+        "- An optional one-time in-app contribution, from $0.99, supports development; nothing is locked behind it. Verdetto is a small business, not a charity.\n",
         encoding="utf-8", newline="\n")
     (HERE / "sitemap.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
