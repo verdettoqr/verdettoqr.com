@@ -524,7 +524,8 @@ NOT_FOUND = f"""
 # The report form: a Google Form owned by the Verdetto Google account. The page embeds it and passes the app's
 # prefill through, so the app and every link only ever point at this page; the form behind it can change.
 FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfjC-Acjlr82CUOF-f5j3dPTkjQjArNrwaRJujiPiPb-PLH4g/viewform"
-FORM_FIELDS = {"k": "entry.1094665394", "c": "entry.2112816314", "f": "entry.772072017", "w": "entry.734527309", "v": "entry.1296385476"}
+FORM_FIELDS = {"k": "entry.1094665394", "c": "entry.2112816314", "p": "entry.772072017", "w": "entry.734527309", "v": "entry.1296385476"}
+# k kind, c scanned text, p where found, w warnings shown, v versions; f (card format, from a license or ID scan) is folded into c
 FORM_KINDS = {"s": "A link, Wi-Fi network, payment address, or phone number that looks like a scam",
               "r": "The app read a code wrong, or could not read it",
               "d": "Product, book, medicine, or other details were wrong",
@@ -533,7 +534,8 @@ FORM_KINDS = {"s": "A link, Wi-Fi network, payment address, or phone number that
 # The one script on the site, allowed by its hash in the content-security policy; no other script runs anywhere.
 REPORT_SCRIPT = ("(function(){var F=" + json.dumps(FORM_URL) + ",M=" + json.dumps(FORM_FIELDS) + ",K=" + json.dumps(FORM_KINDS) + ";"
                  "var p=new URLSearchParams(location.search),q=[];"
-                 "for(var k in M){var v=p.get(k);if(k==='k'){v=K[v]||null;}if(v){q.push(M[k]+'='+encodeURIComponent(v.slice(0,2000)));}}"
+                 "var cf=p.get('f');"   # a license or ID scan sends its card-format numbers as f; they ride in the scanned-text field, labelled
+                 "for(var k in M){var v=p.get(k);if(k==='k'){v=K[v]||null;}if(k==='c'&&cf){v=(v?v+'\\n':'')+'Card format: '+cf;}if(v){q.push(M[k]+'='+encodeURIComponent(v.slice(0,2000)));}}"
                  "var s=q.length?'?usp=pp_url&'+q.join('&'):'';"
                  "var i=document.getElementById('report-form');if(i){i.src=F+s+(s?'&':'?')+'embedded=true';}"
                  "var a=document.getElementById('report-open');if(a){a.href=F+s;}})();")
@@ -545,6 +547,7 @@ REPORT = f"""
 <p class="meta">A link that looks like a scam, a code the app read wrong, details that were wrong, or anything else that isn't right.</p>
 
 <div class="card"><p>A person reviews every report. Nothing is added to the safety list automatically, and Verdetto never says a link is safe. Please don't include passwords, payment details, or personal documents; if you came here from the app, the scanned text is already filled in, and you can remove anything private before you send it.</p></div>
+<div class="card"><p><strong>What happens next.</strong> A scam or mistaken-listing report becomes a case in the public <a href="https://github.com/verdettoqr/link-safety-list/issues?q=label%3Acase">list repository</a>: the address you reported, what the checks found, and the decision, never your email or your description. The case is decided by fixed rules, and only a page that shows a credential or payment form beside a brand or domain warning sign is listed.</p></div>
 <div class="card"><p><strong>Listed by mistake?</strong> Choose "My site or link is listed by mistake". The page is fetched again the same day; if it is clean, the entry is suppressed from every source in the next list update, and the public feed that listed it gets a false-positive report from us. Our own entries and their evidence are public in the <a href="https://github.com/verdettoqr/link-safety-list/tree/main/own">list repository</a>.</p></div>
 
 <iframe id="report-form" title="Report form" src="{FORM_URL}?embedded=true" width="100%" height="1900" frameborder="0" marginheight="0" marginwidth="0" loading="lazy">Loading…</iframe>
