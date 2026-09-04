@@ -118,7 +118,7 @@ ORG = {"@type": "Organization", "name": "Verdetto", "url": SITE + "/", "email": 
 APP = {"@type": "SoftwareApplication", "name": "Verdetto: QR & Barcode Scanner", "operatingSystem": "Android",
        "applicationCategory": "UtilitiesApplication", "url": SITE + "/", "image": SITE + "/icon-512.png",
        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": ORG,
-       "description": "See the link before it opens. Free, no ads, no tracking. Built for damaged codes."}
+       "description": "See the link before it opens. Free, no ads, no tracking. Made for damaged codes."}
 
 
 def page(name, title, description, body, ld=None, og_type="website", nav_key=None):
@@ -395,7 +395,7 @@ NOT_FOUND = f"""
 """
 
 PAGES = {
-    "index.html": ("Verdetto: QR & Barcode Scanner for Android", "See the link before it opens. Free, no ads, no tracking. Built for damaged codes.", HOME, APP),
+    "index.html": ("Verdetto: QR & Barcode Scanner for Android", "See the link before it opens. Free, no ads, no tracking. Made for damaged codes.", HOME, APP),
     "privacy.html": ("Privacy policy - Verdetto", "Privacy policy for Verdetto: QR & Barcode Scanner. No accounts, no ads, no analytics. Scanning happens on your phone.", PRIVACY, {"@type": "WebPage", "name": "Privacy policy", "publisher": ORG}),
     "terms.html": ("Terms of use - Verdetto", "Terms of use for Verdetto: QR & Barcode Scanner. What the safety checks are and are not, and that every decision on scanned content is yours.", TERMS, {"@type": "WebPage", "name": "Terms of use", "publisher": ORG}),
     "support.html": ("Help - Verdetto", "Help for Verdetto: QR & Barcode Scanner. How to reach us and answers to common questions.", SUPPORT, FAQ_LD),
