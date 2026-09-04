@@ -137,6 +137,7 @@ def page(name, title, description, body, ld=None, og_type="website", nav_key=Non
 <title>{title}</title>
 <meta name="description" content="{description}">
 <link rel="canonical" href="{canonical}">
+<link rel="me" href="https://mastodon.social/@VerdettoQR">
 {alt_tags}<meta name="theme-color" media="(prefers-color-scheme: light)" content="#E9F5F1">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0F1312">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
