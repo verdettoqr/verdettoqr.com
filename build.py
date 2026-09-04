@@ -209,7 +209,7 @@ HOME = f"""
   <div class="card">{ic('shield')}<div><h3>A warning list on the phone</h3><p>Links, sites, and wallet addresses are compared with known phishing, malware, scam, and sanctions entries, refreshed daily when online lookups are on.</p></div></div>
   <div class="card">{ic('barcode')}<div><h3>Looks things up</h3><p>Product, book, medicine, music, magazine, and vehicle numbers go to the open database that covers each, only when online lookups are on. The <a href="{href('privacy.html')}">privacy policy</a> names them.</p></div></div>
   <div class="card">{ic('history')}<div><h3>History that is yours</h3><p>On your phone, searchable, starrable, deletable with a swipe. Scans older than 90 days clear unless starred.</p></div></div>
-  <div class="card">{ic('offline')}<div><h3>Works offline</h3><p>Every built-in check runs on the phone. One switch turns the online lookups off.</p></div></div>
+  <div class="card">{ic('offline')}<div><h3>Works offline</h3><p>Every built-in check runs on the phone. One switch turns the online lookups off, and product lookups have a switch of their own.</p></div></div>
   <div class="card">{ic('scan')}<div><h3>Made for the hand</h3><p>Quick Settings tile, batch mode, left-handed layout, results read aloud, a boarding pass at the gate, your own codes. Eleven languages.</p></div></div>
 </div>
 </details>
@@ -286,7 +286,7 @@ PRIVACY = f"""
 </ul>
 
 <h2>What leaves the phone, and when</h2>
-<p>Online lookups are on by default and can be turned off in Settings. While they are on, the app may make these requests. Each carries only what is listed, the app's name, and your phone's internet address, which every internet request carries. Your phone makes each request itself, at your instruction, to the service named; we are not part of it and do not receive, relay, or see it.</p>
+<p>Online lookups are on by default and can be turned off in Settings. Product lookups have a switch of their own under it. While they are on, the app may make these requests. Each carries only what is listed, the app's name, and your phone's internet address, which every internet request carries. Your phone makes each request itself, at your instruction, to the service named; we are not part of it and do not receive, relay, or see it.</p>
 <table><thead><tr><th>What is sent</th><th>When</th><th>Who sees it</th></tr></thead><tbody>
 <tr><td>A request for a newer warning list</td><td>Once a day at most</td><td>GitHub, where we publish it</td></tr>
 <tr><td>A shortened link</td><td>When you scan one</td><td>The shortening service and the sites it points to</td></tr>
@@ -363,7 +363,7 @@ TERMS = f"""
 <p>Verdetto, {ADDRESS}, United States, a small business in Virginia. Contact: <a href="mailto:{EMAIL}">{EMAIL}</a>. Support requests and legal notices go to that address.</p>
 
 <h2>What the safety checks are</h2>
-<p>When you scan a code, the app looks at the content itself, on your phone, for known warning signs: hidden sign-in details, raw IP addresses, lookalike or imitation names, shortened links, unencrypted addresses, unusual ports, app or program downloads, unusually deep subdomains, script or file addresses, tracking parameters, premium-rate numbers, open Wi-Fi networks, and payment destinations. It also compares links, sites, and wallet addresses with a list of known phishing, malware, and scam entries kept on the phone, compiled from public sources (PhishTank, the CERT Polska warning list, PhishDestroy, PhishIndex, the polkadot-js phishing list, and the US Treasury's OFAC sanctions list). If you turn on online lookups, the app can download a newer list, follow a shortened link to where it leads, ask a domain's registry when it was registered, and send a product number to Open Food Facts and its sister databases, Open Library, the German and French national libraries, openFDA (medicines and medical devices), MusicBrainz, Wikidata, or the NHTSA vehicle database. Their answers are shown as given. Postal codes and Italian medicine codes are named from tables kept on the phone (GeoNames and the Italian Medicines Agency).</p>
+<p>When you scan a code, the app looks at the content itself, on your phone, for known warning signs: hidden sign-in details, raw IP addresses, lookalike or imitation names, shortened links, unencrypted addresses, unusual ports, app or program downloads, unusually deep subdomains, script or file addresses, tracking and affiliate parameters, premium-rate numbers, open Wi-Fi networks, and payment destinations. It also compares links, sites, and wallet addresses with a list of known phishing, malware, and scam entries kept on the phone, compiled from public sources (PhishTank, the CERT Polska warning list, PhishDestroy, PhishIndex, the polkadot-js phishing list, and the US Treasury's OFAC sanctions list). If you turn on online lookups, the app can download a newer list, follow a shortened link to where it leads, ask a domain's registry when it was registered, and send a product number to Open Food Facts and its sister databases, Open Library, the German and French national libraries, openFDA (medicines and medical devices), MusicBrainz, Wikidata, or the NHTSA vehicle database. Their answers are shown as given. Postal codes and Italian medicine codes are named from tables kept on the phone (GeoNames and the Italian Medicines Agency).</p>
 
 <h2>What they are not</h2>
 <p>The checks do not open or inspect the page behind a link, cannot see what a network, contact, calendar entry, or product will do, and cannot catch every scam, unsafe site, or harmful code. "No warnings found" means none of the app's checks matched. It is never a statement that anything is safe, genuine, or trustworthy.</p>
@@ -378,7 +378,7 @@ TERMS = f"""
 <p>Nothing in these terms takes away rights that the consumer law of your country gives you and that cannot be waived by agreement, including the guarantees of the Australian Consumer Law and the rights of consumers in the European Union, the United Kingdom, and Brazil. The Liability section applies only as far as your law allows: it does not exclude liability for intent or gross negligence, for death or personal injury caused by negligence, or for anything else the law does not let us exclude.</p>
 
 <h2>Your data</h2>
-<p>Online lookups are on by default and can be turned off in Settings. While on, only the address, domain, product number, or vehicle number goes to the named services (Open Food Facts and its sisters, Open Library, the German and French national libraries, openFDA for medicines and medical devices, MusicBrainz, Wikidata, and the NHTSA vehicle database); with them off, nothing leaves the phone. There are no ads, no analytics, and no accounts. The <a href="{href('privacy.html')}">privacy policy</a> has the details.</p>
+<p>Online lookups are on by default and can be turned off in Settings. Product lookups have a switch of their own under it. While on, only the address, domain, product number, or vehicle number goes to the named services (Open Food Facts and its sisters, Open Library, the German and French national libraries, openFDA for medicines and medical devices, MusicBrainz, Wikidata, and the NHTSA vehicle database); with them off, nothing leaves the phone. There are no ads, no analytics, and no accounts. The <a href="{href('privacy.html')}">privacy policy</a> has the details.</p>
 
 <h2>Contributions</h2>
 <p>The app is free and complete: every check and every decode is free for everyone, and nothing is locked. It offers one optional, one-time contribution, sold as an in-app item through Google Play from US$0.99 or the local equivalent, which pays for the work and earns a thank-you badge and the small extras listed on the Support screen as they arrive. The price in the purchase flow is the price you pay, including any tax Google Play charges. In the European Economic Area and the United Kingdom, Google is the merchant of record for the purchase; everywhere else, Verdetto is the seller and Google Play handles the payment. Refunds follow Google Play's refund policy and the consumer law of your country; if something went wrong, write to <a href="mailto:{EMAIL}">{EMAIL}</a> and we will help. Where Google Play's billing is unavailable, the contribution is not offered. A contribution buys no protection and no promise of future features. Verdetto is a small business; a contribution is a purchase, not a gift, and it brings no tax benefit.</p>
@@ -444,7 +444,7 @@ SUPPORT_FAQ = [
 ]
 SUPPORT_WORK = f"""
 <h1>Support the work</h1>
-<p>Verdetto has no ads and nothing to sell, so the people who use it pay for it. Every check and every decode is free for everyone, and the app never asks.</p>
+<p>Verdetto has no ads and nothing to sell, so the people who use it pay for it. Every check and every decode is free for everyone. The app never nags: no ads, no pop-ups, no rating prompts. After it does something for you, it may say thank you and mention that the people who use it pay for it, at most once a month, and a switch in Settings turns that off.</p>
 <div class="grid">
   <div class="card">{ic('heart')}<div><h3>On your phone</h3><p>Settings, then Support development. From $0.99, once, with $2.99 suggested, through Google Play; the app never sees your card. Give again whenever you like.</p></div></div>
   {SPONSORS_CARD}
@@ -565,7 +565,7 @@ PRESS = f"""
 <h2>Facts you can check</h2>
 <ul>
   <li>Platform: Android 8 and later. Price: free. Ads: none. Accounts: none. Analytics: none.</li>
-  <li>Scanning and every built-in check run on the phone. Online lookups are on by default and can be turned off with one switch.</li>
+  <li>Scanning and every built-in check run on the phone. Online lookups are on by default and can be turned off with one switch, and product lookups have a switch of their own.</li>
   <li>Reads QR codes and barcodes including EAN, UPC, Code 128, Data Matrix, PDF417, and Aztec.</li>
   <li>The safety list is built in the open at <a href="https://github.com/verdettoqr/link-safety-list">github.com/verdettoqr/link-safety-list</a> and refreshed four times a day; the app verifies its signature before use.</li>
   <li>What the app never says: that a link, network, or product is safe. The wording is "No warnings found."</li>
@@ -649,7 +649,7 @@ def main():
         "- Permissions: the camera to scan; contacts only if the person fills their own card from the phone's profile.\n"
         "- Funding: no ads, no data sales, no paid tier. An optional one-time in-app contribution, from $0.99 ($2.99 suggested) through Google Play, supports development"
         + (", and GitHub Sponsors (https://github.com/sponsors/verdettoqr) is the browser route" if SPONSORS_LIVE else "")
-        + "; nothing is locked behind it, and the app never prompts for it. Verdetto is a small business; a contribution is a purchase, not a gift, and brings no tax benefit.\n",
+        + "; nothing is locked behind it. The app never nags; after it does something for you it may say thank you, at most once a month, and a switch turns that off. Verdetto is a small business; a contribution is a purchase, not a gift, and brings no tax benefit.\n",
         encoding="utf-8", newline="\n")
     (HERE / "sitemap.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
