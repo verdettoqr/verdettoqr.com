@@ -227,7 +227,7 @@ PRIVACY = f"""
   <li><strong>Camera.</strong> Camera frames are read on the phone to find and decode codes. They are not stored and not uploaded.</li>
   <li><strong>Images you choose.</strong> If you pick an image from your photos, it is read on the phone the same way and is not uploaded.</li>
   <li><strong>Scan history.</strong> Decoded content is kept in a history on your phone so you can find it again. Scans older than 90 days are cleared on their own unless you star them; Settings lets you choose 30, 90, or 365 days, or forever. You can delete any entry with a swipe, or clear the whole history, in the app. Driver's licenses and boarding passes are shown and not saved to history unless you turn that on in Settings.</li>
-  <li><strong>Safety checks.</strong> The app inspects scanned content on the phone for warning signs and compares links, sites, and wallet addresses with a list of known phishing, malware, and scam entries that is stored on the phone. The comparison never sends what you scanned anywhere.</li>
+  <li><strong>Safety checks.</strong> The app inspects scanned content on the phone for warning signs and compares links, sites, and wallet addresses with a list of known phishing, malware, scam, and sanctions entries that is stored on the phone. The comparison never sends what you scanned anywhere.</li>
   <li><strong>Settings.</strong> Your preferences are stored on the phone.</li>
 </ul>
 
