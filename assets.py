@@ -124,6 +124,24 @@ def wrap(draw, text, fnt, width, lang):
     return lines
 
 
+OG_HEAD = {"report.html": "Report a link or a wrong read"}
+FULL_STOPS = ".。।"  # period, ideographic full stop, danda
+
+
+def dename(text):
+    text = re.sub(r"Verdetto: QR & Barcode Scanner( for Android)?", "the app", text)
+    return text.replace("Verdetto's", "the app's").replace("Verdetto", "the app")
+
+
+def og_line(desc):
+    """The image's one line: the first sentence without the name when it says something (30+ characters), else the first
+    sentence with the name replaced. A sentence ends at a full stop of its script followed by white space."""
+    sentences = [x.strip() for x in re.split("(?<=[" + re.escape(FULL_STOPS) + r"])\s+", desc) if x.strip()]
+    pick = next((x for x in sentences if "Verdetto" not in x and len(x) >= 30), None) or dename(sentences[0])
+    stop = pick[-1] if pick[-1] in FULL_STOPS else "."
+    return pick.rstrip(FULL_STOPS) + stop
+
+
 (HERE / "og").mkdir(exist_ok=True)
 small_mark = rounded(master.resize((150, 150), Image.LANCZOS))
 for name, (title, desc, _body, _ld) in build.PAGES.items():
@@ -131,8 +149,13 @@ for name, (title, desc, _body, _ld) in build.PAGES.items():
         continue
     lang, rtl, _alts = build.PAGE_LANG.get(name, ("en", False, None))
     stem = name[:-5]
-    head = title.split(" - ")[0] if " - " in title else title
-    line = desc.split(". ")[0].rstrip(".") + "."
+    # The no-repetition rule (operator, 2026-09-05: "we can't be duplicative or repetitive in the same message"): the mark and
+    # wordmark are the one mention of the name, the footer the one mention of the domain, so the title and the line carry
+    # neither. A name-free sentence of the description is preferred; else the name becomes "the app".
+    head = OG_HEAD.get(name) or re.sub(r"^Verdetto: ", "", title.split(" - ")[0] if " - " in title else title)
+    line = og_line(desc)
+    for shown in (head, line):
+        assert "Verdetto" not in shown and "verdettoqr" not in shown.lower(), (name, shown)
     if lang == "ar" and arabic_reshaper is None:
         head, line = build.PAGES["privacy.html" if "privacy" in name else "terms.html"][0].split(" - ")[0], ""
     img = Image.new("RGB", (1200, 630), MINT)
