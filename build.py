@@ -89,8 +89,8 @@ p,li{margin:.5rem 0}
 .hero .label{display:inline-flex;align-items:center;gap:.4rem;margin-top:1rem;color:var(--on-surface-variant);font-weight:500;font-size:.875rem;line-height:1.25rem}
 .hero .label svg{width:18px;height:18px}.hero .support{margin:.75rem 0 0;font-size:.9375rem;line-height:1.375rem;color:var(--on-surface-variant)}
 .shot{width:250px;height:auto;border-radius:20px;border:1px solid var(--outline-variant);background:var(--surface-container);display:block}
-.grid{display:grid;grid-template-columns:1fr;gap:.75rem;margin:1rem 0;align-items:start}
-.grid .card{margin:0;display:grid;grid-template-columns:auto 1fr;gap:.75rem;align-items:start}
+.grid{display:grid;grid-template-columns:1fr;gap:1rem;margin:1.25rem 0;align-items:stretch}
+.grid .card{margin:0;padding:1rem;background:var(--surface-container);border-radius:12px;display:grid;grid-template-columns:auto 1fr;gap:.75rem;align-items:start}
 .grid .card svg{width:24px;height:24px;color:var(--primary);margin-top:.15rem}
 .grid h3{margin:0 0 .25rem;color:var(--on-surface)}
 .grid p{margin:0;font-size:.875rem;line-height:1.25rem;color:var(--on-surface-variant)}
@@ -222,19 +222,19 @@ HOME = f"""
 
 <h2>What it does</h2>
 <div class="grid">
-  <div class="card">{ic('eye')}<div><h3>Look before it opens</h3><p>Nothing opens by itself unless you turn that on. You see the link first, with the site name on the button.</p></div></div>
-  <div class="card">{ic('warning')}<div><h3>Checked on your phone</h3><p>Hidden sign-ins, lookalike names, short links, downloads, open networks, numbers that charge you, and a warning list, all offline. The full list is in the <a href="{href('terms.html')}">Terms</a>.</p></div></div>
-  <div class="card">{ic('scan')}<div><h3>Built for damaged codes</h3><p>Faded, torn, and badly printed QR, EAN, UPC, Code 128, Data Matrix, PDF417, Aztec, and more.</p></div></div>
-  <div class="card">{ic('heart')}<div><h3>Free, no ads, nothing collected</h3><p>Nothing to sell and nothing collected. Every feature is free for everyone; the people who use it keep it that way.</p></div></div>
+  <div class="card">{ic('eye')}<div><h3>Look before it opens</h3><p>The link, the network name or the contact is shown before anything opens.</p></div></div>
+  <div class="card">{ic('warning')}<div><h3>Checked on your phone</h3><p>Lookalike names, short links, hidden sign-ins and more, flagged in one line.</p></div></div>
+  <div class="card">{ic('scan')}<div><h3>Built for damaged codes</h3><p>Faded, torn and badly printed QR codes and barcodes.</p></div></div>
+  <div class="card">{ic('heart')}<div><h3>Free, no ads, nothing collected</h3><p>Every feature free for everyone, kept that way by the people who use it.</p></div></div>
 </div>
 <details class="more"><summary>Everything it does</summary>
 <div class="grid">
-  <div class="card">{ic('shield')}<div><h3>A warning list on the phone</h3><p>Links, sites, and wallet addresses are compared with known phishing, malware, scam, and sanctions entries, refreshed a few times a day when online lookups are on.</p></div></div>
-  <div class="card">{ic('barcode')}<div><h3>Looks things up</h3><p>Product, book, medicine, music, magazine, and vehicle numbers go to the open database for each, only when product lookups are on. The <a href="{href('privacy.html')}">privacy policy</a> names them; vehicles also bring recalls, crash-test ratings, and fuel economy.</p></div></div>
-  <div class="card">{ic('history')}<div><h3>History that is yours</h3><p>On your phone, searchable, starrable, deletable with a swipe. Scans older than 90 days clear unless starred.</p></div></div>
-  <div class="card">{ic('offline')}<div><h3>Works offline</h3><p>Every built-in check runs on the phone, and an ID or license scan never leaves it. One switch turns the online lookups off, and product lookups have a switch of their own.</p></div></div>
-  <div class="card">{ic('scan')}<div><h3>Made for the hand</h3><p>Quick Settings tile, batch mode, left-handed layout, results read aloud, a boarding pass at the gate, your own codes. Eleven languages.</p></div></div>
-  <div class="card">{ic('eye')}<div><h3>Works with other apps</h3><p>Any app can ask it for a scan and receive the code the moment you confirm it; code written for the old ZXing scanner keeps working. <a href="{href('developers.html')}">For developers</a>.</p></div></div>
+  <div class="card">{ic('shield')}<div><h3>A warning list on the phone</h3><p>Known phishing, scam and sanctions entries, checked on the phone.</p></div></div>
+  <div class="card">{ic('barcode')}<div><h3>Looks things up</h3><p>Products, books, medicines and vehicles from open databases, only if you allow it. <a href="{href('privacy.html')}">Privacy policy</a>.</p></div></div>
+  <div class="card">{ic('history')}<div><h3>History that is yours</h3><p>Searchable, starrable, swipe to delete. Older than 90 days clears itself.</p></div></div>
+  <div class="card">{ic('offline')}<div><h3>Works offline</h3><p>Every check runs on the phone. One switch turns online lookups off.</p></div></div>
+  <div class="card">{ic('scan')}<div><h3>Made for the hand</h3><p>Quick Settings tile, batch mode, left-handed layout, read aloud, eleven languages.</p></div></div>
+  <div class="card">{ic('eye')}<div><h3>Works with other apps</h3><p>Any app can ask it for a scan and get the code back. ZXing calls still work. <a href="{href('developers.html')}">For developers</a>.</p></div></div>
 </div>
 </details>
 
@@ -295,7 +295,7 @@ PRIVACY = f"""
 <p class="meta">For Verdetto: QR &amp; Barcode Scanner, the Android app published by Verdetto. Effective date: September 4, 2026.</p>
 {privacy_lang_row("en")}
 
-<div class="card"><p><strong>In short.</strong> No accounts, no ads, no analytics. Scanning happens on your phone. With online lookups on, the default, only the address, domain, or number you scanned goes out, to the services in the table below, and it goes straight from your phone to them, never through us. Nothing else leaves the phone, apart from your phone's own backup, which you can turn off. The only thing we ever receive is an email you choose to send us. We do not collect, store, sell, or share any data about you. This website sets no cookies.</p></div>
+<div class="card"><p><strong>In short.</strong> No accounts, no ads, no analytics. Scanning happens on your phone, and an ID or license scan never leaves it. With online lookups on, the default, only the address, domain, or number you scanned goes out, to the services in the table below, and it goes straight from your phone to them, never through us. Nothing else leaves the phone, apart from your phone's own backup, which you can turn off. The only thing we ever receive is an email you choose to send us. We do not collect, store, sell, or share any data about you. This website sets no cookies.</p></div>
 
 <h2>Who we are</h2>
 <p>Verdetto, {ADDRESS}, United States, a small business in Virginia. Contact: <a href="mailto:{EMAIL}">{EMAIL}</a>. Verdetto publishes the app and is the party responsible for this policy wherever a law asks for one. The app sends us nothing, and the one thing we process is the email you may send us, so we have not appointed a representative in the European Union or the United Kingdom or a data protection officer; that email address reaches the person who answers.</p>
