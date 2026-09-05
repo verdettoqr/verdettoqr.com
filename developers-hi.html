@@ -250,9 +250,9 @@ fun startScan() {
     else startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(GET_VERDETTO)))
 }
 
-// the store page, with the developers referrer
+// the store page
 private const val GET_VERDETTO =
-    &quot;https://play.google.com/store/apps/details?id=com.verdettoqr.scanner&amp;referrer=utm_source%3Ddevelopers%26utm_medium%3Ddocs%26utm_campaign%3Ddevelopers&quot;
+    &quot;https://play.google.com/store/apps/details?id=com.verdettoqr.scanner&quot;
 </code></pre>
 <p>Android 11 और बाद के संस्करणों पर, अपने मैनिफ़ेस्ट में क्वेरी जोड़ें ताकि <code>resolveActivity</code> ऐप को देख सके:</p>
 <pre><code>&lt;queries&gt;
@@ -285,7 +285,7 @@ void startScan() {
 <h2>व्यक्ति क्या देखता है</h2>
 <p>स्कैनर हमेशा की तरह खुलता है, अपनी जाँचों के साथ। कोड लॉक होने पर ऐप उसे वापस देता है और बंद हो जाता है; स्क्रीन पर आपका कुछ नहीं दिखता, और उसका कुछ भी (इतिहास, सेटिंग, सुरक्षा सूची) इस कॉल से नहीं छुआ जाता।</p>
 
-<div class="card"><p><strong>बिना ऐप वाले फ़ोन पर परीक्षण।</strong> डेवलपर रेफ़रर के साथ स्टोर पेज, वही पता जो उदाहरणों का फ़ॉलबैक खोलता है: <a href="https://play.google.com/store/apps/details?id=com.verdettoqr.scanner&referrer=utm_source%3Ddevelopers%26utm_medium%3Ddocs%26utm_campaign%3Ddevelopers">Google Play पर पाएँ</a>। इस पेज का स्रोत ऐप की अपनी INTENT.md है; दोनों में अंतर हो तो ऐप रिपॉज़िटरी सही है और यह पेज पीछे है।</p></div>
+<div class="card"><p><strong>बिना ऐप वाले फ़ोन पर परीक्षण।</strong> स्टोर पेज, वही पता जो उदाहरणों का फ़ॉलबैक खोलता है: <a href="https://play.google.com/store/apps/details?id=com.verdettoqr.scanner">Google Play पर पाएँ</a>। इस पेज का स्रोत ऐप की अपनी INTENT.md है; दोनों में अंतर हो तो ऐप रिपॉज़िटरी सही है और यह पेज पीछे है।</p></div>
 </div>
 
 </div></main>

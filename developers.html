@@ -250,9 +250,9 @@ fun startScan() {
     else startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(GET_VERDETTO)))
 }
 
-// the store page, with the developers referrer
+// the store page
 private const val GET_VERDETTO =
-    &quot;https://play.google.com/store/apps/details?id=com.verdettoqr.scanner&amp;referrer=utm_source%3Ddevelopers%26utm_medium%3Ddocs%26utm_campaign%3Ddevelopers&quot;
+    &quot;https://play.google.com/store/apps/details?id=com.verdettoqr.scanner&quot;
 </code></pre>
 <p>On Android 11 and later, add the query to your manifest so <code>resolveActivity</code> can see the app:</p>
 <pre><code>&lt;queries&gt;
@@ -285,7 +285,7 @@ void startScan() {
 <h2>What the person sees</h2>
 <p>The scanner opens as it always does, with its own checks. When a code locks, the app hands it back and closes; nothing of yours appears on the screen, and nothing of theirs (history, settings, the safety list) is touched by the call.</p>
 
-<div class="card"><p><strong>Testing on a phone without the app.</strong> The store page with the developers referrer, the same address the fallback in the samples opens: <a href="https://play.google.com/store/apps/details?id=com.verdettoqr.scanner&referrer=utm_source%3Ddevelopers%26utm_medium%3Ddocs%26utm_campaign%3Ddevelopers">Get it on Google Play</a>. The source of this page is the app's own INTENT.md; when the two differ, the app repository is right and this page is behind.</p></div>
+<div class="card"><p><strong>Testing on a phone without the app.</strong> The store page, the same address the fallback in the samples opens: <a href="https://play.google.com/store/apps/details?id=com.verdettoqr.scanner">Get it on Google Play</a>. The source of this page is the app's own INTENT.md; when the two differ, the app repository is right and this page is behind.</p></div>
 </div>
 
 </div></main>

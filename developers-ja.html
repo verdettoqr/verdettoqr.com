@@ -250,9 +250,9 @@ fun startScan() {
     else startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(GET_VERDETTO)))
 }
 
-// the store page, with the developers referrer
+// the store page
 private const val GET_VERDETTO =
-    &quot;https://play.google.com/store/apps/details?id=com.verdettoqr.scanner&amp;referrer=utm_source%3Ddevelopers%26utm_medium%3Ddocs%26utm_campaign%3Ddevelopers&quot;
+    &quot;https://play.google.com/store/apps/details?id=com.verdettoqr.scanner&quot;
 </code></pre>
 <p>Android 11 以降では、<code>resolveActivity</code> がアプリを見つけられるように、マニフェストにクエリを追加してください:</p>
 <pre><code>&lt;queries&gt;
@@ -285,7 +285,7 @@ void startScan() {
 <h2>利用者に見えるもの</h2>
 <p>スキャナーはいつも通り、自身の確認とともに開きます。コードがロックされるとアプリはそれを返して閉じます。あなたのものは画面に何も現れず、利用者のもの（履歴、設定、安全リスト）にこの呼び出しが触れることもありません。</p>
 
-<div class="card"><p><strong>アプリのない端末での確認。</strong> 開発者向けリファラー付きのストアページで、サンプルのフォールバックが開くのと同じアドレスです: <a href="https://play.google.com/store/apps/details?id=com.verdettoqr.scanner&referrer=utm_source%3Ddevelopers%26utm_medium%3Ddocs%26utm_campaign%3Ddevelopers">Google Play で手に入れよう</a>。このページの出典はアプリ自身の INTENT.md で、両者が異なる場合はアプリのリポジトリが正しく、このページが遅れています。</p></div>
+<div class="card"><p><strong>アプリのない端末での確認。</strong> ストアページで、サンプルのフォールバックが開くのと同じアドレスです: <a href="https://play.google.com/store/apps/details?id=com.verdettoqr.scanner">Google Play で手に入れよう</a>。このページの出典はアプリ自身の INTENT.md で、両者が異なる場合はアプリのリポジトリが正しく、このページが遅れています。</p></div>
 </div>
 
 </div></main>

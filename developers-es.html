@@ -250,9 +250,9 @@ fun startScan() {
     else startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(GET_VERDETTO)))
 }
 
-// the store page, with the developers referrer
+// the store page
 private const val GET_VERDETTO =
-    &quot;https://play.google.com/store/apps/details?id=com.verdettoqr.scanner&amp;referrer=utm_source%3Ddevelopers%26utm_medium%3Ddocs%26utm_campaign%3Ddevelopers&quot;
+    &quot;https://play.google.com/store/apps/details?id=com.verdettoqr.scanner&quot;
 </code></pre>
 <p>En Android 11 y posteriores, añade la consulta a tu manifiesto para que <code>resolveActivity</code> pueda ver la app:</p>
 <pre><code>&lt;queries&gt;
@@ -285,7 +285,7 @@ void startScan() {
 <h2>Lo que ve la persona</h2>
 <p>El escáner se abre como siempre, con sus propias comprobaciones. Cuando un código se fija, la app lo devuelve y se cierra; nada tuyo aparece en la pantalla, y nada suyo (historial, ajustes, lista de seguridad) se toca con la llamada.</p>
 
-<div class="card"><p><strong>Probar en un teléfono sin la app.</strong> La página de la tienda con el referrer de desarrolladores, la misma dirección que abre el fallback de los ejemplos: <a href="https://play.google.com/store/apps/details?id=com.verdettoqr.scanner&referrer=utm_source%3Ddevelopers%26utm_medium%3Ddocs%26utm_campaign%3Ddevelopers">Descárgala en Google Play</a>. La fuente de esta página es el INTENT.md de la propia app; cuando los dos difieren, el repositorio de la app tiene razón y esta página va por detrás.</p></div>
+<div class="card"><p><strong>Probar en un teléfono sin la app.</strong> La página de la tienda, la misma dirección que abre el fallback de los ejemplos: <a href="https://play.google.com/store/apps/details?id=com.verdettoqr.scanner">Descárgala en Google Play</a>. La fuente de esta página es el INTENT.md de la propia app; cuando los dos difieren, el repositorio de la app tiene razón y esta página va por detrás.</p></div>
 </div>
 
 </div></main>

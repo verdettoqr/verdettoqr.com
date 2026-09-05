@@ -250,9 +250,9 @@ fun startScan() {
     else startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(GET_VERDETTO)))
 }
 
-// the store page, with the developers referrer
+// the store page
 private const val GET_VERDETTO =
-    &quot;https://play.google.com/store/apps/details?id=com.verdettoqr.scanner&amp;referrer=utm_source%3Ddevelopers%26utm_medium%3Ddocs%26utm_campaign%3Ddevelopers&quot;
+    &quot;https://play.google.com/store/apps/details?id=com.verdettoqr.scanner&quot;
 </code></pre>
 <p>على Android 11 وما بعده، أضف الاستعلام إلى الـ manifest كي يتمكن <code>resolveActivity</code> من رؤية التطبيق:</p>
 <pre><code>&lt;queries&gt;
@@ -285,7 +285,7 @@ void startScan() {
 <h2>ما يراه الشخص</h2>
 <p>يفتح الماسح كالمعتاد، بفحوصه الخاصة. وعندما يثبت رمز، يعيده التطبيق ويُغلَق؛ لا يظهر شيء من عندك على الشاشة، ولا يمسّ الاستدعاء شيئًا من عند الشخص (السجل، الإعدادات، قائمة الأمان).</p>
 
-<div class="card"><p><strong>الاختبار على هاتف بلا التطبيق.</strong> صفحة المتجر مع مُحيل المطوّرين، وهي العنوان نفسه الذي يفتحه البديل في الأمثلة: <a href="https://play.google.com/store/apps/details?id=com.verdettoqr.scanner&referrer=utm_source%3Ddevelopers%26utm_medium%3Ddocs%26utm_campaign%3Ddevelopers">احصل عليه من Google Play</a>. مصدر هذه الصفحة هو ملف INTENT.md الخاص بالتطبيق؛ وعند اختلافهما فمستودع التطبيق هو الصحيح وهذه الصفحة متأخرة.</p></div>
+<div class="card"><p><strong>الاختبار على هاتف بلا التطبيق.</strong> صفحة المتجر، وهي العنوان نفسه الذي يفتحه البديل في الأمثلة: <a href="https://play.google.com/store/apps/details?id=com.verdettoqr.scanner">احصل عليه من Google Play</a>. مصدر هذه الصفحة هو ملف INTENT.md الخاص بالتطبيق؛ وعند اختلافهما فمستودع التطبيق هو الصحيح وهذه الصفحة متأخرة.</p></div>
 </div>
 
 </div></main>

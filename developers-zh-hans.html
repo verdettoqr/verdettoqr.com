@@ -250,9 +250,9 @@ fun startScan() {
     else startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(GET_VERDETTO)))
 }
 
-// the store page, with the developers referrer
+// the store page
 private const val GET_VERDETTO =
-    &quot;https://play.google.com/store/apps/details?id=com.verdettoqr.scanner&amp;referrer=utm_source%3Ddevelopers%26utm_medium%3Ddocs%26utm_campaign%3Ddevelopers&quot;
+    &quot;https://play.google.com/store/apps/details?id=com.verdettoqr.scanner&quot;
 </code></pre>
 <p>在 Android 11 及更高版本上，把查询加入你的清单，这样 <code>resolveActivity</code> 才能看到该应用：</p>
 <pre><code>&lt;queries&gt;
@@ -285,7 +285,7 @@ void startScan() {
 <h2>用户看到的内容</h2>
 <p>扫描器照常打开，带着它自己的检查。码锁定后，应用把它返回并关闭；屏幕上不会出现任何属于你的内容，用户的任何内容（历史记录、设置、安全列表）也不会被这次调用触及。</p>
 
-<div class="card"><p><strong>在没有安装应用的手机上测试。</strong> 带开发者引荐参数的商店页面，也就是示例中回退所打开的地址：<a href="https://play.google.com/store/apps/details?id=com.verdettoqr.scanner&referrer=utm_source%3Ddevelopers%26utm_medium%3Ddocs%26utm_campaign%3Ddevelopers">在 Google Play 获取</a>。本页面的来源是应用自身的 INTENT.md；两者不一致时，以应用仓库为准，本页面滞后。</p></div>
+<div class="card"><p><strong>在没有安装应用的手机上测试。</strong> 商店页面，也就是示例中回退所打开的地址：<a href="https://play.google.com/store/apps/details?id=com.verdettoqr.scanner">在 Google Play 获取</a>。本页面的来源是应用自身的 INTENT.md；两者不一致时，以应用仓库为准，本页面滞后。</p></div>
 </div>
 
 </div></main>

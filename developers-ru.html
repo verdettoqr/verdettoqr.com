@@ -250,9 +250,9 @@ fun startScan() {
     else startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(GET_VERDETTO)))
 }
 
-// the store page, with the developers referrer
+// the store page
 private const val GET_VERDETTO =
-    &quot;https://play.google.com/store/apps/details?id=com.verdettoqr.scanner&amp;referrer=utm_source%3Ddevelopers%26utm_medium%3Ddocs%26utm_campaign%3Ddevelopers&quot;
+    &quot;https://play.google.com/store/apps/details?id=com.verdettoqr.scanner&quot;
 </code></pre>
 <p>На Android 11 и новее добавьте запрос в манифест, чтобы <code>resolveActivity</code> мог увидеть приложение:</p>
 <pre><code>&lt;queries&gt;
@@ -285,7 +285,7 @@ void startScan() {
 <h2>Что видит человек</h2>
 <p>Сканер открывается как всегда, со своими проверками. Когда код фиксируется, приложение возвращает его и закрывается; ничего вашего на экране не появляется, и ничего его (история, настройки, список безопасности) вызов не затрагивает.</p>
 
-<div class="card"><p><strong>Проверка на телефоне без приложения.</strong> Страница магазина с реферером для разработчиков, тот же адрес, который открывает запасной вариант в примерах: <a href="https://play.google.com/store/apps/details?id=com.verdettoqr.scanner&referrer=utm_source%3Ddevelopers%26utm_medium%3Ddocs%26utm_campaign%3Ddevelopers">Скачать в Google Play</a>. Источник этой страницы — собственный INTENT.md приложения; если они расходятся, прав репозиторий приложения, а эта страница отстаёт.</p></div>
+<div class="card"><p><strong>Проверка на телефоне без приложения.</strong> Страница магазина, тот же адрес, который открывает запасной вариант в примерах: <a href="https://play.google.com/store/apps/details?id=com.verdettoqr.scanner">Скачать в Google Play</a>. Источник этой страницы — собственный INTENT.md приложения; если они расходятся, прав репозиторий приложения, а эта страница отстаёт.</p></div>
 </div>
 
 </div></main>

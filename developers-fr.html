@@ -250,9 +250,9 @@ fun startScan() {
     else startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(GET_VERDETTO)))
 }
 
-// the store page, with the developers referrer
+// the store page
 private const val GET_VERDETTO =
-    &quot;https://play.google.com/store/apps/details?id=com.verdettoqr.scanner&amp;referrer=utm_source%3Ddevelopers%26utm_medium%3Ddocs%26utm_campaign%3Ddevelopers&quot;
+    &quot;https://play.google.com/store/apps/details?id=com.verdettoqr.scanner&quot;
 </code></pre>
 <p>Sur Android 11 et suivants, ajoutez la requête à votre manifeste pour que <code>resolveActivity</code> puisse voir l'application :</p>
 <pre><code>&lt;queries&gt;
@@ -285,7 +285,7 @@ void startScan() {
 <h2>Ce que voit la personne</h2>
 <p>Le scanner s'ouvre comme toujours, avec ses propres vérifications. Quand un code se verrouille, l'application le renvoie et se ferme ; rien de vous n'apparaît à l'écran, et rien d'elle (historique, réglages, liste de sécurité) n'est touché par l'appel.</p>
 
-<div class="card"><p><strong>Tester sur un téléphone sans l'application.</strong> La page du magasin avec le référent développeurs, la même adresse que le repli des exemples ouvre : <a href="https://play.google.com/store/apps/details?id=com.verdettoqr.scanner&referrer=utm_source%3Ddevelopers%26utm_medium%3Ddocs%26utm_campaign%3Ddevelopers">Disponible sur Google Play</a>. La source de cette page est le fichier INTENT.md de l'application ; quand les deux divergent, le dépôt de l'application a raison et cette page est en retard.</p></div>
+<div class="card"><p><strong>Tester sur un téléphone sans l'application.</strong> La page du magasin, la même adresse que le repli des exemples ouvre : <a href="https://play.google.com/store/apps/details?id=com.verdettoqr.scanner">Disponible sur Google Play</a>. La source de cette page est le fichier INTENT.md de l'application ; quand les deux divergent, le dépôt de l'application a raison et cette page est en retard.</p></div>
 </div>
 
 </div></main>

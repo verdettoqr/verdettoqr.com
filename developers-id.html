@@ -250,9 +250,9 @@ fun startScan() {
     else startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(GET_VERDETTO)))
 }
 
-// the store page, with the developers referrer
+// the store page
 private const val GET_VERDETTO =
-    &quot;https://play.google.com/store/apps/details?id=com.verdettoqr.scanner&amp;referrer=utm_source%3Ddevelopers%26utm_medium%3Ddocs%26utm_campaign%3Ddevelopers&quot;
+    &quot;https://play.google.com/store/apps/details?id=com.verdettoqr.scanner&quot;
 </code></pre>
 <p>Pada Android 11 ke atas, tambahkan query ke manifes Anda agar <code>resolveActivity</code> bisa melihat aplikasinya:</p>
 <pre><code>&lt;queries&gt;
@@ -285,7 +285,7 @@ void startScan() {
 <h2>Yang dilihat pengguna</h2>
 <p>Pemindai terbuka seperti biasa, dengan pemeriksaannya sendiri. Saat kode terkunci, aplikasi mengembalikannya dan menutup; tidak ada milik Anda yang muncul di layar, dan tidak ada milik orang itu (riwayat, pengaturan, daftar keamanan) yang tersentuh panggilan tersebut.</p>
 
-<div class="card"><p><strong>Menguji di ponsel tanpa aplikasi.</strong> Halaman toko dengan referrer pengembang, alamat yang sama yang dibuka fallback dalam contoh: <a href="https://play.google.com/store/apps/details?id=com.verdettoqr.scanner&referrer=utm_source%3Ddevelopers%26utm_medium%3Ddocs%26utm_campaign%3Ddevelopers">Dapatkan di Google Play</a>. Sumber halaman ini adalah INTENT.md aplikasi sendiri; bila keduanya berbeda, repositori aplikasi yang benar dan halaman ini yang tertinggal.</p></div>
+<div class="card"><p><strong>Menguji di ponsel tanpa aplikasi.</strong> Halaman toko, alamat yang sama yang dibuka fallback dalam contoh: <a href="https://play.google.com/store/apps/details?id=com.verdettoqr.scanner">Dapatkan di Google Play</a>. Sumber halaman ini adalah INTENT.md aplikasi sendiri; bila keduanya berbeda, repositori aplikasi yang benar dan halaman ini yang tertinggal.</p></div>
 </div>
 
 </div></main>
