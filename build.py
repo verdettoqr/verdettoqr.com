@@ -2056,6 +2056,346 @@ PRESS = f"""
 </div>
 """
 
+PRESS_T = {
+ "de": {
+  "title": "Pressematerial",
+  "desc": "Die Beschreibung in einem Satz, der Standardtext, prüfbare Fakten und Bildmaterial zum Schreiben über Verdetto: QR & Barcode Scanner.",
+  "meta": "Alles, was du brauchst, um Verdetto genau zu beschreiben, an einem Ort. Zitiere frei; der Satz unten ist der, den wir überall verwenden.",
+  "lead": "In einem Satz.",
+  "sentence": "Verdetto ist ein kostenloser QR-Code- und Barcode-Scanner für Android ohne Werbung und ohne falsche Buttons. Er zeigt den Link, bevor er sich öffnet, ist dafür gebaut, beschädigte Codes zu lesen, und prüft gescannte Inhalte auf dem Telefon auf Warnzeichen. Er sagt nie, dass etwas sicher ist: „Keine Warnungen gefunden“ heißt, dass keine seiner Prüfungen angeschlagen hat.",
+  "boiler_h": "Standardtext",
+  "boiler": "Verdetto: QR &amp; Barcode Scanner ist eine kostenlose Android-App von Verdetto, einem einzelnen Entwickler in Virginia. Sie liest QR-Codes und Barcodes, auch beschädigte, zeigt der Person genau, was ein Code enthält, bevor sich etwas öffnet, und prüft Links, WLAN-Netzwerke, Zahlungsadressen und Telefonnummern direkt auf dem Telefon auf bekannte Warnzeichen. Ihre Liste bekannter Phishing- und Betrugseinträge wird offen aus öffentlichen Quellen zusammengestellt, und ihre Signatur wird auf dem Gerät geprüft. Die App hat keine Werbung, keine Konten und keine Analysen; ein optionaler einmaliger Beitrag unterstützt die Entwicklung, und nichts ist dahinter gesperrt. Verdetto wird „wer-DET-o“ ausgesprochen und ist Italienisch für Urteil.",
+  "facts_h": "Fakten zum Nachprüfen",
+  "facts": [
+   "Plattform: Android 8 und neuer. Preis: kostenlos. Werbung: keine. Konten: keine. Analysen: keine.",
+   "Das Scannen und jede eingebaute Prüfung laufen auf dem Telefon. Online-Abfragen sind standardmäßig an und lassen sich mit einem Schalter abstellen; Produktabfragen haben einen eigenen Schalter.",
+   "Liest QR-Codes und Barcodes, darunter EAN, UPC, Code 128, Data Matrix, PDF417 und Aztec.",
+   "Die Sicherheitsliste entsteht offen unter <a href=\"https://github.com/verdettoqr/link-safety-list\">github.com/verdettoqr/link-safety-list</a> und wird viermal am Tag aktualisiert; die App prüft ihre Signatur vor der Verwendung.",
+   "Was die App nie sagt: dass ein Link, ein Netzwerk oder ein Produkt sicher ist. Die Formulierung lautet „Keine Warnungen gefunden“.",
+   "Vergleichsgrundlage: die zehn meistinstallierten kostenlosen QR-Scanner bei Google Play am 4. September 2026, bestimmt nach der Installationszahl an diesem Tag; das Werbe-Label jedes Eintrags und seine relevantesten Rezensionen am selben Tag gelesen; „falscher Button“ ist die Beschreibung der Rezensenten, nicht unsere; kein Scanner wird genannt; die Liste und die Notizen liegen bei uns vor.",
+   "Datenschutzerklärung: {PRIVACY_LINK}.",
+   "Nutzungsbedingungen: {TERMS_LINK}."
+  ],
+  "assets_h": "Material",
+  "assets": [
+   "<a href=\"icon-512.png\">App-Symbol, 512 px PNG</a> und <a href=\"logo.svg\">das Symbol als SVG</a>. Mintfarbener Grund, tief-türkises QR-Zeichen, ein amberfarbenes Suchmuster.",
+   "<a href=\"lockup-teal-amber.png\">Wort-Bild-Marke, Zeichen und Name, transparentes PNG</a> für helle Gründe (türkiser Körper, Amber-Akzent) und <a href=\"lockup-white-amber.png\">dieselbe mit weißem Körper</a> für dunkle Gründe; das Zeichen behält seine Farben und sitzt auf der Versalhöhe des Namens.",
+   "<a href=\"og-image.png\">Vorschaubild, 1200 × 630</a> und <a href=\"play-header-4096x2304.jpg\">breites Banner, 4096 × 2304</a>.",
+   "<a href=\"screens/result-sheet.webp\">Screenshot des Ergebnisblatts</a>: ein gescannter Link, gezeigt, bevor er sich öffnet, mit dem Chip „Keine Warnungen gefunden“.",
+   "<a href=\"screens/result-sheet-warning.webp\">Ergebnisblatt im Warnzustand</a>: eine ähnlich aussehende Adresse (paypa1.com), markiert als Imitation von paypal.com, bevor sich etwas öffnet."
+  ],
+  "no_alter": "Bitte verändere die Farben des Symbols nicht und füge keine Effekte hinzu; das Zeichen ist die Marke.",
+  "trademark": "Verdetto und das Verdetto-QR-Zeichen sind Marken; eine Anmeldung für VERDETTO in den Vereinigten Staaten ist anhängig (Seriennummer 50092495).",
+  "contact": "Kontakt"
+ },
+ "es": {
+  "title": "Kit de prensa",
+  "desc": "La descripción en una frase, el texto estándar, datos comprobables y recursos gráficos para escribir sobre Verdetto: QR & Barcode Scanner.",
+  "meta": "Todo lo necesario para describir Verdetto con precisión, en un solo lugar. Cita con libertad; la frase de abajo es la que usamos en todas partes.",
+  "lead": "En una frase.",
+  "sentence": "Verdetto es un escáner de códigos QR y de barras gratuito para Android, sin anuncios y sin botones falsos. Muestra el enlace antes de abrirlo, está hecho para leer códigos dañados y revisa el contenido escaneado en busca de señales de alerta en el propio teléfono. Nunca dice que algo sea seguro: «No se encontraron avisos» significa que ninguna de sus comprobaciones coincidió.",
+  "boiler_h": "Texto estándar",
+  "boiler": "Verdetto: QR &amp; Barcode Scanner es una aplicación gratuita para Android de Verdetto, un desarrollador independiente en Virginia. Lee códigos QR y de barras, incluidos los dañados, muestra a la persona exactamente lo que contiene un código antes de que se abra nada, y revisa enlaces, redes Wi-Fi, direcciones de pago y números de teléfono en busca de señales de alerta conocidas en el propio teléfono. Su lista de entradas conocidas de phishing y estafas se compila de forma abierta a partir de fuentes públicas, y su firma se comprueba en el dispositivo. La aplicación no tiene anuncios, ni cuentas, ni analíticas; una contribución única y opcional apoya el desarrollo, y nada queda bloqueado tras ella. Verdetto se pronuncia «ver-DET-o» y significa veredicto en italiano.",
+  "facts_h": "Datos que puedes comprobar",
+  "facts": [
+   "Plataforma: Android 8 y posteriores. Precio: gratis. Anuncios: ninguno. Cuentas: ninguna. Analíticas: ninguna.",
+   "El escaneo y todas las comprobaciones integradas se ejecutan en el teléfono. Las consultas en línea están activadas por defecto y se apagan con un interruptor; las consultas de productos tienen su propio interruptor.",
+   "Lee códigos QR y de barras, incluidos EAN, UPC, Code 128, Data Matrix, PDF417 y Aztec.",
+   "La lista de seguridad se construye de forma abierta en <a href=\"https://github.com/verdettoqr/link-safety-list\">github.com/verdettoqr/link-safety-list</a> y se actualiza cuatro veces al día; la aplicación verifica su firma antes de usarla.",
+   "Lo que la aplicación nunca dice: que un enlace, una red o un producto sea seguro. La redacción es «No se encontraron avisos».",
+   "Base de la comparación: los diez escáneres QR gratuitos más instalados en Google Play a 4 de septiembre de 2026, identificados por su número de instalaciones ese día; la etiqueta de anuncios de cada ficha y sus reseñas más relevantes, leídas el mismo día; «botón falso» es la descripción de quienes reseñan, no la nuestra; no se nombra ningún escáner; la lista y las notas quedan archivadas.",
+   "Política de privacidad: {PRIVACY_LINK}.",
+   "Condiciones: {TERMS_LINK}."
+  ],
+  "assets_h": "Recursos",
+  "assets": [
+   "<a href=\"icon-512.png\">Icono de la app, PNG de 512 px</a> y <a href=\"logo.svg\">el icono en SVG</a>. Fondo menta, símbolo QR verde azulado oscuro, un patrón de localización ámbar.",
+   "<a href=\"lockup-teal-amber.png\">Logotipo, símbolo y nombre, PNG transparente</a> para fondos claros (cuerpo verde azulado, acento ámbar) y <a href=\"lockup-white-amber.png\">el mismo con cuerpo blanco</a> para fondos oscuros; el símbolo conserva sus colores y se alinea con la altura de las mayúsculas del nombre.",
+   "<a href=\"og-image.png\">Imagen para compartir, 1200 × 630</a> y <a href=\"play-header-4096x2304.jpg\">banner ancho, 4096 × 2304</a>.",
+   "<a href=\"screens/result-sheet.webp\">Captura de la hoja de resultados</a>: un enlace escaneado que se muestra antes de abrirse, con el chip «No se encontraron avisos».",
+   "<a href=\"screens/result-sheet-warning.webp\">Hoja de resultados, estado de aviso</a>: una dirección parecida (paypa1.com) señalada como imitación de paypal.com antes de que se abra nada."
+  ],
+  "no_alter": "Por favor, no alteres los colores del icono ni añadas efectos; el símbolo es la marca.",
+  "trademark": "Verdetto y el símbolo QR de Verdetto son marcas; hay una solicitud pendiente en Estados Unidos para VERDETTO (n.º de serie 50092495).",
+  "contact": "Contacto"
+ },
+ "fr": {
+  "title": "Kit presse",
+  "desc": "La description en une phrase, le texte de présentation, des faits vérifiables et les visuels pour écrire sur Verdetto: QR & Barcode Scanner.",
+  "meta": "Tout ce qu'il faut pour décrire Verdetto avec exactitude, au même endroit. Citez librement ; la phrase ci-dessous est celle que nous utilisons partout.",
+  "lead": "En une phrase.",
+  "sentence": "Verdetto est un lecteur de codes QR et de codes-barres gratuit pour Android, sans publicité et sans faux boutons. Il montre le lien avant de l'ouvrir, est conçu pour lire les codes abîmés et vérifie le contenu scanné à la recherche de signaux d'alerte, sur le téléphone. Il ne dit jamais que quelque chose est sûr : « Aucune alerte trouvée » signifie qu'aucune de ses vérifications n'a réagi.",
+  "boiler_h": "Texte de présentation",
+  "boiler": "Verdetto: QR &amp; Barcode Scanner est une application Android gratuite de Verdetto, un développeur indépendant en Virginie. Elle lit les codes QR et les codes-barres, y compris abîmés, montre à la personne exactement ce que contient un code avant que quoi que ce soit ne s'ouvre, et vérifie les liens, les réseaux Wi-Fi, les adresses de paiement et les numéros de téléphone à la recherche de signaux d'alerte connus, sur le téléphone lui-même. Sa liste d'entrées connues de phishing et d'arnaques est constituée au grand jour à partir de flux publics, et sa signature est vérifiée sur l'appareil. L'application n'a ni publicité, ni comptes, ni outils d'analyse ; une contribution unique et facultative soutient le développement, et rien n'est verrouillé derrière. Verdetto se prononce « ver-DET-o » et signifie verdict en italien.",
+  "facts_h": "Des faits que vous pouvez vérifier",
+  "facts": [
+   "Plateforme : Android 8 et versions ultérieures. Prix : gratuit. Publicité : aucune. Comptes : aucun. Analyse d'audience : aucune.",
+   "Le scan et chaque vérification intégrée s'exécutent sur le téléphone. Les recherches en ligne sont activées par défaut et se coupent d'un seul interrupteur ; les recherches de produits ont le leur.",
+   "Lit les codes QR et les codes-barres, dont EAN, UPC, Code 128, Data Matrix, PDF417 et Aztec.",
+   "La liste de sécurité est construite au grand jour sur <a href=\"https://github.com/verdettoqr/link-safety-list\">github.com/verdettoqr/link-safety-list</a> et rafraîchie quatre fois par jour ; l'application vérifie sa signature avant de l'utiliser.",
+   "Ce que l'application ne dit jamais : qu'un lien, un réseau ou un produit est sûr. La formulation est « Aucune alerte trouvée ».",
+   "Base de comparaison : les dix lecteurs QR gratuits les plus installés sur Google Play au 4 septembre 2026, identifiés par leur nombre d'installations ce jour-là ; l'étiquette « contient des publicités » de chaque fiche et ses avis les plus pertinents, lus le même jour ; « faux bouton » est la description des personnes qui ont laissé un avis, pas la nôtre ; aucun lecteur n'est nommé ; la liste et les notes sont conservées.",
+   "Politique de confidentialité : {PRIVACY_LINK}.",
+   "Conditions : {TERMS_LINK}."
+  ],
+  "assets_h": "Visuels",
+  "assets": [
+   "<a href=\"icon-512.png\">Icône de l'application, PNG 512 px</a> et <a href=\"logo.svg\">l'icône en SVG</a>. Fond menthe, symbole QR bleu sarcelle profond, un motif de repérage ambre.",
+   "<a href=\"lockup-teal-amber.png\">Logotype, symbole et nom, PNG transparent</a> pour fonds clairs (corps sarcelle, accent ambre) et <a href=\"lockup-white-amber.png\">le même avec un corps blanc</a> pour fonds sombres ; le symbole garde ses couleurs et s'aligne sur la hauteur des capitales du nom.",
+   "<a href=\"og-image.png\">Image de partage, 1200 × 630</a> et <a href=\"play-header-4096x2304.jpg\">bannière large, 4096 × 2304</a>.",
+   "<a href=\"screens/result-sheet.webp\">Capture de la feuille de résultat</a> : un lien scanné, affiché avant de s'ouvrir, avec la puce « Aucune alerte trouvée ».",
+   "<a href=\"screens/result-sheet-warning.webp\">Feuille de résultat, état d'alerte</a> : une adresse imitée (paypa1.com) signalée comme imitation de paypal.com avant que quoi que ce soit ne s'ouvre."
+  ],
+  "no_alter": "Merci de ne pas modifier les couleurs de l'icône ni d'ajouter d'effets ; le symbole est la marque.",
+  "trademark": "Verdetto et le symbole QR Verdetto sont des marques ; une demande d'enregistrement de VERDETTO est en cours aux États-Unis (numéro de série 50092495).",
+  "contact": "Contact"
+ },
+ "pt-BR": {
+  "title": "Kit de imprensa",
+  "desc": "A descrição em uma frase, o texto padrão, fatos verificáveis e imagens para escrever sobre o Verdetto: QR & Barcode Scanner.",
+  "meta": "Tudo o que é preciso para descrever o Verdetto com exatidão, em um só lugar. Cite à vontade; a frase abaixo é a que usamos em todo lugar.",
+  "lead": "Em uma frase.",
+  "sentence": "O Verdetto é um leitor de códigos QR e de barras gratuito para Android, sem anúncios e sem botões falsos. Ele mostra o link antes de abrir, foi feito para ler códigos danificados e verifica o conteúdo escaneado em busca de sinais de alerta, no próprio celular. Ele nunca diz que algo é seguro: \"Nenhum alerta encontrado\" significa que nenhuma das suas verificações bateu.",
+  "boiler_h": "Texto padrão",
+  "boiler": "Verdetto: QR &amp; Barcode Scanner é um aplicativo gratuito para Android do Verdetto, um desenvolvedor independente na Virgínia. Ele lê códigos QR e de barras, inclusive danificados, mostra à pessoa exatamente o que um código contém antes que qualquer coisa abra, e verifica links, redes Wi-Fi, endereços de pagamento e números de telefone em busca de sinais de alerta conhecidos, no próprio celular. Sua lista de entradas conhecidas de phishing e golpes é montada abertamente a partir de fontes públicas, e sua assinatura é conferida no aparelho. O aplicativo não tem anúncios, contas nem análises de uso; uma contribuição única e opcional apoia o desenvolvimento, e nada fica trancado atrás dela. Verdetto se pronuncia \"ver-DET-o\" e é veredicto em italiano.",
+  "facts_h": "Fatos que você pode conferir",
+  "facts": [
+   "Plataforma: Android 8 ou mais recente. Preço: grátis. Anúncios: nenhum. Contas: nenhuma. Análises de uso: nenhuma.",
+   "A leitura e todas as verificações embutidas rodam no celular. As consultas online vêm ativadas e podem ser desligadas com um único botão; as consultas de produtos têm um botão próprio.",
+   "Lê códigos QR e de barras, incluindo EAN, UPC, Code 128, Data Matrix, PDF417 e Aztec.",
+   "A lista de segurança é construída abertamente em <a href=\"https://github.com/verdettoqr/link-safety-list\">github.com/verdettoqr/link-safety-list</a> e atualizada quatro vezes por dia; o aplicativo verifica a assinatura dela antes de usar.",
+   "O que o aplicativo nunca diz: que um link, uma rede ou um produto é seguro. A frase é \"Nenhum alerta encontrado\".",
+   "Base da comparação: os dez leitores de QR gratuitos mais instalados no Google Play em 4 de setembro de 2026, identificados pelo número de instalações naquele dia; o rótulo de anúncios de cada página e suas avaliações mais relevantes, lidos no mesmo dia; \"botão falso\" é a descrição de quem avaliou, não a nossa; nenhum leitor é nomeado; a lista e as anotações ficam arquivadas.",
+   "Política de privacidade: {PRIVACY_LINK}.",
+   "Termos: {TERMS_LINK}."
+  ],
+  "assets_h": "Imagens",
+  "assets": [
+   "<a href=\"icon-512.png\">Ícone do app, PNG de 512 px</a> e <a href=\"logo.svg\">o ícone em SVG</a>. Fundo menta, símbolo QR em verde-azulado escuro, um padrão localizador âmbar.",
+   "<a href=\"lockup-teal-amber.png\">Assinatura visual, símbolo e nome, PNG transparente</a> para fundos claros (corpo verde-azulado, destaque âmbar) e <a href=\"lockup-white-amber.png\">a mesma com corpo branco</a> para fundos escuros; o símbolo mantém suas cores e fica na altura das maiúsculas do nome.",
+   "<a href=\"og-image.png\">Imagem de compartilhamento, 1200 × 630</a> e <a href=\"play-header-4096x2304.jpg\">banner largo, 4096 × 2304</a>.",
+   "<a href=\"screens/result-sheet.webp\">Captura da folha de resultado</a>: um link escaneado mostrado antes de abrir, com o chip \"Nenhum alerta encontrado\".",
+   "<a href=\"screens/result-sheet-warning.webp\">Folha de resultado, estado de alerta</a>: um endereço parecido (paypa1.com) marcado como imitação de paypal.com antes que qualquer coisa abra."
+  ],
+  "no_alter": "Por favor, não altere as cores do ícone nem adicione efeitos; o símbolo é a marca.",
+  "trademark": "Verdetto e o símbolo QR do Verdetto são marcas; um pedido de registro de VERDETTO está pendente nos Estados Unidos (nº de série 50092495).",
+  "contact": "Contato"
+ },
+ "id": {
+  "title": "Kit pers",
+  "desc": "Deskripsi satu kalimat, teks baku, fakta yang bisa diperiksa, dan aset gambar untuk menulis tentang Verdetto: QR & Barcode Scanner.",
+  "meta": "Semua yang diperlukan untuk menggambarkan Verdetto secara akurat, di satu tempat. Kutip dengan bebas; kalimat di bawah adalah yang kami pakai di mana-mana.",
+  "lead": "Dalam satu kalimat.",
+  "sentence": "Verdetto adalah pemindai kode QR dan barcode gratis untuk Android tanpa iklan dan tanpa tombol palsu. Ia menampilkan tautan sebelum dibuka, dibuat untuk membaca kode yang rusak, dan memeriksa konten hasil pindaian untuk tanda-tanda peringatan di ponsel. Ia tidak pernah mengatakan sesuatu aman: \"Tidak ada peringatan ditemukan\" berarti tidak satu pun pemeriksaannya cocok.",
+  "boiler_h": "Teks baku",
+  "boiler": "Verdetto: QR &amp; Barcode Scanner adalah aplikasi Android gratis dari Verdetto, seorang pengembang independen di Virginia. Ia membaca kode QR dan barcode, termasuk yang rusak, menunjukkan kepada orang persis apa isi sebuah kode sebelum apa pun terbuka, dan memeriksa tautan, jaringan Wi-Fi, alamat pembayaran, dan nomor telepon untuk tanda-tanda peringatan yang dikenal, di ponsel itu sendiri. Daftar entri phishing dan penipuan yang dikenalnya disusun secara terbuka dari sumber publik, dan tanda tangannya diperiksa di perangkat. Aplikasi ini tanpa iklan, tanpa akun, dan tanpa analitik; kontribusi sekali bayar yang opsional mendukung pengembangan, dan tidak ada yang dikunci di baliknya. Verdetto diucapkan \"ver-DET-o\" dan berarti putusan dalam bahasa Italia.",
+  "facts_h": "Fakta yang bisa Anda periksa",
+  "facts": [
+   "Platform: Android 8 ke atas. Harga: gratis. Iklan: tidak ada. Akun: tidak ada. Analitik: tidak ada.",
+   "Pemindaian dan setiap pemeriksaan bawaan berjalan di ponsel. Pencarian online aktif secara bawaan dan bisa dimatikan dengan satu sakelar; pencarian produk punya sakelar sendiri.",
+   "Membaca kode QR dan barcode termasuk EAN, UPC, Code 128, Data Matrix, PDF417, dan Aztec.",
+   "Daftar keamanan dibangun secara terbuka di <a href=\"https://github.com/verdettoqr/link-safety-list\">github.com/verdettoqr/link-safety-list</a> dan diperbarui empat kali sehari; aplikasi memverifikasi tanda tangannya sebelum dipakai.",
+   "Yang tidak pernah dikatakan aplikasi: bahwa sebuah tautan, jaringan, atau produk aman. Kata-katanya adalah \"Tidak ada peringatan ditemukan\".",
+   "Dasar perbandingan: sepuluh pemindai QR gratis dengan pemasangan terbanyak di Google Play per 4 September 2026, ditentukan dari jumlah pemasangan hari itu; label iklan setiap halaman dan ulasan paling relevannya dibaca pada hari yang sama; \"tombol palsu\" adalah gambaran para pengulas, bukan kami; tidak ada pemindai yang disebut namanya; daftar dan catatannya kami simpan.",
+   "Kebijakan privasi: {PRIVACY_LINK}.",
+   "Ketentuan: {TERMS_LINK}."
+  ],
+  "assets_h": "Aset",
+  "assets": [
+   "<a href=\"icon-512.png\">Ikon aplikasi, PNG 512 px</a> dan <a href=\"logo.svg\">ikon dalam SVG</a>. Latar mint, simbol QR teal gelap, satu pola pencari berwarna amber.",
+   "<a href=\"lockup-teal-amber.png\">Lockup, simbol dan nama, PNG transparan</a> untuk latar terang (badan teal, aksen amber) dan <a href=\"lockup-white-amber.png\">versi yang sama dengan badan putih</a> untuk latar gelap; simbol mempertahankan warnanya dan sejajar dengan tinggi huruf kapital nama.",
+   "<a href=\"og-image.png\">Gambar berbagi, 1200 × 630</a> dan <a href=\"play-header-4096x2304.jpg\">banner lebar, 4096 × 2304</a>.",
+   "<a href=\"screens/result-sheet.webp\">Tangkapan layar lembar hasil</a>: tautan hasil pindaian yang ditampilkan sebelum dibuka, dengan chip \"Tidak ada peringatan ditemukan\".",
+   "<a href=\"screens/result-sheet-warning.webp\">Lembar hasil, keadaan peringatan</a>: alamat yang mirip (paypa1.com) ditandai sebagai tiruan paypal.com sebelum apa pun terbuka."
+  ],
+  "no_alter": "Mohon jangan mengubah warna ikon atau menambahkan efek; simbol itu adalah mereknya.",
+  "trademark": "Verdetto dan simbol QR Verdetto adalah merek dagang; permohonan pendaftaran VERDETTO sedang diproses di Amerika Serikat (nomor seri 50092495).",
+  "contact": "Kontak"
+ },
+ "ru": {
+  "title": "Пресс-кит",
+  "desc": "Описание в одном предложении, стандартный текст, проверяемые факты и графика для тех, кто пишет о Verdetto: QR & Barcode Scanner.",
+  "meta": "Всё, что нужно, чтобы точно описать Verdetto, в одном месте. Цитируйте свободно; предложение ниже мы используем везде.",
+  "lead": "В одном предложении.",
+  "sentence": "Verdetto — бесплатный сканер QR-кодов и штрихкодов для Android без рекламы и без ложных кнопок. Он показывает ссылку до того, как она откроется, создан для чтения повреждённых кодов и проверяет отсканированное на признаки опасности прямо на телефоне. Он никогда не говорит, что что-то безопасно: «Предупреждений не найдено» означает, что ни одна из его проверок не сработала.",
+  "boiler_h": "Стандартный текст",
+  "boiler": "Verdetto: QR &amp; Barcode Scanner — бесплатное приложение для Android от Verdetto, независимого разработчика из Вирджинии. Оно читает QR-коды и штрихкоды, в том числе повреждённые, показывает человеку, что именно содержит код, до того как что-либо откроется, и проверяет ссылки, сети Wi-Fi, платёжные адреса и номера телефонов на известные признаки опасности прямо на телефоне. Его список известных фишинговых и мошеннических записей собирается открыто из публичных источников, а подпись списка проверяется на устройстве. В приложении нет рекламы, учётных записей и аналитики; необязательный разовый взнос поддерживает разработку, и ничто за ним не заперто. Verdetto произносится «вер-ДЕТ-то» и по-итальянски означает «вердикт».",
+  "facts_h": "Факты, которые можно проверить",
+  "facts": [
+   "Платформа: Android 8 и новее. Цена: бесплатно. Реклама: нет. Учётные записи: нет. Аналитика: нет.",
+   "Сканирование и каждая встроенная проверка выполняются на телефоне. Онлайн-запросы включены по умолчанию и отключаются одним переключателем; у запросов о товарах свой переключатель.",
+   "Читает QR-коды и штрихкоды, включая EAN, UPC, Code 128, Data Matrix, PDF417 и Aztec.",
+   "Список безопасности собирается открыто на <a href=\"https://github.com/verdettoqr/link-safety-list\">github.com/verdettoqr/link-safety-list</a> и обновляется четыре раза в день; приложение проверяет его подпись перед использованием.",
+   "Чего приложение никогда не говорит: что ссылка, сеть или товар безопасны. Формулировка: «Предупреждений не найдено».",
+   "База сравнения: десять самых устанавливаемых бесплатных QR-сканеров в Google Play на 4 сентября 2026 года, определённые по числу установок в тот день; метка о рекламе у каждой страницы и её самые релевантные отзывы прочитаны в тот же день; «ложная кнопка» — описание авторов отзывов, а не наше; ни один сканер не назван; список и заметки хранятся у нас.",
+   "Политика конфиденциальности: {PRIVACY_LINK}.",
+   "Условия: {TERMS_LINK}."
+  ],
+  "assets_h": "Материалы",
+  "assets": [
+   "<a href=\"icon-512.png\">Значок приложения, PNG 512 px</a> и <a href=\"logo.svg\">значок в SVG</a>. Мятный фон, тёмно-бирюзовый знак QR, один янтарный поисковый узор.",
+   "<a href=\"lockup-teal-amber.png\">Логоблок, знак и имя, прозрачный PNG</a> для светлых фонов (бирюзовое тело, янтарный акцент) и <a href=\"lockup-white-amber.png\">тот же с белым телом</a> для тёмных фонов; знак сохраняет свои цвета и стоит на высоте прописных букв имени.",
+   "<a href=\"og-image.png\">Изображение для ссылок, 1200 × 630</a> и <a href=\"play-header-4096x2304.jpg\">широкий баннер, 4096 × 2304</a>.",
+   "<a href=\"screens/result-sheet.webp\">Снимок листа результата</a>: отсканированная ссылка показана до открытия, с чипом «Предупреждений не найдено».",
+   "<a href=\"screens/result-sheet-warning.webp\">Лист результата в состоянии предупреждения</a>: похожий адрес (paypa1.com) помечен как имитация paypal.com до того, как что-либо откроется."
+  ],
+  "no_alter": "Пожалуйста, не меняйте цвета значка и не добавляйте эффекты; знак и есть бренд.",
+  "trademark": "Verdetto и знак Verdetto QR являются товарными знаками; заявка на VERDETTO в США находится на рассмотрении (серийный номер 50092495).",
+  "contact": "Контакт"
+ },
+ "hi": {
+  "title": "प्रेस किट",
+  "desc": "Verdetto: QR & Barcode Scanner के बारे में लिखने के लिए एक वाक्य का विवरण, मानक पाठ, जाँचने योग्य तथ्य और चित्र सामग्री।",
+  "meta": "Verdetto का सही वर्णन करने के लिए जो कुछ चाहिए, एक जगह। बेझिझक उद्धृत करें; नीचे का वाक्य वही है जो हम हर जगह इस्तेमाल करते हैं।",
+  "lead": "एक वाक्य में।",
+  "sentence": "Verdetto Android के लिए एक मुफ़्त QR कोड और बारकोड स्कैनर है, जिसमें न विज्ञापन हैं, न नकली बटन। यह लिंक खुलने से पहले उसे दिखाता है, क्षतिग्रस्त कोड पढ़ने के लिए बनाया गया है, और स्कैन की गई सामग्री में चेतावनी के संकेत फ़ोन पर ही जाँचता है। यह कभी नहीं कहता कि कुछ सुरक्षित है: \"कोई चेतावनी नहीं मिली\" का मतलब है कि इसकी कोई जाँच मेल नहीं खाई।",
+  "boiler_h": "मानक पाठ",
+  "boiler": "Verdetto: QR &amp; Barcode Scanner Verdetto का एक मुफ़्त Android ऐप है, जिसे वर्जीनिया में एक स्वतंत्र डेवलपर बनाता है। यह QR कोड और बारकोड पढ़ता है, क्षतिग्रस्त कोड भी, कुछ भी खुलने से पहले व्यक्ति को ठीक-ठीक दिखाता है कि कोड में क्या है, और लिंक, Wi-Fi नेटवर्क, भुगतान पते और फ़ोन नंबरों को ज्ञात चेतावनी संकेतों के लिए फ़ोन पर ही जाँचता है। ज्ञात फ़िशिंग और धोखाधड़ी प्रविष्टियों की इसकी सूची सार्वजनिक स्रोतों से खुले तौर पर बनाई जाती है, और उसका हस्ताक्षर डिवाइस पर जाँचा जाता है। ऐप में न विज्ञापन हैं, न खाते, न एनालिटिक्स; एक वैकल्पिक एक बार का योगदान विकास में मदद करता है, और उसके पीछे कुछ भी बंद नहीं है। Verdetto का उच्चारण \"वेर-डेट-ओ\" है और इतालवी में इसका अर्थ है फ़ैसला।",
+  "facts_h": "तथ्य जो आप जाँच सकते हैं",
+  "facts": [
+   "प्लैटफ़ॉर्म: Android 8 और बाद के संस्करण। कीमत: मुफ़्त। विज्ञापन: कोई नहीं। खाते: कोई नहीं। एनालिटिक्स: कोई नहीं।",
+   "स्कैनिंग और हर अंतर्निर्मित जाँच फ़ोन पर चलती है। ऑनलाइन खोज डिफ़ॉल्ट रूप से चालू है और एक स्विच से बंद की जा सकती है; उत्पाद खोज का अपना अलग स्विच है।",
+   "QR कोड और बारकोड पढ़ता है, जिनमें EAN, UPC, Code 128, Data Matrix, PDF417 और Aztec शामिल हैं।",
+   "सुरक्षा सूची <a href=\"https://github.com/verdettoqr/link-safety-list\">github.com/verdettoqr/link-safety-list</a> पर खुले तौर पर बनाई जाती है और दिन में चार बार ताज़ा होती है; ऐप इस्तेमाल से पहले उसका हस्ताक्षर सत्यापित करता है।",
+   "ऐप जो कभी नहीं कहता: कि कोई लिंक, नेटवर्क या उत्पाद सुरक्षित है। शब्द हैं \"कोई चेतावनी नहीं मिली\"।",
+   "तुलना का आधार: 4 सितंबर 2026 तक Google Play पर सबसे अधिक इंस्टॉल किए गए दस मुफ़्त QR स्कैनर, उस दिन की इंस्टॉल संख्या से पहचाने गए; हर लिस्टिंग का विज्ञापन लेबल और उसकी सबसे प्रासंगिक समीक्षाएँ उसी दिन पढ़ी गईं; \"नकली बटन\" समीक्षकों का वर्णन है, हमारा नहीं; किसी स्कैनर का नाम नहीं लिया गया; सूची और नोट हमारे पास रखे हैं।",
+   "गोपनीयता नीति: {PRIVACY_LINK}।",
+   "शर्तें: {TERMS_LINK}।"
+  ],
+  "assets_h": "सामग्री",
+  "assets": [
+   "<a href=\"icon-512.png\">ऐप आइकन, 512 px PNG</a> और <a href=\"logo.svg\">SVG में आइकन</a>। पुदीना रंग की पृष्ठभूमि, गहरा टील QR चिह्न, एक एम्बर फ़ाइंडर पैटर्न।",
+   "<a href=\"lockup-teal-amber.png\">लॉकअप, चिह्न और नाम, पारदर्शी PNG</a> हल्की पृष्ठभूमि के लिए (टील बॉडी, एम्बर एक्सेंट) और <a href=\"lockup-white-amber.png\">वही सफ़ेद बॉडी के साथ</a> गहरी पृष्ठभूमि के लिए; चिह्न अपने रंग बनाए रखता है और नाम की कैप ऊँचाई पर बैठता है।",
+   "<a href=\"og-image.png\">शेयर इमेज, 1200 × 630</a> और <a href=\"play-header-4096x2304.jpg\">चौड़ा बैनर, 4096 × 2304</a>।",
+   "<a href=\"screens/result-sheet.webp\">परिणाम शीट का स्क्रीनशॉट</a>: एक स्कैन किया गया लिंक खुलने से पहले दिखाया गया, \"कोई चेतावनी नहीं मिली\" चिप के साथ।",
+   "<a href=\"screens/result-sheet-warning.webp\">परिणाम शीट, चेतावनी अवस्था</a>: एक मिलता-जुलता पता (paypa1.com) कुछ भी खुलने से पहले paypal.com की नक़ल के रूप में चिह्नित।"
+  ],
+  "no_alter": "कृपया आइकन के रंग न बदलें और कोई प्रभाव न जोड़ें; चिह्न ही ब्रांड है।",
+  "trademark": "Verdetto और Verdetto QR चिह्न ट्रेडमार्क हैं; VERDETTO के लिए संयुक्त राज्य अमेरिका में एक आवेदन लंबित है (क्रम संख्या 50092495)।",
+  "contact": "संपर्क"
+ },
+ "ja": {
+  "title": "プレスキット",
+  "desc": "Verdetto: QR & Barcode Scanner について書くための一文の説明、定型文、確認できる事実、画像素材。",
+  "meta": "Verdetto を正確に説明するために必要なものを一か所に。自由に引用してください。下の一文は、私たちがどこでも使っているものです。",
+  "lead": "一文で。",
+  "sentence": "Verdetto は、広告も偽のボタンもない、Android 向けの無料 QR コード・バーコードスキャナーです。リンクを開く前に表示し、傷んだコードを読めるように作られ、読み取った内容に警告のサインがないかを端末上で確認します。何かが安全だとは決して言いません。「警告は見つかりませんでした」は、どの確認にも該当しなかったという意味です。",
+  "boiler_h": "定型文",
+  "boiler": "Verdetto: QR &amp; Barcode Scanner は、バージニア州の個人開発者 Verdetto による無料の Android アプリです。傷んだものを含む QR コードとバーコードを読み取り、何かが開く前にコードの中身をそのまま表示し、リンク、Wi-Fi ネットワーク、支払い先アドレス、電話番号に既知の警告サインがないかを端末上で確認します。既知のフィッシングや詐欺の一覧は公開されたフィードから公開の場で作られ、その署名は端末上で検証されます。アプリには広告もアカウントも解析もありません。任意の一回限りの支援が開発を支え、その先に何かが隠されていることはありません。Verdetto は「ヴェル・デット」と読み、イタリア語で「判決」を意味します。",
+  "facts_h": "確認できる事実",
+  "facts": [
+   "プラットフォーム: Android 8 以降。価格: 無料。広告: なし。アカウント: なし。解析: なし。",
+   "読み取りと内蔵の確認はすべて端末上で行われます。オンライン照会は初期状態でオンで、スイッチ一つで切れます。商品照会には専用のスイッチがあります。",
+   "EAN、UPC、Code 128、Data Matrix、PDF417、Aztec を含む QR コードとバーコードを読み取ります。",
+   "安全リストは <a href=\"https://github.com/verdettoqr/link-safety-list\">github.com/verdettoqr/link-safety-list</a> で公開の場で作られ、一日四回更新されます。アプリは使用前にその署名を検証します。",
+   "アプリが決して言わないこと: リンク、ネットワーク、商品が安全だということ。表現は「警告は見つかりませんでした」です。",
+   "比較の基準: 2026 年 9 月 4 日時点で Google Play のインストール数上位十本の無料 QR スキャナーを、その日のインストール数で特定。各掲載の広告表示と最も参考になるレビューを同じ日に確認。「偽のボタン」はレビュー投稿者の表現で、私たちのものではありません。スキャナー名は挙げません。一覧とメモは保管しています。",
+   "プライバシーポリシー: {PRIVACY_LINK}",
+   "利用規約: {TERMS_LINK}"
+  ],
+  "assets_h": "素材",
+  "assets": [
+   "<a href=\"icon-512.png\">アプリアイコン、512 px PNG</a> と <a href=\"logo.svg\">SVG 版のアイコン</a>。ミントの地、濃いティールの QR マーク、一つの琥珀色のファインダー。",
+   "明るい地向けの <a href=\"lockup-teal-amber.png\">ロックアップ（マークと名前）、透過 PNG</a>（ティールの本体、琥珀のアクセント）と、暗い地向けの <a href=\"lockup-white-amber.png\">本体が白の同じもの</a>。マークは色を保ち、名前のキャップハイトに揃います。",
+   "<a href=\"og-image.png\">シェア画像、1200 × 630</a> と <a href=\"play-header-4096x2304.jpg\">横長バナー、4096 × 2304</a>。",
+   "<a href=\"screens/result-sheet.webp\">結果シートのスクリーンショット</a>: 読み取ったリンクを開く前に表示し、「警告は見つかりませんでした」のチップ付き。",
+   "<a href=\"screens/result-sheet-warning.webp\">結果シート、警告の状態</a>: 見間違えやすいアドレス（paypa1.com）を、何かが開く前に paypal.com の模倣として警告。"
+  ],
+  "no_alter": "アイコンの色を変えたり、効果を加えたりしないでください。マークがブランドです。",
+  "trademark": "Verdetto と Verdetto QR マークは商標です。VERDETTO の米国出願が審査中です（シリアル番号 50092495）。",
+  "contact": "連絡先"
+ },
+ "zh-Hans": {
+  "title": "媒体资料",
+  "desc": "撰写 Verdetto: QR & Barcode Scanner 相关内容所需的一句话简介、标准介绍、可核实的事实和图片素材。",
+  "meta": "准确描述 Verdetto 所需的一切，集中在一处。欢迎自由引用；下面这句话是我们在各处统一使用的。",
+  "lead": "一句话。",
+  "sentence": "Verdetto 是一款面向 Android 的免费二维码和条形码扫描器，没有广告，也没有假按钮。它在链接打开前先显示链接，专为读取受损的码而设计，并在手机上检查扫描内容是否有警告迹象。它从不说任何东西是安全的：“未发现警告”表示它的各项检查均未命中。",
+  "boiler_h": "标准介绍",
+  "boiler": "Verdetto: QR &amp; Barcode Scanner 是 Verdetto 出品的免费 Android 应用，开发者是弗吉尼亚州的一位独立开发者。它读取二维码和条形码（包括受损的码），在任何内容打开之前向用户完整显示码中的内容，并在手机本地检查链接、Wi-Fi 网络、付款地址和电话号码是否带有已知的警告迹象。它的已知钓鱼与诈骗条目列表由公开来源公开编制，签名在设备上校验。应用没有广告、没有账户、没有分析统计；可选的一次性支持用于开发，没有任何功能被锁在其后。Verdetto 读作“ver-DET-oh”，在意大利语中意为“判决”。",
+  "facts_h": "可核实的事实",
+  "facts": [
+   "平台：Android 8 及更高版本。价格：免费。广告：无。账户：无。分析统计：无。",
+   "扫描和所有内置检查都在手机上运行。在线查询默认开启，一个开关即可关闭；商品查询有单独的开关。",
+   "读取二维码和条形码，包括 EAN、UPC、Code 128、Data Matrix、PDF417 和 Aztec。",
+   "安全列表在 <a href=\"https://github.com/verdettoqr/link-safety-list\">github.com/verdettoqr/link-safety-list</a> 公开构建，每天更新四次；应用在使用前校验其签名。",
+   "应用从不说的话：某个链接、网络或商品是安全的。措辞是“未发现警告”。",
+   "比较依据：截至 2026 年 9 月 4 日 Google Play 上安装量最高的十款免费二维码扫描器，按当日安装量确定；每个商店页面的广告标注及其最相关的评价于同日阅读；“假按钮”是评价者的说法，不是我们的；不点名任何扫描器；名单和记录留存备查。",
+   "隐私政策：{PRIVACY_LINK}。",
+   "使用条款：{TERMS_LINK}。"
+  ],
+  "assets_h": "素材",
+  "assets": [
+   "<a href=\"icon-512.png\">应用图标，512 px PNG</a> 和 <a href=\"logo.svg\">SVG 格式的图标</a>。薄荷色底，深青色二维码标志，一个琥珀色定位图案。",
+   "用于浅色背景的 <a href=\"lockup-teal-amber.png\">标志组合（标志加名称），透明 PNG</a>（青色主体，琥珀色点缀），以及用于深色背景的 <a href=\"lockup-white-amber.png\">白色主体的同一版本</a>；标志保持原色，与名称的大写字母高度对齐。",
+   "<a href=\"og-image.png\">分享图，1200 × 630</a> 和 <a href=\"play-header-4096x2304.jpg\">宽幅横幅，4096 × 2304</a>。",
+   "<a href=\"screens/result-sheet.webp\">结果面板截图</a>：扫描到的链接在打开前显示，带有“未发现警告”标签。",
+   "<a href=\"screens/result-sheet-warning.webp\">结果面板，警告状态</a>：一个仿冒地址（paypa1.com）在任何内容打开前被标记为模仿 paypal.com。"
+  ],
+  "no_alter": "请不要更改图标的颜色或添加效果；这个标志就是品牌。",
+  "trademark": "Verdetto 和 Verdetto 二维码标志是商标；VERDETTO 的美国商标申请正在审查中（序列号 50092495）。",
+  "contact": "联系方式"
+ },
+ "ar": {
+  "title": "ملف الصحافة",
+  "desc": "الوصف في جملة واحدة، والنص المعياري، وحقائق يمكن التحقق منها، وصور للكتابة عن Verdetto: QR & Barcode Scanner.",
+  "meta": "كل ما يلزم لوصف Verdetto بدقة، في مكان واحد. اقتبس بحرية؛ الجملة أدناه هي التي نستخدمها في كل مكان.",
+  "lead": "في جملة واحدة.",
+  "sentence": "Verdetto قارئ مجاني لرموز QR والباركود على Android، بلا إعلانات وبلا أزرار زائفة. يعرض الرابط قبل أن يُفتح، ومصمَّم لقراءة الرموز المتضررة، ويفحص المحتوى الممسوح بحثًا عن علامات تحذير على الهاتف نفسه. لا يقول أبدًا إن شيئًا ما آمن: «لم يُعثر على تحذيرات» تعني أن أيًا من فحوصه لم يطابق.",
+  "boiler_h": "النص المعياري",
+  "boiler": "Verdetto: QR &amp; Barcode Scanner تطبيق Android مجاني من Verdetto، مطوّر مستقل في فرجينيا. يقرأ رموز QR والباركود، بما فيها المتضررة، ويُظهر للشخص بالضبط ما يحتويه الرمز قبل أن يُفتح أي شيء، ويفحص الروابط وشبكات Wi-Fi وعناوين الدفع وأرقام الهواتف بحثًا عن علامات تحذير معروفة على الهاتف نفسه. قائمته بمدخلات التصيّد والاحتيال المعروفة تُجمَع بشكل مفتوح من مصادر عامة، ويُتحقَّق من توقيعها على الجهاز. لا إعلانات في التطبيق ولا حسابات ولا تحليلات؛ مساهمة اختيارية لمرة واحدة تدعم التطوير، ولا شيء مقفل خلفها. يُلفَظ Verdetto «فير-دِت-و» ويعني «الحُكم» بالإيطالية.",
+  "facts_h": "حقائق يمكنك التحقق منها",
+  "facts": [
+   "المنصة: Android 8 وما بعده. السعر: مجاني. الإعلانات: لا شيء. الحسابات: لا شيء. التحليلات: لا شيء.",
+   "المسح وكل فحص مدمج يعملان على الهاتف. عمليات البحث عبر الإنترنت مفعّلة افتراضيًا ويمكن إيقافها بمفتاح واحد؛ ولبحث المنتجات مفتاح خاص به.",
+   "يقرأ رموز QR والباركود بما فيها EAN وUPC وCode 128 وData Matrix وPDF417 وAztec.",
+   "تُبنى قائمة الأمان بشكل مفتوح على <a href=\"https://github.com/verdettoqr/link-safety-list\">github.com/verdettoqr/link-safety-list</a> وتُحدَّث أربع مرات يوميًا؛ ويتحقق التطبيق من توقيعها قبل الاستخدام.",
+   "ما لا يقوله التطبيق أبدًا: أن رابطًا أو شبكة أو منتجًا آمن. الصياغة هي «لم يُعثر على تحذيرات».",
+   "أساس المقارنة: أكثر عشرة قارئات QR مجانية تثبيتًا على Google Play بتاريخ 4 سبتمبر 2026، حُددت بعدد التثبيتات في ذلك اليوم؛ وقُرئت في اليوم نفسه علامة الإعلانات لكل صفحة وأكثر مراجعاتها صلة؛ و«الزر الزائف» وصفُ المراجعين لا وصفنا؛ ولا يُسمّى أي قارئ؛ والقائمة والملاحظات محفوظة لدينا.",
+   "سياسة الخصوصية: {PRIVACY_LINK}.",
+   "الشروط: {TERMS_LINK}."
+  ],
+  "assets_h": "المواد",
+  "assets": [
+   "<a href=\"icon-512.png\">أيقونة التطبيق، PNG بحجم 512 بكسل</a> و<a href=\"logo.svg\">الأيقونة بصيغة SVG</a>. أرضية بلون النعناع، علامة QR بلون أزرق مخضرّ داكن، ونمط تحديد واحد بلون كهرماني.",
+   "<a href=\"lockup-teal-amber.png\">الشعار المركّب، العلامة والاسم، PNG شفاف</a> للأرضيات الفاتحة (جسم أزرق مخضرّ، لمسة كهرمانية) و<a href=\"lockup-white-amber.png\">النسخة نفسها بجسم أبيض</a> للأرضيات الداكنة؛ تحتفظ العلامة بألوانها وتقف على ارتفاع الأحرف الكبيرة في الاسم.",
+   "<a href=\"og-image.png\">صورة المشاركة، 1200 × 630</a> و<a href=\"play-header-4096x2304.jpg\">لافتة عريضة، 4096 × 2304</a>.",
+   "<a href=\"screens/result-sheet.webp\">لقطة شاشة لورقة النتيجة</a>: رابط ممسوح يُعرض قبل أن يُفتح، مع شارة «لم يُعثر على تحذيرات».",
+   "<a href=\"screens/result-sheet-warning.webp\">ورقة النتيجة في حالة التحذير</a>: عنوان مشابه (paypa1.com) مُعلَّم بوصفه تقليدًا لـ paypal.com قبل أن يُفتح أي شيء."
+  ],
+  "no_alter": "يُرجى عدم تغيير ألوان الأيقونة أو إضافة تأثيرات؛ فالعلامة هي الهوية.",
+  "trademark": "Verdetto وعلامة Verdetto QR علامتان تجاريتان؛ وهناك طلب تسجيل لـ VERDETTO قيد النظر في الولايات المتحدة (الرقم التسلسلي 50092495).",
+  "contact": "للتواصل"
+ }
+}
+
+
+def press_body(t, code):
+    """The press kit from its strings table, in the English page's structure; asset and repository links are constant,
+    the policy links follow the language."""
+    def policy(base):
+        h = href(localized(base, code))
+        return f'<a href="{h}">verdettoqr.com{h}</a>'
+    priv, terms = policy("privacy.html"), policy("terms.html")
+    items = [x.replace("{PRIVACY_LINK}", priv).replace("{TERMS_LINK}", terms) for x in t["facts"]]
+    facts = "\n".join("  <li>" + x + "</li>" for x in items)
+    assets = "\n".join("  <li>" + x + "</li>" for x in t["assets"])
+    social = "".join(f'  <li>{k}: <a href="{v}">{v}</a></li>\n' for k, v in SOCIAL.items())
+    where = chrome(code)["where"].rstrip(":\uff1a")
+    return (f'\n<div class="prose">\n<h1>{t["title"]}</h1>\n<p class="meta">{t["meta"]}</p>\n\n'
+            f'<div class="card"><p><strong>{t["lead"]}</strong> {t["sentence"]}</p></div>\n\n'
+            f'<h2>{t["boiler_h"]}</h2>\n<p>{t["boiler"]}</p>\n\n'
+            f'<h2>{t["facts_h"]}</h2>\n<ul>\n{facts}\n</ul>\n\n'
+            f'<h2>{t["assets_h"]}</h2>\n<ul>\n{assets}\n</ul>\n<p>{t["no_alter"]}</p>\n<p>{t["trademark"]}</p>\n\n'
+            f'<h2>{where}</h2>\n<ul>\n{social}  <li>{t["contact"]}: <a href="mailto:{EMAIL}">{EMAIL}</a></li>\n</ul>\n</div>\n')
+
+
+def press_ld(t, code):
+    return {"@type": "WebPage", "name": t["title"], "inLanguage": code, "publisher": ORG}
+
+
+LOCAL["press.html"] = family_pages("press.html")
+
 def weekly_page():
     """The safety list this week: the producer in verdettoqr/link-safety-list writes stats/weekly.json every Monday; the
     weekly-stats workflow copies it into this repository and rebuilds, so the numbers are rendered here at build time and
@@ -2569,6 +2909,12 @@ for _code in LANG_CODES[1:]:
     _pg = LOCAL["check-qr-code-link.html"][_code]
     PAGES[_pg] = (_t["title"] + " - Verdetto", _t["desc"], guide_body(_t, _code), guide_ld(_t, _code))
     PAGE_LANG[_pg] = (_code, _code == "ar", alternates_for("check-qr-code-link.html"))
+PAGE_LANG["press.html"] = ("en", False, alternates_for("press.html"))
+for _code in LANG_CODES[1:]:
+    _t = PRESS_T[_code]
+    _pg = LOCAL["press.html"][_code]
+    PAGES[_pg] = (_t["title"] + " - Verdetto", _t["desc"], press_body(_t, _code), press_ld(_t, _code))
+    PAGE_LANG[_pg] = (_code, _code == "ar", alternates_for("press.html"))
 BENCH_PUBLISHED = False  # True once the benchmark page is cleared for the live site
 
 

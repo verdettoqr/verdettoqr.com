@@ -79,6 +79,16 @@ Official accounts: Mastodon https://mastodon.social/@VerdettoQR; Reddit https://
 - [如何在打开前检查二维码链接](https://verdettoqr.com/check-qr-code-link-zh-hans): 点开二维码链接前要看的六件事：域名、短链接、易混淆的名称、连接方式、下载，以及码出现的位置。
 - [QR कोड लिंक को खोलने से पहले उसकी जाँच कैसे करें](https://verdettoqr.com/check-qr-code-link-hi): टैप करने से पहले QR कोड के लिंक में देखने की छह बातें: डोमेन, छोटे लिंक, मिलते-जुलते नाम, कनेक्शन, डाउनलोड और कोड की जगह।
 - [كيف تفحص رابط رمز QR قبل أن تفتحه](https://verdettoqr.com/check-qr-code-link-ar): ستة أشياء تنظر إليها في رابط رمز QR قبل أن تنقر: النطاق، والروابط المختصرة، والأسماء المتشابهة، والاتصال، والتنزيلات، ومكان الرمز.
+- [Kit de prensa](https://verdettoqr.com/press-es): La descripción en una frase, el texto estándar, datos comprobables y recursos gráficos para escribir sobre Verdetto: QR & Barcode Scanner.
+- [Kit presse](https://verdettoqr.com/press-fr): La description en une phrase, le texte de présentation, des faits vérifiables et les visuels pour écrire sur Verdetto: QR & Barcode Scanner.
+- [Pressematerial](https://verdettoqr.com/press-de): Die Beschreibung in einem Satz, der Standardtext, prüfbare Fakten und Bildmaterial zum Schreiben über Verdetto: QR & Barcode Scanner.
+- [Kit de imprensa](https://verdettoqr.com/press-pt-br): A descrição em uma frase, o texto padrão, fatos verificáveis e imagens para escrever sobre o Verdetto: QR & Barcode Scanner.
+- [Пресс-кит](https://verdettoqr.com/press-ru): Описание в одном предложении, стандартный текст, проверяемые факты и графика для тех, кто пишет о Verdetto: QR & Barcode Scanner.
+- [Kit pers](https://verdettoqr.com/press-id): Deskripsi satu kalimat, teks baku, fakta yang bisa diperiksa, dan aset gambar untuk menulis tentang Verdetto: QR & Barcode Scanner.
+- [プレスキット](https://verdettoqr.com/press-ja): Verdetto: QR & Barcode Scanner について書くための一文の説明、定型文、確認できる事実、画像素材。
+- [媒体资料](https://verdettoqr.com/press-zh-hans): 撰写 Verdetto: QR & Barcode Scanner 相关内容所需的一句话简介、标准介绍、可核实的事实和图片素材。
+- [प्रेस किट](https://verdettoqr.com/press-hi): Verdetto: QR & Barcode Scanner के बारे में लिखने के लिए एक वाक्य का विवरण, मानक पाठ, जाँचने योग्य तथ्य और चित्र सामग्री।
+- [ملف الصحافة](https://verdettoqr.com/press-ar): الوصف في جملة واحدة، والنص المعياري، وحقائق يمكن التحقق منها، وصور للكتابة عن Verdetto: QR & Barcode Scanner.
 
 ## Facts
 
