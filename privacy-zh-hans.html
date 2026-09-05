@@ -53,8 +53,8 @@ html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--surface);color:var(--on-surface);font:16px/1.5 Roboto,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif}
 a{color:var(--primary)}
 :focus-visible{outline:2px solid var(--primary);outline-offset:2px;border-radius:4px}
-.skip{position:absolute;left:-999px;top:0;background:var(--primary);color:var(--on-primary);padding:.5rem 1rem;border-radius:0 0 8px 0;z-index:2}
-.skip:focus{left:0}
+.skip{position:absolute;inset-inline-start:0;top:0;transform:translateY(-150%);background:var(--primary);color:var(--on-primary);padding:.5rem 1rem;border-radius:0 0 8px 0;z-index:2}
+.skip:focus{transform:none}
 .wrap{max-width:44rem;margin:0 auto;padding:0 1rem}
 .draft{background:var(--tertiary);color:var(--on-tertiary);text-align:center;padding:.4rem;font-size:.875rem;line-height:1.25rem;font-weight:500;letter-spacing:.01em}
 header{border-bottom:1px solid var(--outline-variant)}
@@ -217,7 +217,7 @@ footer a{color:var(--primary)}
 <p>无论您住在哪里，您都可以询问我们持有关于您的什么信息，要求副本、更正或删除，或反对我们的处理。由于应用不向我们发送任何内容，我们持有的至多是您发来的一封邮件。请写信至 <a href="mailto:support@verdettoqr.com">support@verdettoqr.com</a>；我们会在您所在地法律规定的期限内答复，无论如何不超过一个月。您也可以向您所在地的数据保护机构投诉：在新加坡是个人数据保护委员会（PDPC），在马来西亚是个人数据保护局（JPDP），在欧洲经济区是您所在国家的机构，在英国是 Information Commissioner's Office，在巴西是 ANPD，在其他地方是您所在地法律指定的机构。对于加利福尼亚州及其他有隐私法的美国各州：我们不通过应用收集个人信息，也不出售或共享个人信息。</p>
 
 <h2>本网站</h2>
-<p>这些页面是静态页面，托管在 <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#data-collection">GitHub Pages</a> 上。它们不使用 Cookie，不运行分析，没有表单，除本站外不从任何地方加载内容。GitHub 可能按其自身的隐私声明保留标准的服务器日志，例如请求页面的地址和时间。</p>
+<p>这些页面是静态页面，托管在 <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#data-collection">GitHub Pages</a> 上。它们不使用 Cookie，也不运行分析。报告页面嵌入了一个 Google 表单，该表单按 Google 的隐私政策从 Google 加载；其余页面除本站外不从任何地方加载内容。GitHub 可能按其自身的隐私声明保留标准的服务器日志，例如请求页面的地址和时间。</p>
 
 <h2>变更</h2>
 <p>如果本政策有变更，新版本将连同新的生效日期在此发布。</p>

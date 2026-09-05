@@ -53,8 +53,8 @@ html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--surface);color:var(--on-surface);font:16px/1.5 Roboto,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif}
 a{color:var(--primary)}
 :focus-visible{outline:2px solid var(--primary);outline-offset:2px;border-radius:4px}
-.skip{position:absolute;left:-999px;top:0;background:var(--primary);color:var(--on-primary);padding:.5rem 1rem;border-radius:0 0 8px 0;z-index:2}
-.skip:focus{left:0}
+.skip{position:absolute;inset-inline-start:0;top:0;transform:translateY(-150%);background:var(--primary);color:var(--on-primary);padding:.5rem 1rem;border-radius:0 0 8px 0;z-index:2}
+.skip:focus{transform:none}
 .wrap{max-width:44rem;margin:0 auto;padding:0 1rem}
 .draft{background:var(--tertiary);color:var(--on-tertiary);text-align:center;padding:.4rem;font-size:.875rem;line-height:1.25rem;font-weight:500;letter-spacing:.01em}
 header{border-bottom:1px solid var(--outline-variant)}
@@ -217,7 +217,7 @@ footer a{color:var(--primary)}
 <p>Wo immer du lebst, kannst du fragen, was wir über dich haben, und eine Kopie, eine Berichtigung oder Löschung verlangen oder der Verarbeitung widersprechen. Da die App uns nichts sendet, ist das, was wir haben, höchstens eine E-Mail von dir. Schreib an <a href="mailto:support@verdettoqr.com">support@verdettoqr.com</a>; wir antworten innerhalb der Frist, die dein Recht setzt, und in jedem Fall innerhalb eines Monats. Du kannst dich auch bei deiner Datenschutzaufsicht beschweren: im Europäischen Wirtschaftsraum bei der Behörde deines Landes (in Deutschland bei der Datenschutzaufsicht deines Bundeslandes, in Österreich bei der Datenschutzbehörde); in der Schweiz beim EDÖB; im Vereinigten Königreich beim Information Commissioner's Office; in Brasilien bei der ANPD; anderswo bei der Behörde, die dein Recht nennt. In Kalifornien und den anderen US-Bundesstaaten mit Datenschutzgesetzen: Wir erheben über die App keine personenbezogenen Informationen und verkaufen oder teilen sie nicht.</p>
 
 <h2>Diese Website</h2>
-<p>Diese Seiten sind statisch und werden auf <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#data-collection">GitHub Pages</a> gehostet. Sie setzen keine Cookies, führen keine Analyse aus, haben keine Formulare und laden nichts von anderswo als dieser Website. GitHub kann übliche Server-Protokolle führen, etwa die Adresse, von der eine Seite abgerufen wurde, und den Zeitpunkt, nach seiner eigenen Datenschutzerklärung.</p>
+<p>Diese Seiten sind statisch und werden auf <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#data-collection">GitHub Pages</a> gehostet. Sie setzen keine Cookies und führen keine Analyse aus. Die Meldeseite bettet ein Google-Formular ein, das nach Googles Datenschutzerklärung von Google geladen wird; jede andere Seite lädt nichts von anderswo als dieser Website. GitHub kann übliche Server-Protokolle führen, etwa die Adresse, von der eine Seite abgerufen wurde, und den Zeitpunkt, nach seiner eigenen Datenschutzerklärung.</p>
 
 <h2>Änderungen</h2>
 <p>Ändert sich diese Erklärung, wird die neue Fassung hier mit neuem Gültigkeitsdatum veröffentlicht.</p>

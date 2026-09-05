@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; font-src 'self'; script-src 'sha256-z8dwWCc7kg+sZcasct5YZpH/Q227T57Ipuw74neSWhk='; frame-src https://docs.google.com; base-uri 'none'; form-action 'none'">
 <title>Report to Verdetto</title>
-<meta name="description" content="Report a link that looks like a scam, a code the app read wrong, or anything else that isn't right in Verdetto: QR &amp; Barcode Scanner. A person reviews every report.">
+<meta name="description" content="Report a scam-looking link, a code the app read wrong, or anything else that isn't right in Verdetto: QR &amp; Barcode Scanner. A person reviews every report.">
 <link rel="canonical" href="https://verdettoqr.com/report">
 <link rel="me" href="https://mastodon.social/@VerdettoQR">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#E9F5F1">
@@ -16,7 +16,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Verdetto">
 <meta property="og:title" content="Report to Verdetto">
-<meta property="og:description" content="Report a link that looks like a scam, a code the app read wrong, or anything else that isn't right in Verdetto: QR &amp; Barcode Scanner. A person reviews every report.">
+<meta property="og:description" content="Report a scam-looking link, a code the app read wrong, or anything else that isn't right in Verdetto: QR &amp; Barcode Scanner. A person reviews every report.">
 <meta property="og:url" content="https://verdettoqr.com/report">
 <meta property="og:image" content="https://verdettoqr.com/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -24,7 +24,7 @@
 <meta property="og:image:alt" content="Verdetto icon with the words QR &amp; Barcode Scanner for Android, See the link before it opens.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Report to Verdetto">
-<meta name="twitter:description" content="Report a link that looks like a scam, a code the app read wrong, or anything else that isn't right in Verdetto: QR &amp; Barcode Scanner. A person reviews every report.">
+<meta name="twitter:description" content="Report a scam-looking link, a code the app read wrong, or anything else that isn't right in Verdetto: QR &amp; Barcode Scanner. A person reviews every report.">
 <meta name="twitter:image" content="https://verdettoqr.com/og-image.png">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Report to Verdetto", "publisher": {"@type": "Organization", "name": "Verdetto", "url": "https://verdettoqr.com/", "email": "support@verdettoqr.com", "logo": "https://verdettoqr.com/icon-512.png", "sameAs": ["https://mastodon.social/@VerdettoQR", "https://www.reddit.com/user/VerdettoQR/", "https://github.com/verdettoqr"], "address": {"@type": "PostalAddress", "streetAddress": "1520 Belle View Blvd, Suite #5992", "addressLocality": "Alexandria", "addressRegion": "VA", "postalCode": "22307", "addressCountry": "US"}}}</script>
 <style>
@@ -41,8 +41,8 @@ html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--surface);color:var(--on-surface);font:16px/1.5 Roboto,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif}
 a{color:var(--primary)}
 :focus-visible{outline:2px solid var(--primary);outline-offset:2px;border-radius:4px}
-.skip{position:absolute;left:-999px;top:0;background:var(--primary);color:var(--on-primary);padding:.5rem 1rem;border-radius:0 0 8px 0;z-index:2}
-.skip:focus{left:0}
+.skip{position:absolute;inset-inline-start:0;top:0;transform:translateY(-150%);background:var(--primary);color:var(--on-primary);padding:.5rem 1rem;border-radius:0 0 8px 0;z-index:2}
+.skip:focus{transform:none}
 .wrap{max-width:44rem;margin:0 auto;padding:0 1rem}
 .draft{background:var(--tertiary);color:var(--on-tertiary);text-align:center;padding:.4rem;font-size:.875rem;line-height:1.25rem;font-weight:500;letter-spacing:.01em}
 header{border-bottom:1px solid var(--outline-variant)}
@@ -150,7 +150,7 @@ footer a{color:var(--primary)}
 
 <div class="card"><p>A person reviews every report. Nothing is added to the safety list automatically, and Verdetto never says a link is safe. Please don't include passwords, payment details, or personal documents; if you came here from the app, the scanned text is already filled in, and you can remove anything private before you send it.</p></div>
 <div class="card"><p><strong>What happens next.</strong> A scam or mistaken-listing report becomes a case in the public <a href="https://github.com/verdettoqr/link-safety-list/issues?q=label%3Acase">list repository</a>: the address you reported, what the checks found, and the decision, never your email or your description. The case is decided by fixed rules, and only a page that shows a credential or payment form beside a brand or domain warning sign is listed.</p></div>
-<div class="card"><p><strong>Listed by mistake?</strong> Choose "My site or link is listed by mistake". The page is fetched again the same day; if it is clean, the entry is suppressed from every source in the next list update, and the public feed that listed it gets a false-positive report from us. Our own entries and their evidence are public in the <a href="https://github.com/verdettoqr/link-safety-list/tree/main/own">list repository</a>.</p></div>
+<div class="card"><p><strong>Listed by mistake?</strong> Choose "My site or link is listed by mistake". The page is fetched again the same day; if it no longer shows a credential or payment form, the entry is suppressed from every source in the next list update, and the public feed that listed it gets a false-positive report from us. Our own entries and their evidence are public in the <a href="https://github.com/verdettoqr/link-safety-list/tree/main/own">list repository</a>.</p></div>
 
 <iframe id="report-form" title="Report form" src="https://docs.google.com/forms/d/e/1FAIpQLSfjC-Acjlr82CUOF-f5j3dPTkjQjArNrwaRJujiPiPb-PLH4g/viewform?embedded=true" width="100%" height="1900" frameborder="0" marginheight="0" marginwidth="0" loading="lazy">Loading…</iframe>
 

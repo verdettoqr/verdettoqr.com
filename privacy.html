@@ -53,8 +53,8 @@ html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--surface);color:var(--on-surface);font:16px/1.5 Roboto,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif}
 a{color:var(--primary)}
 :focus-visible{outline:2px solid var(--primary);outline-offset:2px;border-radius:4px}
-.skip{position:absolute;left:-999px;top:0;background:var(--primary);color:var(--on-primary);padding:.5rem 1rem;border-radius:0 0 8px 0;z-index:2}
-.skip:focus{left:0}
+.skip{position:absolute;inset-inline-start:0;top:0;transform:translateY(-150%);background:var(--primary);color:var(--on-primary);padding:.5rem 1rem;border-radius:0 0 8px 0;z-index:2}
+.skip:focus{transform:none}
 .wrap{max-width:44rem;margin:0 auto;padding:0 1rem}
 .draft{background:var(--tertiary);color:var(--on-tertiary);text-align:center;padding:.4rem;font-size:.875rem;line-height:1.25rem;font-weight:500;letter-spacing:.01em}
 header{border-bottom:1px solid var(--outline-variant)}
@@ -218,7 +218,7 @@ footer a{color:var(--primary)}
 <p>Wherever you live, you can ask what we hold about you and ask for a copy, a correction, or deletion, or object to our processing it. Because the app sends us nothing, what we hold is at most an email you sent us. Write to <a href="mailto:support@verdettoqr.com">support@verdettoqr.com</a>; we answer within the time your law sets, and in any case within a month. You may also complain to your data protection authority: in the European Economic Area, the authority of your country; in the United Kingdom, the Information Commissioner's Office; in Brazil, the ANPD; elsewhere, the authority your law names. In California and the other US states with privacy laws: we collect no personal information through the app, and we do not sell or share it.</p>
 
 <h2>This website</h2>
-<p>These pages are static and hosted on <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#data-collection">GitHub Pages</a>. They set no cookies, run no analytics, have no forms, and load nothing from anywhere but this site. GitHub may keep standard server logs, such as the address a page was requested from and when, under its own privacy statement.</p>
+<p>These pages are static and hosted on <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#data-collection">GitHub Pages</a>. They set no cookies and run no analytics. The report page embeds a Google Form, which loads from Google under its privacy policy; every other page loads nothing from anywhere but this site. GitHub may keep standard server logs, such as the address a page was requested from and when, under its own privacy statement.</p>
 
 <h2>Changes</h2>
 <p>If this policy changes, the new version will be posted here with a new effective date.</p>

@@ -53,8 +53,8 @@ html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--surface);color:var(--on-surface);font:16px/1.5 Roboto,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif}
 a{color:var(--primary)}
 :focus-visible{outline:2px solid var(--primary);outline-offset:2px;border-radius:4px}
-.skip{position:absolute;left:-999px;top:0;background:var(--primary);color:var(--on-primary);padding:.5rem 1rem;border-radius:0 0 8px 0;z-index:2}
-.skip:focus{left:0}
+.skip{position:absolute;inset-inline-start:0;top:0;transform:translateY(-150%);background:var(--primary);color:var(--on-primary);padding:.5rem 1rem;border-radius:0 0 8px 0;z-index:2}
+.skip:focus{transform:none}
 .wrap{max-width:44rem;margin:0 auto;padding:0 1rem}
 .draft{background:var(--tertiary);color:var(--on-tertiary);text-align:center;padding:.4rem;font-size:.875rem;line-height:1.25rem;font-weight:500;letter-spacing:.01em}
 header{border-bottom:1px solid var(--outline-variant)}
@@ -217,7 +217,7 @@ footer a{color:var(--primary)}
 <p>お住まいの国を問わず、当方があなたについて何を保持しているかを尋ね、写しの提供、訂正、削除を求め、取り扱いに異議を述べることができます。アプリは当方に何も送らないので、当方が保持しているのは多くてもあなたから届いたメールだけです。<a href="mailto:support@verdettoqr.com">support@verdettoqr.com</a> までご連絡ください。お住まいの国の法律が定める期間内、遅くとも1か月以内に回答します。個人情報保護の監督機関に申し立てることもできます。日本では個人情報保護委員会、欧州経済領域では各国の監督機関、英国では Information Commissioner's Office、ブラジルでは ANPD、その他の国ではその国の法律が定める機関です。カリフォルニア州およびプライバシー法を持つ他の米国の州について: 当方はアプリを通じて個人情報を収集せず、販売も共有もしません。</p>
 
 <h2>このウェブサイト</h2>
-<p>これらのページは静的で、<a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#data-collection">GitHub Pages</a> でホストされています。Cookie を使わず、分析を実行せず、フォームを持たず、このサイト以外からは何も読み込みません。GitHub は自社のプライバシー声明に従って、ページを要求したアドレスと時刻などの標準的なサーバーログを保持することがあります。</p>
+<p>これらのページは静的で、<a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#data-collection">GitHub Pages</a> でホストされています。Cookie を使わず、分析も実行しません。報告ページには Google フォームが埋め込まれており、Google のプライバシーポリシーに従って Google から読み込まれます。それ以外のページは、このサイト以外からは何も読み込みません。GitHub は自社のプライバシー声明に従って、ページを要求したアドレスと時刻などの標準的なサーバーログを保持することがあります。</p>
 
 <h2>変更</h2>
 <p>このポリシーが変わる場合、新しい版を新しい発効日とともにここに掲載します。</p>

@@ -53,8 +53,8 @@ html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--surface);color:var(--on-surface);font:16px/1.5 Roboto,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif}
 a{color:var(--primary)}
 :focus-visible{outline:2px solid var(--primary);outline-offset:2px;border-radius:4px}
-.skip{position:absolute;left:-999px;top:0;background:var(--primary);color:var(--on-primary);padding:.5rem 1rem;border-radius:0 0 8px 0;z-index:2}
-.skip:focus{left:0}
+.skip{position:absolute;inset-inline-start:0;top:0;transform:translateY(-150%);background:var(--primary);color:var(--on-primary);padding:.5rem 1rem;border-radius:0 0 8px 0;z-index:2}
+.skip:focus{transform:none}
 .wrap{max-width:44rem;margin:0 auto;padding:0 1rem}
 .draft{background:var(--tertiary);color:var(--on-tertiary);text-align:center;padding:.4rem;font-size:.875rem;line-height:1.25rem;font-weight:500;letter-spacing:.01em}
 header{border-bottom:1px solid var(--outline-variant)}
@@ -217,7 +217,7 @@ footer a{color:var(--primary)}
 <p>Где бы вы ни жили, вы можете спросить, что у нас есть о вас, и попросить копию, исправление или удаление либо возразить против обработки. Поскольку приложение ничего нам не отправляет, у нас есть самое большее письмо, которое вы нам прислали. Напишите на <a href="mailto:support@verdettoqr.com">support@verdettoqr.com</a>; мы ответим в срок, установленный вашим законом, и в любом случае в течение месяца. Вы также можете обратиться с жалобой в свой орган по защите данных: в России это Роскомнадзор; в Европейской экономической зоне орган вашей страны; в Великобритании Information Commissioner's Office; в Бразилии ANPD; в других странах орган, который называет ваш закон. В Калифорнии и других штатах США с законами о конфиденциальности: мы не собираем персональную информацию через приложение и не продаём и не передаём её.</p>
 
 <h2>Этот сайт</h2>
-<p>Эти страницы статичны и размещены на <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#data-collection">GitHub Pages</a>. Они не используют cookie, не ведут аналитику, не содержат форм и ничего не загружают ниоткуда, кроме этого сайта. GitHub может вести стандартные журналы сервера, например адрес, с которого запрошена страница, и время, по своей политике конфиденциальности.</p>
+<p>Эти страницы статичны и размещены на <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#data-collection">GitHub Pages</a>. Они не используют cookie и не ведут аналитику. Страница для сообщений встраивает Google Форму, которая загружается с серверов Google по его политике конфиденциальности; остальные страницы ничего не загружают ниоткуда, кроме этого сайта. GitHub может вести стандартные журналы сервера, например адрес, с которого запрошена страница, и время, по своей политике конфиденциальности.</p>
 
 <h2>Изменения</h2>
 <p>Если эта политика изменится, новая версия будет опубликована здесь с новой датой вступления в силу.</p>
