@@ -230,10 +230,11 @@ HOME = f"""
 <details class="more"><summary>Everything it does</summary>
 <div class="grid">
   <div class="card">{ic('shield')}<div><h3>A warning list on the phone</h3><p>Links, sites, and wallet addresses are compared with known phishing, malware, scam, and sanctions entries, refreshed a few times a day when online lookups are on.</p></div></div>
-  <div class="card">{ic('barcode')}<div><h3>Looks things up</h3><p>Product, book, medicine, music, magazine, and vehicle numbers go to the open database that covers each, only when product lookups are on (a switch under online lookups). The <a href="{href('privacy.html')}">privacy policy</a> names them. A vehicle number also brings recall campaigns, crash-test ratings, and fuel economy from NHTSA and the EPA.</p></div></div>
+  <div class="card">{ic('barcode')}<div><h3>Looks things up</h3><p>Product, book, medicine, music, magazine, and vehicle numbers go to the open database that covers each, only when product lookups are on. The <a href="{href('privacy.html')}">privacy policy</a> names them. A vehicle number also brings recall campaigns, crash-test ratings, and fuel economy from NHTSA and the EPA.</p></div></div>
   <div class="card">{ic('history')}<div><h3>History that is yours</h3><p>On your phone, searchable, starrable, deletable with a swipe. Scans older than 90 days clear unless starred.</p></div></div>
   <div class="card">{ic('offline')}<div><h3>Works offline</h3><p>Every built-in check runs on the phone, and an ID or license scan never leaves it. One switch turns the online lookups off, and product lookups have a switch of their own.</p></div></div>
   <div class="card">{ic('scan')}<div><h3>Made for the hand</h3><p>Quick Settings tile, batch mode, left-handed layout, results read aloud, a boarding pass at the gate, your own codes. Eleven languages.</p></div></div>
+  <div class="card">{ic('eye')}<div><h3>Works with other apps</h3><p>Any app can ask it for a scan and receive the code the moment you confirm it; code written for the old ZXing scanner keeps working. <a href="{href('developers.html')}">For developers</a>.</p></div></div>
 </div>
 </details>
 
