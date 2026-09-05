@@ -2,7 +2,7 @@
 
 > Verdetto is a free QR code and barcode scanner for Android with no ads and no fake buttons. It shows the link before it opens, is built to read damaged codes, and checks scanned content for warning signs on the phone. It never says anything is safe: "No warnings found" means none of its checks matched.
 
-Publisher: Verdetto, Virginia, United States. Contact: support@verdettoqr.com. Store title: "Verdetto: QR & Barcode Scanner". Status: coming soon to Google Play.
+Publisher: Verdetto, Virginia, United States. Contact: support@verdettoqr.com. Store title: "Verdetto: QR & Barcode Scanner". Status: coming soon to Google Play. Verdetto and the Verdetto QR mark are trademarks; a United States application for VERDETTO is pending (serial no. 50092495).
 
 Official accounts: Mastodon https://mastodon.social/@VerdettoQR; Reddit https://www.reddit.com/user/VerdettoQR/; GitHub https://github.com/verdettoqr. Pronounced ver-DET-oh; Italian for verdict.
 

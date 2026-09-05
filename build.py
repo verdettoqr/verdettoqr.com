@@ -622,6 +622,7 @@ PRESS = f"""
   <li><a href="screens/result-sheet.webp">Result sheet screenshot</a>: a scanned link shown before it opens, with the "No warnings found" chip.</li>
 </ul>
 <p>Please do not alter the icon's colors or add effects; the mark is the brand.</p>
+<p>Verdetto and the Verdetto QR mark are trademarks; a United States application for VERDETTO is pending (serial no. 50092495).</p>
 
 <h2>Where to find us</h2>
 <ul>
@@ -833,7 +834,7 @@ def main():
         "before it opens, is built to read damaged codes, and checks scanned content for warning signs on the phone. It never says "
         "anything is safe: \"No warnings found\" means none of its checks matched.\n\n"
         f"Publisher: Verdetto, Virginia, United States. Contact: {EMAIL}. Store title: \"Verdetto: QR & Barcode Scanner\". "
-        "Status: coming soon to Google Play.\n\n"
+        "Status: coming soon to Google Play. Verdetto and the Verdetto QR mark are trademarks; a United States application for VERDETTO is pending (serial no. 50092495).\n\n"
         "Official accounts: " + "; ".join(f"{k} {v}" for k, v in SOCIAL.items()) + ". Pronounced ver-DET-oh; Italian for verdict.\n\n"
         "## Pages\n\n"
         + "".join(f"- [{t.replace(' - Verdetto', '')}]({url(n)}): {d}\n" for n, (t, d, _, _) in PAGES.items() if n != "404.html")
