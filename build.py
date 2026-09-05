@@ -521,6 +521,19 @@ def lang_menu(alternates, current):
             f'<ul class="menu">{items}</ul></details>')
 
 
+def earlier_versions(stem):
+    """Links to the dated copies of a policy page on disk, oldest first, excluding today's copy: the Changes sections list them."""
+    names = sorted(x.name for x in HERE.glob(f"{stem}-20??-??-??.html") if not x.name.endswith(f"-{DATE}.html"))
+    return ", ".join(f'<a href="{href(n)}">{n[len(stem) + 1:-5]}</a>' for n in names) or "none yet"
+
+
+def dated_copy(name, html):
+    """A policy page saved under its date, not indexed, canonical to the live page: the archive the Changes sections promise."""
+    stem = name[:-5]
+    copy = html.replace('<link rel="canonical"', '<meta name="robots" content="noindex">\n<link rel="canonical"', 1)
+    (HERE / f"{stem}-{DATE}.html").write_text(copy, encoding="utf-8", newline="\n")
+
+
 def translation(folder, langs, code):
     """A translated legal page from <folder>/<code>.html: the first line is "<!-- title | description -->", and the
     body takes {ADDRESS}, {EMAIL}, {LANG_ROW}, {TERMS_HREF}, and {PRIVACY_HREF} (the privacy page in the same language)."""
@@ -531,7 +544,8 @@ def translation(folder, langs, code):
     privacy_page = next(p for c, _, p in PRIVACY_LANGS if c == code)
     body = (body.replace("{ADDRESS}", ADDRESS).replace("{EMAIL}", EMAIL).replace("{LANG_ROW}", "")
             .replace("{TERMS_HREF}", href("terms.html")).replace("{PRIVACY_HREF}", href(privacy_page))
-            .replace("{COMMUNITY_HREF}", href(localized("community-license.html", code))))
+            .replace("{COMMUNITY_HREF}", href(localized("community-license.html", code)))
+            .replace("{EARLIER}", earlier_versions(next(pg for c, _, pg in langs if c == code)[:-5])))
     return title, desc, body
 
 
@@ -551,7 +565,7 @@ PRIVACY = f"""
 <h1>Privacy policy</h1>
 <p class="meta">For Verdetto: QR &amp; Barcode Scanner, the Android app published by Verdetto. Effective date: September 5, 2026.</p>
 
-<div class="card"><p><strong>In short.</strong> No accounts, no ads, no analytics. Scanning happens on your phone, and an ID or license scan never leaves it. With online lookups on, the default, only the address, domain, or number you scanned goes out, to the services in the table below, and it goes straight from your phone to them, never through us. Nothing else leaves the phone, apart from your phone's own backup, which you can turn off. The only thing we ever receive is an email you choose to send us. We do not collect, store, sell, or share any data about you. This website sets no cookies.</p></div>
+<div class="card"><p><strong>In short.</strong> No accounts, no ads, no analytics. Scanning happens on your phone, and an ID or license scan never leaves it. With online lookups on, the default, only the address, domain, or number you scanned goes out, to the services in the table below, and it goes straight from your phone to them, never through us. Nothing else leaves the phone, apart from your phone's own backup, which you can turn off. Apart from Google Play's own grouped counts of installs, ratings, and crashes, the only things we ever receive are an email or a report you choose to send us and, if you contribute, Google's order record without your name. Beyond those, we do not collect, store, sell, or share any data about you. This website sets no cookies.</p></div>
 
 <h2>Who we are</h2>
 <p>Verdetto, {ADDRESS}, United States, a small business in Virginia. Contact: <a href="mailto:{EMAIL}">{EMAIL}</a>. Verdetto publishes the app and is the party responsible for this policy wherever a law asks for one. The app sends us nothing, and the one thing we process is the email you may send us, so we have not appointed a representative in the European Union or the United Kingdom or a data protection officer; that email address reaches the person who answers.</p>
@@ -564,6 +578,7 @@ PRIVACY = f"""
   <li><strong>Safety checks.</strong> The app inspects scanned content on the phone for warning signs and compares links, sites, and wallet addresses with a list of known phishing, malware, scam, and sanctions entries that is stored on the phone. The comparison never sends what you scanned anywhere.</li>
   <li><strong>Settings.</strong> Your preferences are stored on the phone.</li>
 </ul>
+<p>Lookup answers are kept on the phone for a day (a shortened link's destination) or a week (a domain's age) so the same question is not asked twice; if you turn on recording under About, Performance, frame and scan timings are kept on the phone and nothing leaves.</p>
 
 <h2>What leaves the phone, and when</h2>
 <p>Online lookups are on by default and can be turned off in Settings. Product lookups have a switch of their own under it. While they are on, the app may make these requests. Each carries only what is listed, the app's name and version, our support address, and your phone's internet address, which every internet request carries. Your phone makes each request itself, at your instruction, to the service named; we are not part of it and do not receive, relay, or see it. A license or ID scan never leaves the phone, and the app never looks a person up.</p>
@@ -579,6 +594,7 @@ PRIVACY = f"""
   <li><strong>Domain age.</strong> To tell you when a link's domain was registered, the app sends the domain name to rdap.org, a public directory that forwards the question to the domain's registry. The answer is kept on the phone for a week so the same domain is not asked about twice.</li>
   <li><strong>Product, book, medicine, music, journal, and vehicle numbers.</strong> To show details, the app sends the number to the database that covers it: Open Food Facts and its sister databases (Open Beauty Facts, Open Pet Food Facts, Open Products Facts) for products, the US Consumer Product Safety Commission's recall database for a product's recalls, Open Library and the German and French national libraries for books, then Wikidata when none of them has the book, openFDA for US medicines and medical devices, then DailyMed and RxNav (the US National Library of Medicine) for a US medicine and the European Commission's EUDAMED database for a device that openFDA does not know, Spain's medicines agency (AEMPS) for a Spanish medicine, MusicBrainz for music, Crossref for journal and paper numbers, Wikidata for product, magazine, and sheet-music numbers, and the NHTSA vehicle database for a vehicle identification number. Each request carries the number, the app's name and version, and our support address so the service can reach us about the app; nothing about you. Their answers are shown as given. Postal codes, Italian and French medicine codes, airline and airport names, the country and carrier of a phone number, and the bank behind a German sort code are looked up in tables on the phone, so those never leave it. For a vehicle, the year, make, and model also go to NHTSA's recall and crash-test databases and to the EPA fuel-economy database (fueleconomy.gov).</li>
 </ul>
+<p>Actions you choose on a result, such as open, share, search, copy, add a contact, join Wi-Fi, or save an event, hand the content to the app you pick or to your phone's search app (or to a DuckDuckGo search in the browser when no search app answers). If another app asked Verdetto to scan for it, the result goes back to that app.</p>
 <p>These services are run by others, in the United States and in Europe, and they process the request, including your phone's internet address, under their own privacy policies: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub</a>, <a href="https://about.rdap.org/">rdap.org</a> and the registry it forwards to, <a href="https://world.openfoodfacts.org/privacy">Open Food Facts</a>, <a href="https://archive.org/about/terms.php">Open Library</a> (the Internet Archive), the <a href="https://www.dnb.de/EN/Service/Datenschutz/datenschutz_node.html">German National Library</a>, the <a href="https://www.bnf.fr/fr/politique-de-confidentialite">French National Library</a>, <a href="https://www.fda.gov/about-fda/about-website/website-policies">openFDA</a> (the US Food and Drug Administration), the <a href="https://www.cpsc.gov/about-cpsc/policies-statements-and-directives/privacy-policy">US Consumer Product Safety Commission</a>, <a href="https://www.nlm.nih.gov/web_policies.html">DailyMed and RxNav</a> (the US National Library of Medicine), <a href="https://webgate.ec.europa.eu/eudamed-static-play/documents/assets/privacy-policy/privacy_statement_en.pdf">EUDAMED</a> (the European Commission), <a href="https://www.aemps.gob.es/politica-privacidad/">AEMPS</a> (Spain's medicines agency), <a href="https://metabrainz.org/privacy">MusicBrainz</a>, <a href="https://www.crossref.org/operations-and-sustainability/privacy/">Crossref</a>, <a href="https://foundation.wikimedia.org/wiki/Policy:Privacy_policy">Wikidata</a> (the Wikimedia Foundation), and the NHTSA vehicle database (the US Department of Transportation). The United States has no general EU or UK adequacy decision; your phone sends the request there because you scanned the code. They may change or stop. With online lookups off, nothing leaves the phone.</p>
 
 <h2>Your phone's backup</h2>
@@ -592,18 +608,22 @@ PRIVACY = f"""
 
 <h2>Purchases</h2>
 <p>The optional contribution inside the app is sold through Google Play. Google processes the payment under <a href="https://policies.google.com/privacy">its own privacy policy</a>; we never see your name, email address, or payment details. Google's billing code inside the app also reports to Google how its own steps went, such as whether a connection or a purchase succeeded or failed, which Google uses to improve that code and its support for errors. Those reports go to Google, not to us, under the same policy, and only when the app talks to Google Play for the contribution. Google shows us, in its developer console and its sales reports, an order record for refunds and tax: at most an order number, the item, the amount and currency, the phone's model, and the country, state, city and postal code the purchase was made from; where Google itself is the seller, in the EEA and the UK, only the country. The app itself keeps only a note on your phone that a contribution was made, for the thank-you badge.</p>
+<p><strong>Google Play's counts.</strong> Google Play shows us, in its developer console, counts of installs, uninstalls, ratings, and crashes, by country and by the site or store page that led to the store page. Google records that when the store page opens, under its own privacy policy; the app never asks Google for it and never sends it anywhere. The counts are grouped and rounded by Google, and we cannot see anyone in them.</p>
 
 <h2>Reports you send</h2>
 <p>If you choose to report something, from the app or from this website, the report form is a Google Form that opens in your browser; the app itself sends nothing. The report contains only what you see on the form: the category, the scanned text if you leave it in, your description, where you found the code if you say, the app's version, and, only if you add it, your email address so we can reply. Reports are stored in Verdetto's Google account under <a href="https://policies.google.com/privacy">Google's privacy policy</a> and are used only to handle the report: a person reads it, and nothing is added to the warning list without that review. Reports are kept for up to two years and then deleted; write to us to have yours deleted sooner. For a license or ID scan, a report carries the card's format numbers and the check's outcome, never anything printed on the card.</p>
 
 <h2>When you write to us</h2>
-<p>If you email us, we receive your address and what you wrote, and we use them to answer you. That is the only personal data we process, and we process it because you asked us something (in the European Union and the United Kingdom, that is a contract-like request and our legitimate interest in answering it). Your message stays in our mailbox like any email, is not added to any list, and is not shared or used for anything else. Ask, and we delete the thread.</p>
+<p>If you email us, we receive your address and what you wrote, and we use them to answer you. That is the only personal data we process, and we process it because you asked us something (in the European Union and the United Kingdom, that is a contract-like request and our legitimate interest in answering it). Your message stays in our mailbox like any email, is not added to any list, and is not shared or used for anything else. Our mailbox is provided by Microsoft (Microsoft 365), in the United States, as our service provider under its own terms. We keep the thread for up to two years after the last message, then delete it; ask, and we delete it sooner.</p>
 
 <h2>Children</h2>
 <p>The app is not directed at children under 13, asks no one's age, builds no profile, and collects no data from anyone.</p>
 
 <h2>Keeping and deleting data</h2>
 <p>Everything the app keeps is on your phone, and in your phone's backup if you leave that on. Delete history entries in the app, or uninstall the app to remove all of it. We hold no data about you from the app, so there is nothing for us to delete or hand over.</p>
+
+<h2>Security</h2>
+<p>The app never sends an unencrypted request: it talks to the services above over encrypted connections (HTTPS), and a shortened link written as plain http is shown as it is, not followed. The warning list is signed, and the app checks the signature before using it. History, settings, and your card sit in the app's private storage, which Android keeps from other apps and protects with the phone's own encryption when the phone has a screen lock. We run no server and keep no database of users. If we ever learned that the mailbox or the report form holding something you sent us had been breached in a way that put you at risk, we would tell you and the authority your law names.</p>
 
 <h2>Your rights</h2>
 <p>Wherever you live, you can ask what we hold about you and ask for a copy, a correction, or deletion, or object to our processing it. Because the app sends us nothing, what we hold is at most an email you sent us. Write to <a href="mailto:{EMAIL}">{EMAIL}</a>; we answer within the time your law sets, and in any case within a month. You may also complain to your data protection authority: in the European Economic Area, the authority of your country; in the United Kingdom, the Information Commissioner's Office; in Brazil, the ANPD; elsewhere, the authority your law names. In California and the other US states with privacy laws: we collect no personal information through the app, and we do not sell or share it.</p>
@@ -612,7 +632,7 @@ PRIVACY = f"""
 <p>These pages are static and hosted on <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#data-collection">GitHub Pages</a>. They set no cookies and run no analytics. The report page embeds a Google Form, which loads from Google under its privacy policy; every other page loads nothing from anywhere but this site. The safety-list page shows weekly numbers that this site serves as a small file of its own, copied from the public list repository once a week; your browser makes no request to any third party for it, and the numbers hold nothing about anyone's phone or scans. GitHub may keep standard server logs, such as the address a page was requested from and when, under its own privacy statement.</p>
 
 <h2>Changes</h2>
-<p>If this policy changes, the new version will be posted here with a new effective date.</p>
+<p>If this policy changes, the new version will be posted here with a new effective date, and earlier versions stay readable on this site. If a change would send more off the phone or have us keep more, the app will say so in its update note before that version applies; we never treat a changed policy as permission for that. Earlier versions: {earlier_versions('privacy')}.</p>
 
 <h2>Contact</h2>
 <p>Questions about privacy: <a href="mailto:{EMAIL}">{EMAIL}</a>.</p>
@@ -636,7 +656,7 @@ TERMS = f"""
 <div class="card"><p><strong>In short.</strong> The app looks at what a code contains and tells you what it found. It never says anything is safe. Whether to open, join, dial, or act on scanned content is your decision. These are the same terms shown inside the app; if the two ever differ, the installed version applies.</p></div>
 
 <h2>The app</h2>
-<p>This app is free. Its safety list's pipeline is open source today, and the app's own code is published under the GNU General Public License, version 3 or later. It is provided as is and as available, without warranty of any kind, express or implied, including fitness for a particular purpose. It is not security software and not a substitute for security advice.</p>
+<p>This app is free. Its safety list's pipeline is open source today; the app's own code is licensed under the GNU General Public License, version 3 or later, and its scanner core under the Apache License 2.0, both published with the first release. The free app is provided as is and as available, without warranty of any kind, express or implied, including fitness for a particular purpose; the purchase carries the guarantees your law gives for paid digital content. It is not security software and not a substitute for security advice. The app is for people aged 13 and over.</p>
 
 <h2>Who provides the app</h2>
 <p>Verdetto, {ADDRESS}, United States, a small business in Virginia. Contact: <a href="mailto:{EMAIL}">{EMAIL}</a>. Support requests and legal notices go to that address.</p>
@@ -645,22 +665,22 @@ TERMS = f"""
 <p>When you scan a code, the app looks at the content itself, on your phone, for known warning signs: hidden sign-in details, raw IP addresses, lookalike or imitation names, shortened links, unencrypted addresses, unusual ports, app or program downloads, unusually deep subdomains, script or file addresses, tracking and affiliate parameters, premium-rate numbers, open Wi-Fi networks, and payment destinations. It also compares links, sites, and wallet addresses with a list of known phishing, malware, and scam entries kept on the phone, compiled from public sources (PhishTank, the CERT Polska warning list, PhishDestroy, PhishIndex, the polkadot-js phishing list, and the US Treasury's OFAC sanctions list). With online lookups on, the app can download a newer list, follow a shortened or affiliate link to where it leads, ask a domain's registry when it was registered, and send a product number to Open Food Facts and its sister databases, the US Consumer Product Safety Commission's recall database, Open Library, the German and French national libraries, openFDA (medicines and medical devices), DailyMed and RxNav, Spain's medicines agency AEMPS, the European Commission's EUDAMED database, MusicBrainz, Crossref, Wikidata, or the NHTSA vehicle database. Their answers are shown as given. Postal codes, Italian and French medicine codes, phone-number regions and carriers, and German bank sort codes are named from tables kept on the phone.</p>
 
 <h2>What they are not</h2>
-<p>The checks do not open or inspect the page behind a link, cannot see what a network, contact, calendar entry, or product will do, and cannot catch every scam, unsafe site, or harmful code. "No warnings found" means none of the app's checks matched. It is never a statement that anything is safe, genuine, or trustworthy. The app never looks a person up: a license or ID scan is shown from the barcode alone, with the age, the expiry, and the issuer worked out on the phone, and the app cannot tell a genuine card from a copy.</p>
+<p>The checks do not open or inspect the page behind a link, cannot see what a network, contact, calendar entry, or product will do, and cannot catch every scam, unsafe site, or harmful code. "No warnings found" means none of the app's checks matched. It is never a statement that anything is safe, genuine, or trustworthy. The app never looks a person up: a license or ID scan is shown from the barcode alone, with the age, the expiry, and the issuer worked out on the phone, and the app cannot tell a genuine card from a copy. The app cannot tell whether a number, link, or account you put in a code is yours to use.</p>
 
 <h2>Your decisions</h2>
-<p>Whether to open a link, join a network, add a contact or event, dial a number, or act on any scanned content is your decision, made at your own risk. Automatic opening, when you turn it on, opens links you have not looked at; you accept that when you turn it on.</p>
+<p>Whether to open a link, join a network, add a contact or event, dial a number, or act on any scanned content is your decision, made at your own risk. Automatic opening, when you turn it on, opens links you have not looked at; you accept that when you turn it on. Codes you make carry what you typed or copied. Whether you have the right to the numbers, links, or accounts you put in them, and where you use them, is your decision. Use the app lawfully. Do not use it to break into anything, or to flood the lookup services: they see the app's name, not yours, and abuse can get the app cut off for everyone.</p>
 
 <h2>Liability</h2>
-<p>To the fullest extent permitted by law, the developers and contributors of this app are not liable for any loss, damage, or harm arising from the use of the app or from acting on scanned content, including opening a link, joining a network, or relying on a check or a lookup.</p>
+<p>We are not liable for loss that comes from acting on scanned content, from a check that missed something, or from a lookup service's answer, including opening a link, joining a network, or relying on a check or a lookup. We are not liable for loss we could not reasonably foresee when you started using the app. Where the law does not let us exclude liability, our total liability to you is limited to the greater of what you paid us in the last twelve months and US$100. None of this limits liability for intent or gross negligence, for death or personal injury caused by negligence, for fraud, or for anything else your law does not let us limit. Your statutory guarantees for the purchase are not affected.</p>
 
 <h2>Your rights as a consumer</h2>
-<p>Nothing in these terms takes away rights that the consumer law of your country gives you and that cannot be waived by agreement, including the guarantees of the Australian Consumer Law and the rights of consumers in the European Union, the United Kingdom, and Brazil. The Liability section applies only as far as your law allows: it does not exclude liability for intent or gross negligence, for death or personal injury caused by negligence, or for anything else the law does not let us exclude.</p>
+<p>Nothing in these terms takes away rights that the consumer law of your country gives you and that cannot be waived by agreement, including the guarantees of the Australian Consumer Law and the rights of consumers in the European Union, the United Kingdom, and Brazil.</p>
 
 <h2>Your data</h2>
 <p>Online lookups are on by default and can be turned off in Settings. Product lookups have a switch of their own under it. While on, only the address, domain, or the product, book, medicine, device, journal, or vehicle number goes, with the app's name and our support address, to the named services (Open Food Facts and its sisters, the US Consumer Product Safety Commission's recall database, Open Library, the German and French national libraries, openFDA, DailyMed and RxNav, Spain's medicines agency AEMPS and the European Commission's EUDAMED database for medicines and medical devices, MusicBrainz, Crossref, Wikidata, and the NHTSA vehicle database); with them off, nothing leaves the phone. There are no ads, no analytics, and no accounts. The <a href="{href('privacy.html')}">privacy policy</a> has the details. For a vehicle, the year, make, and model also go to NHTSA's recall and crash-test databases and to the EPA fuel-economy database (fueleconomy.gov).</p>
 
 <h2>Contributions</h2>
-<p>The app is free and complete: every check and every decode is free for everyone, and nothing is locked. It offers one optional, one-time contribution, sold as an in-app item through Google Play from US$0.99 or the local equivalent, which pays for the work and earns a thank-you badge and the small extras listed on the Support screen as they arrive. The price in the purchase flow is the price you pay, including any tax Google Play charges. In the European Economic Area and the United Kingdom, Google is the merchant of record for the purchase; everywhere else, Verdetto is the seller and Google Play handles the payment. Refunds follow Google Play's refund policy and the consumer law of your country; if something went wrong, write to <a href="mailto:{EMAIL}">{EMAIL}</a> and we will help. Where Google Play's billing is unavailable, the contribution is not offered. A contribution buys no protection and no promise of future features. Verdetto is a small business; a contribution is a purchase, not a gift, and it brings no tax benefit.</p>
+<p>The app is free and complete: every check and every decode is free for everyone, and nothing is locked. It offers one optional contribution, paid once and not a subscription (you can give again if you like), sold as an in-app item through Google Play from US$0.99 or the local equivalent, which pays for the work and earns a thank-you badge and the small extras listed on the Support screen as they arrive. The price in the purchase flow is the price you pay, including any tax Google Play charges. In the European Economic Area and the United Kingdom, Google is the merchant of record for the purchase; everywhere else, Verdetto is the seller and Google Play handles the payment. Refunds follow Google Play's refund policy and the consumer law of your country; if something went wrong, write to <a href="mailto:{EMAIL}">{EMAIL}</a> and we will help. Where Google Play's billing is unavailable, the contribution is not offered. What you get is what the Support screen marks as available when you buy; items marked planned or soon are our intentions, not part of the purchase. A contribution buys no protection and no promise of future features. Verdetto is a small business; a contribution is a purchase, not a gift, and it brings no tax benefit.</p>
 
 <h2>Third-party services</h2>
 <p>The lookup services and the shortening services the app can ask are run by others under their own terms and privacy policies. Their answers are shown as given; they may change or stop, and we are not responsible for them. NHTSA's recall and crash-test databases and the EPA fuel-economy database are among them; recall and rating information is for the model year and is not a statement about the individual vehicle.</p>
@@ -668,14 +688,17 @@ TERMS = f"""
 <h2>Open source and trademarks</h2>
 <p>The safety list's pipeline is published under the MIT License. The app's own code is licensed under the GNU General Public License, version 3 or later, and its scanner core under the Apache License 2.0; both are published with the first release. Those licenses cover code. They do not cover the Verdetto name, icon, wordmark, splash screen, screenshots or store material, which are not licensed and stay ours; a fork may not use that name or artwork as its own. Use of the name, the icon and the 'Built on Verdetto' badge is governed by the <a href="{href('community-license.html')}">Verdetto Community License</a>, a trademark license. The app also includes work by others under their own licenses, listed under About, Licenses; the safety list names its sources and their terms in its repository.</p>
 
+<h2>These terms and others</h2>
+<p>These terms and the privacy policy are the whole agreement between you and Verdetto about the app. Google Play's terms cover the store and the payment; if they and these terms conflict, Google Play's terms win for the store and the payment. The code licenses cover the source code, and nothing here limits the rights they give you. If a court finds one sentence of these terms unenforceable, the rest still applies. You can stop at any time by uninstalling the app. We may stop offering the app, a lookup, or list updates; the checks that run on the phone keep working in the version you have. You agree to follow the export-control and sanctions laws that apply to you.</p>
+
 <h2>Governing law</h2>
-<p>These terms are governed by the laws of the Commonwealth of Virginia, United States. If you are a consumer in a country whose law protects you regardless of that choice, that protection applies, and you may bring a claim before the courts of your own country.</p>
+<p>These terms are governed by the laws of the Commonwealth of Virginia, United States. If you are a consumer in a country whose law protects you regardless of that choice, that protection applies, and you may bring a claim before the courts of your own country. Write to support@verdettoqr.com first; most problems are settled by email. If you are not a consumer protected by your own country's law, claims go to the state or federal courts in Virginia. You may also use a small-claims court where you live.</p>
 
 <h2>Language</h2>
 <p>These terms are written in English and offered in ten other languages. The English text is the reference, except where the law of your country says otherwise.</p>
 
 <h2>Changes</h2>
-<p>These terms may change with a new version of the app. The text in the installed version is the one that applies.</p>
+<p>These terms may change with a new version of the app, for a reason: a new feature or lookup, a change in the law, or clearer wording. The date at the top and the release notes say when. The text in the installed version is the one that applies. A change never takes away anything you have already bought. Earlier versions: {earlier_versions('terms')}.</p>
 """
 
 SUPPORT_T = {
@@ -5546,6 +5569,8 @@ def main():
                     lang=lang, rtl=rtl, alternates=alternates)
         (HERE / name).write_text(html, encoding="utf-8", newline="\n")
         print("wrote", name)
+        if name.startswith(("privacy", "terms")):
+            dated_copy(name, html)
 
     AI_CRAWLERS = ("GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-SearchBot", "PerplexityBot", "Google-Extended",
                    "Applebot-Extended", "CCBot", "Bingbot")
