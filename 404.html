@@ -52,7 +52,7 @@ header .wrap{display:flex;align-items:center;gap:.75rem;min-height:64px;padding-
 nav{margin-left:auto;display:flex;gap:.25rem;flex-wrap:wrap}
 nav a{color:var(--on-surface-variant);text-decoration:none;font-weight:500;font-size:.875rem;line-height:1.25rem;padding:.6rem .75rem;border-radius:20px}
 nav a:hover{background:var(--surface-container)}
-.lang{position:relative;margin-inline-start:.25rem}.lang summary{list-style:none;display:inline-flex;align-items:center;gap:.4rem;padding:.6rem .75rem;border-radius:20px;color:var(--on-surface-variant);font-weight:500;font-size:.875rem;line-height:1.25rem;cursor:pointer;position:relative}.lang summary::-webkit-details-marker{display:none}.lang summary::after{content:"";position:absolute;inset:-5px 0}.lang summary svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.lang summary:hover,.lang[open] summary{background:var(--surface-container)}.lang .menu{position:absolute;inset-inline-end:0;top:calc(100% + 4px);margin:0;padding:.5rem 0;list-style:none;min-width:12.5rem;background:var(--surface-container);border-radius:4px;box-shadow:0 1px 3px rgba(0,0,0,.3),0 4px 8px 3px rgba(0,0,0,.15);z-index:4}.lang .menu a{display:flex;align-items:center;min-height:48px;padding:0 .75rem;color:var(--on-surface);text-decoration:none;font-size:.875rem;line-height:1.25rem}.lang .menu a:hover{background:var(--surface-container-high)}.lang .menu a[aria-current]{color:var(--primary);font-weight:600}
+.lang{position:relative;margin-inline-start:.25rem}.lang summary{list-style:none;display:inline-flex;align-items:center;gap:.4rem;padding:.6rem .75rem;border-radius:20px;color:var(--on-surface-variant);font-weight:500;font-size:.875rem;line-height:1.25rem;cursor:pointer;position:relative}.lang summary::-webkit-details-marker{display:none}.lang summary::after{content:"";position:absolute;inset:-5px 0}.lang summary svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.lang summary:hover,.lang[open] summary{background:var(--surface-container)}.lang .menu{position:absolute;inset-inline-end:0;top:calc(100% + 4px);margin:0;padding:.5rem 0;list-style:none;min-width:12.5rem;background:var(--surface-container);border-radius:4px;box-shadow:0 1px 3px rgba(0,0,0,.3),0 4px 8px 3px rgba(0,0,0,.15);z-index:4}.lang .menu a{display:flex;align-items:center;min-height:48px;padding:0 .75rem;color:var(--on-surface);text-decoration:none;font-size:.875rem;line-height:1.25rem}.lang .menu a:hover{background:var(--surface-container-high)}.langs404{columns:2;column-gap:2rem;padding-inline-start:1.25rem}.langs404 li{margin:.25rem 0}.lang .menu a[aria-current]{color:var(--primary);font-weight:600}
 nav a[aria-current]{color:var(--primary);background:var(--surface-container-high)}
 main{padding:.5rem 0 2rem}
 h1{color:var(--on-surface);font-size:2rem;line-height:2.5rem;font-weight:500;margin:1.5rem 0 .5rem}
@@ -189,17 +189,29 @@ footer a{color:var(--primary)}
 </div></header>
 <main id="main"><div class="wrap">
 
-<h1>That page is not here.</h1>
-<p>The address may have changed, or the code that brought you here was wrong. Try one of these:</p>
-<ul>
-  <li><a href="/">Home</a></li>
-  <li><a href="/privacy">Privacy policy</a></li>
-  <li><a href="/terms">Terms of use</a></li>
-  <li><a href="/support">Help</a></li>
-  <li><a href="/check-qr-code-link">How to check a QR code link before you open it</a></li>
-  <li><a href="/support-the-work">Support the work</a></li>
-</ul>
-
+    <h1>That page is not here.</h1>
+    <p>The address may have changed, or the code that brought you here was wrong. Try one of these:</p>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/privacy">Privacy policy</a></li>
+      <li><a href="/terms">Terms of use</a></li>
+      <li><a href="/support">Help</a></li>
+      <li><a href="/check-qr-code-link">How to check a QR code link before you open it</a></li>
+      <li><a href="/support-the-work">Support the work</a></li>
+    </ul>
+    <ul class="langs404">
+      <li lang="de"><strong>Deutsch:</strong> Diese Seite gibt es hier nicht. <a href="/de" hreflang="de">Startseite</a></li>
+      <li lang="es"><strong>Español:</strong> Esa página no está aquí. <a href="/es" hreflang="es">Inicio</a></li>
+      <li lang="fr"><strong>Français:</strong> Cette page n'est pas ici. <a href="/fr" hreflang="fr">Accueil</a></li>
+      <li lang="pt-BR"><strong>Português (Brasil):</strong> Essa página não está aqui. <a href="/pt-br" hreflang="pt-BR">Início</a></li>
+      <li lang="id"><strong>Bahasa Indonesia:</strong> Halaman itu tidak ada di sini. <a href="/id" hreflang="id">Beranda</a></li>
+      <li lang="ru"><strong>Русский:</strong> Такой страницы здесь нет. <a href="/ru" hreflang="ru">Главная</a></li>
+      <li lang="hi"><strong>हिन्दी:</strong> वह पृष्ठ यहाँ नहीं है। <a href="/hi" hreflang="hi">मुखपृष्ठ</a></li>
+      <li lang="ja"><strong>日本語:</strong> そのページはここにありません。 <a href="/ja" hreflang="ja">ホーム</a></li>
+      <li lang="zh-Hans"><strong>简体中文:</strong> 这个页面不在这里。 <a href="/zh-hans" hreflang="zh-Hans">首页</a></li>
+      <li lang="ar"><strong>العربية:</strong> هذه الصفحة ليست هنا. <a href="/ar" hreflang="ar">الصفحة الرئيسية</a></li>
+    </ul>
+    
 </div></main>
 <footer><div class="wrap">
   <p>&copy; 2026 <span class="lockup"><svg aria-hidden="true"><use href="#mark"/></svg>Verdetto</span> &middot; <a href="mailto:support@verdettoqr.com">support@verdettoqr.com</a></p>

@@ -49,6 +49,16 @@ Official accounts: Mastodon https://mastodon.social/@VerdettoQR; Reddit https://
 - [Verdetto: Android 的二维码和条形码扫描器](https://verdettoqr.com/zh-hans): 在链接打开前先看清它。免费、无广告、无跟踪。为破损的码而生。
 - [Verdetto: Android के लिए QR और बारकोड स्कैनर](https://verdettoqr.com/hi): लिंक खुलने से पहले देखें। मुफ़्त, बिना विज्ञापन, बिना ट्रैकिंग। क्षतिग्रस्त कोड के लिए बना।
 - [Verdetto: قارئ رموز QR والباركود لنظام Android](https://verdettoqr.com/ar): شاهد الرابط قبل أن يُفتح. مجاني، بلا إعلانات، بلا تتبّع. مصمَّم للرموز المتضررة.
+- [Ayuda](https://verdettoqr.com/support-es): Ayuda para Verdetto: QR & Barcode Scanner. Cómo contactarnos y respuestas a preguntas frecuentes.
+- [Aide](https://verdettoqr.com/support-fr): Aide pour Verdetto: QR & Barcode Scanner. Comment nous joindre et les réponses aux questions fréquentes.
+- [Hilfe](https://verdettoqr.com/support-de): Hilfe zu Verdetto: QR & Barcode Scanner. Wie du uns erreichst und Antworten auf häufige Fragen.
+- [Ajuda](https://verdettoqr.com/support-pt-br): Ajuda para o Verdetto: QR & Barcode Scanner. Como falar com a gente e respostas às perguntas comuns.
+- [Помощь](https://verdettoqr.com/support-ru): Помощь по Verdetto: QR & Barcode Scanner. Как с нами связаться и ответы на частые вопросы.
+- [Bantuan](https://verdettoqr.com/support-id): Bantuan untuk Verdetto: QR & Barcode Scanner. Cara menghubungi kami dan jawaban atas pertanyaan umum.
+- [ヘルプ](https://verdettoqr.com/support-ja): Verdetto: QR & Barcode Scanner のヘルプ。連絡方法と、よくある質問への回答。
+- [帮助](https://verdettoqr.com/support-zh-hans): Verdetto: QR & Barcode Scanner 的帮助。如何联系我们，以及常见问题的解答。
+- [सहायता](https://verdettoqr.com/support-hi): Verdetto: QR & Barcode Scanner के लिए सहायता। हमसे संपर्क कैसे करें और आम सवालों के जवाब।
+- [المساعدة](https://verdettoqr.com/support-ar): مساعدة لتطبيق Verdetto: QR & Barcode Scanner. كيف تتواصل معنا وإجابات عن الأسئلة الشائعة.
 
 ## Facts
 

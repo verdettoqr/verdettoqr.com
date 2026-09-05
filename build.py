@@ -84,7 +84,7 @@ header .wrap{display:flex;align-items:center;gap:.75rem;min-height:64px;padding-
 nav{margin-left:auto;display:flex;gap:.25rem;flex-wrap:wrap}
 nav a{color:var(--on-surface-variant);text-decoration:none;font-weight:500;font-size:.875rem;line-height:1.25rem;padding:.6rem .75rem;border-radius:20px}
 nav a:hover{background:var(--surface-container)}
-.lang{position:relative;margin-inline-start:.25rem}.lang summary{list-style:none;display:inline-flex;align-items:center;gap:.4rem;padding:.6rem .75rem;border-radius:20px;color:var(--on-surface-variant);font-weight:500;font-size:.875rem;line-height:1.25rem;cursor:pointer;position:relative}.lang summary::-webkit-details-marker{display:none}.lang summary::after{content:"";position:absolute;inset:-5px 0}.lang summary svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.lang summary:hover,.lang[open] summary{background:var(--surface-container)}.lang .menu{position:absolute;inset-inline-end:0;top:calc(100% + 4px);margin:0;padding:.5rem 0;list-style:none;min-width:12.5rem;background:var(--surface-container);border-radius:4px;box-shadow:0 1px 3px rgba(0,0,0,.3),0 4px 8px 3px rgba(0,0,0,.15);z-index:4}.lang .menu a{display:flex;align-items:center;min-height:48px;padding:0 .75rem;color:var(--on-surface);text-decoration:none;font-size:.875rem;line-height:1.25rem}.lang .menu a:hover{background:var(--surface-container-high)}.lang .menu a[aria-current]{color:var(--primary);font-weight:600}
+.lang{position:relative;margin-inline-start:.25rem}.lang summary{list-style:none;display:inline-flex;align-items:center;gap:.4rem;padding:.6rem .75rem;border-radius:20px;color:var(--on-surface-variant);font-weight:500;font-size:.875rem;line-height:1.25rem;cursor:pointer;position:relative}.lang summary::-webkit-details-marker{display:none}.lang summary::after{content:"";position:absolute;inset:-5px 0}.lang summary svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.lang summary:hover,.lang[open] summary{background:var(--surface-container)}.lang .menu{position:absolute;inset-inline-end:0;top:calc(100% + 4px);margin:0;padding:.5rem 0;list-style:none;min-width:12.5rem;background:var(--surface-container);border-radius:4px;box-shadow:0 1px 3px rgba(0,0,0,.3),0 4px 8px 3px rgba(0,0,0,.15);z-index:4}.lang .menu a{display:flex;align-items:center;min-height:48px;padding:0 .75rem;color:var(--on-surface);text-decoration:none;font-size:.875rem;line-height:1.25rem}.lang .menu a:hover{background:var(--surface-container-high)}.langs404{columns:2;column-gap:2rem;padding-inline-start:1.25rem}.langs404 li{margin:.25rem 0}.lang .menu a[aria-current]{color:var(--primary);font-weight:600}
 nav a[aria-current]{color:var(--primary);background:var(--surface-container-high)}
 main{padding:.5rem 0 2rem}
 h1{color:var(--on-surface);font-size:2rem;line-height:2.5rem;font-weight:500;margin:1.5rem 0 .5rem}
@@ -137,7 +137,7 @@ def url(name):
     return SITE + ("/" if name == "index.html" else "/" + name[:-5])
 
 
-NAV = [("support.html", "Help"), ("check-qr-code-link.html", "Guide"), ("support-the-work.html", "Support the work")]
+NAV = [("support.html", "help"), ("check-qr-code-link.html", "guide"), ("support-the-work.html", "support_work")]
 SPONSORS_LIVE = False  # True once the GitHub Sponsors profile is approved; the support page then links it
 
 SOCIAL = {"Mastodon": "https://mastodon.social/@VerdettoQR", "Reddit": "https://www.reddit.com/user/VerdettoQR/", "GitHub": "https://github.com/verdettoqr"}
@@ -160,8 +160,19 @@ def og_image_for(name, title):
     return f"{SITE}/og-image.png", "Verdetto icon with the words QR &amp; Barcode Scanner for Android, See the link before it opens."
 
 
+FOOTER = [("privacy.html", "privacy"), ("terms.html", "terms"), ("support.html", "help"), ("check-qr-code-link.html", "guide_long"),
+          ("support-the-work.html", "support_work"), ("report.html", "report"), ("safety-list.html", "safety"), ("developers.html", "developers"),
+          ("press.html", "press")]
+
+
+def footer_links(lang):
+    t = chrome(lang)
+    return " &middot; ".join(f'<a href="{href(localized(pg, lang))}">{t[key]}</a>' for pg, key in FOOTER)
+
+
 def page(name, title, description, body, ld=None, og_type="website", nav_key=None, lang="en", rtl=False, alternates=None):
-    nav = "".join(f'<a href="{href(h)}"{" aria-current=\"page\"" if h == name else ""}>{t}</a>' for h, t in NAV)
+    t = chrome(lang)
+    nav = "".join(f'<a href="{href(localized(h, lang))}"{" aria-current=\"page\"" if localized(h, lang) == name else ""}>{t.get(key, CHROME["en"].get(key, key))}</a>' for h, key in NAV)
     # the language control is part of the top app bar on every page; a page without a translation offers the home pages
     menu = lang_menu(alternates or HOME_ALTERNATES, lang)
     og_image, og_alt = og_image_for(name, title)
@@ -200,10 +211,10 @@ def page(name, title, description, body, ld=None, og_type="website", nav_key=Non
 {ld_tag}<style>{CSS}</style>
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
+<a class="skip" href="#main">{t["skip"]}</a>
 {banner}{SYMBOLS}
 <header><div class="wrap">
-  <a class="brand" href="{href('index.html')}"><svg aria-hidden="true"><use href="#mark"/></svg>Verdetto</a>
+  <a class="brand" href="{href(localized('index.html', lang))}"><svg aria-hidden="true"><use href="#mark"/></svg>Verdetto</a>
   <nav aria-label="Site">{nav}</nav>{menu}
 </div></header>
 <main id="main"><div class="wrap">
@@ -211,8 +222,8 @@ def page(name, title, description, body, ld=None, og_type="website", nav_key=Non
 </div></main>
 <footer><div class="wrap">
   <p>&copy; 2026 <span class="lockup"><svg aria-hidden="true"><use href="#mark"/></svg>Verdetto</span> &middot; <a href="mailto:{EMAIL}">{EMAIL}</a></p>
-  <p class="links"><a href="{href('privacy.html')}">Privacy policy</a> &middot; <a href="{href('terms.html')}">Terms of use</a> &middot; <a href="{href('support.html')}">Help</a> &middot; <a href="{href('check-qr-code-link.html')}">How to check a QR code link</a> &middot; <a href="{href('support-the-work.html')}">Support the work</a> &middot; <a href="{href('report.html')}">Report a problem</a> &middot; <a href="{href('safety-list.html')}">The safety list this week</a> &middot; <a href="{href('developers.html')}">For developers</a> &middot; <a href="{href('press.html')}">Press kit</a></p>
-  <p class="links">Where to find us: {SOCIAL_LINKS}</p>
+  <p class="links">{footer_links(lang)}</p>
+  <p class="links">{t["where"]} {SOCIAL_LINKS}</p>
 </div></footer>
 </body>
 </html>
@@ -266,6 +277,198 @@ def privacy_lang_row(current):
 
 
 LANG_LABELS = {code: label for code, label, _ in PRIVACY_LANGS}
+LANG_CODES = [code for code, _, _ in PRIVACY_LANGS]  # English first, then the ten
+
+# the site chrome (skip link, nav, footer, the language control) in the page's own language
+CHROME = {
+ "en": {
+  "skip": "Skip to content",
+  "help": "Help",
+  "guide": "Guide",
+  "support_work": "Support the work",
+  "privacy": "Privacy policy",
+  "terms": "Terms of use",
+  "guide_long": "How to check a QR code link",
+  "report": "Report a problem",
+  "safety": "The safety list this week",
+  "developers": "For developers",
+  "press": "Press kit",
+  "where": "Where to find us:",
+  "language": "Language",
+  "tests": "Tests"
+ },
+ "de": {
+  "skip": "Zum Inhalt springen",
+  "help": "Hilfe",
+  "guide": "Anleitung",
+  "support_work": "Die Arbeit unterstützen",
+  "privacy": "Datenschutzerklärung",
+  "terms": "Nutzungsbedingungen",
+  "guide_long": "Wie du einen QR-Code-Link prüfst",
+  "report": "Ein Problem melden",
+  "safety": "Die Sicherheitsliste diese Woche",
+  "developers": "Für Entwickler",
+  "press": "Pressematerial",
+  "where": "Hier findest du uns:",
+  "language": "Sprache"
+ },
+ "es": {
+  "skip": "Saltar al contenido",
+  "help": "Ayuda",
+  "guide": "Guía",
+  "support_work": "Apoya el trabajo",
+  "privacy": "Política de privacidad",
+  "terms": "Condiciones de uso",
+  "guide_long": "Cómo comprobar un enlace de código QR",
+  "report": "Informar de un problema",
+  "safety": "La lista de seguridad esta semana",
+  "developers": "Para desarrolladores",
+  "press": "Kit de prensa",
+  "where": "Dónde encontrarnos:",
+  "language": "Idioma"
+ },
+ "fr": {
+  "skip": "Aller au contenu",
+  "help": "Aide",
+  "guide": "Guide",
+  "support_work": "Soutenir le travail",
+  "privacy": "Politique de confidentialité",
+  "terms": "Conditions d'utilisation",
+  "guide_long": "Comment vérifier le lien d'un code QR",
+  "report": "Signaler un problème",
+  "safety": "La liste de sécurité cette semaine",
+  "developers": "Pour les développeurs",
+  "press": "Kit presse",
+  "where": "Où nous trouver :",
+  "language": "Langue"
+ },
+ "pt-BR": {
+  "skip": "Pular para o conteúdo",
+  "help": "Ajuda",
+  "guide": "Guia",
+  "support_work": "Apoie o trabalho",
+  "privacy": "Política de privacidade",
+  "terms": "Termos de uso",
+  "guide_long": "Como verificar o link de um código QR",
+  "report": "Relatar um problema",
+  "safety": "A lista de segurança nesta semana",
+  "developers": "Para desenvolvedores",
+  "press": "Kit de imprensa",
+  "where": "Onde nos encontrar:",
+  "language": "Idioma"
+ },
+ "id": {
+  "skip": "Lompat ke konten",
+  "help": "Bantuan",
+  "guide": "Panduan",
+  "support_work": "Dukung pekerjaan ini",
+  "privacy": "Kebijakan privasi",
+  "terms": "Ketentuan penggunaan",
+  "guide_long": "Cara memeriksa tautan kode QR",
+  "report": "Laporkan masalah",
+  "safety": "Daftar keamanan minggu ini",
+  "developers": "Untuk pengembang",
+  "press": "Kit pers",
+  "where": "Temukan kami di:",
+  "language": "Bahasa"
+ },
+ "ru": {
+  "skip": "Перейти к содержимому",
+  "help": "Помощь",
+  "guide": "Руководство",
+  "support_work": "Поддержать работу",
+  "privacy": "Политика конфиденциальности",
+  "terms": "Условия использования",
+  "guide_long": "Как проверить ссылку из QR-кода",
+  "report": "Сообщить о проблеме",
+  "safety": "Список безопасности за неделю",
+  "developers": "Разработчикам",
+  "press": "Пресс-кит",
+  "where": "Где нас найти:",
+  "language": "Язык"
+ },
+ "hi": {
+  "skip": "सामग्री पर जाएँ",
+  "help": "सहायता",
+  "guide": "गाइड",
+  "support_work": "काम का समर्थन करें",
+  "privacy": "गोपनीयता नीति",
+  "terms": "उपयोग की शर्तें",
+  "guide_long": "QR कोड लिंक की जाँच कैसे करें",
+  "report": "समस्या की रिपोर्ट करें",
+  "safety": "इस सप्ताह की सुरक्षा सूची",
+  "developers": "डेवलपरों के लिए",
+  "press": "प्रेस किट",
+  "where": "हमें यहाँ पाएँ:",
+  "language": "भाषा"
+ },
+ "ja": {
+  "skip": "本文へ移動",
+  "help": "ヘルプ",
+  "guide": "ガイド",
+  "support_work": "活動を支援",
+  "privacy": "プライバシーポリシー",
+  "terms": "利用規約",
+  "guide_long": "QR コードのリンクを確認する方法",
+  "report": "問題を報告",
+  "safety": "今週の安全リスト",
+  "developers": "開発者向け",
+  "press": "プレスキット",
+  "where": "公式アカウント:",
+  "language": "言語"
+ },
+ "zh-Hans": {
+  "skip": "跳到内容",
+  "help": "帮助",
+  "guide": "指南",
+  "support_work": "支持这项工作",
+  "privacy": "隐私政策",
+  "terms": "使用条款",
+  "guide_long": "如何检查二维码链接",
+  "report": "报告问题",
+  "safety": "本周安全名单",
+  "developers": "面向开发者",
+  "press": "媒体资料",
+  "where": "在这里找到我们：",
+  "language": "语言"
+ },
+ "ar": {
+  "skip": "الانتقال إلى المحتوى",
+  "help": "المساعدة",
+  "guide": "الدليل",
+  "support_work": "ادعم العمل",
+  "privacy": "سياسة الخصوصية",
+  "terms": "شروط الاستخدام",
+  "guide_long": "كيف تفحص رابط رمز QR",
+  "report": "الإبلاغ عن مشكلة",
+  "safety": "قائمة السلامة هذا الأسبوع",
+  "developers": "للمطوّرين",
+  "press": "ملف الصحافة",
+  "where": "أين تجدنا:",
+  "language": "اللغة"
+ }
+}
+
+
+def chrome(lang):
+    return CHROME.get(lang, CHROME["en"])
+
+
+def family_pages(base):
+    """The page names of one translated family: support.html -> support-de.html, support-pt-br.html, ..."""
+    return {code: (base if code == "en" else f"{base[:-5]}-{code.lower()}.html") for code in LANG_CODES}
+
+
+# every translated family registers its pages here; the chrome links to the same-language page when one exists
+LOCAL = {"privacy.html": {c: pg for c, _, pg in PRIVACY_LANGS}, "terms.html": {c: pg for c, _, pg in TERMS_LANGS}}
+
+
+def localized(page_name, code):
+    return LOCAL.get(page_name, {}).get(code, page_name)
+
+
+def alternates_for(base):
+    return [(code, pg) for code, pg in LOCAL[base].items()] + [("x-default", base)]
 
 
 def lang_menu(alternates, current):
@@ -274,7 +477,7 @@ def lang_menu(alternates, current):
     items = "".join(
         f'<li><a href="{href(page_name)}" lang="{code}" hreflang="{code}"{" aria-current=\"page\"" if code == current else ""}>{LANG_LABELS[code]}</a></li>'
         for code, page_name in alternates if code != "x-default")
-    return (f'<details class="lang"><summary aria-label="Language: {LANG_LABELS[current]}">{ic("language")}<span>{LANG_LABELS[current]}</span></summary>'
+    return (f'<details class="lang"><summary aria-label="{chrome(current)["language"]}: {LANG_LABELS[current]}">{ic("language")}<span>{LANG_LABELS[current]}</span></summary>'
             f'<ul class="menu">{items}</ul></details>')
 
 
@@ -431,32 +634,499 @@ TERMS = f"""
 <p>These terms may change with a new version of the app. The text in the installed version is the one that applies.</p>
 """
 
-FAQ = [
-    ("It said \"No warnings found.\" Is the link safe?",
-     "The app does not know, and it never says something is safe. \"No warnings found\" means none of its checks matched. Look at the address it shows you, and open it only if you would have opened it anyway."),
-    ("Does it work offline?",
-     "Yes. Scanning and every built-in check run on the phone. Online lookups add where a short link leads, how old a domain is, product details, and, for a vehicle, its recall campaigns, crash-test ratings, and fuel economy from NHTSA and the EPA. They need a connection and can be turned off in Settings."),
-    ("Why does it ask for the camera?",
-     "To scan. The only other thing it can ask for is contacts access, once, if you fill your card from your phone's profile."),
-    ("How do I turn off online lookups?", "Settings, then Allow online lookups. With them off, nothing leaves the phone. Product lookups have a switch of their own under it."),
-    ("How do I delete my history?", "Swipe an entry, or Clear history in Settings. Scans older than 90 days clear on their own unless you star them. History also rides in your phone's own backup unless you turn that off; uninstalling removes it."),
-    ("A code will not scan.",
-     "Fill more of the screen with it, hold still, and let the camera focus. Damaged or faded codes take a moment longer. If it still will not read, send us a photo of the code if it is not sensitive."),
-    ("What does the contribution unlock?",
-     "Nothing you need; everything stays free. Supporters get a badge you can hide, and a few small extras are planned."),
-]
-SUPPORT = f"""
-<h1>Help</h1>
-<div class="card"><p>Something wrong with a scan, a warning, or the app? <a href="{href('report.html')}">Report it</a>; a person reads every report. A site listed by mistake is reviewed the same day.</p></div>
-<div class="card"><p>Write to <a href="mailto:{EMAIL}">{EMAIL}</a>. It helps to include your phone model, your Android version, and what you were scanning if you can share it. Do not send a code that contains a password, a sign-in link, or anything you would not put in an email. We keep your message for as long as it takes to answer, then delete it.</p></div>
+SUPPORT_T = {
+ "en": {
+  "title": "Help - Verdetto",
+  "desc": "Help for Verdetto: QR & Barcode Scanner. How to reach us and answers to common questions.",
+  "h1": "Help",
+  "card1": "Something wrong with a scan, a warning, or the app? {report}; a person reads every report. A site listed by mistake is reviewed the same day.",
+  "report": "Report it",
+  "card2": "Write to {email}. It helps to include your phone model, your Android version, and what you were scanning if you can share it. Do not send a code that contains a password, a sign-in link, or anything you would not put in an email. We keep your message for as long as it takes to answer, then delete it.",
+  "common": "Common questions",
+  "faq": [
+   [
+    "It said \"No warnings found.\" Is the link safe?",
+    "The app does not know, and it never says something is safe. \"No warnings found\" means none of its checks matched. Look at the address it shows you, and open it only if you would have opened it anyway."
+   ],
+   [
+    "Does it work offline?",
+    "Yes. Scanning and every built-in check run on the phone. Online lookups add where a short link leads, how old a domain is, product details, and, for a vehicle, its recall campaigns, crash-test ratings, and fuel economy from NHTSA and the EPA. They need a connection and can be turned off in Settings."
+   ],
+   [
+    "Why does it ask for the camera?",
+    "To scan. The only other thing it can ask for is contacts access, once, if you fill your card from your phone's profile."
+   ],
+   [
+    "How do I turn off online lookups?",
+    "Settings, then Allow online lookups. With them off, nothing leaves the phone. Product lookups have a switch of their own under it."
+   ],
+   [
+    "How do I delete my history?",
+    "Swipe an entry, or Clear history in Settings. Scans older than 90 days clear on their own unless you star them. History also rides in your phone's own backup unless you turn that off; uninstalling removes it."
+   ],
+   [
+    "A code will not scan.",
+    "Fill more of the screen with it, hold still, and let the camera focus. Damaged or faded codes take a moment longer. If it still will not read, send us a photo of the code if it is not sensitive."
+   ],
+   [
+    "What does the contribution unlock?",
+    "Nothing you need; everything stays free. Supporters get a badge you can hide, and a few small extras are planned."
+   ]
+  ],
+  "closing": "Not sure what to look for in a link? Read {guide}. Want to keep the app free for everyone? {support}.",
+  "guide": "how to check a QR code link before you open it",
+  "support": "Support the work"
+ },
+ "de": {
+  "title": "Hilfe - Verdetto",
+  "desc": "Hilfe zu Verdetto: QR & Barcode Scanner. Wie du uns erreichst und Antworten auf häufige Fragen.",
+  "h1": "Hilfe",
+  "card1": "Stimmt etwas mit einem Scan, einer Warnung oder der App nicht? {report}; jede Meldung liest ein Mensch. Eine irrtümlich gelistete Website wird noch am selben Tag geprüft.",
+  "report": "Melde es",
+  "card2": "Schreib an {email}. Es hilft, wenn du dein Handymodell, deine Android-Version und, falls du es teilen kannst, den gescannten Inhalt nennst. Schick keinen Code, der ein Passwort, einen Anmeldelink oder etwas enthält, das du nicht in eine E-Mail schreiben würdest. Wir behalten deine Nachricht so lange, wie die Antwort dauert, und löschen sie dann.",
+  "common": "Häufige Fragen",
+  "faq": [
+   [
+    "Es stand „Keine Warnungen gefunden“. Ist der Link sicher?",
+    "Die App weiß es nicht, und sie sagt nie, dass etwas sicher ist. „Keine Warnungen gefunden“ heißt: Keine ihrer Prüfungen hat angeschlagen. Sieh dir die Adresse an, die sie dir zeigt, und öffne sie nur, wenn du sie sowieso geöffnet hättest."
+   ],
+   [
+    "Funktioniert sie offline?",
+    "Ja. Das Scannen und jede eingebaute Prüfung laufen auf dem Handy. Online-Abfragen ergänzen, wohin ein Kurzlink führt, wie alt eine Domain ist, Produktdetails und bei einem Fahrzeug seine Rückrufe, Crashtest-Bewertungen und den Verbrauch von NHTSA und EPA. Sie brauchen eine Verbindung und lassen sich in den Einstellungen abschalten."
+   ],
+   [
+    "Warum fragt sie nach der Kamera?",
+    "Zum Scannen. Das Einzige, was sie sonst noch fragen kann, ist einmalig der Zugriff auf die Kontakte, wenn du deine Karte aus dem Profil deines Handys füllst."
+   ],
+   [
+    "Wie schalte ich Online-Abfragen ab?",
+    "Einstellungen, dann „Online-Abfragen erlauben“. Abgeschaltet verlässt nichts das Handy. Produktabfragen haben darunter einen eigenen Schalter."
+   ],
+   [
+    "Wie lösche ich meinen Verlauf?",
+    "Wische einen Eintrag weg oder wähle „Verlauf löschen“ in den Einstellungen. Scans, die älter als 90 Tage sind, löschen sich von selbst, wenn du sie nicht mit einem Stern markierst. Der Verlauf ist auch Teil der Sicherung deines Handys, wenn du das nicht abschaltest; Deinstallieren entfernt ihn."
+   ],
+   [
+    "Ein Code lässt sich nicht scannen.",
+    "Fülle mehr vom Bildschirm damit, halte still und lass die Kamera fokussieren. Beschädigte oder verblasste Codes brauchen einen Moment länger. Liest sie ihn immer noch nicht, schick uns ein Foto des Codes, wenn er nichts Vertrauliches enthält."
+   ],
+   [
+    "Was schaltet der Beitrag frei?",
+    "Nichts, was du brauchst; alles bleibt kostenlos. Unterstützer bekommen ein Abzeichen, das du ausblenden kannst, und ein paar kleine Extras sind geplant."
+   ]
+  ],
+  "closing": "Nicht sicher, worauf du bei einem Link achten sollst? Lies, {guide}. Möchtest du die App für alle kostenlos halten? {support}.",
+  "guide": "wie du einen QR-Code-Link prüfst, bevor du ihn öffnest",
+  "support": "Unterstütze die Arbeit"
+ },
+ "es": {
+  "title": "Ayuda - Verdetto",
+  "desc": "Ayuda para Verdetto: QR & Barcode Scanner. Cómo contactarnos y respuestas a preguntas frecuentes.",
+  "h1": "Ayuda",
+  "card1": "¿Algo va mal con un escaneo, un aviso o la aplicación? {report}; una persona lee cada informe. Un sitio incluido por error se revisa el mismo día.",
+  "report": "Infórmanos",
+  "card2": "Escribe a {email}. Ayuda que incluyas el modelo de tu teléfono, tu versión de Android y qué estabas escaneando si puedes compartirlo. No envíes un código que contenga una contraseña, un enlace de inicio de sesión o algo que no pondrías en un correo. Guardamos tu mensaje el tiempo que tarde la respuesta y después lo borramos.",
+  "common": "Preguntas frecuentes",
+  "faq": [
+   [
+    "Dijo «No se encontraron avisos». ¿El enlace es seguro?",
+    "La aplicación no lo sabe, y nunca dice que algo sea seguro. «No se encontraron avisos» significa que ninguna de sus comprobaciones coincidió. Mira la dirección que te muestra y ábrela solo si la habrías abierto de todos modos."
+   ],
+   [
+    "¿Funciona sin conexión?",
+    "Sí. El escaneo y todas las comprobaciones integradas se hacen en el teléfono. Las consultas en línea añaden adónde lleva un enlace corto, la antigüedad de un dominio, detalles de productos y, para un vehículo, sus campañas de retirada, las valoraciones de pruebas de choque y el consumo de combustible de la NHTSA y la EPA. Necesitan conexión y se pueden desactivar en Ajustes."
+   ],
+   [
+    "¿Por qué pide la cámara?",
+    "Para escanear. Lo único que puede pedir además es acceso a los contactos, una vez, si rellenas tu tarjeta desde el perfil de tu teléfono."
+   ],
+   [
+    "¿Cómo desactivo las consultas en línea?",
+    "Ajustes y después «Permitir consultas en línea». Desactivadas, nada sale del teléfono. Las consultas de productos tienen su propio interruptor debajo."
+   ],
+   [
+    "¿Cómo borro mi historial?",
+    "Desliza una entrada o usa «Borrar historial» en Ajustes. Los escaneos de más de 90 días se borran solos a menos que los marques con una estrella. El historial también va en la copia de seguridad de tu teléfono a menos que la desactives; desinstalar lo elimina."
+   ],
+   [
+    "Un código no se escanea.",
+    "Llena más pantalla con él, mantén el teléfono quieto y deja que la cámara enfoque. Los códigos dañados o descoloridos tardan un poco más. Si sigue sin leerse, envíanos una foto del código si no es confidencial."
+   ],
+   [
+    "¿Qué desbloquea la contribución?",
+    "Nada que necesites; todo sigue siendo gratis. Quienes apoyan reciben una insignia que puedes ocultar, y hay previstos algunos pequeños extras."
+   ]
+  ],
+  "closing": "¿No sabes qué mirar en un enlace? Lee {guide}. ¿Quieres que la aplicación siga siendo gratis para todos? {support}.",
+  "guide": "cómo comprobar un enlace de código QR antes de abrirlo",
+  "support": "Apoya el trabajo"
+ },
+ "fr": {
+  "title": "Aide - Verdetto",
+  "desc": "Aide pour Verdetto: QR & Barcode Scanner. Comment nous joindre et les réponses aux questions fréquentes.",
+  "h1": "Aide",
+  "card1": "Un problème avec un scan, une alerte ou l'application ? {report} ; une personne lit chaque signalement. Un site listé par erreur est réexaminé le jour même.",
+  "report": "Signale-le",
+  "card2": "Écris à {email}. Indique si possible le modèle de ton téléphone, ta version d'Android et ce que tu scannais si tu peux le partager. N'envoie pas un code qui contient un mot de passe, un lien de connexion ou quoi que ce soit que tu ne mettrais pas dans un e-mail. Nous gardons ton message le temps d'y répondre, puis nous le supprimons.",
+  "common": "Questions fréquentes",
+  "faq": [
+   [
+    "Il a affiché « Aucune alerte trouvée ». Le lien est-il sûr ?",
+    "L'application ne le sait pas, et elle ne dit jamais que quelque chose est sûr. « Aucune alerte trouvée » signifie qu'aucune de ses vérifications n'a réagi. Regarde l'adresse qu'elle te montre et ouvre-la seulement si tu l'aurais ouverte de toute façon."
+   ],
+   [
+    "Fonctionne-t-elle hors ligne ?",
+    "Oui. Le scan et toutes les vérifications intégrées se font sur le téléphone. Les recherches en ligne ajoutent la destination d'un lien court, l'âge d'un domaine, les détails d'un produit et, pour un véhicule, ses rappels, ses notes aux essais de choc et sa consommation, depuis la NHTSA et l'EPA. Elles ont besoin d'une connexion et se désactivent dans les Réglages."
+   ],
+   [
+    "Pourquoi demande-t-elle la caméra ?",
+    "Pour scanner. La seule autre chose qu'elle peut demander est l'accès aux contacts, une fois, si tu remplis ta carte depuis le profil de ton téléphone."
+   ],
+   [
+    "Comment désactiver les recherches en ligne ?",
+    "Réglages, puis « Autoriser les recherches en ligne ». Désactivées, rien ne quitte le téléphone. Les recherches de produits ont leur propre interrupteur juste en dessous."
+   ],
+   [
+    "Comment supprimer mon historique ?",
+    "Glisse une entrée, ou « Effacer l'historique » dans les Réglages. Les scans de plus de 90 jours s'effacent d'eux-mêmes sauf si tu les marques d'une étoile. L'historique fait aussi partie de la sauvegarde de ton téléphone sauf si tu la désactives ; désinstaller le supprime."
+   ],
+   [
+    "Un code ne se scanne pas.",
+    "Remplis davantage l'écran avec lui, reste immobile et laisse la caméra faire la mise au point. Les codes abîmés ou délavés prennent un peu plus de temps. S'il ne se lit toujours pas, envoie-nous une photo du code s'il n'a rien de sensible."
+   ],
+   [
+    "Que débloque la contribution ?",
+    "Rien dont tu aies besoin ; tout reste gratuit. Les soutiens reçoivent un badge que tu peux masquer, et quelques petits extras sont prévus."
+   ]
+  ],
+  "closing": "Tu ne sais pas quoi regarder dans un lien ? Lis {guide}. Tu veux garder l'application gratuite pour tous ? {support}.",
+  "guide": "comment vérifier le lien d'un code QR avant de l'ouvrir",
+  "support": "Soutiens le travail"
+ },
+ "pt-BR": {
+  "title": "Ajuda - Verdetto",
+  "desc": "Ajuda para o Verdetto: QR & Barcode Scanner. Como falar com a gente e respostas às perguntas comuns.",
+  "h1": "Ajuda",
+  "card1": "Algo errado com uma leitura, um alerta ou o app? {report}; uma pessoa lê cada relato. Um site listado por engano é revisado no mesmo dia.",
+  "report": "Relate",
+  "card2": "Escreva para {email}. Ajuda incluir o modelo do seu celular, sua versão do Android e o que você estava lendo, se puder compartilhar. Não envie um código que contenha uma senha, um link de login ou qualquer coisa que você não colocaria em um e-mail. Guardamos sua mensagem pelo tempo que a resposta levar e depois a apagamos.",
+  "common": "Perguntas comuns",
+  "faq": [
+   [
+    "Apareceu \"Nenhum alerta encontrado\". O link é seguro?",
+    "O app não sabe, e nunca diz que algo é seguro. \"Nenhum alerta encontrado\" significa que nenhuma das verificações bateu. Olhe o endereço que ele mostra e abra só se você o abriria de qualquer forma."
+   ],
+   [
+    "Funciona offline?",
+    "Sim. A leitura e todas as verificações internas rodam no celular. As consultas online acrescentam para onde um link curto leva, a idade de um domínio, detalhes do produto e, para um veículo, seus recalls, notas de testes de colisão e consumo de combustível da NHTSA e da EPA. Elas precisam de conexão e podem ser desativadas nas Configurações."
+   ],
+   [
+    "Por que ele pede a câmera?",
+    "Para ler códigos. A única outra coisa que ele pode pedir é acesso aos contatos, uma vez, se você preencher seu cartão a partir do perfil do celular."
+   ],
+   [
+    "Como desligo as consultas online?",
+    "Configurações, depois \"Permitir consultas online\". Desligadas, nada sai do celular. As consultas de produtos têm uma chave própria logo abaixo."
+   ],
+   [
+    "Como apago meu histórico?",
+    "Deslize uma entrada ou use \"Limpar histórico\" nas Configurações. Leituras com mais de 90 dias se apagam sozinhas, a menos que você as marque com estrela. O histórico também vai no backup do seu celular, a menos que você desative isso; desinstalar o remove."
+   ],
+   [
+    "Um código não lê.",
+    "Preencha mais a tela com ele, segure firme e deixe a câmera focar. Códigos danificados ou desbotados levam um pouco mais. Se ainda não ler, mande uma foto do código, se ele não for sensível."
+   ],
+   [
+    "O que a contribuição desbloqueia?",
+    "Nada de que você precise; tudo continua grátis. Quem apoia ganha um selo que você pode ocultar, e alguns pequenos extras estão planejados."
+   ]
+  ],
+  "closing": "Não sabe o que olhar em um link? Leia {guide}. Quer manter o app grátis para todos? {support}.",
+  "guide": "como verificar o link de um código QR antes de abrir",
+  "support": "Apoie o trabalho"
+ },
+ "id": {
+  "title": "Bantuan - Verdetto",
+  "desc": "Bantuan untuk Verdetto: QR & Barcode Scanner. Cara menghubungi kami dan jawaban atas pertanyaan umum.",
+  "h1": "Bantuan",
+  "card1": "Ada yang salah dengan pemindaian, peringatan, atau aplikasinya? {report}; setiap laporan dibaca oleh seseorang. Situs yang masuk daftar karena keliru ditinjau pada hari yang sama.",
+  "report": "Laporkan",
+  "card2": "Tulis ke {email}. Akan membantu bila kamu menyertakan model ponselmu, versi Android-mu, dan apa yang kamu pindai jika bisa dibagikan. Jangan kirim kode yang berisi kata sandi, tautan masuk, atau apa pun yang tidak akan kamu tulis di email. Kami menyimpan pesanmu selama dibutuhkan untuk menjawab, lalu menghapusnya.",
+  "common": "Pertanyaan umum",
+  "faq": [
+   [
+    "Katanya \"Tidak ada peringatan ditemukan\". Apakah tautannya aman?",
+    "Aplikasi tidak tahu, dan ia tidak pernah mengatakan sesuatu itu aman. \"Tidak ada peringatan ditemukan\" berarti tak satu pun pemeriksaannya cocok. Lihat alamat yang ditampilkannya, dan buka hanya jika kamu memang akan membukanya."
+   ],
+   [
+    "Apakah bekerja offline?",
+    "Ya. Pemindaian dan setiap pemeriksaan bawaan berjalan di ponsel. Pencarian online menambahkan ke mana tautan pendek mengarah, berapa umur sebuah domain, detail produk, dan untuk kendaraan, penarikan kembali, nilai uji tabrak, dan konsumsi bahan bakarnya dari NHTSA dan EPA. Semua itu butuh koneksi dan bisa dimatikan di Setelan."
+   ],
+   [
+    "Kenapa meminta kamera?",
+    "Untuk memindai. Satu-satunya hal lain yang bisa dimintanya adalah akses kontak, sekali, jika kamu mengisi kartumu dari profil ponsel."
+   ],
+   [
+    "Bagaimana mematikan pencarian online?",
+    "Setelan, lalu \"Izinkan pencarian online\". Saat mati, tidak ada yang meninggalkan ponsel. Pencarian produk punya sakelar sendiri di bawahnya."
+   ],
+   [
+    "Bagaimana menghapus riwayat saya?",
+    "Geser sebuah entri, atau \"Hapus riwayat\" di Setelan. Pindaian yang lebih dari 90 hari terhapus sendiri kecuali kamu memberinya bintang. Riwayat juga ikut dalam cadangan ponselmu kecuali kamu mematikannya; mencopot pemasangan menghapusnya."
+   ],
+   [
+    "Sebuah kode tidak terbaca.",
+    "Isi layar lebih banyak dengan kode itu, tahan diam, dan biarkan kamera fokus. Kode yang rusak atau pudar butuh waktu sedikit lebih lama. Jika masih tidak terbaca, kirimkan foto kodenya jika tidak sensitif."
+   ],
+   [
+    "Apa yang dibuka oleh kontribusi?",
+    "Tidak ada yang kamu butuhkan; semuanya tetap gratis. Pendukung mendapat lencana yang bisa disembunyikan, dan beberapa tambahan kecil direncanakan."
+   ]
+  ],
+  "closing": "Tidak yakin apa yang harus dilihat pada tautan? Baca {guide}. Ingin menjaga aplikasi gratis untuk semua? {support}.",
+  "guide": "cara memeriksa tautan kode QR sebelum membukanya",
+  "support": "Dukung pekerjaan ini"
+ },
+ "ru": {
+  "title": "Помощь - Verdetto",
+  "desc": "Помощь по Verdetto: QR & Barcode Scanner. Как с нами связаться и ответы на частые вопросы.",
+  "h1": "Помощь",
+  "card1": "Что-то не так со сканом, предупреждением или приложением? {report}; каждое сообщение читает человек. Сайт, попавший в список по ошибке, проверяется в тот же день.",
+  "report": "Сообщите",
+  "card2": "Напишите на {email}. Полезно указать модель телефона, версию Android и то, что вы сканировали, если можете этим поделиться. Не отправляйте код, содержащий пароль, ссылку для входа или что-либо, что вы не написали бы в письме. Мы храним сообщение столько, сколько нужно для ответа, а затем удаляем.",
+  "common": "Частые вопросы",
+  "faq": [
+   [
+    "Приложение написало «Предупреждений не найдено». Ссылка безопасна?",
+    "Приложение этого не знает и никогда не говорит, что что-то безопасно. «Предупреждений не найдено» означает, что ни одна из его проверок не сработала. Посмотрите на адрес, который оно показывает, и открывайте только если открыли бы его и так."
+   ],
+   [
+    "Работает ли оно офлайн?",
+    "Да. Сканирование и все встроенные проверки выполняются на телефоне. Онлайн-запросы добавляют, куда ведёт короткая ссылка, сколько лет домену, сведения о товаре, а для автомобиля его отзывные кампании, оценки краш-тестов и расход топлива от NHTSA и EPA. Им нужно соединение, и их можно отключить в настройках."
+   ],
+   [
+    "Почему оно просит камеру?",
+    "Чтобы сканировать. Единственное, о чём оно ещё может попросить, это однократный доступ к контактам, если вы заполняете свою карточку из профиля телефона."
+   ],
+   [
+    "Как отключить онлайн-запросы?",
+    "Настройки, затем «Разрешить онлайн-запросы». При выключенных запросах ничего не покидает телефон. У поиска товаров есть свой переключатель под ними."
+   ],
+   [
+    "Как удалить историю?",
+    "Смахните запись или выберите «Очистить историю» в настройках. Сканы старше 90 дней удаляются сами, если не отмечены звёздочкой. История также попадает в резервную копию телефона, если вы это не отключите; удаление приложения стирает её."
+   ],
+   [
+    "Код не сканируется.",
+    "Заполните им большую часть экрана, держите телефон неподвижно и дайте камере сфокусироваться. Повреждённые или выцветшие коды читаются чуть дольше. Если он всё равно не читается, пришлите нам фото кода, если он не содержит ничего конфиденциального."
+   ],
+   [
+    "Что открывает взнос?",
+    "Ничего необходимого; всё остаётся бесплатным. Поддержавшие получают значок, который можно скрыть, и планируется несколько небольших дополнений."
+   ]
+  ],
+  "closing": "Не знаете, на что смотреть в ссылке? Прочитайте, {guide}. Хотите, чтобы приложение оставалось бесплатным для всех? {support}.",
+  "guide": "как проверить ссылку из QR-кода, прежде чем открыть её",
+  "support": "Поддержите работу"
+ },
+ "hi": {
+  "title": "सहायता - Verdetto",
+  "desc": "Verdetto: QR & Barcode Scanner के लिए सहायता। हमसे संपर्क कैसे करें और आम सवालों के जवाब।",
+  "h1": "सहायता",
+  "card1": "किसी स्कैन, चेतावनी या ऐप में कुछ गड़बड़ है? {report}; हर रिपोर्ट एक व्यक्ति पढ़ता है। गलती से सूची में आई साइट उसी दिन जाँची जाती है।",
+  "report": "रिपोर्ट करें",
+  "card2": "{email} पर लिखें। अपने फ़ोन का मॉडल, Android संस्करण और, अगर साझा कर सकें, तो जो आप स्कैन कर रहे थे, बताना मददगार होता है। ऐसा कोड न भेजें जिसमें पासवर्ड, साइन-इन लिंक या कुछ ऐसा हो जो आप ईमेल में नहीं लिखेंगे। हम आपका संदेश जवाब देने तक रखते हैं, फिर हटा देते हैं।",
+  "common": "आम सवाल",
+  "faq": [
+   [
+    "इसने \"कोई चेतावनी नहीं मिली\" कहा। क्या लिंक सुरक्षित है?",
+    "ऐप को यह पता नहीं, और यह कभी नहीं कहता कि कुछ सुरक्षित है। \"कोई चेतावनी नहीं मिली\" का मतलब है कि इसकी कोई भी जाँच मेल नहीं खाई। जो पता यह दिखाता है उसे देखें, और उसे तभी खोलें जब आप उसे वैसे भी खोलते।"
+   ],
+   [
+    "क्या यह ऑफ़लाइन काम करता है?",
+    "हाँ। स्कैनिंग और हर अंतर्निहित जाँच फ़ोन पर होती है। ऑनलाइन लुकअप बताते हैं कि छोटा लिंक कहाँ जाता है, डोमेन कितना पुराना है, उत्पाद का विवरण, और वाहन के लिए NHTSA और EPA से उसके रिकॉल, क्रैश-टेस्ट रेटिंग और ईंधन खपत। इन्हें कनेक्शन चाहिए और इन्हें सेटिंग्स में बंद किया जा सकता है।"
+   ],
+   [
+    "यह कैमरा क्यों माँगता है?",
+    "स्कैन करने के लिए। इसके अलावा यह केवल एक बार संपर्कों की पहुँच माँग सकता है, अगर आप अपने फ़ोन की प्रोफ़ाइल से अपना कार्ड भरें।"
+   ],
+   [
+    "ऑनलाइन लुकअप कैसे बंद करूँ?",
+    "सेटिंग्स, फिर \"ऑनलाइन लुकअप की अनुमति दें\"। बंद होने पर फ़ोन से कुछ भी बाहर नहीं जाता। उत्पाद लुकअप का अपना स्विच उसके नीचे है।"
+   ],
+   [
+    "मैं अपना इतिहास कैसे हटाऊँ?",
+    "किसी प्रविष्टि को स्वाइप करें, या सेटिंग्स में \"इतिहास साफ़ करें\" चुनें। 90 दिन से पुराने स्कैन अपने आप हट जाते हैं, जब तक आप उन पर स्टार न लगाएँ। इतिहास आपके फ़ोन के बैकअप में भी जाता है, जब तक आप उसे बंद न करें; अनइंस्टॉल करने से यह हट जाता है।"
+   ],
+   [
+    "एक कोड स्कैन नहीं हो रहा।",
+    "उससे स्क्रीन का ज़्यादा हिस्सा भरें, स्थिर रहें और कैमरे को फ़ोकस करने दें। क्षतिग्रस्त या धुँधले कोड में थोड़ा ज़्यादा समय लगता है। अगर फिर भी न पढ़े, तो कोड की तस्वीर हमें भेजें, बशर्ते वह संवेदनशील न हो।"
+   ],
+   [
+    "योगदान से क्या मिलता है?",
+    "ऐसा कुछ नहीं जिसकी आपको ज़रूरत हो; सब कुछ मुफ़्त रहता है। समर्थकों को एक बैज मिलता है जिसे आप छिपा सकते हैं, और कुछ छोटे अतिरिक्त की योजना है।"
+   ]
+  ],
+  "closing": "पता नहीं लिंक में क्या देखें? पढ़ें {guide}। ऐप को सभी के लिए मुफ़्त रखना चाहते हैं? {support}।",
+  "guide": "QR कोड लिंक को खोलने से पहले उसकी जाँच कैसे करें",
+  "support": "काम का समर्थन करें"
+ },
+ "ja": {
+  "title": "ヘルプ - Verdetto",
+  "desc": "Verdetto: QR & Barcode Scanner のヘルプ。連絡方法と、よくある質問への回答。",
+  "h1": "ヘルプ",
+  "card1": "スキャン、警告、アプリに何か問題がありますか? {report}。すべての報告を人が読みます。誤ってリストに載ったサイトは当日中に確認します。",
+  "report": "報告する",
+  "card2": "{email} へお書きください。端末のモデル、Android のバージョン、差し支えなければスキャンしていた内容を添えていただくと助かります。パスワード、ログインリンク、メールに書かないようなものを含むコードは送らないでください。メッセージは回答に必要な期間だけ保持し、その後削除します。",
+  "common": "よくある質問",
+  "faq": [
+   [
+    "「警告は見つかりませんでした」と出ました。リンクは安全ですか?",
+    "アプリには分かりませんし、何かが安全だと言うことは決してありません。「警告は見つかりませんでした」は、どのチェックにも該当しなかったという意味です。表示されたアドレスを見て、どうせ開くつもりだった場合にだけ開いてください。"
+   ],
+   [
+    "オフラインで動きますか?",
+    "はい。スキャンと内蔵のチェックはすべて端末内で行われます。オンライン検索は、短縮リンクの行き先、ドメインの古さ、製品の詳細、車両であれば NHTSA と EPA によるリコール、衝突試験評価、燃費を加えます。接続が必要で、設定でオフにできます。"
+   ],
+   [
+    "なぜカメラを求めるのですか?",
+    "スキャンのためです。ほかに求めることがあるのは、端末のプロフィールから自分のカードを作るときの連絡先へのアクセス、一度だけです。"
+   ],
+   [
+    "オンライン検索をオフにするには?",
+    "設定の「オンライン検索を許可」です。オフにすると端末から何も出ません。製品の検索にはその下に独自のスイッチがあります。"
+   ],
+   [
+    "履歴を消すには?",
+    "項目をスワイプするか、設定の「履歴を消去」を使います。90 日より古いスキャンは、スターを付けない限り自動で消えます。履歴は端末のバックアップにも含まれます（オフにしない限り）。アンインストールすれば消えます。"
+   ],
+   [
+    "コードがスキャンできません。",
+    "画面をコードでより大きく満たし、じっと構えて、カメラにピントを合わせさせてください。傷んだり色あせたコードは少し長くかかります。それでも読めなければ、機密でない限りコードの写真をお送りください。"
+   ],
+   [
+    "寄付で何が解放されますか?",
+    "必要なものは何もなく、すべて無料のままです。支援者には非表示にできるバッジと、いくつかの小さな特典が予定されています。"
+   ]
+  ],
+  "closing": "リンクの何を見ればよいか分からないときは、{guide}をお読みください。アプリを誰にとっても無料のままにしたいなら、{support}。",
+  "guide": "開く前に QR コードのリンクを確認する方法",
+  "support": "活動を支援してください"
+ },
+ "zh-Hans": {
+  "title": "帮助 - Verdetto",
+  "desc": "Verdetto: QR & Barcode Scanner 的帮助。如何联系我们，以及常见问题的解答。",
+  "h1": "帮助",
+  "card1": "扫描、警告或应用出了问题？{report}；每份报告都由人来阅读。被误列入名单的网站会在当天复核。",
+  "report": "报告它",
+  "card2": "写信至 {email}。附上你的手机型号、Android 版本，以及在可以分享的情况下你扫描的内容，会很有帮助。不要发送包含密码、登录链接或任何你不会写进邮件的内容的码。我们保留你的消息直到回复完成，然后删除。",
+  "common": "常见问题",
+  "faq": [
+   [
+    "它显示“未发现警告”。这个链接安全吗？",
+    "应用不知道，它也从不说某样东西安全。“未发现警告”意味着它的检查都没有命中。看看它显示给你的地址，只有在你本来就会打开的情况下才打开。"
+   ],
+   [
+    "离线可用吗？",
+    "可以。扫描和每项内置检查都在手机上完成。在线查询会补充短链接的去向、域名的年龄、商品详情，以及车辆来自 NHTSA 和 EPA 的召回、碰撞测试评级和燃油经济性。它们需要网络连接，可在设置中关闭。"
+   ],
+   [
+    "为什么它要用相机？",
+    "为了扫描。它可能另外请求的只有一次联系人访问权限，用于从手机个人资料填写你的名片。"
+   ],
+   [
+    "如何关闭在线查询？",
+    "设置，然后“允许在线查询”。关闭后，手机不会发出任何内容。商品查询在其下方有自己的开关。"
+   ],
+   [
+    "如何删除我的历史记录？",
+    "滑动一条记录，或在设置中“清除历史记录”。超过 90 天的扫描会自行清除，除非你加了星标。除非你关闭，历史记录也会随手机自身的备份一起保存；卸载会将其删除。"
+   ],
+   [
+    "一个码扫不出来。",
+    "让它占满更多屏幕，保持稳定，让相机对焦。破损或褪色的码需要多一点时间。如果仍然读不出，且内容不敏感，请把码的照片发给我们。"
+   ],
+   [
+    "支持款项能解锁什么？",
+    "没有你需要的东西；一切保持免费。支持者会获得一枚可隐藏的徽章，还计划有几项小额外内容。"
+   ]
+  ],
+  "closing": "不确定该看链接的哪些地方？请阅读{guide}。想让应用对所有人保持免费？{support}。",
+  "guide": "如何在打开前检查二维码链接",
+  "support": "支持这项工作"
+ },
+ "ar": {
+  "title": "المساعدة - Verdetto",
+  "desc": "مساعدة لتطبيق Verdetto: QR & Barcode Scanner. كيف تتواصل معنا وإجابات عن الأسئلة الشائعة.",
+  "h1": "المساعدة",
+  "card1": "هل هناك خطأ في عملية مسح أو تحذير أو في التطبيق؟ {report}؛ يقرأ كل بلاغ شخصٌ من طرفنا. والموقع المدرج عن طريق الخطأ يُراجَع في اليوم نفسه.",
+  "report": "أبلغ عنه",
+  "card2": "اكتب إلى {email}. يساعدنا أن تذكر طراز هاتفك ونسخة Android وما كنت تمسحه إن أمكنك مشاركته. لا ترسل رمزًا يحتوي على كلمة مرور أو رابط تسجيل دخول أو أي شيء لا تكتبه في بريد إلكتروني. نحتفظ برسالتك طوال المدة اللازمة للرد ثم نحذفها.",
+  "common": "أسئلة شائعة",
+  "faq": [
+   [
+    "ظهر «لم يُعثر على تحذيرات». هل الرابط آمن؟",
+    "لا يعرف التطبيق ذلك، ولا يقول أبدًا إن شيئًا ما آمن. «لم يُعثر على تحذيرات» تعني أن أي فحص من فحوصاته لم يتطابق. انظر إلى العنوان الذي يعرضه لك، وافتحه فقط إن كنت ستفتحه على أي حال."
+   ],
+   [
+    "هل يعمل دون اتصال؟",
+    "نعم. المسح وكل فحص مدمج يجريان على الهاتف. وتضيف عمليات البحث عبر الإنترنت وجهة الرابط المختصر وعمر النطاق وتفاصيل المنتج، وللمركبة استدعاءاتها وتقييمات اختبارات التصادم واستهلاك الوقود من NHTSA وEPA. وهي تحتاج إلى اتصال ويمكن إيقافها من الإعدادات."
+   ],
+   [
+    "لماذا يطلب الكاميرا؟",
+    "للمسح. والشيء الآخر الوحيد الذي قد يطلبه هو الوصول إلى جهات الاتصال، مرة واحدة، إذا ملأت بطاقتك من ملف هاتفك."
+   ],
+   [
+    "كيف أوقف عمليات البحث عبر الإنترنت؟",
+    "الإعدادات، ثم «السماح بالبحث عبر الإنترنت». ومع إيقافها لا يغادر الهاتف شيء. ولعمليات البحث عن المنتجات مفتاح خاص بها تحتها."
+   ],
+   [
+    "كيف أحذف سجلّي؟",
+    "اسحب أي مدخل، أو اختر «مسح السجل» من الإعدادات. تُحذف عمليات المسح الأقدم من 90 يومًا من تلقاء نفسها ما لم تميّزها بنجمة. ويدخل السجل أيضًا في نسخة هاتفك الاحتياطية ما لم توقف ذلك؛ وإزالة التطبيق تحذفه."
+   ],
+   [
+    "رمز لا يُمسح.",
+    "املأ الشاشة به أكثر، وثبّت يدك، ودع الكاميرا تركّز. تحتاج الرموز المتضررة أو الباهتة إلى لحظة أطول. وإن لم يُقرأ بعد، فأرسل لنا صورة الرمز إن لم يكن حساسًا."
+   ],
+   [
+    "ما الذي تفتحه المساهمة؟",
+    "لا شيء تحتاجه؛ يبقى كل شيء مجانيًا. يحصل الداعمون على شارة يمكنك إخفاؤها، وهناك إضافات صغيرة قليلة مخطط لها."
+   ]
+  ],
+  "closing": "لست متأكدًا مما تنظر إليه في الرابط؟ اقرأ {guide}. تريد أن يبقى التطبيق مجانيًا للجميع؟ {support}.",
+  "guide": "كيف تفحص رابط رمز QR قبل أن تفتحه",
+  "support": "ادعم العمل"
+ }
+}
 
-<h2>Common questions</h2>
+
+def support_body(t, code):
+    """The Help page from its strings table; links go to the same-language pages where they exist."""
+    link = lambda pg, label: f'<a href="{href(localized(pg, code))}">{label}</a>'
+    card1 = t["card1"].replace("{report}", link("report.html", t["report"]))
+    card2 = t["card2"].replace("{email}", f'<a href="mailto:{EMAIL}">{EMAIL}</a>')
+    faq = "\n".join(f"<p><strong>{q}</strong><br>\n{a}</p>\n" for q, a in t["faq"])
+    closing = t["closing"].replace("{guide}", link("check-qr-code-link.html", t["guide"])).replace("{support}", link("support-the-work.html", t["support"]))
+    return f"""
+<h1>{t["h1"]}</h1>
+<div class="card"><p>{card1}</p></div>
+<div class="card"><p>{card2}</p></div>
+
+<h2>{t["common"]}</h2>
 <div class="faq">
-""" + "\n".join(f"<p><strong>{q}</strong><br>\n{a}</p>\n" for q, a in FAQ) + f"""
+{faq}
 </div>
-<p>Not sure what to look for in a link? Read <a href="{href('check-qr-code-link.html')}">how to check a QR code link before you open it</a>. Want to keep the app free for everyone? <a href="{href('support-the-work.html')}">Support the work</a>.</p>
+<p>{closing}</p>
 """
 
+
+def faq_ld(t, code):
+    return {"@type": "FAQPage", "inLanguage": code, "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in t["faq"]]}
+
+
+FAQ = SUPPORT_T["en"]["faq"]
+SUPPORT = support_body(SUPPORT_T["en"], "en")
+LOCAL["support.html"] = family_pages("support.html")
 SPONSORS_CARD = (f"""<div class="card">{ic('heart')}<div><h3>From a browser</h3><p>GitHub Sponsors, monthly ($2 or $5) or once ($3 or $10), through GitHub. It reaches the same place. <a href="https://github.com/sponsors/verdettoqr">Sponsor on GitHub</a></p></div></div>"""
                  if SPONSORS_LIVE else
                  f"""<div class="card">{ic('clock')}<div><h3>From a browser</h3><p>GitHub Sponsors is being set up. Until it opens, the app is the way to give. The link appears here when it does.</p></div></div>""")
@@ -498,7 +1168,7 @@ SUPPORT_WORK = f"""
 </div>
 """
 SUPPORT_WORK_LD = {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in SUPPORT_FAQ]}
-FAQ_LD = {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]}
+FAQ_LD = faq_ld(SUPPORT_T["en"], "en")
 
 GUIDE_TITLE = "How to check a QR code link before you open it"
 GUIDE_DESC = "Six things to look at in a QR code's link before you tap it: the domain, short links, lookalike names, the connection, downloads, and its placement."
@@ -541,18 +1211,31 @@ GUIDE = f"""
 GUIDE_LD = {"@type": "Article", "headline": GUIDE_TITLE, "description": GUIDE_DESC, "datePublished": DATE, "dateModified": DATE,
             "author": ORG, "publisher": ORG, "mainEntityOfPage": url("check-qr-code-link.html"), "image": SITE + "/og-image.png"}
 
-NOT_FOUND = f"""
-<h1>That page is not here.</h1>
-<p>The address may have changed, or the code that brought you here was wrong. Try one of these:</p>
-<ul>
-  <li><a href="{href('index.html')}">Home</a></li>
-  <li><a href="{href('privacy.html')}">Privacy policy</a></li>
-  <li><a href="{href('terms.html')}">Terms of use</a></li>
-  <li><a href="{href('support.html')}">Help</a></li>
-  <li><a href="{href('check-qr-code-link.html')}">How to check a QR code link before you open it</a></li>
-  <li><a href="{href('support-the-work.html')}">Support the work</a></li>
-</ul>
-"""
+def not_found():
+        return f"""
+    <h1>That page is not here.</h1>
+    <p>The address may have changed, or the code that brought you here was wrong. Try one of these:</p>
+    <ul>
+      <li><a href="{href('index.html')}">Home</a></li>
+      <li><a href="{href('privacy.html')}">Privacy policy</a></li>
+      <li><a href="{href('terms.html')}">Terms of use</a></li>
+      <li><a href="{href('support.html')}">Help</a></li>
+      <li><a href="{href('check-qr-code-link.html')}">How to check a QR code link before you open it</a></li>
+      <li><a href="{href('support-the-work.html')}">Support the work</a></li>
+    </ul>
+    <ul class="langs404">
+      <li lang="de"><strong>{LANG_LABELS['de']}:</strong> Diese Seite gibt es hier nicht. <a href="{href(localized('index.html', 'de'))}" hreflang="de">Startseite</a></li>
+      <li lang="es"><strong>{LANG_LABELS['es']}:</strong> Esa página no está aquí. <a href="{href(localized('index.html', 'es'))}" hreflang="es">Inicio</a></li>
+      <li lang="fr"><strong>{LANG_LABELS['fr']}:</strong> Cette page n'est pas ici. <a href="{href(localized('index.html', 'fr'))}" hreflang="fr">Accueil</a></li>
+      <li lang="pt-BR"><strong>{LANG_LABELS['pt-BR']}:</strong> Essa página não está aqui. <a href="{href(localized('index.html', 'pt-BR'))}" hreflang="pt-BR">Início</a></li>
+      <li lang="id"><strong>{LANG_LABELS['id']}:</strong> Halaman itu tidak ada di sini. <a href="{href(localized('index.html', 'id'))}" hreflang="id">Beranda</a></li>
+      <li lang="ru"><strong>{LANG_LABELS['ru']}:</strong> Такой страницы здесь нет. <a href="{href(localized('index.html', 'ru'))}" hreflang="ru">Главная</a></li>
+      <li lang="hi"><strong>{LANG_LABELS['hi']}:</strong> वह पृष्ठ यहाँ नहीं है। <a href="{href(localized('index.html', 'hi'))}" hreflang="hi">मुखपृष्ठ</a></li>
+      <li lang="ja"><strong>{LANG_LABELS['ja']}:</strong> そのページはここにありません。 <a href="{href(localized('index.html', 'ja'))}" hreflang="ja">ホーム</a></li>
+      <li lang="zh-Hans"><strong>{LANG_LABELS['zh-Hans']}:</strong> 这个页面不在这里。 <a href="{href(localized('index.html', 'zh-Hans'))}" hreflang="zh-Hans">首页</a></li>
+      <li lang="ar"><strong>{LANG_LABELS['ar']}:</strong> هذه الصفحة ليست هنا. <a href="{href(localized('index.html', 'ar'))}" hreflang="ar">الصفحة الرئيسية</a></li>
+    </ul>
+    """
 
 # The report form: a Google Form owned by the Verdetto Google account. The page embeds it and passes the app's
 # prefill through, so the app and every link only ever point at this page; the form behind it can change.
@@ -1042,6 +1725,7 @@ HOME_T = {
 }
 HOME_LANGS = [(code, label, "index.html" if code == "en" else f"{code.lower()}.html") for code, label, _ in PRIVACY_LANGS]
 HOME_ALTERNATES = [(code, page) for code, _, page in HOME_LANGS] + [("x-default", "index.html")]
+LOCAL["index.html"] = {code: page for code, _, page in HOME_LANGS}
 for _t in HOME_T.values():
     assert len(_t["desc"]) <= 160, _t["desc"]
 
@@ -1110,7 +1794,7 @@ PAGES = {
     "safety-list.html": ("The safety list this week - Verdetto", "Weekly numbers from Verdetto's public warning list: reports, cases, entries added after review, removals, totals. Public data only, nothing from anyone's phone.", weekly_page(), WEEKLY_LD),
     "developers.html": ("For developers - Verdetto", "How another Android app opens Verdetto to scan and gets the code back: the intents, the result extras, Kotlin and Java, and what the person sees.", developers_page(), DEVELOPERS_LD),
     "community-license.html": (COMMUNITY_TITLE, COMMUNITY_DESC, COMMUNITY, {"@type": "WebPage", "name": "Verdetto Community License", "publisher": ORG}),
-    "404.html": ("Page not found - Verdetto", "That page is not here.", NOT_FOUND, None),
+    "404.html": ("Page not found - Verdetto", "That page is not here.", not_found(), None),
 }
 PAGE_LANG = {}  # name -> (lang, rtl, alternates) for pages that are not plain English
 PAGE_LANG["privacy.html"] = ("en", False, PRIVACY_ALTERNATES)
@@ -1125,6 +1809,12 @@ for _code, _label, _page in HOME_LANGS[1:]:
     _t = HOME_T[_code]
     PAGES[_page] = (_t["title"], _t["desc"], home_body(_t, _code), {**APP, "inLanguage": _code})
     PAGE_LANG[_page] = (_code, _code == "ar", HOME_ALTERNATES)
+PAGE_LANG["support.html"] = ("en", False, alternates_for("support.html"))
+for _code in LANG_CODES[1:]:
+    _t = SUPPORT_T[_code]
+    _pg = LOCAL["support.html"][_code]
+    PAGES[_pg] = (_t["title"], _t["desc"], support_body(_t, _code), faq_ld(_t, _code))
+    PAGE_LANG[_pg] = (_code, _code == "ar", alternates_for("support.html"))
 BENCH_PUBLISHED = False  # True once the benchmark page is cleared for the live site
 
 
@@ -1132,7 +1822,7 @@ def main():
     if BENCH_PUBLISHED:
         import bench
         PAGES["how-we-test.html"] = bench.page_entry()
-        NAV.append(("how-we-test.html", "Tests"))
+        NAV.append(("how-we-test.html", "tests"))
     for name, (title, desc, body, ld) in PAGES.items():
         lang, rtl, alternates = PAGE_LANG.get(name, ("en", False, None))
         html = page(name, title.replace("&", "&amp;"), desc.replace("&", "&amp;"), body, ld, "article" if name.startswith("check") else "website",
