@@ -18,7 +18,7 @@ PLAY_ID = "com.verdettoqr.scanner"  # the app's applicationId (app/build.gradle.
 
 def play_link(source, medium="app", campaign=None):
     """The Play listing link with a referrer, so Play Console's acquisition report counts installs per channel without
-    identifying anyone. The referrer reaches the installed app through the Install Referrer API; nothing else is sent.
+    identifying anyone. Play makes the referrer available to the installed app through the Install Referrer API; this app never asks for it, and nothing else is sent.
     Channels the app itself uses: share (the share-the-app screen), card (the warning share card), developers (the
     fallback snippet on the developers page). Posts use utm_medium=post; the site's badge uses utm_medium=badge."""
     referrer = f"utm_source={source}&utm_medium={medium}&utm_campaign={campaign or source}"
