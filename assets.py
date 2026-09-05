@@ -48,7 +48,7 @@ def font(name, size):
 
 
 
-def transparent_mark(color, height):
+def transparent_mark(color, height, accent_rgb=(0xB8, 0x65, 0x0A)):
     """The QR mark alone on a transparent ground: the body in the given color (teal on light grounds, white on dark),
     the accent square always the signal amber, as on the splash. Built once from the master: pixels that are not the
     mint tile, their distance from the tile as alpha; the accent pixels found by their orange hue."""
@@ -66,7 +66,7 @@ def transparent_mark(color, height):
     scale = height / alpha.height; size = (max(1, round(alpha.width * scale)), height)
     alpha_s = alpha.resize(size, Image.LANCZOS); accent_s = accent.resize(size, Image.LANCZOS)
     body = Image.new("RGBA", size, color + (255,))
-    amber = Image.new("RGBA", size, (0xB8, 0x65, 0x0A, 255))
+    amber = Image.new("RGBA", size, accent_rgb + (255,))
     out = Image.composite(amber, body, accent_s)
     out.putalpha(alpha_s)
     return out
@@ -77,7 +77,8 @@ def lockup(draw_target, x, y, text, fnt, color, body):
     text; returns the right edge."""
     d = ImageDraw.Draw(draw_target)
     cap_top = y + fnt.getbbox("V")[1]; cap_bottom = y + fnt.getbbox("V")[3]
-    m = transparent_mark(body, cap_bottom - cap_top)
+    # on a dark ground (white body) the accent is the dark theme's lighter amber, as in the site header
+    m = transparent_mark(body, cap_bottom - cap_top, (0xFF, 0xB9, 0x5A) if body == (0xFF, 0xFF, 0xFF) else (0xB8, 0x65, 0x0A))
     draw_target.paste(m, (x, cap_top), m)
     tx = x + m.width + round(0.3 * fnt.size)
     d.text((tx, y), text, font=fnt, fill=color)
@@ -160,7 +161,7 @@ def wrap(draw, text, fnt, width, lang):
     return lines
 
 
-OG_HEAD = {"report.html": "Report a link or a wrong read"}
+OG_HEAD = {"report.html": "Report a link or a wrong read", "community-license.html": "Community License"}  # the lockup carries the name; a head never repeats it
 FULL_STOPS = ".。।"  # period, ideographic full stop, danda
 
 
