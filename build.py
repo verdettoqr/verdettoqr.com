@@ -120,7 +120,7 @@ details.more{margin:1rem 0}details.more summary{cursor:pointer;color:var(--prima
 footer{background:var(--surface-container);margin-top:2rem}
 footer .wrap{padding:1.5rem 1rem 2rem;color:var(--on-surface-variant);font-size:.875rem;line-height:1.25rem}
 footer a{color:var(--primary)}
-@media (min-width:640px){.grid{grid-template-columns:1fr 1fr}}
+@media (min-width:640px){.grid{grid-template-columns:1fr 1fr}.grid.three{grid-template-columns:repeat(3,1fr)}}
 @media (max-width:600px){.hero{grid-template-columns:1fr}.shot{width:220px;margin:0 auto}h1{font-size:1.75rem;line-height:2.25rem}nav{margin-left:0;width:100%}}
 @media print{.draft,.skip,nav,footer .links{display:none}body{background:#fff;color:#000;font-size:12pt}a{color:#000}h2{color:#000;border-top-color:#999}.card,.callout{background:#f2f2f2}}
 """
@@ -461,7 +461,7 @@ SUPPORT = f"""
 
 SPONSORS_CARD = (f"""<div class="card">{ic('heart')}<div><h3>From a browser</h3><p>GitHub Sponsors, monthly ($2 or $5) or once ($3 or $10), through GitHub. It reaches the same place. <a href="https://github.com/sponsors/verdettoqr">Sponsor on GitHub</a></p></div></div>"""
                  if SPONSORS_LIVE else
-                 f"""<div class="card">{ic('clock')}<div><h3>From a browser</h3><p>GitHub Sponsors is being set up. Until it opens, the app is the way to give.</p></div></div>""")
+                 f"""<div class="card">{ic('clock')}<div><h3>From a browser</h3><p>GitHub Sponsors is being set up. Until it opens, the app is the way to give. The link appears here when it does.</p></div></div>""")
 SUPPORT_FAQ = [
     ("Is Verdetto really free?",
      "Yes. Every feature, every check, and every decode is free for everyone, with no ads and no tracking. A contribution is optional and changes nothing you can do."),
@@ -479,10 +479,10 @@ SUPPORT_FAQ = [
 SUPPORT_WORK = f"""
 <h1>Support the work</h1>
 <p>Verdetto has no ads and nothing to sell, so the people who use it pay for it and pass it on. Every check and every decode is free for everyone. The app never nags: no ads, no pop-ups, no rating prompts. After it does something for you, it may say thank you and mention that the people who use it pay for it, at most once a month, and a switch in Settings turns that off.</p>
-<div class="grid">
-  <div class="card">{ic('heart')}<div><h3>On your phone</h3><p>Settings, then Support development. From $0.99, once, with $2.99 suggested, through Google Play; the app never sees your card. Give again whenever you like.</p></div></div>
+<div class="grid three">
+  <div class="card">{ic('heart')}<div><h3>On your phone</h3><p>Settings, then Support development. From $0.99, once, $2.99 suggested, through Google Play. The app never sees your card.</p></div></div>
   {SPONSORS_CARD}
-  <div class="card">{ic('scan')}<div><h3>Pass it on</h3><p>Free for everyone because people share it. Send a friend verdettoqr.com, or open Share in the app and let them scan the code on the screen: a code any camera reads. Sharing sends nothing anywhere; the share sheet is your phone's own.</p></div></div>
+  <div class="card">{ic('scan')}<div><h3>Pass it on</h3><p>Free because people share it. Send a friend verdettoqr.com, or open Share in the app and let them scan the code. Sharing sends nothing anywhere.</p></div></div>
 </div>
 
 <h2>Where it goes</h2>
