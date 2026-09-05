@@ -2,6 +2,7 @@
 logo and card icons inlined as SVG symbols, so every page is self-contained:
 no scripts run, nothing loads from another host. Run assets.py first, then
 python build.py. Flip PUBLISH and DRAFT at publication."""
+import html
 import base64
 import hashlib
 import json
@@ -98,6 +99,9 @@ p,li{margin:.5rem 0}
 .prose ol,.prose ul{padding-left:1.4rem}
 .prose li{margin:.6rem 0}
 table{border-collapse:collapse;width:100%;font-size:.875rem;line-height:1.25rem;display:block;overflow-x:auto;margin:1rem 0}
+pre{background:var(--container);border-radius:.5rem;padding:.9rem 1rem;overflow-x:auto;font-size:.8125rem;line-height:1.35rem;margin:1rem 0}
+code{font-family:Consolas,'Cascadia Mono',Menlo,monospace;font-size:.92em}
+pre code{font-size:inherit}
 th,td{text-align:left;vertical-align:top;padding:.5rem .6rem;border-bottom:1px solid var(--outline-variant)}
 th{color:var(--on-surface-variant);font-weight:500;white-space:nowrap}
 td:first-child{min-width:12rem}
@@ -193,7 +197,7 @@ def page(name, title, description, body, ld=None, og_type="website", nav_key=Non
 </div></main>
 <footer><div class="wrap">
   <p>&copy; 2026 Verdetto &middot; {ADDRESS} &middot; <a href="mailto:{EMAIL}">{EMAIL}</a></p>
-  <p class="links"><a href="{href('privacy.html')}">Privacy policy</a> &middot; <a href="{href('terms.html')}">Terms of use</a> &middot; <a href="{href('support.html')}">Help</a> &middot; <a href="{href('check-qr-code-link.html')}">How to check a QR code link</a> &middot; <a href="{href('support-the-work.html')}">Support the work</a> &middot; <a href="{href('report.html')}">Report a problem</a> &middot; <a href="{href('safety-list.html')}">The safety list this week</a> &middot; <a href="{href('press.html')}">Press kit</a></p>
+  <p class="links"><a href="{href('privacy.html')}">Privacy policy</a> &middot; <a href="{href('terms.html')}">Terms of use</a> &middot; <a href="{href('support.html')}">Help</a> &middot; <a href="{href('check-qr-code-link.html')}">How to check a QR code link</a> &middot; <a href="{href('support-the-work.html')}">Support the work</a> &middot; <a href="{href('report.html')}">Report a problem</a> &middot; <a href="{href('safety-list.html')}">The safety list this week</a> &middot; <a href="{href('developers.html')}">For developers</a> &middot; <a href="{href('press.html')}">Press kit</a></p>
 </div></footer>
 </body>
 </html>
@@ -661,6 +665,112 @@ WEEKLY_LD = {"@type": "Dataset", "name": "The safety list this week", "descripti
              "publisher": ORG, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "isAccessibleForFree": True,
              "distribution": {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": SITE + "/stats/weekly.json"}}
 
+DEVELOPERS_LD = {"@type": "TechArticle", "name": "Scanning with Verdetto from another app", "publisher": ORG,
+                 "about": "Android intents for scanning QR codes and barcodes and receiving the result"}
+
+KOTLIN_SAMPLE = """private val scan = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+    if (result.resultCode == Activity.RESULT_OK) {
+        val text = result.data?.getStringExtra("SCAN_RESULT")
+        val format = result.data?.getStringExtra("SCAN_RESULT_FORMAT")
+        // use text and format
+    }
+}
+
+fun startScan() {
+    val intent = Intent("app.scanner.action.SCAN")
+    if (intent.resolveActivity(packageManager) != null) scan.launch(intent)
+    else startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(GET_VERDETTO)))
+}
+
+// the store page, with the developers referrer
+private const val GET_VERDETTO =
+    "PLAY_LINK"
+"""
+
+QUERIES_SAMPLE = """<queries>
+    <intent>
+        <action android:name="app.scanner.action.SCAN" />
+    </intent>
+</queries>
+"""
+
+JAVA_SAMPLE = """private final ActivityResultLauncher<Intent> scan = registerForActivityResult(
+        new ActivityResultContracts.StartActivityForResult(), result -> {
+            if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
+                String text = result.getData().getStringExtra("SCAN_RESULT");
+                String format = result.getData().getStringExtra("SCAN_RESULT_FORMAT");
+                // use text and format
+            }
+        });
+
+void startScan() {
+    Intent intent = new Intent("app.scanner.action.SCAN");
+    if (intent.resolveActivity(getPackageManager()) != null) scan.launch(intent);
+    else startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(GET_VERDETTO)));
+}
+"""
+
+FORMATS_DELIVERED = ("QR_CODE", "MICRO_QR_CODE", "RMQR_CODE", "DATA_MATRIX", "AZTEC", "PDF417", "MAXICODE", "HAN_XIN",
+                     "EAN_13", "EAN_8", "UPC_A", "UPC_E", "CODE_128", "CODE_39", "CODE_93", "CODABAR", "ITF",
+                     "DATABAR", "DATABAR_EXPANDED", "DATABAR_LIMITED", "DX_FILM_EDGE")
+
+
+def code_block(text):
+    return "<pre><code>" + html.escape(text) + "</code></pre>"
+
+
+def developers_page():
+    """The developers page: the app's INTENT.md (verdetto-android f9f2927) as a web page. The name once per block, the
+    domain never (the footer carries it), one link per block (operator, 2026-09-05)."""
+    play = play_link("developers", "docs")
+    kotlin = KOTLIN_SAMPLE.replace("PLAY_LINK", play)
+    formats = ", ".join(f"<code>{f}</code>" for f in FORMATS_DELIVERED)
+    return f"""
+<div class="prose">
+<h1>Scanning from another app</h1>
+<p class="meta">Verdetto answers three intents and one share. Nothing here needs a permission, a library, or a key. The person keeps every safety check and every setting of the app; your app receives the text of the code the moment they confirm it.</p>
+
+<h2>The intents</h2>
+<table>
+<thead><tr><th>Action</th><th>Filter in the manifest</th><th>What happens</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td><code>com.google.zxing.client.android.SCAN</code></td><td>Yes, implicit intents work.</td><td>Opens the scanner. The first code the person locks on is handed back, as the ZXing Barcode Scanner did it.</td><td><code>RESULT_OK</code> with <code>SCAN_RESULT</code> and <code>SCAN_RESULT_FORMAT</code></td></tr>
+<tr><td><code>app.scanner.action.SCAN</code></td><td>Yes.</td><td>Opens the scanner. Started for a result (a result launcher or <code>startActivityForResult</code>) it hands the code back the same way; started plainly it just opens the app on the scanner.</td><td><code>RESULT_OK</code> with the two extras when started for a result</td></tr>
+<tr><td><code>app.scanner.action.CARD</code></td><td>No filter: an explicit intent with the package <code>app.scanner.free</code> only.</td><td>Opens the person's own contact card editor, the code they show to share their details. Meant for the app's own widgets and shortcuts; another app may call it, but nothing comes back.</td><td>None</td></tr>
+<tr><td><code>android.intent.action.SEND</code> with <code>image/*</code></td><td>Yes.</td><td>Decodes a picture: the app shows the result sheet for the codes in it.</td><td>None</td></tr>
+</tbody>
+</table>
+
+<p>The person can turn the hand-back off in Settings under "Hand results to other apps" ("When an app asks for a scan, the code goes back to it"), which is on by default. With it off, either scan action opens the scanner as a normal launch and your launcher receives <code>RESULT_CANCELED</code> when the person leaves. Back from the scanner is <code>RESULT_CANCELED</code> too.</p>
+
+<p>No request extras are read today: not <code>SCAN_MODE</code>, <code>SCAN_FORMATS</code>, <code>PROMPT_MESSAGE</code>, <code>SAVE_HISTORY</code>, or any other. The scanner reads every symbology it knows on every call. A code the app's checks flag is still handed back; the person sees the warning first and decides.</p>
+
+<h2>The result</h2>
+<ul>
+  <li><code>SCAN_RESULT</code> (String): the code's content, exactly the bytes the code carried, decoded as text (UTF-8 where the symbology allows it, the symbology's own character set otherwise).</li>
+  <li><code>SCAN_RESULT_FORMAT</code> (String): the symbology in upper case with underscores, the ZXing names where they exist. Delivered today: {formats}, and the other symbologies the app's own decoders add, in the same spelling (the name shown on the result sheet, upper-cased, spaces and hyphens as underscores).</li>
+</ul>
+<p>Nothing else travels: no image, no location, no history.</p>
+
+<h2>Kotlin</h2>
+{code_block(kotlin)}
+<p>On Android 11 and later, add the query to your manifest so <code>resolveActivity</code> can see the app:</p>
+{code_block(QUERIES_SAMPLE)}
+
+<h2>Java</h2>
+{code_block(JAVA_SAMPLE)}
+
+<h2>The ZXing action</h2>
+<p>Code written for the ZXing Barcode Scanner keeps working: send <code>com.google.zxing.client.android.SCAN</code> the same way and read the same two extras. If more than one scanner on the phone answers it, the system asks the person which to use; sending the intent to the package <code>app.scanner.free</code> skips that.</p>
+
+<h2>What the person sees</h2>
+<p>The scanner opens as it always does, with its own checks. When a code locks, the app hands it back and closes; nothing of yours appears on the screen, and nothing of theirs (history, settings, the safety list) is touched by the call.</p>
+
+<div class="card"><p><strong>Testing on a phone without the app.</strong> The store page with the developers referrer, the same address the fallback in the samples opens: <a href="{play}">Get it on Google Play</a>. The source of this page is the app's own INTENT.md; when the two differ, the app repository is right and this page is behind.</p></div>
+</div>
+"""
+
+
 PAGES = {
     "index.html": ("Verdetto: QR & Barcode Scanner for Android", "See the link before it opens. Free, no ads, no tracking. Made for damaged codes.", HOME, APP),
     "privacy.html": ("Privacy policy - Verdetto", "Privacy policy for Verdetto: QR & Barcode Scanner. No accounts, no ads, no analytics. Scanning happens on your phone.", PRIVACY, {"@type": "WebPage", "name": "Privacy policy", "publisher": ORG}),
@@ -671,6 +781,7 @@ PAGES = {
     "report.html": ("Report to Verdetto", "Report a scam-looking link, a code the app read wrong, or anything else that isn't right in Verdetto: QR & Barcode Scanner. A person reviews every report.", REPORT, {"@type": "WebPage", "name": "Report to Verdetto", "publisher": ORG}),
     "press.html": ("Press kit - Verdetto", "The one-sentence description, boilerplate, checkable facts, and image assets for writing about Verdetto: QR & Barcode Scanner.", PRESS, {"@type": "WebPage", "name": "Press kit", "publisher": ORG}),
     "safety-list.html": ("The safety list this week - Verdetto", "Weekly numbers from Verdetto's public warning list: reports, cases, entries added after review, removals, totals. Public data only, nothing from anyone's phone.", weekly_page(), WEEKLY_LD),
+    "developers.html": ("For developers - Verdetto", "How another Android app opens Verdetto to scan and gets the code back: the intents, the result extras, Kotlin and Java, and what the person sees.", developers_page(), DEVELOPERS_LD),
     "404.html": ("Page not found - Verdetto", "That page is not here.", NOT_FOUND, None),
 }
 PAGE_LANG = {}  # name -> (lang, rtl, alternates) for pages that are not plain English

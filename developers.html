@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; font-src 'self'; script-src 'sha256-z8dwWCc7kg+sZcasct5YZpH/Q227T57Ipuw74neSWhk='; frame-src https://docs.google.com; base-uri 'none'; form-action 'none'">
-<title>The safety list this week - Verdetto</title>
-<meta name="description" content="Weekly numbers from Verdetto's public warning list: reports, cases, entries added after review, removals, totals. Public data only, nothing from anyone's phone.">
-<link rel="canonical" href="https://verdettoqr.com/safety-list">
+<title>For developers - Verdetto</title>
+<meta name="description" content="How another Android app opens Verdetto to scan and gets the code back: the intents, the result extras, Kotlin and Java, and what the person sees.">
+<link rel="canonical" href="https://verdettoqr.com/developers">
 <link rel="me" href="https://mastodon.social/@VerdettoQR">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#E9F5F1">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0F1312">
@@ -15,18 +15,18 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Verdetto">
-<meta property="og:title" content="The safety list this week - Verdetto">
-<meta property="og:description" content="Weekly numbers from Verdetto's public warning list: reports, cases, entries added after review, removals, totals. Public data only, nothing from anyone's phone.">
-<meta property="og:url" content="https://verdettoqr.com/safety-list">
-<meta property="og:image" content="https://verdettoqr.com/og/safety-list.png">
+<meta property="og:title" content="For developers - Verdetto">
+<meta property="og:description" content="How another Android app opens Verdetto to scan and gets the code back: the intents, the result extras, Kotlin and Java, and what the person sees.">
+<meta property="og:url" content="https://verdettoqr.com/developers">
+<meta property="og:image" content="https://verdettoqr.com/og/developers.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Verdetto: The safety list this week">
+<meta property="og:image:alt" content="Verdetto: For developers">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="The safety list this week - Verdetto">
-<meta name="twitter:description" content="Weekly numbers from Verdetto's public warning list: reports, cases, entries added after review, removals, totals. Public data only, nothing from anyone's phone.">
-<meta name="twitter:image" content="https://verdettoqr.com/og/safety-list.png">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Dataset", "name": "The safety list this week", "description": "Weekly counts of reports, cases, and list entries for Verdetto's own part of the warning list, from public data.", "publisher": {"@type": "Organization", "name": "Verdetto", "url": "https://verdettoqr.com/", "email": "support@verdettoqr.com", "logo": "https://verdettoqr.com/icon-512.png", "sameAs": ["https://mastodon.social/@VerdettoQR", "https://www.reddit.com/user/VerdettoQR/", "https://github.com/verdettoqr"], "address": {"@type": "PostalAddress", "streetAddress": "1520 Belle View Blvd, Suite #5992", "addressLocality": "Alexandria", "addressRegion": "VA", "postalCode": "22307", "addressCountry": "US"}}, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "isAccessibleForFree": true, "distribution": {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://verdettoqr.com/stats/weekly.json"}}</script>
+<meta name="twitter:title" content="For developers - Verdetto">
+<meta name="twitter:description" content="How another Android app opens Verdetto to scan and gets the code back: the intents, the result extras, Kotlin and Java, and what the person sees.">
+<meta name="twitter:image" content="https://verdettoqr.com/og/developers.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "name": "Scanning with Verdetto from another app", "publisher": {"@type": "Organization", "name": "Verdetto", "url": "https://verdettoqr.com/", "email": "support@verdettoqr.com", "logo": "https://verdettoqr.com/icon-512.png", "sameAs": ["https://mastodon.social/@VerdettoQR", "https://www.reddit.com/user/VerdettoQR/", "https://github.com/verdettoqr"], "address": {"@type": "PostalAddress", "streetAddress": "1520 Belle View Blvd, Suite #5992", "addressLocality": "Alexandria", "addressRegion": "VA", "postalCode": "22307", "addressCountry": "US"}}, "about": "Android intents for scanning QR codes and barcodes and receiving the result"}</script>
 <style>
 /* Material 3 color roles, copied from the app's Theme.kt so the site and the app are one palette. */
 :root{--surface:#E9F5F1;--on-surface:#191C1B;--on-surface-variant:#3F4946;--primary:#006B5E;--on-primary:#FFFFFF;--surface-container:#D5E8E3;--surface-container-high:#CFE2DC;--outline:#6F7977;--outline-variant:#B4CAC4;--tertiary:#8A5A00;--on-tertiary:#FFFFFF}
@@ -147,19 +147,84 @@ footer a{color:var(--primary)}
 </div></header>
 <main id="main"><div class="wrap">
 
-<h1>The safety list this week</h1>
-<p class="meta">August 24 to 30, 2026. Updated 2026-09-05 from the public repository; the next update is the coming Monday.</p>
-<p>These are the numbers behind Verdetto's own part of the warning list: what people reported, what a person reviewed, and what changed on the list. They come from the public case issues and the list files in the repository, nothing else. No telemetry, no per-scan data, nothing from anyone's phone; the app never reports what it scanned, and this page could not show it if it did.</p>
-<div class="tablewrap"><table><thead><tr><th>Number</th><th>This week</th><th>What it counts</th></tr></thead><tbody>
-<tr><td>Reports received</td><td>0</td><td>Reports that reached the list through the report form or the app, counted once each.</td></tr>
-<tr><td>Cases opened</td><td>0</td><td>Reports a person took up for review as a public case.</td></tr>
-<tr><td>Cases closed</td><td>0</td><td>Cases decided this week: listed, listed by mistake, or not a phish.</td></tr>
-<tr><td>Entries added</td><td>0 links, 0 hosts, 0 wallet addresses</td><td>Addresses or hosts added to the list after a person reviewed a report.</td></tr>
-<tr><td>Removed after review</td><td>0</td><td>Entries taken off the list after a listed-by-mistake report checked out.</td></tr>
-<tr><td>On the list now</td><td>0 links, 0 hosts, 0 wallet addresses; 0 allowed</td><td>Verdetto's own entries, the ones people reported and a person confirmed; the public feeds the list also carries are counted on the repository.</td></tr>
-</tbody></table></div>
-<p>Every case is a public issue, every listing carries the case that caused it, and every entry expires unless a person renews it: <a href="https://github.com/verdettoqr/link-safety-list">github.com/verdettoqr/link-safety-list</a>. Think something is listed by mistake? <a href="/report?k=m">Report it</a>; a person re-checks it and the removal shows up here.</p>
-<p class="meta">The weekly numbers are a small file this site serves itself, copied from the repository once a week; your browser makes no request to any third party for this page.</p>
+<div class="prose">
+<h1>Scanning from another app</h1>
+<p class="meta">Verdetto answers three intents and one share. Nothing here needs a permission, a library, or a key. The person keeps every safety check and every setting of the app; your app receives the text of the code the moment they confirm it.</p>
+
+<h2>The intents</h2>
+<table>
+<thead><tr><th>Action</th><th>Filter in the manifest</th><th>What happens</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td><code>com.google.zxing.client.android.SCAN</code></td><td>Yes, implicit intents work.</td><td>Opens the scanner. The first code the person locks on is handed back, as the ZXing Barcode Scanner did it.</td><td><code>RESULT_OK</code> with <code>SCAN_RESULT</code> and <code>SCAN_RESULT_FORMAT</code></td></tr>
+<tr><td><code>app.scanner.action.SCAN</code></td><td>Yes.</td><td>Opens the scanner. Started for a result (a result launcher or <code>startActivityForResult</code>) it hands the code back the same way; started plainly it just opens the app on the scanner.</td><td><code>RESULT_OK</code> with the two extras when started for a result</td></tr>
+<tr><td><code>app.scanner.action.CARD</code></td><td>No filter: an explicit intent with the package <code>app.scanner.free</code> only.</td><td>Opens the person's own contact card editor, the code they show to share their details. Meant for the app's own widgets and shortcuts; another app may call it, but nothing comes back.</td><td>None</td></tr>
+<tr><td><code>android.intent.action.SEND</code> with <code>image/*</code></td><td>Yes.</td><td>Decodes a picture: the app shows the result sheet for the codes in it.</td><td>None</td></tr>
+</tbody>
+</table>
+
+<p>The person can turn the hand-back off in Settings under "Hand results to other apps" ("When an app asks for a scan, the code goes back to it"), which is on by default. With it off, either scan action opens the scanner as a normal launch and your launcher receives <code>RESULT_CANCELED</code> when the person leaves. Back from the scanner is <code>RESULT_CANCELED</code> too.</p>
+
+<p>No request extras are read today: not <code>SCAN_MODE</code>, <code>SCAN_FORMATS</code>, <code>PROMPT_MESSAGE</code>, <code>SAVE_HISTORY</code>, or any other. The scanner reads every symbology it knows on every call. A code the app's checks flag is still handed back; the person sees the warning first and decides.</p>
+
+<h2>The result</h2>
+<ul>
+  <li><code>SCAN_RESULT</code> (String): the code's content, exactly the bytes the code carried, decoded as text (UTF-8 where the symbology allows it, the symbology's own character set otherwise).</li>
+  <li><code>SCAN_RESULT_FORMAT</code> (String): the symbology in upper case with underscores, the ZXing names where they exist. Delivered today: <code>QR_CODE</code>, <code>MICRO_QR_CODE</code>, <code>RMQR_CODE</code>, <code>DATA_MATRIX</code>, <code>AZTEC</code>, <code>PDF417</code>, <code>MAXICODE</code>, <code>HAN_XIN</code>, <code>EAN_13</code>, <code>EAN_8</code>, <code>UPC_A</code>, <code>UPC_E</code>, <code>CODE_128</code>, <code>CODE_39</code>, <code>CODE_93</code>, <code>CODABAR</code>, <code>ITF</code>, <code>DATABAR</code>, <code>DATABAR_EXPANDED</code>, <code>DATABAR_LIMITED</code>, <code>DX_FILM_EDGE</code>, and the other symbologies the app's own decoders add, in the same spelling (the name shown on the result sheet, upper-cased, spaces and hyphens as underscores).</li>
+</ul>
+<p>Nothing else travels: no image, no location, no history.</p>
+
+<h2>Kotlin</h2>
+<pre><code>private val scan = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result -&gt;
+    if (result.resultCode == Activity.RESULT_OK) {
+        val text = result.data?.getStringExtra(&quot;SCAN_RESULT&quot;)
+        val format = result.data?.getStringExtra(&quot;SCAN_RESULT_FORMAT&quot;)
+        // use text and format
+    }
+}
+
+fun startScan() {
+    val intent = Intent(&quot;app.scanner.action.SCAN&quot;)
+    if (intent.resolveActivity(packageManager) != null) scan.launch(intent)
+    else startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(GET_VERDETTO)))
+}
+
+// the store page, with the developers referrer
+private const val GET_VERDETTO =
+    &quot;https://play.google.com/store/apps/details?id=app.scanner.free&amp;referrer=utm_source%3Ddevelopers%26utm_medium%3Ddocs%26utm_campaign%3Ddevelopers&quot;
+</code></pre>
+<p>On Android 11 and later, add the query to your manifest so <code>resolveActivity</code> can see the app:</p>
+<pre><code>&lt;queries&gt;
+    &lt;intent&gt;
+        &lt;action android:name=&quot;app.scanner.action.SCAN&quot; /&gt;
+    &lt;/intent&gt;
+&lt;/queries&gt;
+</code></pre>
+
+<h2>Java</h2>
+<pre><code>private final ActivityResultLauncher&lt;Intent&gt; scan = registerForActivityResult(
+        new ActivityResultContracts.StartActivityForResult(), result -&gt; {
+            if (result.getResultCode() == Activity.RESULT_OK &amp;&amp; result.getData() != null) {
+                String text = result.getData().getStringExtra(&quot;SCAN_RESULT&quot;);
+                String format = result.getData().getStringExtra(&quot;SCAN_RESULT_FORMAT&quot;);
+                // use text and format
+            }
+        });
+
+void startScan() {
+    Intent intent = new Intent(&quot;app.scanner.action.SCAN&quot;);
+    if (intent.resolveActivity(getPackageManager()) != null) scan.launch(intent);
+    else startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(GET_VERDETTO)));
+}
+</code></pre>
+
+<h2>The ZXing action</h2>
+<p>Code written for the ZXing Barcode Scanner keeps working: send <code>com.google.zxing.client.android.SCAN</code> the same way and read the same two extras. If more than one scanner on the phone answers it, the system asks the person which to use; sending the intent to the package <code>app.scanner.free</code> skips that.</p>
+
+<h2>What the person sees</h2>
+<p>The scanner opens as it always does, with its own checks. When a code locks, the app hands it back and closes; nothing of yours appears on the screen, and nothing of theirs (history, settings, the safety list) is touched by the call.</p>
+
+<div class="card"><p><strong>Testing on a phone without the app.</strong> The store page with the developers referrer, the same address the fallback in the samples opens: <a href="https://play.google.com/store/apps/details?id=app.scanner.free&referrer=utm_source%3Ddevelopers%26utm_medium%3Ddocs%26utm_campaign%3Ddevelopers">Get it on Google Play</a>. The source of this page is the app's own INTENT.md; when the two differ, the app repository is right and this page is behind.</p></div>
+</div>
 
 </div></main>
 <footer><div class="wrap">
