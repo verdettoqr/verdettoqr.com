@@ -39,6 +39,16 @@ Official accounts: Mastodon https://mastodon.social/@VerdettoQR; Reddit https://
 - [使用条款](https://verdettoqr.com/terms-zh-hans): Verdetto: QR & Barcode Scanner 的使用条款。安全检查是什么、不是什么，以及关于扫描内容的每个决定都由您做出。
 - [उपयोग की शर्तें](https://verdettoqr.com/terms-hi): Verdetto: QR & Barcode Scanner की उपयोग की शर्तें। सुरक्षा जाँचें क्या हैं और क्या नहीं, और स्कैन की गई सामग्री पर हर निर्णय आपका है।
 - [شروط الاستخدام](https://verdettoqr.com/terms-ar): شروط الاستخدام لتطبيق Verdetto: QR & Barcode Scanner. ما هي فحوصات الأمان وما ليست عليه، وأن كل قرار بشأن المحتوى الممسوح هو قرارك.
+- [Verdetto: escáner de códigos QR y de barras para Android](https://verdettoqr.com/es): Mira el enlace antes de que se abra. Gratis, sin anuncios, sin rastreo. Hecho para códigos dañados.
+- [Verdetto: scanner de codes QR et codes-barres pour Android](https://verdettoqr.com/fr): Vois le lien avant qu'il ne s'ouvre. Gratuit, sans publicité, sans pistage. Conçu pour les codes abîmés.
+- [Verdetto: QR- und Barcode-Scanner für Android](https://verdettoqr.com/de): Sieh den Link, bevor er sich öffnet. Kostenlos, ohne Werbung, ohne Tracking. Gemacht für beschädigte Codes.
+- [Verdetto: leitor de QR e código de barras para Android](https://verdettoqr.com/pt-br): Veja o link antes de abrir. Grátis, sem anúncios, sem rastreamento. Feito para códigos danificados.
+- [Verdetto: сканер QR-кодов и штрихкодов для Android](https://verdettoqr.com/ru): Увидьте ссылку до того, как она откроется. Бесплатно, без рекламы, без слежки. Создан для повреждённых кодов.
+- [Verdetto: pemindai QR dan barcode untuk Android](https://verdettoqr.com/id): Lihat tautannya sebelum terbuka. Gratis, tanpa iklan, tanpa pelacakan. Dibuat untuk kode yang rusak.
+- [Verdetto: Android 向け QR・バーコードスキャナー](https://verdettoqr.com/ja): 開く前にリンクを見る。無料、広告なし、追跡なし。傷んだコードのために作られました。
+- [Verdetto: Android 的二维码和条形码扫描器](https://verdettoqr.com/zh-hans): 在链接打开前先看清它。免费、无广告、无跟踪。为破损的码而生。
+- [Verdetto: Android के लिए QR और बारकोड स्कैनर](https://verdettoqr.com/hi): लिंक खुलने से पहले देखें। मुफ़्त, बिना विज्ञापन, बिना ट्रैकिंग। क्षतिग्रस्त कोड के लिए बना।
+- [Verdetto: قارئ رموز QR والباركود لنظام Android](https://verdettoqr.com/ar): شاهد الرابط قبل أن يُفتح. مجاني، بلا إعلانات، بلا تتبّع. مصمَّم للرموز المتضررة.
 
 ## Facts
 
