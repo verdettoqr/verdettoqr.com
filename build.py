@@ -17,12 +17,12 @@ PLAY_ID = "com.verdettoqr.scanner"  # the app's applicationId (app/build.gradle.
 
 
 def play_link(source, medium="app", campaign=None):
-    """The Play listing link with a referrer, so Play Console's acquisition report counts installs per channel without
-    identifying anyone. Play makes the referrer available to the installed app through the Install Referrer API; this app never asks for it, and nothing else is sent.
-    Channels the app itself uses: share (the share-the-app screen), card (the warning share card), developers (the
-    fallback snippet on the developers page). Posts use utm_medium=post; the site's badge uses utm_medium=badge."""
-    referrer = f"utm_source={source}&utm_medium={medium}&utm_campaign={campaign or source}"
-    return f"https://play.google.com/store/apps/details?id={PLAY_ID}&referrer=" + referrer.replace("=", "%3D").replace("&", "%26")
+    """The Play listing link, plain. No referrer tags anywhere (operator's delegated decision through Counsel, 2026-09-05): the
+    app classes utm parameters as tracking and shows "Tracking removed", so no Verdetto link may carry them, on the site, in
+    posts, in the press kit or in the app; Play Console's acquisition report still shows referring sites by host. The
+    arguments are kept so callers read as before; they change nothing."""
+    return f"https://play.google.com/store/apps/details?id={PLAY_ID}"
+
 DATE = "2026-09-04"  # lastmod for the sitemap and the article; update when copy changes
 ADDRESS = "1520 Belle View Blvd, Suite #5992, Alexandria, VA 22307"
 EMAIL = "support@verdettoqr.com"
@@ -3277,7 +3277,7 @@ fun startScan() {
     else startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(GET_VERDETTO)))
 }
 
-// the store page, with the developers referrer
+// the store page
 private const val GET_VERDETTO =
     "PLAY_LINK"
 """
@@ -3361,7 +3361,7 @@ def developers_page():
 <h2>What the person sees</h2>
 <p>The scanner opens as it always does, with its own checks. When a code locks, the app hands it back and closes; nothing of yours appears on the screen, and nothing of theirs (history, settings, the safety list) is touched by the call.</p>
 
-<div class="card"><p><strong>Testing on a phone without the app.</strong> The store page with the developers referrer, the same address the fallback in the samples opens: <a href="{play}">Get it on Google Play</a>. The source of this page is the app's own INTENT.md; when the two differ, the app repository is right and this page is behind.</p></div>
+<div class="card"><p><strong>Testing on a phone without the app.</strong> The store page, the same address the fallback in the samples opens: <a href="{play}">Get it on Google Play</a>. The source of this page is the app's own INTENT.md; when the two differ, the app repository is right and this page is behind.</p></div>
 </div>
 """
 
@@ -3417,7 +3417,7 @@ DEV_T = {
   "sees_h": "Was die Person sieht",
   "sees_p": "Der Scanner öffnet sich wie immer, mit seinen eigenen Prüfungen. Rastet ein Code ein, gibt die App ihn zurück und schließt sich; nichts von dir erscheint auf dem Bildschirm, und nichts von der Person (Historie, Einstellungen, Sicherheitsliste) wird durch den Aufruf berührt.",
   "card_lead": "Testen auf einem Telefon ohne die App.",
-  "card": "Die Store-Seite mit dem Entwickler-Referrer, dieselbe Adresse, die der Fallback in den Beispielen öffnet: <a href=\"{play}\">Bei Google Play holen</a>. Die Quelle dieser Seite ist die INTENT.md der App selbst; weichen beide voneinander ab, hat das App-Repository recht und diese Seite hinkt hinterher."
+  "card": "Die Store-Seite, dieselbe Adresse, die der Fallback in den Beispielen öffnet: <a href=\"{play}\">Bei Google Play holen</a>. Die Quelle dieser Seite ist die INTENT.md der App selbst; weichen beide voneinander ab, hat das App-Repository recht und diese Seite hinkt hinterher."
  },
  "es": {
   "title": "Para desarrolladores",
@@ -3469,7 +3469,7 @@ DEV_T = {
   "sees_h": "Lo que ve la persona",
   "sees_p": "El escáner se abre como siempre, con sus propias comprobaciones. Cuando un código se fija, la app lo devuelve y se cierra; nada tuyo aparece en la pantalla, y nada suyo (historial, ajustes, lista de seguridad) se toca con la llamada.",
   "card_lead": "Probar en un teléfono sin la app.",
-  "card": "La página de la tienda con el referrer de desarrolladores, la misma dirección que abre el fallback de los ejemplos: <a href=\"{play}\">Descárgala en Google Play</a>. La fuente de esta página es el INTENT.md de la propia app; cuando los dos difieren, el repositorio de la app tiene razón y esta página va por detrás."
+  "card": "La página de la tienda, la misma dirección que abre el fallback de los ejemplos: <a href=\"{play}\">Descárgala en Google Play</a>. La fuente de esta página es el INTENT.md de la propia app; cuando los dos difieren, el repositorio de la app tiene razón y esta página va por detrás."
  },
  "fr": {
   "title": "Pour les développeurs",
@@ -3521,7 +3521,7 @@ DEV_T = {
   "sees_h": "Ce que voit la personne",
   "sees_p": "Le scanner s'ouvre comme toujours, avec ses propres vérifications. Quand un code se verrouille, l'application le renvoie et se ferme ; rien de vous n'apparaît à l'écran, et rien d'elle (historique, réglages, liste de sécurité) n'est touché par l'appel.",
   "card_lead": "Tester sur un téléphone sans l'application.",
-  "card": "La page du magasin avec le référent développeurs, la même adresse que le repli des exemples ouvre : <a href=\"{play}\">Disponible sur Google Play</a>. La source de cette page est le fichier INTENT.md de l'application ; quand les deux divergent, le dépôt de l'application a raison et cette page est en retard."
+  "card": "La page du magasin, la même adresse que le repli des exemples ouvre : <a href=\"{play}\">Disponible sur Google Play</a>. La source de cette page est le fichier INTENT.md de l'application ; quand les deux divergent, le dépôt de l'application a raison et cette page est en retard."
  },
  "pt-BR": {
   "title": "Para desenvolvedores",
@@ -3573,7 +3573,7 @@ DEV_T = {
   "sees_h": "O que a pessoa vê",
   "sees_p": "O leitor abre como sempre, com suas próprias verificações. Quando um código é fixado, o app o devolve e fecha; nada seu aparece na tela, e nada dela (histórico, configurações, lista de segurança) é tocado pela chamada.",
   "card_lead": "Testar em um celular sem o app.",
-  "card": "A página da loja com o referrer de desenvolvedores, o mesmo endereço que o fallback dos exemplos abre: <a href=\"{play}\">Disponível no Google Play</a>. A fonte desta página é o INTENT.md do próprio app; quando os dois divergem, o repositório do app está certo e esta página está atrasada."
+  "card": "A página da loja, o mesmo endereço que o fallback dos exemplos abre: <a href=\"{play}\">Disponível no Google Play</a>. A fonte desta página é o INTENT.md do próprio app; quando os dois divergem, o repositório do app está certo e esta página está atrasada."
  },
  "id": {
   "title": "Untuk pengembang",
@@ -3625,7 +3625,7 @@ DEV_T = {
   "sees_h": "Yang dilihat pengguna",
   "sees_p": "Pemindai terbuka seperti biasa, dengan pemeriksaannya sendiri. Saat kode terkunci, aplikasi mengembalikannya dan menutup; tidak ada milik Anda yang muncul di layar, dan tidak ada milik orang itu (riwayat, pengaturan, daftar keamanan) yang tersentuh panggilan tersebut.",
   "card_lead": "Menguji di ponsel tanpa aplikasi.",
-  "card": "Halaman toko dengan referrer pengembang, alamat yang sama yang dibuka fallback dalam contoh: <a href=\"{play}\">Dapatkan di Google Play</a>. Sumber halaman ini adalah INTENT.md aplikasi sendiri; bila keduanya berbeda, repositori aplikasi yang benar dan halaman ini yang tertinggal."
+  "card": "Halaman toko, alamat yang sama yang dibuka fallback dalam contoh: <a href=\"{play}\">Dapatkan di Google Play</a>. Sumber halaman ini adalah INTENT.md aplikasi sendiri; bila keduanya berbeda, repositori aplikasi yang benar dan halaman ini yang tertinggal."
  },
  "ru": {
   "title": "Разработчикам",
@@ -3677,7 +3677,7 @@ DEV_T = {
   "sees_h": "Что видит человек",
   "sees_p": "Сканер открывается как всегда, со своими проверками. Когда код фиксируется, приложение возвращает его и закрывается; ничего вашего на экране не появляется, и ничего его (история, настройки, список безопасности) вызов не затрагивает.",
   "card_lead": "Проверка на телефоне без приложения.",
-  "card": "Страница магазина с реферером для разработчиков, тот же адрес, который открывает запасной вариант в примерах: <a href=\"{play}\">Скачать в Google Play</a>. Источник этой страницы — собственный INTENT.md приложения; если они расходятся, прав репозиторий приложения, а эта страница отстаёт."
+  "card": "Страница магазина, тот же адрес, который открывает запасной вариант в примерах: <a href=\"{play}\">Скачать в Google Play</a>. Источник этой страницы — собственный INTENT.md приложения; если они расходятся, прав репозиторий приложения, а эта страница отстаёт."
  },
  "hi": {
   "title": "डेवलपरों के लिए",
@@ -3729,7 +3729,7 @@ DEV_T = {
   "sees_h": "व्यक्ति क्या देखता है",
   "sees_p": "स्कैनर हमेशा की तरह खुलता है, अपनी जाँचों के साथ। कोड लॉक होने पर ऐप उसे वापस देता है और बंद हो जाता है; स्क्रीन पर आपका कुछ नहीं दिखता, और उसका कुछ भी (इतिहास, सेटिंग, सुरक्षा सूची) इस कॉल से नहीं छुआ जाता।",
   "card_lead": "बिना ऐप वाले फ़ोन पर परीक्षण।",
-  "card": "डेवलपर रेफ़रर के साथ स्टोर पेज, वही पता जो उदाहरणों का फ़ॉलबैक खोलता है: <a href=\"{play}\">Google Play पर पाएँ</a>। इस पेज का स्रोत ऐप की अपनी INTENT.md है; दोनों में अंतर हो तो ऐप रिपॉज़िटरी सही है और यह पेज पीछे है।"
+  "card": "स्टोर पेज, वही पता जो उदाहरणों का फ़ॉलबैक खोलता है: <a href=\"{play}\">Google Play पर पाएँ</a>। इस पेज का स्रोत ऐप की अपनी INTENT.md है; दोनों में अंतर हो तो ऐप रिपॉज़िटरी सही है और यह पेज पीछे है।"
  },
  "ja": {
   "title": "開発者向け",
@@ -3781,7 +3781,7 @@ DEV_T = {
   "sees_h": "利用者に見えるもの",
   "sees_p": "スキャナーはいつも通り、自身の確認とともに開きます。コードがロックされるとアプリはそれを返して閉じます。あなたのものは画面に何も現れず、利用者のもの（履歴、設定、安全リスト）にこの呼び出しが触れることもありません。",
   "card_lead": "アプリのない端末での確認。",
-  "card": "開発者向けリファラー付きのストアページで、サンプルのフォールバックが開くのと同じアドレスです: <a href=\"{play}\">Google Play で手に入れよう</a>。このページの出典はアプリ自身の INTENT.md で、両者が異なる場合はアプリのリポジトリが正しく、このページが遅れています。"
+  "card": "ストアページで、サンプルのフォールバックが開くのと同じアドレスです: <a href=\"{play}\">Google Play で手に入れよう</a>。このページの出典はアプリ自身の INTENT.md で、両者が異なる場合はアプリのリポジトリが正しく、このページが遅れています。"
  },
  "zh-Hans": {
   "title": "面向开发者",
@@ -3833,7 +3833,7 @@ DEV_T = {
   "sees_h": "用户看到的内容",
   "sees_p": "扫描器照常打开，带着它自己的检查。码锁定后，应用把它返回并关闭；屏幕上不会出现任何属于你的内容，用户的任何内容（历史记录、设置、安全列表）也不会被这次调用触及。",
   "card_lead": "在没有安装应用的手机上测试。",
-  "card": "带开发者引荐参数的商店页面，也就是示例中回退所打开的地址：<a href=\"{play}\">在 Google Play 获取</a>。本页面的来源是应用自身的 INTENT.md；两者不一致时，以应用仓库为准，本页面滞后。"
+  "card": "商店页面，也就是示例中回退所打开的地址：<a href=\"{play}\">在 Google Play 获取</a>。本页面的来源是应用自身的 INTENT.md；两者不一致时，以应用仓库为准，本页面滞后。"
  },
  "ar": {
   "title": "للمطوّرين",
@@ -3885,7 +3885,7 @@ DEV_T = {
   "sees_h": "ما يراه الشخص",
   "sees_p": "يفتح الماسح كالمعتاد، بفحوصه الخاصة. وعندما يثبت رمز، يعيده التطبيق ويُغلَق؛ لا يظهر شيء من عندك على الشاشة، ولا يمسّ الاستدعاء شيئًا من عند الشخص (السجل، الإعدادات، قائمة الأمان).",
   "card_lead": "الاختبار على هاتف بلا التطبيق.",
-  "card": "صفحة المتجر مع مُحيل المطوّرين، وهي العنوان نفسه الذي يفتحه البديل في الأمثلة: <a href=\"{play}\">احصل عليه من Google Play</a>. مصدر هذه الصفحة هو ملف INTENT.md الخاص بالتطبيق؛ وعند اختلافهما فمستودع التطبيق هو الصحيح وهذه الصفحة متأخرة."
+  "card": "صفحة المتجر، وهي العنوان نفسه الذي يفتحه البديل في الأمثلة: <a href=\"{play}\">احصل عليه من Google Play</a>. مصدر هذه الصفحة هو ملف INTENT.md الخاص بالتطبيق؛ وعند اختلافهما فمستودع التطبيق هو الصحيح وهذه الصفحة متأخرة."
  }
 }
 
