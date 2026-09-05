@@ -16,6 +16,7 @@ Official accounts: Mastodon https://mastodon.social/@VerdettoQR; Reddit https://
 - [How to check a QR code link before you open it](https://verdettoqr.com/check-qr-code-link): Six things to look at in a QR code's link before you tap it: the domain, short links, lookalike names, the connection, downloads, and its placement.
 - [Report to Verdetto](https://verdettoqr.com/report): Report a scam-looking link, a code the app read wrong, or anything else that isn't right in Verdetto: QR & Barcode Scanner. A person reviews every report.
 - [Press kit](https://verdettoqr.com/press): The one-sentence description, boilerplate, checkable facts, and image assets for writing about Verdetto: QR & Barcode Scanner.
+- [The safety list this week](https://verdettoqr.com/safety-list): Weekly numbers from Verdetto's public warning list: reports, cases, entries added after review, removals, and totals. Public data only, nothing from anyone's phone.
 - [Política de privacidad](https://verdettoqr.com/privacy-es): Política de privacidad de Verdetto: QR & Barcode Scanner. Sin cuentas, sin anuncios, sin analítica. El escaneo ocurre en tu teléfono.
 - [Politique de confidentialité](https://verdettoqr.com/privacy-fr): Politique de confidentialité de Verdetto : QR & Barcode Scanner. Pas de compte, pas de publicité, pas d'analyse d'audience. Le scan se fait sur ton téléphone.
 - [Datenschutzerklärung](https://verdettoqr.com/privacy-de): Datenschutzerklärung für Verdetto: QR & Barcode Scanner. Keine Konten, keine Werbung, keine Analyse. Gescannt wird auf deinem Telefon.

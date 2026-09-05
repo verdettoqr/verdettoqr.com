@@ -1,0 +1,48 @@
+name: Weekly safety-list numbers
+
+# Every Monday after the producer in verdettoqr/link-safety-list has written its stats (06:00 UTC), copy the small
+# JSON into this repository, rebuild the pages so the numbers sit in the HTML (no page script, no CSP change), and
+# commit when anything changed. Pages redeploys on push. Manual dispatch for a re-run.
+
+on:
+  schedule:
+    - cron: "30 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: weekly-stats
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+
+      - name: Fetch the week's numbers
+        run: |
+          set -e
+          mkdir -p stats
+          curl -fsSL --retry 3 -o stats/weekly.json https://raw.githubusercontent.com/verdettoqr/link-safety-list/main/stats/weekly.json
+          python -c "import json; s = json.load(open('stats/weekly.json')); print('week', s['week_start'], 'to', s['week_end'])"
+
+      - name: Rebuild the pages
+        run: python build.py
+
+      - name: Commit when changed
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add stats/weekly.json safety-list.html sitemap.xml llms.txt
+          if git diff --cached --quiet; then echo "no change"; exit 0; fi
+          git commit -m "Safety list this week: $(python -c "import json; s = json.load(open('stats/weekly.json')); print(s['week_start'], 'to', s['week_end'])")"
+          git push

@@ -12,6 +12,16 @@ HERE = Path(__file__).parent
 DRAFT = False       # True while drafting: shows the review banner
 PUBLISH = True      # True at publication: clean URLs in links (GitHub Pages serves /privacy for privacy.html)
 SITE = "https://verdettoqr.com"
+PLAY_ID = "app.scanner.free"  # the app's applicationId (app/build.gradle.kts)
+
+
+def play_link(source, medium="app", campaign=None):
+    """The Play listing link with a referrer, so Play Console's acquisition report counts installs per channel without
+    identifying anyone. The referrer reaches the installed app through the Install Referrer API; nothing else is sent.
+    Channels the app itself uses: share (the share-the-app screen), card (the warning share card), developers (the
+    fallback snippet on the developers page). Posts use utm_medium=post; the site's badge uses utm_medium=badge."""
+    referrer = f"utm_source={source}&utm_medium={medium}&utm_campaign={campaign or source}"
+    return f"https://play.google.com/store/apps/details?id={PLAY_ID}&referrer=" + referrer.replace("=", "%3D").replace("&", "%26")
 DATE = "2026-09-04"  # lastmod for the sitemap and the article; update when copy changes
 ADDRESS = "1520 Belle View Blvd, Suite #5992, Alexandria, VA 22307"
 EMAIL = "support@verdettoqr.com"
@@ -126,8 +136,17 @@ APP = {"@type": "SoftwareApplication", "name": "Verdetto: QR & Barcode Scanner",
        "description": "See the link before it opens. Free, no ads, no tracking. Made for damaged codes."}
 
 
+def og_image_for(name, title):
+    """The page's own social image (assets.py renders og/<stem>.png per page); the shared one if it is missing."""
+    stem = name[:-5] if name.endswith(".html") else name
+    if (HERE / "og" / f"{stem}.png").exists():
+        return f"{SITE}/og/{stem}.png", f"Verdetto: {title.replace(' - Verdetto', '')}"
+    return f"{SITE}/og-image.png", "Verdetto icon with the words QR &amp; Barcode Scanner for Android, See the link before it opens."
+
+
 def page(name, title, description, body, ld=None, og_type="website", nav_key=None, lang="en", rtl=False, alternates=None):
     nav = "".join(f'<a href="{href(h)}"{" aria-current=\"page\"" if h == name else ""}>{t}</a>' for h, t in NAV)
+    og_image, og_alt = og_image_for(name, title)
     banner = '<div class="draft" role="status">Draft for review. Not published.</div>\n' if DRAFT else ""
     ld_tag = f'<script type="application/ld+json">{json.dumps({"@context": "https://schema.org", **ld}, ensure_ascii=False)}</script>\n' if ld else ""
     canonical = url(name) if name != "404.html" else SITE + "/404"
@@ -152,14 +171,14 @@ def page(name, title, description, body, ld=None, og_type="website", nav_key=Non
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{description}">
 <meta property="og:url" content="{canonical}">
-<meta property="og:image" content="{SITE}/og-image.png">
+<meta property="og:image" content="{og_image}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Verdetto icon with the words QR &amp; Barcode Scanner for Android, See the link before it opens.">
+<meta property="og:image:alt" content="{og_alt}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{title}">
 <meta name="twitter:description" content="{description}">
-<meta name="twitter:image" content="{SITE}/og-image.png">
+<meta name="twitter:image" content="{og_image}">
 {ld_tag}<style>{CSS}</style>
 </head>
 <body>
@@ -174,7 +193,7 @@ def page(name, title, description, body, ld=None, og_type="website", nav_key=Non
 </div></main>
 <footer><div class="wrap">
   <p>&copy; 2026 Verdetto &middot; {ADDRESS} &middot; <a href="mailto:{EMAIL}">{EMAIL}</a></p>
-  <p class="links"><a href="{href('privacy.html')}">Privacy policy</a> &middot; <a href="{href('terms.html')}">Terms of use</a> &middot; <a href="{href('support.html')}">Help</a> &middot; <a href="{href('check-qr-code-link.html')}">How to check a QR code link</a> &middot; <a href="{href('support-the-work.html')}">Support the work</a> &middot; <a href="{href('report.html')}">Report a problem</a> &middot; <a href="{href('press.html')}">Press kit</a></p>
+  <p class="links"><a href="{href('privacy.html')}">Privacy policy</a> &middot; <a href="{href('terms.html')}">Terms of use</a> &middot; <a href="{href('support.html')}">Help</a> &middot; <a href="{href('check-qr-code-link.html')}">How to check a QR code link</a> &middot; <a href="{href('support-the-work.html')}">Support the work</a> &middot; <a href="{href('report.html')}">Report a problem</a> &middot; <a href="{href('safety-list.html')}">The safety list this week</a> &middot; <a href="{href('press.html')}">Press kit</a></p>
 </div></footer>
 </body>
 </html>
@@ -329,7 +348,7 @@ PRIVACY = f"""
 <p>Wherever you live, you can ask what we hold about you and ask for a copy, a correction, or deletion, or object to our processing it. Because the app sends us nothing, what we hold is at most an email you sent us. Write to <a href="mailto:{EMAIL}">{EMAIL}</a>; we answer within the time your law sets, and in any case within a month. You may also complain to your data protection authority: in the European Economic Area, the authority of your country; in the United Kingdom, the Information Commissioner's Office; in Brazil, the ANPD; elsewhere, the authority your law names. In California and the other US states with privacy laws: we collect no personal information through the app, and we do not sell or share it.</p>
 
 <h2>This website</h2>
-<p>These pages are static and hosted on <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#data-collection">GitHub Pages</a>. They set no cookies and run no analytics. The report page embeds a Google Form, which loads from Google under its privacy policy; every other page loads nothing from anywhere but this site. GitHub may keep standard server logs, such as the address a page was requested from and when, under its own privacy statement.</p>
+<p>These pages are static and hosted on <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#data-collection">GitHub Pages</a>. They set no cookies and run no analytics. The report page embeds a Google Form, which loads from Google under its privacy policy; every other page loads nothing from anywhere but this site. The safety-list page shows weekly numbers that this site serves as a small file of its own, copied from the public list repository once a week; your browser makes no request to any third party for it, and the numbers hold nothing about anyone's phone or scans. GitHub may keep standard server logs, such as the address a page was requested from and when, under its own privacy statement.</p>
 
 <h2>Changes</h2>
 <p>If this policy changes, the new version will be posted here with a new effective date.</p>
@@ -594,6 +613,53 @@ PRESS = f"""
 </div>
 """
 
+def weekly_page():
+    """The safety list this week: the producer in verdettoqr/link-safety-list writes stats/weekly.json every Monday; the
+    weekly-stats workflow copies it into this repository and rebuilds, so the numbers are rendered here at build time and
+    no page script runs. Public data only: the list files and the case issues, never anything from a phone."""
+    path = HERE / "stats" / "weekly.json"
+    if not path.exists():
+        return "<h1>The safety list this week</h1>\n<p>The first week's numbers arrive on Monday.</p>\n"
+    s = json.loads(path.read_text(encoding="utf-8"))
+
+    def day(iso):
+        y, m, d = (int(x) for x in iso.split("-"))
+        months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+        return months[m - 1], d, y
+
+    m1, d1, y1 = day(s["week_start"])
+    m2, d2, y2 = day(s["week_end"])
+    span = f"{m1} {d1} to {d2}, {y1}" if m1 == m2 else f"{m1} {d1} to {m2} {d2}, {y2}"
+    n = lambda v: f"{int(v):,}"  # noqa: E731
+    added = s.get("entries_added", {})
+    totals = s.get("totals", {})
+    generated = s.get("generated_at", "")[:10]
+    rows = [
+        ("Reports received", n(s.get("reports_received", 0)), "Reports that reached the list through the report form or the app, counted once each."),
+        ("Cases opened", n(s.get("cases_opened", 0)), "Reports a person took up for review as a public case."),
+        ("Cases closed", n(s.get("cases_closed", 0)), "Cases decided this week: listed, listed by mistake, or not a phish."),
+        ("Entries added", f"{n(added.get('urls', 0))} links, {n(added.get('hosts', 0))} hosts, {n(added.get('addresses', 0))} wallet addresses",
+         "Addresses or hosts added to the list after a person reviewed a report."),
+        ("Removed after review", n(s.get("unlisted", 0)), "Entries taken off the list after a listed-by-mistake report checked out."),
+        ("On the list now", f"{n(totals.get('urls', 0))} links, {n(totals.get('hosts', 0))} hosts, {n(totals.get('addresses', 0))} wallet addresses; {n(totals.get('allow', 0))} allowed",
+         "Verdetto's own entries, the ones people reported and a person confirmed; the public feeds the list also carries are counted on the repository."),
+    ]
+    table = "".join(f"<tr><td>{k}</td><td>{v}</td><td>{d}</td></tr>\n" for k, v, d in rows)
+    return f"""
+<h1>The safety list this week</h1>
+<p class="meta">{span}. Updated {generated} from the public repository; the next update is the coming Monday.</p>
+<p>These are the numbers behind Verdetto's own part of the warning list: what people reported, what a person reviewed, and what changed on the list. They come from the public case issues and the list files in the repository, nothing else. No telemetry, no per-scan data, nothing from anyone's phone; the app never reports what it scanned, and this page could not show it if it did.</p>
+<div class="tablewrap"><table><thead><tr><th>Number</th><th>This week</th><th>What it counts</th></tr></thead><tbody>
+{table}</tbody></table></div>
+<p>Every case is a public issue, every listing carries the case that caused it, and every entry expires unless a person renews it: <a href="https://github.com/verdettoqr/link-safety-list">github.com/verdettoqr/link-safety-list</a>. Think something is listed by mistake? <a href="{href('report.html')}?k=m">Report it</a>; a person re-checks it and the removal shows up here.</p>
+<p class="meta">The weekly numbers are a small file this site serves itself, copied from the repository once a week; your browser makes no request to any third party for this page.</p>
+"""
+
+
+WEEKLY_LD = {"@type": "Dataset", "name": "The safety list this week", "description": "Weekly counts of reports, cases, and list entries for Verdetto's own part of the warning list, from public data.",
+             "publisher": ORG, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "isAccessibleForFree": True,
+             "distribution": {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": SITE + "/stats/weekly.json"}}
+
 PAGES = {
     "index.html": ("Verdetto: QR & Barcode Scanner for Android", "See the link before it opens. Free, no ads, no tracking. Made for damaged codes.", HOME, APP),
     "privacy.html": ("Privacy policy - Verdetto", "Privacy policy for Verdetto: QR & Barcode Scanner. No accounts, no ads, no analytics. Scanning happens on your phone.", PRIVACY, {"@type": "WebPage", "name": "Privacy policy", "publisher": ORG}),
@@ -603,6 +669,7 @@ PAGES = {
     "check-qr-code-link.html": (GUIDE_TITLE + " - Verdetto", GUIDE_DESC, GUIDE, GUIDE_LD),
     "report.html": ("Report to Verdetto", "Report a scam-looking link, a code the app read wrong, or anything else that isn't right in Verdetto: QR & Barcode Scanner. A person reviews every report.", REPORT, {"@type": "WebPage", "name": "Report to Verdetto", "publisher": ORG}),
     "press.html": ("Press kit - Verdetto", "The one-sentence description, boilerplate, checkable facts, and image assets for writing about Verdetto: QR & Barcode Scanner.", PRESS, {"@type": "WebPage", "name": "Press kit", "publisher": ORG}),
+    "safety-list.html": ("The safety list this week - Verdetto", "Weekly numbers from Verdetto's public warning list: reports, cases, entries added after review, removals, and totals. Public data only, nothing from anyone's phone.", weekly_page(), WEEKLY_LD),
     "404.html": ("Page not found - Verdetto", "That page is not here.", NOT_FOUND, None),
 }
 PAGE_LANG = {}  # name -> (lang, rtl, alternates) for pages that are not plain English
