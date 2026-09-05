@@ -288,7 +288,8 @@ def translation(folder, langs, code):
     title, desc = m.group(1), m.group(2)
     privacy_page = next(p for c, _, p in PRIVACY_LANGS if c == code)
     body = (body.replace("{ADDRESS}", ADDRESS).replace("{EMAIL}", EMAIL).replace("{LANG_ROW}", lang_row(langs, code))
-            .replace("{TERMS_HREF}", href("terms.html")).replace("{PRIVACY_HREF}", href(privacy_page)))
+            .replace("{TERMS_HREF}", href("terms.html")).replace("{PRIVACY_HREF}", href(privacy_page))
+            .replace("{COMMUNITY_HREF}", href("community-license.html")))
     return title, desc, body
 
 
@@ -421,7 +422,7 @@ TERMS = f"""
 <p>The lookup services and the shortening services the app can ask are run by others under their own terms and privacy policies. Their answers are shown as given; they may change or stop, and we are not responsible for them. NHTSA's recall and crash-test databases and the EPA fuel-economy database are among them; recall and rating information is for the model year and is not a statement about the individual vehicle.</p>
 
 <h2>Open source and trademarks</h2>
-<p>The safety list's pipeline is published under the MIT License, and the app's own code under the GNU General Public License, version 3 or later. Those licenses cover code. They do not cover the Verdetto name, icon, wordmark, splash screen, screenshots or store material, which are not licensed and stay ours; a fork may not use that name or artwork as its own. The app also includes work by others under their own licenses, listed under About, Licenses; the safety list names its sources and their terms in its repository.</p>
+<p>The safety list's pipeline is published under the MIT License. The app's own code is licensed under the GNU General Public License, version 3 or later, and its scanner core under the Apache License 2.0; both are published with the first release. Those licenses cover code. They do not cover the Verdetto name, icon, wordmark, splash screen, screenshots or store material, which are not licensed and stay ours; a fork may not use that name or artwork as its own. Use of the name, the icon and the 'Built on Verdetto' badge is governed by the <a href="{href('community-license.html')}">Verdetto Community License</a>, a trademark license. The app also includes work by others under their own licenses, listed under About, Licenses; the safety list names its sources and their terms in its repository.</p>
 
 <h2>Governing law</h2>
 <p>These terms are governed by the laws of the Commonwealth of Virginia, United States. If you are a consumer in a country whose law protects you regardless of that choice, that protection applies, and you may bring a claim before the courts of your own country.</p>
@@ -784,6 +785,12 @@ def developers_page():
 """
 
 
+# The community license (a trademark license) is a legal text like the Terms, kept as a fragment: first line "<!-- title | description -->"
+_cl_first, COMMUNITY = (HERE / "_legal" / "community-license.html").read_text(encoding="utf-8").split(chr(10), 1)
+_cl_m = re.match(r"<!--\s*(.*?)\s*\|\s*(.*?)\s*-->", _cl_first)
+COMMUNITY_TITLE, COMMUNITY_DESC = _cl_m.group(1), _cl_m.group(2)
+assert len(COMMUNITY_DESC) <= 160, len(COMMUNITY_DESC)
+
 PAGES = {
     "index.html": ("Verdetto: QR & Barcode Scanner for Android", "See the link before it opens. Free, no ads, no tracking. Made for damaged codes.", HOME, APP),
     "privacy.html": ("Privacy policy - Verdetto", "Privacy policy for Verdetto: QR & Barcode Scanner. No accounts, no ads, no analytics. Scanning happens on your phone.", PRIVACY, {"@type": "WebPage", "name": "Privacy policy", "publisher": ORG}),
@@ -795,6 +802,7 @@ PAGES = {
     "press.html": ("Press kit - Verdetto", "The one-sentence description, boilerplate, checkable facts, and image assets for writing about Verdetto: QR & Barcode Scanner.", PRESS, {"@type": "WebPage", "name": "Press kit", "publisher": ORG}),
     "safety-list.html": ("The safety list this week - Verdetto", "Weekly numbers from Verdetto's public warning list: reports, cases, entries added after review, removals, totals. Public data only, nothing from anyone's phone.", weekly_page(), WEEKLY_LD),
     "developers.html": ("For developers - Verdetto", "How another Android app opens Verdetto to scan and gets the code back: the intents, the result extras, Kotlin and Java, and what the person sees.", developers_page(), DEVELOPERS_LD),
+    "community-license.html": (COMMUNITY_TITLE, COMMUNITY_DESC, COMMUNITY, {"@type": "WebPage", "name": "Verdetto Community License", "publisher": ORG}),
     "404.html": ("Page not found - Verdetto", "That page is not here.", NOT_FOUND, None),
 }
 PAGE_LANG = {}  # name -> (lang, rtl, alternates) for pages that are not plain English
