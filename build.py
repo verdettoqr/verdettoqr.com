@@ -192,7 +192,7 @@ HOME = f"""
     <h1>See the link before it opens.</h1>
     <p>A QR and barcode scanner for Android with no ads and no fake buttons. It shows what a code holds, checks it on your phone, and leaves the decision to you.</p>
     <span class="label">{ic('clock')}Coming soon to Google Play</span>
-    <p class="support">Free and ad-free because the people who use it pay for it. <a href="{href('support-the-work.html')}">How that works</a></p>
+    <p class="support">Free and ad-free because the people who use it pay for it and pass it on. <a href="{href('support-the-work.html')}">How that works</a></p>
   </div>
   <img class="shot" src="screens/result-sheet.webp" width="540" height="1140" alt="The Verdetto result sheet showing a scanned QR code that leads to wikipedia.org, the No warnings found chip, and an Open button that names the site.">
 </div>
@@ -444,10 +444,11 @@ SUPPORT_FAQ = [
 ]
 SUPPORT_WORK = f"""
 <h1>Support the work</h1>
-<p>Verdetto has no ads and nothing to sell, so the people who use it pay for it. Every check and every decode is free for everyone. The app never nags: no ads, no pop-ups, no rating prompts. After it does something for you, it may say thank you and mention that the people who use it pay for it, at most once a month, and a switch in Settings turns that off.</p>
+<p>Verdetto has no ads and nothing to sell, so the people who use it pay for it and pass it on. Every check and every decode is free for everyone. The app never nags: no ads, no pop-ups, no rating prompts. After it does something for you, it may say thank you and mention that the people who use it pay for it, at most once a month, and a switch in Settings turns that off.</p>
 <div class="grid">
   <div class="card">{ic('heart')}<div><h3>On your phone</h3><p>Settings, then Support development. From $0.99, once, with $2.99 suggested, through Google Play; the app never sees your card. Give again whenever you like.</p></div></div>
   {SPONSORS_CARD}
+  <div class="card">{ic('scan')}<div><h3>Pass it on</h3><p>Free for everyone because people share it. Send a friend verdettoqr.com, or open Share in the app and let them scan the code on the screen: a code any camera reads. Sharing sends nothing anywhere; the share sheet is your phone's own.</p></div></div>
 </div>
 
 <h2>Where it goes</h2>
@@ -653,7 +654,7 @@ def main():
         "- Reads QR codes and barcodes including EAN, UPC, Code 128, Data Matrix, PDF417, and Aztec, and is built to read damaged ones.\n"
         "- Scan history stays on the phone (and in the phone's own backup unless that is turned off); scans older than 90 days clear unless starred; any entry can be deleted.\n"
         "- Permissions: the camera to scan; contacts only if the person fills their own card from the phone's profile.\n"
-        "- Funding: no ads, no data sales, no paid tier. An optional one-time in-app contribution, from $0.99 ($2.99 suggested) through Google Play, supports development"
+        "- Funding: no ads, no data sales, no paid tier; paid for and passed on by the people who use it. An optional one-time in-app contribution, from $0.99 ($2.99 suggested) through Google Play, supports development"
         + (", and GitHub Sponsors (https://github.com/sponsors/verdettoqr) is the browser route" if SPONSORS_LIVE else "")
         + "; nothing is locked behind it. The app never nags; after it does something for you it may say thank you, at most once a month, and a switch turns that off. Verdetto is a small business; a contribution is a purchase, not a gift, and brings no tax benefit.\n",
         encoding="utf-8", newline="\n")
