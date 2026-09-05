@@ -59,6 +59,16 @@ Official accounts: Mastodon https://mastodon.social/@VerdettoQR; Reddit https://
 - [帮助](https://verdettoqr.com/support-zh-hans): Verdetto: QR & Barcode Scanner 的帮助。如何联系我们，以及常见问题的解答。
 - [सहायता](https://verdettoqr.com/support-hi): Verdetto: QR & Barcode Scanner के लिए सहायता। हमसे संपर्क कैसे करें और आम सवालों के जवाब।
 - [المساعدة](https://verdettoqr.com/support-ar): مساعدة لتطبيق Verdetto: QR & Barcode Scanner. كيف تتواصل معنا وإجابات عن الأسئلة الشائعة.
+- [Apoya el trabajo](https://verdettoqr.com/support-the-work-es): Cómo Verdetto sigue siendo gratis sin anuncios ni rastreo: contribuciones únicas de las personas que lo usan, desde 0,99 $ en Google Play. Nada está bloqueado.
+- [Soutenir le travail](https://verdettoqr.com/support-the-work-fr): Comment Verdetto reste gratuit, sans publicité ni pistage : des contributions ponctuelles, dès 0,99 $ sur Google Play. Rien n'est verrouillé.
+- [Die Arbeit unterstützen](https://verdettoqr.com/support-the-work-de): Wie Verdetto ohne Werbung und Tracking kostenlos bleibt: einmalige Beiträge der Menschen, die es nutzen, ab 0,99 $ bei Google Play. Nichts ist gesperrt.
+- [Apoie o trabalho](https://verdettoqr.com/support-the-work-pt-br): Como o Verdetto continua grátis, sem anúncios e rastreamento: contribuições únicas de quem o usa, a partir de US$ 0,99 no Google Play. Nada fica bloqueado.
+- [Поддержать работу](https://verdettoqr.com/support-the-work-ru): Как Verdetto остаётся бесплатным без рекламы и слежки: разовые взносы людей, которые им пользуются, от 0,99 $ в Google Play. Ничего не заблокировано.
+- [Dukung pekerjaan ini](https://verdettoqr.com/support-the-work-id): Bagaimana Verdetto tetap gratis tanpa iklan dan pelacakan: kontribusi sekali bayar dari para pemakainya, mulai $0,99 di Google Play. Tidak ada yang dikunci.
+- [活動を支援](https://verdettoqr.com/support-the-work-ja): Verdetto が広告も追跡もなしに無料であり続ける仕組み: 使う人からの一回限りの寄付、Google Play で $0.99 から。何もロックされません。
+- [支持这项工作](https://verdettoqr.com/support-the-work-zh-hans): Verdetto 如何在没有广告、没有跟踪的情况下保持免费：来自使用者的一次性支持款，在 Google Play 上 $0.99 起。没有任何功能被锁定。
+- [काम का समर्थन करें](https://verdettoqr.com/support-the-work-hi): Verdetto बिना विज्ञापन और बिना ट्रैकिंग मुफ़्त कैसे रहता है: इसे इस्तेमाल करने वाले लोगों के एकमुश्त योगदान, Google Play पर $0.99 से। कुछ भी बंद नहीं है।
+- [ادعم العمل](https://verdettoqr.com/support-the-work-ar): كيف يبقى Verdetto مجانيًا بلا إعلانات وبلا تتبّع: مساهمات لمرة واحدة من الأشخاص الذين يستخدمونه، من 0.99 دولار على Google Play. لا شيء مغلق.
 
 ## Facts
 

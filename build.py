@@ -1127,47 +1127,501 @@ def faq_ld(t, code):
 FAQ = SUPPORT_T["en"]["faq"]
 SUPPORT = support_body(SUPPORT_T["en"], "en")
 LOCAL["support.html"] = family_pages("support.html")
-SPONSORS_CARD = (f"""<div class="card">{ic('heart')}<div><h3>From a browser</h3><p>GitHub Sponsors, monthly ($2 or $5) or once ($3 or $10), through GitHub. It reaches the same place. <a href="https://github.com/sponsors/verdettoqr">Sponsor on GitHub</a></p></div></div>"""
-                 if SPONSORS_LIVE else
-                 f"""<div class="card">{ic('clock')}<div><h3>From a browser</h3><p>GitHub Sponsors is being set up. Until it opens, the app is the way to give. The link appears here when it does.</p></div></div>""")
-SUPPORT_FAQ = [
-    ("Is Verdetto really free?",
-     "Yes. Every feature, every check, and every decode is free for everyone, with no ads and no tracking: nothing about you or your scans goes to us, and the only code in the app that reports to anyone else is Google's own billing code, which reports to Google about the purchase. A contribution is optional and changes nothing you can do."),
-    ("How does Verdetto make money?",
-     "From one-time contributions by the people who use it: from $0.99 in the app through Google Play" + (", or through GitHub Sponsors from a browser" if SPONSORS_LIVE else "") + ". There are no ads, no data sales, and no paid tier."),
-    ("What does a contribution unlock?",
-     "Nothing you need. Supporters get a badge in About that they can hide, and a few small extras as they arrive."),
-    ("Is a contribution a gift?",
-     "No. Verdetto is a small business, so a contribution is a purchase, and it brings no tax benefit."),
-    ("Will the app ask me for money?",
-     "Not with prompts, banners, or reminders. After the app does something for you, it may say thank you and mention that the people who use it pay for it, at most once a month; a switch in Settings turns that off. The Support screen is there when you look for it, under Settings."),
-    ("Can I give from a computer?",
-     "Yes, through GitHub Sponsors, monthly or once." if SPONSORS_LIVE else "Not yet. GitHub Sponsors is being set up; this page will say when it opens."),
-]
-SUPPORT_WORK = f"""
-<h1>Support the work</h1>
-<p>Verdetto has no ads and nothing to sell, so the people who use it pay for it and pass it on. Every check and every decode is free for everyone. The app never nags: no ads, no pop-ups, no rating prompts. After it does something for you, it may say thank you and mention that the people who use it pay for it, at most once a month, and a switch in Settings turns that off.</p>
+SUPPORT_WORK_T = {
+ "en": {
+  "title": "Support the work - Verdetto",
+  "desc_base": "How Verdetto stays free with no ads and no tracking: one-time contributions from the people who use it, from $0.99 on Google Play",
+  "desc_github": " or through GitHub Sponsors",
+  "desc_tail": ". Nothing is locked.",
+  "h1": "Support the work",
+  "lede": "Verdetto has no ads and nothing to sell, so the people who use it pay for it and pass it on. Every check and every decode is free for everyone. The app never nags: no ads, no pop-ups, no rating prompts. After it does something for you, it may say thank you and mention that the people who use it pay for it, at most once a month, and a switch in Settings turns that off.",
+  "phone_h": "On your phone",
+  "phone_p": "Settings, then Support development. From $0.99, once, $2.99 suggested, through Google Play. The app never sees your card.",
+  "browser_h": "From a browser",
+  "browser_wait": "GitHub Sponsors is being set up. Until it opens, the app is the way to give. The link appears here when it does.",
+  "browser_live": "GitHub Sponsors, monthly ($2 or $5) or once ($3 or $10), through GitHub. It reaches the same place.",
+  "browser_link": "Sponsor on GitHub",
+  "pass_h": "Pass it on",
+  "pass_p": "Free because people share it. Send a friend verdettoqr.com, or open Share in the app and let them scan the code. Sharing sends nothing anywhere.",
+  "where_h": "Where it goes",
+  "where_p": "The domain and the mailbox, the Google Play developer account, cheap test phones (the ones where scanners fail), and the time to keep the safety list and the reader current. About $25 a month keeps the lights on; everything above that goes to test phones and time.",
+  "get_h": "What you get",
+  "get_p": "A thank-you badge in About that you can hide, and the small extras listed on the Support screen as they arrive. Nothing you need: every feature stays free for everyone, and no check is ever held back.",
+  "not_h": "What it is not",
+  "not_base": "Verdetto is a small business. A contribution is a purchase, not a gift, and it brings no tax benefit. Refunds follow Google Play's",
+  "not_github": " or GitHub's",
+  "not_tail": " own policy and the law where you live.",
+  "questions": "Questions",
+  "q_free": "Is Verdetto really free?",
+  "a_free": "Yes. Every feature, every check, and every decode is free for everyone, with no ads and no tracking: nothing about you or your scans goes to us, and the only code in the app that reports to anyone else is Google's own billing code, which reports to Google about the purchase. A contribution is optional and changes nothing you can do.",
+  "q_money": "How does Verdetto make money?",
+  "a_money_base": "From one-time contributions by the people who use it: from $0.99 in the app through Google Play",
+  "a_money_github": ", or through GitHub Sponsors from a browser",
+  "a_money_tail": ". There are no ads, no data sales, and no paid tier.",
+  "q_unlock": "What does a contribution unlock?",
+  "a_unlock": "Nothing you need. Supporters get a badge in About that they can hide, and a few small extras as they arrive.",
+  "q_gift": "Is a contribution a gift?",
+  "a_gift": "No. Verdetto is a small business, so a contribution is a purchase, and it brings no tax benefit.",
+  "q_ask": "Will the app ask me for money?",
+  "a_ask": "Not with prompts, banners, or reminders. After the app does something for you, it may say thank you and mention that the people who use it pay for it, at most once a month; a switch in Settings turns that off. The Support screen is there when you look for it, under Settings.",
+  "q_computer": "Can I give from a computer?",
+  "a_computer_live": "Yes, through GitHub Sponsors, monthly or once.",
+  "a_computer_wait": "Not yet. GitHub Sponsors is being set up; this page will say when it opens."
+ },
+ "de": {
+  "title": "Die Arbeit unterstützen - Verdetto",
+  "desc_base": "Wie Verdetto ohne Werbung und Tracking kostenlos bleibt: einmalige Beiträge der Menschen, die es nutzen, ab 0,99 $ bei Google Play",
+  "desc_github": " oder über GitHub Sponsors",
+  "desc_tail": ". Nichts ist gesperrt.",
+  "h1": "Die Arbeit unterstützen",
+  "lede": "Verdetto hat keine Werbung und nichts zu verkaufen; deshalb bezahlen die Menschen, die die App nutzen, dafür und geben sie weiter. Jede Prüfung und jedes Decodieren ist für alle kostenlos. Die App nervt nie: keine Werbung, keine Pop-ups, keine Bewertungsaufforderungen. Nachdem sie etwas für dich getan hat, sagt sie vielleicht danke und erwähnt, dass die Menschen, die sie nutzen, dafür bezahlen, höchstens einmal im Monat, und ein Schalter in den Einstellungen stellt das ab.",
+  "phone_h": "Auf deinem Handy",
+  "phone_p": "Einstellungen, dann „Entwicklung unterstützen“. Ab 0,99 $, einmalig, 2,99 $ vorgeschlagen, über Google Play. Die App sieht deine Karte nie.",
+  "browser_h": "Im Browser",
+  "browser_wait": "GitHub Sponsors wird gerade eingerichtet. Bis es öffnet, ist die App der Weg zu geben. Der Link erscheint hier, sobald es so weit ist.",
+  "browser_live": "GitHub Sponsors, monatlich (2 $ oder 5 $) oder einmalig (3 $ oder 10 $), über GitHub. Es kommt am selben Ort an.",
+  "browser_link": "Auf GitHub sponsern",
+  "pass_h": "Weitersagen",
+  "pass_p": "Kostenlos, weil Menschen sie weitergeben. Schick einer Freundin verdettoqr.com oder öffne „Teilen“ in der App und lass sie den Code scannen. Teilen sendet nichts irgendwohin.",
+  "where_h": "Wohin es geht",
+  "where_p": "Die Domain und das Postfach, das Google-Play-Entwicklerkonto, günstige Testhandys (die, auf denen Scanner scheitern) und die Zeit, die Sicherheitsliste und den Leser aktuell zu halten. Etwa 25 $ im Monat halten das Licht an; alles darüber geht in Testhandys und Zeit.",
+  "get_h": "Was du bekommst",
+  "get_p": "Ein Dankeschön-Abzeichen unter „Info“, das du ausblenden kannst, und die kleinen Extras, die auf dem Support-Bildschirm aufgeführt werden, sobald sie kommen. Nichts, was du brauchst: Jede Funktion bleibt für alle kostenlos, und keine Prüfung wird je zurückgehalten.",
+  "not_h": "Was es nicht ist",
+  "not_base": "Verdetto ist ein kleines Unternehmen. Ein Beitrag ist ein Kauf, kein Geschenk, und bringt keinen Steuervorteil. Erstattungen folgen den Regeln von Google Play",
+  "not_github": " oder GitHub",
+  "not_tail": " und dem Recht deines Wohnorts.",
+  "questions": "Fragen",
+  "q_free": "Ist Verdetto wirklich kostenlos?",
+  "a_free": "Ja. Jede Funktion, jede Prüfung und jedes Decodieren ist für alle kostenlos, ohne Werbung und ohne Tracking: Nichts über dich oder deine Scans geht an uns, und der einzige Code in der App, der an irgendjemanden berichtet, ist Googles eigener Abrechnungscode, der Google über den Kauf berichtet. Ein Beitrag ist freiwillig und ändert nichts an dem, was du tun kannst.",
+  "q_money": "Wie verdient Verdetto Geld?",
+  "a_money_base": "Durch einmalige Beiträge der Menschen, die die App nutzen: ab 0,99 $ in der App über Google Play",
+  "a_money_github": " oder über GitHub Sponsors im Browser",
+  "a_money_tail": ". Es gibt keine Werbung, keinen Datenverkauf und keine Bezahlstufe.",
+  "q_unlock": "Was schaltet ein Beitrag frei?",
+  "a_unlock": "Nichts, was du brauchst. Unterstützer bekommen ein Abzeichen unter „Info“, das sie ausblenden können, und ein paar kleine Extras, sobald sie kommen.",
+  "q_gift": "Ist ein Beitrag ein Geschenk?",
+  "a_gift": "Nein. Verdetto ist ein kleines Unternehmen, also ist ein Beitrag ein Kauf und bringt keinen Steuervorteil.",
+  "q_ask": "Wird mich die App um Geld bitten?",
+  "a_ask": "Nicht mit Aufforderungen, Bannern oder Erinnerungen. Nachdem die App etwas für dich getan hat, sagt sie vielleicht danke und erwähnt, dass die Menschen, die sie nutzen, dafür bezahlen, höchstens einmal im Monat; ein Schalter in den Einstellungen stellt das ab. Der Support-Bildschirm ist da, wenn du ihn suchst, unter Einstellungen.",
+  "q_computer": "Kann ich vom Computer aus geben?",
+  "a_computer_live": "Ja, über GitHub Sponsors, monatlich oder einmalig.",
+  "a_computer_wait": "Noch nicht. GitHub Sponsors wird gerade eingerichtet; diese Seite sagt es, wenn es öffnet."
+ },
+ "es": {
+  "title": "Apoya el trabajo - Verdetto",
+  "desc_base": "Cómo Verdetto sigue siendo gratis sin anuncios ni rastreo: contribuciones únicas de las personas que lo usan, desde 0,99 $ en Google Play",
+  "desc_github": " o a través de GitHub Sponsors",
+  "desc_tail": ". Nada está bloqueado.",
+  "h1": "Apoya el trabajo",
+  "lede": "Verdetto no tiene anuncios ni nada que vender, así que las personas que lo usan lo pagan y lo pasan a otros. Cada comprobación y cada decodificación es gratis para todos. La aplicación nunca insiste: sin anuncios, sin ventanas emergentes, sin peticiones de valoración. Después de hacer algo por ti, puede dar las gracias y mencionar que las personas que la usan la pagan, como máximo una vez al mes, y un interruptor en Ajustes lo desactiva.",
+  "phone_h": "En tu teléfono",
+  "phone_p": "Ajustes y después «Apoyar el desarrollo». Desde 0,99 $, una vez, 2,99 $ sugeridos, a través de Google Play. La aplicación nunca ve tu tarjeta.",
+  "browser_h": "Desde un navegador",
+  "browser_wait": "GitHub Sponsors se está configurando. Hasta que abra, la aplicación es la forma de dar. El enlace aparecerá aquí cuando lo haga.",
+  "browser_live": "GitHub Sponsors, mensual (2 $ o 5 $) o una vez (3 $ o 10 $), a través de GitHub. Llega al mismo sitio.",
+  "browser_link": "Patrocinar en GitHub",
+  "pass_h": "Pásalo",
+  "pass_p": "Gratis porque la gente lo comparte. Envía verdettoqr.com a alguien, o abre Compartir en la aplicación y deja que escanee el código. Compartir no envía nada a ningún sitio.",
+  "where_h": "A dónde va",
+  "where_p": "El dominio y el buzón, la cuenta de desarrollador de Google Play, teléfonos de prueba baratos (en los que los escáneres fallan) y el tiempo para mantener al día la lista de seguridad y el lector. Unos 25 $ al mes mantienen la luz encendida; todo lo que pasa de ahí va a teléfonos de prueba y tiempo.",
+  "get_h": "Qué recibes",
+  "get_p": "Una insignia de agradecimiento en Acerca de que puedes ocultar, y los pequeños extras que la pantalla de Apoyo vaya listando cuando lleguen. Nada que necesites: todas las funciones siguen siendo gratis para todos, y ninguna comprobación se retiene.",
+  "not_h": "Lo que no es",
+  "not_base": "Verdetto es una pequeña empresa. Una contribución es una compra, no un regalo, y no da ningún beneficio fiscal. Los reembolsos siguen la política de Google Play",
+  "not_github": " o de GitHub",
+  "not_tail": " y la ley del lugar donde vives.",
+  "questions": "Preguntas",
+  "q_free": "¿Verdetto es gratis de verdad?",
+  "a_free": "Sí. Todas las funciones, todas las comprobaciones y todas las decodificaciones son gratis para todos, sin anuncios y sin rastreo: nada sobre ti o tus escaneos nos llega, y el único código de la aplicación que informa a alguien es el propio código de facturación de Google, que informa a Google sobre la compra. Una contribución es opcional y no cambia nada de lo que puedes hacer.",
+  "q_money": "¿Cómo gana dinero Verdetto?",
+  "a_money_base": "Con contribuciones únicas de las personas que lo usan: desde 0,99 $ en la aplicación a través de Google Play",
+  "a_money_github": ", o a través de GitHub Sponsors desde un navegador",
+  "a_money_tail": ". No hay anuncios, ni venta de datos, ni nivel de pago.",
+  "q_unlock": "¿Qué desbloquea una contribución?",
+  "a_unlock": "Nada que necesites. Quienes apoyan reciben una insignia en Acerca de que pueden ocultar, y algunos pequeños extras cuando lleguen.",
+  "q_gift": "¿Una contribución es un regalo?",
+  "a_gift": "No. Verdetto es una pequeña empresa, así que una contribución es una compra y no da ningún beneficio fiscal.",
+  "q_ask": "¿La aplicación me pedirá dinero?",
+  "a_ask": "No con avisos, banners ni recordatorios. Después de hacer algo por ti, puede dar las gracias y mencionar que las personas que la usan la pagan, como máximo una vez al mes; un interruptor en Ajustes lo desactiva. La pantalla de Apoyo está ahí cuando la buscas, en Ajustes.",
+  "q_computer": "¿Puedo dar desde un ordenador?",
+  "a_computer_live": "Sí, a través de GitHub Sponsors, mensual o una vez.",
+  "a_computer_wait": "Todavía no. GitHub Sponsors se está configurando; esta página lo dirá cuando abra."
+ },
+ "fr": {
+  "title": "Soutenir le travail - Verdetto",
+  "desc_base": "Comment Verdetto reste gratuit, sans publicité ni pistage : des contributions ponctuelles, dès 0,99 $ sur Google Play",
+  "desc_github": " ou via GitHub Sponsors",
+  "desc_tail": ". Rien n'est verrouillé.",
+  "h1": "Soutenir le travail",
+  "lede": "Verdetto n'a ni publicité ni rien à vendre : ce sont les personnes qui l'utilisent qui le financent et le font connaître. Chaque vérification et chaque décodage sont gratuits pour tous. L'application n'insiste jamais : pas de publicité, pas de fenêtres, pas de demandes de notation. Après avoir fait quelque chose pour toi, elle peut dire merci et rappeler que les personnes qui l'utilisent la financent, au plus une fois par mois, et un interrupteur dans les Réglages désactive cela.",
+  "phone_h": "Sur ton téléphone",
+  "phone_p": "Réglages, puis « Soutenir le développement ». Dès 0,99 $, une fois, 2,99 $ suggérés, via Google Play. L'application ne voit jamais ta carte.",
+  "browser_h": "Depuis un navigateur",
+  "browser_wait": "GitHub Sponsors est en cours d'ouverture. Jusque-là, l'application est le moyen de donner. Le lien apparaîtra ici dès l'ouverture.",
+  "browser_live": "GitHub Sponsors, mensuel (2 $ ou 5 $) ou une fois (3 $ ou 10 $), via GitHub. Cela arrive au même endroit.",
+  "browser_link": "Sponsoriser sur GitHub",
+  "pass_h": "Fais-le connaître",
+  "pass_p": "Gratuit parce que les gens le partagent. Envoie verdettoqr.com à quelqu'un, ou ouvre Partager dans l'application et laisse-le scanner le code. Partager n'envoie rien nulle part.",
+  "where_h": "Où va l'argent",
+  "where_p": "Le domaine et la boîte mail, le compte développeur Google Play, des téléphones de test bon marché (ceux sur lesquels les scanners échouent) et le temps de garder la liste de sécurité et le lecteur à jour. Environ 25 $ par mois gardent la lumière allumée ; tout le reste va aux téléphones de test et au temps.",
+  "get_h": "Ce que tu reçois",
+  "get_p": "Un badge de remerciement dans À propos, que tu peux masquer, et les petits extras listés sur l'écran Soutien à mesure qu'ils arrivent. Rien dont tu aies besoin : toutes les fonctions restent gratuites pour tous, et aucune vérification n'est jamais retenue.",
+  "not_h": "Ce que ce n'est pas",
+  "not_base": "Verdetto est une petite entreprise. Une contribution est un achat, pas un don, et n'apporte aucun avantage fiscal. Les remboursements suivent la politique de Google Play",
+  "not_github": " ou de GitHub",
+  "not_tail": " et la loi de ton lieu de résidence.",
+  "questions": "Questions",
+  "q_free": "Verdetto est-il vraiment gratuit ?",
+  "a_free": "Oui. Chaque fonction, chaque vérification et chaque décodage sont gratuits pour tous, sans publicité et sans pistage : rien sur toi ou tes scans ne nous parvient, et le seul code de l'application qui rend compte à quelqu'un est le code de facturation de Google, qui informe Google de l'achat. Une contribution est facultative et ne change rien à ce que tu peux faire.",
+  "q_money": "Comment Verdetto gagne-t-il de l'argent ?",
+  "a_money_base": "Par des contributions ponctuelles des personnes qui l'utilisent : dès 0,99 $ dans l'application via Google Play",
+  "a_money_github": ", ou via GitHub Sponsors depuis un navigateur",
+  "a_money_tail": ". Pas de publicité, pas de vente de données, pas de version payante.",
+  "q_unlock": "Que débloque une contribution ?",
+  "a_unlock": "Rien dont tu aies besoin. Les soutiens reçoivent dans À propos un badge qu'ils peuvent masquer, et quelques petits extras à mesure qu'ils arrivent.",
+  "q_gift": "Une contribution est-elle un don ?",
+  "a_gift": "Non. Verdetto est une petite entreprise : une contribution est un achat, et elle n'apporte aucun avantage fiscal.",
+  "q_ask": "L'application me demandera-t-elle de l'argent ?",
+  "a_ask": "Pas avec des invitations, des bannières ou des rappels. Après avoir fait quelque chose pour toi, elle peut dire merci et rappeler que les personnes qui l'utilisent la financent, au plus une fois par mois ; un interrupteur dans les Réglages désactive cela. L'écran Soutien est là quand tu le cherches, dans les Réglages.",
+  "q_computer": "Puis-je donner depuis un ordinateur ?",
+  "a_computer_live": "Oui, via GitHub Sponsors, chaque mois ou une fois.",
+  "a_computer_wait": "Pas encore. GitHub Sponsors est en cours d'ouverture ; cette page le dira quand ce sera le cas."
+ },
+ "pt-BR": {
+  "title": "Apoie o trabalho - Verdetto",
+  "desc_base": "Como o Verdetto continua grátis, sem anúncios e rastreamento: contribuições únicas de quem o usa, a partir de US$ 0,99 no Google Play",
+  "desc_github": " ou pelo GitHub Sponsors",
+  "desc_tail": ". Nada fica bloqueado.",
+  "h1": "Apoie o trabalho",
+  "lede": "O Verdetto não tem anúncios nem nada para vender, então as pessoas que o usam pagam por ele e passam adiante. Toda verificação e toda leitura é grátis para todos. O app nunca insiste: sem anúncios, sem pop-ups, sem pedidos de avaliação. Depois de fazer algo por você, ele pode agradecer e mencionar que as pessoas que o usam pagam por ele, no máximo uma vez por mês, e uma chave nas Configurações desliga isso.",
+  "phone_h": "No seu celular",
+  "phone_p": "Configurações, depois \"Apoiar o desenvolvimento\". A partir de US$ 0,99, uma vez, US$ 2,99 sugerido, pelo Google Play. O app nunca vê seu cartão.",
+  "browser_h": "Pelo navegador",
+  "browser_wait": "O GitHub Sponsors está sendo configurado. Até abrir, o app é o jeito de contribuir. O link aparece aqui quando isso acontecer.",
+  "browser_live": "GitHub Sponsors, mensal (US$ 2 ou US$ 5) ou uma vez (US$ 3 ou US$ 10), pelo GitHub. Chega ao mesmo lugar.",
+  "browser_link": "Apoiar no GitHub",
+  "pass_h": "Passe adiante",
+  "pass_p": "Grátis porque as pessoas compartilham. Mande verdettoqr.com para alguém, ou abra Compartilhar no app e deixe a pessoa ler o código. Compartilhar não envia nada a lugar nenhum.",
+  "where_h": "Para onde vai",
+  "where_p": "O domínio e a caixa de e-mail, a conta de desenvolvedor do Google Play, celulares de teste baratos (aqueles em que os leitores falham) e o tempo para manter a lista de segurança e o leitor em dia. Cerca de US$ 25 por mês mantêm as luzes acesas; tudo acima disso vai para celulares de teste e tempo.",
+  "get_h": "O que você recebe",
+  "get_p": "Um selo de agradecimento em Sobre, que você pode ocultar, e os pequenos extras listados na tela de Apoio conforme chegam. Nada de que você precise: todo recurso continua grátis para todos, e nenhuma verificação é retida.",
+  "not_h": "O que não é",
+  "not_base": "O Verdetto é uma pequena empresa. Uma contribuição é uma compra, não um presente, e não traz benefício fiscal. Reembolsos seguem a política do Google Play",
+  "not_github": " ou do GitHub",
+  "not_tail": " e a lei do lugar onde você vive.",
+  "questions": "Perguntas",
+  "q_free": "O Verdetto é grátis mesmo?",
+  "a_free": "Sim. Todo recurso, toda verificação e toda leitura são grátis para todos, sem anúncios e sem rastreamento: nada sobre você ou suas leituras chega até nós, e o único código no app que relata algo a alguém é o código de cobrança do próprio Google, que informa o Google sobre a compra. Uma contribuição é opcional e não muda nada do que você pode fazer.",
+  "q_money": "Como o Verdetto ganha dinheiro?",
+  "a_money_base": "Com contribuições únicas das pessoas que o usam: a partir de US$ 0,99 no app pelo Google Play",
+  "a_money_github": ", ou pelo GitHub Sponsors em um navegador",
+  "a_money_tail": ". Não há anúncios, nem venda de dados, nem versão paga.",
+  "q_unlock": "O que uma contribuição desbloqueia?",
+  "a_unlock": "Nada de que você precise. Quem apoia ganha um selo em Sobre que pode ocultar, e alguns pequenos extras conforme chegam.",
+  "q_gift": "Uma contribuição é um presente?",
+  "a_gift": "Não. O Verdetto é uma pequena empresa, então uma contribuição é uma compra e não traz benefício fiscal.",
+  "q_ask": "O app vai me pedir dinheiro?",
+  "a_ask": "Não com avisos, banners ou lembretes. Depois de fazer algo por você, ele pode agradecer e mencionar que as pessoas que o usam pagam por ele, no máximo uma vez por mês; uma chave nas Configurações desliga isso. A tela de Apoio está lá quando você a procura, em Configurações.",
+  "q_computer": "Posso contribuir de um computador?",
+  "a_computer_live": "Sim, pelo GitHub Sponsors, mensal ou uma vez.",
+  "a_computer_wait": "Ainda não. O GitHub Sponsors está sendo configurado; esta página avisará quando abrir."
+ },
+ "id": {
+  "title": "Dukung pekerjaan ini - Verdetto",
+  "desc_base": "Bagaimana Verdetto tetap gratis tanpa iklan dan pelacakan: kontribusi sekali bayar dari para pemakainya, mulai $0,99 di Google Play",
+  "desc_github": " atau melalui GitHub Sponsors",
+  "desc_tail": ". Tidak ada yang dikunci.",
+  "h1": "Dukung pekerjaan ini",
+  "lede": "Verdetto tidak punya iklan dan tidak menjual apa pun, jadi orang-orang yang memakainya membayarnya dan meneruskannya. Setiap pemeriksaan dan setiap pemindaian gratis untuk semua orang. Aplikasi tidak pernah mendesak: tanpa iklan, tanpa pop-up, tanpa permintaan penilaian. Setelah melakukan sesuatu untukmu, ia mungkin mengucapkan terima kasih dan menyebut bahwa orang-orang yang memakainya membayarnya, paling banyak sekali sebulan, dan sebuah sakelar di Setelan mematikannya.",
+  "phone_h": "Di ponselmu",
+  "phone_p": "Setelan, lalu \"Dukung pengembangan\". Mulai $0,99, sekali, $2,99 disarankan, melalui Google Play. Aplikasi tidak pernah melihat kartumu.",
+  "browser_h": "Dari peramban",
+  "browser_wait": "GitHub Sponsors sedang disiapkan. Sampai dibuka, aplikasi adalah cara untuk memberi. Tautannya muncul di sini saat sudah siap.",
+  "browser_live": "GitHub Sponsors, bulanan ($2 atau $5) atau sekali ($3 atau $10), melalui GitHub. Sampainya ke tempat yang sama.",
+  "browser_link": "Dukung di GitHub",
+  "pass_h": "Teruskan",
+  "pass_p": "Gratis karena orang-orang membagikannya. Kirim verdettoqr.com ke seorang teman, atau buka Bagikan di aplikasi dan biarkan mereka memindai kodenya. Membagikan tidak mengirim apa pun ke mana pun.",
+  "where_h": "Ke mana uangnya",
+  "where_p": "Domain dan kotak surat, akun pengembang Google Play, ponsel uji murah (yang membuat pemindai gagal), dan waktu untuk menjaga daftar keamanan dan pembaca tetap mutakhir. Sekitar $25 sebulan menjaga lampu menyala; selebihnya untuk ponsel uji dan waktu.",
+  "get_h": "Apa yang kamu dapat",
+  "get_p": "Lencana terima kasih di Tentang yang bisa kamu sembunyikan, dan tambahan kecil yang tercantum di layar Dukungan saat tersedia. Tidak ada yang kamu butuhkan: setiap fitur tetap gratis untuk semua, dan tidak ada pemeriksaan yang ditahan.",
+  "not_h": "Yang bukan",
+  "not_base": "Verdetto adalah usaha kecil. Kontribusi adalah pembelian, bukan hadiah, dan tidak memberi manfaat pajak. Pengembalian dana mengikuti kebijakan Google Play",
+  "not_github": " atau GitHub",
+  "not_tail": " sendiri dan hukum tempat tinggalmu.",
+  "questions": "Pertanyaan",
+  "q_free": "Apakah Verdetto benar-benar gratis?",
+  "a_free": "Ya. Setiap fitur, setiap pemeriksaan, dan setiap pemindaian gratis untuk semua orang, tanpa iklan dan tanpa pelacakan: tidak ada apa pun tentangmu atau pindaianmu yang sampai ke kami, dan satu-satunya kode di aplikasi yang melapor kepada pihak lain adalah kode penagihan Google sendiri, yang melapor kepada Google tentang pembelian. Kontribusi bersifat opsional dan tidak mengubah apa pun yang bisa kamu lakukan.",
+  "q_money": "Bagaimana Verdetto menghasilkan uang?",
+  "a_money_base": "Dari kontribusi sekali bayar orang-orang yang memakainya: mulai $0,99 di aplikasi melalui Google Play",
+  "a_money_github": ", atau melalui GitHub Sponsors dari peramban",
+  "a_money_tail": ". Tidak ada iklan, tidak ada penjualan data, dan tidak ada tingkat berbayar.",
+  "q_unlock": "Apa yang dibuka oleh kontribusi?",
+  "a_unlock": "Tidak ada yang kamu butuhkan. Pendukung mendapat lencana di Tentang yang bisa disembunyikan, dan beberapa tambahan kecil saat tersedia.",
+  "q_gift": "Apakah kontribusi itu hadiah?",
+  "a_gift": "Tidak. Verdetto adalah usaha kecil, jadi kontribusi adalah pembelian dan tidak memberi manfaat pajak.",
+  "q_ask": "Apakah aplikasi akan meminta uang?",
+  "a_ask": "Tidak dengan permintaan, banner, atau pengingat. Setelah melakukan sesuatu untukmu, ia mungkin mengucapkan terima kasih dan menyebut bahwa orang-orang yang memakainya membayarnya, paling banyak sekali sebulan; sebuah sakelar di Setelan mematikannya. Layar Dukungan ada saat kamu mencarinya, di Setelan.",
+  "q_computer": "Bisakah saya memberi dari komputer?",
+  "a_computer_live": "Ya, melalui GitHub Sponsors, bulanan atau sekali.",
+  "a_computer_wait": "Belum. GitHub Sponsors sedang disiapkan; halaman ini akan memberi tahu saat dibuka."
+ },
+ "ru": {
+  "title": "Поддержать работу - Verdetto",
+  "desc_base": "Как Verdetto остаётся бесплатным без рекламы и слежки: разовые взносы людей, которые им пользуются, от 0,99 $ в Google Play",
+  "desc_github": " или через GitHub Sponsors",
+  "desc_tail": ". Ничего не заблокировано.",
+  "h1": "Поддержать работу",
+  "lede": "У Verdetto нет рекламы и нечего продавать, поэтому люди, которые им пользуются, платят за него и рассказывают другим. Каждая проверка и каждое сканирование бесплатны для всех. Приложение никогда не надоедает: без рекламы, без всплывающих окон, без просьб оценить. Сделав что-то для вас, оно может сказать спасибо и упомянуть, что за него платят люди, которые им пользуются, не чаще раза в месяц, и переключатель в настройках это отключает.",
+  "phone_h": "На вашем телефоне",
+  "phone_p": "Настройки, затем «Поддержать разработку». От 0,99 $, один раз, рекомендуется 2,99 $, через Google Play. Приложение никогда не видит вашу карту.",
+  "browser_h": "Из браузера",
+  "browser_wait": "GitHub Sponsors ещё настраивается. Пока он не открылся, приложение остаётся способом поддержать. Ссылка появится здесь, когда он откроется.",
+  "browser_live": "GitHub Sponsors, ежемесячно (2 $ или 5 $) или один раз (3 $ или 10 $), через GitHub. Деньги приходят туда же.",
+  "browser_link": "Поддержать на GitHub",
+  "pass_h": "Расскажите другим",
+  "pass_p": "Бесплатно, потому что люди делятся им. Отправьте другу verdettoqr.com или откройте «Поделиться» в приложении и дайте ему отсканировать код. Поделиться ничего никуда не отправляет.",
+  "where_h": "На что идут деньги",
+  "where_p": "Домен и почтовый ящик, аккаунт разработчика Google Play, дешёвые тестовые телефоны (те, на которых сканеры не справляются) и время на поддержание списка безопасности и считывателя в актуальном состоянии. Около 25 $ в месяц покрывают основные расходы; всё сверх этого идёт на тестовые телефоны и время.",
+  "get_h": "Что вы получаете",
+  "get_p": "Значок благодарности в разделе «О приложении», который можно скрыть, и небольшие дополнения, перечисленные на экране поддержки по мере появления. Ничего необходимого: каждая функция остаётся бесплатной для всех, и ни одна проверка не придерживается.",
+  "not_h": "Чем это не является",
+  "not_base": "Verdetto — небольшой бизнес. Взнос — это покупка, а не подарок, и он не даёт налоговых льгот. Возвраты следуют правилам Google Play",
+  "not_github": " или GitHub",
+  "not_tail": " и закону страны, где вы живёте.",
+  "questions": "Вопросы",
+  "q_free": "Verdetto действительно бесплатен?",
+  "a_free": "Да. Каждая функция, каждая проверка и каждое сканирование бесплатны для всех, без рекламы и без слежки: ничего о вас или ваших сканах к нам не попадает, а единственный код в приложении, который что-либо кому-либо сообщает, это собственный платёжный код Google, сообщающий Google о покупке. Взнос необязателен и ничего не меняет в том, что вы можете делать.",
+  "q_money": "Как Verdetto зарабатывает?",
+  "a_money_base": "Разовыми взносами людей, которые им пользуются: от 0,99 $ в приложении через Google Play",
+  "a_money_github": " или через GitHub Sponsors из браузера",
+  "a_money_tail": ". Нет ни рекламы, ни продажи данных, ни платного уровня.",
+  "q_unlock": "Что открывает взнос?",
+  "a_unlock": "Ничего необходимого. Поддержавшие получают значок в разделе «О приложении», который можно скрыть, и несколько небольших дополнений по мере появления.",
+  "q_gift": "Взнос — это подарок?",
+  "a_gift": "Нет. Verdetto — небольшой бизнес, поэтому взнос — это покупка, и он не даёт налоговых льгот.",
+  "q_ask": "Будет ли приложение просить денег?",
+  "a_ask": "Не запросами, баннерами или напоминаниями. Сделав что-то для вас, приложение может сказать спасибо и упомянуть, что за него платят люди, которые им пользуются, не чаще раза в месяц; переключатель в настройках это отключает. Экран поддержки на месте, когда вы его ищете, в настройках.",
+  "q_computer": "Могу ли я поддержать с компьютера?",
+  "a_computer_live": "Да, через GitHub Sponsors, ежемесячно или один раз.",
+  "a_computer_wait": "Пока нет. GitHub Sponsors ещё настраивается; эта страница сообщит, когда он откроется."
+ },
+ "hi": {
+  "title": "काम का समर्थन करें - Verdetto",
+  "desc_base": "Verdetto बिना विज्ञापन और बिना ट्रैकिंग मुफ़्त कैसे रहता है: इसे इस्तेमाल करने वाले लोगों के एकमुश्त योगदान, Google Play पर $0.99 से",
+  "desc_github": " या GitHub Sponsors के ज़रिए",
+  "desc_tail": "। कुछ भी बंद नहीं है।",
+  "h1": "काम का समर्थन करें",
+  "lede": "Verdetto में कोई विज्ञापन नहीं है और बेचने के लिए कुछ नहीं, इसलिए इसे इस्तेमाल करने वाले लोग इसका खर्च उठाते हैं और इसे आगे बढ़ाते हैं। हर जाँच और हर डिकोड सभी के लिए मुफ़्त है। ऐप कभी परेशान नहीं करता: न विज्ञापन, न पॉप-अप, न रेटिंग की माँग। आपके लिए कुछ करने के बाद यह धन्यवाद कह सकता है और बता सकता है कि इसे इस्तेमाल करने वाले लोग इसका खर्च उठाते हैं, महीने में अधिकतम एक बार, और सेटिंग्स का एक स्विच इसे बंद कर देता है।",
+  "phone_h": "आपके फ़ोन पर",
+  "phone_p": "सेटिंग्स, फिर \"विकास का समर्थन करें\"। $0.99 से, एक बार, $2.99 सुझाया गया, Google Play के ज़रिए। ऐप आपका कार्ड कभी नहीं देखता।",
+  "browser_h": "ब्राउज़र से",
+  "browser_wait": "GitHub Sponsors तैयार किया जा रहा है। जब तक यह खुले, ऐप ही देने का तरीका है। खुलने पर लिंक यहाँ दिखेगा।",
+  "browser_live": "GitHub Sponsors, मासिक ($2 या $5) या एक बार ($3 या $10), GitHub के ज़रिए। यह उसी जगह पहुँचता है।",
+  "browser_link": "GitHub पर स्पॉन्सर करें",
+  "pass_h": "आगे बढ़ाएँ",
+  "pass_p": "मुफ़्त है क्योंकि लोग इसे साझा करते हैं। किसी दोस्त को verdettoqr.com भेजें, या ऐप में शेयर खोलें और उन्हें कोड स्कैन करने दें। साझा करने से कहीं कुछ नहीं जाता।",
+  "where_h": "यह कहाँ जाता है",
+  "where_p": "डोमेन और मेलबॉक्स, Google Play डेवलपर खाता, सस्ते टेस्ट फ़ोन (जिन पर स्कैनर विफल होते हैं), और सुरक्षा सूची तथा रीडर को अद्यतन रखने का समय। महीने में लगभग $25 से काम चलता रहता है; उससे ऊपर का सब टेस्ट फ़ोन और समय में जाता है।",
+  "get_h": "आपको क्या मिलता है",
+  "get_p": "परिचय में एक धन्यवाद बैज जिसे आप छिपा सकते हैं, और समर्थन स्क्रीन पर सूचीबद्ध छोटे अतिरिक्त, जैसे-जैसे वे आते हैं। ऐसा कुछ नहीं जिसकी आपको ज़रूरत हो: हर सुविधा सभी के लिए मुफ़्त रहती है, और कोई जाँच कभी रोकी नहीं जाती।",
+  "not_h": "यह क्या नहीं है",
+  "not_base": "Verdetto एक छोटा व्यवसाय है। योगदान एक ख़रीद है, उपहार नहीं, और इससे कोई कर लाभ नहीं मिलता। रिफ़ंड Google Play",
+  "not_github": " या GitHub",
+  "not_tail": " की अपनी नीति और आपके निवास स्थान के कानून के अनुसार होते हैं।",
+  "questions": "सवाल",
+  "q_free": "क्या Verdetto सचमुच मुफ़्त है?",
+  "a_free": "हाँ। हर सुविधा, हर जाँच और हर डिकोड सभी के लिए मुफ़्त है, बिना विज्ञापन और बिना ट्रैकिंग: आपके या आपके स्कैन के बारे में कुछ भी हम तक नहीं आता, और ऐप में किसी और को रिपोर्ट करने वाला एकमात्र कोड Google का अपना बिलिंग कोड है, जो ख़रीद के बारे में Google को बताता है। योगदान वैकल्पिक है और आप जो कर सकते हैं उसमें कुछ नहीं बदलता।",
+  "q_money": "Verdetto पैसे कैसे कमाता है?",
+  "a_money_base": "इसे इस्तेमाल करने वाले लोगों के एकमुश्त योगदान से: ऐप में Google Play के ज़रिए $0.99 से",
+  "a_money_github": ", या ब्राउज़र से GitHub Sponsors के ज़रिए",
+  "a_money_tail": "। कोई विज्ञापन नहीं, कोई डेटा बिक्री नहीं, और कोई पेड स्तर नहीं।",
+  "q_unlock": "योगदान से क्या मिलता है?",
+  "a_unlock": "ऐसा कुछ नहीं जिसकी आपको ज़रूरत हो। समर्थकों को परिचय में एक बैज मिलता है जिसे वे छिपा सकते हैं, और कुछ छोटे अतिरिक्त जैसे-जैसे आते हैं।",
+  "q_gift": "क्या योगदान उपहार है?",
+  "a_gift": "नहीं। Verdetto एक छोटा व्यवसाय है, इसलिए योगदान एक ख़रीद है, और इससे कोई कर लाभ नहीं मिलता।",
+  "q_ask": "क्या ऐप मुझसे पैसे माँगेगा?",
+  "a_ask": "प्रॉम्प्ट, बैनर या रिमाइंडर से नहीं। आपके लिए कुछ करने के बाद यह धन्यवाद कह सकता है और बता सकता है कि इसे इस्तेमाल करने वाले लोग इसका खर्च उठाते हैं, महीने में अधिकतम एक बार; सेटिंग्स का एक स्विच इसे बंद कर देता है। समर्थन स्क्रीन सेटिंग्स में तब मिलती है जब आप उसे ढूँढें।",
+  "q_computer": "क्या मैं कंप्यूटर से दे सकता हूँ?",
+  "a_computer_live": "हाँ, GitHub Sponsors के ज़रिए, मासिक या एक बार।",
+  "a_computer_wait": "अभी नहीं। GitHub Sponsors तैयार किया जा रहा है; खुलने पर यह पृष्ठ बताएगा।"
+ },
+ "ja": {
+  "title": "活動を支援 - Verdetto",
+  "desc_base": "Verdetto が広告も追跡もなしに無料であり続ける仕組み: 使う人からの一回限りの寄付、Google Play で $0.99 から",
+  "desc_github": "、または GitHub Sponsors 経由",
+  "desc_tail": "。何もロックされません。",
+  "h1": "活動を支援",
+  "lede": "Verdetto には広告がなく、売るものもありません。だから使う人が支え、人に伝えてくれます。すべてのチェックとすべての読み取りは誰にとっても無料です。アプリがしつこくすることはありません: 広告なし、ポップアップなし、評価のお願いなし。何かをした後に、お礼を言い、使う人の支えで成り立っていると触れることがあります。多くても月に一度で、設定のスイッチでオフにできます。",
+  "phone_h": "端末で",
+  "phone_p": "設定の「開発を支援」から。$0.99 から一回限り、$2.99 が目安、Google Play 経由です。アプリがあなたのカードを見ることはありません。",
+  "browser_h": "ブラウザーから",
+  "browser_wait": "GitHub Sponsors は準備中です。開くまでは、アプリが支援の方法です。開いたらここにリンクが表示されます。",
+  "browser_live": "GitHub Sponsors、毎月（$2 または $5）または一回限り（$3 または $10）、GitHub 経由。届く先は同じです。",
+  "browser_link": "GitHub で支援する",
+  "pass_h": "人に伝える",
+  "pass_p": "人が広めてくれるから無料でいられます。友人に verdettoqr.com を送るか、アプリの「共有」を開いてコードをスキャンしてもらってください。共有は何もどこにも送りません。",
+  "where_h": "お金の行き先",
+  "where_p": "ドメインとメールボックス、Google Play のデベロッパーアカウント、安価なテスト端末（スキャナーがうまく動かないもの）、そして安全リストと読み取り機能を最新に保つ時間。月に約 $25 で灯りが保たれ、それ以上はテスト端末と時間に回ります。",
+  "get_h": "得られるもの",
+  "get_p": "「アプリについて」に表示される、非表示にもできるお礼のバッジと、支援画面に順次載る小さな特典。必要なものは何もありません。すべての機能は誰にとっても無料のままで、どのチェックも出し惜しみされません。",
+  "not_h": "これは何ではないか",
+  "not_base": "Verdetto は小さな事業です。寄付は購入であって贈与ではなく、税制上の利点はありません。返金は Google Play",
+  "not_github": " または GitHub",
+  "not_tail": " の規定と、お住まいの地域の法律に従います。",
+  "questions": "質問",
+  "q_free": "Verdetto は本当に無料ですか?",
+  "a_free": "はい。すべての機能、すべてのチェック、すべての読み取りが誰にとっても無料で、広告も追跡もありません。あなたやスキャンに関する情報が当方に届くことはなく、アプリ内で第三者に報告する唯一のコードは Google 自身の課金コードで、購入について Google に報告します。寄付は任意で、できることは何も変わりません。",
+  "q_money": "Verdetto はどう収入を得ていますか?",
+  "a_money_base": "使う人からの一回限りの寄付です。アプリ内で Google Play を通じて $0.99 から",
+  "a_money_github": "、またはブラウザーから GitHub Sponsors を通じて",
+  "a_money_tail": "。広告も、データの販売も、有料プランもありません。",
+  "q_unlock": "寄付で何が解放されますか?",
+  "a_unlock": "必要なものは何もありません。支援者には「アプリについて」に非表示にできるバッジと、順次届く小さな特典があります。",
+  "q_gift": "寄付は贈与ですか?",
+  "a_gift": "いいえ。Verdetto は小さな事業なので、寄付は購入であり、税制上の利点はありません。",
+  "q_ask": "アプリがお金を求めてきますか?",
+  "a_ask": "催促やバナー、リマインダーでは求めません。何かをした後に、お礼を言い、使う人の支えで成り立っていると触れることがあり、多くても月に一度です。設定のスイッチでオフにできます。支援画面は設定の中にあり、探せばそこにあります。",
+  "q_computer": "パソコンから支援できますか?",
+  "a_computer_live": "はい、GitHub Sponsors 経由で、毎月または一回限りで。",
+  "a_computer_wait": "まだです。GitHub Sponsors は準備中で、開いたらこのページでお知らせします。"
+ },
+ "zh-Hans": {
+  "title": "支持这项工作 - Verdetto",
+  "desc_base": "Verdetto 如何在没有广告、没有跟踪的情况下保持免费：来自使用者的一次性支持款，在 Google Play 上 $0.99 起",
+  "desc_github": "，或通过 GitHub Sponsors",
+  "desc_tail": "。没有任何功能被锁定。",
+  "h1": "支持这项工作",
+  "lede": "Verdetto 没有广告，也没有可卖的东西，所以使用它的人为它付费并把它传给别人。每项检查和每次解码对所有人免费。应用从不纠缠你：没有广告，没有弹窗，没有评分请求。在为你做了些什么之后，它可能会说声谢谢，并提到使用它的人在为它付费，每月最多一次，设置中的一个开关可以关闭它。",
+  "phone_h": "在你的手机上",
+  "phone_p": "设置，然后“支持开发”。$0.99 起，一次性，建议 $2.99，通过 Google Play。应用永远看不到你的银行卡。",
+  "browser_h": "通过浏览器",
+  "browser_wait": "GitHub Sponsors 正在设置中。在它开放之前，应用是支持的途径。开放后链接会出现在这里。",
+  "browser_live": "GitHub Sponsors，每月（$2 或 $5）或一次性（$3 或 $10），通过 GitHub。到达的是同一个地方。",
+  "browser_link": "在 GitHub 上赞助",
+  "pass_h": "传给别人",
+  "pass_p": "因为人们分享它，所以它免费。把 verdettoqr.com 发给朋友，或在应用中打开“分享”，让他们扫描屏幕上的码。分享不会向任何地方发送任何内容。",
+  "where_h": "钱花在哪里",
+  "where_p": "域名和邮箱、Google Play 开发者账号、廉价的测试手机（扫描器在上面失效的那些），以及保持安全名单和读码器更新所需的时间。每月大约 $25 维持基本运转；超出的部分用于测试手机和时间。",
+  "get_h": "你得到什么",
+  "get_p": "“关于”中一枚可隐藏的感谢徽章，以及支持页面上陆续列出的小额外内容。没有你需要的东西：每项功能对所有人保持免费，任何检查都不会被扣留。",
+  "not_h": "它不是什么",
+  "not_base": "Verdetto 是一家小企业。支持款是一笔购买，不是赠与，也不带来税务优惠。退款遵循 Google Play",
+  "not_github": " 或 GitHub",
+  "not_tail": " 自身的政策以及你所在地的法律。",
+  "questions": "问题",
+  "q_free": "Verdetto 真的免费吗？",
+  "a_free": "是的。每项功能、每项检查、每次解码对所有人免费，没有广告，也没有跟踪：关于你或你的扫描的任何信息都不会到我们这里，而应用中唯一向他人报告的代码是 Google 自己的结算代码，它就购买事项向 Google 报告。支持款是可选的，不改变你能做的任何事。",
+  "q_money": "Verdetto 如何赚钱？",
+  "a_money_base": "来自使用者的一次性支持款：在应用内通过 Google Play $0.99 起",
+  "a_money_github": "，或通过浏览器上的 GitHub Sponsors",
+  "a_money_tail": "。没有广告，没有数据销售，没有付费档。",
+  "q_unlock": "支持款能解锁什么？",
+  "a_unlock": "没有你需要的东西。支持者会在“关于”中获得一枚可隐藏的徽章，以及陆续到来的几项小额外内容。",
+  "q_gift": "支持款是赠与吗？",
+  "a_gift": "不是。Verdetto 是一家小企业，所以支持款是一笔购买，不带来税务优惠。",
+  "q_ask": "应用会向我要钱吗？",
+  "a_ask": "不会用提示、横幅或提醒来要。在为你做了些什么之后，它可能会说声谢谢，并提到使用它的人在为它付费，每月最多一次；设置中的一个开关可以关闭它。支持页面在设置里，你想找时就在那里。",
+  "q_computer": "我可以从电脑上支持吗？",
+  "a_computer_live": "可以，通过 GitHub Sponsors，每月或一次性。",
+  "a_computer_wait": "还不行。GitHub Sponsors 正在设置中；开放时本页会说明。"
+ },
+ "ar": {
+  "title": "ادعم العمل - Verdetto",
+  "desc_base": "كيف يبقى Verdetto مجانيًا بلا إعلانات وبلا تتبّع: مساهمات لمرة واحدة من الأشخاص الذين يستخدمونه، من 0.99 دولار على Google Play",
+  "desc_github": " أو عبر GitHub Sponsors",
+  "desc_tail": ". لا شيء مغلق.",
+  "h1": "ادعم العمل",
+  "lede": "ليس لدى Verdetto إعلانات ولا شيء يبيعه، لذا يدفع ثمنه من يستخدمونه ويمرّرونه لغيرهم. كل فحص وكل قراءة مجانية للجميع. ولا يلحّ التطبيق أبدًا: لا إعلانات ولا نوافذ منبثقة ولا طلبات تقييم. وبعد أن يفعل شيئًا من أجلك قد يشكرك ويذكر أن من يستخدمونه يدفعون ثمنه، مرة واحدة في الشهر على الأكثر، ويوقف ذلك مفتاح في الإعدادات.",
+  "phone_h": "على هاتفك",
+  "phone_p": "الإعدادات، ثم «ادعم التطوير». من 0.99 دولار، مرة واحدة، والمقترح 2.99 دولار، عبر Google Play. لا يرى التطبيق بطاقتك أبدًا.",
+  "browser_h": "من المتصفح",
+  "browser_wait": "يجري إعداد GitHub Sponsors. وحتى يُفتح، يبقى التطبيق هو طريقة العطاء. وسيظهر الرابط هنا عندما يُفتح.",
+  "browser_live": "GitHub Sponsors، شهريًا (2 أو 5 دولارات) أو مرة واحدة (3 أو 10 دولارات)، عبر GitHub. يصل إلى المكان نفسه.",
+  "browser_link": "ادعم على GitHub",
+  "pass_h": "مرّره لغيرك",
+  "pass_p": "مجاني لأن الناس يتشاركونه. أرسل verdettoqr.com إلى صديق، أو افتح «مشاركة» في التطبيق ودعه يمسح الرمز. والمشاركة لا ترسل شيئًا إلى أي مكان.",
+  "where_h": "إلى أين تذهب",
+  "where_p": "النطاق وصندوق البريد، وحساب مطوّر Google Play، وهواتف اختبار زهيدة (تلك التي تفشل عليها القارئات)، والوقت اللازم لإبقاء قائمة السلامة والقارئ محدّثين. نحو 25 دولارًا شهريًا تكفي للاستمرار؛ وكل ما يزيد يذهب إلى هواتف الاختبار والوقت.",
+  "get_h": "ما الذي تحصل عليه",
+  "get_p": "شارة شكر في «حول» يمكنك إخفاؤها، والإضافات الصغيرة المدرجة في شاشة الدعم عند وصولها. لا شيء تحتاجه: تبقى كل ميزة مجانية للجميع، ولا يُحجب أي فحص أبدًا.",
+  "not_h": "ما ليس عليه",
+  "not_base": "Verdetto عمل تجاري صغير. المساهمة عملية شراء لا هبة، ولا تمنح أي ميزة ضريبية. وتتبع عمليات الاسترداد سياسة Google Play",
+  "not_github": " أو GitHub",
+  "not_tail": " والقانون في مكان إقامتك.",
+  "questions": "أسئلة",
+  "q_free": "هل Verdetto مجاني فعلًا؟",
+  "a_free": "نعم. كل ميزة وكل فحص وكل قراءة مجانية للجميع، بلا إعلانات وبلا تتبّع: لا يصل إلينا شيء عنك أو عن عمليات المسح لديك، والكود الوحيد في التطبيق الذي يبلّغ أي طرف آخر هو كود الفوترة الخاص بـ Google نفسها، وهو يبلّغ Google عن عملية الشراء. المساهمة اختيارية ولا تغيّر شيئًا مما يمكنك فعله.",
+  "q_money": "كيف يكسب Verdetto المال؟",
+  "a_money_base": "من مساهمات لمرة واحدة من الأشخاص الذين يستخدمونه: من 0.99 دولار داخل التطبيق عبر Google Play",
+  "a_money_github": "، أو عبر GitHub Sponsors من المتصفح",
+  "a_money_tail": ". لا إعلانات ولا بيع للبيانات ولا مستوى مدفوع.",
+  "q_unlock": "ما الذي تفتحه المساهمة؟",
+  "a_unlock": "لا شيء تحتاجه. يحصل الداعمون على شارة في «حول» يمكنهم إخفاؤها، وعلى إضافات صغيرة قليلة عند وصولها.",
+  "q_gift": "هل المساهمة هبة؟",
+  "a_gift": "لا. Verdetto عمل تجاري صغير، لذا فالمساهمة عملية شراء ولا تمنح أي ميزة ضريبية.",
+  "q_ask": "هل سيطلب التطبيق منّي المال؟",
+  "a_ask": "ليس بالتنبيهات أو اللافتات أو التذكيرات. بعد أن يفعل شيئًا من أجلك قد يشكرك ويذكر أن من يستخدمونه يدفعون ثمنه، مرة واحدة في الشهر على الأكثر؛ ويوقف ذلك مفتاح في الإعدادات. وشاشة الدعم موجودة حين تبحث عنها، ضمن الإعدادات.",
+  "q_computer": "هل يمكنني العطاء من الحاسوب؟",
+  "a_computer_live": "نعم، عبر GitHub Sponsors، شهريًا أو مرة واحدة.",
+  "a_computer_wait": "ليس بعد. يجري إعداد GitHub Sponsors؛ وستذكر هذه الصفحة موعد افتتاحه."
+ }
+}
+
+
+def support_work_faq(t):
+    return [(t["q_free"], t["a_free"]),
+            (t["q_money"], t["a_money_base"] + (t["a_money_github"] if SPONSORS_LIVE else "") + t["a_money_tail"]),
+            (t["q_unlock"], t["a_unlock"]), (t["q_gift"], t["a_gift"]), (t["q_ask"], t["a_ask"]),
+            (t["q_computer"], t["a_computer_live"] if SPONSORS_LIVE else t["a_computer_wait"])]
+
+
+def support_work_desc(t):
+    return t["desc_base"] + (t["desc_github"] if SPONSORS_LIVE else "") + t["desc_tail"]
+
+
+def support_work_ld(t, code):
+    return {"@type": "FAQPage", "inLanguage": code, "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in support_work_faq(t)]}
+
+
+def support_work_body(t, code):
+    """The Support-the-work page from its strings table: three cards, three sections, the questions."""
+    browser = (f'<div class="card">{ic("heart")}<div><h3>{t["browser_h"]}</h3><p>{t["browser_live"]} <a href="https://github.com/sponsors/verdettoqr">{t["browser_link"]}</a></p></div></div>'
+               if SPONSORS_LIVE else
+               f'<div class="card">{ic("clock")}<div><h3>{t["browser_h"]}</h3><p>{t["browser_wait"]}</p></div></div>')
+    faq_html = "\n".join(f"<p><strong>{q}</strong><br>\n{a}</p>\n" for q, a in support_work_faq(t))
+    not_p = t["not_base"] + (t["not_github"] if SPONSORS_LIVE else "") + t["not_tail"]
+    return f"""
+<h1>{t["h1"]}</h1>
+<p>{t["lede"]}</p>
 <div class="grid three">
-  <div class="card">{ic('heart')}<div><h3>On your phone</h3><p>Settings, then Support development. From $0.99, once, $2.99 suggested, through Google Play. The app never sees your card.</p></div></div>
-  {SPONSORS_CARD}
-  <div class="card">{ic('scan')}<div><h3>Pass it on</h3><p>Free because people share it. Send a friend verdettoqr.com, or open Share in the app and let them scan the code. Sharing sends nothing anywhere.</p></div></div>
+  <div class="card">{ic('heart')}<div><h3>{t["phone_h"]}</h3><p>{t["phone_p"]}</p></div></div>
+  {browser}
+  <div class="card">{ic('scan')}<div><h3>{t["pass_h"]}</h3><p>{t["pass_p"]}</p></div></div>
 </div>
 
-<h2>Where it goes</h2>
-<p>The domain and the mailbox, the Google Play developer account, cheap test phones (the ones where scanners fail), and the time to keep the safety list and the reader current. About $25 a month keeps the lights on; everything above that goes to test phones and time.</p>
+<h2>{t["where_h"]}</h2>
+<p>{t["where_p"]}</p>
 
-<h2>What you get</h2>
-<p>A thank-you badge in About that you can hide, and the small extras listed on the Support screen as they arrive. Nothing you need: every feature stays free for everyone, and no check is ever held back.</p>
+<h2>{t["get_h"]}</h2>
+<p>{t["get_p"]}</p>
 
-<h2>What it is not</h2>
-<p class="meta">Verdetto is a small business. A contribution is a purchase, not a gift, and it brings no tax benefit. Refunds follow Google Play's{" or GitHub's" if SPONSORS_LIVE else ""} own policy and the law where you live.</p>
+<h2>{t["not_h"]}</h2>
+<p class="meta">{not_p}</p>
 
-<h2>Questions</h2>
+<h2>{t["questions"]}</h2>
 <div class="faq">
-""" + "\n".join(f"<p><strong>{q}</strong><br>\n{a}</p>\n" for q, a in SUPPORT_FAQ) + """
+{faq_html}
 </div>
 """
-SUPPORT_WORK_LD = {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in SUPPORT_FAQ]}
+
+
+SUPPORT_FAQ = support_work_faq(SUPPORT_WORK_T["en"])
+SUPPORT_WORK = support_work_body(SUPPORT_WORK_T["en"], "en")
+SUPPORT_WORK_LD = support_work_ld(SUPPORT_WORK_T["en"], "en")
+LOCAL["support-the-work.html"] = family_pages("support-the-work.html")
 FAQ_LD = faq_ld(SUPPORT_T["en"], "en")
 
 GUIDE_TITLE = "How to check a QR code link before you open it"
@@ -1733,7 +2187,7 @@ for _t in HOME_T.values():
 def home_body(t, code):
     """The home page from one strings table; links to the policies in the same language, the rest of the site in English."""
     privacy_page = next(p for c, _, p in PRIVACY_LANGS if c == code)
-    link = lambda page, label: f'<a href="{href(page)}">{label}</a>'
+    link = lambda page, label: f'<a href="{href(localized(page, code))}">{label}</a>'
     icons = ("eye", "warning", "scan", "heart", "offline", "history")
     cards = "".join(f'  <div class="card">{ic(i)}<div><h3>{title}</h3><p>{text}</p></div></div>\n' for i, (title, text) in zip(icons, t["cards"]))
     c2 = t["cards2"]
@@ -1787,7 +2241,7 @@ PAGES = {
     "privacy.html": ("Privacy policy - Verdetto", "Privacy policy for Verdetto: QR & Barcode Scanner. No accounts, no ads, no analytics. Scanning happens on your phone.", PRIVACY, {"@type": "WebPage", "name": "Privacy policy", "publisher": ORG}),
     "terms.html": ("Terms of use - Verdetto", "Terms of use for Verdetto: QR & Barcode Scanner. What the safety checks are and are not, and that every decision on scanned content is yours.", TERMS, {"@type": "WebPage", "name": "Terms of use", "publisher": ORG}),
     "support.html": ("Help - Verdetto", "Help for Verdetto: QR & Barcode Scanner. How to reach us and answers to common questions.", SUPPORT, FAQ_LD),
-    "support-the-work.html": ("Support the work - Verdetto", "How Verdetto stays free with no ads and no tracking: one-time contributions from the people who use it, from $0.99 on Google Play" + (" or through GitHub Sponsors" if SPONSORS_LIVE else "") + ". Nothing is locked.", SUPPORT_WORK, SUPPORT_WORK_LD),
+    "support-the-work.html": (SUPPORT_WORK_T["en"]["title"], support_work_desc(SUPPORT_WORK_T["en"]), SUPPORT_WORK, SUPPORT_WORK_LD),
     "check-qr-code-link.html": (GUIDE_TITLE + " - Verdetto", GUIDE_DESC, GUIDE, GUIDE_LD),
     "report.html": ("Report to Verdetto", "Report a scam-looking link, a code the app read wrong, or anything else that isn't right in Verdetto: QR & Barcode Scanner. A person reviews every report.", REPORT, {"@type": "WebPage", "name": "Report to Verdetto", "publisher": ORG}),
     "press.html": ("Press kit - Verdetto", "The one-sentence description, boilerplate, checkable facts, and image assets for writing about Verdetto: QR & Barcode Scanner.", PRESS, {"@type": "WebPage", "name": "Press kit", "publisher": ORG}),
@@ -1815,6 +2269,12 @@ for _code in LANG_CODES[1:]:
     _pg = LOCAL["support.html"][_code]
     PAGES[_pg] = (_t["title"], _t["desc"], support_body(_t, _code), faq_ld(_t, _code))
     PAGE_LANG[_pg] = (_code, _code == "ar", alternates_for("support.html"))
+PAGE_LANG["support-the-work.html"] = ("en", False, alternates_for("support-the-work.html"))
+for _code in LANG_CODES[1:]:
+    _t = SUPPORT_WORK_T[_code]
+    _pg = LOCAL["support-the-work.html"][_code]
+    PAGES[_pg] = (_t["title"], support_work_desc(_t), support_work_body(_t, _code), support_work_ld(_t, _code))
+    PAGE_LANG[_pg] = (_code, _code == "ar", alternates_for("support-the-work.html"))
 BENCH_PUBLISHED = False  # True once the benchmark page is cleared for the live site
 
 
