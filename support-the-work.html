@@ -41,8 +41,8 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "Is Verdetto really free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Every feature, every check, and every decode is free for everyone, with no ads and no tracking: nothing about you or your scans goes to us, and the only code in the app that reports to anyone else is Google's own billing code, which reports to Google about the purchase. A contribution is optional and changes nothing you can do."}}, {"@type": "Question", "name": "How does Verdetto make money?", "acceptedAnswer": {"@type": "Answer", "text": "From one-time contributions by the people who use it: from $0.99 in the app through Google Play. There are no ads, no data sales, and no paid tier."}}, {"@type": "Question", "name": "What does a contribution unlock?", "acceptedAnswer": {"@type": "Answer", "text": "Nothing you need. Supporters get a badge in About that they can hide, and a few small extras as they arrive."}}, {"@type": "Question", "name": "Is a contribution a gift?", "acceptedAnswer": {"@type": "Answer", "text": "No. Verdetto is a small business, so a contribution is a purchase, and it brings no tax benefit."}}, {"@type": "Question", "name": "Will the app ask me for money?", "acceptedAnswer": {"@type": "Answer", "text": "Not with prompts, banners, or reminders. After the app does something for you, it may say thank you and mention that the people who use it pay for it, at most once a month; a switch in Settings turns that off. The Support screen is there when you look for it, under Settings."}}, {"@type": "Question", "name": "Can I give from a computer?", "acceptedAnswer": {"@type": "Answer", "text": "Not yet. GitHub Sponsors is being set up; this page will say when it opens."}}]}</script>
 <style>
 /* Material 3 color roles, copied from the app's Theme.kt so the site and the app are one palette. */
-:root{--mark-body:#003D35;--mark-accent:#B8650A;--surface:#E9F5F1;--on-surface:#191C1B;--on-surface-variant:#3F4946;--primary:#006B5E;--on-primary:#FFFFFF;--surface-container:#D5E8E3;--surface-container-high:#CFE2DC;--outline:#6F7977;--outline-variant:#B4CAC4;--tertiary:#8A5A00;--on-tertiary:#FFFFFF}
-@media (prefers-color-scheme:dark){:root{--mark-body:#FFFFFF;--mark-accent:#FFB95A;--surface:#0F1312;--on-surface:#DFE4E1;--on-surface-variant:#BEC9C5;--primary:#54DBC8;--on-primary:#003731;--surface-container:#1C201F;--surface-container-high:#262B29;--outline:#899390;--outline-variant:#3F4946;--tertiary:#FFB95A;--on-tertiary:#462A00}}
+:root{--mark-body:#003D35;--mark-accent:#B8650A;--surface:#E9F5F1;--on-surface:#191C1B;--on-surface-variant:#3F4946;--primary:#006B5E;--on-primary:#FFFFFF;--surface-container:#D5E8E3;--surface-container-high:#CFE2DC;--primary-container:#74F8E4;--on-primary-container:#00201C;--outline:#6F7977;--outline-variant:#B4CAC4;--tertiary:#8A5A00;--on-tertiary:#FFFFFF}
+@media (prefers-color-scheme:dark){:root{--mark-body:#FFFFFF;--mark-accent:#FFB95A;--surface:#0F1312;--on-surface:#DFE4E1;--on-surface-variant:#BEC9C5;--primary:#54DBC8;--on-primary:#003731;--surface-container:#1C201F;--surface-container-high:#262B29;--primary-container:#005047;--on-primary-container:#74F8E4;--outline:#899390;--outline-variant:#3F4946;--tertiary:#FFB95A;--on-tertiary:#462A00}}
 /* M3 type scale (body-large 16/24, title-medium 16/24 500, title-large 22/28, headline-large 32/40, label-large 14/20 500),
    shape scale (chips 8, cards 12, large containers 16), tonal surfaces instead of shadows. Roboto is the app's face: the
    variable latin file under fonts/ (Apache 2.0, fonts/LICENSE.txt) serves every weight; the system stack stands in
@@ -82,10 +82,13 @@ p,li{margin:.5rem 0}
 .hero .label svg{width:18px;height:18px}.hero .support{margin:.75rem 0 0;font-size:.9375rem;line-height:1.375rem;color:var(--on-surface-variant)}
 .shot{width:250px;height:auto;border-radius:20px;border:1px solid var(--outline-variant);background:var(--surface-container);display:block}
 .grid{display:grid;grid-template-columns:1fr;gap:1rem;margin:1.25rem 0;align-items:stretch}
-.grid .card{margin:0;padding:1rem;background:var(--surface-container);border-radius:12px;display:grid;grid-template-columns:auto 1fr;gap:.75rem;align-items:start}
-.grid .card svg{width:24px;height:24px;color:var(--primary);margin-top:.15rem}
-.grid h3{margin:0 0 .25rem;color:var(--on-surface)}
+.grid .card{margin:0;padding:1rem;background:var(--surface-container);border-radius:12px;display:grid;grid-template-columns:auto 1fr;column-gap:1rem;row-gap:.75rem;align-items:start}
+.grid .card>svg{width:40px;height:40px;padding:8px;box-sizing:border-box;border-radius:12px;background:var(--primary-container);color:var(--on-primary-container)}
+.grid .card.soon{background:transparent;border:1px solid var(--outline-variant)}
+.grid .card.soon>svg{background:var(--surface-container-high);color:var(--on-surface-variant)}
+.grid h3{margin:0 0 .25rem;color:var(--on-surface);font-size:1rem;line-height:1.5rem;font-weight:500}
 .grid p{margin:0;font-size:.875rem;line-height:1.25rem;color:var(--on-surface-variant)}
+.grid .card .label{margin:0 0 .25rem;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant)}
 .callout{background:var(--surface-container-high);border-left:4px solid var(--primary);border-radius:0 12px 12px 0;display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:center}.callout .shot.small{width:120px;margin:0}nav a,.more summary{position:relative}nav a::after,.more summary::after{content:"";position:absolute;inset:-5px 0}
 .faq p strong{color:var(--on-surface);font-weight:500}
 .prose ol,.prose ul{padding-left:1.4rem}
@@ -102,7 +105,8 @@ details.more{margin:1rem 0}details.more summary{cursor:pointer;color:var(--prima
 footer{background:var(--surface-container);margin-top:2rem}
 footer .wrap{padding:1.5rem 1rem 2rem;color:var(--on-surface-variant);font-size:.875rem;line-height:1.25rem}
 footer a{color:var(--primary)}
-@media (min-width:640px){.grid{grid-template-columns:1fr 1fr}.grid.three{grid-template-columns:repeat(3,1fr)}}
+@media (min-width:640px){.grid{grid-template-columns:1fr 1fr}.grid .card{grid-template-columns:1fr}.grid.three{grid-template-columns:1fr}.grid.three .card{grid-template-columns:auto 1fr}}
+@media (min-width:1000px){.grid.three{grid-template-columns:repeat(3,1fr);margin-inline:-8rem}.grid.three .card{grid-template-columns:1fr}}
 @media (max-width:600px){.hero{grid-template-columns:1fr}.shot{width:220px;margin:0 auto}h1,.hero h1{font-size:1.75rem;line-height:2.25rem}nav{margin-left:0;width:100%;order:3}.lang{margin-inline-start:auto;order:2}.callout{grid-template-columns:1fr}.callout .shot.small{margin:0 auto}}
 @media print{.draft,.skip,nav,footer .links{display:none}body{background:#fff;color:#000;font-size:12pt}a{color:#000}h2{color:#000;border-top-color:#999}.card,.callout{background:#f2f2f2}}
 </style>
@@ -206,8 +210,8 @@ footer a{color:var(--primary)}
 <p>Verdetto has no ads and nothing to sell, so the people who use it pay for it and pass it on. Every check and every decode is free for everyone. The app never nags: no ads, no pop-ups, no rating prompts. After it does something for you, it may say thank you and mention that the people who use it pay for it, at most once a month, and a switch in Settings turns that off.</p>
 <div class="grid three">
   <div class="card"><svg aria-hidden="true"><use href="#ic-heart"/></svg><div><h3>On your phone</h3><p>Settings, then Support development. From $0.99, once, $2.99 suggested, through Google Play. The app never sees your card.</p></div></div>
-  <div class="card"><svg aria-hidden="true"><use href="#ic-clock"/></svg><div><h3>From a browser</h3><p>GitHub Sponsors is being set up. Until it opens, the app is the way to give. The link appears here when it does.</p></div></div>
   <div class="card"><svg aria-hidden="true"><use href="#ic-scan"/></svg><div><h3>Pass it on</h3><p>Free because people share it. Send a friend verdettoqr.com, or open Share in the app and let them scan the code. Sharing sends nothing anywhere.</p></div></div>
+  <div class="card soon"><svg aria-hidden="true"><use href="#ic-clock"/></svg><div><p class="label">Coming soon</p><h3>From a browser</h3><p>GitHub Sponsors is being set up. Until it opens, the app is the way to give. The link appears here when it does.</p></div></div>
 </div>
 
 <h2>Where it goes</h2>

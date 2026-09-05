@@ -60,8 +60,8 @@ SYMBOLS = ('<svg width="0" height="0" style="position:absolute" aria-hidden="tru
 
 CSS = """
 /* Material 3 color roles, copied from the app's Theme.kt so the site and the app are one palette. */
-:root{--mark-body:#003D35;--mark-accent:#B8650A;--surface:#E9F5F1;--on-surface:#191C1B;--on-surface-variant:#3F4946;--primary:#006B5E;--on-primary:#FFFFFF;--surface-container:#D5E8E3;--surface-container-high:#CFE2DC;--outline:#6F7977;--outline-variant:#B4CAC4;--tertiary:#8A5A00;--on-tertiary:#FFFFFF}
-@media (prefers-color-scheme:dark){:root{--mark-body:#FFFFFF;--mark-accent:#FFB95A;--surface:#0F1312;--on-surface:#DFE4E1;--on-surface-variant:#BEC9C5;--primary:#54DBC8;--on-primary:#003731;--surface-container:#1C201F;--surface-container-high:#262B29;--outline:#899390;--outline-variant:#3F4946;--tertiary:#FFB95A;--on-tertiary:#462A00}}
+:root{--mark-body:#003D35;--mark-accent:#B8650A;--surface:#E9F5F1;--on-surface:#191C1B;--on-surface-variant:#3F4946;--primary:#006B5E;--on-primary:#FFFFFF;--surface-container:#D5E8E3;--surface-container-high:#CFE2DC;--primary-container:#74F8E4;--on-primary-container:#00201C;--outline:#6F7977;--outline-variant:#B4CAC4;--tertiary:#8A5A00;--on-tertiary:#FFFFFF}
+@media (prefers-color-scheme:dark){:root{--mark-body:#FFFFFF;--mark-accent:#FFB95A;--surface:#0F1312;--on-surface:#DFE4E1;--on-surface-variant:#BEC9C5;--primary:#54DBC8;--on-primary:#003731;--surface-container:#1C201F;--surface-container-high:#262B29;--primary-container:#005047;--on-primary-container:#74F8E4;--outline:#899390;--outline-variant:#3F4946;--tertiary:#FFB95A;--on-tertiary:#462A00}}
 /* M3 type scale (body-large 16/24, title-medium 16/24 500, title-large 22/28, headline-large 32/40, label-large 14/20 500),
    shape scale (chips 8, cards 12, large containers 16), tonal surfaces instead of shadows. Roboto is the app's face: the
    variable latin file under fonts/ (Apache 2.0, fonts/LICENSE.txt) serves every weight; the system stack stands in
@@ -101,10 +101,13 @@ p,li{margin:.5rem 0}
 .hero .label svg{width:18px;height:18px}.hero .support{margin:.75rem 0 0;font-size:.9375rem;line-height:1.375rem;color:var(--on-surface-variant)}
 .shot{width:250px;height:auto;border-radius:20px;border:1px solid var(--outline-variant);background:var(--surface-container);display:block}
 .grid{display:grid;grid-template-columns:1fr;gap:1rem;margin:1.25rem 0;align-items:stretch}
-.grid .card{margin:0;padding:1rem;background:var(--surface-container);border-radius:12px;display:grid;grid-template-columns:auto 1fr;gap:.75rem;align-items:start}
-.grid .card svg{width:24px;height:24px;color:var(--primary);margin-top:.15rem}
-.grid h3{margin:0 0 .25rem;color:var(--on-surface)}
+.grid .card{margin:0;padding:1rem;background:var(--surface-container);border-radius:12px;display:grid;grid-template-columns:auto 1fr;column-gap:1rem;row-gap:.75rem;align-items:start}
+.grid .card>svg{width:40px;height:40px;padding:8px;box-sizing:border-box;border-radius:12px;background:var(--primary-container);color:var(--on-primary-container)}
+.grid .card.soon{background:transparent;border:1px solid var(--outline-variant)}
+.grid .card.soon>svg{background:var(--surface-container-high);color:var(--on-surface-variant)}
+.grid h3{margin:0 0 .25rem;color:var(--on-surface);font-size:1rem;line-height:1.5rem;font-weight:500}
 .grid p{margin:0;font-size:.875rem;line-height:1.25rem;color:var(--on-surface-variant)}
+.grid .card .label{margin:0 0 .25rem;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant)}
 .callout{background:var(--surface-container-high);border-left:4px solid var(--primary);border-radius:0 12px 12px 0;display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:center}.callout .shot.small{width:120px;margin:0}nav a,.more summary{position:relative}nav a::after,.more summary::after{content:"";position:absolute;inset:-5px 0}
 .faq p strong{color:var(--on-surface);font-weight:500}
 .prose ol,.prose ul{padding-left:1.4rem}
@@ -121,7 +124,8 @@ details.more{margin:1rem 0}details.more summary{cursor:pointer;color:var(--prima
 footer{background:var(--surface-container);margin-top:2rem}
 footer .wrap{padding:1.5rem 1rem 2rem;color:var(--on-surface-variant);font-size:.875rem;line-height:1.25rem}
 footer a{color:var(--primary)}
-@media (min-width:640px){.grid{grid-template-columns:1fr 1fr}.grid.three{grid-template-columns:repeat(3,1fr)}}
+@media (min-width:640px){.grid{grid-template-columns:1fr 1fr}.grid .card{grid-template-columns:1fr}.grid.three{grid-template-columns:1fr}.grid.three .card{grid-template-columns:auto 1fr}}
+@media (min-width:1000px){.grid.three{grid-template-columns:repeat(3,1fr);margin-inline:-8rem}.grid.three .card{grid-template-columns:1fr}}
 @media (max-width:600px){.hero{grid-template-columns:1fr}.shot{width:220px;margin:0 auto}h1,.hero h1{font-size:1.75rem;line-height:2.25rem}nav{margin-left:0;width:100%;order:3}.lang{margin-inline-start:auto;order:2}.callout{grid-template-columns:1fr}.callout .shot.small{margin:0 auto}}
 @media print{.draft,.skip,nav,footer .links{display:none}body{background:#fff;color:#000;font-size:12pt}a{color:#000}h2{color:#000;border-top-color:#999}.card,.callout{background:#f2f2f2}}
 """
@@ -1166,7 +1170,8 @@ SUPPORT_WORK_T = {
   "a_ask": "Not with prompts, banners, or reminders. After the app does something for you, it may say thank you and mention that the people who use it pay for it, at most once a month; a switch in Settings turns that off. The Support screen is there when you look for it, under Settings.",
   "q_computer": "Can I give from a computer?",
   "a_computer_live": "Yes, through GitHub Sponsors, monthly or once.",
-  "a_computer_wait": "Not yet. GitHub Sponsors is being set up; this page will say when it opens."
+  "a_computer_wait": "Not yet. GitHub Sponsors is being set up; this page will say when it opens.",
+  "soon": "Coming soon"
  },
  "de": {
   "title": "Die Arbeit unterstützen - Verdetto",
@@ -1206,7 +1211,8 @@ SUPPORT_WORK_T = {
   "a_ask": "Nicht mit Aufforderungen, Bannern oder Erinnerungen. Nachdem die App etwas für dich getan hat, sagt sie vielleicht danke und erwähnt, dass die Menschen, die sie nutzen, dafür bezahlen, höchstens einmal im Monat; ein Schalter in den Einstellungen stellt das ab. Der Support-Bildschirm ist da, wenn du ihn suchst, unter Einstellungen.",
   "q_computer": "Kann ich vom Computer aus geben?",
   "a_computer_live": "Ja, über GitHub Sponsors, monatlich oder einmalig.",
-  "a_computer_wait": "Noch nicht. GitHub Sponsors wird gerade eingerichtet; diese Seite sagt es, wenn es öffnet."
+  "a_computer_wait": "Noch nicht. GitHub Sponsors wird gerade eingerichtet; diese Seite sagt es, wenn es öffnet.",
+  "soon": "Bald verfügbar"
  },
  "es": {
   "title": "Apoya el trabajo - Verdetto",
@@ -1246,7 +1252,8 @@ SUPPORT_WORK_T = {
   "a_ask": "No con avisos, banners ni recordatorios. Después de hacer algo por ti, puede dar las gracias y mencionar que las personas que la usan la pagan, como máximo una vez al mes; un interruptor en Ajustes lo desactiva. La pantalla de Apoyo está ahí cuando la buscas, en Ajustes.",
   "q_computer": "¿Puedo dar desde un ordenador?",
   "a_computer_live": "Sí, a través de GitHub Sponsors, mensual o una vez.",
-  "a_computer_wait": "Todavía no. GitHub Sponsors se está configurando; esta página lo dirá cuando abra."
+  "a_computer_wait": "Todavía no. GitHub Sponsors se está configurando; esta página lo dirá cuando abra.",
+  "soon": "Próximamente"
  },
  "fr": {
   "title": "Soutenir le travail - Verdetto",
@@ -1286,7 +1293,8 @@ SUPPORT_WORK_T = {
   "a_ask": "Pas avec des invitations, des bannières ou des rappels. Après avoir fait quelque chose pour toi, elle peut dire merci et rappeler que les personnes qui l'utilisent la financent, au plus une fois par mois ; un interrupteur dans les Réglages désactive cela. L'écran Soutien est là quand tu le cherches, dans les Réglages.",
   "q_computer": "Puis-je donner depuis un ordinateur ?",
   "a_computer_live": "Oui, via GitHub Sponsors, chaque mois ou une fois.",
-  "a_computer_wait": "Pas encore. GitHub Sponsors est en cours d'ouverture ; cette page le dira quand ce sera le cas."
+  "a_computer_wait": "Pas encore. GitHub Sponsors est en cours d'ouverture ; cette page le dira quand ce sera le cas.",
+  "soon": "Bientôt disponible"
  },
  "pt-BR": {
   "title": "Apoie o trabalho - Verdetto",
@@ -1326,7 +1334,8 @@ SUPPORT_WORK_T = {
   "a_ask": "Não com avisos, banners ou lembretes. Depois de fazer algo por você, ele pode agradecer e mencionar que as pessoas que o usam pagam por ele, no máximo uma vez por mês; uma chave nas Configurações desliga isso. A tela de Apoio está lá quando você a procura, em Configurações.",
   "q_computer": "Posso contribuir de um computador?",
   "a_computer_live": "Sim, pelo GitHub Sponsors, mensal ou uma vez.",
-  "a_computer_wait": "Ainda não. O GitHub Sponsors está sendo configurado; esta página avisará quando abrir."
+  "a_computer_wait": "Ainda não. O GitHub Sponsors está sendo configurado; esta página avisará quando abrir.",
+  "soon": "Em breve"
  },
  "id": {
   "title": "Dukung pekerjaan ini - Verdetto",
@@ -1366,7 +1375,8 @@ SUPPORT_WORK_T = {
   "a_ask": "Tidak dengan permintaan, banner, atau pengingat. Setelah melakukan sesuatu untukmu, ia mungkin mengucapkan terima kasih dan menyebut bahwa orang-orang yang memakainya membayarnya, paling banyak sekali sebulan; sebuah sakelar di Setelan mematikannya. Layar Dukungan ada saat kamu mencarinya, di Setelan.",
   "q_computer": "Bisakah saya memberi dari komputer?",
   "a_computer_live": "Ya, melalui GitHub Sponsors, bulanan atau sekali.",
-  "a_computer_wait": "Belum. GitHub Sponsors sedang disiapkan; halaman ini akan memberi tahu saat dibuka."
+  "a_computer_wait": "Belum. GitHub Sponsors sedang disiapkan; halaman ini akan memberi tahu saat dibuka.",
+  "soon": "Segera hadir"
  },
  "ru": {
   "title": "Поддержать работу - Verdetto",
@@ -1406,7 +1416,8 @@ SUPPORT_WORK_T = {
   "a_ask": "Не запросами, баннерами или напоминаниями. Сделав что-то для вас, приложение может сказать спасибо и упомянуть, что за него платят люди, которые им пользуются, не чаще раза в месяц; переключатель в настройках это отключает. Экран поддержки на месте, когда вы его ищете, в настройках.",
   "q_computer": "Могу ли я поддержать с компьютера?",
   "a_computer_live": "Да, через GitHub Sponsors, ежемесячно или один раз.",
-  "a_computer_wait": "Пока нет. GitHub Sponsors ещё настраивается; эта страница сообщит, когда он откроется."
+  "a_computer_wait": "Пока нет. GitHub Sponsors ещё настраивается; эта страница сообщит, когда он откроется.",
+  "soon": "Скоро"
  },
  "hi": {
   "title": "काम का समर्थन करें - Verdetto",
@@ -1446,7 +1457,8 @@ SUPPORT_WORK_T = {
   "a_ask": "प्रॉम्प्ट, बैनर या रिमाइंडर से नहीं। आपके लिए कुछ करने के बाद यह धन्यवाद कह सकता है और बता सकता है कि इसे इस्तेमाल करने वाले लोग इसका खर्च उठाते हैं, महीने में अधिकतम एक बार; सेटिंग्स का एक स्विच इसे बंद कर देता है। समर्थन स्क्रीन सेटिंग्स में तब मिलती है जब आप उसे ढूँढें।",
   "q_computer": "क्या मैं कंप्यूटर से दे सकता हूँ?",
   "a_computer_live": "हाँ, GitHub Sponsors के ज़रिए, मासिक या एक बार।",
-  "a_computer_wait": "अभी नहीं। GitHub Sponsors तैयार किया जा रहा है; खुलने पर यह पृष्ठ बताएगा।"
+  "a_computer_wait": "अभी नहीं। GitHub Sponsors तैयार किया जा रहा है; खुलने पर यह पृष्ठ बताएगा।",
+  "soon": "जल्द आ रहा है"
  },
  "ja": {
   "title": "活動を支援 - Verdetto",
@@ -1486,7 +1498,8 @@ SUPPORT_WORK_T = {
   "a_ask": "催促やバナー、リマインダーでは求めません。何かをした後に、お礼を言い、使う人の支えで成り立っていると触れることがあり、多くても月に一度です。設定のスイッチでオフにできます。支援画面は設定の中にあり、探せばそこにあります。",
   "q_computer": "パソコンから支援できますか?",
   "a_computer_live": "はい、GitHub Sponsors 経由で、毎月または一回限りで。",
-  "a_computer_wait": "まだです。GitHub Sponsors は準備中で、開いたらこのページでお知らせします。"
+  "a_computer_wait": "まだです。GitHub Sponsors は準備中で、開いたらこのページでお知らせします。",
+  "soon": "近日公開"
  },
  "zh-Hans": {
   "title": "支持这项工作 - Verdetto",
@@ -1526,7 +1539,8 @@ SUPPORT_WORK_T = {
   "a_ask": "不会用提示、横幅或提醒来要。在为你做了些什么之后，它可能会说声谢谢，并提到使用它的人在为它付费，每月最多一次；设置中的一个开关可以关闭它。支持页面在设置里，你想找时就在那里。",
   "q_computer": "我可以从电脑上支持吗？",
   "a_computer_live": "可以，通过 GitHub Sponsors，每月或一次性。",
-  "a_computer_wait": "还不行。GitHub Sponsors 正在设置中；开放时本页会说明。"
+  "a_computer_wait": "还不行。GitHub Sponsors 正在设置中；开放时本页会说明。",
+  "soon": "即将推出"
  },
  "ar": {
   "title": "ادعم العمل - Verdetto",
@@ -1566,7 +1580,8 @@ SUPPORT_WORK_T = {
   "a_ask": "ليس بالتنبيهات أو اللافتات أو التذكيرات. بعد أن يفعل شيئًا من أجلك قد يشكرك ويذكر أن من يستخدمونه يدفعون ثمنه، مرة واحدة في الشهر على الأكثر؛ ويوقف ذلك مفتاح في الإعدادات. وشاشة الدعم موجودة حين تبحث عنها، ضمن الإعدادات.",
   "q_computer": "هل يمكنني العطاء من الحاسوب؟",
   "a_computer_live": "نعم، عبر GitHub Sponsors، شهريًا أو مرة واحدة.",
-  "a_computer_wait": "ليس بعد. يجري إعداد GitHub Sponsors؛ وستذكر هذه الصفحة موعد افتتاحه."
+  "a_computer_wait": "ليس بعد. يجري إعداد GitHub Sponsors؛ وستذكر هذه الصفحة موعد افتتاحه.",
+  "soon": "قريبًا"
  }
 }
 
@@ -1590,7 +1605,7 @@ def support_work_body(t, code):
     """The Support-the-work page from its strings table: three cards, three sections, the questions."""
     browser = (f'<div class="card">{ic("heart")}<div><h3>{t["browser_h"]}</h3><p>{t["browser_live"]} <a href="https://github.com/sponsors/verdettoqr">{t["browser_link"]}</a></p></div></div>'
                if SPONSORS_LIVE else
-               f'<div class="card">{ic("clock")}<div><h3>{t["browser_h"]}</h3><p>{t["browser_wait"]}</p></div></div>')
+               f'<div class="card soon">{ic("clock")}<div><p class="label">{t["soon"]}</p><h3>{t["browser_h"]}</h3><p>{t["browser_wait"]}</p></div></div>')
     faq_html = "\n".join(f"<p><strong>{q}</strong><br>\n{a}</p>\n" for q, a in support_work_faq(t))
     not_p = t["not_base"] + (t["not_github"] if SPONSORS_LIVE else "") + t["not_tail"]
     return f"""
@@ -1598,8 +1613,8 @@ def support_work_body(t, code):
 <p>{t["lede"]}</p>
 <div class="grid three">
   <div class="card">{ic('heart')}<div><h3>{t["phone_h"]}</h3><p>{t["phone_p"]}</p></div></div>
-  {browser}
   <div class="card">{ic('scan')}<div><h3>{t["pass_h"]}</h3><p>{t["pass_p"]}</p></div></div>
+  {browser}
 </div>
 
 <h2>{t["where_h"]}</h2>
