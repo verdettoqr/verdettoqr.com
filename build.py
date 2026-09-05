@@ -89,7 +89,7 @@ p,li{margin:.5rem 0}
 .hero .label{display:inline-flex;align-items:center;gap:.4rem;margin-top:1rem;color:var(--on-surface-variant);font-weight:500;font-size:.875rem;line-height:1.25rem}
 .hero .label svg{width:18px;height:18px}.hero .support{margin:.75rem 0 0;font-size:.9375rem;line-height:1.375rem;color:var(--on-surface-variant)}
 .shot{width:250px;height:auto;border-radius:20px;border:1px solid var(--outline-variant);background:var(--surface-container);display:block}
-.grid{display:grid;grid-template-columns:1fr;gap:.75rem;margin:1rem 0}
+.grid{display:grid;grid-template-columns:1fr;gap:.75rem;margin:1rem 0;align-items:start}
 .grid .card{margin:0;display:grid;grid-template-columns:auto 1fr;gap:.75rem;align-items:start}
 .grid .card svg{width:24px;height:24px;color:var(--primary);margin-top:.15rem}
 .grid h3{margin:0 0 .25rem;color:var(--on-surface)}
@@ -230,7 +230,7 @@ HOME = f"""
 <details class="more"><summary>Everything it does</summary>
 <div class="grid">
   <div class="card">{ic('shield')}<div><h3>A warning list on the phone</h3><p>Links, sites, and wallet addresses are compared with known phishing, malware, scam, and sanctions entries, refreshed a few times a day when online lookups are on.</p></div></div>
-  <div class="card">{ic('barcode')}<div><h3>Looks things up</h3><p>Product, book, medicine, music, magazine, and vehicle numbers go to the open database that covers each, only when product lookups are on. The <a href="{href('privacy.html')}">privacy policy</a> names them. A vehicle number also brings recall campaigns, crash-test ratings, and fuel economy from NHTSA and the EPA.</p></div></div>
+  <div class="card">{ic('barcode')}<div><h3>Looks things up</h3><p>Product, book, medicine, music, magazine, and vehicle numbers go to the open database for each, only when product lookups are on. The <a href="{href('privacy.html')}">privacy policy</a> names them; vehicles also bring recalls, crash-test ratings, and fuel economy.</p></div></div>
   <div class="card">{ic('history')}<div><h3>History that is yours</h3><p>On your phone, searchable, starrable, deletable with a swipe. Scans older than 90 days clear unless starred.</p></div></div>
   <div class="card">{ic('offline')}<div><h3>Works offline</h3><p>Every built-in check runs on the phone, and an ID or license scan never leaves it. One switch turns the online lookups off, and product lookups have a switch of their own.</p></div></div>
   <div class="card">{ic('scan')}<div><h3>Made for the hand</h3><p>Quick Settings tile, batch mode, left-handed layout, results read aloud, a boarding pass at the gate, your own codes. Eleven languages.</p></div></div>
