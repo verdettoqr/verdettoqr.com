@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; font-src 'self'; script-src 'sha256-z8dwWCc7kg+sZcasct5YZpH/Q227T57Ipuw74neSWhk='; frame-src https://docs.google.com; base-uri 'none'; form-action 'none'">
+<title>它能做的一切 - Verdetto</title>
+<meta name="description" content="Verdetto 的每一项功能，按人们遇到的顺序：先看到链接、受损的码、经您允许的查询、您自己制作的码，以及没有广告。">
+<link rel="canonical" href="https://verdettoqr.com/features-zh-hans">
+<link rel="me" href="https://mastodon.social/@VerdettoQR">
+<link rel="alternate" hreflang="en" href="https://verdettoqr.com/features">
+<link rel="alternate" hreflang="es" href="https://verdettoqr.com/features-es">
+<link rel="alternate" hreflang="fr" href="https://verdettoqr.com/features-fr">
+<link rel="alternate" hreflang="de" href="https://verdettoqr.com/features-de">
+<link rel="alternate" hreflang="pt-BR" href="https://verdettoqr.com/features-pt-br">
+<link rel="alternate" hreflang="ru" href="https://verdettoqr.com/features-ru">
+<link rel="alternate" hreflang="id" href="https://verdettoqr.com/features-id">
+<link rel="alternate" hreflang="ja" href="https://verdettoqr.com/features-ja">
+<link rel="alternate" hreflang="zh-Hans" href="https://verdettoqr.com/features-zh-hans">
+<link rel="alternate" hreflang="hi" href="https://verdettoqr.com/features-hi">
+<link rel="alternate" hreflang="ar" href="https://verdettoqr.com/features-ar">
+<link rel="alternate" hreflang="x-default" href="https://verdettoqr.com/features">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#E9F5F1">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0F1312">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Verdetto">
+<meta property="og:title" content="它能做的一切 - Verdetto">
+<meta property="og:description" content="Verdetto 的每一项功能，按人们遇到的顺序：先看到链接、受损的码、经您允许的查询、您自己制作的码，以及没有广告。">
+<meta property="og:url" content="https://verdettoqr.com/features-zh-hans">
+<meta property="og:image" content="https://verdettoqr.com/og/features-zh-hans.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Verdetto: 它能做的一切">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="它能做的一切 - Verdetto">
+<meta name="twitter:description" content="Verdetto 的每一项功能，按人们遇到的顺序：先看到链接、受损的码、经您允许的查询、您自己制作的码，以及没有广告。">
+<meta name="twitter:image" content="https://verdettoqr.com/og/features-zh-hans.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "它能做的一切", "publisher": {"@type": "Organization", "name": "Verdetto", "url": "https://verdettoqr.com/", "email": "support@verdettoqr.com", "logo": "https://verdettoqr.com/icon-512.png", "sameAs": ["https://mastodon.social/@VerdettoQR", "https://www.reddit.com/user/VerdettoQR/", "https://github.com/verdettoqr"], "address": {"@type": "PostalAddress", "streetAddress": "1520 Belle View Blvd, Suite #5992", "addressLocality": "Alexandria", "addressRegion": "VA", "postalCode": "22307", "addressCountry": "US"}}, "inLanguage": "zh-Hans"}</script>
+<style>
+/* Material 3 color roles, copied from the app's Theme.kt so the site and the app are one palette. */
+:root{--mark-body:#003D35;--mark-accent:#B8650A;--surface:#E9F5F1;--on-surface:#191C1B;--on-surface-variant:#3F4946;--primary:#006B5E;--on-primary:#FFFFFF;--surface-container:#D5E8E3;--surface-container-high:#CFE2DC;--primary-container:#74F8E4;--on-primary-container:#00201C;--outline:#6F7977;--outline-variant:#B4CAC4;--tertiary:#8A5A00;--on-tertiary:#FFFFFF}
+@media (prefers-color-scheme:dark){:root{--mark-body:#FFFFFF;--mark-accent:#FFB95A;--surface:#0F1312;--on-surface:#DFE4E1;--on-surface-variant:#BEC9C5;--primary:#54DBC8;--on-primary:#003731;--surface-container:#1C201F;--surface-container-high:#262B29;--primary-container:#005047;--on-primary-container:#74F8E4;--outline:#899390;--outline-variant:#3F4946;--tertiary:#FFB95A;--on-tertiary:#462A00}}
+/* M3 type scale (body-large 16/24, title-medium 16/24 500, title-large 22/28, headline-large 32/40, label-large 14/20 500),
+   shape scale (chips 8, cards 12, large containers 16), tonal surfaces instead of shadows. Roboto is the app's face: the
+   variable latin file under fonts/ (Apache 2.0, fonts/LICENSE.txt) serves every weight; the system stack stands in
+   while it loads and for other scripts. */
+@font-face{font-family:Roboto;font-style:normal;font-weight:100 900;font-display:swap;src:url(fonts/Roboto-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--on-surface);font:16px/1.5 Roboto,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif}
+a{color:var(--primary)}
+:focus-visible{outline:2px solid var(--primary);outline-offset:2px;border-radius:4px}
+.skip{position:absolute;inset-inline-start:0;top:0;transform:translateY(-150%);background:var(--primary);color:var(--on-primary);padding:.5rem 1rem;border-radius:0 0 8px 0;z-index:2}
+.skip:focus{transform:none}
+.wrap{max-width:44rem;margin:0 auto;padding:0 1rem}
+.wrap.narrow{max-width:36rem}
+.draft{background:var(--tertiary);color:var(--on-tertiary);text-align:center;padding:.4rem;font-size:.875rem;line-height:1.25rem;font-weight:500;letter-spacing:.01em}
+header{border-bottom:1px solid var(--outline-variant)}
+header .wrap{display:flex;align-items:center;gap:.75rem;min-height:64px;padding-top:.5rem;padding-bottom:.5rem;flex-wrap:wrap}
+.brand{display:inline-flex;align-items:center;gap:.4rem;color:var(--on-surface);text-decoration:none;font-weight:500;font-size:1.375rem;line-height:1.75rem}
+.brand svg{width:.78em;height:.78em;flex:none}
+.lockup{white-space:nowrap}.lockup svg{width:.78em;height:.78em;vertical-align:-.04em;margin-inline-end:.3em}
+nav{margin-left:auto;display:flex;gap:.25rem;flex-wrap:wrap}
+nav a{color:var(--on-surface-variant);text-decoration:none;font-weight:500;font-size:.875rem;line-height:1.25rem;padding:.6rem .75rem;border-radius:20px}
+nav a:hover{background:var(--surface-container)}
+.lang{position:relative;margin-inline-start:.25rem}.lang summary{list-style:none;display:inline-flex;align-items:center;gap:.4rem;padding:.6rem .75rem;border-radius:20px;color:var(--on-surface-variant);font-weight:500;font-size:.875rem;line-height:1.25rem;cursor:pointer;position:relative}.lang summary::-webkit-details-marker{display:none}.lang summary::after{content:"";position:absolute;inset:-5px 0}.lang summary svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.lang summary:hover,.lang[open] summary{background:var(--surface-container)}.lang .menu{position:absolute;inset-inline-end:0;top:calc(100% + 4px);margin:0;padding:.5rem 0;list-style:none;min-width:12.5rem;background:var(--surface-container);border-radius:4px;box-shadow:0 1px 3px rgba(0,0,0,.3),0 4px 8px 3px rgba(0,0,0,.15);z-index:4}.lang .menu a{display:flex;align-items:center;min-height:48px;padding:0 .75rem;color:var(--on-surface);text-decoration:none;font-size:.875rem;line-height:1.25rem}.lang .menu a:hover{background:var(--surface-container-high)}.langs404{columns:2;column-gap:2rem;padding-inline-start:1.25rem}.langs404 li{margin:.25rem 0}.lang .menu a[aria-current]{color:var(--primary);font-weight:600}
+nav a[aria-current]{color:var(--primary);background:var(--surface-container-high)}
+main{padding:.5rem 0 2rem}
+h1{color:var(--on-surface);font-size:2rem;line-height:2.5rem;font-weight:500;margin:1.5rem 0 .5rem}
+h2{color:var(--primary);font-size:1.375rem;line-height:1.75rem;font-weight:500;margin:2rem 0 .5rem;padding-top:.75rem;border-top:1px solid var(--outline-variant)}
+h3{font-size:1rem;line-height:1.5rem;font-weight:500;margin:1.25rem 0 .25rem}
+p,li{margin:.5rem 0}
+.meta{color:var(--on-surface-variant);font-size:.875rem;line-height:1.25rem}
+.card{background:var(--surface-container);border-radius:12px;padding:1rem;margin:1rem 0}
+.hero{display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;padding:1.5rem 0 .5rem}
+.hero .mark{width:64px;height:64px;display:block;margin-bottom:.5rem}
+.hero h1{margin:.25rem 0 .5rem;font-size:2.25rem;line-height:2.75rem}
+.hero p{font-size:1.125rem;line-height:1.75rem;margin:0}
+.hero .label{display:inline-flex;align-items:center;gap:.4rem;margin-top:1rem;color:var(--on-surface-variant);font-weight:500;font-size:.875rem;line-height:1.25rem}
+.hero .label svg{width:18px;height:18px}.hero .support{margin:.75rem 0 0;font-size:.9375rem;line-height:1.375rem;color:var(--on-surface-variant)}
+.shot{width:250px;height:auto;border-radius:20px;border:1px solid var(--outline-variant);background:var(--surface-container);display:block}
+.grid{display:grid;grid-template-columns:1fr;gap:1rem;margin:1.25rem 0;align-items:stretch}
+.grid .card{margin:0;padding:1rem;background:var(--surface-container);border-radius:12px;display:grid;grid-template-columns:auto 1fr;column-gap:1rem;row-gap:.75rem;align-items:start}
+.grid .card>svg{width:40px;height:40px;padding:8px;box-sizing:border-box;border-radius:12px;background:var(--primary-container);color:var(--on-primary-container)}
+.grid .card.soon{background:transparent;border:1px solid var(--outline-variant)}
+.grid .card.soon>svg{background:var(--surface-container-high);color:var(--on-surface-variant)}
+.grid h3{margin:0 0 .25rem;color:var(--on-surface);font-size:1rem;line-height:1.5rem;font-weight:500}
+.grid p{margin:0;font-size:.875rem;line-height:1.25rem;color:var(--on-surface-variant)}
+.grid .card .label{margin:0 0 .25rem;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant)}
+.callout{background:var(--surface-container-high);border-left:4px solid var(--primary);border-radius:0 12px 12px 0;display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:center}.callout .shot.small{width:120px;margin:0}nav a,.more summary{position:relative}nav a::after,.more summary::after{content:"";position:absolute;inset:-5px 0}
+.faq p strong{color:var(--on-surface);font-weight:500}
+.faq h3{margin:1.5rem 0 .25rem}.faq h3+p{margin:0}
+.prose ol,.prose ul{padding-left:1.4rem}
+.prose li{margin:.6rem 0}
+table{border-collapse:collapse;width:100%;font-size:.875rem;line-height:1.25rem;display:block;overflow-x:auto;margin:1rem 0}
+.prose table{display:table;table-layout:fixed}.prose th,.prose td{overflow-wrap:anywhere;vertical-align:top}.prose th:nth-child(1){width:27%}.prose th:nth-child(2){width:18%}.prose th:nth-child(3){width:37%}.prose th:nth-child(4){width:18%}
+pre{background:var(--container);border-radius:.5rem;padding:.9rem 1rem;overflow-x:auto;font-size:.8125rem;line-height:1.35rem;margin:1rem 0}
+code{font-family:Consolas,'Cascadia Mono',Menlo,monospace;font-size:.92em}
+pre code{font-size:inherit}
+th,td{text-align:left;vertical-align:top;padding:.5rem .6rem;border-bottom:1px solid var(--outline-variant)}
+th{color:var(--on-surface-variant);font-weight:500;white-space:nowrap}
+td:first-child{min-width:12rem}
+p.langs{font-size:.8125rem;line-height:1.5;color:var(--on-surface-variant)}p.langs a[aria-current]{font-weight:600;text-decoration:none}
+details.more{margin:1rem 0}details.more summary{cursor:pointer;color:var(--primary);font-weight:500;font-size:.875rem;line-height:1.25rem;padding:.6rem .75rem;border-radius:20px;display:inline-block;background:var(--surface-container)}details.more[open] summary{margin-bottom:.5rem}
+footer{background:var(--surface-container);margin-top:2rem}
+footer .wrap{padding:1.5rem 1rem 2rem;color:var(--on-surface-variant);font-size:.875rem;line-height:1.25rem;display:grid;grid-template-columns:1fr auto;gap:1rem 2rem;align-items:start}footer .code{display:block;margin-top:.25rem}footer .code img{display:block;width:96px;height:96px}
+footer a{color:var(--primary)}
+.feature{display:grid;grid-template-columns:1fr 220px;gap:2rem;align-items:start;padding:1.75rem 0;border-top:1px solid var(--outline-variant)}.feature.text{grid-template-columns:1fr}.feature h2{border-top:0;margin:0 0 .5rem;padding-top:0}.feature .shot{width:220px;margin:0}.feature p{margin:.5rem 0}.feature .kicker{margin:0 0 .25rem;font-size:.875rem;line-height:1.25rem;font-weight:500;letter-spacing:.03em;color:var(--primary)}.tags{display:flex;flex-wrap:wrap;gap:.5rem;margin:.75rem 0 0;padding:0;list-style:none}.tags li{margin:0;padding:.25rem .75rem;border:1px solid var(--outline-variant);border-radius:8px;font-size:.875rem;line-height:1.25rem;color:var(--on-surface)}.feature .label{display:inline-flex;align-items:center;gap:.4rem;margin-top:.75rem;color:var(--on-surface-variant);font-weight:500;font-size:.875rem;line-height:1.25rem}.feature .label svg{width:18px;height:18px}
+@media (min-width:640px){.grid{grid-template-columns:1fr 1fr}.grid .card{grid-template-columns:1fr}.grid.three{grid-template-columns:1fr}.grid.three .card{grid-template-columns:auto 1fr}}
+@media (max-width:600px){.feature{grid-template-columns:1fr}.feature .shot{margin:0 auto}.hero{grid-template-columns:1fr}.shot{width:220px;margin:0 auto}h1,.hero h1{font-size:1.75rem;line-height:2.25rem}nav{margin-left:0;width:100%;order:3}.lang{margin-inline-start:auto;order:2}.callout{grid-template-columns:1fr}.callout .shot.small{margin:0 auto}}
+@media print{.draft,.skip,nav,footer .links{display:none}body{background:#fff;color:#000;font-size:12pt}a{color:#000}h2{color:#000;border-top-color:#999}.card,.callout{background:#f2f2f2}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到内容</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="logo" viewBox="0 0 108 108">
+  <g><rect width="108" height="108" rx="24" fill="#D5E8E3"/></g>
+  <g fill="#003D35" fill-rule="evenodd">
+    <path d="M72.37,20.00 h11.00 a4.63,4.63 0 0 1 4.63,4.63 v11.00 a4.63,4.63 0 0 1 -4.63,4.63 h-11.00 a4.63,4.63 0 0 1 -4.63,-4.63 v-11.00 a4.63,4.63 0 0 1 4.63,-4.63 z M74.69,24.63 h6.37 a2.31,2.31 0 0 1 2.31,2.31 v6.37 a2.31,2.31 0 0 1 -2.31,2.31 h-6.37 a2.31,2.31 0 0 1 -2.31,-2.31 v-6.37 a2.31,2.31 0 0 1 2.31,-2.31 z"/>
+    <path d="M75.85,26.22 h4.05 a1.88,1.88 0 0 1 1.88,1.88 v4.05 a1.88,1.88 0 0 1 -1.88,1.88 h-4.05 a1.88,1.88 0 0 1 -1.88,-1.88 v-4.05 a1.88,1.88 0 0 1 1.88,-1.88 z"/>
+    <path d="M24.63,67.74 h11.00 a4.63,4.63 0 0 1 4.63,4.63 v11.00 a4.63,4.63 0 0 1 -4.63,4.63 h-11.00 a4.63,4.63 0 0 1 -4.63,-4.63 v-11.00 a4.63,4.63 0 0 1 4.63,-4.63 z M26.94,72.37 h6.37 a2.31,2.31 0 0 1 2.31,2.31 v6.37 a2.31,2.31 0 0 1 -2.31,2.31 h-6.37 a2.31,2.31 0 0 1 -2.31,-2.31 v-6.37 a2.31,2.31 0 0 1 2.31,-2.31 z"/>
+    <path d="M28.10,73.97 h4.05 a1.88,1.88 0 0 1 1.88,1.88 v4.05 a1.88,1.88 0 0 1 -1.88,1.88 h-4.05 a1.88,1.88 0 0 1 -1.88,-1.88 v-4.05 a1.88,1.88 0 0 1 1.88,-1.88 z"/>
+    <path d="M22.03,45.46 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M22.03,51.69 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M28.25,45.46 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M28.25,57.91 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M34.47,45.46 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M34.47,57.91 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M40.69,45.46 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M40.69,51.69 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M40.69,57.91 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M46.91,20.58 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M46.91,33.02 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M46.91,39.24 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M46.91,64.13 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M46.91,76.57 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M53.13,26.80 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M53.13,33.02 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M53.13,39.24 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M53.13,45.46 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M53.13,57.91 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M53.13,76.57 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M59.35,26.80 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M59.35,33.02 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M59.35,39.24 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M59.35,51.69 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M59.35,57.91 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M59.35,70.35 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M59.35,76.57 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M65.57,57.91 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M71.80,51.69 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M71.80,64.13 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M71.80,70.35 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M78.02,45.46 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M78.02,57.91 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+  </g>
+  <g fill="#B8650A" fill-rule="evenodd">
+    <path d="M24.63,20.00 h11.00 a4.63,4.63 0 0 1 4.63,4.63 v11.00 a4.63,4.63 0 0 1 -4.63,4.63 h-11.00 a4.63,4.63 0 0 1 -4.63,-4.63 v-11.00 a4.63,4.63 0 0 1 4.63,-4.63 z M26.94,24.63 h6.37 a2.31,2.31 0 0 1 2.31,2.31 v6.37 a2.31,2.31 0 0 1 -2.31,2.31 h-6.37 a2.31,2.31 0 0 1 -2.31,-2.31 v-6.37 a2.31,2.31 0 0 1 2.31,-2.31 z"/>
+    <path d="M28.10,26.22 h4.05 a1.88,1.88 0 0 1 1.88,1.88 v4.05 a1.88,1.88 0 0 1 -1.88,1.88 h-4.05 a1.88,1.88 0 0 1 -1.88,-1.88 v-4.05 a1.88,1.88 0 0 1 1.88,-1.88 z"/>
+  </g>
+</symbol><symbol id="mark" viewBox="18 18 72 72"><g id="qr" fill="var(--mark-body,#003D35)" fill-rule="evenodd">
+    <path d="M72.37,20.00 h11.00 a4.63,4.63 0 0 1 4.63,4.63 v11.00 a4.63,4.63 0 0 1 -4.63,4.63 h-11.00 a4.63,4.63 0 0 1 -4.63,-4.63 v-11.00 a4.63,4.63 0 0 1 4.63,-4.63 z M74.69,24.63 h6.37 a2.31,2.31 0 0 1 2.31,2.31 v6.37 a2.31,2.31 0 0 1 -2.31,2.31 h-6.37 a2.31,2.31 0 0 1 -2.31,-2.31 v-6.37 a2.31,2.31 0 0 1 2.31,-2.31 z"/>
+    <path d="M75.85,26.22 h4.05 a1.88,1.88 0 0 1 1.88,1.88 v4.05 a1.88,1.88 0 0 1 -1.88,1.88 h-4.05 a1.88,1.88 0 0 1 -1.88,-1.88 v-4.05 a1.88,1.88 0 0 1 1.88,-1.88 z"/>
+    <path d="M24.63,67.74 h11.00 a4.63,4.63 0 0 1 4.63,4.63 v11.00 a4.63,4.63 0 0 1 -4.63,4.63 h-11.00 a4.63,4.63 0 0 1 -4.63,-4.63 v-11.00 a4.63,4.63 0 0 1 4.63,-4.63 z M26.94,72.37 h6.37 a2.31,2.31 0 0 1 2.31,2.31 v6.37 a2.31,2.31 0 0 1 -2.31,2.31 h-6.37 a2.31,2.31 0 0 1 -2.31,-2.31 v-6.37 a2.31,2.31 0 0 1 2.31,-2.31 z"/>
+    <path d="M28.10,73.97 h4.05 a1.88,1.88 0 0 1 1.88,1.88 v4.05 a1.88,1.88 0 0 1 -1.88,1.88 h-4.05 a1.88,1.88 0 0 1 -1.88,-1.88 v-4.05 a1.88,1.88 0 0 1 1.88,-1.88 z"/>
+    <path d="M22.03,45.46 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M22.03,51.69 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M28.25,45.46 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M28.25,57.91 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M34.47,45.46 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M34.47,57.91 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M40.69,45.46 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M40.69,51.69 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M40.69,57.91 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M46.91,20.58 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M46.91,33.02 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M46.91,39.24 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M46.91,64.13 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M46.91,76.57 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M53.13,26.80 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M53.13,33.02 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M53.13,39.24 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M53.13,45.46 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M53.13,57.91 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M53.13,76.57 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M59.35,26.80 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M59.35,33.02 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M59.35,39.24 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M59.35,51.69 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M59.35,57.91 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M59.35,70.35 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M59.35,76.57 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M65.57,57.91 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M71.80,51.69 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M71.80,64.13 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M71.80,70.35 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M78.02,45.46 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M78.02,57.91 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+  </g><g id="accent" fill="var(--mark-accent,#B8650A)" fill-rule="evenodd">
+    <path d="M24.63,20.00 h11.00 a4.63,4.63 0 0 1 4.63,4.63 v11.00 a4.63,4.63 0 0 1 -4.63,4.63 h-11.00 a4.63,4.63 0 0 1 -4.63,-4.63 v-11.00 a4.63,4.63 0 0 1 4.63,-4.63 z M26.94,24.63 h6.37 a2.31,2.31 0 0 1 2.31,2.31 v6.37 a2.31,2.31 0 0 1 -2.31,2.31 h-6.37 a2.31,2.31 0 0 1 -2.31,-2.31 v-6.37 a2.31,2.31 0 0 1 2.31,-2.31 z"/>
+    <path d="M28.10,26.22 h4.05 a1.88,1.88 0 0 1 1.88,1.88 v4.05 a1.88,1.88 0 0 1 -1.88,1.88 h-4.05 a1.88,1.88 0 0 1 -1.88,-1.88 v-4.05 a1.88,1.88 0 0 1 1.88,-1.88 z"/>
+  </g></symbol><symbol id="ic-scan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3"/><path fill="currentColor" stroke="none" d="M9 9h2v2H9zM13 9h2v2h-2zM9 13h2v2H9zM13 13h2v2h-2z"/></symbol><symbol id="ic-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol><symbol id="ic-warning" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l10 17H2z"/><path d="M12 9v5M12 17.2h.01"/></symbol><symbol id="ic-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6z"/><path d="M9 11h6M9 14h6"/></symbol><symbol id="ic-barcode" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" stroke="none" d="M3 5h2v14H3zM7 5h1v14H7zM10 5h3v14h-3zM15 5h1v14h-1zM18 5h3v14h-3z"/></symbol><symbol id="ic-history" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol><symbol id="ic-offline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 11.5 3.5 3.5 0 0 0 7 18z"/><path d="M4 4l16 16"/></symbol><symbol id="ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></symbol><symbol id="ic-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2.5 1.5"/></symbol><symbol id="ic-language" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 2.6 4.2 5.6 4.2 9s-1.4 6.4-4.2 9c-2.8-2.6-4.2-5.6-4.2-9S9.2 5.6 12 3z"/></symbol></svg>
+<header><div class="wrap">
+  <a class="brand" href="/zh-hans"><svg aria-hidden="true"><use href="#mark"/></svg>Verdetto</a>
+  <nav aria-label="Site"><a href="/features-zh-hans" aria-current="page">功能</a><a href="/support-zh-hans">帮助</a><a href="/check-qr-code-link-zh-hans">指南</a><a href="/support-the-work-zh-hans">支持这项工作</a></nav><details class="lang"><summary aria-label="语言: 简体中文"><svg aria-hidden="true"><use href="#ic-language"/></svg><span>简体中文</span></summary><ul class="menu"><li><a href="/features" lang="en" hreflang="en">English</a></li><li><a href="/features-es" lang="es" hreflang="es">Español</a></li><li><a href="/features-fr" lang="fr" hreflang="fr">Français</a></li><li><a href="/features-de" lang="de" hreflang="de">Deutsch</a></li><li><a href="/features-pt-br" lang="pt-BR" hreflang="pt-BR">Português (Brasil)</a></li><li><a href="/features-ru" lang="ru" hreflang="ru">Русский</a></li><li><a href="/features-id" lang="id" hreflang="id">Bahasa Indonesia</a></li><li><a href="/features-ja" lang="ja" hreflang="ja">日本語</a></li><li><a href="/features-zh-hans" lang="zh-Hans" hreflang="zh-Hans" aria-current="page">简体中文</a></li><li><a href="/features-hi" lang="hi" hreflang="hi">हिन्दी</a></li><li><a href="/features-ar" lang="ar" hreflang="ar">العربية</a></li></ul></details>
+</div></header>
+<main id="main"><div class="wrap">
+
+<div class="hero"><div><h1>它能做的一切</h1><p>Verdetto 读取二维码和条形码，并在您行动之前展示其中的内容。免费，无广告，不收集任何信息。这里是全部功能，按大多数人遇到的顺序排列。</p></div></div>
+<section class="feature" id="see"><div><p class="kicker">打开之前</p><h2>在链接打开之前先看到它</h2><p>二维码是一条您读不出来的链接。Verdetto 在任何内容打开之前显示地址，在您的手机上检查它，并把决定权留给您：打开，或者不打开。</p><p>检查会寻找仿冒名称（paypa1.com），跟随短链接和联盟链接直到其去向，识别隐藏的登录信息、裸 IP 地址、异常端口、未加密地址、下载、脚本地址以及追踪和联盟参数，并把地址与保存在手机上的已知钓鱼、诈骗和制裁条目警告列表比对。</p><p>结果只有一行：危险、注意，或“未发现警告”。它从不承诺某样东西是安全的；是否打开由您决定。<a href="/check-qr-code-link-zh-hans">如何自己检查链接</a>。</p></div><img class="shot" src="screens/result-sheet-warning.webp" width="540" height="1140" alt="Verdetto 对一个指向 paypa1.com 的二维码的结果面板：在任何内容打开前显示的地址、写着“模仿 paypal.com”的危险标签，以及“仍然打开”按钮。" loading="lazy"></section>
+<section class="feature" id="reads"><div><p class="kicker">受损的码</p><h2>读取其他应用放弃的码</h2><p>褪色、撕裂、印刷粗糙、倾斜或反色：它在您对准时就读取，并跨帧持续尝试，而不是要求您保持不动。视野里有多个码？每一个都被框出，您点选想要的那个。批量模式统计全部，并将本次会话导出为 CSV。</p><p>31 种码，每一种都在 2026 年 9 月 4 日的验证运行中测量过：</p><ul class="tags"><li>EAN-13</li><li>EAN-8</li><li>UPC-A</li><li>UPC-E</li><li>ISBN</li><li>GS1 DataBar</li><li>DataBar Limited</li><li>DataBar Stacked</li><li>DataBar Stacked Omni</li><li>DataBar Expanded</li><li>DataBar Expanded Stacked</li><li>Code 128</li><li>Code 39</li><li>Code 93</li><li>Codabar</li><li>ITF</li><li>ITF-14</li><li>Telepen</li><li>MaxiCode</li><li>PZN</li><li>Code 32</li><li>QR Code</li><li>Micro QR</li><li>rMQR</li><li>Aztec</li><li>Aztec Rune</li><li>Data Matrix</li><li>PDF417</li><li>Compact PDF417</li><li>MicroPDF417</li><li>DX film edge</li></ul></div><img class="shot" src="screens/batch.webp" width="540" height="1140" alt="Verdetto 的批量面板在扫描时计数，带有“完成”和“分享列表”。" loading="lazy"></section>
+<section class="feature" id="knows"><div><p class="kicker">码是什么</p><h2>知道码是什么，并做出唯一正确的动作</h2><p>Wi-Fi 码一键加入网络。联系人名片加入您的联系人。登机牌在登机口以大而亮的方式展示。日历事件、登录码、位置、付款地址、商品和药品编号、GS1 包装、车辆编号：每一种都以恰当的唯一动作打开，没有任何东西会自行打开。</p><p>登机牌和驾照留在手机上，除非您同意，否则不会保存。应用从不查询任何人。</p></div><img class="shot" src="screens/wifi.webp" width="540" height="1140" alt="Verdetto 读取的 Wi-Fi 网络：网络名称、提示该网络开放且无密码的注意标签，以及“加入”按钮。" loading="lazy"></section>
+<section class="feature" id="lookups"><div><p class="kicker">查询</p><h2>只在您允许时才查询</h2><p>扫描一件商品，看看它是什么：书籍来自 Open Library 以及德国和法国国家图书馆，食品和化妆品来自 Open Food Facts，药品来自 openFDA，音乐来自 MusicBrainz，其余来自 Wikidata。扫描车辆的 VIN：品牌、型号、发动机、召回、碰撞测试评级和油耗，来自美国政府的 NHTSA 和 EPA 数据库。</p><p>每个来源只收到编号和应用名称，别无其他。一个开关关闭在线查询，商品查询有单独的开关；在线关闭后，没有任何东西离开手机，所有内置检查仍然有效。<a href="/privacy-zh-hans">隐私政策怎么说</a>。</p></div><img class="shot" src="screens/vehicle-vin.webp" width="540" height="1140" alt="Verdetto 读取的 VIN：车辆、车型年份、制造商，以及“查询车辆”按钮。" loading="lazy"></section>
+<section class="feature" id="create"><div><p class="kicker">您自己的码</p><h2>制作您自己的码</h2><p>网站、文本、Wi-Fi、联系人、电子邮件、短信、电话、位置、日历，或剪贴板里的任何内容：边输入，码边生成。您自己的联系人名片排在第一位，带实时预览。保存为图片、分享或打印；应用会先读回自己生成的码再放行，确保您递出去的码能被扫出来。</p></div><img class="shot" src="screens/create.webp" width="540" height="1140" alt="Verdetto 的创建界面：顶部是您的名片，然后是网站、文本、Wi-Fi、联系人、电子邮件、短信、电话、位置、日历和剪贴板。" loading="lazy"></section>
+<section class="feature" id="hand"><div><p class="kicker">在手中</p><h2>为手而造</h2><p>快捷设置磁贴可从通知栏打开相机。点按对焦，双指缩放，光线不足时有手电。左手布局让每个控件都触手可及。结果可以朗读。读取时的声音和振动，随您选择。十一种语言。Android 8 及更高版本。</p></div><img class="shot" src="screens/camera-left.webp" width="540" height="1140" alt="左手布局下的 Verdetto 相机界面，控件在左侧。" loading="lazy"></section>
+<section class="feature" id="history"><div><p class="kicker">您的历史记录</p><h2>属于您的历史记录</h2><p>搜索、加星、滑动删除、导出或导入为 CSV。超过 90 天的扫描记录自动清除，除非您加了星标。私密会话什么都不保留。历史记录随手机自身的备份一起保存，除非您关闭该项；卸载会将其移除。</p></div><img class="shot" src="screens/history.webp" width="540" height="1140" alt="Verdetto 的历史记录，带有链接、Wi-Fi、批量和星标筛选标签，以及从中重新打开的结果面板。" loading="lazy"></section>
+<section class="feature text" id="apps"><div><p class="kicker">其他应用</p><h2>与其他应用协作</h2><p>任何应用都可以向 Verdetto 请求扫描并取回码，就像应用过去对 ZXing 扫描器所做的那样。把一张图片分享给它，它会解码图片中的码。<a href="/developers-zh-hans">面向开发者的细节</a>。</p></div></section>
+<section class="feature text" id="free"><div><p class="kicker">约定</p><h2>免费、无广告、不收集任何信息</h2><p>每一项功能对所有人免费，并将一直免费。没有账户，没有分析统计，没有广告，因此也没有假按钮。画面在设备上扫描后即丢弃。由使用它的人付费并口口相传：一次性支持从 0.99 美元起，让它持续下去，没有任何东西被锁在后面。<a href="/support-the-work-zh-hans">它是怎么运作的</a>。</p><span class="label"><svg aria-hidden="true"><use href="#ic-clock"/></svg>即将登陆 Google Play</span></div></section>
+
+</div></main>
+<footer><div class="wrap"><div>
+  <p>&copy; 2026 <span class="lockup"><svg aria-hidden="true"><use href="#mark"/></svg>Verdetto</span> &middot; <a href="mailto:support@verdettoqr.com">support@verdettoqr.com</a></p>
+  <p class="links"><a href="/privacy-zh-hans">隐私政策</a> &middot; <a href="/terms-zh-hans">使用条款</a> &middot; <a href="/support-zh-hans">帮助</a> &middot; <a href="/features-zh-hans">功能</a> &middot; <a href="/check-qr-code-link-zh-hans">如何检查二维码链接</a> &middot; <a href="/support-the-work-zh-hans">支持这项工作</a> &middot; <a href="/report-zh-hans">报告问题</a> &middot; <a href="/safety-list-zh-hans">本周安全名单</a> &middot; <a href="/developers-zh-hans">面向开发者</a> &middot; <a href="/press-zh-hans">媒体资料</a></p>
+  <p class="links">在这里找到我们： <a href="https://mastodon.social/@VerdettoQR" rel="me">Mastodon</a> &middot; <a href="https://www.reddit.com/user/VerdettoQR/" rel="me">Reddit</a> &middot; <a href="https://github.com/verdettoqr" rel="me">GitHub</a></p>
+</div><a class="code" href="/zh-hans"><picture><source srcset="verdetto-code-dark.svg" media="(prefers-color-scheme: dark)"><img src="verdetto-code-light.svg" width="96" height="96" alt="打开 verdettoqr.com 的二维码" loading="lazy"></picture></a></div></footer>
+</body>
+</html>

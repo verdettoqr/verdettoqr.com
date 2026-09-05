@@ -75,6 +75,7 @@ a{color:var(--primary)}
 .skip{position:absolute;inset-inline-start:0;top:0;transform:translateY(-150%);background:var(--primary);color:var(--on-primary);padding:.5rem 1rem;border-radius:0 0 8px 0;z-index:2}
 .skip:focus{transform:none}
 .wrap{max-width:44rem;margin:0 auto;padding:0 1rem}
+.wrap.narrow{max-width:36rem}
 .draft{background:var(--tertiary);color:var(--on-tertiary);text-align:center;padding:.4rem;font-size:.875rem;line-height:1.25rem;font-weight:500;letter-spacing:.01em}
 header{border-bottom:1px solid var(--outline-variant)}
 header .wrap{display:flex;align-items:center;gap:.75rem;min-height:64px;padding-top:.5rem;padding-bottom:.5rem;flex-wrap:wrap}
@@ -110,6 +111,7 @@ p,li{margin:.5rem 0}
 .grid .card .label{margin:0 0 .25rem;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant)}
 .callout{background:var(--surface-container-high);border-left:4px solid var(--primary);border-radius:0 12px 12px 0;display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:center}.callout .shot.small{width:120px;margin:0}nav a,.more summary{position:relative}nav a::after,.more summary::after{content:"";position:absolute;inset:-5px 0}
 .faq p strong{color:var(--on-surface);font-weight:500}
+.faq h3{margin:1.5rem 0 .25rem}.faq h3+p{margin:0}
 .prose ol,.prose ul{padding-left:1.4rem}
 .prose li{margin:.6rem 0}
 table{border-collapse:collapse;width:100%;font-size:.875rem;line-height:1.25rem;display:block;overflow-x:auto;margin:1rem 0}
@@ -123,10 +125,11 @@ td:first-child{min-width:12rem}
 p.langs{font-size:.8125rem;line-height:1.5;color:var(--on-surface-variant)}p.langs a[aria-current]{font-weight:600;text-decoration:none}
 details.more{margin:1rem 0}details.more summary{cursor:pointer;color:var(--primary);font-weight:500;font-size:.875rem;line-height:1.25rem;padding:.6rem .75rem;border-radius:20px;display:inline-block;background:var(--surface-container)}details.more[open] summary{margin-bottom:.5rem}
 footer{background:var(--surface-container);margin-top:2rem}
-footer .wrap{padding:1.5rem 1rem 2rem;color:var(--on-surface-variant);font-size:.875rem;line-height:1.25rem}
+footer .wrap{padding:1.5rem 1rem 2rem;color:var(--on-surface-variant);font-size:.875rem;line-height:1.25rem;display:grid;grid-template-columns:1fr auto;gap:1rem 2rem;align-items:start}footer .code{display:block;margin-top:.25rem}footer .code img{display:block;width:96px;height:96px}
 footer a{color:var(--primary)}
+.feature{display:grid;grid-template-columns:1fr 220px;gap:2rem;align-items:start;padding:1.75rem 0;border-top:1px solid var(--outline-variant)}.feature.text{grid-template-columns:1fr}.feature h2{border-top:0;margin:0 0 .5rem;padding-top:0}.feature .shot{width:220px;margin:0}.feature p{margin:.5rem 0}.feature .kicker{margin:0 0 .25rem;font-size:.875rem;line-height:1.25rem;font-weight:500;letter-spacing:.03em;color:var(--primary)}.tags{display:flex;flex-wrap:wrap;gap:.5rem;margin:.75rem 0 0;padding:0;list-style:none}.tags li{margin:0;padding:.25rem .75rem;border:1px solid var(--outline-variant);border-radius:8px;font-size:.875rem;line-height:1.25rem;color:var(--on-surface)}.feature .label{display:inline-flex;align-items:center;gap:.4rem;margin-top:.75rem;color:var(--on-surface-variant);font-weight:500;font-size:.875rem;line-height:1.25rem}.feature .label svg{width:18px;height:18px}
 @media (min-width:640px){.grid{grid-template-columns:1fr 1fr}.grid .card{grid-template-columns:1fr}.grid.three{grid-template-columns:1fr}.grid.three .card{grid-template-columns:auto 1fr}}
-@media (max-width:600px){.hero{grid-template-columns:1fr}.shot{width:220px;margin:0 auto}h1,.hero h1{font-size:1.75rem;line-height:2.25rem}nav{margin-left:0;width:100%;order:3}.lang{margin-inline-start:auto;order:2}.callout{grid-template-columns:1fr}.callout .shot.small{margin:0 auto}}
+@media (max-width:600px){.feature{grid-template-columns:1fr}.feature .shot{margin:0 auto}.hero{grid-template-columns:1fr}.shot{width:220px;margin:0 auto}h1,.hero h1{font-size:1.75rem;line-height:2.25rem}nav{margin-left:0;width:100%;order:3}.lang{margin-inline-start:auto;order:2}.callout{grid-template-columns:1fr}.callout .shot.small{margin:0 auto}}
 @media print{.draft,.skip,nav,footer .links{display:none}body{background:#fff;color:#000;font-size:12pt}a{color:#000}h2{color:#000;border-top-color:#999}.card,.callout{background:#f2f2f2}}
 """
 
@@ -141,7 +144,7 @@ def url(name):
     return SITE + ("/" if name == "index.html" else "/" + name[:-5])
 
 
-NAV = [("support.html", "help"), ("check-qr-code-link.html", "guide"), ("support-the-work.html", "support_work")]
+NAV = [("features.html", "features"), ("support.html", "help"), ("check-qr-code-link.html", "guide"), ("support-the-work.html", "support_work")]
 SPONSORS_LIVE = False  # True once the GitHub Sponsors profile is approved; the support page then links it
 
 SOCIAL = {"Mastodon": "https://mastodon.social/@VerdettoQR", "Reddit": "https://www.reddit.com/user/VerdettoQR/", "GitHub": "https://github.com/verdettoqr"}
@@ -164,7 +167,7 @@ def og_image_for(name, title):
     return f"{SITE}/og-image.png", "Verdetto icon with the words QR &amp; Barcode Scanner for Android, See the link before it opens."
 
 
-FOOTER = [("privacy.html", "privacy"), ("terms.html", "terms"), ("support.html", "help"), ("check-qr-code-link.html", "guide_long"),
+FOOTER = [("privacy.html", "privacy"), ("terms.html", "terms"), ("support.html", "help"), ("features.html", "features"), ("check-qr-code-link.html", "guide_long"),
           ("support-the-work.html", "support_work"), ("report.html", "report"), ("safety-list.html", "safety"), ("developers.html", "developers"),
           ("press.html", "press")]
 
@@ -172,6 +175,10 @@ FOOTER = [("privacy.html", "privacy"), ("terms.html", "terms"), ("support.html",
 def footer_links(lang):
     t = chrome(lang)
     return " &middot; ".join(f'<a href="{href(localized(pg, lang))}">{t[key]}</a>' for pg, key in FOOTER)
+
+
+# Text pages read at a 36rem measure (about 74 characters); pages with side-by-side layouts or wide tables keep 44rem.
+NARROW = ("privacy", "terms", "support", "check-qr-code-link", "press", "report", "community-license", "safety-list")
 
 
 def page(name, title, description, body, ld=None, og_type="website", nav_key=None, lang="en", rtl=False, alternates=None):
@@ -221,14 +228,14 @@ def page(name, title, description, body, ld=None, og_type="website", nav_key=Non
   <a class="brand" href="{href(localized('index.html', lang))}"><svg aria-hidden="true"><use href="#mark"/></svg>Verdetto</a>
   <nav aria-label="Site">{nav}</nav>{menu}
 </div></header>
-<main id="main"><div class="wrap">
+<main id="main"><div class="wrap{" narrow" if name.startswith(NARROW) else ""}">
 {body}
 </div></main>
-<footer><div class="wrap">
+<footer><div class="wrap"><div>
   <p>&copy; 2026 <span class="lockup"><svg aria-hidden="true"><use href="#mark"/></svg>Verdetto</span> &middot; <a href="mailto:{EMAIL}">{EMAIL}</a></p>
   <p class="links">{footer_links(lang)}</p>
   <p class="links">{t["where"]} {SOCIAL_LINKS}</p>
-</div></footer>
+</div><a class="code" href="{href(localized('index.html', lang))}"><picture><source srcset="verdetto-code-dark.svg" media="(prefers-color-scheme: dark)"><img src="verdetto-code-light.svg" width="96" height="96" alt="{t["code_alt"]}" loading="lazy"></picture></a></div></footer>
 </body>
 </html>
 """
@@ -267,6 +274,9 @@ PRIVACY_ALTERNATES = [(code, page_name) for code, _, page_name in PRIVACY_LANGS]
 # The terms follow the same route since the operator's word of 2026-09-04 ("do 1": terms in the ten languages).
 TERMS_LANGS = [(code, label, page_name.replace("privacy", "terms")) for code, label, page_name in PRIVACY_LANGS]
 TERMS_ALTERNATES = [(code, page_name) for code, _, page_name in TERMS_LANGS] + [("x-default", "terms.html")]
+# The community license follows the same route (operator, 2026-09-05: every page that shows the language menu is translated).
+COMMUNITY_LANGS = [(code, label, page_name.replace("privacy", "community-license")) for code, label, page_name in PRIVACY_LANGS]
+COMMUNITY_ALTERNATES = [(code, page_name) for code, _, page_name in COMMUNITY_LANGS] + [("x-default", "community-license.html")]
 
 
 def lang_row(langs, current):
@@ -297,6 +307,8 @@ CHROME = {
   "safety": "The safety list this week",
   "developers": "For developers",
   "press": "Press kit",
+  "code_alt": "QR code that opens verdettoqr.com",
+  "features": "Features",
   "where": "Where to find us:",
   "language": "Language",
   "tests": "Tests"
@@ -313,6 +325,8 @@ CHROME = {
   "safety": "Die Sicherheitsliste diese Woche",
   "developers": "Für Entwickler",
   "press": "Pressematerial",
+  "code_alt": "QR-Code, der verdettoqr.com öffnet",
+  "features": "Funktionen",
   "where": "Hier findest du uns:",
   "language": "Sprache"
  },
@@ -328,6 +342,8 @@ CHROME = {
   "safety": "La lista de seguridad esta semana",
   "developers": "Para desarrolladores",
   "press": "Kit de prensa",
+  "code_alt": "Código QR que abre verdettoqr.com",
+  "features": "Funciones",
   "where": "Dónde encontrarnos:",
   "language": "Idioma"
  },
@@ -343,6 +359,8 @@ CHROME = {
   "safety": "La liste de sécurité cette semaine",
   "developers": "Pour les développeurs",
   "press": "Kit presse",
+  "code_alt": "Code QR qui ouvre verdettoqr.com",
+  "features": "Fonctions",
   "where": "Où nous trouver :",
   "language": "Langue"
  },
@@ -358,6 +376,8 @@ CHROME = {
   "safety": "A lista de segurança nesta semana",
   "developers": "Para desenvolvedores",
   "press": "Kit de imprensa",
+  "code_alt": "Código QR que abre verdettoqr.com",
+  "features": "Recursos",
   "where": "Onde nos encontrar:",
   "language": "Idioma"
  },
@@ -373,6 +393,8 @@ CHROME = {
   "safety": "Daftar keamanan minggu ini",
   "developers": "Untuk pengembang",
   "press": "Kit pers",
+  "code_alt": "Kode QR yang membuka verdettoqr.com",
+  "features": "Fitur",
   "where": "Temukan kami di:",
   "language": "Bahasa"
  },
@@ -388,6 +410,8 @@ CHROME = {
   "safety": "Список безопасности за неделю",
   "developers": "Разработчикам",
   "press": "Пресс-кит",
+  "code_alt": "QR-код, открывающий verdettoqr.com",
+  "features": "Возможности",
   "where": "Где нас найти:",
   "language": "Язык"
  },
@@ -403,6 +427,8 @@ CHROME = {
   "safety": "इस सप्ताह की सुरक्षा सूची",
   "developers": "डेवलपरों के लिए",
   "press": "प्रेस किट",
+  "code_alt": "QR कोड जो verdettoqr.com खोलता है",
+  "features": "सुविधाएँ",
   "where": "हमें यहाँ पाएँ:",
   "language": "भाषा"
  },
@@ -418,6 +444,8 @@ CHROME = {
   "safety": "今週の安全リスト",
   "developers": "開発者向け",
   "press": "プレスキット",
+  "code_alt": "verdettoqr.com を開く QR コード",
+  "features": "機能",
   "where": "公式アカウント:",
   "language": "言語"
  },
@@ -433,6 +461,8 @@ CHROME = {
   "safety": "本周安全名单",
   "developers": "面向开发者",
   "press": "媒体资料",
+  "code_alt": "打开 verdettoqr.com 的二维码",
+  "features": "功能",
   "where": "在这里找到我们：",
   "language": "语言"
  },
@@ -448,6 +478,8 @@ CHROME = {
   "safety": "قائمة السلامة هذا الأسبوع",
   "developers": "للمطوّرين",
   "press": "ملف الصحافة",
+  "code_alt": "رمز QR يفتح verdettoqr.com",
+  "features": "الميزات",
   "where": "أين تجدنا:",
   "language": "اللغة"
  }
@@ -464,7 +496,8 @@ def family_pages(base):
 
 
 # every translated family registers its pages here; the chrome links to the same-language page when one exists
-LOCAL = {"privacy.html": {c: pg for c, _, pg in PRIVACY_LANGS}, "terms.html": {c: pg for c, _, pg in TERMS_LANGS}}
+LOCAL = {"privacy.html": {c: pg for c, _, pg in PRIVACY_LANGS}, "terms.html": {c: pg for c, _, pg in TERMS_LANGS},
+         "community-license.html": {c: pg for c, _, pg in COMMUNITY_LANGS}}
 
 
 def localized(page_name, code):
@@ -495,12 +528,16 @@ def translation(folder, langs, code):
     privacy_page = next(p for c, _, p in PRIVACY_LANGS if c == code)
     body = (body.replace("{ADDRESS}", ADDRESS).replace("{EMAIL}", EMAIL).replace("{LANG_ROW}", "")
             .replace("{TERMS_HREF}", href("terms.html")).replace("{PRIVACY_HREF}", href(privacy_page))
-            .replace("{COMMUNITY_HREF}", href("community-license.html")))
+            .replace("{COMMUNITY_HREF}", href(localized("community-license.html", code))))
     return title, desc, body
 
 
 def privacy_translation(code):
     return translation("_privacy", PRIVACY_LANGS, code)
+
+
+def community_translation(code):
+    return translation("_legal/community-license", COMMUNITY_LANGS, code)
 
 
 def terms_translation(code):
@@ -1109,7 +1146,7 @@ def support_body(t, code):
     link = lambda pg, label: f'<a href="{href(localized(pg, code))}">{label}</a>'
     card1 = t["card1"].replace("{report}", link("report.html", t["report"]))
     card2 = t["card2"].replace("{email}", f'<a href="mailto:{EMAIL}">{EMAIL}</a>')
-    faq = "\n".join(f"<p><strong>{q}</strong><br>\n{a}</p>\n" for q, a in t["faq"])
+    faq = "\n".join(f"<h3>{q}</h3>\n<p>{a}</p>\n" for q, a in t["faq"])
     closing = t["closing"].replace("{guide}", link("check-qr-code-link.html", t["guide"])).replace("{support}", link("support-the-work.html", t["support"]))
     return f"""
 <h1>{t["h1"]}</h1>
@@ -1606,7 +1643,7 @@ def support_work_body(t, code):
     browser = (f'<div class="card">{ic("heart")}<div><h3>{t["browser_h"]}</h3><p>{t["browser_live"]} <a href="https://github.com/sponsors/verdettoqr">{t["browser_link"]}</a></p></div></div>'
                if SPONSORS_LIVE else
                f'<div class="card soon">{ic("clock")}<div><p class="label">{t["soon"]}</p><h3>{t["browser_h"]}</h3><p>{t["browser_wait"]}</p></div></div>')
-    faq_html = "\n".join(f"<p><strong>{q}</strong><br>\n{a}</p>\n" for q, a in support_work_faq(t))
+    faq_html = "\n".join(f"<h3>{q}</h3>\n<p>{a}</p>\n" for q, a in support_work_faq(t))
     not_p = t["not_base"] + (t["not_github"] if SPONSORS_LIVE else "") + t["not_tail"]
     return f"""
 <h1>{t["h1"]}</h1>
@@ -2209,6 +2246,7 @@ PRESS = f"""
   <li><a href="og-image.png">Share image, 1200 by 630</a> and <a href="play-header-4096x2304.jpg">wide banner, 4096 by 2304</a>.</li>
   <li><a href="screens/result-sheet.webp">Result sheet screenshot</a>: a scanned link shown before it opens, with the "No warnings found" chip.</li>
   <li><a href="screens/result-sheet-warning.webp">Result sheet, warning state</a>: a lookalike address (paypa1.com) flagged as imitating paypal.com before anything opens.</li>
+  <li><a href="verdetto-code-light.svg">The Verdetto code, SVG</a> (teal on white; <a href="verdetto-code-dark.svg">white on black</a>), as PNG <a href="verdetto-code-light-on-white.png">on white</a>, <a href="verdetto-code-dark-on-black.png">on black</a>, or transparent (<a href="verdetto-code-light-transparent.png">teal</a>, <a href="verdetto-code-dark-transparent.png">white</a>), and the <a href="verdetto-table-card.pdf">printable table card</a> (<a href="verdetto-table-card.png">PNG</a>). It opens https://verdettoqr.com and nothing else; any camera app reads it.</li>
 </ul>
 <p>Please do not alter the icon's colors or add effects; the mark is the brand.</p>
 <p>Verdetto and the Verdetto QR mark are trademarks; a United States application for VERDETTO is pending (serial no. 50092495).</p>
@@ -2246,7 +2284,8 @@ PRESS_T = {
    "<a href=\"lockup-teal-amber.png\">Wort-Bild-Marke, Zeichen und Name, transparentes PNG</a> für helle Gründe (türkiser Körper, Amber-Akzent) und <a href=\"lockup-white-amber.png\">dieselbe mit weißem Körper</a> für dunkle Gründe; das Zeichen behält seine Farben und sitzt auf der Versalhöhe des Namens.",
    "<a href=\"og-image.png\">Vorschaubild, 1200 × 630</a> und <a href=\"play-header-4096x2304.jpg\">breites Banner, 4096 × 2304</a>.",
    "<a href=\"screens/result-sheet.webp\">Screenshot des Ergebnisblatts</a>: ein gescannter Link, gezeigt, bevor er sich öffnet, mit dem Chip „Keine Warnungen gefunden“.",
-   "<a href=\"screens/result-sheet-warning.webp\">Ergebnisblatt im Warnzustand</a>: eine ähnlich aussehende Adresse (paypa1.com), markiert als Imitation von paypal.com, bevor sich etwas öffnet."
+   "<a href=\"screens/result-sheet-warning.webp\">Ergebnisblatt im Warnzustand</a>: eine ähnlich aussehende Adresse (paypa1.com), markiert als Imitation von paypal.com, bevor sich etwas öffnet.",
+   "<a href=\"verdetto-code-light.svg\">Der Verdetto-Code, SVG</a> (Türkis auf Weiß; <a href=\"verdetto-code-dark.svg\">Weiß auf Schwarz</a>), als PNG <a href=\"verdetto-code-light-on-white.png\">auf Weiß</a>, <a href=\"verdetto-code-dark-on-black.png\">auf Schwarz</a> oder transparent (<a href=\"verdetto-code-light-transparent.png\">türkis</a>, <a href=\"verdetto-code-dark-transparent.png\">weiß</a>), und die <a href=\"verdetto-table-card.pdf\">druckbare Tischkarte</a> (<a href=\"verdetto-table-card.png\">PNG</a>). Er öffnet https://verdettoqr.com und sonst nichts; jede Kamera-App liest ihn."
   ],
   "no_alter": "Bitte verändere die Farben des Symbols nicht und füge keine Effekte hinzu; das Zeichen ist die Marke.",
   "trademark": "Verdetto und das Verdetto-QR-Zeichen sind Marken; eine Anmeldung für VERDETTO in den Vereinigten Staaten ist anhängig (Seriennummer 50092495).",
@@ -2277,7 +2316,8 @@ PRESS_T = {
    "<a href=\"lockup-teal-amber.png\">Logotipo, símbolo y nombre, PNG transparente</a> para fondos claros (cuerpo verde azulado, acento ámbar) y <a href=\"lockup-white-amber.png\">el mismo con cuerpo blanco</a> para fondos oscuros; el símbolo conserva sus colores y se alinea con la altura de las mayúsculas del nombre.",
    "<a href=\"og-image.png\">Imagen para compartir, 1200 × 630</a> y <a href=\"play-header-4096x2304.jpg\">banner ancho, 4096 × 2304</a>.",
    "<a href=\"screens/result-sheet.webp\">Captura de la hoja de resultados</a>: un enlace escaneado que se muestra antes de abrirse, con el chip «No se encontraron avisos».",
-   "<a href=\"screens/result-sheet-warning.webp\">Hoja de resultados, estado de aviso</a>: una dirección parecida (paypa1.com) señalada como imitación de paypal.com antes de que se abra nada."
+   "<a href=\"screens/result-sheet-warning.webp\">Hoja de resultados, estado de aviso</a>: una dirección parecida (paypa1.com) señalada como imitación de paypal.com antes de que se abra nada.",
+   "<a href=\"verdetto-code-light.svg\">El código de Verdetto, SVG</a> (verde azulado sobre blanco; <a href=\"verdetto-code-dark.svg\">blanco sobre negro</a>), como PNG <a href=\"verdetto-code-light-on-white.png\">sobre blanco</a>, <a href=\"verdetto-code-dark-on-black.png\">sobre negro</a> o transparente (<a href=\"verdetto-code-light-transparent.png\">verde azulado</a>, <a href=\"verdetto-code-dark-transparent.png\">blanco</a>), y la <a href=\"verdetto-table-card.pdf\">tarjeta de mesa imprimible</a> (<a href=\"verdetto-table-card.png\">PNG</a>). Abre https://verdettoqr.com y nada más; cualquier app de cámara lo lee."
   ],
   "no_alter": "Por favor, no alteres los colores del icono ni añadas efectos; el símbolo es la marca.",
   "trademark": "Verdetto y el símbolo QR de Verdetto son marcas; hay una solicitud pendiente en Estados Unidos para VERDETTO (n.º de serie 50092495).",
@@ -2308,7 +2348,8 @@ PRESS_T = {
    "<a href=\"lockup-teal-amber.png\">Logotype, symbole et nom, PNG transparent</a> pour fonds clairs (corps sarcelle, accent ambre) et <a href=\"lockup-white-amber.png\">le même avec un corps blanc</a> pour fonds sombres ; le symbole garde ses couleurs et s'aligne sur la hauteur des capitales du nom.",
    "<a href=\"og-image.png\">Image de partage, 1200 × 630</a> et <a href=\"play-header-4096x2304.jpg\">bannière large, 4096 × 2304</a>.",
    "<a href=\"screens/result-sheet.webp\">Capture de la feuille de résultat</a> : un lien scanné, affiché avant de s'ouvrir, avec la puce « Aucune alerte trouvée ».",
-   "<a href=\"screens/result-sheet-warning.webp\">Feuille de résultat, état d'alerte</a> : une adresse imitée (paypa1.com) signalée comme imitation de paypal.com avant que quoi que ce soit ne s'ouvre."
+   "<a href=\"screens/result-sheet-warning.webp\">Feuille de résultat, état d'alerte</a> : une adresse imitée (paypa1.com) signalée comme imitation de paypal.com avant que quoi que ce soit ne s'ouvre.",
+   "<a href=\"verdetto-code-light.svg\">Le code Verdetto, SVG</a> (sarcelle sur blanc ; <a href=\"verdetto-code-dark.svg\">blanc sur noir</a>), en PNG <a href=\"verdetto-code-light-on-white.png\">sur blanc</a>, <a href=\"verdetto-code-dark-on-black.png\">sur noir</a> ou transparent (<a href=\"verdetto-code-light-transparent.png\">sarcelle</a>, <a href=\"verdetto-code-dark-transparent.png\">blanc</a>), et la <a href=\"verdetto-table-card.pdf\">carte de table imprimable</a> (<a href=\"verdetto-table-card.png\">PNG</a>). Il ouvre https://verdettoqr.com et rien d'autre ; toute application appareil photo le lit."
   ],
   "no_alter": "Merci de ne pas modifier les couleurs de l'icône ni d'ajouter d'effets ; le symbole est la marque.",
   "trademark": "Verdetto et le symbole QR Verdetto sont des marques ; une demande d'enregistrement de VERDETTO est en cours aux États-Unis (numéro de série 50092495).",
@@ -2339,7 +2380,8 @@ PRESS_T = {
    "<a href=\"lockup-teal-amber.png\">Assinatura visual, símbolo e nome, PNG transparente</a> para fundos claros (corpo verde-azulado, destaque âmbar) e <a href=\"lockup-white-amber.png\">a mesma com corpo branco</a> para fundos escuros; o símbolo mantém suas cores e fica na altura das maiúsculas do nome.",
    "<a href=\"og-image.png\">Imagem de compartilhamento, 1200 × 630</a> e <a href=\"play-header-4096x2304.jpg\">banner largo, 4096 × 2304</a>.",
    "<a href=\"screens/result-sheet.webp\">Captura da folha de resultado</a>: um link escaneado mostrado antes de abrir, com o chip \"Nenhum alerta encontrado\".",
-   "<a href=\"screens/result-sheet-warning.webp\">Folha de resultado, estado de alerta</a>: um endereço parecido (paypa1.com) marcado como imitação de paypal.com antes que qualquer coisa abra."
+   "<a href=\"screens/result-sheet-warning.webp\">Folha de resultado, estado de alerta</a>: um endereço parecido (paypa1.com) marcado como imitação de paypal.com antes que qualquer coisa abra.",
+   "<a href=\"verdetto-code-light.svg\">O código do Verdetto, SVG</a> (verde-azulado sobre branco; <a href=\"verdetto-code-dark.svg\">branco sobre preto</a>), como PNG <a href=\"verdetto-code-light-on-white.png\">sobre branco</a>, <a href=\"verdetto-code-dark-on-black.png\">sobre preto</a> ou transparente (<a href=\"verdetto-code-light-transparent.png\">verde-azulado</a>, <a href=\"verdetto-code-dark-transparent.png\">branco</a>), e o <a href=\"verdetto-table-card.pdf\">cartão de mesa para impressão</a> (<a href=\"verdetto-table-card.png\">PNG</a>). Ele abre https://verdettoqr.com e nada mais; qualquer app de câmera o lê."
   ],
   "no_alter": "Por favor, não altere as cores do ícone nem adicione efeitos; o símbolo é a marca.",
   "trademark": "Verdetto e o símbolo QR do Verdetto são marcas; um pedido de registro de VERDETTO está pendente nos Estados Unidos (nº de série 50092495).",
@@ -2370,7 +2412,8 @@ PRESS_T = {
    "<a href=\"lockup-teal-amber.png\">Lockup, simbol dan nama, PNG transparan</a> untuk latar terang (badan teal, aksen amber) dan <a href=\"lockup-white-amber.png\">versi yang sama dengan badan putih</a> untuk latar gelap; simbol mempertahankan warnanya dan sejajar dengan tinggi huruf kapital nama.",
    "<a href=\"og-image.png\">Gambar berbagi, 1200 × 630</a> dan <a href=\"play-header-4096x2304.jpg\">banner lebar, 4096 × 2304</a>.",
    "<a href=\"screens/result-sheet.webp\">Tangkapan layar lembar hasil</a>: tautan hasil pindaian yang ditampilkan sebelum dibuka, dengan chip \"Tidak ada peringatan ditemukan\".",
-   "<a href=\"screens/result-sheet-warning.webp\">Lembar hasil, keadaan peringatan</a>: alamat yang mirip (paypa1.com) ditandai sebagai tiruan paypal.com sebelum apa pun terbuka."
+   "<a href=\"screens/result-sheet-warning.webp\">Lembar hasil, keadaan peringatan</a>: alamat yang mirip (paypa1.com) ditandai sebagai tiruan paypal.com sebelum apa pun terbuka.",
+   "<a href=\"verdetto-code-light.svg\">Kode Verdetto, SVG</a> (teal di atas putih; <a href=\"verdetto-code-dark.svg\">putih di atas hitam</a>), sebagai PNG <a href=\"verdetto-code-light-on-white.png\">di atas putih</a>, <a href=\"verdetto-code-dark-on-black.png\">di atas hitam</a>, atau transparan (<a href=\"verdetto-code-light-transparent.png\">teal</a>, <a href=\"verdetto-code-dark-transparent.png\">putih</a>), dan <a href=\"verdetto-table-card.pdf\">kartu meja yang bisa dicetak</a> (<a href=\"verdetto-table-card.png\">PNG</a>). Ia membuka https://verdettoqr.com dan tidak ada yang lain; aplikasi kamera apa pun membacanya."
   ],
   "no_alter": "Mohon jangan mengubah warna ikon atau menambahkan efek; simbol itu adalah mereknya.",
   "trademark": "Verdetto dan simbol QR Verdetto adalah merek dagang; permohonan pendaftaran VERDETTO sedang diproses di Amerika Serikat (nomor seri 50092495).",
@@ -2401,7 +2444,8 @@ PRESS_T = {
    "<a href=\"lockup-teal-amber.png\">Логоблок, знак и имя, прозрачный PNG</a> для светлых фонов (бирюзовое тело, янтарный акцент) и <a href=\"lockup-white-amber.png\">тот же с белым телом</a> для тёмных фонов; знак сохраняет свои цвета и стоит на высоте прописных букв имени.",
    "<a href=\"og-image.png\">Изображение для ссылок, 1200 × 630</a> и <a href=\"play-header-4096x2304.jpg\">широкий баннер, 4096 × 2304</a>.",
    "<a href=\"screens/result-sheet.webp\">Снимок листа результата</a>: отсканированная ссылка показана до открытия, с чипом «Предупреждений не найдено».",
-   "<a href=\"screens/result-sheet-warning.webp\">Лист результата в состоянии предупреждения</a>: похожий адрес (paypa1.com) помечен как имитация paypal.com до того, как что-либо откроется."
+   "<a href=\"screens/result-sheet-warning.webp\">Лист результата в состоянии предупреждения</a>: похожий адрес (paypa1.com) помечен как имитация paypal.com до того, как что-либо откроется.",
+   "<a href=\"verdetto-code-light.svg\">Код Verdetto, SVG</a> (бирюзовый на белом; <a href=\"verdetto-code-dark.svg\">белый на чёрном</a>), в PNG <a href=\"verdetto-code-light-on-white.png\">на белом</a>, <a href=\"verdetto-code-dark-on-black.png\">на чёрном</a> или с прозрачным фоном (<a href=\"verdetto-code-light-transparent.png\">бирюзовый</a>, <a href=\"verdetto-code-dark-transparent.png\">белый</a>), и <a href=\"verdetto-table-card.pdf\">настольная карточка для печати</a> (<a href=\"verdetto-table-card.png\">PNG</a>). Он открывает https://verdettoqr.com и ничего больше; его читает любое приложение камеры."
   ],
   "no_alter": "Пожалуйста, не меняйте цвета значка и не добавляйте эффекты; знак и есть бренд.",
   "trademark": "Verdetto и знак Verdetto QR являются товарными знаками; заявка на VERDETTO в США находится на рассмотрении (серийный номер 50092495).",
@@ -2432,7 +2476,8 @@ PRESS_T = {
    "<a href=\"lockup-teal-amber.png\">लॉकअप, चिह्न और नाम, पारदर्शी PNG</a> हल्की पृष्ठभूमि के लिए (टील बॉडी, एम्बर एक्सेंट) और <a href=\"lockup-white-amber.png\">वही सफ़ेद बॉडी के साथ</a> गहरी पृष्ठभूमि के लिए; चिह्न अपने रंग बनाए रखता है और नाम की कैप ऊँचाई पर बैठता है।",
    "<a href=\"og-image.png\">शेयर इमेज, 1200 × 630</a> और <a href=\"play-header-4096x2304.jpg\">चौड़ा बैनर, 4096 × 2304</a>।",
    "<a href=\"screens/result-sheet.webp\">परिणाम शीट का स्क्रीनशॉट</a>: एक स्कैन किया गया लिंक खुलने से पहले दिखाया गया, \"कोई चेतावनी नहीं मिली\" चिप के साथ।",
-   "<a href=\"screens/result-sheet-warning.webp\">परिणाम शीट, चेतावनी अवस्था</a>: एक मिलता-जुलता पता (paypa1.com) कुछ भी खुलने से पहले paypal.com की नक़ल के रूप में चिह्नित।"
+   "<a href=\"screens/result-sheet-warning.webp\">परिणाम शीट, चेतावनी अवस्था</a>: एक मिलता-जुलता पता (paypa1.com) कुछ भी खुलने से पहले paypal.com की नक़ल के रूप में चिह्नित।",
+   "<a href=\"verdetto-code-light.svg\">Verdetto कोड, SVG</a> (सफ़ेद पर टील; <a href=\"verdetto-code-dark.svg\">काले पर सफ़ेद</a>), PNG के रूप में <a href=\"verdetto-code-light-on-white.png\">सफ़ेद पर</a>, <a href=\"verdetto-code-dark-on-black.png\">काले पर</a> या पारदर्शी (<a href=\"verdetto-code-light-transparent.png\">टील</a>, <a href=\"verdetto-code-dark-transparent.png\">सफ़ेद</a>), और <a href=\"verdetto-table-card.pdf\">छपने योग्य टेबल कार्ड</a> (<a href=\"verdetto-table-card.png\">PNG</a>)। यह https://verdettoqr.com खोलता है और कुछ नहीं; कोई भी कैमरा ऐप इसे पढ़ लेता है।"
   ],
   "no_alter": "कृपया आइकन के रंग न बदलें और कोई प्रभाव न जोड़ें; चिह्न ही ब्रांड है।",
   "trademark": "Verdetto और Verdetto QR चिह्न ट्रेडमार्क हैं; VERDETTO के लिए संयुक्त राज्य अमेरिका में एक आवेदन लंबित है (क्रम संख्या 50092495)।",
@@ -2463,7 +2508,8 @@ PRESS_T = {
    "明るい地向けの <a href=\"lockup-teal-amber.png\">ロックアップ（マークと名前）、透過 PNG</a>（ティールの本体、琥珀のアクセント）と、暗い地向けの <a href=\"lockup-white-amber.png\">本体が白の同じもの</a>。マークは色を保ち、名前のキャップハイトに揃います。",
    "<a href=\"og-image.png\">シェア画像、1200 × 630</a> と <a href=\"play-header-4096x2304.jpg\">横長バナー、4096 × 2304</a>。",
    "<a href=\"screens/result-sheet.webp\">結果シートのスクリーンショット</a>: 読み取ったリンクを開く前に表示し、「警告は見つかりませんでした」のチップ付き。",
-   "<a href=\"screens/result-sheet-warning.webp\">結果シート、警告の状態</a>: 見間違えやすいアドレス（paypa1.com）を、何かが開く前に paypal.com の模倣として警告。"
+   "<a href=\"screens/result-sheet-warning.webp\">結果シート、警告の状態</a>: 見間違えやすいアドレス（paypa1.com）を、何かが開く前に paypal.com の模倣として警告。",
+   "<a href=\"verdetto-code-light.svg\">Verdetto コード、SVG</a>（白地にティール。<a href=\"verdetto-code-dark.svg\">黒地に白</a>）、PNG は<a href=\"verdetto-code-light-on-white.png\">白地</a>、<a href=\"verdetto-code-dark-on-black.png\">黒地</a>、または透過（<a href=\"verdetto-code-light-transparent.png\">ティール</a>、<a href=\"verdetto-code-dark-transparent.png\">白</a>）、そして<a href=\"verdetto-table-card.pdf\">印刷用テーブルカード</a>（<a href=\"verdetto-table-card.png\">PNG</a>）。開くのは https://verdettoqr.com だけで、他には何もありません。どのカメラアプリでも読み取れます。"
   ],
   "no_alter": "アイコンの色を変えたり、効果を加えたりしないでください。マークがブランドです。",
   "trademark": "Verdetto と Verdetto QR マークは商標です。VERDETTO の米国出願が審査中です（シリアル番号 50092495）。",
@@ -2494,7 +2540,8 @@ PRESS_T = {
    "用于浅色背景的 <a href=\"lockup-teal-amber.png\">标志组合（标志加名称），透明 PNG</a>（青色主体，琥珀色点缀），以及用于深色背景的 <a href=\"lockup-white-amber.png\">白色主体的同一版本</a>；标志保持原色，与名称的大写字母高度对齐。",
    "<a href=\"og-image.png\">分享图，1200 × 630</a> 和 <a href=\"play-header-4096x2304.jpg\">宽幅横幅，4096 × 2304</a>。",
    "<a href=\"screens/result-sheet.webp\">结果面板截图</a>：扫描到的链接在打开前显示，带有“未发现警告”标签。",
-   "<a href=\"screens/result-sheet-warning.webp\">结果面板，警告状态</a>：一个仿冒地址（paypa1.com）在任何内容打开前被标记为模仿 paypal.com。"
+   "<a href=\"screens/result-sheet-warning.webp\">结果面板，警告状态</a>：一个仿冒地址（paypa1.com）在任何内容打开前被标记为模仿 paypal.com。",
+   "<a href=\"verdetto-code-light.svg\">Verdetto 码，SVG</a>（白底青色；<a href=\"verdetto-code-dark.svg\">黑底白色</a>），PNG 版本<a href=\"verdetto-code-light-on-white.png\">白底</a>、<a href=\"verdetto-code-dark-on-black.png\">黑底</a>或透明底（<a href=\"verdetto-code-light-transparent.png\">青色</a>、<a href=\"verdetto-code-dark-transparent.png\">白色</a>），以及<a href=\"verdetto-table-card.pdf\">可打印的桌卡</a>（<a href=\"verdetto-table-card.png\">PNG</a>）。它只打开 https://verdettoqr.com，别无其他；任何相机应用都能读取。"
   ],
   "no_alter": "请不要更改图标的颜色或添加效果；这个标志就是品牌。",
   "trademark": "Verdetto 和 Verdetto 二维码标志是商标；VERDETTO 的美国商标申请正在审查中（序列号 50092495）。",
@@ -2525,7 +2572,8 @@ PRESS_T = {
    "<a href=\"lockup-teal-amber.png\">الشعار المركّب، العلامة والاسم، PNG شفاف</a> للأرضيات الفاتحة (جسم أزرق مخضرّ، لمسة كهرمانية) و<a href=\"lockup-white-amber.png\">النسخة نفسها بجسم أبيض</a> للأرضيات الداكنة؛ تحتفظ العلامة بألوانها وتقف على ارتفاع الأحرف الكبيرة في الاسم.",
    "<a href=\"og-image.png\">صورة المشاركة، 1200 × 630</a> و<a href=\"play-header-4096x2304.jpg\">لافتة عريضة، 4096 × 2304</a>.",
    "<a href=\"screens/result-sheet.webp\">لقطة شاشة لورقة النتيجة</a>: رابط ممسوح يُعرض قبل أن يُفتح، مع شارة «لم يُعثر على تحذيرات».",
-   "<a href=\"screens/result-sheet-warning.webp\">ورقة النتيجة في حالة التحذير</a>: عنوان مشابه (paypa1.com) مُعلَّم بوصفه تقليدًا لـ paypal.com قبل أن يُفتح أي شيء."
+   "<a href=\"screens/result-sheet-warning.webp\">ورقة النتيجة في حالة التحذير</a>: عنوان مشابه (paypa1.com) مُعلَّم بوصفه تقليدًا لـ paypal.com قبل أن يُفتح أي شيء.",
+   "<a href=\"verdetto-code-light.svg\">رمز Verdetto، SVG</a> (أزرق مخضرّ على أبيض؛ <a href=\"verdetto-code-dark.svg\">أبيض على أسود</a>)، وبصيغة PNG <a href=\"verdetto-code-light-on-white.png\">على أبيض</a>، أو <a href=\"verdetto-code-dark-on-black.png\">على أسود</a>، أو بخلفية شفافة (<a href=\"verdetto-code-light-transparent.png\">أزرق مخضرّ</a>، <a href=\"verdetto-code-dark-transparent.png\">أبيض</a>)، و<a href=\"verdetto-table-card.pdf\">بطاقة الطاولة القابلة للطباعة</a> (<a href=\"verdetto-table-card.png\">PNG</a>). يفتح https://verdettoqr.com ولا شيء غيره؛ ويقرأه أي تطبيق كاميرا."
   ],
   "no_alter": "يُرجى عدم تغيير ألوان الأيقونة أو إضافة تأثيرات؛ فالعلامة هي الهوية.",
   "trademark": "Verdetto وعلامة Verdetto QR علامتان تجاريتان؛ وهناك طلب تسجيل لـ VERDETTO قيد النظر في الولايات المتحدة (الرقم التسلسلي 50092495).",
@@ -3867,6 +3915,1231 @@ def dev_ld(t, code):
 LOCAL["developers.html"] = family_pages("developers.html")
 
 
+# ---- the features page: one page, the whole product, in the order people meet it (operator, 2026-09-05) -----
+FEAT_T = {
+ "en": {
+  "title": "Everything it does",
+  "desc": "Every feature of Verdetto, in the order people meet it: the link shown first, damaged codes, lookups you allow, codes you make, and no ads.",
+  "lede": "Verdetto reads QR codes and barcodes and shows you what is in them before you act. Free, no ads, nothing collected. Here is all of it, in the order most people meet it.",
+  "formats_line": "{N} kinds of codes, every one measured on the September 4, 2026 validation run:",
+  "sections": [
+   {
+    "id": "see",
+    "kicker": "Before it opens",
+    "h2": "See the link before it opens",
+    "shot": "result-sheet-warning.webp",
+    "alt": "The Verdetto result sheet for a QR code that leads to paypa1.com: the address shown before anything opens, a Danger chip reading Imitates paypal.com, and an Open anyway button.",
+    "ps": [
+     "A QR code is a link you cannot read. Verdetto shows the address before anything opens, checks it on your phone, and leaves the decision to you: open, or not.",
+     "The checks look for lookalike names (paypa1.com), shortened and affiliate links followed to where they lead, hidden sign-ins, raw IP addresses, unusual ports, unencrypted addresses, downloads, script addresses and tracking and affiliate parameters, and compare the address with a warning list of known phishing, scam and sanctions entries kept on the phone.",
+     "The result is one line: Danger, Caution, or No warnings found. It is never a promise that something is safe; whether to open is your call. {GUIDE}."
+    ],
+    "guide": "How to check a link yourself"
+   },
+   {
+    "id": "reads",
+    "kicker": "Damaged codes",
+    "h2": "Reads the codes other apps give up on",
+    "shot": "batch.webp",
+    "alt": "The batch sheet in Verdetto counting codes as they are scanned, with Done and Share list.",
+    "ps": [
+     "Faded, torn, badly printed, tilted or inverted: it reads while you aim and keeps trying across frames instead of asking you to hold still. Several codes in view? Each one is outlined and you tap the one you meant. Batch mode counts them all and exports the session as CSV."
+    ],
+    "formats": True
+   },
+   {
+    "id": "knows",
+    "kicker": "What a code is",
+    "h2": "Knows what a code is, and does the one right thing",
+    "shot": "wifi.webp",
+    "alt": "A Wi-Fi network read by Verdetto: the network name, a caution that it is open with no password, and a Join button.",
+    "ps": [
+     "A Wi-Fi code joins the network in one tap. A contact card adds to your contacts. A boarding pass shows itself at the gate, big and bright. Calendar events, sign-in codes, locations, payment addresses, product and medicine numbers, GS1 packs, vehicle numbers: each opens with the one action that fits, and nothing opens by itself.",
+     "Boarding passes and driver's licenses stay on the phone and are not saved unless you say so. The app never looks a person up."
+    ]
+   },
+   {
+    "id": "lookups",
+    "kicker": "Lookups",
+    "h2": "Looks things up, only when you allow it",
+    "shot": "vehicle-vin.webp",
+    "alt": "A VIN read by Verdetto: the vehicle, model year, manufacturer, and a Look up vehicle button.",
+    "ps": [
+     "Scan a product and see what it is: books from Open Library and the German and French national libraries, food and cosmetics from Open Food Facts, medicines from openFDA, music from MusicBrainz, and the rest from Wikidata. Scan a vehicle's VIN: make, model, engine, recall campaigns, crash-test ratings and fuel economy from the US government's NHTSA and EPA databases.",
+     "Each source receives the number and the app's name, nothing else. One switch turns online lookups off and product lookups have a switch of their own; with online off, nothing leaves the phone and every built-in check still works. {PRIVACY}."
+    ],
+    "privacy": "What the privacy policy says"
+   },
+   {
+    "id": "create",
+    "kicker": "Your own codes",
+    "h2": "Make your own codes",
+    "shot": "create.webp",
+    "alt": "The Create screen in Verdetto: your card at the top, then Website, Text, Wi-Fi, Contact, Email, SMS, Phone, Location, Calendar and Clipboard.",
+    "ps": [
+     "Website, text, Wi-Fi, contact, email, SMS, phone, location, calendar, or whatever is on your clipboard: type it and the code appears as you go. Your own contact card comes first, with a live preview. Save it as an image, share it or print it; the app reads its own code back before it lets you, so what you hand out scans."
+    ]
+   },
+   {
+    "id": "hand",
+    "kicker": "In the hand",
+    "h2": "Made for the hand",
+    "shot": "camera-left.webp",
+    "alt": "The Verdetto camera screen in the left-handed layout, its controls on the left.",
+    "ps": [
+     "A Quick Settings tile opens the camera from the shade. Tap to focus, pinch to zoom, a torch when the light is low. A left-handed layout puts every control within reach. Results can be read aloud. Sound and vibration on read, if you want them. Eleven languages. Android 8 and later."
+    ]
+   },
+   {
+    "id": "history",
+    "kicker": "Your history",
+    "h2": "History that is yours",
+    "shot": "history.webp",
+    "alt": "Verdetto history with filter chips for Links, Wi-Fi, Batch and Starred, and a result sheet reopened from it.",
+    "ps": [
+     "Search it, star it, swipe to delete, export or import it as CSV. Scans older than 90 days clear on their own unless you star them. A private session keeps nothing at all. History rides in your phone's own backup unless you turn that off, and uninstalling removes it."
+    ]
+   },
+   {
+    "id": "apps",
+    "kicker": "Other apps",
+    "h2": "Works with other apps",
+    "shot": None,
+    "alt": "",
+    "ps": [
+     "Any app can ask Verdetto for a scan and get the code back, the way apps did with the ZXing scanner. Share a picture into it and it decodes the codes in the picture. {DEV}."
+    ],
+    "dev": "The details for developers"
+   },
+   {
+    "id": "free",
+    "kicker": "The deal",
+    "h2": "Free, no ads, nothing collected",
+    "shot": None,
+    "alt": "",
+    "ps": [
+     "Every feature is free for everyone and stays free. No accounts, no analytics, no ads, so no fake buttons. Frames are scanned on the device and dropped. It is paid for and passed on by the people who use it: a one-time contribution from $0.99 keeps it going, and nothing is locked behind it. {SUPPORT}."
+    ],
+    "support": "How that works",
+    "cta": True
+   }
+  ]
+ },
+ "de": {
+  "title": "Alles, was die App kann",
+  "desc": "Jede Funktion von Verdetto in der Reihenfolge, in der man ihr begegnet: der Link zuerst, beschädigte Codes, erlaubte Abfragen, eigene Codes und keine Werbung.",
+  "lede": "Verdetto liest QR-Codes und Barcodes und zeigt dir, was darin steckt, bevor du handelst. Kostenlos, ohne Werbung, ohne Datensammeln. Hier ist alles, in der Reihenfolge, in der die meisten es erleben.",
+  "formats_line": "{N} Arten von Codes, jede gemessen im Validierungslauf vom 4. September 2026:",
+  "sections": [
+   {
+    "id": "see",
+    "shot": "result-sheet-warning.webp",
+    "kicker": "Bevor er sich öffnet",
+    "h2": "Sieh den Link, bevor er sich öffnet",
+    "alt": "Das Verdetto-Ergebnisblatt für einen QR-Code, der zu paypa1.com führt: die Adresse, gezeigt bevor sich etwas öffnet, ein Gefahr-Chip „Imitiert paypal.com“ und ein Button „Trotzdem öffnen“.",
+    "ps": [
+     "Ein QR-Code ist ein Link, den du nicht lesen kannst. Verdetto zeigt die Adresse, bevor sich etwas öffnet, prüft sie auf deinem Telefon und lässt dir die Entscheidung: öffnen oder nicht.",
+     "Die Prüfungen achten auf ähnlich aussehende Namen (paypa1.com), verfolgen Kurz- und Affiliate-Links bis zu ihrem Ziel, erkennen versteckte Anmeldedaten, nackte IP-Adressen, ungewöhnliche Ports, unverschlüsselte Adressen, Downloads, Skript-Adressen sowie Tracking- und Affiliate-Parameter und vergleichen die Adresse mit einer Warnliste bekannter Phishing-, Betrugs- und Sanktionseinträge, die auf dem Telefon liegt.",
+     "Das Ergebnis ist eine Zeile: Gefahr, Vorsicht oder „Keine Warnungen gefunden“. Es ist nie ein Versprechen, dass etwas sicher ist; ob du öffnest, entscheidest du. {GUIDE}."
+    ],
+    "guide": "Wie du einen Link selbst prüfst"
+   },
+   {
+    "id": "reads",
+    "shot": "batch.webp",
+    "formats": True,
+    "kicker": "Beschädigte Codes",
+    "h2": "Liest die Codes, bei denen andere Apps aufgeben",
+    "alt": "Das Stapel-Blatt in Verdetto zählt Codes beim Scannen, mit „Fertig“ und „Liste teilen“.",
+    "ps": [
+     "Verblasst, zerrissen, schlecht gedruckt, schräg oder invertiert: Verdetto liest, während du zielst, und versucht es über mehrere Bilder hinweg weiter, statt dich stillhalten zu lassen. Mehrere Codes im Bild? Jeder wird umrandet, und du tippst auf den, den du meinst. Der Stapelmodus zählt sie alle und exportiert die Sitzung als CSV."
+    ]
+   },
+   {
+    "id": "knows",
+    "shot": "wifi.webp",
+    "kicker": "Was ein Code ist",
+    "h2": "Weiß, was ein Code ist, und tut das eine Richtige",
+    "alt": "Ein von Verdetto gelesenes WLAN: der Netzwerkname, ein Hinweis, dass es offen und ohne Passwort ist, und ein Button „Verbinden“.",
+    "ps": [
+     "Ein WLAN-Code verbindet mit einem Tipp. Eine Kontaktkarte landet in deinen Kontakten. Eine Bordkarte zeigt sich am Gate, groß und hell. Kalendereinträge, Anmeldecodes, Orte, Zahlungsadressen, Produkt- und Arzneimittelnummern, GS1-Packungen, Fahrzeugnummern: Jeder öffnet sich mit der einen passenden Aktion, und nichts öffnet sich von selbst.",
+     "Bordkarten und Führerscheine bleiben auf dem Telefon und werden nur gespeichert, wenn du es sagst. Die App schlägt nie eine Person nach."
+    ]
+   },
+   {
+    "id": "lookups",
+    "shot": "vehicle-vin.webp",
+    "kicker": "Abfragen",
+    "h2": "Schlägt Dinge nach, nur wenn du es erlaubst",
+    "alt": "Eine von Verdetto gelesene Fahrgestellnummer: das Fahrzeug, das Modelljahr, der Hersteller und ein Button „Fahrzeug nachschlagen“.",
+    "ps": [
+     "Scanne ein Produkt und sieh, was es ist: Bücher aus der Open Library und den deutschen und französischen Nationalbibliotheken, Lebensmittel und Kosmetik aus Open Food Facts, Arzneimittel aus openFDA, Musik aus MusicBrainz und den Rest aus Wikidata. Scanne die Fahrgestellnummer eines Fahrzeugs: Marke, Modell, Motor, Rückrufaktionen, Crashtest-Bewertungen und Verbrauch aus den Datenbanken der US-Behörden NHTSA und EPA.",
+     "Jede Quelle erhält die Nummer und den Namen der App, sonst nichts. Ein Schalter stellt Online-Abfragen ab, Produktabfragen haben einen eigenen; ist Online aus, verlässt nichts das Telefon, und jede eingebaute Prüfung funktioniert weiter. {PRIVACY}."
+    ],
+    "privacy": "Was die Datenschutzerklärung sagt"
+   },
+   {
+    "id": "create",
+    "shot": "create.webp",
+    "kicker": "Eigene Codes",
+    "h2": "Erstelle eigene Codes",
+    "alt": "Der Erstellen-Bildschirm in Verdetto: deine Karte oben, dann Website, Text, WLAN, Kontakt, E-Mail, SMS, Telefon, Ort, Kalender und Zwischenablage.",
+    "ps": [
+     "Website, Text, WLAN, Kontakt, E-Mail, SMS, Telefon, Ort, Kalender oder was gerade in deiner Zwischenablage liegt: Tipp es ein, und der Code entsteht beim Schreiben. Deine eigene Kontaktkarte kommt zuerst, mit Live-Vorschau. Speichere ihn als Bild, teile oder drucke ihn; die App liest ihren eigenen Code zurück, bevor sie dich lässt, damit alles, was du weitergibst, auch gelesen wird."
+    ]
+   },
+   {
+    "id": "hand",
+    "shot": "camera-left.webp",
+    "kicker": "In der Hand",
+    "h2": "Für die Hand gemacht",
+    "alt": "Der Verdetto-Kamerabildschirm im Linkshänder-Layout, die Bedienelemente links.",
+    "ps": [
+     "Eine Schnelleinstellungen-Kachel öffnet die Kamera aus der Leiste. Tippen zum Fokussieren, Ziehen zum Zoomen, eine Taschenlampe bei wenig Licht. Ein Linkshänder-Layout bringt jedes Bedienelement in Reichweite. Ergebnisse können vorgelesen werden. Ton und Vibration beim Lesen, wenn du willst. Elf Sprachen. Android 8 und neuer."
+    ]
+   },
+   {
+    "id": "history",
+    "shot": "history.webp",
+    "kicker": "Deine Historie",
+    "h2": "Eine Historie, die dir gehört",
+    "alt": "Die Verdetto-Historie mit Filter-Chips für Links, WLAN, Stapel und Markiert und ein daraus erneut geöffnetes Ergebnisblatt.",
+    "ps": [
+     "Durchsuche sie, markiere Einträge, wische zum Löschen, exportiere oder importiere sie als CSV. Scans, die älter als 90 Tage sind, löschen sich selbst, außer du markierst sie. Eine private Sitzung behält gar nichts. Die Historie wandert mit dem Backup deines Telefons, außer du stellst das ab, und die Deinstallation entfernt sie."
+    ]
+   },
+   {
+    "id": "apps",
+    "shot": None,
+    "kicker": "Andere Apps",
+    "h2": "Arbeitet mit anderen Apps",
+    "alt": "",
+    "ps": [
+     "Jede App kann Verdetto um einen Scan bitten und den Code zurückbekommen, so wie Apps es beim ZXing-Scanner taten. Teile ein Bild hinein, und es decodiert die Codes im Bild. {DEV}."
+    ],
+    "dev": "Die Details für Entwickler"
+   },
+   {
+    "id": "free",
+    "shot": None,
+    "cta": True,
+    "kicker": "Der Deal",
+    "h2": "Kostenlos, ohne Werbung, ohne Datensammeln",
+    "alt": "",
+    "ps": [
+     "Jede Funktion ist für alle kostenlos und bleibt es. Keine Konten, keine Analysen, keine Werbung, also keine falschen Buttons. Bilder werden auf dem Gerät gescannt und verworfen. Bezahlt und weitergegeben von den Menschen, die die App nutzen: Ein einmaliger Beitrag ab 0,99 $ hält sie am Laufen, und nichts ist dahinter gesperrt. {SUPPORT}."
+    ],
+    "support": "Wie das funktioniert"
+   }
+  ]
+ },
+ "es": {
+  "title": "Todo lo que hace",
+  "desc": "Cada función de Verdetto, en el orden en que la gente la encuentra: el enlace primero, códigos dañados, consultas que permites, códigos propios y sin anuncios.",
+  "lede": "Verdetto lee códigos QR y de barras y te muestra qué contienen antes de que actúes. Gratis, sin anuncios, sin recopilar nada. Aquí está todo, en el orden en que la mayoría lo encuentra.",
+  "formats_line": "{N} tipos de códigos, cada uno medido en la ejecución de validación del 4 de septiembre de 2026:",
+  "sections": [
+   {
+    "id": "see",
+    "shot": "result-sheet-warning.webp",
+    "kicker": "Antes de que se abra",
+    "h2": "Mira el enlace antes de que se abra",
+    "alt": "La hoja de resultados de Verdetto para un código QR que lleva a paypa1.com: la dirección mostrada antes de que se abra nada, un chip de peligro «Imita a paypal.com» y un botón «Abrir de todos modos».",
+    "ps": [
+     "Un código QR es un enlace que no puedes leer. Verdetto muestra la dirección antes de que se abra nada, la comprueba en tu teléfono y te deja la decisión a ti: abrir, o no.",
+     "Las comprobaciones buscan nombres parecidos (paypa1.com), siguen los enlaces cortos y de afiliado hasta su destino, y detectan datos de acceso ocultos, direcciones IP en bruto, puertos inusuales, direcciones sin cifrar, descargas, direcciones de script y parámetros de rastreo y de afiliado; además comparan la dirección con una lista de avisos de entradas conocidas de phishing, estafa y sanciones guardada en el teléfono.",
+     "El resultado es una línea: Peligro, Precaución o «No se encontraron avisos». Nunca es una promesa de que algo sea seguro; abrir o no es tu decisión. {GUIDE}."
+    ],
+    "guide": "Cómo comprobar un enlace tú mismo"
+   },
+   {
+    "id": "reads",
+    "shot": "batch.webp",
+    "formats": True,
+    "kicker": "Códigos dañados",
+    "h2": "Lee los códigos que otras apps abandonan",
+    "alt": "La hoja de lote de Verdetto contando códigos mientras se escanean, con «Listo» y «Compartir lista».",
+    "ps": [
+     "Descoloridos, rotos, mal impresos, inclinados o invertidos: lee mientras apuntas y sigue intentándolo fotograma tras fotograma en vez de pedirte que te quedes quieto. ¿Varios códigos a la vista? Cada uno se enmarca y tocas el que querías. El modo lote los cuenta todos y exporta la sesión como CSV."
+    ]
+   },
+   {
+    "id": "knows",
+    "shot": "wifi.webp",
+    "kicker": "Qué es un código",
+    "h2": "Sabe qué es un código, y hace lo único correcto",
+    "alt": "Una red Wi-Fi leída por Verdetto: el nombre de la red, un aviso de que es abierta y sin contraseña, y un botón «Conectar».",
+    "ps": [
+     "Un código Wi-Fi conecta a la red con un toque. Una tarjeta de contacto se añade a tus contactos. Una tarjeta de embarque se muestra en la puerta, grande y brillante. Eventos de calendario, códigos de acceso, ubicaciones, direcciones de pago, números de productos y medicamentos, paquetes GS1, números de vehículo: cada uno se abre con la única acción que corresponde, y nada se abre solo.",
+     "Las tarjetas de embarque y los permisos de conducir se quedan en el teléfono y no se guardan a menos que tú lo digas. La app nunca busca a una persona."
+    ]
+   },
+   {
+    "id": "lookups",
+    "shot": "vehicle-vin.webp",
+    "kicker": "Consultas",
+    "h2": "Busca información, solo cuando lo permites",
+    "alt": "Un VIN leído por Verdetto: el vehículo, el año del modelo, el fabricante y un botón «Consultar vehículo».",
+    "ps": [
+     "Escanea un producto y descubre qué es: libros de Open Library y de las bibliotecas nacionales de Alemania y Francia, alimentos y cosméticos de Open Food Facts, medicamentos de openFDA, música de MusicBrainz y el resto de Wikidata. Escanea el VIN de un vehículo: marca, modelo, motor, campañas de retirada, calificaciones de pruebas de choque y consumo de las bases de datos de la NHTSA y la EPA del gobierno de Estados Unidos.",
+     "Cada fuente recibe el número y el nombre de la app, nada más. Un interruptor apaga las consultas en línea y las consultas de productos tienen el suyo propio; con la conexión apagada nada sale del teléfono y todas las comprobaciones integradas siguen funcionando. {PRIVACY}."
+    ],
+    "privacy": "Qué dice la política de privacidad"
+   },
+   {
+    "id": "create",
+    "shot": "create.webp",
+    "kicker": "Tus propios códigos",
+    "h2": "Crea tus propios códigos",
+    "alt": "La pantalla Crear de Verdetto: tu tarjeta arriba y después Sitio web, Texto, Wi-Fi, Contacto, Correo, SMS, Teléfono, Ubicación, Calendario y Portapapeles.",
+    "ps": [
+     "Sitio web, texto, Wi-Fi, contacto, correo, SMS, teléfono, ubicación, calendario o lo que tengas en el portapapeles: escríbelo y el código aparece mientras tecleas. Tu propia tarjeta de contacto va primero, con vista previa en vivo. Guárdalo como imagen, compártelo o imprímelo; la app lee su propio código antes de dejarte, para que lo que entregues se escanee."
+    ]
+   },
+   {
+    "id": "hand",
+    "shot": "camera-left.webp",
+    "kicker": "En la mano",
+    "h2": "Hecho para la mano",
+    "alt": "La pantalla de cámara de Verdetto con el diseño para zurdos, con los controles a la izquierda.",
+    "ps": [
+     "Un mosaico de ajustes rápidos abre la cámara desde el panel. Toca para enfocar, pellizca para acercar, linterna cuando hay poca luz. Un diseño para zurdos pone cada control al alcance. Los resultados se pueden leer en voz alta. Sonido y vibración al leer, si los quieres. Once idiomas. Android 8 y posteriores."
+    ]
+   },
+   {
+    "id": "history",
+    "shot": "history.webp",
+    "kicker": "Tu historial",
+    "h2": "Un historial que es tuyo",
+    "alt": "El historial de Verdetto con chips de filtro para Enlaces, Wi-Fi, Lote y Destacados, y una hoja de resultados reabierta desde él.",
+    "ps": [
+     "Búscalo, destácalo, desliza para borrar, expórtalo o impórtalo como CSV. Los escaneos con más de 90 días se borran solos a menos que los destaques. Una sesión privada no guarda nada. El historial viaja en la copia de seguridad de tu propio teléfono a menos que lo desactives, y desinstalar lo elimina."
+    ]
+   },
+   {
+    "id": "apps",
+    "shot": None,
+    "kicker": "Otras apps",
+    "h2": "Funciona con otras apps",
+    "alt": "",
+    "ps": [
+     "Cualquier app puede pedirle a Verdetto un escaneo y recibir el código, como hacían las apps con el escáner ZXing. Comparte una imagen con ella y decodifica los códigos de la imagen. {DEV}."
+    ],
+    "dev": "Los detalles para desarrolladores"
+   },
+   {
+    "id": "free",
+    "shot": None,
+    "cta": True,
+    "kicker": "El trato",
+    "h2": "Gratis, sin anuncios, sin recopilar nada",
+    "alt": "",
+    "ps": [
+     "Todas las funciones son gratis para todos y lo seguirán siendo. Sin cuentas, sin analíticas, sin anuncios, así que sin botones falsos. Los fotogramas se escanean en el dispositivo y se descartan. Lo pagan y lo pasan a otros las personas que lo usan: una contribución única desde 0,99 $ lo mantiene en marcha, y nada queda bloqueado tras ella. {SUPPORT}."
+    ],
+    "support": "Cómo funciona"
+   }
+  ]
+ },
+ "fr": {
+  "title": "Tout ce qu'elle fait",
+  "desc": "Chaque fonction de Verdetto, dans l'ordre où on la rencontre : le lien d'abord, les codes abîmés, les recherches autorisées, vos codes, et pas de publicité.",
+  "lede": "Verdetto lit les codes QR et les codes-barres et vous montre ce qu'ils contiennent avant que vous n'agissiez. Gratuit, sans publicité, sans rien collecter. Voici tout, dans l'ordre où la plupart des gens le rencontrent.",
+  "formats_line": "{N} sortes de codes, chacune mesurée lors de la validation du 4 septembre 2026 :",
+  "sections": [
+   {
+    "id": "see",
+    "shot": "result-sheet-warning.webp",
+    "kicker": "Avant l'ouverture",
+    "h2": "Voyez le lien avant qu'il ne s'ouvre",
+    "alt": "La feuille de résultat Verdetto pour un code QR menant à paypa1.com : l'adresse affichée avant toute ouverture, une puce Danger « Imite paypal.com » et un bouton « Ouvrir quand même ».",
+    "ps": [
+     "Un code QR est un lien que vous ne pouvez pas lire. Verdetto affiche l'adresse avant que quoi que ce soit ne s'ouvre, la vérifie sur votre téléphone et vous laisse la décision : ouvrir, ou non.",
+     "Les vérifications cherchent les noms imités (paypa1.com), suivent les liens courts et d'affiliation jusqu'à leur destination, repèrent les identifiants cachés, les adresses IP brutes, les ports inhabituels, les adresses non chiffrées, les téléchargements, les adresses de scripts et les paramètres de pistage et d'affiliation, et comparent l'adresse à une liste d'alerte d'entrées connues de phishing, d'arnaque et de sanctions conservée sur le téléphone.",
+     "Le résultat tient en une ligne : Danger, Prudence ou « Aucune alerte trouvée ». Ce n'est jamais une promesse que quelque chose est sûr ; ouvrir ou non, c'est votre choix. {GUIDE}."
+    ],
+    "guide": "Comment vérifier un lien vous-même"
+   },
+   {
+    "id": "reads",
+    "shot": "batch.webp",
+    "formats": True,
+    "kicker": "Codes abîmés",
+    "h2": "Lit les codes que les autres applications abandonnent",
+    "alt": "La feuille de lot de Verdetto comptant les codes au fil du scan, avec « Terminé » et « Partager la liste ».",
+    "ps": [
+     "Délavés, déchirés, mal imprimés, inclinés ou inversés : elle lit pendant que vous visez et continue d'essayer image après image au lieu de vous demander de ne pas bouger. Plusieurs codes dans le champ ? Chacun est entouré et vous touchez celui que vous vouliez. Le mode lot les compte tous et exporte la session en CSV."
+    ]
+   },
+   {
+    "id": "knows",
+    "shot": "wifi.webp",
+    "kicker": "Ce qu'est un code",
+    "h2": "Sait ce qu'est un code, et fait la seule bonne action",
+    "alt": "Un réseau Wi-Fi lu par Verdetto : le nom du réseau, un avertissement qu'il est ouvert sans mot de passe, et un bouton « Rejoindre ».",
+    "ps": [
+     "Un code Wi-Fi rejoint le réseau d'un toucher. Une carte de contact s'ajoute à vos contacts. Une carte d'embarquement s'affiche à la porte, grande et lumineuse. Événements d'agenda, codes de connexion, lieux, adresses de paiement, numéros de produits et de médicaments, colis GS1, numéros de véhicule : chacun s'ouvre avec la seule action qui convient, et rien ne s'ouvre tout seul.",
+     "Les cartes d'embarquement et les permis de conduire restent sur le téléphone et ne sont pas enregistrés sauf si vous le demandez. L'application ne recherche jamais une personne."
+    ]
+   },
+   {
+    "id": "lookups",
+    "shot": "vehicle-vin.webp",
+    "kicker": "Recherches",
+    "h2": "Cherche des informations, seulement si vous l'autorisez",
+    "alt": "Un VIN lu par Verdetto : le véhicule, l'année du modèle, le constructeur et un bouton « Rechercher le véhicule ».",
+    "ps": [
+     "Scannez un produit et voyez ce que c'est : des livres via Open Library et les bibliothèques nationales allemande et française, l'alimentation et les cosmétiques via Open Food Facts, les médicaments via openFDA, la musique via MusicBrainz, et le reste via Wikidata. Scannez le VIN d'un véhicule : marque, modèle, moteur, campagnes de rappel, notes aux tests de choc et consommation, depuis les bases de données de la NHTSA et de l'EPA du gouvernement des États-Unis.",
+     "Chaque source reçoit le numéro et le nom de l'application, rien d'autre. Un interrupteur coupe les recherches en ligne et les recherches de produits ont le leur ; hors ligne, rien ne quitte le téléphone et chaque vérification intégrée continue de fonctionner. {PRIVACY}."
+    ],
+    "privacy": "Ce que dit la politique de confidentialité"
+   },
+   {
+    "id": "create",
+    "shot": "create.webp",
+    "kicker": "Vos propres codes",
+    "h2": "Créez vos propres codes",
+    "alt": "L'écran Créer de Verdetto : votre carte en haut, puis Site web, Texte, Wi-Fi, Contact, E-mail, SMS, Téléphone, Lieu, Agenda et Presse-papiers.",
+    "ps": [
+     "Site web, texte, Wi-Fi, contact, e-mail, SMS, téléphone, lieu, agenda ou ce qui se trouve dans votre presse-papiers : tapez-le et le code apparaît au fil de la saisie. Votre propre carte de contact vient en premier, avec un aperçu en direct. Enregistrez-le en image, partagez-le ou imprimez-le ; l'application relit son propre code avant de vous laisser faire, pour que ce que vous distribuez se lise."
+    ]
+   },
+   {
+    "id": "hand",
+    "shot": "camera-left.webp",
+    "kicker": "Dans la main",
+    "h2": "Fait pour la main",
+    "alt": "L'écran caméra de Verdetto en disposition pour gauchers, les commandes à gauche.",
+    "ps": [
+     "Une tuile de réglages rapides ouvre la caméra depuis le volet. Touchez pour faire la mise au point, pincez pour zoomer, une lampe quand la lumière manque. Une disposition pour gauchers met chaque commande à portée. Les résultats peuvent être lus à voix haute. Son et vibration à la lecture, si vous le souhaitez. Onze langues. Android 8 et versions ultérieures."
+    ]
+   },
+   {
+    "id": "history",
+    "shot": "history.webp",
+    "kicker": "Votre historique",
+    "h2": "Un historique qui vous appartient",
+    "alt": "L'historique de Verdetto avec des puces de filtre Liens, Wi-Fi, Lot et Favoris, et une feuille de résultat rouverte depuis celui-ci.",
+    "ps": [
+     "Cherchez, mettez en favori, balayez pour supprimer, exportez ou importez en CSV. Les scans de plus de 90 jours s'effacent d'eux-mêmes sauf si vous les mettez en favori. Une session privée ne garde rien du tout. L'historique voyage dans la sauvegarde de votre téléphone sauf si vous la désactivez, et la désinstallation le supprime."
+    ]
+   },
+   {
+    "id": "apps",
+    "shot": None,
+    "kicker": "Autres applications",
+    "h2": "Fonctionne avec d'autres applications",
+    "alt": "",
+    "ps": [
+     "N'importe quelle application peut demander un scan à Verdetto et récupérer le code, comme les applications le faisaient avec le lecteur ZXing. Partagez-lui une image et elle décode les codes qu'elle contient. {DEV}."
+    ],
+    "dev": "Les détails pour les développeurs"
+   },
+   {
+    "id": "free",
+    "shot": None,
+    "cta": True,
+    "kicker": "Le marché",
+    "h2": "Gratuit, sans publicité, sans rien collecter",
+    "alt": "",
+    "ps": [
+     "Chaque fonction est gratuite pour tous et le reste. Pas de comptes, pas d'analyse d'audience, pas de publicité, donc pas de faux boutons. Les images sont analysées sur l'appareil puis jetées. Financée et transmise par les personnes qui l'utilisent : une contribution unique dès 0,99 $ la fait vivre, et rien n'est verrouillé derrière. {SUPPORT}."
+    ],
+    "support": "Comment ça marche"
+   }
+  ]
+ },
+ "pt-BR": {
+  "title": "Tudo o que ele faz",
+  "desc": "Cada recurso do Verdetto, na ordem em que as pessoas o encontram: o link primeiro, códigos danificados, consultas permitidas, códigos seus e sem anúncios.",
+  "lede": "O Verdetto lê códigos QR e de barras e mostra o que há neles antes que você aja. Grátis, sem anúncios, sem coletar nada. Aqui está tudo, na ordem em que a maioria encontra.",
+  "formats_line": "{N} tipos de código, cada um medido na rodada de validação de 4 de setembro de 2026:",
+  "sections": [
+   {
+    "id": "see",
+    "shot": "result-sheet-warning.webp",
+    "kicker": "Antes de abrir",
+    "h2": "Veja o link antes que ele abra",
+    "alt": "A folha de resultado do Verdetto para um código QR que leva a paypa1.com: o endereço mostrado antes de qualquer coisa abrir, um chip de Perigo \"Imita paypal.com\" e um botão \"Abrir mesmo assim\".",
+    "ps": [
+     "Um código QR é um link que você não consegue ler. O Verdetto mostra o endereço antes que qualquer coisa abra, verifica no seu celular e deixa a decisão com você: abrir, ou não.",
+     "As verificações procuram nomes parecidos (paypa1.com), seguem links curtos e de afiliado até o destino, detectam credenciais ocultas, endereços IP puros, portas incomuns, endereços sem criptografia, downloads, endereços de script e parâmetros de rastreamento e de afiliado, e comparam o endereço com uma lista de alertas de entradas conhecidas de phishing, golpes e sanções guardada no celular.",
+     "O resultado é uma linha: Perigo, Cuidado ou \"Nenhum alerta encontrado\". Nunca é uma promessa de que algo é seguro; abrir ou não é decisão sua. {GUIDE}."
+    ],
+    "guide": "Como verificar um link você mesmo"
+   },
+   {
+    "id": "reads",
+    "shot": "batch.webp",
+    "formats": True,
+    "kicker": "Códigos danificados",
+    "h2": "Lê os códigos que outros apps desistem de ler",
+    "alt": "A folha de lote do Verdetto contando códigos conforme são lidos, com \"Concluir\" e \"Compartilhar lista\".",
+    "ps": [
+     "Desbotados, rasgados, mal impressos, inclinados ou invertidos: ele lê enquanto você aponta e continua tentando quadro a quadro em vez de pedir que você fique parado. Vários códigos à vista? Cada um recebe um contorno e você toca no que queria. O modo lote conta todos e exporta a sessão como CSV."
+    ]
+   },
+   {
+    "id": "knows",
+    "shot": "wifi.webp",
+    "kicker": "O que é um código",
+    "h2": "Sabe o que é um código, e faz a única coisa certa",
+    "alt": "Uma rede Wi-Fi lida pelo Verdetto: o nome da rede, um aviso de que ela é aberta e sem senha, e um botão \"Conectar\".",
+    "ps": [
+     "Um código Wi-Fi conecta à rede em um toque. Um cartão de contato entra nos seus contatos. Um cartão de embarque se mostra no portão, grande e brilhante. Eventos de agenda, códigos de login, locais, endereços de pagamento, números de produtos e medicamentos, embalagens GS1, números de veículo: cada um abre com a única ação que cabe, e nada abre sozinho.",
+     "Cartões de embarque e carteiras de motorista ficam no celular e não são salvos a menos que você diga. O app nunca procura uma pessoa."
+    ]
+   },
+   {
+    "id": "lookups",
+    "shot": "vehicle-vin.webp",
+    "kicker": "Consultas",
+    "h2": "Busca informações, só quando você permite",
+    "alt": "Um VIN lido pelo Verdetto: o veículo, o ano do modelo, o fabricante e um botão \"Consultar veículo\".",
+    "ps": [
+     "Escaneie um produto e veja o que ele é: livros da Open Library e das bibliotecas nacionais da Alemanha e da França, alimentos e cosméticos do Open Food Facts, medicamentos do openFDA, música do MusicBrainz e o resto do Wikidata. Escaneie o VIN de um veículo: marca, modelo, motor, campanhas de recall, notas de testes de colisão e consumo de combustível dos bancos de dados da NHTSA e da EPA do governo dos EUA.",
+     "Cada fonte recebe o número e o nome do app, nada mais. Um botão desliga as consultas online e as consultas de produtos têm um botão próprio; com o online desligado, nada sai do celular e todas as verificações embutidas continuam funcionando. {PRIVACY}."
+    ],
+    "privacy": "O que diz a política de privacidade"
+   },
+   {
+    "id": "create",
+    "shot": "create.webp",
+    "kicker": "Seus próprios códigos",
+    "h2": "Crie seus próprios códigos",
+    "alt": "A tela Criar do Verdetto: seu cartão no topo, depois Site, Texto, Wi-Fi, Contato, E-mail, SMS, Telefone, Local, Agenda e Área de transferência.",
+    "ps": [
+     "Site, texto, Wi-Fi, contato, e-mail, SMS, telefone, local, agenda ou o que estiver na sua área de transferência: digite e o código aparece enquanto você escreve. Seu próprio cartão de contato vem primeiro, com prévia ao vivo. Salve como imagem, compartilhe ou imprima; o app lê o próprio código de volta antes de deixar, para que o que você entregar seja lido."
+    ]
+   },
+   {
+    "id": "hand",
+    "shot": "camera-left.webp",
+    "kicker": "Na mão",
+    "h2": "Feito para a mão",
+    "alt": "A tela da câmera do Verdetto no layout para canhotos, com os controles à esquerda.",
+    "ps": [
+     "Um bloco de Configurações rápidas abre a câmera pela barra. Toque para focar, belisque para aproximar, lanterna quando a luz é pouca. Um layout para canhotos põe cada controle ao alcance. Os resultados podem ser lidos em voz alta. Som e vibração na leitura, se você quiser. Onze idiomas. Android 8 ou mais recente."
+    ]
+   },
+   {
+    "id": "history",
+    "shot": "history.webp",
+    "kicker": "Seu histórico",
+    "h2": "Um histórico que é seu",
+    "alt": "O histórico do Verdetto com chips de filtro Links, Wi-Fi, Lote e Favoritos, e uma folha de resultado reaberta a partir dele.",
+    "ps": [
+     "Pesquise, favorite, deslize para apagar, exporte ou importe como CSV. Leituras com mais de 90 dias somem sozinhas, a menos que você as favorite. Uma sessão privada não guarda nada. O histórico vai no backup do seu próprio celular a menos que você desligue isso, e desinstalar o remove."
+    ]
+   },
+   {
+    "id": "apps",
+    "shot": None,
+    "kicker": "Outros apps",
+    "h2": "Funciona com outros apps",
+    "alt": "",
+    "ps": [
+     "Qualquer app pode pedir uma leitura ao Verdetto e receber o código de volta, como os apps faziam com o leitor ZXing. Compartilhe uma imagem com ele e ele decodifica os códigos da imagem. {DEV}."
+    ],
+    "dev": "Os detalhes para desenvolvedores"
+   },
+   {
+    "id": "free",
+    "shot": None,
+    "cta": True,
+    "kicker": "O acordo",
+    "h2": "Grátis, sem anúncios, sem coletar nada",
+    "alt": "",
+    "ps": [
+     "Todo recurso é gratuito para todos e continua assim. Sem contas, sem análises de uso, sem anúncios, portanto sem botões falsos. Os quadros são lidos no aparelho e descartados. Pago e passado adiante pelas pessoas que o usam: uma contribuição única a partir de US$ 0,99 o mantém, e nada fica trancado atrás dela. {SUPPORT}."
+    ],
+    "support": "Como isso funciona"
+   }
+  ]
+ },
+ "id": {
+  "title": "Semua yang bisa dilakukannya",
+  "desc": "Setiap fitur Verdetto, dalam urutan orang menemuinya: tautan ditampilkan dulu, kode rusak, pencarian yang Anda izinkan, kode buatan Anda, dan tanpa iklan.",
+  "lede": "Verdetto membaca kode QR dan barcode dan menunjukkan isinya sebelum Anda bertindak. Gratis, tanpa iklan, tidak mengumpulkan apa pun. Inilah semuanya, dalam urutan kebanyakan orang menemuinya.",
+  "formats_line": "{N} jenis kode, masing-masing diukur pada uji validasi 4 September 2026:",
+  "sections": [
+   {
+    "id": "see",
+    "shot": "result-sheet-warning.webp",
+    "kicker": "Sebelum terbuka",
+    "h2": "Lihat tautannya sebelum terbuka",
+    "alt": "Lembar hasil Verdetto untuk kode QR yang menuju paypa1.com: alamat ditampilkan sebelum apa pun terbuka, chip Bahaya \"Meniru paypal.com\", dan tombol \"Buka saja\".",
+    "ps": [
+     "Kode QR adalah tautan yang tidak bisa Anda baca. Verdetto menampilkan alamatnya sebelum apa pun terbuka, memeriksanya di ponsel Anda, dan menyerahkan keputusan kepada Anda: buka, atau tidak.",
+     "Pemeriksaannya mencari nama yang mirip (paypa1.com), mengikuti tautan pendek dan afiliasi sampai tujuannya, mengenali data masuk tersembunyi, alamat IP mentah, port yang tidak biasa, alamat tanpa enkripsi, unduhan, alamat skrip serta parameter pelacakan dan afiliasi, lalu membandingkan alamat itu dengan daftar peringatan entri phishing, penipuan, dan sanksi yang dikenal, yang disimpan di ponsel.",
+     "Hasilnya satu baris: Bahaya, Hati-hati, atau \"Tidak ada peringatan ditemukan\". Itu tidak pernah menjadi janji bahwa sesuatu aman; membuka atau tidak adalah keputusan Anda. {GUIDE}."
+    ],
+    "guide": "Cara memeriksa tautan sendiri"
+   },
+   {
+    "id": "reads",
+    "shot": "batch.webp",
+    "formats": True,
+    "kicker": "Kode rusak",
+    "h2": "Membaca kode yang menyerah dibaca aplikasi lain",
+    "alt": "Lembar batch Verdetto menghitung kode saat dipindai, dengan \"Selesai\" dan \"Bagikan daftar\".",
+    "ps": [
+     "Pudar, sobek, buruk cetakannya, miring, atau terbalik warnanya: ia membaca sambil Anda mengarahkan dan terus mencoba dari bingkai ke bingkai, bukan meminta Anda diam. Beberapa kode terlihat sekaligus? Masing-masing diberi garis tepi dan Anda mengetuk yang Anda maksud. Mode batch menghitung semuanya dan mengekspor sesi sebagai CSV."
+    ]
+   },
+   {
+    "id": "knows",
+    "shot": "wifi.webp",
+    "kicker": "Apa itu sebuah kode",
+    "h2": "Tahu apa sebuah kode itu, dan melakukan satu hal yang tepat",
+    "alt": "Jaringan Wi-Fi yang dibaca Verdetto: nama jaringan, peringatan bahwa jaringan terbuka tanpa kata sandi, dan tombol \"Gabung\".",
+    "ps": [
+     "Kode Wi-Fi menyambungkan ke jaringan dengan satu ketukan. Kartu kontak masuk ke kontak Anda. Boarding pass menampilkan dirinya di gerbang, besar dan terang. Acara kalender, kode masuk, lokasi, alamat pembayaran, nomor produk dan obat, kemasan GS1, nomor kendaraan: masing-masing terbuka dengan satu tindakan yang sesuai, dan tidak ada yang terbuka sendiri.",
+     "Boarding pass dan SIM tetap di ponsel dan tidak disimpan kecuali Anda memintanya. Aplikasi tidak pernah mencari data seseorang."
+    ]
+   },
+   {
+    "id": "lookups",
+    "shot": "vehicle-vin.webp",
+    "kicker": "Pencarian",
+    "h2": "Mencari informasi, hanya jika Anda mengizinkan",
+    "alt": "VIN yang dibaca Verdetto: kendaraan, tahun model, pabrikan, dan tombol \"Cari kendaraan\".",
+    "ps": [
+     "Pindai sebuah produk dan lihat apa itu: buku dari Open Library dan perpustakaan nasional Jerman dan Prancis, makanan dan kosmetik dari Open Food Facts, obat dari openFDA, musik dari MusicBrainz, dan selebihnya dari Wikidata. Pindai VIN kendaraan: merek, model, mesin, kampanye penarikan, peringkat uji tabrak, dan konsumsi bahan bakar dari basis data NHTSA dan EPA milik pemerintah AS.",
+     "Setiap sumber menerima nomornya dan nama aplikasi, tidak lebih. Satu sakelar mematikan pencarian online dan pencarian produk punya sakelar sendiri; dengan online mati, tidak ada yang meninggalkan ponsel dan setiap pemeriksaan bawaan tetap bekerja. {PRIVACY}."
+    ],
+    "privacy": "Apa kata kebijakan privasi"
+   },
+   {
+    "id": "create",
+    "shot": "create.webp",
+    "kicker": "Kode Anda sendiri",
+    "h2": "Buat kode Anda sendiri",
+    "alt": "Layar Buat di Verdetto: kartu Anda di atas, lalu Situs web, Teks, Wi-Fi, Kontak, Email, SMS, Telepon, Lokasi, Kalender, dan Papan klip.",
+    "ps": [
+     "Situs web, teks, Wi-Fi, kontak, email, SMS, telepon, lokasi, kalender, atau apa pun yang ada di papan klip Anda: ketik saja dan kodenya muncul sambil Anda mengetik. Kartu kontak Anda sendiri ada di urutan pertama, dengan pratinjau langsung. Simpan sebagai gambar, bagikan, atau cetak; aplikasi membaca kembali kodenya sendiri sebelum mengizinkan Anda, sehingga yang Anda bagikan pasti terbaca."
+    ]
+   },
+   {
+    "id": "hand",
+    "shot": "camera-left.webp",
+    "kicker": "Di tangan",
+    "h2": "Dibuat untuk tangan",
+    "alt": "Layar kamera Verdetto dalam tata letak kidal, kontrolnya di sebelah kiri.",
+    "ps": [
+     "Ubin Setelan Cepat membuka kamera dari panel. Ketuk untuk fokus, cubit untuk memperbesar, senter saat cahaya redup. Tata letak kidal menaruh setiap kontrol dalam jangkauan. Hasil bisa dibacakan. Suara dan getaran saat membaca, jika Anda mau. Sebelas bahasa. Android 8 ke atas."
+    ]
+   },
+   {
+    "id": "history",
+    "shot": "history.webp",
+    "kicker": "Riwayat Anda",
+    "h2": "Riwayat yang menjadi milik Anda",
+    "alt": "Riwayat Verdetto dengan chip filter Tautan, Wi-Fi, Batch, dan Berbintang, dan lembar hasil yang dibuka lagi dari sana.",
+    "ps": [
+     "Cari, beri bintang, geser untuk menghapus, ekspor atau impor sebagai CSV. Pindaian yang lebih tua dari 90 hari terhapus sendiri kecuali Anda beri bintang. Sesi privat tidak menyimpan apa pun. Riwayat ikut dalam cadangan ponsel Anda kecuali Anda mematikannya, dan mencopot aplikasi menghapusnya."
+    ]
+   },
+   {
+    "id": "apps",
+    "shot": None,
+    "kicker": "Aplikasi lain",
+    "h2": "Bekerja dengan aplikasi lain",
+    "alt": "",
+    "ps": [
+     "Aplikasi mana pun bisa meminta pindaian kepada Verdetto dan menerima kodenya kembali, seperti yang dilakukan aplikasi dengan pemindai ZXing. Bagikan gambar ke dalamnya dan ia mendekode kode di gambar itu. {DEV}."
+    ],
+    "dev": "Rincian untuk pengembang"
+   },
+   {
+    "id": "free",
+    "shot": None,
+    "cta": True,
+    "kicker": "Kesepakatannya",
+    "h2": "Gratis, tanpa iklan, tidak mengumpulkan apa pun",
+    "alt": "",
+    "ps": [
+     "Setiap fitur gratis untuk semua orang dan tetap gratis. Tanpa akun, tanpa analitik, tanpa iklan, jadi tanpa tombol palsu. Bingkai dipindai di perangkat lalu dibuang. Dibayar dan diteruskan oleh orang-orang yang memakainya: kontribusi sekali bayar mulai $0,99 menjaganya berjalan, dan tidak ada yang dikunci di baliknya. {SUPPORT}."
+    ],
+    "support": "Bagaimana caranya"
+   }
+  ]
+ },
+ "ru": {
+  "title": "Всё, что оно умеет",
+  "desc": "Каждая возможность Verdetto по порядку: сначала ссылка, повреждённые коды, разрешённые вами запросы, ваши собственные коды и никакой рекламы.",
+  "lede": "Verdetto читает QR-коды и штрихкоды и показывает, что в них, прежде чем вы что-то сделаете. Бесплатно, без рекламы, ничего не собирает. Вот всё, в том порядке, в каком с этим встречается большинство.",
+  "formats_line": "{N} вид кодов, каждый измерен в проверочном прогоне 4 сентября 2026 года:",
+  "sections": [
+   {
+    "id": "see",
+    "shot": "result-sheet-warning.webp",
+    "kicker": "До открытия",
+    "h2": "Увидьте ссылку до того, как она откроется",
+    "alt": "Лист результата Verdetto для QR-кода, ведущего на paypa1.com: адрес показан до того, как что-либо откроется, чип «Опасность» с текстом «Имитирует paypal.com» и кнопка «Открыть всё равно».",
+    "ps": [
+     "QR-код — это ссылка, которую вы не можете прочитать. Verdetto показывает адрес до того, как что-либо откроется, проверяет его на вашем телефоне и оставляет решение вам: открывать или нет.",
+     "Проверки ищут похожие имена (paypa1.com), проходят по коротким и партнёрским ссылкам до места назначения, замечают скрытые данные входа, голые IP-адреса, необычные порты, незашифрованные адреса, загрузки, адреса скриптов и параметры отслеживания и партнёрских программ, а также сверяют адрес со списком предупреждений об известных фишинговых, мошеннических и санкционных записях, который хранится на телефоне.",
+     "Результат — одна строка: «Опасность», «Осторожно» или «Предупреждений не найдено». Это никогда не обещание, что что-то безопасно; открывать или нет, решаете вы. {GUIDE}."
+    ],
+    "guide": "Как проверить ссылку самому"
+   },
+   {
+    "id": "reads",
+    "shot": "batch.webp",
+    "formats": True,
+    "kicker": "Повреждённые коды",
+    "h2": "Читает коды, на которых другие приложения сдаются",
+    "alt": "Лист пакетного режима Verdetto считает коды по мере сканирования, с кнопками «Готово» и «Поделиться списком».",
+    "ps": [
+     "Выцветшие, надорванные, плохо напечатанные, наклонённые или инвертированные: оно читает, пока вы наводите камеру, и пробует кадр за кадром, а не просит вас замереть. В кадре несколько кодов? Каждый обведён, и вы касаетесь того, который имели в виду. Пакетный режим считает их все и экспортирует сессию в CSV."
+    ]
+   },
+   {
+    "id": "knows",
+    "shot": "wifi.webp",
+    "kicker": "Что такое код",
+    "h2": "Понимает, что перед ним, и делает одно верное действие",
+    "alt": "Сеть Wi-Fi, прочитанная Verdetto: имя сети, предупреждение, что она открытая и без пароля, и кнопка «Подключиться».",
+    "ps": [
+     "Код Wi-Fi подключает к сети одним касанием. Визитка добавляется в контакты. Посадочный талон показывает себя у выхода на посадку, крупно и ярко. События календаря, коды входа, места, платёжные адреса, номера товаров и лекарств, упаковки GS1, номера автомобилей: каждый открывается одним подходящим действием, и ничто не открывается само.",
+     "Посадочные талоны и водительские права остаются на телефоне и не сохраняются, если вы этого не скажете. Приложение никогда не ищет сведения о человеке."
+    ]
+   },
+   {
+    "id": "lookups",
+    "shot": "vehicle-vin.webp",
+    "kicker": "Запросы",
+    "h2": "Ищет информацию, только если вы разрешили",
+    "alt": "VIN, прочитанный Verdetto: автомобиль, модельный год, производитель и кнопка «Найти автомобиль».",
+    "ps": [
+     "Отсканируйте товар и узнайте, что это: книги из Open Library и национальных библиотек Германии и Франции, еда и косметика из Open Food Facts, лекарства из openFDA, музыка из MusicBrainz, остальное из Wikidata. Отсканируйте VIN автомобиля: марка, модель, двигатель, отзывные кампании, оценки краш-тестов и расход топлива из баз данных NHTSA и EPA правительства США.",
+     "Каждый источник получает номер и имя приложения, ничего больше. Один переключатель отключает онлайн-запросы, у запросов о товарах свой переключатель; при выключенном онлайне ничто не покидает телефон, и все встроенные проверки продолжают работать. {PRIVACY}."
+    ],
+    "privacy": "Что говорит политика конфиденциальности"
+   },
+   {
+    "id": "create",
+    "shot": "create.webp",
+    "kicker": "Свои коды",
+    "h2": "Создавайте свои коды",
+    "alt": "Экран «Создать» в Verdetto: ваша карточка сверху, затем Сайт, Текст, Wi-Fi, Контакт, Почта, SMS, Телефон, Место, Календарь и Буфер обмена.",
+    "ps": [
+     "Сайт, текст, Wi-Fi, контакт, почта, SMS, телефон, место, календарь или то, что сейчас в буфере обмена: набирайте, и код появляется по мере ввода. Ваша собственная визитка идёт первой, с живым предпросмотром. Сохраните как изображение, поделитесь или распечатайте; приложение само считывает свой код, прежде чем разрешить это, чтобы то, что вы раздаёте, читалось."
+    ]
+   },
+   {
+    "id": "hand",
+    "shot": "camera-left.webp",
+    "kicker": "В руке",
+    "h2": "Сделано для руки",
+    "alt": "Экран камеры Verdetto в раскладке для левой руки, элементы управления слева.",
+    "ps": [
+     "Плитка быстрых настроек открывает камеру из шторки. Касание для фокуса, щипок для зума, фонарик при слабом свете. Раскладка для левой руки держит каждый элемент управления под рукой. Результаты можно озвучить. Звук и вибрация при чтении, если хотите. Одиннадцать языков. Android 8 и новее."
+    ]
+   },
+   {
+    "id": "history",
+    "shot": "history.webp",
+    "kicker": "Ваша история",
+    "h2": "История, которая принадлежит вам",
+    "alt": "История Verdetto с чипами фильтров «Ссылки», «Wi-Fi», «Пакеты» и «Избранное» и открытый из неё лист результата.",
+    "ps": [
+     "Ищите, отмечайте звёздочкой, смахивайте для удаления, экспортируйте или импортируйте в CSV. Сканы старше 90 дней стираются сами, если вы их не отметили. Приватная сессия не хранит ничего. История попадает в резервную копию телефона, если вы это не отключите, а удаление приложения стирает её."
+    ]
+   },
+   {
+    "id": "apps",
+    "shot": None,
+    "kicker": "Другие приложения",
+    "h2": "Работает с другими приложениями",
+    "alt": "",
+    "ps": [
+     "Любое приложение может попросить Verdetto отсканировать код и получить его обратно, как приложения делали со сканером ZXing. Поделитесь с ним изображением, и оно декодирует коды на изображении. {DEV}."
+    ],
+    "dev": "Подробности для разработчиков"
+   },
+   {
+    "id": "free",
+    "shot": None,
+    "cta": True,
+    "kicker": "Условия",
+    "h2": "Бесплатно, без рекламы, ничего не собирает",
+    "alt": "",
+    "ps": [
+     "Каждая возможность бесплатна для всех и такой останется. Никаких учётных записей, аналитики и рекламы, а значит, никаких ложных кнопок. Кадры обрабатываются на устройстве и отбрасываются. За него платят и его передают дальше те, кто им пользуется: разовый взнос от 0,99 $ поддерживает его, и ничто за ним не заперто. {SUPPORT}."
+    ],
+    "support": "Как это устроено"
+   }
+  ]
+ },
+ "hi": {
+  "title": "यह जो कुछ करता है",
+  "desc": "Verdetto की हर सुविधा, उसी क्रम में जिसमें लोग उससे मिलते हैं: पहले लिंक, क्षतिग्रस्त कोड, आपकी अनुमति से खोज, आपके अपने कोड, और कोई विज्ञापन नहीं।",
+  "lede": "Verdetto QR कोड और बारकोड पढ़ता है और आपके कुछ करने से पहले दिखाता है कि उनमें क्या है। मुफ़्त, बिना विज्ञापन, कुछ भी एकत्र नहीं। यहाँ सब कुछ है, उसी क्रम में जिसमें अधिकतर लोग इसे पाते हैं।",
+  "formats_line": "{N} तरह के कोड, हर एक 4 सितंबर 2026 के सत्यापन रन में मापा गया:",
+  "sections": [
+   {
+    "id": "see",
+    "shot": "result-sheet-warning.webp",
+    "kicker": "खुलने से पहले",
+    "h2": "लिंक खुलने से पहले उसे देखें",
+    "alt": "paypa1.com पर ले जाने वाले QR कोड के लिए Verdetto की परिणाम शीट: कुछ भी खुलने से पहले दिखाया गया पता, एक ख़तरा चिप \"paypal.com की नक़ल\", और एक \"फिर भी खोलें\" बटन।",
+    "ps": [
+     "QR कोड एक ऐसा लिंक है जिसे आप पढ़ नहीं सकते। Verdetto कुछ भी खुलने से पहले पता दिखाता है, उसे आपके फ़ोन पर जाँचता है, और फ़ैसला आप पर छोड़ता है: खोलें, या नहीं।",
+     "जाँचें मिलते-जुलते नामों (paypa1.com) को खोजती हैं, छोटे और एफ़िलिएट लिंक को उनके गंतव्य तक फ़ॉलो करती हैं, छिपे लॉगिन, कच्चे IP पते, असामान्य पोर्ट, बिना एन्क्रिप्शन वाले पते, डाउनलोड, स्क्रिप्ट पते और ट्रैकिंग व एफ़िलिएट पैरामीटर पहचानती हैं, और पते की तुलना फ़ोन पर रखी ज्ञात फ़िशिंग, धोखाधड़ी और प्रतिबंध प्रविष्टियों की चेतावनी सूची से करती हैं।",
+     "परिणाम एक पंक्ति है: ख़तरा, सावधान, या \"कोई चेतावनी नहीं मिली\"। यह कभी वादा नहीं है कि कुछ सुरक्षित है; खोलना है या नहीं, यह आपका फ़ैसला है। {GUIDE}।"
+    ],
+    "guide": "लिंक की जाँच खुद कैसे करें"
+   },
+   {
+    "id": "reads",
+    "shot": "batch.webp",
+    "formats": True,
+    "kicker": "क्षतिग्रस्त कोड",
+    "h2": "वे कोड पढ़ता है जिन्हें दूसरे ऐप छोड़ देते हैं",
+    "alt": "Verdetto की बैच शीट स्कैन होते कोड गिनती हुई, \"पूर्ण\" और \"सूची साझा करें\" के साथ।",
+    "ps": [
+     "फीके, फटे, ख़राब छपे, तिरछे या उलटे रंग वाले: यह निशाना लगाते हुए पढ़ता है और आपसे स्थिर रहने को कहे बिना फ़्रेम-दर-फ़्रेम कोशिश करता रहता है। एक साथ कई कोड दिख रहे हैं? हर एक की रूपरेखा बनती है और आप उस पर टैप करते हैं जो आपका मतलब था। बैच मोड सबको गिनता है और सत्र को CSV के रूप में निर्यात करता है।"
+    ]
+   },
+   {
+    "id": "knows",
+    "shot": "wifi.webp",
+    "kicker": "कोड क्या है",
+    "h2": "जानता है कि कोड क्या है, और एक सही काम करता है",
+    "alt": "Verdetto द्वारा पढ़ा गया Wi-Fi नेटवर्क: नेटवर्क का नाम, चेतावनी कि यह खुला और बिना पासवर्ड है, और एक \"जुड़ें\" बटन।",
+    "ps": [
+     "Wi-Fi कोड एक टैप में नेटवर्क से जोड़ता है। संपर्क कार्ड आपके संपर्कों में जुड़ता है। बोर्डिंग पास गेट पर बड़ा और चमकदार दिखता है। कैलेंडर इवेंट, साइन-इन कोड, स्थान, भुगतान पते, उत्पाद और दवा नंबर, GS1 पैक, वाहन नंबर: हर एक उसी एक कार्रवाई से खुलता है जो उस पर बैठती है, और कुछ भी अपने आप नहीं खुलता।",
+     "बोर्डिंग पास और ड्राइविंग लाइसेंस फ़ोन पर रहते हैं और तब तक सहेजे नहीं जाते जब तक आप न कहें। ऐप कभी किसी व्यक्ति को खोजता नहीं।"
+    ]
+   },
+   {
+    "id": "lookups",
+    "shot": "vehicle-vin.webp",
+    "kicker": "खोज",
+    "h2": "चीज़ें खोजता है, केवल तब जब आप अनुमति दें",
+    "alt": "Verdetto द्वारा पढ़ा गया VIN: वाहन, मॉडल वर्ष, निर्माता, और एक \"वाहन खोजें\" बटन।",
+    "ps": [
+     "किसी उत्पाद को स्कैन करें और जानें कि वह क्या है: Open Library और जर्मनी व फ़्रांस की राष्ट्रीय लाइब्रेरियों से किताबें, Open Food Facts से खाद्य और सौंदर्य उत्पाद, openFDA से दवाएँ, MusicBrainz से संगीत, और बाक़ी Wikidata से। किसी वाहन का VIN स्कैन करें: मेक, मॉडल, इंजन, रिकॉल अभियान, क्रैश-टेस्ट रेटिंग और ईंधन दक्षता, अमेरिकी सरकार के NHTSA और EPA डेटाबेस से।",
+     "हर स्रोत को केवल नंबर और ऐप का नाम मिलता है, और कुछ नहीं। एक स्विच ऑनलाइन खोज बंद करता है और उत्पाद खोज का अपना स्विच है; ऑनलाइन बंद होने पर फ़ोन से कुछ नहीं जाता और हर अंतर्निर्मित जाँच काम करती रहती है। {PRIVACY}।"
+    ],
+    "privacy": "गोपनीयता नीति क्या कहती है"
+   },
+   {
+    "id": "create",
+    "shot": "create.webp",
+    "kicker": "आपके अपने कोड",
+    "h2": "अपने कोड बनाएँ",
+    "alt": "Verdetto की बनाएँ स्क्रीन: ऊपर आपका कार्ड, फिर वेबसाइट, टेक्स्ट, Wi-Fi, संपर्क, ईमेल, SMS, फ़ोन, स्थान, कैलेंडर और क्लिपबोर्ड।",
+    "ps": [
+     "वेबसाइट, टेक्स्ट, Wi-Fi, संपर्क, ईमेल, SMS, फ़ोन, स्थान, कैलेंडर, या जो कुछ आपके क्लिपबोर्ड में है: टाइप करें और कोड टाइप करते-करते बनता जाता है। आपका अपना संपर्क कार्ड पहले आता है, लाइव पूर्वावलोकन के साथ। इसे चित्र के रूप में सहेजें, साझा करें या छापें; ऐप अनुमति देने से पहले अपना ही कोड वापस पढ़ता है, ताकि जो आप दें वह स्कैन हो।"
+    ]
+   },
+   {
+    "id": "hand",
+    "shot": "camera-left.webp",
+    "kicker": "हाथ में",
+    "h2": "हाथ के लिए बना",
+    "alt": "बाएँ हाथ के लेआउट में Verdetto की कैमरा स्क्रीन, नियंत्रण बाईं ओर।",
+    "ps": [
+     "क्विक सेटिंग्स टाइल शेड से कैमरा खोलती है। फ़ोकस के लिए टैप, ज़ूम के लिए पिंच, कम रोशनी में टॉर्च। बाएँ हाथ का लेआउट हर नियंत्रण को पहुँच में रखता है। परिणाम ज़ोर से पढ़े जा सकते हैं। पढ़ने पर ध्वनि और कंपन, अगर आप चाहें। ग्यारह भाषाएँ। Android 8 और बाद के।"
+    ]
+   },
+   {
+    "id": "history",
+    "shot": "history.webp",
+    "kicker": "आपका इतिहास",
+    "h2": "इतिहास जो आपका है",
+    "alt": "लिंक, Wi-Fi, बैच और तारांकित फ़िल्टर चिप्स के साथ Verdetto का इतिहास, और उससे फिर खोली गई परिणाम शीट।",
+    "ps": [
+     "खोजें, तारांकित करें, हटाने के लिए स्वाइप करें, CSV के रूप में निर्यात या आयात करें। 90 दिन से पुराने स्कैन अपने आप हट जाते हैं, जब तक आप उन्हें तारांकित न करें। निजी सत्र कुछ भी नहीं रखता। इतिहास आपके फ़ोन के अपने बैकअप में जाता है, जब तक आप उसे बंद न करें, और अनइंस्टॉल उसे हटा देता है।"
+    ]
+   },
+   {
+    "id": "apps",
+    "shot": None,
+    "kicker": "दूसरे ऐप",
+    "h2": "दूसरे ऐप के साथ काम करता है",
+    "alt": "",
+    "ps": [
+     "कोई भी ऐप Verdetto से स्कैन माँग सकता है और कोड वापस पा सकता है, जैसे ऐप ZXing स्कैनर के साथ करते थे। इसमें कोई चित्र साझा करें और यह चित्र के कोड डिकोड कर देता है। {DEV}।"
+    ],
+    "dev": "डेवलपरों के लिए विवरण"
+   },
+   {
+    "id": "free",
+    "shot": None,
+    "cta": True,
+    "kicker": "सौदा",
+    "h2": "मुफ़्त, बिना विज्ञापन, कुछ भी एकत्र नहीं",
+    "alt": "",
+    "ps": [
+     "हर सुविधा सबके लिए मुफ़्त है और रहेगी। न खाते, न एनालिटिक्स, न विज्ञापन, इसलिए न नकली बटन। फ़्रेम डिवाइस पर स्कैन होकर हटा दिए जाते हैं। इसका खर्च वे लोग उठाते हैं जो इसे इस्तेमाल करते हैं और आगे बढ़ाते हैं: $0.99 से एक बार का योगदान इसे चलाए रखता है, और उसके पीछे कुछ भी बंद नहीं है। {SUPPORT}।"
+    ],
+    "support": "यह कैसे काम करता है"
+   }
+  ]
+ },
+ "ja": {
+  "title": "できることのすべて",
+  "desc": "Verdetto のすべての機能を、人が出会う順に: まずリンクを表示、傷んだコード、許可した照会、自分で作るコード、そして広告なし。",
+  "lede": "Verdetto は QR コードとバーコードを読み取り、行動する前に中身を見せます。無料、広告なし、何も収集しません。ほとんどの人が出会う順に、そのすべてを。",
+  "formats_line": "{N} 種類のコード。いずれも 2026 年 9 月 4 日の検証で測定済み:",
+  "sections": [
+   {
+    "id": "see",
+    "shot": "result-sheet-warning.webp",
+    "kicker": "開く前に",
+    "h2": "開く前にリンクを見る",
+    "alt": "paypa1.com へ導く QR コードの Verdetto 結果シート: 何かが開く前に表示されたアドレス、「paypal.com を模倣」と読める危険チップ、「それでも開く」ボタン。",
+    "ps": [
+     "QR コードは、あなたには読めないリンクです。Verdetto は何かが開く前にアドレスを表示し、端末上で確認し、開くか開かないかの判断をあなたに委ねます。",
+     "確認では、見間違えやすい名前（paypa1.com）、行き先までたどる短縮リンクとアフィリエイトリンク、隠れたログイン情報、生の IP アドレス、珍しいポート、暗号化されていないアドレス、ダウンロード、スクリプトのアドレス、追跡とアフィリエイトのパラメーターを探し、端末に保存された既知のフィッシング、詐欺、制裁の警告リストと照らし合わせます。",
+     "結果は一行です: 危険、注意、または「警告は見つかりませんでした」。何かが安全だという約束では決してなく、開くかどうかはあなたが決めます。{GUIDE}。"
+    ],
+    "guide": "リンクを自分で確認する方法"
+   },
+   {
+    "id": "reads",
+    "shot": "batch.webp",
+    "formats": True,
+    "kicker": "傷んだコード",
+    "h2": "他のアプリがあきらめるコードを読む",
+    "alt": "読み取りながらコードを数える Verdetto の一括シート。「完了」と「リストを共有」付き。",
+    "ps": [
+     "色あせ、破れ、印刷不良、傾き、色の反転。狙っている間に読み取り、じっとしていてと頼む代わりにフレームをまたいで試し続けます。複数のコードが見えている？ それぞれが枠で囲まれ、意図したものをタップします。一括モードはすべてを数え、セッションを CSV に書き出します。"
+    ]
+   },
+   {
+    "id": "knows",
+    "shot": "wifi.webp",
+    "kicker": "コードの中身",
+    "h2": "コードが何かを知り、正しい一つの動作をする",
+    "alt": "Verdetto が読み取った Wi-Fi ネットワーク: ネットワーク名、パスワードのない開放ネットワークという注意、「接続」ボタン。",
+    "ps": [
+     "Wi-Fi のコードは一回のタップでネットワークに接続します。連絡先カードは連絡先に追加されます。搭乗券は搭乗口で大きく明るく表示されます。カレンダーの予定、ログインコード、位置情報、支払い先アドレス、商品や医薬品の番号、GS1 パック、車両番号。それぞれが、ふさわしい一つの動作で開き、勝手に開くものはありません。",
+     "搭乗券と運転免許証は端末に留まり、あなたが言わなければ保存されません。アプリが人物を照会することは決してありません。"
+    ]
+   },
+   {
+    "id": "lookups",
+    "shot": "vehicle-vin.webp",
+    "kicker": "照会",
+    "h2": "調べるのは、あなたが許可したときだけ",
+    "alt": "Verdetto が読み取った VIN: 車両、年式、メーカー、「車両を調べる」ボタン。",
+    "ps": [
+     "商品を読み取って、それが何かを見る: 本は Open Library とドイツ・フランスの国立図書館、食品と化粧品は Open Food Facts、医薬品は openFDA、音楽は MusicBrainz、その他は Wikidata から。車両の VIN を読み取る: メーカー、モデル、エンジン、リコール、衝突試験の評価、燃費を、米国政府の NHTSA と EPA のデータベースから。",
+     "各ソースが受け取るのは番号とアプリ名だけです。スイッチ一つでオンライン照会をオフにでき、商品照会には専用のスイッチがあります。オンラインをオフにすると端末から何も出ず、内蔵の確認はすべて働き続けます。{PRIVACY}。"
+    ],
+    "privacy": "プライバシーポリシーの内容"
+   },
+   {
+    "id": "create",
+    "shot": "create.webp",
+    "kicker": "自分のコード",
+    "h2": "自分のコードを作る",
+    "alt": "Verdetto の作成画面: 上にあなたのカード、続いてウェブサイト、テキスト、Wi-Fi、連絡先、メール、SMS、電話、位置情報、カレンダー、クリップボード。",
+    "ps": [
+     "ウェブサイト、テキスト、Wi-Fi、連絡先、メール、SMS、電話、位置情報、カレンダー、あるいはクリップボードにあるもの。入力するとコードがその場で現れます。自分の連絡先カードが最初で、ライブプレビュー付き。画像として保存、共有、印刷。アプリは許可する前に自分のコードを読み返すので、渡したものは必ず読み取れます。"
+    ]
+   },
+   {
+    "id": "hand",
+    "shot": "camera-left.webp",
+    "kicker": "手の中で",
+    "h2": "手のために作られた",
+    "alt": "左手用レイアウトの Verdetto カメラ画面。操作部は左側。",
+    "ps": [
+     "クイック設定タイルがシェードからカメラを開きます。タップでピント、ピンチでズーム、暗いときはライト。左手用レイアウトはすべての操作部を手の届く場所に置きます。結果は読み上げられます。読み取り時の音と振動は好みで。十一の言語。Android 8 以降。"
+    ]
+   },
+   {
+    "id": "history",
+    "shot": "history.webp",
+    "kicker": "あなたの履歴",
+    "h2": "あなたのものである履歴",
+    "alt": "リンク、Wi-Fi、一括、スター付きのフィルターチップを持つ Verdetto の履歴と、そこから開き直した結果シート。",
+    "ps": [
+     "検索し、スターを付け、スワイプで削除し、CSV で書き出し・読み込み。90 日より古い読み取りは、スターを付けなければ自動で消えます。プライベートセッションは何も残しません。履歴は端末自身のバックアップに含まれ（オフにもできます）、アンインストールで消えます。"
+    ]
+   },
+   {
+    "id": "apps",
+    "shot": None,
+    "kicker": "他のアプリ",
+    "h2": "他のアプリと連携",
+    "alt": "",
+    "ps": [
+     "どのアプリも Verdetto に読み取りを頼み、コードを受け取れます。ZXing スキャナーに対してアプリがしていたのと同じ方法です。画像を共有すれば、その中のコードを解読します。{DEV}。"
+    ],
+    "dev": "開発者向けの詳細"
+   },
+   {
+    "id": "free",
+    "shot": None,
+    "cta": True,
+    "kicker": "約束",
+    "h2": "無料、広告なし、何も収集しない",
+    "alt": "",
+    "ps": [
+     "すべての機能はすべての人に無料で、これからもそうです。アカウントも、解析も、広告もなく、だから偽のボタンもありません。フレームは端末上で読み取られ、捨てられます。使う人が支払い、伝えていく: 0.99 ドルからの一回限りの支援が続ける力になり、その先に何も隠されていません。{SUPPORT}。"
+    ],
+    "support": "その仕組み"
+   }
+  ]
+ },
+ "zh-Hans": {
+  "title": "它能做的一切",
+  "desc": "Verdetto 的每一项功能，按人们遇到的顺序：先看到链接、受损的码、经您允许的查询、您自己制作的码，以及没有广告。",
+  "lede": "Verdetto 读取二维码和条形码，并在您行动之前展示其中的内容。免费，无广告，不收集任何信息。这里是全部功能，按大多数人遇到的顺序排列。",
+  "formats_line": "{N} 种码，每一种都在 2026 年 9 月 4 日的验证运行中测量过：",
+  "sections": [
+   {
+    "id": "see",
+    "shot": "result-sheet-warning.webp",
+    "kicker": "打开之前",
+    "h2": "在链接打开之前先看到它",
+    "alt": "Verdetto 对一个指向 paypa1.com 的二维码的结果面板：在任何内容打开前显示的地址、写着“模仿 paypal.com”的危险标签，以及“仍然打开”按钮。",
+    "ps": [
+     "二维码是一条您读不出来的链接。Verdetto 在任何内容打开之前显示地址，在您的手机上检查它，并把决定权留给您：打开，或者不打开。",
+     "检查会寻找仿冒名称（paypa1.com），跟随短链接和联盟链接直到其去向，识别隐藏的登录信息、裸 IP 地址、异常端口、未加密地址、下载、脚本地址以及追踪和联盟参数，并把地址与保存在手机上的已知钓鱼、诈骗和制裁条目警告列表比对。",
+     "结果只有一行：危险、注意，或“未发现警告”。它从不承诺某样东西是安全的；是否打开由您决定。{GUIDE}。"
+    ],
+    "guide": "如何自己检查链接"
+   },
+   {
+    "id": "reads",
+    "shot": "batch.webp",
+    "formats": True,
+    "kicker": "受损的码",
+    "h2": "读取其他应用放弃的码",
+    "alt": "Verdetto 的批量面板在扫描时计数，带有“完成”和“分享列表”。",
+    "ps": [
+     "褪色、撕裂、印刷粗糙、倾斜或反色：它在您对准时就读取，并跨帧持续尝试，而不是要求您保持不动。视野里有多个码？每一个都被框出，您点选想要的那个。批量模式统计全部，并将本次会话导出为 CSV。"
+    ]
+   },
+   {
+    "id": "knows",
+    "shot": "wifi.webp",
+    "kicker": "码是什么",
+    "h2": "知道码是什么，并做出唯一正确的动作",
+    "alt": "Verdetto 读取的 Wi-Fi 网络：网络名称、提示该网络开放且无密码的注意标签，以及“加入”按钮。",
+    "ps": [
+     "Wi-Fi 码一键加入网络。联系人名片加入您的联系人。登机牌在登机口以大而亮的方式展示。日历事件、登录码、位置、付款地址、商品和药品编号、GS1 包装、车辆编号：每一种都以恰当的唯一动作打开，没有任何东西会自行打开。",
+     "登机牌和驾照留在手机上，除非您同意，否则不会保存。应用从不查询任何人。"
+    ]
+   },
+   {
+    "id": "lookups",
+    "shot": "vehicle-vin.webp",
+    "kicker": "查询",
+    "h2": "只在您允许时才查询",
+    "alt": "Verdetto 读取的 VIN：车辆、车型年份、制造商，以及“查询车辆”按钮。",
+    "ps": [
+     "扫描一件商品，看看它是什么：书籍来自 Open Library 以及德国和法国国家图书馆，食品和化妆品来自 Open Food Facts，药品来自 openFDA，音乐来自 MusicBrainz，其余来自 Wikidata。扫描车辆的 VIN：品牌、型号、发动机、召回、碰撞测试评级和油耗，来自美国政府的 NHTSA 和 EPA 数据库。",
+     "每个来源只收到编号和应用名称，别无其他。一个开关关闭在线查询，商品查询有单独的开关；在线关闭后，没有任何东西离开手机，所有内置检查仍然有效。{PRIVACY}。"
+    ],
+    "privacy": "隐私政策怎么说"
+   },
+   {
+    "id": "create",
+    "shot": "create.webp",
+    "kicker": "您自己的码",
+    "h2": "制作您自己的码",
+    "alt": "Verdetto 的创建界面：顶部是您的名片，然后是网站、文本、Wi-Fi、联系人、电子邮件、短信、电话、位置、日历和剪贴板。",
+    "ps": [
+     "网站、文本、Wi-Fi、联系人、电子邮件、短信、电话、位置、日历，或剪贴板里的任何内容：边输入，码边生成。您自己的联系人名片排在第一位，带实时预览。保存为图片、分享或打印；应用会先读回自己生成的码再放行，确保您递出去的码能被扫出来。"
+    ]
+   },
+   {
+    "id": "hand",
+    "shot": "camera-left.webp",
+    "kicker": "在手中",
+    "h2": "为手而造",
+    "alt": "左手布局下的 Verdetto 相机界面，控件在左侧。",
+    "ps": [
+     "快捷设置磁贴可从通知栏打开相机。点按对焦，双指缩放，光线不足时有手电。左手布局让每个控件都触手可及。结果可以朗读。读取时的声音和振动，随您选择。十一种语言。Android 8 及更高版本。"
+    ]
+   },
+   {
+    "id": "history",
+    "shot": "history.webp",
+    "kicker": "您的历史记录",
+    "h2": "属于您的历史记录",
+    "alt": "Verdetto 的历史记录，带有链接、Wi-Fi、批量和星标筛选标签，以及从中重新打开的结果面板。",
+    "ps": [
+     "搜索、加星、滑动删除、导出或导入为 CSV。超过 90 天的扫描记录自动清除，除非您加了星标。私密会话什么都不保留。历史记录随手机自身的备份一起保存，除非您关闭该项；卸载会将其移除。"
+    ]
+   },
+   {
+    "id": "apps",
+    "shot": None,
+    "kicker": "其他应用",
+    "h2": "与其他应用协作",
+    "alt": "",
+    "ps": [
+     "任何应用都可以向 Verdetto 请求扫描并取回码，就像应用过去对 ZXing 扫描器所做的那样。把一张图片分享给它，它会解码图片中的码。{DEV}。"
+    ],
+    "dev": "面向开发者的细节"
+   },
+   {
+    "id": "free",
+    "shot": None,
+    "cta": True,
+    "kicker": "约定",
+    "h2": "免费、无广告、不收集任何信息",
+    "alt": "",
+    "ps": [
+     "每一项功能对所有人免费，并将一直免费。没有账户，没有分析统计，没有广告，因此也没有假按钮。画面在设备上扫描后即丢弃。由使用它的人付费并口口相传：一次性支持从 0.99 美元起，让它持续下去，没有任何东西被锁在后面。{SUPPORT}。"
+    ],
+    "support": "它是怎么运作的"
+   }
+  ]
+ },
+ "ar": {
+  "title": "كل ما يفعله",
+  "desc": "كل ميزة في Verdetto، بالترتيب الذي يلقاها الناس به: الرابط أولًا، والرموز المتضررة، والبحث الذي تسمح به، ورموزك التي تصنعها، وبلا إعلانات.",
+  "lede": "يقرأ Verdetto رموز QR والباركود ويعرض لك ما فيها قبل أن تتصرف. مجاني، بلا إعلانات، لا يجمع شيئًا. هنا كل شيء، بالترتيب الذي يلقاه به معظم الناس.",
+  "formats_line": "{N} نوعًا من الرموز، قِيس كل منها في جولة التحقق بتاريخ 4 سبتمبر 2026:",
+  "sections": [
+   {
+    "id": "see",
+    "shot": "result-sheet-warning.webp",
+    "kicker": "قبل أن يُفتح",
+    "h2": "شاهد الرابط قبل أن يُفتح",
+    "alt": "ورقة نتيجة Verdetto لرمز QR يقود إلى paypa1.com: العنوان معروض قبل أن يُفتح أي شيء، وشارة خطر بنص «يقلّد paypal.com»، وزر «افتح على أي حال».",
+    "ps": [
+     "رمز QR رابطٌ لا تستطيع قراءته. يعرض Verdetto العنوان قبل أن يُفتح أي شيء، ويفحصه على هاتفك، ويترك لك القرار: أن تفتح أو لا.",
+     "تبحث الفحوص عن الأسماء المشابهة (paypa1.com)، وتتبع الروابط المختصرة وروابط الشركاء إلى وجهتها، وتلتقط بيانات الدخول المخفية، وعناوين IP الخام، والمنافذ غير المعتادة، والعناوين غير المشفّرة، والتنزيلات، وعناوين السكربتات، ومعاملات التعقّب والشراكة، وتقارن العنوان بقائمة تحذير بمدخلات التصيّد والاحتيال والعقوبات المعروفة المحفوظة على الهاتف.",
+     "النتيجة سطر واحد: خطر، أو حذر، أو «لم يُعثر على تحذيرات». وهي ليست أبدًا وعدًا بأن شيئًا ما آمن؛ فتح الرابط أو لا قرارك أنت. {GUIDE}."
+    ],
+    "guide": "كيف تفحص رابطًا بنفسك"
+   },
+   {
+    "id": "reads",
+    "shot": "batch.webp",
+    "formats": True,
+    "kicker": "الرموز المتضررة",
+    "h2": "يقرأ الرموز التي تستسلم أمامها التطبيقات الأخرى",
+    "alt": "ورقة الدُفعة في Verdetto تعدّ الرموز أثناء مسحها، مع «تم» و«مشاركة القائمة».",
+    "ps": [
+     "باهتة أو ممزقة أو سيئة الطباعة أو مائلة أو معكوسة الألوان: يقرأ وأنت توجّه الكاميرا ويواصل المحاولة عبر الإطارات بدل أن يطلب منك الثبات. عدة رموز في المشهد؟ يُحاط كلٌّ منها بإطار وتنقر على ما قصدته. ويعدّ وضع الدُفعة كلها ويصدّر الجلسة بصيغة CSV."
+    ]
+   },
+   {
+    "id": "knows",
+    "shot": "wifi.webp",
+    "kicker": "ما هو الرمز",
+    "h2": "يعرف ما هو الرمز، ويقوم بالفعل الصحيح الوحيد",
+    "alt": "شبكة Wi-Fi قرأها Verdetto: اسم الشبكة، وتحذير من أنها مفتوحة بلا كلمة مرور، وزر «انضم».",
+    "ps": [
+     "رمز Wi-Fi ينضم إلى الشبكة بنقرة واحدة. بطاقة الاتصال تُضاف إلى جهات اتصالك. بطاقة الصعود تعرض نفسها عند البوابة كبيرة ومضيئة. أحداث التقويم، ورموز الدخول، والمواقع، وعناوين الدفع، وأرقام المنتجات والأدوية، وعبوات GS1، وأرقام المركبات: يُفتح كلٌّ منها بالفعل الوحيد المناسب، ولا يُفتح شيء من تلقاء نفسه.",
+     "بطاقات الصعود ورخص القيادة تبقى على الهاتف ولا تُحفظ إلا إذا قلت ذلك. ولا يبحث التطبيق عن شخص أبدًا."
+    ]
+   },
+   {
+    "id": "lookups",
+    "shot": "vehicle-vin.webp",
+    "kicker": "البحث",
+    "h2": "يبحث عن المعلومات، فقط حين تسمح",
+    "alt": "رقم VIN قرأه Verdetto: المركبة وسنة الطراز والمصنّع وزر «ابحث عن المركبة».",
+    "ps": [
+     "امسح منتجًا وشاهد ما هو: الكتب من Open Library والمكتبتين الوطنيتين الألمانية والفرنسية، والأغذية ومستحضرات التجميل من Open Food Facts، والأدوية من openFDA، والموسيقى من MusicBrainz، وما تبقّى من Wikidata. امسح رقم VIN لمركبة: الصانع والطراز والمحرك وحملات الاستدعاء وتقييمات اختبارات التصادم واستهلاك الوقود من قاعدتي بيانات NHTSA وEPA التابعتين لحكومة الولايات المتحدة.",
+     "يتلقى كل مصدر الرقم واسم التطبيق، لا أكثر. مفتاح واحد يوقف البحث عبر الإنترنت، ولبحث المنتجات مفتاح خاص؛ ومع إيقاف الاتصال لا يخرج شيء من الهاتف وتستمر كل الفحوص المدمجة في العمل. {PRIVACY}."
+    ],
+    "privacy": "ما تقوله سياسة الخصوصية"
+   },
+   {
+    "id": "create",
+    "shot": "create.webp",
+    "kicker": "رموزك أنت",
+    "h2": "اصنع رموزك أنت",
+    "alt": "شاشة الإنشاء في Verdetto: بطاقتك في الأعلى، ثم موقع ويب، ونص، وWi-Fi، وجهة اتصال، وبريد إلكتروني، ورسالة نصية، وهاتف، وموقع، وتقويم، وحافظة.",
+    "ps": [
+     "موقع ويب، أو نص، أو Wi-Fi، أو جهة اتصال، أو بريد إلكتروني، أو رسالة نصية، أو هاتف، أو موقع، أو تقويم، أو ما في حافظتك: اكتبه ويظهر الرمز وأنت تكتب. بطاقة اتصالك أولًا، مع معاينة حيّة. احفظه صورةً أو شاركه أو اطبعه؛ يقرأ التطبيق رمزه بنفسه قبل أن يسمح لك، كي يُقرأ ما توزّعه."
+    ]
+   },
+   {
+    "id": "hand",
+    "shot": "camera-left.webp",
+    "kicker": "في اليد",
+    "h2": "مصنوع لليد",
+    "alt": "شاشة كاميرا Verdetto في تخطيط اليد اليسرى، وعناصر التحكم على اليسار.",
+    "ps": [
+     "بلاطة في الإعدادات السريعة تفتح الكاميرا من الظِّل. انقر للتركيز، وقرّب بإصبعين، ومصباح حين يخفت الضوء. تخطيط لليد اليسرى يضع كل عنصر تحكم في المتناول. يمكن قراءة النتائج بصوت عالٍ. صوت واهتزاز عند القراءة إن أردت. إحدى عشرة لغة. Android 8 وما بعده."
+    ]
+   },
+   {
+    "id": "history",
+    "shot": "history.webp",
+    "kicker": "سجلّك",
+    "h2": "سجلٌّ يخصّك",
+    "alt": "سجل Verdetto مع شارات تصفية للروابط وWi-Fi والدُفعات والمميّز بنجمة، وورقة نتيجة أُعيد فتحها منه.",
+    "ps": [
+     "ابحث فيه، وميّز بنجمة، واسحب للحذف، وصدّره أو استورده بصيغة CSV. عمليات المسح الأقدم من 90 يومًا تُمحى من تلقاء نفسها ما لم تميّزها بنجمة. الجلسة الخاصة لا تحفظ شيئًا على الإطلاق. ينتقل السجل مع النسخة الاحتياطية لهاتفك ما لم توقف ذلك، وإزالة التطبيق تحذفه."
+    ]
+   },
+   {
+    "id": "apps",
+    "shot": None,
+    "kicker": "التطبيقات الأخرى",
+    "h2": "يعمل مع التطبيقات الأخرى",
+    "alt": "",
+    "ps": [
+     "يمكن لأي تطبيق أن يطلب من Verdetto مسحًا ويستلم الرمز، كما كانت التطبيقات تفعل مع ماسح ZXing. شارك معه صورة فيفكّ الرموز التي فيها. {DEV}."
+    ],
+    "dev": "التفاصيل للمطوّرين"
+   },
+   {
+    "id": "free",
+    "shot": None,
+    "cta": True,
+    "kicker": "الاتفاق",
+    "h2": "مجاني، بلا إعلانات، لا يجمع شيئًا",
+    "alt": "",
+    "ps": [
+     "كل ميزة مجانية للجميع وستبقى كذلك. لا حسابات ولا تحليلات ولا إعلانات، وبالتالي لا أزرار زائفة. تُمسح الإطارات على الجهاز ثم تُهمَل. يدفع ثمنه ويمرّره من يستخدمونه: مساهمة لمرة واحدة من 0.99 دولار تُبقيه مستمرًا، ولا شيء مقفل خلفها. {SUPPORT}."
+    ],
+    "support": "كيف يعمل ذلك"
+   }
+  ]
+ }
+}
+
+# the formats the validation matrix of 2026-09-04 read (scanner-app SCAN-VALIDATION.md, 31 formats, all reads correct); the
+# page renders the count from this list so the number cannot drift from the evidence
+FORMATS_READ = ["EAN-13", "EAN-8", "UPC-A", "UPC-E", "ISBN", "GS1 DataBar", "DataBar Limited", "DataBar Stacked", "DataBar Stacked Omni", "DataBar Expanded", "DataBar Expanded Stacked", "Code 128", "Code 39", "Code 93", "Codabar", "ITF", "ITF-14", "Telepen", "MaxiCode", "PZN", "Code 32", "QR Code", "Micro QR", "rMQR", "Aztec", "Aztec Rune", "Data Matrix", "PDF417", "Compact PDF417", "MicroPDF417", "DX film edge"]
+
+
+def features_body(t, code):
+    """The features page from its strings table: a hero line, then one section per job with an overline kicker, a
+    title-large heading, the claim, optional format chips, and one screenshot in the site's phone frame."""
+    def link(page, label):
+        return f'<a href="{href(localized(page, code))}">{label}</a>'
+    out = [f'<div class="hero"><div><h1>{t["title"]}</h1><p>{t["lede"]}</p></div></div>']
+    for sec in t["sections"]:
+        ps = []
+        for x in sec["ps"]:
+            x = (x.replace("{GUIDE}", link("check-qr-code-link.html", sec.get("guide", "")))
+                  .replace("{PRIVACY}", link("privacy.html", sec.get("privacy", "")))
+                  .replace("{DEV}", link("developers.html", sec.get("dev", "")))
+                  .replace("{SUPPORT}", link("support-the-work.html", sec.get("support", ""))))
+            ps.append(f'<p>{x}</p>')
+        if sec.get("formats"):
+            ps.append(f'<p>{t["formats_line"].replace("{N}", str(len(FORMATS_READ)))}</p>')
+            ps.append('<ul class="tags">' + ''.join(f'<li>{f}</li>' for f in FORMATS_READ) + '</ul>')
+        if sec.get("cta"):
+            ps.append(f'<span class="label">{ic("clock")}{HOME_T[code]["coming"]}</span>')
+        shot = (f'<img class="shot" src="screens/{sec["shot"]}" width="540" height="1140" alt="{sec["alt"]}" loading="lazy">' if sec["shot"] else '')
+        cls = 'feature' if sec["shot"] else 'feature text'
+        out.append(f'<section class="{cls}" id="{sec["id"]}"><div><p class="kicker">{sec["kicker"]}</p><h2>{sec["h2"]}</h2>{"".join(ps)}</div>{shot}</section>')
+    return "\n" + "\n".join(out) + "\n"
+
+
+LOCAL["features.html"] = {code: page for code, page in family_pages("features.html").items() if code in FEAT_T}
+
+
 # ---- the home page in eleven languages: one template, one strings table (terminology follows the Play listings) -----
 HOME_T = {
  "en": dict(title="Verdetto: QR & Barcode Scanner for Android", desc="See the link before it opens. Free, no ads, no tracking. Made for damaged codes.",
@@ -4199,7 +5472,9 @@ PAGES = {
 PAGE_LANG = {}  # name -> (lang, rtl, alternates) for pages that are not plain English
 PAGE_LANG["privacy.html"] = ("en", False, PRIVACY_ALTERNATES)
 PAGE_LANG["terms.html"] = ("en", False, TERMS_ALTERNATES)
-for _langs, _alternates, _translate in ((PRIVACY_LANGS, PRIVACY_ALTERNATES, privacy_translation), (TERMS_LANGS, TERMS_ALTERNATES, terms_translation)):
+PAGE_LANG["community-license.html"] = ("en", False, COMMUNITY_ALTERNATES)
+for _langs, _alternates, _translate in ((PRIVACY_LANGS, PRIVACY_ALTERNATES, privacy_translation), (TERMS_LANGS, TERMS_ALTERNATES, terms_translation),
+                                        (COMMUNITY_LANGS, COMMUNITY_ALTERNATES, community_translation)):
     for _code, _label, _page_name in _langs[1:]:
         _title, _desc, _body = _translate(_code)
         PAGES[_page_name] = (_title, _desc, _body, {"@type": "WebPage", "name": _title.split(" - ")[0], "publisher": ORG, "inLanguage": _code})
@@ -4246,6 +5521,15 @@ for _code in LANG_CODES[1:]:
     _t, _pg = DEV_T[_code], LOCAL["developers.html"][_code]
     PAGES[_pg] = (_t["title"] + " - Verdetto", _t["desc"], dev_body(_t, _code), dev_ld(_t, _code))
     PAGE_LANG[_pg] = (_code, _code == "ar", alternates_for("developers.html"))
+PAGES["features.html"] = (FEAT_T["en"]["title"] + " - Verdetto", FEAT_T["en"]["desc"], features_body(FEAT_T["en"], "en"),
+                          {"@type": "WebPage", "name": FEAT_T["en"]["title"], "publisher": ORG})
+for _code in LANG_CODES[1:]:
+    if _code in FEAT_T:
+        _t, _pg = FEAT_T[_code], LOCAL["features.html"][_code]
+        PAGES[_pg] = (_t["title"] + " - Verdetto", _t["desc"], features_body(_t, _code), {"@type": "WebPage", "name": _t["title"], "publisher": ORG, "inLanguage": _code})
+        PAGE_LANG[_pg] = (_code, _code == "ar", alternates_for("features.html"))
+if len(FEAT_T) > 1:
+    PAGE_LANG["features.html"] = ("en", False, alternates_for("features.html"))
 BENCH_PUBLISHED = False  # True once the benchmark page is cleared for the live site
 
 

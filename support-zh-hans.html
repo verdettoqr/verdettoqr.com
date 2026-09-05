@@ -56,6 +56,7 @@ a{color:var(--primary)}
 .skip{position:absolute;inset-inline-start:0;top:0;transform:translateY(-150%);background:var(--primary);color:var(--on-primary);padding:.5rem 1rem;border-radius:0 0 8px 0;z-index:2}
 .skip:focus{transform:none}
 .wrap{max-width:44rem;margin:0 auto;padding:0 1rem}
+.wrap.narrow{max-width:36rem}
 .draft{background:var(--tertiary);color:var(--on-tertiary);text-align:center;padding:.4rem;font-size:.875rem;line-height:1.25rem;font-weight:500;letter-spacing:.01em}
 header{border-bottom:1px solid var(--outline-variant)}
 header .wrap{display:flex;align-items:center;gap:.75rem;min-height:64px;padding-top:.5rem;padding-bottom:.5rem;flex-wrap:wrap}
@@ -91,6 +92,7 @@ p,li{margin:.5rem 0}
 .grid .card .label{margin:0 0 .25rem;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant)}
 .callout{background:var(--surface-container-high);border-left:4px solid var(--primary);border-radius:0 12px 12px 0;display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:center}.callout .shot.small{width:120px;margin:0}nav a,.more summary{position:relative}nav a::after,.more summary::after{content:"";position:absolute;inset:-5px 0}
 .faq p strong{color:var(--on-surface);font-weight:500}
+.faq h3{margin:1.5rem 0 .25rem}.faq h3+p{margin:0}
 .prose ol,.prose ul{padding-left:1.4rem}
 .prose li{margin:.6rem 0}
 table{border-collapse:collapse;width:100%;font-size:.875rem;line-height:1.25rem;display:block;overflow-x:auto;margin:1rem 0}
@@ -104,10 +106,11 @@ td:first-child{min-width:12rem}
 p.langs{font-size:.8125rem;line-height:1.5;color:var(--on-surface-variant)}p.langs a[aria-current]{font-weight:600;text-decoration:none}
 details.more{margin:1rem 0}details.more summary{cursor:pointer;color:var(--primary);font-weight:500;font-size:.875rem;line-height:1.25rem;padding:.6rem .75rem;border-radius:20px;display:inline-block;background:var(--surface-container)}details.more[open] summary{margin-bottom:.5rem}
 footer{background:var(--surface-container);margin-top:2rem}
-footer .wrap{padding:1.5rem 1rem 2rem;color:var(--on-surface-variant);font-size:.875rem;line-height:1.25rem}
+footer .wrap{padding:1.5rem 1rem 2rem;color:var(--on-surface-variant);font-size:.875rem;line-height:1.25rem;display:grid;grid-template-columns:1fr auto;gap:1rem 2rem;align-items:start}footer .code{display:block;margin-top:.25rem}footer .code img{display:block;width:96px;height:96px}
 footer a{color:var(--primary)}
+.feature{display:grid;grid-template-columns:1fr 220px;gap:2rem;align-items:start;padding:1.75rem 0;border-top:1px solid var(--outline-variant)}.feature.text{grid-template-columns:1fr}.feature h2{border-top:0;margin:0 0 .5rem;padding-top:0}.feature .shot{width:220px;margin:0}.feature p{margin:.5rem 0}.feature .kicker{margin:0 0 .25rem;font-size:.875rem;line-height:1.25rem;font-weight:500;letter-spacing:.03em;color:var(--primary)}.tags{display:flex;flex-wrap:wrap;gap:.5rem;margin:.75rem 0 0;padding:0;list-style:none}.tags li{margin:0;padding:.25rem .75rem;border:1px solid var(--outline-variant);border-radius:8px;font-size:.875rem;line-height:1.25rem;color:var(--on-surface)}.feature .label{display:inline-flex;align-items:center;gap:.4rem;margin-top:.75rem;color:var(--on-surface-variant);font-weight:500;font-size:.875rem;line-height:1.25rem}.feature .label svg{width:18px;height:18px}
 @media (min-width:640px){.grid{grid-template-columns:1fr 1fr}.grid .card{grid-template-columns:1fr}.grid.three{grid-template-columns:1fr}.grid.three .card{grid-template-columns:auto 1fr}}
-@media (max-width:600px){.hero{grid-template-columns:1fr}.shot{width:220px;margin:0 auto}h1,.hero h1{font-size:1.75rem;line-height:2.25rem}nav{margin-left:0;width:100%;order:3}.lang{margin-inline-start:auto;order:2}.callout{grid-template-columns:1fr}.callout .shot.small{margin:0 auto}}
+@media (max-width:600px){.feature{grid-template-columns:1fr}.feature .shot{margin:0 auto}.hero{grid-template-columns:1fr}.shot{width:220px;margin:0 auto}h1,.hero h1{font-size:1.75rem;line-height:2.25rem}nav{margin-left:0;width:100%;order:3}.lang{margin-inline-start:auto;order:2}.callout{grid-template-columns:1fr}.callout .shot.small{margin:0 auto}}
 @media print{.draft,.skip,nav,footer .links{display:none}body{background:#fff;color:#000;font-size:12pt}a{color:#000}h2{color:#000;border-top-color:#999}.card,.callout{background:#f2f2f2}}
 </style>
 </head>
@@ -202,9 +205,9 @@ footer a{color:var(--primary)}
   </g></symbol><symbol id="ic-scan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3"/><path fill="currentColor" stroke="none" d="M9 9h2v2H9zM13 9h2v2h-2zM9 13h2v2H9zM13 13h2v2h-2z"/></symbol><symbol id="ic-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol><symbol id="ic-warning" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l10 17H2z"/><path d="M12 9v5M12 17.2h.01"/></symbol><symbol id="ic-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6z"/><path d="M9 11h6M9 14h6"/></symbol><symbol id="ic-barcode" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" stroke="none" d="M3 5h2v14H3zM7 5h1v14H7zM10 5h3v14h-3zM15 5h1v14h-1zM18 5h3v14h-3z"/></symbol><symbol id="ic-history" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol><symbol id="ic-offline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 11.5 3.5 3.5 0 0 0 7 18z"/><path d="M4 4l16 16"/></symbol><symbol id="ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></symbol><symbol id="ic-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2.5 1.5"/></symbol><symbol id="ic-language" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 2.6 4.2 5.6 4.2 9s-1.4 6.4-4.2 9c-2.8-2.6-4.2-5.6-4.2-9S9.2 5.6 12 3z"/></symbol></svg>
 <header><div class="wrap">
   <a class="brand" href="/zh-hans"><svg aria-hidden="true"><use href="#mark"/></svg>Verdetto</a>
-  <nav aria-label="Site"><a href="/support-zh-hans" aria-current="page">帮助</a><a href="/check-qr-code-link-zh-hans">指南</a><a href="/support-the-work-zh-hans">支持这项工作</a></nav><details class="lang"><summary aria-label="语言: 简体中文"><svg aria-hidden="true"><use href="#ic-language"/></svg><span>简体中文</span></summary><ul class="menu"><li><a href="/support" lang="en" hreflang="en">English</a></li><li><a href="/support-es" lang="es" hreflang="es">Español</a></li><li><a href="/support-fr" lang="fr" hreflang="fr">Français</a></li><li><a href="/support-de" lang="de" hreflang="de">Deutsch</a></li><li><a href="/support-pt-br" lang="pt-BR" hreflang="pt-BR">Português (Brasil)</a></li><li><a href="/support-ru" lang="ru" hreflang="ru">Русский</a></li><li><a href="/support-id" lang="id" hreflang="id">Bahasa Indonesia</a></li><li><a href="/support-ja" lang="ja" hreflang="ja">日本語</a></li><li><a href="/support-zh-hans" lang="zh-Hans" hreflang="zh-Hans" aria-current="page">简体中文</a></li><li><a href="/support-hi" lang="hi" hreflang="hi">हिन्दी</a></li><li><a href="/support-ar" lang="ar" hreflang="ar">العربية</a></li></ul></details>
+  <nav aria-label="Site"><a href="/features-zh-hans">功能</a><a href="/support-zh-hans" aria-current="page">帮助</a><a href="/check-qr-code-link-zh-hans">指南</a><a href="/support-the-work-zh-hans">支持这项工作</a></nav><details class="lang"><summary aria-label="语言: 简体中文"><svg aria-hidden="true"><use href="#ic-language"/></svg><span>简体中文</span></summary><ul class="menu"><li><a href="/support" lang="en" hreflang="en">English</a></li><li><a href="/support-es" lang="es" hreflang="es">Español</a></li><li><a href="/support-fr" lang="fr" hreflang="fr">Français</a></li><li><a href="/support-de" lang="de" hreflang="de">Deutsch</a></li><li><a href="/support-pt-br" lang="pt-BR" hreflang="pt-BR">Português (Brasil)</a></li><li><a href="/support-ru" lang="ru" hreflang="ru">Русский</a></li><li><a href="/support-id" lang="id" hreflang="id">Bahasa Indonesia</a></li><li><a href="/support-ja" lang="ja" hreflang="ja">日本語</a></li><li><a href="/support-zh-hans" lang="zh-Hans" hreflang="zh-Hans" aria-current="page">简体中文</a></li><li><a href="/support-hi" lang="hi" hreflang="hi">हिन्दी</a></li><li><a href="/support-ar" lang="ar" hreflang="ar">العربية</a></li></ul></details>
 </div></header>
-<main id="main"><div class="wrap">
+<main id="main"><div class="wrap narrow">
 
 <h1>帮助</h1>
 <div class="card"><p>扫描、警告或应用出了问题？<a href="/report-zh-hans">报告它</a>；每份报告都由人来阅读。被误列入名单的网站会在当天复核。</p></div>
@@ -212,35 +215,35 @@ footer a{color:var(--primary)}
 
 <h2>常见问题</h2>
 <div class="faq">
-<p><strong>它显示“未发现警告”。这个链接安全吗？</strong><br>
-应用不知道，它也从不说某样东西安全。“未发现警告”意味着它的检查都没有命中。看看它显示给你的地址，只有在你本来就会打开的情况下才打开。</p>
+<h3>它显示“未发现警告”。这个链接安全吗？</h3>
+<p>应用不知道，它也从不说某样东西安全。“未发现警告”意味着它的检查都没有命中。看看它显示给你的地址，只有在你本来就会打开的情况下才打开。</p>
 
-<p><strong>离线可用吗？</strong><br>
-可以。扫描和每项内置检查都在手机上完成。在线查询会补充短链接的去向、域名的年龄、商品详情，以及车辆来自 NHTSA 和 EPA 的召回、碰撞测试评级和燃油经济性。它们需要网络连接，可在设置中关闭。</p>
+<h3>离线可用吗？</h3>
+<p>可以。扫描和每项内置检查都在手机上完成。在线查询会补充短链接的去向、域名的年龄、商品详情，以及车辆来自 NHTSA 和 EPA 的召回、碰撞测试评级和燃油经济性。它们需要网络连接，可在设置中关闭。</p>
 
-<p><strong>为什么它要用相机？</strong><br>
-为了扫描。它可能另外请求的只有一次联系人访问权限，用于从手机个人资料填写你的名片。</p>
+<h3>为什么它要用相机？</h3>
+<p>为了扫描。它可能另外请求的只有一次联系人访问权限，用于从手机个人资料填写你的名片。</p>
 
-<p><strong>如何关闭在线查询？</strong><br>
-设置，然后“允许在线查询”。关闭后，手机不会发出任何内容。商品查询在其下方有自己的开关。</p>
+<h3>如何关闭在线查询？</h3>
+<p>设置，然后“允许在线查询”。关闭后，手机不会发出任何内容。商品查询在其下方有自己的开关。</p>
 
-<p><strong>如何删除我的历史记录？</strong><br>
-滑动一条记录，或在设置中“清除历史记录”。超过 90 天的扫描会自行清除，除非你加了星标。除非你关闭，历史记录也会随手机自身的备份一起保存；卸载会将其删除。</p>
+<h3>如何删除我的历史记录？</h3>
+<p>滑动一条记录，或在设置中“清除历史记录”。超过 90 天的扫描会自行清除，除非你加了星标。除非你关闭，历史记录也会随手机自身的备份一起保存；卸载会将其删除。</p>
 
-<p><strong>一个码扫不出来。</strong><br>
-让它占满更多屏幕，保持稳定，让相机对焦。破损或褪色的码需要多一点时间。如果仍然读不出，且内容不敏感，请把码的照片发给我们。</p>
+<h3>一个码扫不出来。</h3>
+<p>让它占满更多屏幕，保持稳定，让相机对焦。破损或褪色的码需要多一点时间。如果仍然读不出，且内容不敏感，请把码的照片发给我们。</p>
 
-<p><strong>支持款项能解锁什么？</strong><br>
-没有你需要的东西；一切保持免费。支持者会获得一枚可隐藏的徽章，还计划有几项小额外内容。</p>
+<h3>支持款项能解锁什么？</h3>
+<p>没有你需要的东西；一切保持免费。支持者会获得一枚可隐藏的徽章，还计划有几项小额外内容。</p>
 
 </div>
 <p>不确定该看链接的哪些地方？请阅读<a href="/check-qr-code-link-zh-hans">如何在打开前检查二维码链接</a>。想让应用对所有人保持免费？<a href="/support-the-work-zh-hans">支持这项工作</a>。</p>
 
 </div></main>
-<footer><div class="wrap">
+<footer><div class="wrap"><div>
   <p>&copy; 2026 <span class="lockup"><svg aria-hidden="true"><use href="#mark"/></svg>Verdetto</span> &middot; <a href="mailto:support@verdettoqr.com">support@verdettoqr.com</a></p>
-  <p class="links"><a href="/privacy-zh-hans">隐私政策</a> &middot; <a href="/terms-zh-hans">使用条款</a> &middot; <a href="/support-zh-hans">帮助</a> &middot; <a href="/check-qr-code-link-zh-hans">如何检查二维码链接</a> &middot; <a href="/support-the-work-zh-hans">支持这项工作</a> &middot; <a href="/report-zh-hans">报告问题</a> &middot; <a href="/safety-list-zh-hans">本周安全名单</a> &middot; <a href="/developers-zh-hans">面向开发者</a> &middot; <a href="/press-zh-hans">媒体资料</a></p>
+  <p class="links"><a href="/privacy-zh-hans">隐私政策</a> &middot; <a href="/terms-zh-hans">使用条款</a> &middot; <a href="/support-zh-hans">帮助</a> &middot; <a href="/features-zh-hans">功能</a> &middot; <a href="/check-qr-code-link-zh-hans">如何检查二维码链接</a> &middot; <a href="/support-the-work-zh-hans">支持这项工作</a> &middot; <a href="/report-zh-hans">报告问题</a> &middot; <a href="/safety-list-zh-hans">本周安全名单</a> &middot; <a href="/developers-zh-hans">面向开发者</a> &middot; <a href="/press-zh-hans">媒体资料</a></p>
   <p class="links">在这里找到我们： <a href="https://mastodon.social/@VerdettoQR" rel="me">Mastodon</a> &middot; <a href="https://www.reddit.com/user/VerdettoQR/" rel="me">Reddit</a> &middot; <a href="https://github.com/verdettoqr" rel="me">GitHub</a></p>
-</div></footer>
+</div><a class="code" href="/zh-hans"><picture><source srcset="verdetto-code-dark.svg" media="(prefers-color-scheme: dark)"><img src="verdetto-code-light.svg" width="96" height="96" alt="打开 verdettoqr.com 的二维码" loading="lazy"></picture></a></div></footer>
 </body>
 </html>

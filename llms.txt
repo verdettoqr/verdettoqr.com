@@ -39,6 +39,16 @@ Official accounts: Mastodon https://mastodon.social/@VerdettoQR; Reddit https://
 - [使用条款](https://verdettoqr.com/terms-zh-hans): Verdetto: QR & Barcode Scanner 的使用条款。安全检查是什么、不是什么，以及关于扫描内容的每个决定都由您做出。
 - [उपयोग की शर्तें](https://verdettoqr.com/terms-hi): Verdetto: QR & Barcode Scanner की उपयोग की शर्तें। सुरक्षा जाँचें क्या हैं और क्या नहीं, और स्कैन की गई सामग्री पर हर निर्णय आपका है।
 - [شروط الاستخدام](https://verdettoqr.com/terms-ar): شروط الاستخدام لتطبيق Verdetto: QR & Barcode Scanner. ما هي فحوصات الأمان وما ليست عليه، وأن كل قرار بشأن المحتوى الممسوح هو قرارك.
+- [Verdetto Community License](https://verdettoqr.com/community-license-es): Una licencia de marca, no de código: cuándo una compilación puede llevar el nombre, el icono o la insignia de Verdetto y qué estándares y valores debe mantener.
+- [Verdetto Community License](https://verdettoqr.com/community-license-fr): Une licence de marque, pas de code : quand une version peut porter le nom, l'icône ou le badge Verdetto et quels standards et valeurs elle doit tenir.
+- [Verdetto Community License](https://verdettoqr.com/community-license-de): Eine Markenlizenz, keine Code-Lizenz: wann ein Build Name, Symbol oder Abzeichen von Verdetto tragen darf und welche Standards und Werte er einhalten muss.
+- [Verdetto Community License](https://verdettoqr.com/community-license-pt-br): Uma licença de marca, não de código: quando uma versão pode levar o nome, o ícone ou o selo do Verdetto e quais padrões e valores ela precisa manter.
+- [Verdetto Community License](https://verdettoqr.com/community-license-ru): Лицензия на товарные знаки, не на код: когда сборка может носить имя, значок или бейдж Verdetto и какие стандарты и ценности она должна соблюдать.
+- [Verdetto Community License](https://verdettoqr.com/community-license-id): Lisensi merek, bukan lisensi kode: kapan sebuah build boleh memakai nama, ikon, atau lencana Verdetto, serta standar dan nilai yang harus dijaganya.
+- [Verdetto Community License](https://verdettoqr.com/community-license-ja): 商標ライセンスであり、コードのライセンスではありません。ビルドが Verdetto の名前、アイコン、バッジを掲げてよいのはいつか、そのために守るべき基準と価値。
+- [Verdetto Community License](https://verdettoqr.com/community-license-zh-hans): 这是一份商标许可，不是代码许可：构建版本何时可以使用 Verdetto 的名称、图标或徽章，以及必须坚持的标准和价值。
+- [Verdetto Community License](https://verdettoqr.com/community-license-hi): ट्रेडमार्क लाइसेंस, कोड लाइसेंस नहीं: कोई बिल्ड Verdetto का नाम, आइकन या बैज कब ले सकता है, और उसे कौन-से मानक और मूल्य बनाए रखने होंगे।
+- [Verdetto Community License](https://verdettoqr.com/community-license-ar): رخصة علامة تجارية لا رخصة كود: متى يجوز لبناء أن يحمل اسم Verdetto أو أيقونته أو شارته، والمعايير والقيم التي يجب أن يحافظ عليها.
 - [Verdetto: escáner de códigos QR y de barras para Android](https://verdettoqr.com/es): Mira el enlace antes de que se abra. Gratis, sin anuncios, sin rastreo. Hecho para códigos dañados.
 - [Verdetto: scanner de codes QR et codes-barres pour Android](https://verdettoqr.com/fr): Vois le lien avant qu'il ne s'ouvre. Gratuit, sans publicité, sans pistage. Conçu pour les codes abîmés.
 - [Verdetto: QR- und Barcode-Scanner für Android](https://verdettoqr.com/de): Sieh den Link, bevor er sich öffnet. Kostenlos, ohne Werbung, ohne Tracking. Gemacht für beschädigte Codes.
@@ -119,6 +129,17 @@ Official accounts: Mastodon https://mastodon.social/@VerdettoQR; Reddit https://
 - [أبلغ Verdetto](https://verdettoqr.com/report-ar): أبلغ عن رابط يبدو احتياليًا، أو رمز قُرئ خطأً، أو أي شيء آخر غير صحيح في Verdetto. يراجع شخصٌ كل بلاغ.
 - [قائمة الأمان هذا الأسبوع](https://verdettoqr.com/safety-list-ar): أرقام أسبوعية من قائمة التحذير العامة لـ Verdetto: البلاغات، والحالات، والمدخلات المضافة بعد المراجعة، والمحذوفات، والمجاميع. بيانات عامة فقط.
 - [للمطوّرين](https://verdettoqr.com/developers-ar): كيف يفتح تطبيق Android آخر Verdetto للمسح ويستلم الرمز: النوايا (intents)، وإضافات النتيجة، وKotlin وJava، وما يراه المستخدم.
+- [Everything it does](https://verdettoqr.com/features): Every feature of Verdetto, in the order people meet it: the link shown first, damaged codes, lookups you allow, codes you make, and no ads.
+- [Todo lo que hace](https://verdettoqr.com/features-es): Cada función de Verdetto, en el orden en que la gente la encuentra: el enlace primero, códigos dañados, consultas que permites, códigos propios y sin anuncios.
+- [Tout ce qu'elle fait](https://verdettoqr.com/features-fr): Chaque fonction de Verdetto, dans l'ordre où on la rencontre : le lien d'abord, les codes abîmés, les recherches autorisées, vos codes, et pas de publicité.
+- [Alles, was die App kann](https://verdettoqr.com/features-de): Jede Funktion von Verdetto in der Reihenfolge, in der man ihr begegnet: der Link zuerst, beschädigte Codes, erlaubte Abfragen, eigene Codes und keine Werbung.
+- [Tudo o que ele faz](https://verdettoqr.com/features-pt-br): Cada recurso do Verdetto, na ordem em que as pessoas o encontram: o link primeiro, códigos danificados, consultas permitidas, códigos seus e sem anúncios.
+- [Всё, что оно умеет](https://verdettoqr.com/features-ru): Каждая возможность Verdetto по порядку: сначала ссылка, повреждённые коды, разрешённые вами запросы, ваши собственные коды и никакой рекламы.
+- [Semua yang bisa dilakukannya](https://verdettoqr.com/features-id): Setiap fitur Verdetto, dalam urutan orang menemuinya: tautan ditampilkan dulu, kode rusak, pencarian yang Anda izinkan, kode buatan Anda, dan tanpa iklan.
+- [できることのすべて](https://verdettoqr.com/features-ja): Verdetto のすべての機能を、人が出会う順に: まずリンクを表示、傷んだコード、許可した照会、自分で作るコード、そして広告なし。
+- [它能做的一切](https://verdettoqr.com/features-zh-hans): Verdetto 的每一项功能，按人们遇到的顺序：先看到链接、受损的码、经您允许的查询、您自己制作的码，以及没有广告。
+- [यह जो कुछ करता है](https://verdettoqr.com/features-hi): Verdetto की हर सुविधा, उसी क्रम में जिसमें लोग उससे मिलते हैं: पहले लिंक, क्षतिग्रस्त कोड, आपकी अनुमति से खोज, आपके अपने कोड, और कोई विज्ञापन नहीं।
+- [كل ما يفعله](https://verdettoqr.com/features-ar): كل ميزة في Verdetto، بالترتيب الذي يلقاها الناس به: الرابط أولًا، والرموز المتضررة، والبحث الذي تسمح به، ورموزك التي تصنعها، وبلا إعلانات.
 
 ## Facts
 

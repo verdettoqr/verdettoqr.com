@@ -162,6 +162,16 @@ def wrap(draw, text, fnt, width, lang):
 
 
 OG_HEAD = {"report.html": "Report a link or a wrong read", "community-license.html": "Community License",
+           "community-license-es.html": "Community License",
+           "community-license-fr.html": "Community License",
+           "community-license-de.html": "Community License",
+           "community-license-pt-br.html": "Community License",
+           "community-license-ru.html": "Community License",
+           "community-license-id.html": "Community License",
+           "community-license-ja.html": "Community License",
+           "community-license-zh-hans.html": "Community License",
+           "community-license-hi.html": "Community License",
+           "community-license-ar.html": "Community License",
            "report-de.html": "Einen Link oder eine Fehllesung melden",
            "report-es.html": "Informar de un enlace o de una lectura errónea",
            "report-fr.html": "Signaler un lien ou une mauvaise lecture",
