@@ -29,8 +29,11 @@ EMAIL = "support@verdettoqr.com"
 
 svg = (HERE / "logo.svg").read_text(encoding="utf-8")
 # the transparent mark (the splash mark, no mint disc): the qr and accent groups, filled with the text color of the ground
-mark_inner = re.sub(r'fill="#[0-9A-Fa-f]{6}"', 'fill="currentColor"',
-                    "".join(re.findall(r'<g id="(?:qr|accent)"[^>]*>.*?</g>', svg, re.S)))
+_groups = "".join(re.findall(r'<g id="(?:qr|accent)"[^>]*>.*?</g>', svg, re.S))
+# the body takes the brand teal on light grounds and white on dark grounds (a CSS variable set per ground); the accent
+# is always the signal amber, as on the splash; never the text color
+mark_inner = _groups.replace('id="qr" fill="#003D35"', 'id="qr" fill="var(--mark-body,#003D35)"').replace('id="accent" fill="#B8650A"', 'id="accent" fill="#B8650A"')
+assert 'var(--mark-body' in mark_inner and '#B8650A' in mark_inner, "mark fills not set"
 assert mark_inner.count("<path") >= 30, "mark paths missing"
 inner = svg[svg.index(">", svg.index("<svg")) + 1: svg.rindex("</svg>")]
 inner = re.sub(r'<rect width="108" height="108" fill="#D5E8E3"/>', '<rect width="108" height="108" rx="24" fill="#D5E8E3"/>', inner)
@@ -57,7 +60,7 @@ SYMBOLS = ('<svg width="0" height="0" style="position:absolute" aria-hidden="tru
 CSS = """
 /* Material 3 color roles, copied from the app's Theme.kt so the site and the app are one palette. */
 :root{--surface:#E9F5F1;--on-surface:#191C1B;--on-surface-variant:#3F4946;--primary:#006B5E;--on-primary:#FFFFFF;--surface-container:#D5E8E3;--surface-container-high:#CFE2DC;--outline:#6F7977;--outline-variant:#B4CAC4;--tertiary:#8A5A00;--on-tertiary:#FFFFFF}
-@media (prefers-color-scheme:dark){:root{--surface:#0F1312;--on-surface:#DFE4E1;--on-surface-variant:#BEC9C5;--primary:#54DBC8;--on-primary:#003731;--surface-container:#1C201F;--surface-container-high:#262B29;--outline:#899390;--outline-variant:#3F4946;--tertiary:#FFB95A;--on-tertiary:#462A00}}
+@media (prefers-color-scheme:dark){:root{--mark-body:#FFFFFF;--surface:#0F1312;--on-surface:#DFE4E1;--on-surface-variant:#BEC9C5;--primary:#54DBC8;--on-primary:#003731;--surface-container:#1C201F;--surface-container-high:#262B29;--outline:#899390;--outline-variant:#3F4946;--tertiary:#FFB95A;--on-tertiary:#462A00}}
 /* M3 type scale (body-large 16/24, title-medium 16/24 500, title-large 22/28, headline-large 32/40, label-large 14/20 500),
    shape scale (chips 8, cards 12, large containers 16), tonal surfaces instead of shadows. Roboto is the app's face: the
    variable latin file under fonts/ (Apache 2.0, fonts/LICENSE.txt) serves every weight; the system stack stands in
@@ -76,7 +79,8 @@ header{border-bottom:1px solid var(--outline-variant)}
 header .wrap{display:flex;align-items:center;gap:.75rem;min-height:64px;padding-top:.5rem;padding-bottom:.5rem;flex-wrap:wrap}
 .brand{display:inline-flex;align-items:center;gap:.4rem;color:var(--on-surface);text-decoration:none;font-weight:500;font-size:1.375rem;line-height:1.75rem}
 .brand svg{width:.78em;height:.78em;flex:none}
-.lockup{white-space:nowrap}.lockup svg{width:.78em;height:.78em;vertical-align:-.04em;margin-inline-end:.3em;fill:currentColor}
+.lockup{white-space:nowrap}.lockup svg{width:.78em;height:.78em;vertical-align:-.04em;margin-inline-end:.3em}
+:root{--mark-body:#003D35}header,footer{--mark-body:#FFFFFF}
 nav{margin-left:auto;display:flex;gap:.25rem;flex-wrap:wrap}
 nav a{color:var(--on-surface-variant);text-decoration:none;font-weight:500;font-size:.875rem;line-height:1.25rem;padding:.6rem .75rem;border-radius:20px}
 nav a:hover{background:var(--surface-container)}
@@ -613,7 +617,7 @@ PRESS = f"""
 <h2>Assets</h2>
 <ul>
   <li><a href="icon-512.png">App icon, 512 px PNG</a> and <a href="logo.svg">the icon as SVG</a>. Mint ground, deep teal QR mark, one amber finder.</li>
-  <li><a href="lockup-ink.png">Lockup, mark and name, transparent PNG</a> for light grounds and <a href="lockup-white.png">the same in white</a> for dark grounds; the mark takes the text color and sits at the cap height of the name.</li>
+  <li><a href="lockup-teal-amber.png">Lockup, mark and name, transparent PNG</a> for light grounds (teal body, amber accent) and <a href="lockup-white-amber.png">the same with a white body</a> for dark grounds; the mark keeps its colors and sits at the cap height of the name.</li>
   <li><a href="og-image.png">Share image, 1200 by 630</a> and <a href="play-header-4096x2304.jpg">wide banner, 4096 by 2304</a>.</li>
   <li><a href="screens/result-sheet.webp">Result sheet screenshot</a>: a scanned link shown before it opens, with the "No warnings found" chip.</li>
 </ul>

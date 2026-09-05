@@ -49,27 +49,35 @@ def font(name, size):
 
 
 def transparent_mark(color, height):
-    """The QR mark alone, on a transparent ground, in one color: the master's pixels that are not the mint tile, their
-    distance from the tile color as alpha, cropped to the mark and scaled to the given height (the cap height of the name)."""
-    global _MARK_ALPHA
+    """The QR mark alone on a transparent ground: the body in the given color (teal on light grounds, white on dark),
+    the accent square always the signal amber, as on the splash. Built once from the master: pixels that are not the
+    mint tile, their distance from the tile as alpha; the accent pixels found by their orange hue."""
+    global _MARK_ALPHA, _MARK_ACCENT
     if "_MARK_ALPHA" not in globals():
         from PIL import ImageChops
         src = master.convert("RGB")
         diff = ImageChops.difference(src, Image.new("RGB", src.size, (0xD5, 0xE8, 0xE3))).convert("L")
         full = diff.point(lambda v: 255 if v > 30 else (0 if v < 4 else int(255 * (v - 4) / 26)))
-        _MARK_ALPHA = full.crop(full.getbbox())
-    alpha = _MARK_ALPHA
-    scale = height / alpha.height
-    alpha = alpha.resize((max(1, round(alpha.width * scale)), height), Image.LANCZOS)
-    out = Image.new("RGBA", alpha.size, color + (0,)); out.putalpha(alpha)
+        box = full.getbbox(); _MARK_ALPHA = full.crop(box)
+        r, g, b = src.crop(box).split()
+        # amber accent: red well above blue
+        _MARK_ACCENT = ImageChops.subtract(r, b).point(lambda v: 255 if v > 60 else 0)
+    alpha = _MARK_ALPHA; accent = _MARK_ACCENT
+    scale = height / alpha.height; size = (max(1, round(alpha.width * scale)), height)
+    alpha_s = alpha.resize(size, Image.LANCZOS); accent_s = accent.resize(size, Image.LANCZOS)
+    body = Image.new("RGBA", size, color + (255,))
+    amber = Image.new("RGBA", size, (0xB8, 0x65, 0x0A, 255))
+    out = Image.composite(amber, body, accent_s)
+    out.putalpha(alpha_s)
     return out
 
 
-def lockup(draw_target, x, y, text, fnt, color):
-    """Mark, then the name, the mark at the cap height of the text; returns the right edge."""
+def lockup(draw_target, x, y, text, fnt, color, body):
+    """Mark (body color plus the amber accent), then the name in the text color; the mark at the cap height of the
+    text; returns the right edge."""
     d = ImageDraw.Draw(draw_target)
     cap_top = y + fnt.getbbox("V")[1]; cap_bottom = y + fnt.getbbox("V")[3]
-    m = transparent_mark(color, cap_bottom - cap_top)
+    m = transparent_mark(body, cap_bottom - cap_top)
     draw_target.paste(m, (x, cap_top), m)
     tx = x + m.width + round(0.3 * fnt.size)
     d.text((tx, y), text, font=fnt, fill=color)
@@ -78,7 +86,7 @@ def lockup(draw_target, x, y, text, fnt, color):
 
 # Open Graph image 1200x630: the lockup, then the tagline
 og = Image.new("RGB", (1200, 630), MINT)
-lockup(og, 90, 120, "Verdetto", font("seguisb.ttf", 92), INK)
+lockup(og, 90, 120, "Verdetto", font("seguisb.ttf", 92), INK, DEEP)
 d = ImageDraw.Draw(og)
 d.text((90, 262), "QR & Barcode Scanner for Android", font=font("segoeui.ttf", 40), fill=TEAL)
 for i, line in enumerate(("See the link before it opens.", "No ads. No fake buttons.", "Made for damaged codes.")):
@@ -188,7 +196,7 @@ for name, (title, desc, _body, _ld) in build.PAGES.items():
         head, line = build.PAGES["privacy.html" if "privacy" in name else "terms.html"][0].split(" - ")[0], ""
     img = Image.new("RGB", (1200, 630), MINT)
     d = ImageDraw.Draw(img)
-    lockup(img, 90, 96, "Verdetto", page_font("en", 60, bold=True), INK)
+    lockup(img, 90, 96, "Verdetto", page_font("en", 60, bold=True), INK, DEEP)
     title_font = page_font(lang, 66, bold=True)
     title_lines = wrap(d, head, title_font, 1020, lang)[:2]
     y = 290
@@ -219,9 +227,9 @@ for name, (title, desc, _body, _ld) in build.PAGES.items():
 
 
 # Press kit lockups: mark and name on a transparent ground, ink for light grounds and white for dark grounds
-for fname, color in (("lockup-ink.png", INK), ("lockup-white.png", (0xFF, 0xFF, 0xFF))):
+for fname, color, body in (("lockup-teal-amber.png", INK, DEEP), ("lockup-white-amber.png", (0xFF, 0xFF, 0xFF), (0xFF, 0xFF, 0xFF))):
     canvas = Image.new("RGBA", (900, 200), (0, 0, 0, 0))
-    right = lockup(canvas, 20, 40, "Verdetto", font("seguisb.ttf", 120), color)
+    right = lockup(canvas, 20, 40, "Verdetto", font("seguisb.ttf", 120), color, body)
     canvas = canvas.crop((0, 0, right + 20, 200))
     canvas.save(HERE / fname, optimize=True)
     print("wrote", fname, canvas.size)
