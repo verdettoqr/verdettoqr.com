@@ -64,7 +64,7 @@ p,li{margin:.5rem 0}
 .card{background:var(--surface-container);border-radius:12px;padding:1rem;margin:1rem 0}
 .hero{display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;padding:1.5rem 0 .5rem}
 .hero .mark{width:64px;height:64px;display:block;margin-bottom:.5rem}
-.hero h1{margin:.25rem 0 .5rem}
+.hero h1{margin:.25rem 0 .5rem;font-size:2.25rem;line-height:2.75rem}
 .hero p{font-size:1.125rem;line-height:1.75rem;margin:0}
 .hero .label{display:inline-flex;align-items:center;gap:.4rem;margin-top:1rem;color:var(--on-surface-variant);font-weight:500;font-size:.875rem;line-height:1.25rem}
 .hero .label svg{width:18px;height:18px}.hero .support{margin:.75rem 0 0;font-size:.9375rem;line-height:1.375rem;color:var(--on-surface-variant)}
@@ -74,7 +74,7 @@ p,li{margin:.5rem 0}
 .grid .card svg{width:24px;height:24px;color:var(--primary);margin-top:.15rem}
 .grid h3{margin:0 0 .25rem;color:var(--on-surface)}
 .grid p{margin:0;font-size:.875rem;line-height:1.25rem;color:var(--on-surface-variant)}
-.callout{background:var(--surface-container-high);border-left:4px solid var(--primary);border-radius:0 12px 12px 0}
+.callout{background:var(--surface-container-high);border-left:4px solid var(--primary);border-radius:0 12px 12px 0;display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:center}.callout .shot.small{width:120px;margin:0}nav a,.more summary{position:relative}nav a::after,.more summary::after{content:"";position:absolute;inset:-5px 0}
 .faq p strong{color:var(--on-surface);font-weight:500}
 .prose ol,.prose ul{padding-left:1.4rem}
 .prose li{margin:.6rem 0}
@@ -91,7 +91,7 @@ footer{background:var(--surface-container);margin-top:2rem}
 footer .wrap{padding:1.5rem 1rem 2rem;color:var(--on-surface-variant);font-size:.875rem;line-height:1.25rem}
 footer a{color:var(--primary)}
 @media (min-width:640px){.grid{grid-template-columns:1fr 1fr}.grid.three{grid-template-columns:repeat(3,1fr)}}
-@media (max-width:600px){.hero{grid-template-columns:1fr}.shot{width:220px;margin:0 auto}h1{font-size:1.75rem;line-height:2.25rem}nav{margin-left:0;width:100%}}
+@media (max-width:600px){.hero{grid-template-columns:1fr}.shot{width:220px;margin:0 auto}h1,.hero h1{font-size:1.75rem;line-height:2.25rem}nav{margin-left:0;width:100%}.callout{grid-template-columns:1fr}.callout .shot.small{margin:0 auto}}
 @media print{.draft,.skip,nav,footer .links{display:none}body{background:#fff;color:#000;font-size:12pt}a{color:#000}h2{color:#000;border-top-color:#999}.card,.callout{background:#f2f2f2}}
 </style>
 </head>
@@ -198,7 +198,7 @@ footer a{color:var(--primary)}
     <span class="label"><svg aria-hidden="true"><use href="#ic-clock"/></svg>Coming soon to Google Play</span>
     <p class="support">Free and ad-free because the people who use it pay for it and pass it on. <a href="/support-the-work">How that works</a></p>
   </div>
-  <img class="shot" src="screens/result-sheet.webp" width="540" height="1140" alt="The Verdetto result sheet showing a scanned QR code that leads to wikipedia.org, the No warnings found chip, and an Open button that names the site.">
+  <img class="shot" src="screens/result-sheet-warning.webp" width="540" height="1140" alt="The Verdetto result sheet for a QR code that leads to paypa1.com: the address shown before anything opens, a Danger chip reading Imitates paypal.com, and an Open anyway button.">
 </div>
 
 <h2>What it does</h2>
@@ -207,28 +207,30 @@ footer a{color:var(--primary)}
   <div class="card"><svg aria-hidden="true"><use href="#ic-warning"/></svg><div><h3>Checked on your phone</h3><p>Lookalike names, short links, hidden sign-ins and more, flagged in one line.</p></div></div>
   <div class="card"><svg aria-hidden="true"><use href="#ic-scan"/></svg><div><h3>Built for damaged codes</h3><p>Faded, torn and badly printed QR codes and barcodes.</p></div></div>
   <div class="card"><svg aria-hidden="true"><use href="#ic-heart"/></svg><div><h3>Free, no ads, nothing collected</h3><p>Every feature free for everyone, kept that way by the people who use it.</p></div></div>
+  <div class="card"><svg aria-hidden="true"><use href="#ic-offline"/></svg><div><h3>Works offline</h3><p>Every check runs on the phone. One switch turns online lookups off.</p></div></div>
+  <div class="card"><svg aria-hidden="true"><use href="#ic-history"/></svg><div><h3>History that is yours</h3><p>Searchable, starrable, swipe to delete. Older than 90 days clears itself.</p></div></div>
 </div>
 <details class="more"><summary>Everything it does</summary>
 <div class="grid">
   <div class="card"><svg aria-hidden="true"><use href="#ic-shield"/></svg><div><h3>A warning list on the phone</h3><p>Known phishing, scam and sanctions entries, checked on the phone.</p></div></div>
   <div class="card"><svg aria-hidden="true"><use href="#ic-barcode"/></svg><div><h3>Looks things up</h3><p>Products, books, medicines and vehicles from open databases, only if you allow it. <a href="/privacy">Privacy policy</a>.</p></div></div>
-  <div class="card"><svg aria-hidden="true"><use href="#ic-history"/></svg><div><h3>History that is yours</h3><p>Searchable, starrable, swipe to delete. Older than 90 days clears itself.</p></div></div>
-  <div class="card"><svg aria-hidden="true"><use href="#ic-offline"/></svg><div><h3>Works offline</h3><p>Every check runs on the phone. One switch turns online lookups off.</p></div></div>
   <div class="card"><svg aria-hidden="true"><use href="#ic-scan"/></svg><div><h3>Made for the hand</h3><p>Quick Settings tile, batch mode, left-handed layout, read aloud, eleven languages.</p></div></div>
   <div class="card"><svg aria-hidden="true"><use href="#ic-eye"/></svg><div><h3>Works with other apps</h3><p>Any app can ask it for a scan and get the code back. ZXing calls still work. <a href="/developers">For developers</a>.</p></div></div>
 </div>
 </details>
 
 <h2>Why another QR scanner</h2>
-<p>Of the ten most-installed free scanners on Google Play, all ten carry ads, and reviews of seven describe a fake button in the ad. Many open a link the moment they read it. Verdetto does neither. It is made by a solo developer in Virginia; write any time: <a href="mailto:support@verdettoqr.com">support@verdettoqr.com</a>.</p>
+<p>Of the ten most-installed free scanners on Google Play, checked on September 4, 2026, all ten carry ads, and reviews of seven describe a fake button in the ad. Many open a link the moment they read it. Verdetto does neither. It is made by a solo developer in Virginia; write any time: <a href="mailto:support@verdettoqr.com">support@verdettoqr.com</a>.</p>
 
 <h2>What it will never tell you</h2>
-<div class="card callout"><p>That something is safe. "No warnings found" means none of its checks matched; opening is your call. <a href="/check-qr-code-link">How to check a link yourself</a>.</p></div>
+<div class="card callout"><div><p>That something is safe. "No warnings found" means none of its checks matched; opening is your call. <a href="/check-qr-code-link">How to check a link yourself</a>.</p></div><img class="shot small" src="screens/result-sheet.webp" width="540" height="1140" alt="The Verdetto result sheet showing a scanned QR code that leads to wikipedia.org, the No warnings found chip, and an Open button that names the site."></div>
+
 
 </div></main>
 <footer><div class="wrap">
   <p>&copy; 2026 <span class="lockup"><svg aria-hidden="true"><use href="#mark"/></svg>Verdetto</span> &middot; <a href="mailto:support@verdettoqr.com">support@verdettoqr.com</a></p>
   <p class="links"><a href="/privacy">Privacy policy</a> &middot; <a href="/terms">Terms of use</a> &middot; <a href="/support">Help</a> &middot; <a href="/check-qr-code-link">How to check a QR code link</a> &middot; <a href="/support-the-work">Support the work</a> &middot; <a href="/report">Report a problem</a> &middot; <a href="/safety-list">The safety list this week</a> &middot; <a href="/developers">For developers</a> &middot; <a href="/press">Press kit</a></p>
+  <p class="links">Where to find us: <a href="https://mastodon.social/@VerdettoQR" rel="me">Mastodon</a> &middot; <a href="https://www.reddit.com/user/VerdettoQR/" rel="me">Reddit</a> &middot; <a href="https://github.com/verdettoqr" rel="me">GitHub</a></p>
 </div></footer>
 </body>
 </html>
