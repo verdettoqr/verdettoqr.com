@@ -13,7 +13,7 @@ HERE = Path(__file__).parent
 DRAFT = False       # True while drafting: shows the review banner
 PUBLISH = True      # True at publication: clean URLs in links (GitHub Pages serves /privacy for privacy.html)
 SITE = "https://verdettoqr.com"
-PLAY_ID = "app.scanner.free"  # the app's applicationId (app/build.gradle.kts)
+PLAY_ID = "com.verdettoqr.scanner"  # the app's applicationId (app/build.gradle.kts)
 
 
 def play_link(source, medium="app", campaign=None):
@@ -113,6 +113,7 @@ p,li{margin:.5rem 0}
 .prose ol,.prose ul{padding-left:1.4rem}
 .prose li{margin:.6rem 0}
 table{border-collapse:collapse;width:100%;font-size:.875rem;line-height:1.25rem;display:block;overflow-x:auto;margin:1rem 0}
+.prose table{display:table;table-layout:fixed}.prose th,.prose td{overflow-wrap:anywhere;vertical-align:top}.prose th:nth-child(1){width:27%}.prose th:nth-child(2){width:18%}.prose th:nth-child(3){width:37%}.prose th:nth-child(4){width:18%}
 pre{background:var(--container);border-radius:.5rem;padding:.9rem 1rem;overflow-x:auto;font-size:.8125rem;line-height:1.35rem;margin:1rem 0}
 code{font-family:Consolas,'Cascadia Mono',Menlo,monospace;font-size:.92em}
 pre code{font-size:inherit}
@@ -2015,6 +2016,170 @@ REPORT = f"""
 <script>{REPORT_SCRIPT}</script>
 """
 
+REPORT_T = {
+ "de": {
+  "title": "Meldung an Verdetto",
+  "desc": "Melde einen Link, der nach Betrug aussieht, einen falsch gelesenen Code oder etwas anderes, das in Verdetto nicht stimmt. Ein Mensch prüft jede Meldung.",
+  "h1": "Meldung an {V}",
+  "meta": "Ein Link, der nach Betrug aussieht, ein Code, den die App falsch gelesen hat, falsche Angaben oder etwas anderes, das nicht stimmt.",
+  "card1": "Ein Mensch prüft jede Meldung. Nichts wird automatisch in die Sicherheitsliste aufgenommen, und Verdetto sagt nie, dass ein Link sicher ist. Bitte keine Passwörter, Zahlungsdaten oder persönlichen Dokumente angeben; wenn du aus der App kommst, ist der gescannte Text bereits eingetragen, und du kannst alles Private entfernen, bevor du absendest.",
+  "card2_lead": "Was danach passiert.",
+  "card2": "Eine Meldung über Betrug oder einen Eintrag aus Versehen wird zu einem Fall im öffentlichen <a href=\"{ISSUES}\">Listen-Repository</a>: die gemeldete Adresse, was die Prüfungen gefunden haben und die Entscheidung, nie deine E-Mail oder deine Beschreibung. Der Fall wird nach festen Regeln entschieden, und nur eine Seite, die neben einem Marken- oder Domain-Warnzeichen ein Anmelde- oder Zahlungsformular zeigt, wird gelistet.",
+  "card3_lead": "Aus Versehen gelistet?",
+  "card3": "Wähle „My site or link is listed by mistake“. Die Seite wird noch am selben Tag erneut abgerufen; zeigt sie kein Anmelde- oder Zahlungsformular mehr, wird der Eintrag beim nächsten Listen-Update aus allen Quellen unterdrückt, und die öffentliche Quelle, die ihn gelistet hat, erhält von uns eine Fehlalarm-Meldung. Unsere eigenen Einträge und ihre Belege sind im <a href=\"{OWN}\">Listen-Repository</a> öffentlich.",
+  "iframe_title": "Meldeformular",
+  "loading": "Wird geladen…",
+  "fallback": "Wenn das Formular hier nicht lädt, <a id=\"report-open\" href=\"{FORM_URL}\" rel=\"noopener\" target=\"_blank\">öffne es in einem neuen Tab</a> oder schreib an <a href=\"mailto:{EMAIL}\">{EMAIL}</a>. Das Formular ist ein Google-Formular und selbst auf Englisch; was du sendest, wird im Google-Konto von Verdetto gespeichert und nur zur Bearbeitung deiner Meldung verwendet. Details stehen in der <a href=\"{PRIVACY_HREF}\">Datenschutzerklärung</a>."
+ },
+ "es": {
+  "title": "Informar a Verdetto",
+  "desc": "Informa de un enlace que parece una estafa, de un código mal leído o de cualquier otra cosa que no esté bien en Verdetto. Una persona revisa cada informe.",
+  "h1": "Informar a {V}",
+  "meta": "Un enlace que parece una estafa, un código que la app leyó mal, datos equivocados o cualquier otra cosa que no esté bien.",
+  "card1": "Una persona revisa cada informe. Nada se añade a la lista de seguridad automáticamente, y Verdetto nunca dice que un enlace sea seguro. No incluyas contraseñas, datos de pago ni documentos personales; si vienes desde la app, el texto escaneado ya está rellenado y puedes quitar lo que sea privado antes de enviarlo.",
+  "card2_lead": "Qué pasa después.",
+  "card2": "Un informe de estafa o de inclusión por error se convierte en un caso en el <a href=\"{ISSUES}\">repositorio público de la lista</a>: la dirección que informaste, lo que encontraron las comprobaciones y la decisión, nunca tu correo ni tu descripción. El caso se decide con reglas fijas, y solo se incluye una página que muestre un formulario de credenciales o de pago junto a una señal de alerta de marca o de dominio.",
+  "card3_lead": "¿Incluido por error?",
+  "card3": "Elige «My site or link is listed by mistake». La página se vuelve a consultar el mismo día; si ya no muestra un formulario de credenciales o de pago, la entrada se suprime de todas las fuentes en la siguiente actualización de la lista, y la fuente pública que la incluyó recibe de nosotros un aviso de falso positivo. Nuestras propias entradas y sus pruebas son públicas en el <a href=\"{OWN}\">repositorio de la lista</a>.",
+  "iframe_title": "Formulario de informe",
+  "loading": "Cargando…",
+  "fallback": "Si el formulario no carga aquí, <a id=\"report-open\" href=\"{FORM_URL}\" rel=\"noopener\" target=\"_blank\">ábrelo en una pestaña nueva</a> o escribe a <a href=\"mailto:{EMAIL}\">{EMAIL}</a>. El formulario es un formulario de Google y está en inglés; lo que envías se guarda en la cuenta de Google de Verdetto y se usa solo para atender tu informe. Los detalles están en la <a href=\"{PRIVACY_HREF}\">política de privacidad</a>."
+ },
+ "fr": {
+  "title": "Signaler à Verdetto",
+  "desc": "Signalez un lien qui ressemble à une arnaque, un code mal lu ou toute autre chose qui ne va pas dans Verdetto. Une personne examine chaque signalement.",
+  "h1": "Signaler à {V}",
+  "meta": "Un lien qui ressemble à une arnaque, un code que l'application a mal lu, des informations fausses ou toute autre chose qui ne va pas.",
+  "card1": "Une personne examine chaque signalement. Rien n'est ajouté automatiquement à la liste de sécurité, et Verdetto ne dit jamais qu'un lien est sûr. N'indiquez ni mots de passe, ni données de paiement, ni documents personnels ; si vous venez de l'application, le texte scanné est déjà rempli et vous pouvez retirer ce qui est privé avant d'envoyer.",
+  "card2_lead": "Ce qui se passe ensuite.",
+  "card2": "Un signalement d'arnaque ou d'inscription par erreur devient un dossier dans le <a href=\"{ISSUES}\">dépôt public de la liste</a> : l'adresse signalée, ce que les vérifications ont trouvé et la décision, jamais votre e-mail ni votre description. Le dossier est tranché selon des règles fixes, et seule une page qui affiche un formulaire d'identifiants ou de paiement à côté d'un signal d'alerte de marque ou de domaine est inscrite.",
+  "card3_lead": "Inscrit par erreur ?",
+  "card3": "Choisissez « My site or link is listed by mistake ». La page est rechargée le jour même ; si elle n'affiche plus de formulaire d'identifiants ou de paiement, l'entrée est retirée de toutes les sources à la prochaine mise à jour de la liste, et le flux public qui l'avait inscrite reçoit de notre part un signalement de faux positif. Nos propres entrées et leurs preuves sont publiques dans le <a href=\"{OWN}\">dépôt de la liste</a>.",
+  "iframe_title": "Formulaire de signalement",
+  "loading": "Chargement…",
+  "fallback": "Si le formulaire ne se charge pas ici, <a id=\"report-open\" href=\"{FORM_URL}\" rel=\"noopener\" target=\"_blank\">ouvrez-le dans un nouvel onglet</a> ou écrivez à <a href=\"mailto:{EMAIL}\">{EMAIL}</a>. Le formulaire est un formulaire Google, en anglais ; ce que vous envoyez est stocké dans le compte Google de Verdetto et sert uniquement à traiter votre signalement. Les détails sont dans la <a href=\"{PRIVACY_HREF}\">politique de confidentialité</a>."
+ },
+ "pt-BR": {
+  "title": "Relatar ao Verdetto",
+  "desc": "Relate um link que parece golpe, um código lido errado ou qualquer outra coisa que não esteja certa no Verdetto. Uma pessoa analisa cada relato.",
+  "h1": "Relatar ao {V}",
+  "meta": "Um link que parece golpe, um código que o app leu errado, informações erradas ou qualquer outra coisa que não esteja certa.",
+  "card1": "Uma pessoa analisa cada relato. Nada entra na lista de segurança automaticamente, e o Verdetto nunca diz que um link é seguro. Não inclua senhas, dados de pagamento ou documentos pessoais; se você veio do app, o texto escaneado já está preenchido, e você pode remover qualquer coisa privada antes de enviar.",
+  "card2_lead": "O que acontece depois.",
+  "card2": "Um relato de golpe ou de inclusão por engano vira um caso no <a href=\"{ISSUES}\">repositório público da lista</a>: o endereço relatado, o que as verificações encontraram e a decisão, nunca seu e-mail ou sua descrição. O caso é decidido por regras fixas, e só entra na lista uma página que mostre um formulário de credenciais ou de pagamento ao lado de um sinal de alerta de marca ou de domínio.",
+  "card3_lead": "Incluído por engano?",
+  "card3": "Escolha \"My site or link is listed by mistake\". A página é consultada de novo no mesmo dia; se ela não mostrar mais um formulário de credenciais ou de pagamento, a entrada é suprimida de todas as fontes na próxima atualização da lista, e a fonte pública que a incluiu recebe de nós um aviso de falso positivo. Nossas próprias entradas e suas evidências são públicas no <a href=\"{OWN}\">repositório da lista</a>.",
+  "iframe_title": "Formulário de relato",
+  "loading": "Carregando…",
+  "fallback": "Se o formulário não carregar aqui, <a id=\"report-open\" href=\"{FORM_URL}\" rel=\"noopener\" target=\"_blank\">abra-o em uma nova aba</a> ou escreva para <a href=\"mailto:{EMAIL}\">{EMAIL}</a>. O formulário é um Formulário Google e está em inglês; o que você envia fica guardado na conta Google do Verdetto e é usado só para tratar seu relato. Os detalhes estão na <a href=\"{PRIVACY_HREF}\">política de privacidade</a>."
+ },
+ "id": {
+  "title": "Laporkan ke Verdetto",
+  "desc": "Laporkan tautan yang tampak seperti penipuan, kode yang salah dibaca, atau hal lain yang tidak benar di Verdetto. Setiap laporan ditinjau oleh manusia.",
+  "h1": "Laporkan ke {V}",
+  "meta": "Tautan yang tampak seperti penipuan, kode yang salah dibaca aplikasi, rincian yang keliru, atau hal lain yang tidak benar.",
+  "card1": "Setiap laporan ditinjau oleh manusia. Tidak ada yang ditambahkan ke daftar keamanan secara otomatis, dan Verdetto tidak pernah mengatakan sebuah tautan aman. Jangan sertakan kata sandi, data pembayaran, atau dokumen pribadi; jika Anda datang dari aplikasi, teks hasil pindaian sudah terisi, dan Anda bisa menghapus apa pun yang pribadi sebelum mengirim.",
+  "card2_lead": "Apa yang terjadi selanjutnya.",
+  "card2": "Laporan penipuan atau salah daftar menjadi sebuah kasus di <a href=\"{ISSUES}\">repositori publik daftar</a>: alamat yang Anda laporkan, temuan pemeriksaan, dan keputusannya, tidak pernah email atau uraian Anda. Kasus diputus dengan aturan tetap, dan hanya halaman yang menampilkan formulir kredensial atau pembayaran di samping tanda peringatan merek atau domain yang didaftar.",
+  "card3_lead": "Terdaftar karena keliru?",
+  "card3": "Pilih \"My site or link is listed by mistake\". Halaman diambil lagi pada hari yang sama; jika tidak lagi menampilkan formulir kredensial atau pembayaran, entri itu ditekan dari semua sumber pada pembaruan daftar berikutnya, dan umpan publik yang mendaftarkannya menerima laporan positif palsu dari kami. Entri kami sendiri dan buktinya bersifat publik di <a href=\"{OWN}\">repositori daftar</a>.",
+  "iframe_title": "Formulir laporan",
+  "loading": "Memuat…",
+  "fallback": "Jika formulir tidak muncul di sini, <a id=\"report-open\" href=\"{FORM_URL}\" rel=\"noopener\" target=\"_blank\">buka di tab baru</a>, atau tulis ke <a href=\"mailto:{EMAIL}\">{EMAIL}</a>. Formulir ini adalah Google Formulir dan berbahasa Inggris; apa yang Anda kirim disimpan di akun Google Verdetto dan hanya dipakai untuk menangani laporan Anda. Rinciannya ada di <a href=\"{PRIVACY_HREF}\">kebijakan privasi</a>."
+ },
+ "ru": {
+  "title": "Сообщить в Verdetto",
+  "desc": "Сообщите о ссылке, похожей на мошенничество, о неверно прочитанном коде или о чём-то ещё, что не так в Verdetto. Каждое сообщение проверяет человек.",
+  "h1": "Сообщить в {V}",
+  "meta": "Ссылка, похожая на мошенничество, код, который приложение прочитало неверно, ошибочные сведения или что-то ещё, что не так.",
+  "card1": "Каждое сообщение проверяет человек. Ничто не попадает в список безопасности автоматически, и Verdetto никогда не говорит, что ссылка безопасна. Не указывайте пароли, платёжные данные и личные документы; если вы пришли из приложения, отсканированный текст уже заполнен, и всё личное можно убрать перед отправкой.",
+  "card2_lead": "Что будет дальше.",
+  "card2": "Сообщение о мошенничестве или об ошибочном внесении становится делом в <a href=\"{ISSUES}\">публичном репозитории списка</a>: указанный вами адрес, что нашли проверки и решение, но никогда ваша почта или ваше описание. Дело решается по фиксированным правилам, и в список попадает только страница, показывающая форму входа или оплаты рядом с признаком опасности по бренду или домену.",
+  "card3_lead": "Внесено по ошибке?",
+  "card3": "Выберите «My site or link is listed by mistake». Страница запрашивается снова в тот же день; если она больше не показывает форму входа или оплаты, запись подавляется во всех источниках при следующем обновлении списка, а публичный источник, внёсший её, получает от нас сообщение о ложном срабатывании. Наши собственные записи и их доказательства открыты в <a href=\"{OWN}\">репозитории списка</a>.",
+  "iframe_title": "Форма сообщения",
+  "loading": "Загрузка…",
+  "fallback": "Если форма здесь не загружается, <a id=\"report-open\" href=\"{FORM_URL}\" rel=\"noopener\" target=\"_blank\">откройте её в новой вкладке</a> или напишите на <a href=\"mailto:{EMAIL}\">{EMAIL}</a>. Это Google Форма, и она на английском; отправленное хранится в аккаунте Google Verdetto и используется только для обработки вашего сообщения. Подробности в <a href=\"{PRIVACY_HREF}\">политике конфиденциальности</a>."
+ },
+ "hi": {
+  "title": "Verdetto को रिपोर्ट करें",
+  "desc": "धोखाधड़ी जैसा दिखने वाला लिंक, गलत पढ़ा गया कोड या Verdetto में जो कुछ भी ठीक नहीं है, उसकी रिपोर्ट करें। हर रिपोर्ट को एक व्यक्ति देखता है।",
+  "h1": "{V} को रिपोर्ट करें",
+  "meta": "धोखाधड़ी जैसा दिखने वाला लिंक, ऐप ने जो कोड गलत पढ़ा, गलत जानकारी, या कुछ और जो ठीक नहीं है।",
+  "card1": "हर रिपोर्ट को एक व्यक्ति देखता है। सुरक्षा सूची में कुछ भी अपने आप नहीं जोड़ा जाता, और Verdetto कभी नहीं कहता कि कोई लिंक सुरक्षित है। कृपया पासवर्ड, भुगतान विवरण या निजी दस्तावेज़ शामिल न करें; अगर आप ऐप से यहाँ आए हैं, तो स्कैन किया गया टेक्स्ट पहले से भरा है, और भेजने से पहले आप कुछ भी निजी हटा सकते हैं।",
+  "card2_lead": "आगे क्या होता है।",
+  "card2": "धोखाधड़ी या गलती से सूचीबद्ध होने की रिपोर्ट सार्वजनिक <a href=\"{ISSUES}\">सूची रिपॉज़िटरी</a> में एक केस बन जाती है: आपके द्वारा रिपोर्ट किया गया पता, जाँचों में क्या मिला, और निर्णय; आपका ईमेल या आपका विवरण कभी नहीं। केस तय नियमों से निर्णीत होता है, और केवल वही पेज सूचीबद्ध होता है जो किसी ब्रांड या डोमेन चेतावनी संकेत के साथ क्रेडेंशियल या भुगतान फ़ॉर्म दिखाता है।",
+  "card3_lead": "गलती से सूचीबद्ध?",
+  "card3": "\"My site or link is listed by mistake\" चुनें। पेज उसी दिन फिर से लाया जाता है; अगर उसमें अब क्रेडेंशियल या भुगतान फ़ॉर्म नहीं है, तो अगली सूची अपडेट में प्रविष्टि हर स्रोत से हटा दी जाती है, और जिस सार्वजनिक फ़ीड ने उसे सूचीबद्ध किया था, उसे हमारी ओर से गलत-सकारात्मक रिपोर्ट मिलती है। हमारी अपनी प्रविष्टियाँ और उनके प्रमाण <a href=\"{OWN}\">सूची रिपॉज़िटरी</a> में सार्वजनिक हैं।",
+  "iframe_title": "रिपोर्ट फ़ॉर्म",
+  "loading": "लोड हो रहा है…",
+  "fallback": "अगर फ़ॉर्म यहाँ लोड न हो, तो <a id=\"report-open\" href=\"{FORM_URL}\" rel=\"noopener\" target=\"_blank\">इसे नए टैब में खोलें</a>, या <a href=\"mailto:{EMAIL}\">{EMAIL}</a> पर लिखें। यह फ़ॉर्म एक Google फ़ॉर्म है और अंग्रेज़ी में है; आप जो भेजते हैं वह Verdetto के Google खाते में रखा जाता है और केवल आपकी रिपोर्ट को निपटाने के लिए इस्तेमाल होता है। विवरण <a href=\"{PRIVACY_HREF}\">गोपनीयता नीति</a> में है।"
+ },
+ "ja": {
+  "title": "Verdetto に報告",
+  "desc": "詐欺のように見えるリンク、誤って読み取られたコード、その他 Verdetto でおかしい点を報告してください。すべての報告を人が確認します。",
+  "h1": "{V} に報告",
+  "meta": "詐欺のように見えるリンク、アプリが誤って読み取ったコード、間違った情報、その他おかしい点。",
+  "card1": "すべての報告を人が確認します。安全リストに自動で追加されるものはなく、Verdetto はリンクが安全だとは決して言いません。パスワード、支払い情報、個人の書類は含めないでください。アプリから来た場合は読み取ったテキストがすでに入力されており、送信前に私的な部分を削除できます。",
+  "card2_lead": "この後の流れ。",
+  "card2": "詐欺や誤登録の報告は、公開の<a href=\"{ISSUES}\">リストのリポジトリ</a>で一件の案件になります。報告されたアドレス、確認で見つかったこと、そして判断が記録され、あなたのメールアドレスや説明は決して含まれません。案件は固定の規則で判断され、ブランドやドメインの警告サインの横に認証情報や支払いのフォームを表示しているページだけが登録されます。",
+  "card3_lead": "誤って登録された？",
+  "card3": "「My site or link is listed by mistake」を選んでください。ページは同じ日に再取得され、認証情報や支払いのフォームがもう表示されなければ、次のリスト更新ですべてのソースからその項目が除外され、登録した公開フィードには私たちから誤検知の報告が送られます。私たち自身の項目とその根拠は<a href=\"{OWN}\">リストのリポジトリ</a>で公開されています。",
+  "iframe_title": "報告フォーム",
+  "loading": "読み込み中…",
+  "fallback": "フォームがここに表示されない場合は、<a id=\"report-open\" href=\"{FORM_URL}\" rel=\"noopener\" target=\"_blank\">新しいタブで開く</a>か、<a href=\"mailto:{EMAIL}\">{EMAIL}</a> までお書きください。フォームは Google フォームで、英語です。送信内容は Verdetto の Google アカウントに保存され、報告の対応にのみ使われます。詳細は<a href=\"{PRIVACY_HREF}\">プライバシーポリシー</a>にあります。"
+ },
+ "zh-Hans": {
+  "title": "向 Verdetto 报告",
+  "desc": "报告看起来像诈骗的链接、被误读的码，或 Verdetto 中任何不对的地方。每一份报告都由人工审核。",
+  "h1": "向 {V} 报告",
+  "meta": "看起来像诈骗的链接、应用读错的码、错误的信息，或任何其他不对的地方。",
+  "card1": "每一份报告都由人工审核。没有任何内容会自动加入安全列表，Verdetto 也从不说某个链接是安全的。请不要填写密码、付款信息或个人证件；如果您从应用跳转而来，扫描到的文本已经填好，发送前可以删除任何私密内容。",
+  "card2_lead": "接下来会发生什么。",
+  "card2": "诈骗或误列报告会成为公开<a href=\"{ISSUES}\">列表仓库</a>中的一个案例：您报告的地址、检查发现的内容和裁定结果，绝不包含您的邮箱或描述。案例按固定规则裁定，只有在品牌或域名警告迹象旁显示凭据或付款表单的页面才会被列入。",
+  "card3_lead": "被误列了？",
+  "card3": "请选择“My site or link is listed by mistake”。该页面会在当天重新抓取；如果不再显示凭据或付款表单，该条目会在下次列表更新时从所有来源中移除，列入它的公开源也会收到我们的误报反馈。我们自己的条目及其证据在<a href=\"{OWN}\">列表仓库</a>中公开。",
+  "iframe_title": "报告表单",
+  "loading": "正在加载…",
+  "fallback": "如果表单没有在此加载，请<a id=\"report-open\" href=\"{FORM_URL}\" rel=\"noopener\" target=\"_blank\">在新标签页中打开</a>，或写信至 <a href=\"mailto:{EMAIL}\">{EMAIL}</a>。该表单是 Google 表单，且为英文；您提交的内容保存在 Verdetto 的 Google 账户中，仅用于处理您的报告。详情见<a href=\"{PRIVACY_HREF}\">隐私政策</a>。"
+ },
+ "ar": {
+  "title": "أبلغ Verdetto",
+  "desc": "أبلغ عن رابط يبدو احتياليًا، أو رمز قُرئ خطأً، أو أي شيء آخر غير صحيح في Verdetto. يراجع شخصٌ كل بلاغ.",
+  "h1": "أبلغ {V}",
+  "meta": "رابط يبدو احتياليًا، أو رمز قرأه التطبيق خطأً، أو معلومات خاطئة، أو أي شيء آخر غير صحيح.",
+  "card1": "يراجع شخصٌ كل بلاغ. لا يُضاف شيء إلى قائمة الأمان تلقائيًا، ولا يقول Verdetto أبدًا إن رابطًا ما آمن. يُرجى عدم إدراج كلمات المرور أو بيانات الدفع أو المستندات الشخصية؛ وإذا جئت من التطبيق فالنص الممسوح مُدخل مسبقًا، ويمكنك إزالة أي شيء خاص قبل الإرسال.",
+  "card2_lead": "ما الذي يحدث بعد ذلك.",
+  "card2": "يتحول بلاغ الاحتيال أو الإدراج الخاطئ إلى حالة في <a href=\"{ISSUES}\">مستودع القائمة العام</a>: العنوان الذي أبلغت عنه، وما وجدته الفحوص، والقرار، ولا يُنشر بريدك أو وصفك أبدًا. تُقرَّر الحالة بقواعد ثابتة، ولا تُدرَج إلا صفحة تعرض نموذج بيانات دخول أو دفع بجوار علامة تحذير تتعلق بعلامة تجارية أو نطاق.",
+  "card3_lead": "أُدرج خطأً؟",
+  "card3": "اختر «My site or link is listed by mistake». تُجلَب الصفحة مجددًا في اليوم نفسه؛ فإن لم تَعُد تعرض نموذج بيانات دخول أو دفع، يُحجب المدخل من كل المصادر في تحديث القائمة التالي، ويتلقى المصدر العام الذي أدرجه بلاغًا منا عن نتيجة إيجابية زائفة. مدخلاتنا وأدلتها علنية في <a href=\"{OWN}\">مستودع القائمة</a>.",
+  "iframe_title": "نموذج البلاغ",
+  "loading": "جارٍ التحميل…",
+  "fallback": "إذا لم يُحمَّل النموذج هنا، <a id=\"report-open\" href=\"{FORM_URL}\" rel=\"noopener\" target=\"_blank\">افتحه في علامة تبويب جديدة</a>، أو اكتب إلى <a href=\"mailto:{EMAIL}\">{EMAIL}</a>. النموذج نموذج Google وهو بالإنجليزية؛ وما ترسله يُخزَّن في حساب Google الخاص بـ Verdetto ويُستخدم فقط لمعالجة بلاغك. التفاصيل في <a href=\"{PRIVACY_HREF}\">سياسة الخصوصية</a>."
+ }
+}
+
+
+def report_body(t, code):
+    """The report page from its strings table: the same three cards, the same English-only Google Form and prefill script,
+    links to the same-language privacy policy."""
+    V = '<span class="lockup"><svg aria-hidden="true"><use href="#mark"/></svg>Verdetto</span>'
+    issues = "https://github.com/verdettoqr/link-safety-list/issues?q=label%3Acase"
+    own = "https://github.com/verdettoqr/link-safety-list/tree/main/own"
+    def fill(x):
+        return (x.replace("{ISSUES}", issues).replace("{OWN}", own).replace("{FORM_URL}", FORM_URL)
+                .replace("{EMAIL}", EMAIL).replace("{PRIVACY_HREF}", href(localized("privacy.html", code))))
+    return (f'\n<div class="prose">\n<h1>{t["h1"].replace("{V}", V)}</h1>\n<p class="meta">{t["meta"]}</p>\n\n'
+            f'<div class="card"><p>{t["card1"]}</p></div>\n'
+            f'<div class="card"><p><strong>{t["card2_lead"]}</strong> {fill(t["card2"])}</p></div>\n'
+            f'<div class="card"><p><strong>{t["card3_lead"]}</strong> {fill(t["card3"])}</p></div>\n\n'
+            f'<iframe id="report-form" title="{t["iframe_title"]}" src="{FORM_URL}?embedded=true" width="100%" height="1900" frameborder="0" marginheight="0" marginwidth="0" loading="lazy">{t["loading"]}</iframe>\n\n'
+            f'<p>{fill(t["fallback"])}</p>\n</div>\n<script>{REPORT_SCRIPT}</script>\n')
+
+
+LOCAL["report.html"] = family_pages("report.html")
+
+
 PRESS = f"""
 <div class="prose">
 <h1>Press kit</h1>
@@ -2442,6 +2607,611 @@ WEEKLY_LD = {"@type": "Dataset", "name": "The safety list this week", "descripti
              "publisher": ORG, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "isAccessibleForFree": True,
              "distribution": {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": SITE + "/stats/weekly.json"}}
 
+WEEKLY_T = {
+ "de": {
+  "title": "Die Sicherheitsliste diese Woche",
+  "desc": "Wöchentliche Zahlen aus Verdettos öffentlicher Warnliste: Meldungen, Fälle, Neueinträge nach Prüfung, Entfernungen, Gesamtstände. Nur öffentliche Daten.",
+  "fallback": "Die Zahlen der ersten Woche kommen am Montag.",
+  "meta": "{span}. Aktualisiert am {generated} aus dem öffentlichen Repository; das nächste Update kommt am kommenden Montag.",
+  "intro": "Das sind die Zahlen hinter Verdettos eigenem Teil der Warnliste: was Menschen gemeldet haben, was ein Mensch geprüft hat und was sich auf der Liste geändert hat. Sie stammen aus den öffentlichen Fall-Issues und den Listendateien im Repository, sonst nirgendwoher. Keine Telemetrie, keine Daten pro Scan, nichts von irgendjemandes Telefon; die App meldet nie, was sie gescannt hat, und diese Seite könnte es nicht zeigen, selbst wenn sie es täte.",
+  "th": [
+   "Zahl",
+   "Diese Woche",
+   "Was sie zählt"
+  ],
+  "rows": [
+   [
+    "Eingegangene Meldungen",
+    "Meldungen, die über das Formular oder die App die Liste erreicht haben, je einmal gezählt."
+   ],
+   [
+    "Eröffnete Fälle",
+    "Meldungen, die ein Mensch als öffentlichen Fall zur Prüfung aufgenommen hat."
+   ],
+   [
+    "Abgeschlossene Fälle",
+    "Diese Woche entschiedene Fälle: gelistet, aus Versehen gelistet oder kein Phishing."
+   ],
+   [
+    "Aufgenommene Einträge",
+    "Adressen oder Hosts, die nach der Prüfung einer Meldung durch einen Menschen in die Liste kamen."
+   ],
+   [
+    "Nach Prüfung entfernt",
+    "Einträge, die von der Liste genommen wurden, nachdem sich eine Meldung über einen versehentlichen Eintrag bestätigt hat."
+   ],
+   [
+    "Jetzt auf der Liste",
+    "Verdettos eigene Einträge, von Menschen gemeldet und von einem Menschen bestätigt; die öffentlichen Quellen, die die Liste zusätzlich führt, werden im Repository gezählt."
+   ]
+  ],
+  "added": "{u} Links, {h} Hosts, {a} Wallet-Adressen",
+  "totals": "{u} Links, {h} Hosts, {a} Wallet-Adressen; {al} erlaubt",
+  "closing": "Jeder Fall ist ein öffentliches Issue, jeder Eintrag trägt den Fall, der ihn ausgelöst hat, und jeder Eintrag läuft ab, wenn ihn kein Mensch erneuert: <a href=\"https://github.com/verdettoqr/link-safety-list\">github.com/verdettoqr/link-safety-list</a>. Du glaubst, etwas ist aus Versehen gelistet? <a href=\"{REPORT_HREF}?k=m\">Melde es</a>; ein Mensch prüft es erneut, und die Entfernung erscheint hier.",
+  "note": "Die Wochenzahlen sind eine kleine Datei, die diese Seite selbst ausliefert, einmal pro Woche aus dem Repository kopiert; dein Browser stellt für diese Seite keine Anfrage an Dritte.",
+  "months": [
+   "Januar",
+   "Februar",
+   "März",
+   "April",
+   "Mai",
+   "Juni",
+   "Juli",
+   "August",
+   "September",
+   "Oktober",
+   "November",
+   "Dezember"
+  ],
+  "span_same": "{d1}. bis {d2}. {M} {y}",
+  "span_cross": "{d1}. {M1} bis {d2}. {M2} {y}",
+  "ld_desc": "Wöchentliche Zahlen zu Meldungen, Fällen und Listeneinträgen für Verdettos eigenen Teil der Warnliste, aus öffentlichen Daten."
+ },
+ "es": {
+  "title": "La lista de seguridad esta semana",
+  "desc": "Cifras semanales de la lista pública de avisos de Verdetto: informes, casos, entradas añadidas tras revisión, retiradas y totales. Solo datos públicos.",
+  "fallback": "Las cifras de la primera semana llegan el lunes.",
+  "meta": "{span}. Actualizado el {generated} desde el repositorio público; la próxima actualización es el lunes que viene.",
+  "intro": "Estas son las cifras detrás de la parte propia de Verdetto en la lista de avisos: lo que la gente informó, lo que revisó una persona y lo que cambió en la lista. Salen de los casos públicos y de los archivos de la lista en el repositorio, de nada más. Sin telemetría, sin datos por escaneo, nada del teléfono de nadie; la app nunca informa de lo que escaneó, y esta página no podría mostrarlo aunque lo hiciera.",
+  "th": [
+   "Cifra",
+   "Esta semana",
+   "Qué cuenta"
+  ],
+  "rows": [
+   [
+    "Informes recibidos",
+    "Informes que llegaron a la lista por el formulario o la app, contados una vez cada uno."
+   ],
+   [
+    "Casos abiertos",
+    "Informes que una persona tomó para revisar como caso público."
+   ],
+   [
+    "Casos cerrados",
+    "Casos decididos esta semana: incluido, incluido por error o no es phishing."
+   ],
+   [
+    "Entradas añadidas",
+    "Direcciones o hosts añadidos a la lista después de que una persona revisara un informe."
+   ],
+   [
+    "Retiradas tras revisión",
+    "Entradas quitadas de la lista después de comprobarse un informe de inclusión por error."
+   ],
+   [
+    "En la lista ahora",
+    "Las entradas propias de Verdetto, las que la gente informó y una persona confirmó; las fuentes públicas que la lista también incluye se cuentan en el repositorio."
+   ]
+  ],
+  "added": "{u} enlaces, {h} hosts, {a} direcciones de monedero",
+  "totals": "{u} enlaces, {h} hosts, {a} direcciones de monedero; {al} permitidas",
+  "closing": "Cada caso es un issue público, cada inclusión lleva el caso que la causó y cada entrada caduca si una persona no la renueva: <a href=\"https://github.com/verdettoqr/link-safety-list\">github.com/verdettoqr/link-safety-list</a>. ¿Crees que algo está incluido por error? <a href=\"{REPORT_HREF}?k=m\">Infórmalo</a>; una persona lo vuelve a comprobar y la retirada aparece aquí.",
+  "note": "Las cifras semanales son un archivo pequeño que este sitio sirve por sí mismo, copiado del repositorio una vez por semana; tu navegador no hace ninguna petición a terceros para esta página.",
+  "months": [
+   "enero",
+   "febrero",
+   "marzo",
+   "abril",
+   "mayo",
+   "junio",
+   "julio",
+   "agosto",
+   "septiembre",
+   "octubre",
+   "noviembre",
+   "diciembre"
+  ],
+  "span_same": "Del {d1} al {d2} de {M} de {y}",
+  "span_cross": "Del {d1} de {M1} al {d2} de {M2} de {y}",
+  "ld_desc": "Cifras semanales de informes, casos y entradas de la parte propia de Verdetto en la lista de avisos, a partir de datos públicos."
+ },
+ "fr": {
+  "title": "La liste de sécurité cette semaine",
+  "desc": "Chiffres de la semaine pour la liste d'alerte publique de Verdetto : signalements, dossiers, ajouts après examen, retraits, totaux. Données publiques seulement.",
+  "fallback": "Les chiffres de la première semaine arrivent lundi.",
+  "meta": "{span}. Mis à jour le {generated} depuis le dépôt public ; la prochaine mise à jour a lieu lundi prochain.",
+  "intro": "Voici les chiffres derrière la part propre de Verdetto dans la liste d'alerte : ce que les gens ont signalé, ce qu'une personne a examiné et ce qui a changé sur la liste. Ils viennent des dossiers publics et des fichiers de la liste dans le dépôt, de rien d'autre. Pas de télémétrie, pas de données par scan, rien du téléphone de quiconque ; l'application ne rapporte jamais ce qu'elle a scanné, et cette page ne pourrait pas le montrer même si elle le faisait.",
+  "th": [
+   "Chiffre",
+   "Cette semaine",
+   "Ce qu'il compte"
+  ],
+  "rows": [
+   [
+    "Signalements reçus",
+    "Signalements arrivés à la liste par le formulaire ou l'application, comptés une fois chacun."
+   ],
+   [
+    "Dossiers ouverts",
+    "Signalements qu'une personne a pris en examen comme dossier public."
+   ],
+   [
+    "Dossiers clos",
+    "Dossiers tranchés cette semaine : inscrit, inscrit par erreur, ou pas un phishing."
+   ],
+   [
+    "Entrées ajoutées",
+    "Adresses ou hôtes ajoutés à la liste après qu'une personne a examiné un signalement."
+   ],
+   [
+    "Retirées après examen",
+    "Entrées retirées de la liste après vérification d'un signalement d'inscription par erreur."
+   ],
+   [
+    "Sur la liste aujourd'hui",
+    "Les entrées propres de Verdetto, signalées par des gens et confirmées par une personne ; les flux publics que la liste reprend aussi sont comptés sur le dépôt."
+   ]
+  ],
+  "added": "{u} liens, {h} hôtes, {a} adresses de portefeuille",
+  "totals": "{u} liens, {h} hôtes, {a} adresses de portefeuille ; {al} autorisées",
+  "closing": "Chaque dossier est un ticket public, chaque inscription porte le dossier qui l'a causée, et chaque entrée expire si personne ne la renouvelle : <a href=\"https://github.com/verdettoqr/link-safety-list\">github.com/verdettoqr/link-safety-list</a>. Vous pensez que quelque chose est inscrit par erreur ? <a href=\"{REPORT_HREF}?k=m\">Signalez-le</a> ; une personne revérifie et le retrait apparaît ici.",
+  "note": "Les chiffres de la semaine sont un petit fichier que ce site sert lui-même, copié du dépôt une fois par semaine ; votre navigateur ne fait aucune requête à un tiers pour cette page.",
+  "months": [
+   "janvier",
+   "février",
+   "mars",
+   "avril",
+   "mai",
+   "juin",
+   "juillet",
+   "août",
+   "septembre",
+   "octobre",
+   "novembre",
+   "décembre"
+  ],
+  "span_same": "Du {d1} au {d2} {M} {y}",
+  "span_cross": "Du {d1} {M1} au {d2} {M2} {y}",
+  "ld_desc": "Chiffres hebdomadaires des signalements, dossiers et entrées de la part propre de Verdetto dans la liste d'alerte, à partir de données publiques."
+ },
+ "pt-BR": {
+  "title": "A lista de segurança nesta semana",
+  "desc": "Números semanais da lista pública de alertas do Verdetto: relatos, casos, entradas adicionadas após análise, remoções e totais. Só dados públicos.",
+  "fallback": "Os números da primeira semana chegam na segunda-feira.",
+  "meta": "{span}. Atualizado em {generated} a partir do repositório público; a próxima atualização é na segunda-feira que vem.",
+  "intro": "Estes são os números por trás da parte própria do Verdetto na lista de alertas: o que as pessoas relataram, o que uma pessoa analisou e o que mudou na lista. Eles vêm dos casos públicos e dos arquivos da lista no repositório, de mais nada. Sem telemetria, sem dados por leitura, nada do celular de ninguém; o app nunca informa o que leu, e esta página não poderia mostrar isso mesmo se ele informasse.",
+  "th": [
+   "Número",
+   "Nesta semana",
+   "O que conta"
+  ],
+  "rows": [
+   [
+    "Relatos recebidos",
+    "Relatos que chegaram à lista pelo formulário ou pelo app, contados uma vez cada."
+   ],
+   [
+    "Casos abertos",
+    "Relatos que uma pessoa assumiu para análise como caso público."
+   ],
+   [
+    "Casos encerrados",
+    "Casos decididos nesta semana: listado, listado por engano ou não é phishing."
+   ],
+   [
+    "Entradas adicionadas",
+    "Endereços ou hosts adicionados à lista depois que uma pessoa analisou um relato."
+   ],
+   [
+    "Removidas após análise",
+    "Entradas tiradas da lista depois que um relato de inclusão por engano se confirmou."
+   ],
+   [
+    "Na lista agora",
+    "As entradas próprias do Verdetto, relatadas por pessoas e confirmadas por uma pessoa; as fontes públicas que a lista também traz são contadas no repositório."
+   ]
+  ],
+  "added": "{u} links, {h} hosts, {a} endereços de carteira",
+  "totals": "{u} links, {h} hosts, {a} endereços de carteira; {al} permitidas",
+  "closing": "Cada caso é um issue público, cada inclusão traz o caso que a causou, e cada entrada expira se uma pessoa não a renovar: <a href=\"https://github.com/verdettoqr/link-safety-list\">github.com/verdettoqr/link-safety-list</a>. Acha que algo foi listado por engano? <a href=\"{REPORT_HREF}?k=m\">Relate</a>; uma pessoa confere de novo e a remoção aparece aqui.",
+  "note": "Os números semanais são um arquivo pequeno que este site serve por conta própria, copiado do repositório uma vez por semana; seu navegador não faz nenhuma requisição a terceiros para esta página.",
+  "months": [
+   "janeiro",
+   "fevereiro",
+   "março",
+   "abril",
+   "maio",
+   "junho",
+   "julho",
+   "agosto",
+   "setembro",
+   "outubro",
+   "novembro",
+   "dezembro"
+  ],
+  "span_same": "De {d1} a {d2} de {M} de {y}",
+  "span_cross": "De {d1} de {M1} a {d2} de {M2} de {y}",
+  "ld_desc": "Números semanais de relatos, casos e entradas da parte própria do Verdetto na lista de alertas, a partir de dados públicos."
+ },
+ "id": {
+  "title": "Daftar keamanan minggu ini",
+  "desc": "Angka mingguan dari daftar peringatan publik Verdetto: laporan, kasus, entri yang ditambahkan setelah tinjauan, penghapusan, total. Hanya data publik.",
+  "fallback": "Angka minggu pertama tiba pada hari Senin.",
+  "meta": "{span}. Diperbarui {generated} dari repositori publik; pembaruan berikutnya pada Senin mendatang.",
+  "intro": "Inilah angka di balik bagian Verdetto sendiri dalam daftar peringatan: apa yang orang laporkan, apa yang ditinjau seorang manusia, dan apa yang berubah pada daftar. Semuanya berasal dari isu kasus publik dan berkas daftar di repositori, tidak dari yang lain. Tanpa telemetri, tanpa data per pindaian, tidak ada apa pun dari ponsel siapa pun; aplikasi tidak pernah melaporkan apa yang dipindainya, dan halaman ini tidak bisa menampilkannya bahkan jika ia melaporkan.",
+  "th": [
+   "Angka",
+   "Minggu ini",
+   "Apa yang dihitung"
+  ],
+  "rows": [
+   [
+    "Laporan diterima",
+    "Laporan yang sampai ke daftar lewat formulir atau aplikasi, dihitung sekali masing-masing."
+   ],
+   [
+    "Kasus dibuka",
+    "Laporan yang diambil seorang manusia untuk ditinjau sebagai kasus publik."
+   ],
+   [
+    "Kasus ditutup",
+    "Kasus yang diputus minggu ini: didaftar, didaftar karena keliru, atau bukan phishing."
+   ],
+   [
+    "Entri ditambahkan",
+    "Alamat atau host yang ditambahkan ke daftar setelah seorang manusia meninjau laporan."
+   ],
+   [
+    "Dihapus setelah tinjauan",
+    "Entri yang dikeluarkan dari daftar setelah laporan salah daftar terbukti benar."
+   ],
+   [
+    "Ada di daftar sekarang",
+    "Entri Verdetto sendiri, yang dilaporkan orang dan dikonfirmasi seorang manusia; umpan publik yang juga dimuat daftar dihitung di repositori."
+   ]
+  ],
+  "added": "{u} tautan, {h} host, {a} alamat dompet",
+  "totals": "{u} tautan, {h} host, {a} alamat dompet; {al} diizinkan",
+  "closing": "Setiap kasus adalah isu publik, setiap pendaftaran membawa kasus yang menyebabkannya, dan setiap entri kedaluwarsa kecuali seorang manusia memperbaruinya: <a href=\"https://github.com/verdettoqr/link-safety-list\">github.com/verdettoqr/link-safety-list</a>. Merasa ada yang terdaftar karena keliru? <a href=\"{REPORT_HREF}?k=m\">Laporkan</a>; seorang manusia memeriksanya lagi dan penghapusannya muncul di sini.",
+  "note": "Angka mingguan adalah berkas kecil yang disajikan situs ini sendiri, disalin dari repositori sekali seminggu; peramban Anda tidak membuat permintaan ke pihak ketiga untuk halaman ini.",
+  "months": [
+   "Januari",
+   "Februari",
+   "Maret",
+   "April",
+   "Mei",
+   "Juni",
+   "Juli",
+   "Agustus",
+   "September",
+   "Oktober",
+   "November",
+   "Desember"
+  ],
+  "span_same": "{d1} sampai {d2} {M} {y}",
+  "span_cross": "{d1} {M1} sampai {d2} {M2} {y}",
+  "ld_desc": "Angka mingguan laporan, kasus, dan entri untuk bagian Verdetto sendiri dalam daftar peringatan, dari data publik."
+ },
+ "ru": {
+  "title": "Список безопасности за неделю",
+  "desc": "Еженедельные цифры публичного списка предупреждений Verdetto: сообщения, дела, записи после проверки, удаления, итоги. Только публичные данные.",
+  "fallback": "Цифры первой недели появятся в понедельник.",
+  "meta": "{span}. Обновлено {generated} из публичного репозитория; следующее обновление в ближайший понедельник.",
+  "intro": "Это цифры собственной части Verdetto в списке предупреждений: о чём сообщали люди, что проверил человек и что изменилось в списке. Они берутся из публичных дел и файлов списка в репозитории и больше ниоткуда. Никакой телеметрии, никаких данных по сканированиям, ничего с чьего-либо телефона; приложение никогда не сообщает, что оно отсканировало, и эта страница не смогла бы это показать, даже если бы сообщало.",
+  "th": [
+   "Показатель",
+   "За неделю",
+   "Что считается"
+  ],
+  "rows": [
+   [
+    "Получено сообщений",
+    "Сообщения, дошедшие до списка через форму или приложение, каждое учтено один раз."
+   ],
+   [
+    "Открыто дел",
+    "Сообщения, которые человек взял на проверку как публичное дело."
+   ],
+   [
+    "Закрыто дел",
+    "Дела, решённые за неделю: внесено, внесено по ошибке или не фишинг."
+   ],
+   [
+    "Добавлено записей",
+    "Адреса или хосты, добавленные в список после того, как человек проверил сообщение."
+   ],
+   [
+    "Удалено после проверки",
+    "Записи, убранные из списка после подтверждения сообщения об ошибочном внесении."
+   ],
+   [
+    "Сейчас в списке",
+    "Собственные записи Verdetto, о которых сообщили люди и которые подтвердил человек; публичные источники, которые список тоже включает, считаются в репозитории."
+   ]
+  ],
+  "added": "{u} ссылок, {h} хостов, {a} адресов кошельков",
+  "totals": "{u} ссылок, {h} хостов, {a} адресов кошельков; {al} разрешено",
+  "closing": "Каждое дело — публичный issue, каждое внесение несёт вызвавшее его дело, и каждая запись истекает, если человек её не продлит: <a href=\"https://github.com/verdettoqr/link-safety-list\">github.com/verdettoqr/link-safety-list</a>. Считаете, что что-то внесено по ошибке? <a href=\"{REPORT_HREF}?k=m\">Сообщите</a>; человек перепроверит, и удаление появится здесь.",
+  "note": "Недельные цифры — небольшой файл, который этот сайт отдаёт сам, копируя его из репозитория раз в неделю; ваш браузер не делает запросов к третьим сторонам для этой страницы.",
+  "months": [
+   "января",
+   "февраля",
+   "марта",
+   "апреля",
+   "мая",
+   "июня",
+   "июля",
+   "августа",
+   "сентября",
+   "октября",
+   "ноября",
+   "декабря"
+  ],
+  "span_same": "С {d1} по {d2} {M} {y} года",
+  "span_cross": "С {d1} {M1} по {d2} {M2} {y} года",
+  "ld_desc": "Еженедельные цифры сообщений, дел и записей собственной части Verdetto в списке предупреждений, из публичных данных."
+ },
+ "hi": {
+  "title": "इस सप्ताह की सुरक्षा सूची",
+  "desc": "Verdetto की सार्वजनिक चेतावनी सूची के साप्ताहिक आँकड़े: रिपोर्ट, केस, समीक्षा के बाद जोड़ी गई प्रविष्टियाँ, हटाई गई प्रविष्टियाँ, कुल। केवल सार्वजनिक डेटा।",
+  "fallback": "पहले सप्ताह के आँकड़े सोमवार को आते हैं।",
+  "meta": "{span}। सार्वजनिक रिपॉज़िटरी से {generated} को अपडेट किया गया; अगला अपडेट आने वाले सोमवार को।",
+  "intro": "ये चेतावनी सूची में Verdetto के अपने हिस्से के पीछे के आँकड़े हैं: लोगों ने क्या रिपोर्ट किया, एक व्यक्ति ने क्या समीक्षा की, और सूची में क्या बदला। ये सार्वजनिक केस इश्यू और रिपॉज़िटरी की सूची फ़ाइलों से आते हैं, और कहीं से नहीं। कोई टेलीमेट्री नहीं, प्रति-स्कैन कोई डेटा नहीं, किसी के फ़ोन से कुछ नहीं; ऐप कभी नहीं बताता कि उसने क्या स्कैन किया, और अगर बताता भी, तो यह पेज उसे दिखा नहीं सकता।",
+  "th": [
+   "आँकड़ा",
+   "इस सप्ताह",
+   "यह क्या गिनता है"
+  ],
+  "rows": [
+   [
+    "प्राप्त रिपोर्ट",
+    "रिपोर्ट फ़ॉर्म या ऐप से सूची तक पहुँची रिपोर्टें, हर एक एक बार गिनी गई।"
+   ],
+   [
+    "खोले गए केस",
+    "रिपोर्टें जिन्हें एक व्यक्ति ने सार्वजनिक केस के रूप में समीक्षा के लिए लिया।"
+   ],
+   [
+    "बंद किए गए केस",
+    "इस सप्ताह तय किए गए केस: सूचीबद्ध, गलती से सूचीबद्ध, या फ़िशिंग नहीं।"
+   ],
+   [
+    "जोड़ी गई प्रविष्टियाँ",
+    "एक व्यक्ति द्वारा रिपोर्ट की समीक्षा के बाद सूची में जोड़े गए पते या होस्ट।"
+   ],
+   [
+    "समीक्षा के बाद हटाई गई",
+    "गलती से सूचीबद्ध होने की रिपोर्ट सही निकलने पर सूची से हटाई गई प्रविष्टियाँ।"
+   ],
+   [
+    "अब सूची में",
+    "Verdetto की अपनी प्रविष्टियाँ, जिन्हें लोगों ने रिपोर्ट किया और एक व्यक्ति ने पुष्टि की; सूची में शामिल सार्वजनिक फ़ीड रिपॉज़िटरी में गिनी जाती हैं।"
+   ]
+  ],
+  "added": "{u} लिंक, {h} होस्ट, {a} वॉलेट पते",
+  "totals": "{u} लिंक, {h} होस्ट, {a} वॉलेट पते; {al} अनुमत",
+  "closing": "हर केस एक सार्वजनिक इश्यू है, हर सूचीबद्धता उस केस को साथ रखती है जिसने उसे बनाया, और हर प्रविष्टि समाप्त हो जाती है जब तक कोई व्यक्ति उसे नवीनीकृत न करे: <a href=\"https://github.com/verdettoqr/link-safety-list\">github.com/verdettoqr/link-safety-list</a>। लगता है कुछ गलती से सूचीबद्ध है? <a href=\"{REPORT_HREF}?k=m\">रिपोर्ट करें</a>; एक व्यक्ति उसे फिर जाँचता है और हटाना यहाँ दिखता है।",
+  "note": "साप्ताहिक आँकड़े एक छोटी फ़ाइल हैं जो यह साइट खुद परोसती है, सप्ताह में एक बार रिपॉज़िटरी से कॉपी की गई; इस पेज के लिए आपका ब्राउज़र किसी तीसरे पक्ष से कोई अनुरोध नहीं करता।",
+  "months": [
+   "जनवरी",
+   "फ़रवरी",
+   "मार्च",
+   "अप्रैल",
+   "मई",
+   "जून",
+   "जुलाई",
+   "अगस्त",
+   "सितंबर",
+   "अक्टूबर",
+   "नवंबर",
+   "दिसंबर"
+  ],
+  "span_same": "{d1} से {d2} {M} {y}",
+  "span_cross": "{d1} {M1} से {d2} {M2} {y}",
+  "ld_desc": "चेतावनी सूची में Verdetto के अपने हिस्से की रिपोर्ट, केस और प्रविष्टियों के साप्ताहिक आँकड़े, सार्वजनिक डेटा से।"
+ },
+ "ja": {
+  "title": "今週の安全リスト",
+  "desc": "Verdetto の公開警告リストの週間の数字: 報告、案件、確認後に追加された項目、削除、合計。公開データのみで、誰かの端末からの情報はありません。",
+  "fallback": "最初の週の数字は月曜日に届きます。",
+  "meta": "{span}。{generated} に公開リポジトリから更新。次の更新は次の月曜日です。",
+  "intro": "これは警告リストのうち Verdetto 自身の部分の数字です。人々が何を報告し、人が何を確認し、リストで何が変わったか。出典は公開の案件と、リポジトリ内のリストのファイルだけです。テレメトリーも、読み取りごとのデータも、誰かの端末からの情報もありません。アプリは何を読み取ったかを決して報告せず、仮に報告したとしてもこのページには表示できません。",
+  "th": [
+   "項目",
+   "今週",
+   "数えているもの"
+  ],
+  "rows": [
+   [
+    "受け取った報告",
+    "報告フォームまたはアプリからリストに届いた報告。それぞれ一回だけ数えます。"
+   ],
+   [
+    "開いた案件",
+    "人が公開の案件として確認に取り上げた報告。"
+   ],
+   [
+    "閉じた案件",
+    "今週判断された案件: 登録、誤登録、またはフィッシングではない。"
+   ],
+   [
+    "追加した項目",
+    "人が報告を確認したあとにリストへ追加したアドレスやホスト。"
+   ],
+   [
+    "確認後に削除",
+    "誤登録の報告が正しいと分かり、リストから外した項目。"
+   ],
+   [
+    "現在リストにあるもの",
+    "人々が報告し人が確認した Verdetto 自身の項目。リストが併載する公開フィードはリポジトリ側で数えています。"
+   ]
+  ],
+  "added": "リンク {u}、ホスト {h}、ウォレットアドレス {a}",
+  "totals": "リンク {u}、ホスト {h}、ウォレットアドレス {a}。許可 {al}",
+  "closing": "すべての案件は公開の issue で、すべての登録はその原因となった案件を伴い、すべての項目は人が更新しなければ失効します: <a href=\"https://github.com/verdettoqr/link-safety-list\">github.com/verdettoqr/link-safety-list</a>。誤登録だと思われるものがありますか? <a href=\"{REPORT_HREF}?k=m\">報告してください</a>。人が再確認し、削除はここに表れます。",
+  "note": "週間の数字は、このサイト自身が配信する小さなファイルで、週に一度リポジトリからコピーされます。このページのためにブラウザが第三者へ要求を送ることはありません。",
+  "months": None,
+  "span_same": "{y}年{m}月{d1}日～{d2}日",
+  "span_cross": "{y}年{m1}月{d1}日～{m2}月{d2}日",
+  "ld_desc": "警告リストのうち Verdetto 自身の部分について、報告、案件、リスト項目の週間の数。公開データから。"
+ },
+ "zh-Hans": {
+  "title": "本周的安全列表",
+  "desc": "Verdetto 公开警告列表的每周数字：报告、案例、审核后新增的条目、移除、总数。仅公开数据，不含任何来自手机的信息。",
+  "fallback": "第一周的数字将于周一到来。",
+  "meta": "{span}。于 {generated} 从公开仓库更新；下次更新在下周一。",
+  "intro": "这些是警告列表中 Verdetto 自有部分背后的数字：人们报告了什么、由人审核了什么、列表发生了什么变化。它们只来自公开的案例议题和仓库中的列表文件，别无其他。没有遥测，没有逐次扫描的数据，没有任何来自任何人手机的信息；应用从不报告它扫描了什么，即使报告，这个页面也无法显示。",
+  "th": [
+   "数字",
+   "本周",
+   "它统计什么"
+  ],
+  "rows": [
+   [
+    "收到的报告",
+    "通过报告表单或应用到达列表的报告，每份只计一次。"
+   ],
+   [
+    "开启的案例",
+    "由人接手、作为公开案例审核的报告。"
+   ],
+   [
+    "结束的案例",
+    "本周裁定的案例：已列入、误列，或并非钓鱼。"
+   ],
+   [
+    "新增的条目",
+    "由人审核报告后加入列表的地址或主机。"
+   ],
+   [
+    "审核后移除",
+    "误列报告核实后从列表中移除的条目。"
+   ],
+   [
+    "当前在列表中",
+    "Verdetto 自有的条目，由人们报告并经人确认；列表同时收录的公开源在仓库中统计。"
+   ]
+  ],
+  "added": "{u} 个链接、{h} 个主机、{a} 个钱包地址",
+  "totals": "{u} 个链接、{h} 个主机、{a} 个钱包地址；{al} 个放行",
+  "closing": "每个案例都是公开议题，每条列入都附带导致它的案例，每个条目如无人续期都会过期：<a href=\"https://github.com/verdettoqr/link-safety-list\">github.com/verdettoqr/link-safety-list</a>。觉得有什么被误列了？<a href=\"{REPORT_HREF}?k=m\">报告它</a>；由人重新核查，移除结果会显示在这里。",
+  "note": "每周数字是本站自行提供的一个小文件，每周从仓库复制一次；浏览器不会为此页面向任何第三方发出请求。",
+  "months": None,
+  "span_same": "{y}年{m}月{d1}日至{d2}日",
+  "span_cross": "{y}年{m1}月{d1}日至{m2}月{d2}日",
+  "ld_desc": "警告列表中 Verdetto 自有部分的报告、案例和列表条目的每周计数，来自公开数据。"
+ },
+ "ar": {
+  "title": "قائمة الأمان هذا الأسبوع",
+  "desc": "أرقام أسبوعية من قائمة التحذير العامة لـ Verdetto: البلاغات، والحالات، والمدخلات المضافة بعد المراجعة، والمحذوفات، والمجاميع. بيانات عامة فقط.",
+  "fallback": "أرقام الأسبوع الأول تصل يوم الاثنين.",
+  "meta": "{span}. حُدِّث في {generated} من المستودع العام؛ التحديث التالي يوم الاثنين المقبل.",
+  "intro": "هذه هي الأرقام خلف جزء Verdetto الخاص من قائمة التحذير: ما أبلغ عنه الناس، وما راجعه شخص، وما تغيّر في القائمة. تأتي من قضايا الحالات العامة وملفات القائمة في المستودع، لا من شيء آخر. لا قياس عن بُعد، ولا بيانات لكل مسح، ولا شيء من هاتف أحد؛ فالتطبيق لا يبلّغ أبدًا عمّا مسحه، ولا تستطيع هذه الصفحة إظهاره حتى لو فعل.",
+  "th": [
+   "الرقم",
+   "هذا الأسبوع",
+   "ما الذي يعدّه"
+  ],
+  "rows": [
+   [
+    "البلاغات الواردة",
+    "البلاغات التي وصلت إلى القائمة عبر نموذج البلاغ أو التطبيق، ويُعدّ كل منها مرة واحدة."
+   ],
+   [
+    "الحالات المفتوحة",
+    "بلاغات تولّى شخصٌ مراجعتها كحالة عامة."
+   ],
+   [
+    "الحالات المغلقة",
+    "حالات قُرِّرت هذا الأسبوع: مُدرَج، أو مُدرَج خطأً، أو ليس تصيّدًا."
+   ],
+   [
+    "المدخلات المضافة",
+    "عناوين أو مضيفات أُضيفت إلى القائمة بعد أن راجع شخصٌ بلاغًا."
+   ],
+   [
+    "المحذوفة بعد المراجعة",
+    "مدخلات أُزيلت من القائمة بعد أن ثبتت صحة بلاغ عن إدراج خاطئ."
+   ],
+   [
+    "في القائمة الآن",
+    "مدخلات Verdetto الخاصة، التي أبلغ عنها الناس وأكّدها شخص؛ أما المصادر العامة التي تحملها القائمة أيضًا فتُعدّ في المستودع."
+   ]
+  ],
+  "added": "{u} روابط، {h} مضيفات، {a} عناوين محافظ",
+  "totals": "{u} روابط، {h} مضيفات، {a} عناوين محافظ؛ {al} مسموح بها",
+  "closing": "كل حالة قضية عامة، وكل إدراج يحمل الحالة التي سبّبته، وكل مدخل ينتهي ما لم يجدّده شخص: <a href=\"https://github.com/verdettoqr/link-safety-list\">github.com/verdettoqr/link-safety-list</a>. تظن أن شيئًا أُدرج خطأً؟ <a href=\"{REPORT_HREF}?k=m\">أبلغ عنه</a>؛ يعيد شخصٌ التحقق منه ويظهر الحذف هنا.",
+  "note": "الأرقام الأسبوعية ملف صغير يقدّمه هذا الموقع بنفسه، يُنسَخ من المستودع مرة في الأسبوع؛ ولا يرسل متصفحك أي طلب إلى طرف ثالث من أجل هذه الصفحة.",
+  "months": [
+   "يناير",
+   "فبراير",
+   "مارس",
+   "أبريل",
+   "مايو",
+   "يونيو",
+   "يوليو",
+   "أغسطس",
+   "سبتمبر",
+   "أكتوبر",
+   "نوفمبر",
+   "ديسمبر"
+  ],
+  "span_same": "من {d1} إلى {d2} {M} {y}",
+  "span_cross": "من {d1} {M1} إلى {d2} {M2} {y}",
+  "ld_desc": "أعداد أسبوعية للبلاغات والحالات ومدخلات القائمة لجزء Verdetto الخاص من قائمة التحذير، من بيانات عامة."
+ }
+}
+
+
+def weekly_body(t, code):
+    """The safety-list page from its strings table, same numbers as the English page (stats/weekly.json), dates in the
+    language's own form; thousands separators stay the site's until a count needs one."""
+    path = HERE / "stats" / "weekly.json"
+    if not path.exists():
+        return f"<h1>{t['title']}</h1>\n<p>{t['fallback']}</p>\n"
+    s = json.loads(path.read_text(encoding="utf-8"))
+    def ymd(iso):
+        y, m, d = (int(x) for x in iso.split("-"))
+        return y, m, d
+    y1, m1, d1 = ymd(s["week_start"])
+    y2, m2, d2 = ymd(s["week_end"])
+    names = t["months"]
+    vals = dict(d1=d1, d2=d2, y=y2, m=m1, m1=m1, m2=m2, M=names[m1 - 1] if names else "", M1=names[m1 - 1] if names else "", M2=names[m2 - 1] if names else "")
+    span = (t["span_same"] if m1 == m2 else t["span_cross"]).format(**vals)
+    n = lambda v: f"{int(v):,}"  # noqa: E731
+    added = s.get("entries_added", {})
+    totals = s.get("totals", {})
+    generated = s.get("generated_at", "")[:10]
+    values = [n(s.get("reports_received", 0)), n(s.get("cases_opened", 0)), n(s.get("cases_closed", 0)),
+              t["added"].format(u=n(added.get("urls", 0)), h=n(added.get("hosts", 0)), a=n(added.get("addresses", 0))),
+              n(s.get("unlisted", 0)),
+              t["totals"].format(u=n(totals.get("urls", 0)), h=n(totals.get("hosts", 0)), a=n(totals.get("addresses", 0)), al=n(totals.get("allow", 0)))]
+    table = "".join(f"<tr><td>{k}</td><td>{v}</td><td>{d}</td></tr>\n" for (k, d), v in zip(t["rows"], values))
+    th = "".join(f"<th>{x}</th>" for x in t["th"])
+    return (f'\n<h1>{t["title"]}</h1>\n<p class="meta">{t["meta"].format(span=span, generated=generated)}</p>\n<p>{t["intro"]}</p>\n'
+            f'<div class="tablewrap"><table><thead><tr>{th}</tr></thead><tbody>\n{table}</tbody></table></div>\n'
+            f'<p>{t["closing"].replace("{REPORT_HREF}", href(localized("report.html", code)))}</p>\n<p class="meta">{t["note"]}</p>\n')
+
+
+def weekly_ld(t, code):
+    return {**WEEKLY_LD, "name": t["title"], "description": t["ld_desc"], "inLanguage": code}
+
+
+LOCAL["safety-list.html"] = family_pages("safety-list.html")
+
+
 DEVELOPERS_LD = {"@type": "TechArticle", "name": "Scanning with Verdetto from another app", "publisher": ORG,
                  "about": "Android intents for scanning QR codes and barcodes and receiving the result"}
 
@@ -2513,7 +3283,7 @@ def developers_page():
 <tbody>
 <tr><td><code>com.google.zxing.client.android.SCAN</code></td><td>Yes, implicit intents work.</td><td>Opens the scanner. The first code the person locks on is handed back, as the ZXing Barcode Scanner did it.</td><td><code>RESULT_OK</code> with <code>SCAN_RESULT</code> and <code>SCAN_RESULT_FORMAT</code></td></tr>
 <tr><td><code>app.scanner.action.SCAN</code></td><td>Yes.</td><td>Opens the scanner. Started for a result (a result launcher or <code>startActivityForResult</code>) it hands the code back the same way; started plainly it just opens the app on the scanner.</td><td><code>RESULT_OK</code> with the two extras when started for a result</td></tr>
-<tr><td><code>app.scanner.action.CARD</code></td><td>No filter: an explicit intent with the package <code>app.scanner.free</code> only.</td><td>Opens the person's own contact card editor, the code they show to share their details. Meant for the app's own widgets and shortcuts; another app may call it, but nothing comes back.</td><td>None</td></tr>
+<tr><td><code>app.scanner.action.CARD</code></td><td>No filter: an explicit intent with the package <code>com.verdettoqr.scanner</code> only.</td><td>Opens the person's own contact card editor, the code they show to share their details. Meant for the app's own widgets and shortcuts; another app may call it, but nothing comes back.</td><td>None</td></tr>
 <tr><td><code>android.intent.action.SEND</code> with <code>image/*</code></td><td>Yes.</td><td>Decodes a picture: the app shows the result sheet for the codes in it.</td><td>None</td></tr>
 </tbody>
 </table>
@@ -2538,7 +3308,7 @@ def developers_page():
 {code_block(JAVA_SAMPLE)}
 
 <h2>The ZXing action</h2>
-<p>Code written for the ZXing Barcode Scanner keeps working: send <code>com.google.zxing.client.android.SCAN</code> the same way and read the same two extras. If more than one scanner on the phone answers it, the system asks the person which to use; sending the intent to the package <code>app.scanner.free</code> skips that.</p>
+<p>Code written for the ZXing Barcode Scanner keeps working: send <code>com.google.zxing.client.android.SCAN</code> the same way and read the same two extras. If more than one scanner on the phone answers it, the system asks the person which to use; sending the intent to the package <code>com.verdettoqr.scanner</code> skips that.</p>
 
 <h2>What the person sees</h2>
 <p>The scanner opens as it always does, with its own checks. When a code locks, the app hands it back and closes; nothing of yours appears on the screen, and nothing of theirs (history, settings, the safety list) is touched by the call.</p>
@@ -2546,6 +3316,555 @@ def developers_page():
 <div class="card"><p><strong>Testing on a phone without the app.</strong> The store page with the developers referrer, the same address the fallback in the samples opens: <a href="{play}">Get it on Google Play</a>. The source of this page is the app's own INTENT.md; when the two differ, the app repository is right and this page is behind.</p></div>
 </div>
 """
+
+
+DEV_T = {
+ "de": {
+  "title": "Für Entwickler",
+  "desc": "Wie eine andere Android-App Verdetto zum Scannen öffnet und den Code zurückerhält: die Intents, die Ergebnis-Extras, Kotlin und Java, und was die Person sieht.",
+  "h1": "Scannen aus einer anderen App",
+  "meta": "Verdetto beantwortet drei Intents und ein Teilen. Nichts davon braucht eine Berechtigung, eine Bibliothek oder einen Schlüssel. Die Person behält jede Sicherheitsprüfung und jede Einstellung der App; deine App erhält den Text des Codes in dem Moment, in dem sie ihn bestätigt.",
+  "intents_h": "Die Intents",
+  "th": [
+   "Action",
+   "Filter im Manifest",
+   "Was passiert",
+   "Ergebnis"
+  ],
+  "rows": [
+   [
+    "<code>com.google.zxing.client.android.SCAN</code>",
+    "Ja, implizite Intents funktionieren.",
+    "Öffnet den Scanner. Der erste Code, den die Person erfasst, wird zurückgegeben, so wie es der ZXing Barcode Scanner tat.",
+    "<code>RESULT_OK</code> mit <code>SCAN_RESULT</code> und <code>SCAN_RESULT_FORMAT</code>"
+   ],
+   [
+    "<code>app.scanner.action.SCAN</code>",
+    "Ja.",
+    "Öffnet den Scanner. Für ein Ergebnis gestartet (ein Result-Launcher oder <code>startActivityForResult</code>) gibt er den Code auf demselben Weg zurück; einfach gestartet öffnet er nur die App auf dem Scanner.",
+    "<code>RESULT_OK</code> mit den beiden Extras, wenn für ein Ergebnis gestartet"
+   ],
+   [
+    "<code>app.scanner.action.CARD</code>",
+    "Kein Filter: nur ein expliziter Intent mit dem Paket <code>com.verdettoqr.scanner</code>.",
+    "Öffnet den Editor der eigenen Kontaktkarte der Person, den Code, den sie zum Teilen ihrer Daten zeigt. Gedacht für die Widgets und Verknüpfungen der App selbst; eine andere App darf ihn aufrufen, aber es kommt nichts zurück.",
+    "Keins"
+   ],
+   [
+    "<code>android.intent.action.SEND</code> mit <code>image/*</code>",
+    "Ja.",
+    "Decodiert ein Bild: Die App zeigt das Ergebnisblatt für die Codes darin.",
+    "Keins"
+   ]
+  ],
+  "p_handback": "Die Person kann die Rückgabe in den Einstellungen unter „Ergebnisse an andere Apps übergeben“ („Wenn eine App einen Scan anfordert, geht der Code an sie zurück“) abschalten; sie ist standardmäßig an. Ist sie aus, öffnet jede Scan-Action den Scanner wie einen normalen Start, und dein Launcher erhält <code>RESULT_CANCELED</code>, wenn die Person ihn verlässt. Zurück aus dem Scanner ist ebenfalls <code>RESULT_CANCELED</code>.",
+  "p_extras": "Derzeit werden keine Request-Extras gelesen: weder <code>SCAN_MODE</code>, <code>SCAN_FORMATS</code>, <code>PROMPT_MESSAGE</code>, <code>SAVE_HISTORY</code> noch andere. Der Scanner liest bei jedem Aufruf jede Symbologie, die er kennt. Ein Code, den die Prüfungen der App markieren, wird trotzdem zurückgegeben; die Person sieht zuerst die Warnung und entscheidet.",
+  "result_h": "Das Ergebnis",
+  "li_text": "<code>SCAN_RESULT</code> (String): der Inhalt des Codes, genau die Bytes, die der Code trug, als Text decodiert (UTF-8, wo die Symbologie es erlaubt, sonst der eigene Zeichensatz der Symbologie).",
+  "li_format": "<code>SCAN_RESULT_FORMAT</code> (String): die Symbologie in Großbuchstaben mit Unterstrichen, die ZXing-Namen, wo es sie gibt. Derzeit geliefert: {formats}, und die weiteren Symbologien, die die eigenen Decoder der App hinzufügen, in derselben Schreibweise (der Name auf dem Ergebnisblatt, großgeschrieben, Leerzeichen und Bindestriche als Unterstriche).",
+  "p_nothing": "Sonst reist nichts mit: kein Bild, kein Standort, keine Historie.",
+  "p_query": "Ab Android 11 nimm die Query in dein Manifest auf, damit <code>resolveActivity</code> die App sehen kann:",
+  "zxing_h": "Die ZXing-Action",
+  "zxing_p": "Code, der für den ZXing Barcode Scanner geschrieben wurde, funktioniert weiter: Sende <code>com.google.zxing.client.android.SCAN</code> auf demselben Weg und lies dieselben zwei Extras. Antworten mehrere Scanner auf dem Telefon darauf, fragt das System die Person, welchen sie nutzen möchte; den Intent an das Paket <code>com.verdettoqr.scanner</code> zu senden, überspringt das.",
+  "sees_h": "Was die Person sieht",
+  "sees_p": "Der Scanner öffnet sich wie immer, mit seinen eigenen Prüfungen. Rastet ein Code ein, gibt die App ihn zurück und schließt sich; nichts von dir erscheint auf dem Bildschirm, und nichts von der Person (Historie, Einstellungen, Sicherheitsliste) wird durch den Aufruf berührt.",
+  "card_lead": "Testen auf einem Telefon ohne die App.",
+  "card": "Die Store-Seite mit dem Entwickler-Referrer, dieselbe Adresse, die der Fallback in den Beispielen öffnet: <a href=\"{play}\">Bei Google Play holen</a>. Die Quelle dieser Seite ist die INTENT.md der App selbst; weichen beide voneinander ab, hat das App-Repository recht und diese Seite hinkt hinterher."
+ },
+ "es": {
+  "title": "Para desarrolladores",
+  "desc": "Cómo otra app de Android abre Verdetto para escanear y recibe el código: los intents, los extras del resultado, Kotlin y Java, y lo que ve la persona.",
+  "h1": "Escanear desde otra app",
+  "meta": "Verdetto responde a tres intents y a un envío compartido. Nada de esto necesita un permiso, una biblioteca ni una clave. La persona conserva todas las comprobaciones de seguridad y todos los ajustes de la app; tu app recibe el texto del código en el momento en que ella lo confirma.",
+  "intents_h": "Los intents",
+  "th": [
+   "Acción",
+   "Filtro en el manifiesto",
+   "Qué ocurre",
+   "Resultado"
+  ],
+  "rows": [
+   [
+    "<code>com.google.zxing.client.android.SCAN</code>",
+    "Sí, los intents implícitos funcionan.",
+    "Abre el escáner. El primer código que la persona fija se devuelve, como lo hacía el ZXing Barcode Scanner.",
+    "<code>RESULT_OK</code> con <code>SCAN_RESULT</code> y <code>SCAN_RESULT_FORMAT</code>"
+   ],
+   [
+    "<code>app.scanner.action.SCAN</code>",
+    "Sí.",
+    "Abre el escáner. Iniciado para obtener un resultado (un result launcher o <code>startActivityForResult</code>) devuelve el código de la misma manera; iniciado sin más, solo abre la app en el escáner.",
+    "<code>RESULT_OK</code> con los dos extras cuando se inicia para obtener un resultado"
+   ],
+   [
+    "<code>app.scanner.action.CARD</code>",
+    "Sin filtro: solo un intent explícito con el paquete <code>com.verdettoqr.scanner</code>.",
+    "Abre el editor de la tarjeta de contacto de la persona, el código que muestra para compartir sus datos. Pensado para los widgets y accesos directos de la propia app; otra app puede llamarlo, pero no devuelve nada.",
+    "Ninguno"
+   ],
+   [
+    "<code>android.intent.action.SEND</code> con <code>image/*</code>",
+    "Sí.",
+    "Decodifica una imagen: la app muestra la hoja de resultados con los códigos que contiene.",
+    "Ninguno"
+   ]
+  ],
+  "p_handback": "La persona puede desactivar la devolución en Ajustes, en «Entregar resultados a otras apps» («Cuando una app pide un escaneo, el código vuelve a esa app»), que está activada por defecto. Desactivada, cualquiera de las dos acciones de escaneo abre el escáner como un inicio normal y tu launcher recibe <code>RESULT_CANCELED</code> cuando la persona sale. Volver atrás desde el escáner también es <code>RESULT_CANCELED</code>.",
+  "p_extras": "Hoy no se lee ningún extra de la petición: ni <code>SCAN_MODE</code>, <code>SCAN_FORMATS</code>, <code>PROMPT_MESSAGE</code>, <code>SAVE_HISTORY</code> ni ningún otro. El escáner lee todas las simbologías que conoce en cada llamada. Un código que las comprobaciones de la app señalan se devuelve de todos modos; la persona ve primero el aviso y decide.",
+  "result_h": "El resultado",
+  "li_text": "<code>SCAN_RESULT</code> (String): el contenido del código, exactamente los bytes que llevaba el código, decodificados como texto (UTF-8 donde la simbología lo permite, y si no, el juego de caracteres propio de la simbología).",
+  "li_format": "<code>SCAN_RESULT_FORMAT</code> (String): la simbología en mayúsculas con guiones bajos, con los nombres de ZXing donde existen. Se entregan hoy: {formats}, y las demás simbologías que añaden los decodificadores propios de la app, con la misma grafía (el nombre que muestra la hoja de resultados, en mayúsculas, con espacios y guiones como guiones bajos).",
+  "p_nothing": "Nada más viaja: ni imagen, ni ubicación, ni historial.",
+  "p_query": "En Android 11 y posteriores, añade la consulta a tu manifiesto para que <code>resolveActivity</code> pueda ver la app:",
+  "zxing_h": "La acción de ZXing",
+  "zxing_p": "El código escrito para el ZXing Barcode Scanner sigue funcionando: envía <code>com.google.zxing.client.android.SCAN</code> de la misma manera y lee los mismos dos extras. Si más de un escáner del teléfono responde, el sistema pregunta a la persona cuál usar; enviar el intent al paquete <code>com.verdettoqr.scanner</code> se lo ahorra.",
+  "sees_h": "Lo que ve la persona",
+  "sees_p": "El escáner se abre como siempre, con sus propias comprobaciones. Cuando un código se fija, la app lo devuelve y se cierra; nada tuyo aparece en la pantalla, y nada suyo (historial, ajustes, lista de seguridad) se toca con la llamada.",
+  "card_lead": "Probar en un teléfono sin la app.",
+  "card": "La página de la tienda con el referrer de desarrolladores, la misma dirección que abre el fallback de los ejemplos: <a href=\"{play}\">Descárgala en Google Play</a>. La fuente de esta página es el INTENT.md de la propia app; cuando los dos difieren, el repositorio de la app tiene razón y esta página va por detrás."
+ },
+ "fr": {
+  "title": "Pour les développeurs",
+  "desc": "Comment une autre app Android ouvre Verdetto pour scanner et récupère le code : intents, extras du résultat, Kotlin et Java, et ce que voit la personne.",
+  "h1": "Scanner depuis une autre application",
+  "meta": "Verdetto répond à trois intents et à un partage. Rien ici ne demande une permission, une bibliothèque ou une clé. La personne garde chaque vérification de sécurité et chaque réglage de l'application ; votre application reçoit le texte du code à l'instant où elle le confirme.",
+  "intents_h": "Les intents",
+  "th": [
+   "Action",
+   "Filtre dans le manifeste",
+   "Ce qui se passe",
+   "Résultat"
+  ],
+  "rows": [
+   [
+    "<code>com.google.zxing.client.android.SCAN</code>",
+    "Oui, les intents implicites fonctionnent.",
+    "Ouvre le scanner. Le premier code que la personne verrouille est renvoyé, comme le faisait le ZXing Barcode Scanner.",
+    "<code>RESULT_OK</code> avec <code>SCAN_RESULT</code> et <code>SCAN_RESULT_FORMAT</code>"
+   ],
+   [
+    "<code>app.scanner.action.SCAN</code>",
+    "Oui.",
+    "Ouvre le scanner. Lancé pour un résultat (un result launcher ou <code>startActivityForResult</code>), il renvoie le code de la même façon ; lancé simplement, il ouvre juste l'application sur le scanner.",
+    "<code>RESULT_OK</code> avec les deux extras quand il est lancé pour un résultat"
+   ],
+   [
+    "<code>app.scanner.action.CARD</code>",
+    "Pas de filtre : un intent explicite avec le paquet <code>com.verdettoqr.scanner</code> seulement.",
+    "Ouvre l'éditeur de la carte de contact de la personne, le code qu'elle montre pour partager ses coordonnées. Prévu pour les widgets et raccourcis de l'application elle-même ; une autre application peut l'appeler, mais rien ne revient.",
+    "Aucun"
+   ],
+   [
+    "<code>android.intent.action.SEND</code> avec <code>image/*</code>",
+    "Oui.",
+    "Décode une image : l'application affiche la feuille de résultat pour les codes qu'elle contient.",
+    "Aucun"
+   ]
+  ],
+  "p_handback": "La personne peut désactiver le renvoi dans les Réglages, sous « Transmettre les résultats à d'autres applications » (« Quand une application demande un scan, le code lui est renvoyé »), activé par défaut. Désactivé, chacune des deux actions de scan ouvre le scanner comme un lancement normal et votre launcher reçoit <code>RESULT_CANCELED</code> quand la personne quitte. Le retour depuis le scanner donne aussi <code>RESULT_CANCELED</code>.",
+  "p_extras": "Aucun extra de requête n'est lu aujourd'hui : ni <code>SCAN_MODE</code>, <code>SCAN_FORMATS</code>, <code>PROMPT_MESSAGE</code>, <code>SAVE_HISTORY</code>, ni aucun autre. Le scanner lit toutes les symbologies qu'il connaît à chaque appel. Un code signalé par les vérifications de l'application est quand même renvoyé ; la personne voit d'abord l'alerte et décide.",
+  "result_h": "Le résultat",
+  "li_text": "<code>SCAN_RESULT</code> (String) : le contenu du code, exactement les octets qu'il portait, décodés en texte (UTF-8 quand la symbologie le permet, sinon le jeu de caractères propre à la symbologie).",
+  "li_format": "<code>SCAN_RESULT_FORMAT</code> (String) : la symbologie en majuscules avec des tirets bas, avec les noms ZXing quand ils existent. Livrés aujourd'hui : {formats}, et les autres symbologies qu'ajoutent les décodeurs propres à l'application, dans la même graphie (le nom affiché sur la feuille de résultat, en majuscules, espaces et traits d'union en tirets bas).",
+  "p_nothing": "Rien d'autre ne voyage : ni image, ni position, ni historique.",
+  "p_query": "Sur Android 11 et suivants, ajoutez la requête à votre manifeste pour que <code>resolveActivity</code> puisse voir l'application :",
+  "zxing_h": "L'action ZXing",
+  "zxing_p": "Le code écrit pour le ZXing Barcode Scanner continue de fonctionner : envoyez <code>com.google.zxing.client.android.SCAN</code> de la même façon et lisez les deux mêmes extras. Si plusieurs scanners du téléphone y répondent, le système demande à la personne lequel utiliser ; envoyer l'intent au paquet <code>com.verdettoqr.scanner</code> évite cette étape.",
+  "sees_h": "Ce que voit la personne",
+  "sees_p": "Le scanner s'ouvre comme toujours, avec ses propres vérifications. Quand un code se verrouille, l'application le renvoie et se ferme ; rien de vous n'apparaît à l'écran, et rien d'elle (historique, réglages, liste de sécurité) n'est touché par l'appel.",
+  "card_lead": "Tester sur un téléphone sans l'application.",
+  "card": "La page du magasin avec le référent développeurs, la même adresse que le repli des exemples ouvre : <a href=\"{play}\">Disponible sur Google Play</a>. La source de cette page est le fichier INTENT.md de l'application ; quand les deux divergent, le dépôt de l'application a raison et cette page est en retard."
+ },
+ "pt-BR": {
+  "title": "Para desenvolvedores",
+  "desc": "Como outro app Android abre o Verdetto para escanear e recebe o código de volta: os intents, os extras do resultado, Kotlin e Java, e o que a pessoa vê.",
+  "h1": "Escanear a partir de outro app",
+  "meta": "O Verdetto responde a três intents e a um compartilhamento. Nada aqui precisa de permissão, biblioteca ou chave. A pessoa mantém todas as verificações de segurança e todas as configurações do app; seu app recebe o texto do código no momento em que ela o confirma.",
+  "intents_h": "Os intents",
+  "th": [
+   "Ação",
+   "Filtro no manifesto",
+   "O que acontece",
+   "Resultado"
+  ],
+  "rows": [
+   [
+    "<code>com.google.zxing.client.android.SCAN</code>",
+    "Sim, intents implícitos funcionam.",
+    "Abre o leitor. O primeiro código que a pessoa fixa é devolvido, como o ZXing Barcode Scanner fazia.",
+    "<code>RESULT_OK</code> com <code>SCAN_RESULT</code> e <code>SCAN_RESULT_FORMAT</code>"
+   ],
+   [
+    "<code>app.scanner.action.SCAN</code>",
+    "Sim.",
+    "Abre o leitor. Iniciado para um resultado (um result launcher ou <code>startActivityForResult</code>), devolve o código do mesmo jeito; iniciado sem mais, só abre o app no leitor.",
+    "<code>RESULT_OK</code> com os dois extras quando iniciado para um resultado"
+   ],
+   [
+    "<code>app.scanner.action.CARD</code>",
+    "Sem filtro: apenas um intent explícito com o pacote <code>com.verdettoqr.scanner</code>.",
+    "Abre o editor do cartão de contato da própria pessoa, o código que ela mostra para compartilhar seus dados. Feito para os widgets e atalhos do próprio app; outro app pode chamá-lo, mas nada volta.",
+    "Nenhum"
+   ],
+   [
+    "<code>android.intent.action.SEND</code> com <code>image/*</code>",
+    "Sim.",
+    "Decodifica uma imagem: o app mostra a folha de resultado com os códigos que ela contém.",
+    "Nenhum"
+   ]
+  ],
+  "p_handback": "A pessoa pode desligar a devolução em Configurações, em \"Entregar resultados a outros apps\" (\"Quando um app pede um escaneamento, o código volta para ele\"), que vem ligada. Desligada, qualquer das duas ações de leitura abre o leitor como uma abertura normal e seu launcher recebe <code>RESULT_CANCELED</code> quando a pessoa sai. Voltar do leitor também é <code>RESULT_CANCELED</code>.",
+  "p_extras": "Nenhum extra da requisição é lido hoje: nem <code>SCAN_MODE</code>, <code>SCAN_FORMATS</code>, <code>PROMPT_MESSAGE</code>, <code>SAVE_HISTORY</code>, nem qualquer outro. O leitor lê todas as simbologias que conhece em toda chamada. Um código que as verificações do app sinalizam ainda é devolvido; a pessoa vê o alerta primeiro e decide.",
+  "result_h": "O resultado",
+  "li_text": "<code>SCAN_RESULT</code> (String): o conteúdo do código, exatamente os bytes que ele carregava, decodificados como texto (UTF-8 onde a simbologia permite, e o conjunto de caracteres da própria simbologia nos outros casos).",
+  "li_format": "<code>SCAN_RESULT_FORMAT</code> (String): a simbologia em maiúsculas com sublinhados, com os nomes do ZXing onde existem. Entregues hoje: {formats}, e as outras simbologias que os decodificadores próprios do app acrescentam, na mesma grafia (o nome mostrado na folha de resultado, em maiúsculas, com espaços e hifens como sublinhados).",
+  "p_nothing": "Nada mais viaja: nenhuma imagem, nenhuma localização, nenhum histórico.",
+  "p_query": "No Android 11 e posteriores, adicione a consulta ao seu manifesto para que <code>resolveActivity</code> consiga ver o app:",
+  "zxing_h": "A ação do ZXing",
+  "zxing_p": "Código escrito para o ZXing Barcode Scanner continua funcionando: envie <code>com.google.zxing.client.android.SCAN</code> do mesmo jeito e leia os mesmos dois extras. Se mais de um leitor no celular responder, o sistema pergunta à pessoa qual usar; enviar o intent para o pacote <code>com.verdettoqr.scanner</code> pula isso.",
+  "sees_h": "O que a pessoa vê",
+  "sees_p": "O leitor abre como sempre, com suas próprias verificações. Quando um código é fixado, o app o devolve e fecha; nada seu aparece na tela, e nada dela (histórico, configurações, lista de segurança) é tocado pela chamada.",
+  "card_lead": "Testar em um celular sem o app.",
+  "card": "A página da loja com o referrer de desenvolvedores, o mesmo endereço que o fallback dos exemplos abre: <a href=\"{play}\">Disponível no Google Play</a>. A fonte desta página é o INTENT.md do próprio app; quando os dois divergem, o repositório do app está certo e esta página está atrasada."
+ },
+ "id": {
+  "title": "Untuk pengembang",
+  "desc": "Cara aplikasi Android lain membuka Verdetto untuk memindai dan menerima kodenya kembali: intent, ekstra hasil, Kotlin dan Java, serta apa yang dilihat pengguna.",
+  "h1": "Memindai dari aplikasi lain",
+  "meta": "Verdetto menjawab tiga intent dan satu berbagi. Tidak ada yang memerlukan izin, pustaka, atau kunci. Orang itu tetap mendapat setiap pemeriksaan keamanan dan setiap pengaturan aplikasi; aplikasi Anda menerima teks kode pada saat ia mengonfirmasinya.",
+  "intents_h": "Intent-nya",
+  "th": [
+   "Action",
+   "Filter di manifes",
+   "Yang terjadi",
+   "Hasil"
+  ],
+  "rows": [
+   [
+    "<code>com.google.zxing.client.android.SCAN</code>",
+    "Ya, intent implisit berfungsi.",
+    "Membuka pemindai. Kode pertama yang dikunci orang itu dikembalikan, seperti yang dilakukan ZXing Barcode Scanner.",
+    "<code>RESULT_OK</code> dengan <code>SCAN_RESULT</code> dan <code>SCAN_RESULT_FORMAT</code>"
+   ],
+   [
+    "<code>app.scanner.action.SCAN</code>",
+    "Ya.",
+    "Membuka pemindai. Dimulai untuk hasil (result launcher atau <code>startActivityForResult</code>) ia mengembalikan kode dengan cara yang sama; dimulai biasa, ia hanya membuka aplikasi di pemindai.",
+    "<code>RESULT_OK</code> dengan dua ekstra itu bila dimulai untuk hasil"
+   ],
+   [
+    "<code>app.scanner.action.CARD</code>",
+    "Tanpa filter: hanya intent eksplisit dengan paket <code>com.verdettoqr.scanner</code>.",
+    "Membuka editor kartu kontak milik orang itu, kode yang ia tunjukkan untuk berbagi datanya. Dimaksudkan untuk widget dan pintasan aplikasi sendiri; aplikasi lain boleh memanggilnya, tetapi tidak ada yang kembali.",
+    "Tidak ada"
+   ],
+   [
+    "<code>android.intent.action.SEND</code> dengan <code>image/*</code>",
+    "Ya.",
+    "Mendekode gambar: aplikasi menampilkan lembar hasil untuk kode di dalamnya.",
+    "Tidak ada"
+   ]
+  ],
+  "p_handback": "Orang itu bisa mematikan pengembalian hasil di Pengaturan pada \"Serahkan hasil ke aplikasi lain\" (\"Saat aplikasi meminta pindaian, kodenya dikembalikan ke aplikasi itu\"), yang aktif secara bawaan. Bila dimatikan, kedua action pindai membuka pemindai sebagai peluncuran biasa dan launcher Anda menerima <code>RESULT_CANCELED</code> saat orang itu keluar. Kembali dari pemindai juga <code>RESULT_CANCELED</code>.",
+  "p_extras": "Saat ini tidak ada ekstra permintaan yang dibaca: bukan <code>SCAN_MODE</code>, <code>SCAN_FORMATS</code>, <code>PROMPT_MESSAGE</code>, <code>SAVE_HISTORY</code>, atau yang lain. Pemindai membaca setiap simbologi yang dikenalnya pada setiap panggilan. Kode yang ditandai pemeriksaan aplikasi tetap dikembalikan; orang itu melihat peringatannya dulu dan memutuskan.",
+  "result_h": "Hasilnya",
+  "li_text": "<code>SCAN_RESULT</code> (String): isi kode, persis byte yang dibawa kode, didekode sebagai teks (UTF-8 bila simbologinya mengizinkan, selain itu set karakter simbologi itu sendiri).",
+  "li_format": "<code>SCAN_RESULT_FORMAT</code> (String): simbologi dalam huruf besar dengan garis bawah, memakai nama ZXing bila ada. Dikirim saat ini: {formats}, dan simbologi lain yang ditambahkan dekoder aplikasi sendiri, dengan ejaan yang sama (nama yang tampil di lembar hasil, dihurufbesarkan, spasi dan tanda hubung menjadi garis bawah).",
+  "p_nothing": "Tidak ada yang lain ikut: tidak ada gambar, lokasi, atau riwayat.",
+  "p_query": "Pada Android 11 ke atas, tambahkan query ke manifes Anda agar <code>resolveActivity</code> bisa melihat aplikasinya:",
+  "zxing_h": "Action ZXing",
+  "zxing_p": "Kode yang ditulis untuk ZXing Barcode Scanner tetap berfungsi: kirim <code>com.google.zxing.client.android.SCAN</code> dengan cara yang sama dan baca dua ekstra yang sama. Jika lebih dari satu pemindai di ponsel menjawabnya, sistem menanyakan kepada orang itu mana yang dipakai; mengirim intent ke paket <code>com.verdettoqr.scanner</code> melewati langkah itu.",
+  "sees_h": "Yang dilihat pengguna",
+  "sees_p": "Pemindai terbuka seperti biasa, dengan pemeriksaannya sendiri. Saat kode terkunci, aplikasi mengembalikannya dan menutup; tidak ada milik Anda yang muncul di layar, dan tidak ada milik orang itu (riwayat, pengaturan, daftar keamanan) yang tersentuh panggilan tersebut.",
+  "card_lead": "Menguji di ponsel tanpa aplikasi.",
+  "card": "Halaman toko dengan referrer pengembang, alamat yang sama yang dibuka fallback dalam contoh: <a href=\"{play}\">Dapatkan di Google Play</a>. Sumber halaman ini adalah INTENT.md aplikasi sendiri; bila keduanya berbeda, repositori aplikasi yang benar dan halaman ini yang tertinggal."
+ },
+ "ru": {
+  "title": "Разработчикам",
+  "desc": "Как другое Android-приложение открывает Verdetto для сканирования и получает код обратно: интенты, экстры результата, Kotlin и Java, и что видит человек.",
+  "h1": "Сканирование из другого приложения",
+  "meta": "Verdetto отвечает на три интента и одно действие «Поделиться». Ничему из этого не нужны разрешение, библиотека или ключ. Человек сохраняет все проверки безопасности и все настройки приложения; ваше приложение получает текст кода в момент, когда он его подтверждает.",
+  "intents_h": "Интенты",
+  "th": [
+   "Action",
+   "Фильтр в манифесте",
+   "Что происходит",
+   "Результат"
+  ],
+  "rows": [
+   [
+    "<code>com.google.zxing.client.android.SCAN</code>",
+    "Да, неявные интенты работают.",
+    "Открывает сканер. Первый код, который человек фиксирует, возвращается, как это делал ZXing Barcode Scanner.",
+    "<code>RESULT_OK</code> с <code>SCAN_RESULT</code> и <code>SCAN_RESULT_FORMAT</code>"
+   ],
+   [
+    "<code>app.scanner.action.SCAN</code>",
+    "Да.",
+    "Открывает сканер. Запущенный ради результата (result launcher или <code>startActivityForResult</code>), он возвращает код тем же способом; запущенный просто так, он лишь открывает приложение на сканере.",
+    "<code>RESULT_OK</code> с двумя экстрами, если запущен ради результата"
+   ],
+   [
+    "<code>app.scanner.action.CARD</code>",
+    "Без фильтра: только явный интент с пакетом <code>com.verdettoqr.scanner</code>.",
+    "Открывает редактор собственной контактной карточки человека, кода, который он показывает, чтобы поделиться данными. Предназначен для виджетов и ярлыков самого приложения; другое приложение может его вызвать, но назад ничего не приходит.",
+    "Нет"
+   ],
+   [
+    "<code>android.intent.action.SEND</code> с <code>image/*</code>",
+    "Да.",
+    "Декодирует изображение: приложение показывает лист результата для кодов в нём.",
+    "Нет"
+   ]
+  ],
+  "p_handback": "Человек может отключить возврат в Настройках, пункт «Передавать результаты другим приложениям» («Когда приложение запрашивает сканирование, код возвращается ему»), включённый по умолчанию. Если он выключен, любое из двух действий сканирования открывает сканер как обычный запуск, и ваш launcher получает <code>RESULT_CANCELED</code>, когда человек выходит. Возврат назад из сканера — тоже <code>RESULT_CANCELED</code>.",
+  "p_extras": "Экстры запроса сейчас не читаются: ни <code>SCAN_MODE</code>, <code>SCAN_FORMATS</code>, <code>PROMPT_MESSAGE</code>, <code>SAVE_HISTORY</code>, ни какие-либо другие. Сканер читает все известные ему символики при каждом вызове. Код, который отметили проверки приложения, всё равно возвращается; человек сначала видит предупреждение и решает.",
+  "result_h": "Результат",
+  "li_text": "<code>SCAN_RESULT</code> (String): содержимое кода, ровно те байты, которые нёс код, декодированные как текст (UTF-8, где символика это позволяет, иначе собственный набор символов символики).",
+  "li_format": "<code>SCAN_RESULT_FORMAT</code> (String): символика в верхнем регистре с подчёркиваниями, имена ZXing там, где они есть. Сейчас передаются: {formats}, и остальные символики, которые добавляют собственные декодеры приложения, в том же написании (имя, показанное на листе результата, в верхнем регистре, пробелы и дефисы как подчёркивания).",
+  "p_nothing": "Больше ничего не передаётся: ни изображение, ни местоположение, ни история.",
+  "p_query": "На Android 11 и новее добавьте запрос в манифест, чтобы <code>resolveActivity</code> мог увидеть приложение:",
+  "zxing_h": "Действие ZXing",
+  "zxing_p": "Код, написанный для ZXing Barcode Scanner, продолжает работать: отправьте <code>com.google.zxing.client.android.SCAN</code> тем же способом и читайте те же два экстра. Если на телефоне на него отвечают несколько сканеров, система спрашивает человека, какой использовать; отправка интента пакету <code>com.verdettoqr.scanner</code> пропускает это.",
+  "sees_h": "Что видит человек",
+  "sees_p": "Сканер открывается как всегда, со своими проверками. Когда код фиксируется, приложение возвращает его и закрывается; ничего вашего на экране не появляется, и ничего его (история, настройки, список безопасности) вызов не затрагивает.",
+  "card_lead": "Проверка на телефоне без приложения.",
+  "card": "Страница магазина с реферером для разработчиков, тот же адрес, который открывает запасной вариант в примерах: <a href=\"{play}\">Скачать в Google Play</a>. Источник этой страницы — собственный INTENT.md приложения; если они расходятся, прав репозиторий приложения, а эта страница отстаёт."
+ },
+ "hi": {
+  "title": "डेवलपरों के लिए",
+  "desc": "दूसरा Android ऐप स्कैन करने के लिए Verdetto को कैसे खोलता है और कोड वापस कैसे पाता है: इंटेंट, परिणाम के एक्स्ट्रा, Kotlin और Java, और व्यक्ति क्या देखता है।",
+  "h1": "दूसरे ऐप से स्कैन करना",
+  "meta": "Verdetto तीन इंटेंट और एक शेयर का जवाब देता है। यहाँ किसी चीज़ को अनुमति, लाइब्रेरी या कुंजी की ज़रूरत नहीं। व्यक्ति के पास ऐप की हर सुरक्षा जाँच और हर सेटिंग बनी रहती है; आपके ऐप को कोड का टेक्स्ट उसी क्षण मिलता है जब वह उसकी पुष्टि करता है।",
+  "intents_h": "इंटेंट",
+  "th": [
+   "Action",
+   "मैनिफ़ेस्ट में फ़िल्टर",
+   "क्या होता है",
+   "परिणाम"
+  ],
+  "rows": [
+   [
+    "<code>com.google.zxing.client.android.SCAN</code>",
+    "हाँ, इम्प्लिसिट इंटेंट काम करते हैं।",
+    "स्कैनर खोलता है। व्यक्ति जो पहला कोड लॉक करता है वह वापस दिया जाता है, जैसा ZXing Barcode Scanner करता था।",
+    "<code>RESULT_OK</code> के साथ <code>SCAN_RESULT</code> और <code>SCAN_RESULT_FORMAT</code>"
+   ],
+   [
+    "<code>app.scanner.action.SCAN</code>",
+    "हाँ।",
+    "स्कैनर खोलता है। परिणाम के लिए शुरू किया गया (result launcher या <code>startActivityForResult</code>) तो कोड उसी तरह वापस देता है; सादे तौर पर शुरू किया गया तो बस ऐप को स्कैनर पर खोलता है।",
+    "परिणाम के लिए शुरू होने पर दोनों एक्स्ट्रा के साथ <code>RESULT_OK</code>"
+   ],
+   [
+    "<code>app.scanner.action.CARD</code>",
+    "कोई फ़िल्टर नहीं: केवल पैकेज <code>com.verdettoqr.scanner</code> के साथ एक्सप्लिसिट इंटेंट।",
+    "व्यक्ति के अपने संपर्क कार्ड का एडिटर खोलता है, वह कोड जो वह अपनी जानकारी साझा करने के लिए दिखाता है। ऐप के अपने विजेट और शॉर्टकट के लिए बना है; कोई दूसरा ऐप इसे कॉल कर सकता है, पर कुछ वापस नहीं आता।",
+    "कुछ नहीं"
+   ],
+   [
+    "<code>android.intent.action.SEND</code> के साथ <code>image/*</code>",
+    "हाँ।",
+    "एक चित्र को डिकोड करता है: ऐप उसमें मौजूद कोड के लिए परिणाम शीट दिखाता है।",
+    "कुछ नहीं"
+   ]
+  ],
+  "p_handback": "व्यक्ति सेटिंग में \"परिणाम दूसरे ऐप को सौंपें\" (\"जब कोई ऐप स्कैन माँगता है, तो कोड उसे वापस जाता है\") के तहत वापसी बंद कर सकता है, जो डिफ़ॉल्ट रूप से चालू है। बंद होने पर दोनों में से कोई भी स्कैन action स्कैनर को सामान्य लॉन्च की तरह खोलता है और व्यक्ति के बाहर निकलने पर आपके launcher को <code>RESULT_CANCELED</code> मिलता है। स्कैनर से पीछे जाना भी <code>RESULT_CANCELED</code> है।",
+  "p_extras": "आज कोई अनुरोध एक्स्ट्रा नहीं पढ़ा जाता: न <code>SCAN_MODE</code>, <code>SCAN_FORMATS</code>, <code>PROMPT_MESSAGE</code>, <code>SAVE_HISTORY</code>, न कोई और। स्कैनर हर कॉल पर अपनी जानी हुई हर सिंबोलॉजी पढ़ता है। जिस कोड को ऐप की जाँचें चिह्नित करती हैं वह भी वापस दिया जाता है; व्यक्ति पहले चेतावनी देखता है और फ़ैसला करता है।",
+  "result_h": "परिणाम",
+  "li_text": "<code>SCAN_RESULT</code> (String): कोड की सामग्री, ठीक वही बाइट जो कोड में थे, टेक्स्ट के रूप में डिकोड किए गए (जहाँ सिंबोलॉजी अनुमति देती है वहाँ UTF-8, अन्यथा सिंबोलॉजी का अपना कैरेक्टर सेट)।",
+  "li_format": "<code>SCAN_RESULT_FORMAT</code> (String): सिंबोलॉजी बड़े अक्षरों में अंडरस्कोर के साथ, जहाँ मौजूद हों वहाँ ZXing के नाम। आज दिए जाते हैं: {formats}, और वे अन्य सिंबोलॉजी जो ऐप के अपने डिकोडर जोड़ते हैं, उसी वर्तनी में (परिणाम शीट पर दिखने वाला नाम, बड़े अक्षरों में, स्पेस और हाइफ़न अंडरस्कोर के रूप में)।",
+  "p_nothing": "और कुछ नहीं जाता: न चित्र, न स्थान, न इतिहास।",
+  "p_query": "Android 11 और बाद के संस्करणों पर, अपने मैनिफ़ेस्ट में क्वेरी जोड़ें ताकि <code>resolveActivity</code> ऐप को देख सके:",
+  "zxing_h": "ZXing action",
+  "zxing_p": "ZXing Barcode Scanner के लिए लिखा गया कोड काम करता रहता है: <code>com.google.zxing.client.android.SCAN</code> उसी तरह भेजें और वही दो एक्स्ट्रा पढ़ें। अगर फ़ोन पर एक से ज़्यादा स्कैनर इसका जवाब देते हैं, तो सिस्टम व्यक्ति से पूछता है कि कौन सा इस्तेमाल करना है; इंटेंट को पैकेज <code>com.verdettoqr.scanner</code> पर भेजने से यह चरण छूट जाता है।",
+  "sees_h": "व्यक्ति क्या देखता है",
+  "sees_p": "स्कैनर हमेशा की तरह खुलता है, अपनी जाँचों के साथ। कोड लॉक होने पर ऐप उसे वापस देता है और बंद हो जाता है; स्क्रीन पर आपका कुछ नहीं दिखता, और उसका कुछ भी (इतिहास, सेटिंग, सुरक्षा सूची) इस कॉल से नहीं छुआ जाता।",
+  "card_lead": "बिना ऐप वाले फ़ोन पर परीक्षण।",
+  "card": "डेवलपर रेफ़रर के साथ स्टोर पेज, वही पता जो उदाहरणों का फ़ॉलबैक खोलता है: <a href=\"{play}\">Google Play पर पाएँ</a>। इस पेज का स्रोत ऐप की अपनी INTENT.md है; दोनों में अंतर हो तो ऐप रिपॉज़िटरी सही है और यह पेज पीछे है।"
+ },
+ "ja": {
+  "title": "開発者向け",
+  "desc": "他の Android アプリが Verdetto を開いて読み取り、コードを受け取る方法: インテント、結果のエクストラ、Kotlin と Java、そして利用者に見えるもの。",
+  "h1": "他のアプリから読み取る",
+  "meta": "Verdetto は三つのインテントと一つの共有に応えます。権限もライブラリもキーも要りません。利用者はアプリのすべての安全確認と設定をそのまま保ち、あなたのアプリは利用者が確認した瞬間にコードのテキストを受け取ります。",
+  "intents_h": "インテント",
+  "th": [
+   "Action",
+   "マニフェストのフィルター",
+   "何が起きるか",
+   "結果"
+  ],
+  "rows": [
+   [
+    "<code>com.google.zxing.client.android.SCAN</code>",
+    "はい。暗黙的インテントが使えます。",
+    "スキャナーを開きます。利用者が最初にロックしたコードが、ZXing Barcode Scanner と同じように返されます。",
+    "<code>RESULT_OK</code> と <code>SCAN_RESULT</code>、<code>SCAN_RESULT_FORMAT</code>"
+   ],
+   [
+    "<code>app.scanner.action.SCAN</code>",
+    "はい。",
+    "スキャナーを開きます。結果を求めて起動した場合（result launcher または <code>startActivityForResult</code>）は同じ方法でコードを返し、そのまま起動した場合はアプリをスキャナー画面で開くだけです。",
+    "結果を求めて起動した場合、二つのエクストラ付きの <code>RESULT_OK</code>"
+   ],
+   [
+    "<code>app.scanner.action.CARD</code>",
+    "フィルターなし: パッケージ <code>com.verdettoqr.scanner</code> を指定した明示的インテントのみ。",
+    "利用者自身の連絡先カードの編集画面、つまり自分の連絡先を共有するために見せるコードを開きます。アプリ自身のウィジェットとショートカット向けで、他のアプリから呼べますが、何も返りません。",
+    "なし"
+   ],
+   [
+    "<code>android.intent.action.SEND</code> と <code>image/*</code>",
+    "はい。",
+    "画像を解読します。アプリはその中のコードについて結果シートを表示します。",
+    "なし"
+   ]
+  ],
+  "p_handback": "利用者は設定の「結果を他のアプリに渡す」（「アプリからスキャンを求められたとき、コードをそのアプリに返します」）で受け渡しをオフにできます（初期状態はオン）。オフのとき、どちらのスキャン action も通常起動としてスキャナーを開き、利用者が離れるとあなたのランチャーは <code>RESULT_CANCELED</code> を受け取ります。スキャナーからの戻る操作も <code>RESULT_CANCELED</code> です。",
+  "p_extras": "現在、リクエストのエクストラは読みません。<code>SCAN_MODE</code>、<code>SCAN_FORMATS</code>、<code>PROMPT_MESSAGE</code>、<code>SAVE_HISTORY</code> もその他も同様です。スキャナーは呼び出しごとに知っているすべてのシンボロジーを読みます。アプリの確認が警告したコードもそのまま返されます。利用者が先に警告を見て判断します。",
+  "result_h": "結果",
+  "li_text": "<code>SCAN_RESULT</code>（String）: コードの内容。コードが運んでいたバイトそのものをテキストとして解読したもの（シンボロジーが許す場合は UTF-8、それ以外はそのシンボロジー固有の文字集合）。",
+  "li_format": "<code>SCAN_RESULT_FORMAT</code>（String）: シンボロジーを大文字とアンダースコアで表したもの。ZXing の名前がある場合はそれを使います。現在返すもの: {formats}、およびアプリ独自のデコーダーが加えるその他のシンボロジーを同じ表記で（結果シートに表示される名前を大文字にし、スペースとハイフンをアンダースコアにしたもの）。",
+  "p_nothing": "他には何も渡りません。画像も、位置情報も、履歴も。",
+  "p_query": "Android 11 以降では、<code>resolveActivity</code> がアプリを見つけられるように、マニフェストにクエリを追加してください:",
+  "zxing_h": "ZXing の action",
+  "zxing_p": "ZXing Barcode Scanner 向けに書かれたコードはそのまま動きます。<code>com.google.zxing.client.android.SCAN</code> を同じ方法で送り、同じ二つのエクストラを読んでください。端末上の複数のスキャナーがこれに応える場合、システムがどれを使うか利用者に尋ねます。パッケージ <code>com.verdettoqr.scanner</code> にインテントを送ればその手順は省かれます。",
+  "sees_h": "利用者に見えるもの",
+  "sees_p": "スキャナーはいつも通り、自身の確認とともに開きます。コードがロックされるとアプリはそれを返して閉じます。あなたのものは画面に何も現れず、利用者のもの（履歴、設定、安全リスト）にこの呼び出しが触れることもありません。",
+  "card_lead": "アプリのない端末での確認。",
+  "card": "開発者向けリファラー付きのストアページで、サンプルのフォールバックが開くのと同じアドレスです: <a href=\"{play}\">Google Play で手に入れよう</a>。このページの出典はアプリ自身の INTENT.md で、両者が異なる場合はアプリのリポジトリが正しく、このページが遅れています。"
+ },
+ "zh-Hans": {
+  "title": "面向开发者",
+  "desc": "另一个 Android 应用如何打开 Verdetto 进行扫描并取回码：意图、结果附加数据、Kotlin 与 Java，以及用户看到的内容。",
+  "h1": "从另一个应用发起扫描",
+  "meta": "Verdetto 响应三个意图和一个分享。这里不需要任何权限、库或密钥。用户保留应用的每一项安全检查和每一项设置；在用户确认的那一刻，你的应用就会收到码的文本。",
+  "intents_h": "意图",
+  "th": [
+   "Action",
+   "清单中的过滤器",
+   "会发生什么",
+   "结果"
+  ],
+  "rows": [
+   [
+    "<code>com.google.zxing.client.android.SCAN</code>",
+    "是，隐式意图可用。",
+    "打开扫描器。用户锁定的第一个码会被返回，与 ZXing Barcode Scanner 的做法相同。",
+    "<code>RESULT_OK</code>，附带 <code>SCAN_RESULT</code> 和 <code>SCAN_RESULT_FORMAT</code>"
+   ],
+   [
+    "<code>app.scanner.action.SCAN</code>",
+    "是。",
+    "打开扫描器。为获取结果而启动时（result launcher 或 <code>startActivityForResult</code>），以同样方式返回码；直接启动时只是在扫描器界面打开应用。",
+    "为获取结果而启动时，<code>RESULT_OK</code> 附带这两个附加数据"
+   ],
+   [
+    "<code>app.scanner.action.CARD</code>",
+    "无过滤器：仅接受指定包名 <code>com.verdettoqr.scanner</code> 的显式意图。",
+    "打开用户自己的联系人名片编辑器，也就是用户用来分享自己信息的码。面向应用自身的小组件和快捷方式；其他应用可以调用，但不会返回任何内容。",
+    "无"
+   ],
+   [
+    "<code>android.intent.action.SEND</code>，类型 <code>image/*</code>",
+    "是。",
+    "解码一张图片：应用为其中的码显示结果面板。",
+    "无"
+   ]
+  ],
+  "p_handback": "用户可以在“设置”中的“把结果交给其他应用”（“当其他应用请求扫描时，把码返回给该应用”）关闭返回功能，该项默认开启。关闭后，两个扫描 action 都会像普通启动一样打开扫描器，用户离开时你的 launcher 会收到 <code>RESULT_CANCELED</code>。从扫描器返回同样是 <code>RESULT_CANCELED</code>。",
+  "p_extras": "目前不读取任何请求附加数据：<code>SCAN_MODE</code>、<code>SCAN_FORMATS</code>、<code>PROMPT_MESSAGE</code>、<code>SAVE_HISTORY</code> 或其他都不读取。扫描器在每次调用时读取它所知的所有码制。被应用检查标记的码仍会返回；用户先看到警告，再自行决定。",
+  "result_h": "结果",
+  "li_text": "<code>SCAN_RESULT</code>（String）：码的内容，即码所携带的原始字节，按文本解码（码制允许时为 UTF-8，否则为该码制自身的字符集）。",
+  "li_format": "<code>SCAN_RESULT_FORMAT</code>（String）：码制名称，大写并以下划线连接，存在 ZXing 名称时沿用之。目前返回：{formats}，以及应用自有解码器新增的其他码制，拼写方式相同（结果面板上显示的名称转为大写，空格和连字符改为下划线）。",
+  "p_nothing": "不会传递其他任何东西：没有图片、没有位置、没有历史记录。",
+  "p_query": "在 Android 11 及更高版本上，把查询加入你的清单，这样 <code>resolveActivity</code> 才能看到该应用：",
+  "zxing_h": "ZXing action",
+  "zxing_p": "为 ZXing Barcode Scanner 编写的代码可以继续使用：以同样方式发送 <code>com.google.zxing.client.android.SCAN</code>，并读取同样的两个附加数据。如果手机上有多个扫描器响应它，系统会询问用户使用哪一个；把意图发送给包名 <code>com.verdettoqr.scanner</code> 可以跳过这一步。",
+  "sees_h": "用户看到的内容",
+  "sees_p": "扫描器照常打开，带着它自己的检查。码锁定后，应用把它返回并关闭；屏幕上不会出现任何属于你的内容，用户的任何内容（历史记录、设置、安全列表）也不会被这次调用触及。",
+  "card_lead": "在没有安装应用的手机上测试。",
+  "card": "带开发者引荐参数的商店页面，也就是示例中回退所打开的地址：<a href=\"{play}\">在 Google Play 获取</a>。本页面的来源是应用自身的 INTENT.md；两者不一致时，以应用仓库为准，本页面滞后。"
+ },
+ "ar": {
+  "title": "للمطوّرين",
+  "desc": "كيف يفتح تطبيق Android آخر Verdetto للمسح ويستلم الرمز: النوايا (intents)، وإضافات النتيجة، وKotlin وJava، وما يراه المستخدم.",
+  "h1": "المسح من تطبيق آخر",
+  "meta": "يستجيب Verdetto لثلاث نوايا ومشاركة واحدة. لا يحتاج شيء هنا إلى إذن أو مكتبة أو مفتاح. يحتفظ الشخص بكل فحص أمان وكل إعداد في التطبيق؛ ويستلم تطبيقك نص الرمز لحظة تأكيده.",
+  "intents_h": "النوايا",
+  "th": [
+   "Action",
+   "المرشِّح في الـ manifest",
+   "ما الذي يحدث",
+   "النتيجة"
+  ],
+  "rows": [
+   [
+    "<code>com.google.zxing.client.android.SCAN</code>",
+    "نعم، النوايا الضمنية تعمل.",
+    "يفتح الماسح. أول رمز يثبّته الشخص يُعاد، كما كان يفعل ZXing Barcode Scanner.",
+    "<code>RESULT_OK</code> مع <code>SCAN_RESULT</code> و<code>SCAN_RESULT_FORMAT</code>"
+   ],
+   [
+    "<code>app.scanner.action.SCAN</code>",
+    "نعم.",
+    "يفتح الماسح. إذا بُدئ من أجل نتيجة (result launcher أو <code>startActivityForResult</code>) فإنه يعيد الرمز بالطريقة نفسها؛ وإذا بُدئ عاديًا فإنه يفتح التطبيق على الماسح فقط.",
+    "<code>RESULT_OK</code> مع الإضافتين عند البدء من أجل نتيجة"
+   ],
+   [
+    "<code>app.scanner.action.CARD</code>",
+    "بلا مرشِّح: نية صريحة بالحزمة <code>com.verdettoqr.scanner</code> فقط.",
+    "يفتح محرّر بطاقة الاتصال الخاصة بالشخص، أي الرمز الذي يعرضه لمشاركة بياناته. مخصص لأدوات التطبيق واختصاراته؛ ويمكن لتطبيق آخر استدعاؤه، لكن لا يعود شيء.",
+    "لا شيء"
+   ],
+   [
+    "<code>android.intent.action.SEND</code> مع <code>image/*</code>",
+    "نعم.",
+    "يفكّ صورة: يعرض التطبيق ورقة النتيجة للرموز الموجودة فيها.",
+    "لا شيء"
+   ]
+  ],
+  "p_handback": "يمكن للشخص إيقاف إعادة النتائج في الإعدادات ضمن «تسليم النتائج إلى تطبيقات أخرى» («عندما يطلب تطبيق ما مسحًا، يعود الرمز إليه»)، وهو مفعّل افتراضيًا. وعند إيقافه، يفتح أيٌّ من إجراءي المسح الماسح كتشغيل عادي ويستلم مشغّلك <code>RESULT_CANCELED</code> عندما يخرج الشخص. والرجوع من الماسح يعطي <code>RESULT_CANCELED</code> أيضًا.",
+  "p_extras": "لا تُقرأ حاليًا أي إضافات في الطلب: لا <code>SCAN_MODE</code> ولا <code>SCAN_FORMATS</code> ولا <code>PROMPT_MESSAGE</code> ولا <code>SAVE_HISTORY</code> ولا غيرها. يقرأ الماسح كل ترميز يعرفه في كل استدعاء. والرمز الذي تعلّمه فحوص التطبيق يُعاد مع ذلك؛ يرى الشخص التحذير أولًا ثم يقرر.",
+  "result_h": "النتيجة",
+  "li_text": "<code>SCAN_RESULT</code> (String): محتوى الرمز، أي البايتات التي حملها الرمز بالضبط، مفكوكة كنص (UTF-8 حيث يسمح الترميز، وإلا فمجموعة محارف الترميز نفسه).",
+  "li_format": "<code>SCAN_RESULT_FORMAT</code> (String): الترميز بأحرف كبيرة مع شرطات سفلية، بأسماء ZXing حيث توجد. يُسلَّم حاليًا: {formats}، إلى جانب الترميزات الأخرى التي تضيفها مفكّكات التطبيق الخاصة، بالكتابة نفسها (الاسم المعروض في ورقة النتيجة بأحرف كبيرة، مع تحويل المسافات والشرطات إلى شرطات سفلية).",
+  "p_nothing": "لا ينتقل شيء آخر: لا صورة ولا موقع ولا سجل.",
+  "p_query": "على Android 11 وما بعده، أضف الاستعلام إلى الـ manifest كي يتمكن <code>resolveActivity</code> من رؤية التطبيق:",
+  "zxing_h": "إجراء ZXing",
+  "zxing_p": "الكود المكتوب لـ ZXing Barcode Scanner يستمر في العمل: أرسل <code>com.google.zxing.client.android.SCAN</code> بالطريقة نفسها واقرأ الإضافتين نفسيهما. وإذا استجاب له أكثر من ماسح على الهاتف، يسأل النظام الشخص أيّها يستخدم؛ وإرسال النية إلى الحزمة <code>com.verdettoqr.scanner</code> يتجاوز ذلك.",
+  "sees_h": "ما يراه الشخص",
+  "sees_p": "يفتح الماسح كالمعتاد، بفحوصه الخاصة. وعندما يثبت رمز، يعيده التطبيق ويُغلَق؛ لا يظهر شيء من عندك على الشاشة، ولا يمسّ الاستدعاء شيئًا من عند الشخص (السجل، الإعدادات، قائمة الأمان).",
+  "card_lead": "الاختبار على هاتف بلا التطبيق.",
+  "card": "صفحة المتجر مع مُحيل المطوّرين، وهي العنوان نفسه الذي يفتحه البديل في الأمثلة: <a href=\"{play}\">احصل عليه من Google Play</a>. مصدر هذه الصفحة هو ملف INTENT.md الخاص بالتطبيق؛ وعند اختلافهما فمستودع التطبيق هو الصحيح وهذه الصفحة متأخرة."
+ }
+}
+
+
+def dev_body(t, code):
+    """The developers page from its strings table: the same intents table, samples and formats list as the English page."""
+    play = play_link("developers", "docs")
+    kotlin = KOTLIN_SAMPLE.replace("PLAY_LINK", play)
+    formats = ", ".join(f"<code>{f}</code>" for f in FORMATS_DELIVERED)
+    th = "".join(f"<th>{x}</th>" for x in t["th"])
+    rows = "\n".join("<tr>" + "".join(f"<td>{c}</td>" for c in r) + "</tr>" for r in t["rows"])
+    return (f'\n<div class="prose">\n<h1>{t["h1"]}</h1>\n<p class="meta">{t["meta"]}</p>\n\n'
+            f'<h2>{t["intents_h"]}</h2>\n<table>\n<thead><tr>{th}</tr></thead>\n<tbody>\n{rows}\n</tbody>\n</table>\n\n'
+            f'<p>{t["p_handback"]}</p>\n\n<p>{t["p_extras"]}</p>\n\n'
+            f'<h2>{t["result_h"]}</h2>\n<ul>\n  <li>{t["li_text"]}</li>\n  <li>{t["li_format"].replace("{formats}", formats)}</li>\n</ul>\n<p>{t["p_nothing"]}</p>\n\n'
+            f'<h2>Kotlin</h2>\n{code_block(kotlin)}\n<p>{t["p_query"]}</p>\n{code_block(QUERIES_SAMPLE)}\n\n'
+            f'<h2>Java</h2>\n{code_block(JAVA_SAMPLE)}\n\n'
+            f'<h2>{t["zxing_h"]}</h2>\n<p>{t["zxing_p"]}</p>\n\n'
+            f'<h2>{t["sees_h"]}</h2>\n<p>{t["sees_p"]}</p>\n\n'
+            f'<div class="card"><p><strong>{t["card_lead"]}</strong> {t["card"].replace("{play}", play)}</p></div>\n</div>\n')
+
+
+def dev_ld(t, code):
+    return {**DEVELOPERS_LD, "name": t["h1"], "inLanguage": code}
+
+
+LOCAL["developers.html"] = family_pages("developers.html")
 
 
 # ---- the home page in eleven languages: one template, one strings table (terminology follows the Play listings) -----
@@ -2914,6 +4233,19 @@ for _code in LANG_CODES[1:]:
     _pg = LOCAL["press.html"][_code]
     PAGES[_pg] = (_t["title"] + " - Verdetto", _t["desc"], press_body(_t, _code), press_ld(_t, _code))
     PAGE_LANG[_pg] = (_code, _code == "ar", alternates_for("press.html"))
+PAGE_LANG["report.html"] = ("en", False, alternates_for("report.html"))
+PAGE_LANG["safety-list.html"] = ("en", False, alternates_for("safety-list.html"))
+PAGE_LANG["developers.html"] = ("en", False, alternates_for("developers.html"))
+for _code in LANG_CODES[1:]:
+    _t, _pg = REPORT_T[_code], LOCAL["report.html"][_code]
+    PAGES[_pg] = (_t["title"], _t["desc"], report_body(_t, _code), {"@type": "WebPage", "name": _t["title"], "publisher": ORG, "inLanguage": _code})
+    PAGE_LANG[_pg] = (_code, _code == "ar", alternates_for("report.html"))
+    _t, _pg = WEEKLY_T[_code], LOCAL["safety-list.html"][_code]
+    PAGES[_pg] = (_t["title"] + " - Verdetto", _t["desc"], weekly_body(_t, _code), weekly_ld(_t, _code))
+    PAGE_LANG[_pg] = (_code, _code == "ar", alternates_for("safety-list.html"))
+    _t, _pg = DEV_T[_code], LOCAL["developers.html"][_code]
+    PAGES[_pg] = (_t["title"] + " - Verdetto", _t["desc"], dev_body(_t, _code), dev_ld(_t, _code))
+    PAGE_LANG[_pg] = (_code, _code == "ar", alternates_for("developers.html"))
 BENCH_PUBLISHED = False  # True once the benchmark page is cleared for the live site
 
 

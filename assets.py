@@ -161,7 +161,18 @@ def wrap(draw, text, fnt, width, lang):
     return lines
 
 
-OG_HEAD = {"report.html": "Report a link or a wrong read", "community-license.html": "Community License"}  # the lockup carries the name; a head never repeats it
+OG_HEAD = {"report.html": "Report a link or a wrong read", "community-license.html": "Community License",
+           "report-de.html": "Einen Link oder eine Fehllesung melden",
+           "report-es.html": "Informar de un enlace o de una lectura errónea",
+           "report-fr.html": "Signaler un lien ou une mauvaise lecture",
+           "report-pt-br.html": "Relatar um link ou uma leitura errada",
+           "report-id.html": "Laporkan tautan atau pembacaan yang salah",
+           "report-ru.html": "Сообщить о ссылке или неверном чтении",
+           "report-hi.html": "किसी लिंक या गलत रीडिंग की रिपोर्ट करें",
+           "report-ja.html": "リンクや誤読を報告する",
+           "report-zh-hans.html": "报告链接或误读",
+           "report-ar.html": "أبلغ عن رابط أو قراءة خاطئة",
+           }  # the lockup carries the name; a head never repeats it
 FULL_STOPS = ".。।"  # period, ideographic full stop, danda
 
 

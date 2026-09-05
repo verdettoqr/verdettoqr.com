@@ -89,6 +89,36 @@ Official accounts: Mastodon https://mastodon.social/@VerdettoQR; Reddit https://
 - [媒体资料](https://verdettoqr.com/press-zh-hans): 撰写 Verdetto: QR & Barcode Scanner 相关内容所需的一句话简介、标准介绍、可核实的事实和图片素材。
 - [प्रेस किट](https://verdettoqr.com/press-hi): Verdetto: QR & Barcode Scanner के बारे में लिखने के लिए एक वाक्य का विवरण, मानक पाठ, जाँचने योग्य तथ्य और चित्र सामग्री।
 - [ملف الصحافة](https://verdettoqr.com/press-ar): الوصف في جملة واحدة، والنص المعياري، وحقائق يمكن التحقق منها، وصور للكتابة عن Verdetto: QR & Barcode Scanner.
+- [Informar a Verdetto](https://verdettoqr.com/report-es): Informa de un enlace que parece una estafa, de un código mal leído o de cualquier otra cosa que no esté bien en Verdetto. Una persona revisa cada informe.
+- [La lista de seguridad esta semana](https://verdettoqr.com/safety-list-es): Cifras semanales de la lista pública de avisos de Verdetto: informes, casos, entradas añadidas tras revisión, retiradas y totales. Solo datos públicos.
+- [Para desarrolladores](https://verdettoqr.com/developers-es): Cómo otra app de Android abre Verdetto para escanear y recibe el código: los intents, los extras del resultado, Kotlin y Java, y lo que ve la persona.
+- [Signaler à Verdetto](https://verdettoqr.com/report-fr): Signalez un lien qui ressemble à une arnaque, un code mal lu ou toute autre chose qui ne va pas dans Verdetto. Une personne examine chaque signalement.
+- [La liste de sécurité cette semaine](https://verdettoqr.com/safety-list-fr): Chiffres de la semaine pour la liste d'alerte publique de Verdetto : signalements, dossiers, ajouts après examen, retraits, totaux. Données publiques seulement.
+- [Pour les développeurs](https://verdettoqr.com/developers-fr): Comment une autre app Android ouvre Verdetto pour scanner et récupère le code : intents, extras du résultat, Kotlin et Java, et ce que voit la personne.
+- [Meldung an Verdetto](https://verdettoqr.com/report-de): Melde einen Link, der nach Betrug aussieht, einen falsch gelesenen Code oder etwas anderes, das in Verdetto nicht stimmt. Ein Mensch prüft jede Meldung.
+- [Die Sicherheitsliste diese Woche](https://verdettoqr.com/safety-list-de): Wöchentliche Zahlen aus Verdettos öffentlicher Warnliste: Meldungen, Fälle, Neueinträge nach Prüfung, Entfernungen, Gesamtstände. Nur öffentliche Daten.
+- [Für Entwickler](https://verdettoqr.com/developers-de): Wie eine andere Android-App Verdetto zum Scannen öffnet und den Code zurückerhält: die Intents, die Ergebnis-Extras, Kotlin und Java, und was die Person sieht.
+- [Relatar ao Verdetto](https://verdettoqr.com/report-pt-br): Relate um link que parece golpe, um código lido errado ou qualquer outra coisa que não esteja certa no Verdetto. Uma pessoa analisa cada relato.
+- [A lista de segurança nesta semana](https://verdettoqr.com/safety-list-pt-br): Números semanais da lista pública de alertas do Verdetto: relatos, casos, entradas adicionadas após análise, remoções e totais. Só dados públicos.
+- [Para desenvolvedores](https://verdettoqr.com/developers-pt-br): Como outro app Android abre o Verdetto para escanear e recebe o código de volta: os intents, os extras do resultado, Kotlin e Java, e o que a pessoa vê.
+- [Сообщить в Verdetto](https://verdettoqr.com/report-ru): Сообщите о ссылке, похожей на мошенничество, о неверно прочитанном коде или о чём-то ещё, что не так в Verdetto. Каждое сообщение проверяет человек.
+- [Список безопасности за неделю](https://verdettoqr.com/safety-list-ru): Еженедельные цифры публичного списка предупреждений Verdetto: сообщения, дела, записи после проверки, удаления, итоги. Только публичные данные.
+- [Разработчикам](https://verdettoqr.com/developers-ru): Как другое Android-приложение открывает Verdetto для сканирования и получает код обратно: интенты, экстры результата, Kotlin и Java, и что видит человек.
+- [Laporkan ke Verdetto](https://verdettoqr.com/report-id): Laporkan tautan yang tampak seperti penipuan, kode yang salah dibaca, atau hal lain yang tidak benar di Verdetto. Setiap laporan ditinjau oleh manusia.
+- [Daftar keamanan minggu ini](https://verdettoqr.com/safety-list-id): Angka mingguan dari daftar peringatan publik Verdetto: laporan, kasus, entri yang ditambahkan setelah tinjauan, penghapusan, total. Hanya data publik.
+- [Untuk pengembang](https://verdettoqr.com/developers-id): Cara aplikasi Android lain membuka Verdetto untuk memindai dan menerima kodenya kembali: intent, ekstra hasil, Kotlin dan Java, serta apa yang dilihat pengguna.
+- [Verdetto に報告](https://verdettoqr.com/report-ja): 詐欺のように見えるリンク、誤って読み取られたコード、その他 Verdetto でおかしい点を報告してください。すべての報告を人が確認します。
+- [今週の安全リスト](https://verdettoqr.com/safety-list-ja): Verdetto の公開警告リストの週間の数字: 報告、案件、確認後に追加された項目、削除、合計。公開データのみで、誰かの端末からの情報はありません。
+- [開発者向け](https://verdettoqr.com/developers-ja): 他の Android アプリが Verdetto を開いて読み取り、コードを受け取る方法: インテント、結果のエクストラ、Kotlin と Java、そして利用者に見えるもの。
+- [向 Verdetto 报告](https://verdettoqr.com/report-zh-hans): 报告看起来像诈骗的链接、被误读的码，或 Verdetto 中任何不对的地方。每一份报告都由人工审核。
+- [本周的安全列表](https://verdettoqr.com/safety-list-zh-hans): Verdetto 公开警告列表的每周数字：报告、案例、审核后新增的条目、移除、总数。仅公开数据，不含任何来自手机的信息。
+- [面向开发者](https://verdettoqr.com/developers-zh-hans): 另一个 Android 应用如何打开 Verdetto 进行扫描并取回码：意图、结果附加数据、Kotlin 与 Java，以及用户看到的内容。
+- [Verdetto को रिपोर्ट करें](https://verdettoqr.com/report-hi): धोखाधड़ी जैसा दिखने वाला लिंक, गलत पढ़ा गया कोड या Verdetto में जो कुछ भी ठीक नहीं है, उसकी रिपोर्ट करें। हर रिपोर्ट को एक व्यक्ति देखता है।
+- [इस सप्ताह की सुरक्षा सूची](https://verdettoqr.com/safety-list-hi): Verdetto की सार्वजनिक चेतावनी सूची के साप्ताहिक आँकड़े: रिपोर्ट, केस, समीक्षा के बाद जोड़ी गई प्रविष्टियाँ, हटाई गई प्रविष्टियाँ, कुल। केवल सार्वजनिक डेटा।
+- [डेवलपरों के लिए](https://verdettoqr.com/developers-hi): दूसरा Android ऐप स्कैन करने के लिए Verdetto को कैसे खोलता है और कोड वापस कैसे पाता है: इंटेंट, परिणाम के एक्स्ट्रा, Kotlin और Java, और व्यक्ति क्या देखता है।
+- [أبلغ Verdetto](https://verdettoqr.com/report-ar): أبلغ عن رابط يبدو احتياليًا، أو رمز قُرئ خطأً، أو أي شيء آخر غير صحيح في Verdetto. يراجع شخصٌ كل بلاغ.
+- [قائمة الأمان هذا الأسبوع](https://verdettoqr.com/safety-list-ar): أرقام أسبوعية من قائمة التحذير العامة لـ Verdetto: البلاغات، والحالات، والمدخلات المضافة بعد المراجعة، والمحذوفات، والمجاميع. بيانات عامة فقط.
+- [للمطوّرين](https://verdettoqr.com/developers-ar): كيف يفتح تطبيق Android آخر Verdetto للمسح ويستلم الرمز: النوايا (intents)، وإضافات النتيجة، وKotlin وJava، وما يراه المستخدم.
 
 ## Facts
 
