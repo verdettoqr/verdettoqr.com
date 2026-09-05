@@ -46,16 +46,44 @@ def font(name, size):
     return ImageFont.load_default()
 
 
-# Open Graph image 1200x630: mark on the left, name and tagline on the right
+
+
+def transparent_mark(color, height):
+    """The QR mark alone, on a transparent ground, in one color: the master's pixels that are not the mint tile, their
+    distance from the tile color as alpha, cropped to the mark and scaled to the given height (the cap height of the name)."""
+    global _MARK_ALPHA
+    if "_MARK_ALPHA" not in globals():
+        from PIL import ImageChops
+        src = master.convert("RGB")
+        diff = ImageChops.difference(src, Image.new("RGB", src.size, (0xD5, 0xE8, 0xE3))).convert("L")
+        full = diff.point(lambda v: 255 if v > 30 else (0 if v < 4 else int(255 * (v - 4) / 26)))
+        _MARK_ALPHA = full.crop(full.getbbox())
+    alpha = _MARK_ALPHA
+    scale = height / alpha.height
+    alpha = alpha.resize((max(1, round(alpha.width * scale)), height), Image.LANCZOS)
+    out = Image.new("RGBA", alpha.size, color + (0,)); out.putalpha(alpha)
+    return out
+
+
+def lockup(draw_target, x, y, text, fnt, color):
+    """Mark, then the name, the mark at the cap height of the text; returns the right edge."""
+    d = ImageDraw.Draw(draw_target)
+    cap_top = y + fnt.getbbox("V")[1]; cap_bottom = y + fnt.getbbox("V")[3]
+    m = transparent_mark(color, cap_bottom - cap_top)
+    draw_target.paste(m, (x, cap_top), m)
+    tx = x + m.width + round(0.3 * fnt.size)
+    d.text((tx, y), text, font=fnt, fill=color)
+    return tx + round(d.textlength(text, font=fnt))
+
+
+# Open Graph image 1200x630: the lockup, then the tagline
 og = Image.new("RGB", (1200, 630), MINT)
-mark = rounded(master.resize((360, 360), Image.LANCZOS))
-og.paste(mark, (90, 135), mark)
+lockup(og, 90, 120, "Verdetto", font("seguisb.ttf", 92), INK)
 d = ImageDraw.Draw(og)
-d.text((520, 175), "Verdetto", font=font("seguisb.ttf", 92), fill=INK)
-d.text((524, 290), "QR & Barcode Scanner for Android", font=font("segoeui.ttf", 40), fill=TEAL)
+d.text((90, 262), "QR & Barcode Scanner for Android", font=font("segoeui.ttf", 40), fill=TEAL)
 for i, line in enumerate(("See the link before it opens.", "No ads. No fake buttons.", "Made for damaged codes.")):
-    d.text((524, 372 + 46 * i), line, font=font("segoeui.ttf", 34), fill=VARIANT)
-d.text((524, 548), "verdettoqr.com", font=font("segoeui.ttf", 28), fill=TEAL)
+    d.text((90, 350 + 46 * i), line, font=font("segoeui.ttf", 34), fill=VARIANT)
+d.text((90, 548), "verdettoqr.com", font=font("segoeui.ttf", 28), fill=TEAL)
 og.save(HERE / "og-image.png", optimize=True)
 print("wrote og-image.png")
 
@@ -143,7 +171,7 @@ def og_line(desc):
 
 
 (HERE / "og").mkdir(exist_ok=True)
-small_mark = rounded(master.resize((150, 150), Image.LANCZOS))
+
 for name, (title, desc, _body, _ld) in build.PAGES.items():
     if name == "404.html":
         continue
@@ -160,8 +188,7 @@ for name, (title, desc, _body, _ld) in build.PAGES.items():
         head, line = build.PAGES["privacy.html" if "privacy" in name else "terms.html"][0].split(" - ")[0], ""
     img = Image.new("RGB", (1200, 630), MINT)
     d = ImageDraw.Draw(img)
-    img.paste(small_mark, (90, 80), small_mark)
-    d.text((270, 118), "Verdetto", font=page_font("en", 60, bold=True), fill=INK)
+    lockup(img, 90, 96, "Verdetto", page_font("en", 60, bold=True), INK)
     title_font = page_font(lang, 66, bold=True)
     title_lines = wrap(d, head, title_font, 1020, lang)[:2]
     y = 290
@@ -189,3 +216,12 @@ for name, (title, desc, _body, _ld) in build.PAGES.items():
         size = out.stat().st_size
     assert size <= 40 * 1024, (name, size)
     print("wrote", out.relative_to(HERE), size // 1024, "KB", lang)
+
+
+# Press kit lockups: mark and name on a transparent ground, ink for light grounds and white for dark grounds
+for fname, color in (("lockup-ink.png", INK), ("lockup-white.png", (0xFF, 0xFF, 0xFF))):
+    canvas = Image.new("RGBA", (900, 200), (0, 0, 0, 0))
+    right = lockup(canvas, 20, 40, "Verdetto", font("seguisb.ttf", 120), color)
+    canvas = canvas.crop((0, 0, right + 20, 200))
+    canvas.save(HERE / fname, optimize=True)
+    print("wrote", fname, canvas.size)

@@ -28,6 +28,10 @@ ADDRESS = "1520 Belle View Blvd, Suite #5992, Alexandria, VA 22307"
 EMAIL = "support@verdettoqr.com"
 
 svg = (HERE / "logo.svg").read_text(encoding="utf-8")
+# the transparent mark (the splash mark, no mint disc): the qr and accent groups, filled with the text color of the ground
+mark_inner = re.sub(r'fill="#[0-9A-Fa-f]{6}"', 'fill="currentColor"',
+                    "".join(re.findall(r'<g id="(?:qr|accent)"[^>]*>.*?</g>', svg, re.S)))
+assert mark_inner.count("<path") >= 30, "mark paths missing"
 inner = svg[svg.index(">", svg.index("<svg")) + 1: svg.rindex("</svg>")]
 inner = re.sub(r'<rect width="108" height="108" fill="#D5E8E3"/>', '<rect width="108" height="108" rx="24" fill="#D5E8E3"/>', inner)
 inner = re.sub(r' id="(background|qr|accent)"', "", inner)
@@ -46,6 +50,7 @@ ICONS = {
 }
 SYMBOLS = ('<svg width="0" height="0" style="position:absolute" aria-hidden="true">'
            f'<symbol id="logo" viewBox="0 0 108 108">{inner}</symbol>'
+           + f'<symbol id="mark" viewBox="18 18 72 72">{mark_inner}</symbol>'
            + "".join(f'<symbol id="ic-{k}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">{v}</symbol>' for k, v in ICONS.items())
            + "</svg>")
 
@@ -69,8 +74,9 @@ a{color:var(--primary)}
 .draft{background:var(--tertiary);color:var(--on-tertiary);text-align:center;padding:.4rem;font-size:.875rem;line-height:1.25rem;font-weight:500;letter-spacing:.01em}
 header{border-bottom:1px solid var(--outline-variant)}
 header .wrap{display:flex;align-items:center;gap:.75rem;min-height:64px;padding-top:.5rem;padding-bottom:.5rem;flex-wrap:wrap}
-.brand{display:flex;align-items:center;gap:.75rem;color:var(--on-surface);text-decoration:none;font-weight:500;font-size:1.375rem;line-height:1.75rem}
-.brand svg{width:40px;height:40px}
+.brand{display:inline-flex;align-items:center;gap:.4rem;color:var(--on-surface);text-decoration:none;font-weight:500;font-size:1.375rem;line-height:1.75rem}
+.brand svg{width:.78em;height:.78em;flex:none}
+.lockup{white-space:nowrap}.lockup svg{width:.78em;height:.78em;vertical-align:-.04em;margin-inline-end:.3em;fill:currentColor}
 nav{margin-left:auto;display:flex;gap:.25rem;flex-wrap:wrap}
 nav a{color:var(--on-surface-variant);text-decoration:none;font-weight:500;font-size:.875rem;line-height:1.25rem;padding:.6rem .75rem;border-radius:20px}
 nav a:hover{background:var(--surface-container)}
@@ -189,14 +195,14 @@ def page(name, title, description, body, ld=None, og_type="website", nav_key=Non
 <a class="skip" href="#main">Skip to content</a>
 {banner}{SYMBOLS}
 <header><div class="wrap">
-  <a class="brand" href="{href('index.html')}"><svg aria-hidden="true"><use href="#logo"/></svg>Verdetto</a>
+  <a class="brand" href="{href('index.html')}"><svg aria-hidden="true"><use href="#mark"/></svg>Verdetto</a>
   <nav aria-label="Site">{nav}</nav>
 </div></header>
 <main id="main"><div class="wrap">
 {body}
 </div></main>
 <footer><div class="wrap">
-  <p>&copy; 2026 Verdetto &middot; {ADDRESS} &middot; <a href="mailto:{EMAIL}">{EMAIL}</a></p>
+  <p>&copy; 2026 <span class="lockup"><svg aria-hidden="true"><use href="#mark"/></svg>Verdetto</span> &middot; {ADDRESS} &middot; <a href="mailto:{EMAIL}">{EMAIL}</a></p>
   <p class="links"><a href="{href('privacy.html')}">Privacy policy</a> &middot; <a href="{href('terms.html')}">Terms of use</a> &middot; <a href="{href('support.html')}">Help</a> &middot; <a href="{href('check-qr-code-link.html')}">How to check a QR code link</a> &middot; <a href="{href('support-the-work.html')}">Support the work</a> &middot; <a href="{href('report.html')}">Report a problem</a> &middot; <a href="{href('safety-list.html')}">The safety list this week</a> &middot; <a href="{href('developers.html')}">For developers</a> &middot; <a href="{href('press.html')}">Press kit</a></p>
 </div></footer>
 </body>
@@ -569,7 +575,7 @@ REPORT_SCRIPT_HASH = base64.b64encode(hashlib.sha256(REPORT_SCRIPT.encode("utf-8
 
 REPORT = f"""
 <div class="prose">
-<h1>Report to Verdetto</h1>
+<h1>Report to <span class="lockup"><svg aria-hidden="true"><use href="#mark"/></svg>Verdetto</span></h1>
 <p class="meta">A link that looks like a scam, a code the app read wrong, details that were wrong, or anything else that isn't right.</p>
 
 <div class="card"><p>A person reviews every report. Nothing is added to the safety list automatically, and Verdetto never says a link is safe. Please don't include passwords, payment details, or personal documents; if you came here from the app, the scanned text is already filled in, and you can remove anything private before you send it.</p></div>
@@ -607,6 +613,7 @@ PRESS = f"""
 <h2>Assets</h2>
 <ul>
   <li><a href="icon-512.png">App icon, 512 px PNG</a> and <a href="logo.svg">the icon as SVG</a>. Mint ground, deep teal QR mark, one amber finder.</li>
+  <li><a href="lockup-ink.png">Lockup, mark and name, transparent PNG</a> for light grounds and <a href="lockup-white.png">the same in white</a> for dark grounds; the mark takes the text color and sits at the cap height of the name.</li>
   <li><a href="og-image.png">Share image, 1200 by 630</a> and <a href="play-header-4096x2304.jpg">wide banner, 4096 by 2304</a>.</li>
   <li><a href="screens/result-sheet.webp">Result sheet screenshot</a>: a scanned link shown before it opens, with the "No warnings found" chip.</li>
 </ul>
