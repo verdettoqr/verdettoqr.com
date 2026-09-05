@@ -69,6 +69,16 @@ Official accounts: Mastodon https://mastodon.social/@VerdettoQR; Reddit https://
 - [支持这项工作](https://verdettoqr.com/support-the-work-zh-hans): Verdetto 如何在没有广告、没有跟踪的情况下保持免费：来自使用者的一次性支持款，在 Google Play 上 $0.99 起。没有任何功能被锁定。
 - [काम का समर्थन करें](https://verdettoqr.com/support-the-work-hi): Verdetto बिना विज्ञापन और बिना ट्रैकिंग मुफ़्त कैसे रहता है: इसे इस्तेमाल करने वाले लोगों के एकमुश्त योगदान, Google Play पर $0.99 से। कुछ भी बंद नहीं है।
 - [ادعم العمل](https://verdettoqr.com/support-the-work-ar): كيف يبقى Verdetto مجانيًا بلا إعلانات وبلا تتبّع: مساهمات لمرة واحدة من الأشخاص الذين يستخدمونه، من 0.99 دولار على Google Play. لا شيء مغلق.
+- [Cómo comprobar un enlace de código QR antes de abrirlo](https://verdettoqr.com/check-qr-code-link-es): Seis cosas que mirar en el enlace de un código QR antes de tocarlo: dominio, enlaces cortos, nombres parecidos, conexión, descargas y dónde está el código.
+- [Comment vérifier un lien de code QR avant de l'ouvrir](https://verdettoqr.com/check-qr-code-link-fr): Six choses à vérifier dans le lien d'un code QR avant de le toucher : domaine, liens courts, imitations, connexion, téléchargements et emplacement du code.
+- [Wie du einen QR-Code-Link prüfst, bevor du ihn öffnest](https://verdettoqr.com/check-qr-code-link-de): Sechs Dinge, die du beim Link eines QR-Codes prüfst, bevor du tippst: Domain, Kurzlinks, ähnliche Namen, Verbindung, Downloads und der Ort des Codes.
+- [Como verificar o link de um código QR antes de abrir](https://verdettoqr.com/check-qr-code-link-pt-br): Seis coisas para olhar no link de um código QR antes de tocar: o domínio, links curtos, nomes parecidos, a conexão, downloads e onde o código está.
+- [Как проверить ссылку из QR-кода, прежде чем открыть её](https://verdettoqr.com/check-qr-code-link-ru): Шесть вещей в ссылке из QR-кода, на которые стоит посмотреть до нажатия: домен, короткие ссылки, похожие имена, соединение, загрузки и место кода.
+- [Cara memeriksa tautan kode QR sebelum membukanya](https://verdettoqr.com/check-qr-code-link-id): Enam hal yang perlu dilihat pada tautan kode QR sebelum mengetuknya: domain, tautan pendek, nama mirip, koneksi, unduhan, dan letak kodenya.
+- [開く前に QR コードのリンクを確認する方法](https://verdettoqr.com/check-qr-code-link-ja): QR コードのリンクをタップする前に見るべき六つのこと: ドメイン、短縮リンク、紛らわしい名前、接続、ダウンロード、そしてコードが貼られた場所。
+- [如何在打开前检查二维码链接](https://verdettoqr.com/check-qr-code-link-zh-hans): 点开二维码链接前要看的六件事：域名、短链接、易混淆的名称、连接方式、下载，以及码出现的位置。
+- [QR कोड लिंक को खोलने से पहले उसकी जाँच कैसे करें](https://verdettoqr.com/check-qr-code-link-hi): टैप करने से पहले QR कोड के लिंक में देखने की छह बातें: डोमेन, छोटे लिंक, मिलते-जुलते नाम, कनेक्शन, डाउनलोड और कोड की जगह।
+- [كيف تفحص رابط رمز QR قبل أن تفتحه](https://verdettoqr.com/check-qr-code-link-ar): ستة أشياء تنظر إليها في رابط رمز QR قبل أن تنقر: النطاق، والروابط المختصرة، والأسماء المتشابهة، والاتصال، والتنزيلات، ومكان الرمز.
 
 ## Facts
 

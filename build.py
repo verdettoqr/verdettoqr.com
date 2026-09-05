@@ -1664,6 +1664,279 @@ GUIDE = f"""
 """
 GUIDE_LD = {"@type": "Article", "headline": GUIDE_TITLE, "description": GUIDE_DESC, "datePublished": DATE, "dateModified": DATE,
             "author": ORG, "publisher": ORG, "mainEntityOfPage": url("check-qr-code-link.html"), "image": SITE + "/og-image.png"}
+GUIDE_T = {
+ "de": {
+  "title": "Wie du einen QR-Code-Link prüfst, bevor du ihn öffnest",
+  "desc": "Sechs Dinge, die du beim Link eines QR-Codes prüfst, bevor du tippst: Domain, Kurzlinks, ähnliche Namen, Verbindung, Downloads und der Ort des Codes.",
+  "meta": "Aktualisiert am {DATE}. Etwa vier Minuten Lesezeit.",
+  "inshort": "<strong>Kurz gesagt.</strong> Bevor du einen Link aus einem QR-Code öffnest: Lies die Domain, nicht die ganze Adresse; behandle Kurzlinks als unbekannt, bis sie aufgelöst sind; achte auf ähnlich aussehende Namen; prüfe auf <code>https</code> und keinen ungewöhnlichen Port; installiere nie etwas, das dir ein Code gibt; und frag dich, warum der Code dort ist. Ein Scanner kann dir all das zeigen. Er kann dir nicht sagen, dass eine Seite sicher ist.",
+  "intro": "Ein QR-Code ist nur eine Art, einen Link zu tippen, damit du es nicht musst. Das Problem: Der Link ist unsichtbar, bis etwas ihn liest, und viele Scanner-Apps öffnen ihn in genau diesem Moment. Gefälschte Codes auf Parkautomaten, Restauranttischen, Plakaten und sogar in E-Mails setzen genau darauf. Die Lösung ist einfach: Sieh dir den Link an, bevor du ihn öffnest. Hier ist, worauf du achten solltest, in dieser Reihenfolge.",
+  "s1h": "1. Lies die Domain, nicht den ganzen Link",
+  "s1p": "Die Domain ist der Teil nach <code>https://</code> und vor dem ersten einzelnen Schrägstrich. In <code>https://accounts.example.com/login?ref=qr</code> ist die Domain <code>accounts.example.com</code>, und der wichtigste Teil sind die letzten beiden Glieder, <code>example.com</code>. Alles nach dem Schrägstrich kann irgendetwas behaupten; die Domain entscheidet, wo du landest. Ein guter Scanner zeigt die Domain groß und für sich, damit du sie nicht in einer langen Zeichenkette suchen musst.",
+  "s2h": "2. Behandle Kurzlinks als unbekannt",
+  "s2p": "Links über bit.ly, t.co, tinyurl und ähnliche Dienste verbergen ihr Ziel absichtlich. Ein Code, der einen davon zeigt, sagt dir nichts, bis er aufgelöst ist. Löse ihn zuerst auf, mit einem Scanner, der dem Kurzlink folgt und dir zeigt, wo er endet, oder öffne ihn nicht.",
+  "s3h": "3. Achte auf ähnlich aussehende Namen",
+  "s3p": "Der älteste Trick ist eine Domain, die sich wie eine bekannte liest. Achte auf eine Ziffer anstelle eines Buchstabens (<code>paypa1.com</code>), ein zusätzliches Wort oder einen Bindestrich (<code>paypal-secure.com</code>), einen bekannten Namen an der falschen Stelle (<code>paypal.com.example.net</code>, wo die Domain <code>example.net</code> ist) und Buchstaben aus einem anderen Alphabet mit derselben Form. Wenn ein Name fast richtig aussieht, behandle ihn als falsch, bis du den echten selbst getippt hast.",
+  "s4h": "4. Prüfe die Verbindung und den Port",
+  "s4p": "Ein Link, der mit <code>http://</code> statt <code>https://</code> beginnt, sendet alles, was du eingibst, offen. Ein Link mit einer Zahl nach der Domain, etwa <code>example.com:8080</code>, spricht mit etwas anderem als einer gewöhnlichen Website. Beides beweist keinen Betrug, aber beides gehört nicht auf einen Code, der dich zum Anmelden oder Bezahlen auffordert.",
+  "s5h": "5. Installiere nicht, was dir ein Code gibt",
+  "s5p": "Ein Link, der auf <code>.apk</code> endet, ist ein Android-Programm, keine Seite. Apps kommen aus dem Store, nicht von Aufklebern. Dasselbe gilt für Links, die um Erlaubnis bitten, „ein Update“ oder „einen Viewer“ zu installieren, bevor du etwas sehen kannst.",
+  "s6h": "6. Frag dich, warum der Code dort ist",
+  "s6p": "Ein QR-Code, der über einen anderen QR-Code geklebt ist, ein Code an einem Parkautomaten, der schon ein Zahlterminal hat, ein Code in einer SMS von einer unbekannten Nummer, ein Code, der eine Rückerstattung oder einen Preis verspricht: Der Ort ist die Warnung. Kriminelle drucken Aufkleber, weil Aufkleber billig sind. Wenn ein Code dort auftaucht, wo natürlicherweise keiner wäre, lass ihn aus und nutze direkt die offizielle App oder Website.",
+  "canh": "Was ein Scanner dir sagen kann und was nicht",
+  "canp": "Ein Scanner kann dir den Link vollständig zeigen, einen kurzen auflösen, die obigen Muster markieren und die Adresse mit Listen bekannter Phishing- und Betrugsseiten vergleichen. Was er nicht kann: die Seite öffnen und für dich beurteilen, und keine Liste ist vollständig. Deshalb meldet Verdetto „Keine Warnungen gefunden“ statt „sicher“: Es heißt, keine seiner Prüfungen hat angeschlagen, und die letzte Prüfung ist die, die du durch Lesen der Adresse machst. Wenn ein Code dich auffordert, dich anzumelden, Kartendaten einzugeben oder etwas zu installieren, schließ ihn und geh zu der Website, die du schon kennst.",
+  "openedh": "Wenn du schon einen geöffnet hast",
+  "openedp": "Schließ die Seite. Hast du ein Passwort eingegeben, ändere es auf der echten Website und überall sonst, wo du es benutzt hast. Hast du Kartendaten eingegeben, sag es deiner Bank. Hast du etwas installiert, deinstalliere es und lass die Sicherheitssoftware, die schon auf dem Handy ist, einen Scan laufen. Lösch den Code dann aus deinem Verlauf, damit du ihn nicht versehentlich noch einmal öffnest.",
+  "callout": "Verdetto zeigt jeden Link, bevor er sich öffnet, löst gekürzte und Affiliate-Links auf, wenn Online-Abfragen eingeschaltet sind, und markiert jedes der obigen Muster auf deinem Handy. Kostenlos, ohne Werbung, bezahlt von den Menschen, die die App nutzen. {home}.",
+  "callout_link": "Sieh, was sie kann"
+ },
+ "es": {
+  "title": "Cómo comprobar un enlace de código QR antes de abrirlo",
+  "desc": "Seis cosas que mirar en el enlace de un código QR antes de tocarlo: dominio, enlaces cortos, nombres parecidos, conexión, descargas y dónde está el código.",
+  "meta": "Actualizado el {DATE}. Unos cuatro minutos de lectura.",
+  "inshort": "<strong>En resumen.</strong> Antes de abrir un enlace de un código QR: lee el dominio, no la dirección completa; trata los enlaces acortados como desconocidos hasta expandirlos; busca nombres parecidos; comprueba que haya <code>https</code> y ningún puerto inusual; nunca instales nada que te dé un código; y pregúntate por qué el código está donde está. Un escáner puede mostrarte todo eso. No puede decirte que una página es segura.",
+  "intro": "Un código QR es solo una forma de escribir un enlace para que no tengas que hacerlo tú. El problema es que el enlace es invisible hasta que algo lo lee, y muchas aplicaciones de escaneo lo abren en ese mismo instante. Los códigos falsos en parquímetros, mesas de restaurante, carteles e incluso correos electrónicos se apoyan justo en eso. La solución es sencilla: mira el enlace antes de abrirlo. Esto es lo que hay que mirar, en orden.",
+  "s1h": "1. Lee el dominio, no todo el enlace",
+  "s1p": "El dominio es la parte después de <code>https://</code> y antes de la primera barra simple. En <code>https://accounts.example.com/login?ref=qr</code> el dominio es <code>accounts.example.com</code>, y lo que más importa son las dos últimas etiquetas, <code>example.com</code>. Todo lo que hay después de la barra puede decir cualquier cosa; es el dominio el que decide dónde acabas. Un buen escáner muestra el dominio solo y en letra grande, para que no tengas que buscarlo en una cadena larga.",
+  "s2h": "2. Trata los enlaces acortados como desconocidos",
+  "s2p": "Los enlaces a través de bit.ly, t.co, tinyurl y servicios parecidos ocultan su destino a propósito. Un código que muestra uno de ellos no te dice nada hasta que se expande. Expándelo primero, con un escáner que siga el enlace corto y te muestre dónde termina, o no lo abras.",
+  "s3h": "3. Busca nombres parecidos",
+  "s3p": "El truco más antiguo es un dominio que se lee como uno conocido. Fíjate en un dígito que sustituye a una letra (<code>paypa1.com</code>), una palabra o un guion de más (<code>paypal-secure.com</code>), un nombre conocido colocado en el lugar equivocado (<code>paypal.com.example.net</code>, donde el dominio es <code>example.net</code>) y letras de otro alfabeto con la misma forma. Si un nombre parece casi correcto, trátalo como incorrecto hasta que hayas escrito tú el verdadero.",
+  "s4h": "4. Comprueba la conexión y el puerto",
+  "s4p": "Un enlace que empieza por <code>http://</code> en vez de <code>https://</code> envía todo lo que escribes al descubierto. Un enlace con un número después del dominio, como <code>example.com:8080</code>, habla con algo distinto de un sitio web normal. Ninguno de los dos prueba una estafa, pero ninguno tiene sitio en un código que te pide iniciar sesión o pagar.",
+  "s5h": "5. No instales lo que te da un código",
+  "s5p": "Un enlace que termina en <code>.apk</code> es un programa de Android, no una página. Las aplicaciones vienen de la tienda, no de pegatinas. Lo mismo vale para los enlaces que piden permiso para instalar «una actualización» o «un visor» antes de que puedas ver nada.",
+  "s6h": "6. Pregúntate por qué el código está ahí",
+  "s6p": "Un código QR pegado sobre otro código QR, un código en un parquímetro que ya tiene terminal de pago, un código en un mensaje de un número que no conoces, un código que promete un reembolso o un premio: la ubicación es la advertencia. Los delincuentes imprimen pegatinas porque las pegatinas son baratas. Cuando un código aparece donde no debería haber uno, sáltatelo y usa directamente la aplicación o el sitio oficial.",
+  "canh": "Lo que un escáner puede y no puede decirte",
+  "canp": "Un escáner puede mostrarte el enlace completo, expandir uno corto, señalar los patrones anteriores y comparar la dirección con listas de sitios de phishing y estafa conocidos. Lo que no puede hacer es abrir la página y juzgarla por ti, y ninguna lista está completa. Por eso Verdetto informa «No se encontraron avisos» en vez de «seguro»: significa que ninguna de sus comprobaciones coincidió, y la última comprobación es la que haces tú leyendo la dirección. Si un código te pide iniciar sesión, introducir datos de tarjeta o instalar algo, ciérralo y ve al sitio que ya conoces.",
+  "openedh": "Si ya abriste uno",
+  "openedp": "Cierra la página. Si escribiste una contraseña, cámbiala en el sitio real y en cualquier otro donde la usaras. Si introdujiste datos de tarjeta, avisa a tu banco. Si instalaste algo, desinstálalo y pasa un análisis con el software de seguridad que ya tiene el teléfono. Después borra el código de tu historial para no abrirlo otra vez por accidente.",
+  "callout": "Verdetto muestra cada enlace antes de que se abra, expande los enlaces acortados y de afiliado cuando las consultas en línea están activadas, y señala cada uno de los patrones anteriores en tu teléfono. Gratis, sin anuncios, pagado por las personas que lo usan. {home}.",
+  "callout_link": "Mira qué hace"
+ },
+ "fr": {
+  "title": "Comment vérifier un lien de code QR avant de l'ouvrir",
+  "desc": "Six choses à vérifier dans le lien d'un code QR avant de le toucher : domaine, liens courts, imitations, connexion, téléchargements et emplacement du code.",
+  "meta": "Mis à jour le {DATE}. Environ quatre minutes de lecture.",
+  "inshort": "<strong>En bref.</strong> Avant d'ouvrir un lien venu d'un code QR : lis le domaine, pas toute l'adresse ; traite les liens raccourcis comme inconnus tant qu'ils ne sont pas développés ; cherche les noms imitant une marque ; vérifie <code>https</code> et l'absence de port inhabituel ; n'installe jamais ce qu'un code te tend ; et demande-toi pourquoi le code est là. Un scanner peut te montrer tout cela. Il ne peut pas te dire qu'une page est sûre.",
+  "intro": "Un code QR n'est qu'une façon de taper un lien à ta place. Le problème, c'est que le lien est invisible tant que rien ne le lit, et beaucoup d'applications de scan l'ouvrent à l'instant même. Les faux codes sur les parcmètres, les tables de restaurant, les affiches et même dans les e-mails comptent précisément là-dessus. La solution est simple : regarde le lien avant de l'ouvrir. Voici ce qu'il faut regarder, dans l'ordre.",
+  "s1h": "1. Lis le domaine, pas tout le lien",
+  "s1p": "Le domaine est la partie après <code>https://</code> et avant la première barre oblique simple. Dans <code>https://accounts.example.com/login?ref=qr</code>, le domaine est <code>accounts.example.com</code>, et ce qui compte le plus, ce sont les deux derniers éléments, <code>example.com</code>. Tout ce qui suit la barre peut dire n'importe quoi ; c'est le domaine qui décide où tu atterris. Un bon scanner affiche le domaine seul, en grand, pour que tu n'aies pas à le chercher dans une longue chaîne.",
+  "s2h": "2. Traite les liens raccourcis comme inconnus",
+  "s2p": "Les liens via bit.ly, t.co, tinyurl et les services du même genre cachent leur destination à dessein. Un code qui en affiche un ne te dit rien tant qu'il n'est pas développé. Développe-le d'abord, avec un scanner qui suit le lien court et te montre où il aboutit, ou ne l'ouvre pas.",
+  "s3h": "3. Cherche les imitations",
+  "s3p": "Le plus vieux truc est un domaine qui se lit comme un domaine familier. Guette un chiffre à la place d'une lettre (<code>paypa1.com</code>), un mot ou un tiret en trop (<code>paypal-secure.com</code>), un nom familier placé au mauvais endroit (<code>paypal.com.example.net</code>, où le domaine est <code>example.net</code>) et des lettres d'un autre alphabet qui dessinent la même forme. Si un nom semble presque juste, considère-le comme faux jusqu'à ce que tu aies tapé le vrai toi-même.",
+  "s4h": "4. Vérifie la connexion et le port",
+  "s4p": "Un lien qui commence par <code>http://</code> plutôt que <code>https://</code> envoie tout ce que tu tapes en clair. Un lien avec un nombre après le domaine, comme <code>example.com:8080</code>, parle à autre chose qu'un site web ordinaire. Aucun des deux ne prouve une arnaque, mais aucun n'a sa place sur un code qui te demande de te connecter ou de payer.",
+  "s5h": "5. N'installe pas ce qu'un code te tend",
+  "s5p": "Un lien qui finit par <code>.apk</code> est un programme Android, pas une page. Les applications viennent de la boutique, pas d'autocollants. Il en va de même des liens qui demandent la permission d'installer « une mise à jour » ou « un lecteur » avant que tu puisses voir quoi que ce soit.",
+  "s6h": "6. Demande-toi pourquoi le code est là",
+  "s6p": "Un code QR collé par-dessus un autre code QR, un code sur un parcmètre qui a déjà un terminal de paiement, un code dans un SMS d'un numéro inconnu, un code qui promet un remboursement ou un prix : l'emplacement est l'avertissement. Les criminels impriment des autocollants parce que les autocollants ne coûtent rien. Quand un code apparaît là où il n'y en aurait pas naturellement, passe ton chemin et utilise directement l'application ou le site officiel.",
+  "canh": "Ce qu'un scanner peut et ne peut pas te dire",
+  "canp": "Un scanner peut te montrer le lien en entier, développer un lien court, signaler les schémas ci-dessus et comparer l'adresse à des listes de sites de phishing et d'arnaque connus. Ce qu'il ne peut pas faire, c'est ouvrir la page et la juger pour toi, et aucune liste n'est complète. C'est pourquoi Verdetto affiche « Aucune alerte trouvée » plutôt que « sûr » : cela signifie qu'aucune de ses vérifications n'a réagi, et la dernière vérification est celle que tu fais en lisant l'adresse. Si un code te demande de te connecter, d'entrer des données de carte ou d'installer quelque chose, ferme-le et va sur le site que tu connais déjà.",
+  "openedh": "Si tu en as déjà ouvert un",
+  "openedp": "Ferme la page. Si tu as tapé un mot de passe, change-le sur le vrai site et partout où tu l'utilises. Si tu as saisi des données de carte, préviens ta banque. Si tu as installé quelque chose, désinstalle-le et lance une analyse avec le logiciel de sécurité déjà présent sur le téléphone. Puis supprime le code de ton historique pour ne pas le rouvrir par accident.",
+  "callout": "Verdetto montre chaque lien avant qu'il ne s'ouvre, développe les liens raccourcis et d'affiliation quand les recherches en ligne sont activées, et signale chacun des schémas ci-dessus sur ton téléphone. Gratuit, sans publicité, financé par les personnes qui l'utilisent. {home}.",
+  "callout_link": "Vois ce qu'il fait"
+ },
+ "pt-BR": {
+  "title": "Como verificar o link de um código QR antes de abrir",
+  "desc": "Seis coisas para olhar no link de um código QR antes de tocar: o domínio, links curtos, nomes parecidos, a conexão, downloads e onde o código está.",
+  "meta": "Atualizado em {DATE}. Cerca de quatro minutos de leitura.",
+  "inshort": "<strong>Em resumo.</strong> Antes de abrir um link de um código QR: leia o domínio, não o endereço inteiro; trate links encurtados como desconhecidos até serem expandidos; procure nomes parecidos; confira se há <code>https</code> e nenhuma porta incomum; nunca instale nada que um código lhe entregue; e pergunte por que o código está onde está. Um leitor pode mostrar tudo isso. Ele não pode dizer que uma página é segura.",
+  "intro": "Um código QR é só um jeito de digitar um link para que você não precise. O problema é que o link fica invisível até algo o ler, e muitos apps de leitura o abrem no mesmo instante. Códigos falsos em parquímetros, mesas de restaurante, cartazes e até e-mails contam exatamente com isso. A solução é simples: olhe o link antes de abrir. Eis o que olhar, em ordem.",
+  "s1h": "1. Leia o domínio, não o link inteiro",
+  "s1p": "O domínio é a parte depois de <code>https://</code> e antes da primeira barra simples. Em <code>https://accounts.example.com/login?ref=qr</code> o domínio é <code>accounts.example.com</code>, e a parte que mais importa são os dois últimos rótulos, <code>example.com</code>. Tudo depois da barra pode dizer qualquer coisa; é o domínio que decide onde você vai parar. Um bom leitor mostra o domínio sozinho, em letras grandes, para você não precisar procurá-lo em uma sequência longa.",
+  "s2h": "2. Trate links encurtados como desconhecidos",
+  "s2p": "Links via bit.ly, t.co, tinyurl e serviços parecidos escondem o destino de propósito. Um código que mostra um deles não diz nada até ser expandido. Expanda primeiro, com um leitor que siga o link curto e mostre onde ele termina, ou não abra.",
+  "s3h": "3. Procure nomes parecidos",
+  "s3p": "O truque mais antigo é um domínio que se lê como um conhecido. Fique atento a um dígito no lugar de uma letra (<code>paypa1.com</code>), uma palavra ou hífen a mais (<code>paypal-secure.com</code>), um nome conhecido empurrado para o lugar errado (<code>paypal.com.example.net</code>, onde o domínio é <code>example.net</code>) e letras de outro alfabeto com o mesmo desenho. Se um nome parece quase certo, trate-o como errado até você mesmo ter digitado o verdadeiro.",
+  "s4h": "4. Confira a conexão e a porta",
+  "s4p": "Um link que começa com <code>http://</code> em vez de <code>https://</code> envia tudo o que você digita às claras. Um link com um número depois do domínio, como <code>example.com:8080</code>, fala com algo diferente de um site comum. Nenhum dos dois prova um golpe, mas nenhum pertence a um código que pede login ou pagamento.",
+  "s5h": "5. Não instale o que um código lhe entrega",
+  "s5p": "Um link que termina em <code>.apk</code> é um programa Android, não uma página. Apps vêm da loja, não de adesivos. O mesmo vale para links que pedem permissão para instalar \"uma atualização\" ou \"um visualizador\" antes de você ver qualquer coisa.",
+  "s6h": "6. Pergunte por que o código está ali",
+  "s6p": "Um código QR colado sobre outro código QR, um código em um parquímetro que já tem terminal de pagamento, um código em uma mensagem de um número que você não conhece, um código que promete reembolso ou prêmio: o lugar é o aviso. Criminosos imprimem adesivos porque adesivos são baratos. Quando um código aparece onde não haveria um naturalmente, pule-o e use diretamente o app ou site oficial.",
+  "canh": "O que um leitor pode e não pode dizer",
+  "canp": "Um leitor pode mostrar o link completo, expandir um link curto, sinalizar os padrões acima e comparar o endereço com listas de sites de phishing e golpe conhecidos. O que ele não pode fazer é abrir a página e julgá-la por você, e nenhuma lista é completa. Por isso o Verdetto informa \"Nenhum alerta encontrado\" em vez de \"seguro\": significa que nenhuma das verificações bateu, e a última verificação é a que você faz lendo o endereço. Se um código pede para você fazer login, digitar dados do cartão ou instalar algo, feche-o e vá ao site que você já conhece.",
+  "openedh": "Se você já abriu um",
+  "openedp": "Feche a página. Se digitou uma senha, troque-a no site verdadeiro e em qualquer outro lugar onde a usou. Se digitou dados do cartão, avise seu banco. Se instalou algo, desinstale e rode uma verificação com o software de segurança que já está no celular. Depois apague o código do seu histórico para não abri-lo de novo por acidente.",
+  "callout": "O Verdetto mostra cada link antes de abrir, expande links encurtados e de afiliados quando as consultas online estão ativadas, e sinaliza cada um dos padrões acima no seu celular. Grátis, sem anúncios, pago pelas pessoas que o usam. {home}.",
+  "callout_link": "Veja o que ele faz"
+ },
+ "id": {
+  "title": "Cara memeriksa tautan kode QR sebelum membukanya",
+  "desc": "Enam hal yang perlu dilihat pada tautan kode QR sebelum mengetuknya: domain, tautan pendek, nama mirip, koneksi, unduhan, dan letak kodenya.",
+  "meta": "Diperbarui {DATE}. Sekitar empat menit membaca.",
+  "inshort": "<strong>Singkatnya.</strong> Sebelum membuka tautan dari kode QR: baca domainnya, bukan seluruh alamat; anggap tautan pendek tidak dikenal sampai diperluas; cari nama mirip; periksa <code>https</code> dan tidak ada port yang tidak biasa; jangan pernah memasang apa pun yang diberikan kode; dan tanyakan kenapa kode itu ada di sana. Pemindai bisa menampilkan semua itu. Ia tidak bisa mengatakan bahwa sebuah halaman aman.",
+  "intro": "Kode QR hanyalah cara mengetik tautan agar kamu tidak perlu melakukannya. Masalahnya, tautan itu tak terlihat sampai ada yang membacanya, dan banyak aplikasi pemindai membukanya seketika itu juga. Kode palsu di meteran parkir, meja restoran, poster, bahkan email mengandalkan hal itu. Solusinya sederhana: lihat tautannya sebelum membuka. Inilah yang perlu dilihat, secara berurutan.",
+  "s1h": "1. Baca domainnya, bukan seluruh tautan",
+  "s1p": "Domain adalah bagian setelah <code>https://</code> dan sebelum garis miring tunggal pertama. Pada <code>https://accounts.example.com/login?ref=qr</code> domainnya adalah <code>accounts.example.com</code>, dan bagian yang paling penting adalah dua label terakhir, <code>example.com</code>. Segala sesuatu setelah garis miring bisa berkata apa saja; domainlah yang menentukan ke mana kamu mendarat. Pemindai yang baik menampilkan domain saja dengan huruf besar, agar kamu tidak perlu mencarinya dalam rangkaian panjang.",
+  "s2h": "2. Anggap tautan pendek tidak dikenal",
+  "s2p": "Tautan lewat bit.ly, t.co, tinyurl, dan layanan serupa sengaja menyembunyikan tujuannya. Kode yang menampilkan salah satunya tidak memberi tahu apa pun sampai diperluas. Perluas dulu, dengan pemindai yang mengikuti tautan pendek dan menunjukkan ke mana ujungnya, atau jangan buka.",
+  "s3h": "3. Cari nama mirip",
+  "s3p": "Trik tertua adalah domain yang terbaca seperti domain yang dikenal. Waspadai angka yang menggantikan huruf (<code>paypa1.com</code>), kata atau tanda hubung tambahan (<code>paypal-secure.com</code>), nama dikenal yang ditaruh di tempat yang salah (<code>paypal.com.example.net</code>, yang domainnya <code>example.net</code>), dan huruf dari abjad lain dengan bentuk yang sama. Jika sebuah nama tampak hampir benar, anggaplah salah sampai kamu sendiri mengetik yang asli.",
+  "s4h": "4. Periksa koneksi dan port",
+  "s4p": "Tautan yang diawali <code>http://</code>, bukan <code>https://</code>, mengirim semua yang kamu ketik secara terbuka. Tautan dengan angka setelah domain, seperti <code>example.com:8080</code>, berbicara dengan sesuatu selain situs web biasa. Keduanya tidak membuktikan penipuan, tetapi keduanya tidak pantas ada pada kode yang memintamu masuk atau membayar.",
+  "s5h": "5. Jangan pasang apa yang diberikan kode",
+  "s5p": "Tautan yang berakhiran <code>.apk</code> adalah program Android, bukan halaman. Aplikasi datang dari toko, bukan dari stiker. Begitu pula tautan yang meminta izin memasang \"pembaruan\" atau \"penampil\" sebelum kamu bisa melihat apa pun.",
+  "s6h": "6. Tanyakan kenapa kode itu ada di sana",
+  "s6p": "Kode QR yang ditempel di atas kode QR lain, kode di meteran parkir yang sudah punya terminal pembayaran, kode di pesan teks dari nomor yang tidak kamu kenal, kode yang menjanjikan pengembalian uang atau hadiah: letaknya adalah peringatannya. Penjahat mencetak stiker karena stiker murah. Ketika kode muncul di tempat yang secara alami tidak ada kode, lewati dan gunakan langsung aplikasi atau situs resminya.",
+  "canh": "Apa yang bisa dan tidak bisa dikatakan pemindai",
+  "canp": "Pemindai bisa menampilkan tautan lengkap, memperluas tautan pendek, menandai pola di atas, dan membandingkan alamat dengan daftar situs phishing dan penipuan yang dikenal. Yang tidak bisa dilakukannya adalah membuka halaman dan menilainya untukmu, dan tidak ada daftar yang lengkap. Itulah sebabnya Verdetto melaporkan \"Tidak ada peringatan ditemukan\" alih-alih \"aman\": artinya tak satu pun pemeriksaannya cocok, dan pemeriksaan terakhir adalah yang kamu lakukan dengan membaca alamatnya. Jika sebuah kode memintamu masuk, memasukkan data kartu, atau memasang sesuatu, tutup dan pergilah ke situs yang sudah kamu kenal.",
+  "openedh": "Jika kamu sudah membuka satu",
+  "openedp": "Tutup halamannya. Jika kamu mengetik kata sandi, ganti di situs aslinya dan di mana pun kamu memakainya. Jika kamu memasukkan data kartu, beri tahu bankmu. Jika kamu memasang sesuatu, copot dan jalankan pemindaian dengan perangkat lunak keamanan yang sudah ada di ponsel. Lalu hapus kode itu dari riwayatmu agar tidak terbuka lagi tanpa sengaja.",
+  "callout": "Verdetto menampilkan setiap tautan sebelum terbuka, memperluas tautan pendek dan afiliasi saat pencarian online aktif, dan menandai setiap pola di atas di ponselmu. Gratis, tanpa iklan, dibayar oleh orang-orang yang memakainya. {home}.",
+  "callout_link": "Lihat apa yang dilakukannya"
+ },
+ "ru": {
+  "title": "Как проверить ссылку из QR-кода, прежде чем открыть её",
+  "desc": "Шесть вещей в ссылке из QR-кода, на которые стоит посмотреть до нажатия: домен, короткие ссылки, похожие имена, соединение, загрузки и место кода.",
+  "meta": "Обновлено {DATE}. Около четырёх минут чтения.",
+  "inshort": "<strong>Коротко.</strong> Прежде чем открыть ссылку из QR-кода: читайте домен, а не весь адрес; считайте короткие ссылки неизвестными, пока они не раскрыты; ищите похожие имена; проверьте <code>https</code> и отсутствие необычного порта; никогда не устанавливайте то, что вам подсовывает код; и спросите себя, почему код находится там, где находится. Сканер может показать вам всё это. Он не может сказать вам, что страница безопасна.",
+  "intro": "QR-код — это просто способ набрать ссылку, чтобы вам не пришлось делать это самим. Беда в том, что ссылка невидима, пока её кто-то не прочитает, а многие приложения-сканеры открывают её в ту же секунду. Поддельные коды на парковочных автоматах, столах в ресторанах, плакатах и даже в письмах рассчитаны именно на это. Решение простое: посмотрите на ссылку, прежде чем открывать. Вот на что смотреть, по порядку.",
+  "s1h": "1. Читайте домен, а не всю ссылку",
+  "s1p": "Домен — это часть после <code>https://</code> и до первой одиночной косой черты. В <code>https://accounts.example.com/login?ref=qr</code> домен — <code>accounts.example.com</code>, а важнее всего последние две части, <code>example.com</code>. Всё после косой черты может говорить что угодно; куда вы попадёте, решает домен. Хороший сканер показывает домен отдельно и крупно, чтобы вам не пришлось искать его в длинной строке.",
+  "s2h": "2. Считайте короткие ссылки неизвестными",
+  "s2p": "Ссылки через bit.ly, t.co, tinyurl и подобные сервисы намеренно скрывают свою цель. Код, показывающий одну из них, ничего вам не говорит, пока она не раскрыта. Либо сначала раскройте её сканером, который переходит по короткой ссылке и показывает, куда она ведёт, либо не открывайте.",
+  "s3h": "3. Ищите подделки",
+  "s3p": "Самый старый трюк — домен, который читается как знакомый. Следите за цифрой вместо буквы (<code>paypa1.com</code>), лишним словом или дефисом (<code>paypal-secure.com</code>), знакомым именем не на своём месте (<code>paypal.com.example.net</code>, где домен — <code>example.net</code>) и буквами другого алфавита той же формы. Если имя выглядит почти правильным, считайте его неправильным, пока не набрали настоящее сами.",
+  "s4h": "4. Проверьте соединение и порт",
+  "s4p": "Ссылка, начинающаяся с <code>http://</code>, а не <code>https://</code>, передаёт всё, что вы вводите, в открытом виде. Ссылка с числом после домена, например <code>example.com:8080</code>, обращается к чему-то, кроме обычного сайта. Ни то ни другое не доказывает мошенничество, но ни тому ни другому не место на коде, который просит вас войти или заплатить.",
+  "s5h": "5. Не устанавливайте то, что подсовывает код",
+  "s5p": "Ссылка, заканчивающаяся на <code>.apk</code>, — это программа для Android, а не страница. Приложения приходят из магазина, а не с наклеек. То же касается ссылок, которые просят разрешение установить «обновление» или «просмотрщик», прежде чем вы что-то увидите.",
+  "s6h": "6. Спросите себя, почему код здесь",
+  "s6p": "QR-код, наклеенный поверх другого QR-кода, код на парковочном автомате, где уже есть платёжный терминал, код в сообщении с незнакомого номера, код, обещающий возврат или приз: само расположение — предупреждение. Преступники печатают наклейки, потому что наклейки дёшевы. Когда код появляется там, где ему неоткуда взяться, пропустите его и воспользуйтесь официальным приложением или сайтом напрямую.",
+  "canh": "Что сканер может и не может вам сказать",
+  "canp": "Сканер может показать ссылку целиком, раскрыть короткую, отметить описанные выше признаки и сравнить адрес со списками известных фишинговых и мошеннических сайтов. Чего он не может — открыть страницу и оценить её за вас, и ни один список не полон. Поэтому Verdetto сообщает «Предупреждений не найдено», а не «безопасно»: это значит, что ни одна из его проверок не сработала, а последняя проверка — та, которую делаете вы, читая адрес. Если код просит вас войти, ввести данные карты или что-то установить, закройте его и зайдите на сайт, который вы уже знаете.",
+  "openedh": "Если вы уже открыли такой код",
+  "openedp": "Закройте страницу. Если вы ввели пароль, смените его на настоящем сайте и везде, где ещё им пользовались. Если ввели данные карты, сообщите в банк. Если что-то установили, удалите это и запустите проверку тем защитным ПО, что уже есть на телефоне. Затем удалите код из истории, чтобы не открыть его снова случайно.",
+  "callout": "Verdetto показывает каждую ссылку до того, как она откроется, раскрывает сокращённые и партнёрские ссылки при включённых онлайн-запросах и отмечает каждый из описанных признаков на вашем телефоне. Бесплатно, без рекламы, оплачено людьми, которые им пользуются. {home}.",
+  "callout_link": "Посмотрите, что он умеет"
+ },
+ "hi": {
+  "title": "QR कोड लिंक को खोलने से पहले उसकी जाँच कैसे करें",
+  "desc": "टैप करने से पहले QR कोड के लिंक में देखने की छह बातें: डोमेन, छोटे लिंक, मिलते-जुलते नाम, कनेक्शन, डाउनलोड और कोड की जगह।",
+  "meta": "{DATE} को अद्यतन। लगभग चार मिनट का पढ़ना।",
+  "inshort": "<strong>संक्षेप में।</strong> QR कोड का लिंक खोलने से पहले: पूरा पता नहीं, डोमेन पढ़ें; छोटे किए गए लिंक को तब तक अज्ञात मानें जब तक वे विस्तारित न हों; मिलते-जुलते नामों पर नज़र रखें; <code>https</code> और कोई असामान्य पोर्ट न होने की जाँच करें; कोड जो भी दे, उसे कभी इंस्टॉल न करें; और पूछें कि कोड वहाँ क्यों है। एक स्कैनर आपको यह सब दिखा सकता है। वह आपको यह नहीं बता सकता कि कोई पेज सुरक्षित है।",
+  "intro": "QR कोड बस लिंक टाइप करने का एक तरीका है ताकि आपको न करना पड़े। दिक्कत यह है कि लिंक तब तक अदृश्य है जब तक कोई चीज़ उसे पढ़े नहीं, और कई स्कैनर ऐप उसे उसी पल खोल देते हैं। पार्किंग मीटर, रेस्तराँ की मेज़, पोस्टर और ईमेल तक में नकली कोड ठीक इसी पर निर्भर करते हैं। समाधान सरल है: खोलने से पहले लिंक देखें। क्रम से यह देखें।",
+  "s1h": "1. पूरा लिंक नहीं, डोमेन पढ़ें",
+  "s1p": "डोमेन वह हिस्सा है जो <code>https://</code> के बाद और पहले अकेले स्लैश से पहले आता है। <code>https://accounts.example.com/login?ref=qr</code> में डोमेन <code>accounts.example.com</code> है, और सबसे महत्वपूर्ण हिस्सा अंतिम दो लेबल हैं, <code>example.com</code>। स्लैश के बाद का सब कुछ कुछ भी कह सकता है; आप कहाँ पहुँचेंगे यह डोमेन तय करता है। एक अच्छा स्कैनर डोमेन को अकेले बड़े अक्षरों में दिखाता है, ताकि आपको उसे लंबी स्ट्रिंग में ढूँढना न पड़े।",
+  "s2h": "2. छोटे किए गए लिंक को अज्ञात मानें",
+  "s2p": "bit.ly, t.co, tinyurl और ऐसी सेवाओं के लिंक जान-बूझकर अपना गंतव्य छिपाते हैं। इनमें से एक दिखाने वाला कोड तब तक कुछ नहीं बताता जब तक वह विस्तारित न हो। या तो पहले उसे ऐसे स्कैनर से विस्तारित करें जो छोटे लिंक का पीछा करके दिखाए कि वह कहाँ पहुँचता है, या उसे न खोलें।",
+  "s3h": "3. मिलते-जुलते नामों पर नज़र रखें",
+  "s3p": "सबसे पुरानी चाल ऐसा डोमेन है जो किसी परिचित जैसा पढ़ा जाए। अक्षर की जगह अंक (<code>paypa1.com</code>), अतिरिक्त शब्द या हाइफ़न (<code>paypal-secure.com</code>), गलत जगह रखा परिचित नाम (<code>paypal.com.example.net</code>, जहाँ डोमेन <code>example.net</code> है), और उसी आकार के दूसरी लिपि के अक्षरों पर नज़र रखें। अगर कोई नाम लगभग सही लगे, तो उसे गलत मानें जब तक आपने असली नाम स्वयं न टाइप किया हो।",
+  "s4h": "4. कनेक्शन और पोर्ट जाँचें",
+  "s4p": "<code>https://</code> के बजाय <code>http://</code> से शुरू होने वाला लिंक आपके टाइप किए सब कुछ को खुले में भेजता है। डोमेन के बाद संख्या वाला लिंक, जैसे <code>example.com:8080</code>, किसी साधारण वेबसाइट के अलावा किसी और चीज़ से बात कर रहा है। दोनों में से कोई धोखाधड़ी साबित नहीं करता, लेकिन दोनों में से कोई ऐसे कोड पर नहीं होना चाहिए जो आपसे साइन इन या भुगतान करवाए।",
+  "s5h": "5. कोड जो दे, उसे इंस्टॉल न करें",
+  "s5p": "<code>.apk</code> पर समाप्त होने वाला लिंक एक Android प्रोग्राम है, पेज नहीं। ऐप स्टोर से आते हैं, स्टिकर से नहीं। यही बात उन लिंक पर लागू होती है जो कुछ भी दिखाने से पहले \"एक अपडेट\" या \"एक व्यूअर\" इंस्टॉल करने की अनुमति माँगते हैं।",
+  "s6h": "6. पूछें कि कोड वहाँ क्यों है",
+  "s6p": "दूसरे QR कोड पर चिपकाया QR कोड, ऐसे पार्किंग मीटर पर कोड जिसमें पहले से भुगतान टर्मिनल है, अनजान नंबर से आए संदेश में कोड, रिफ़ंड या इनाम का वादा करने वाला कोड: जगह ही चेतावनी है। अपराधी स्टिकर छापते हैं क्योंकि स्टिकर सस्ते हैं। जब कोड वहाँ दिखे जहाँ स्वाभाविक रूप से कोई कोड नहीं होता, उसे छोड़ दें और सीधे आधिकारिक ऐप या वेबसाइट का उपयोग करें।",
+  "canh": "स्कैनर आपको क्या बता सकता है और क्या नहीं",
+  "canp": "स्कैनर आपको पूरा लिंक दिखा सकता है, छोटे लिंक को विस्तारित कर सकता है, ऊपर के पैटर्न चिह्नित कर सकता है और पते को ज्ञात फ़िशिंग और धोखाधड़ी साइटों की सूचियों से मिला सकता है। जो वह नहीं कर सकता, वह है पेज खोलकर आपके लिए उसका आकलन करना, और कोई सूची पूरी नहीं होती। इसीलिए Verdetto \"सुरक्षित\" के बजाय \"कोई चेतावनी नहीं मिली\" बताता है: इसका मतलब है कि इसकी कोई जाँच मेल नहीं खाई, और आख़िरी जाँच वह है जो आप पता पढ़कर करते हैं। अगर कोई कोड आपसे साइन इन करने, कार्ड विवरण देने या कुछ इंस्टॉल करने को कहे, तो उसे बंद करें और उस साइट पर जाएँ जिसे आप पहले से जानते हैं।",
+  "openedh": "अगर आप पहले ही एक खोल चुके हैं",
+  "openedp": "पेज बंद करें। अगर आपने पासवर्ड टाइप किया, तो असली साइट पर और जहाँ-जहाँ आपने उसका उपयोग किया, वहाँ उसे बदलें। अगर कार्ड विवरण दिए, तो अपने बैंक को बताएँ। अगर कुछ इंस्टॉल किया, तो उसे अनइंस्टॉल करें और फ़ोन में पहले से मौजूद सुरक्षा सॉफ़्टवेयर से स्कैन चलाएँ। फिर कोड को अपने इतिहास से हटा दें ताकि आप उसे गलती से फिर न खोलें।",
+  "callout": "Verdetto हर लिंक को खुलने से पहले दिखाता है, ऑनलाइन लुकअप चालू होने पर छोटे किए गए और एफ़िलिएट लिंक को विस्तारित करता है, और ऊपर के हर पैटर्न को आपके फ़ोन पर चिह्नित करता है। मुफ़्त, बिना विज्ञापन, इसे इस्तेमाल करने वाले लोगों के पैसे से। {home}।",
+  "callout_link": "देखें यह क्या करता है"
+ },
+ "ja": {
+  "title": "開く前に QR コードのリンクを確認する方法",
+  "desc": "QR コードのリンクをタップする前に見るべき六つのこと: ドメイン、短縮リンク、紛らわしい名前、接続、ダウンロード、そしてコードが貼られた場所。",
+  "meta": "{DATE} 更新。読了まで約 4 分。",
+  "inshort": "<strong>要点。</strong> QR コードのリンクを開く前に: アドレス全体ではなくドメインを読む。短縮リンクは展開されるまで不明なものとして扱う。紛らわしい名前に注意する。<code>https</code> であること、異常なポートがないことを確認する。コードが差し出すものを決してインストールしない。そして、なぜそのコードがそこにあるのかを考える。スキャナーはそのすべてを見せてくれます。ページが安全だと言うことはできません。",
+  "intro": "QR コードは、リンクを自分で入力しなくてすむようにする手段にすぎません。問題は、何かが読み取るまでリンクが見えないこと、そして多くのスキャナーアプリが読み取った瞬間に開いてしまうことです。駐車メーター、レストランのテーブル、ポスター、さらにはメールに仕込まれた偽のコードは、まさにそれを当て込んでいます。対策は単純で、開く前にリンクを見ることです。見るべき点を順に挙げます。",
+  "s1h": "1. リンク全体ではなくドメインを読む",
+  "s1p": "ドメインとは <code>https://</code> の後、最初の単独のスラッシュの前の部分です。<code>https://accounts.example.com/login?ref=qr</code> ではドメインは <code>accounts.example.com</code> で、最も重要なのは末尾の二つのラベル、<code>example.com</code> です。スラッシュの後は何でも書けますが、どこに着地するかを決めるのはドメインです。良いスキャナーはドメインだけを大きく表示し、長い文字列の中から探させません。",
+  "s2h": "2. 短縮リンクは不明なものとして扱う",
+  "s2p": "bit.ly、t.co、tinyurl などのサービスを経由するリンクは、意図的に行き先を隠しています。それらを示すコードは、展開されるまで何も教えてくれません。短縮リンクをたどって行き先を示すスキャナーで先に展開するか、開かないことです。",
+  "s3h": "3. 紛らわしい名前に注意する",
+  "s3p": "最も古い手口は、見慣れた名前のように読めるドメインです。文字の代わりの数字（<code>paypa1.com</code>）、余分な単語やハイフン（<code>paypal-secure.com</code>）、見慣れた名前を間違った位置に置いたもの（<code>paypal.com.example.net</code>、ドメインは <code>example.net</code>）、同じ形をした別の文字体系の文字に注意してください。名前がほぼ正しく見えるなら、本物を自分で入力するまでは間違いとして扱いましょう。",
+  "s4h": "4. 接続とポートを確認する",
+  "s4p": "<code>https://</code> ではなく <code>http://</code> で始まるリンクは、入力したすべてを平文で送ります。<code>example.com:8080</code> のようにドメインの後に数字が付くリンクは、普通のウェブサイト以外の何かと通信しています。どちらも詐欺の証明ではありませんが、ログインや支払いを求めるコードにあってよいものでもありません。",
+  "s5h": "5. コードが差し出すものをインストールしない",
+  "s5p": "<code>.apk</code> で終わるリンクは Android のプログラムであり、ページではありません。アプリはストアから来るもので、ステッカーから来るものではありません。何かを見せる前に「アップデート」や「ビューアー」のインストール許可を求めるリンクも同じです。",
+  "s6h": "6. なぜそのコードがそこにあるのかを考える",
+  "s6p": "別の QR コードの上に貼られた QR コード、すでに支払い端末がある駐車メーターのコード、知らない番号からのメッセージ内のコード、返金や賞品を約束するコード: 貼られた場所そのものが警告です。犯罪者がステッカーを刷るのは、ステッカーが安いからです。自然にはコードがないはずの場所にコードが現れたら、飛ばして公式のアプリやサイトを直接使ってください。",
+  "canh": "スキャナーが分かること、分からないこと",
+  "canp": "スキャナーは、リンク全体を表示し、短縮リンクを展開し、上記のパターンを知らせ、アドレスを既知のフィッシングや詐欺サイトのリストと照合できます。できないのは、ページを開いてあなたの代わりに判断することで、完全なリストも存在しません。だから Verdetto は「安全」ではなく「警告は見つかりませんでした」と報告します。どのチェックにも該当しなかったという意味で、最後のチェックはアドレスを読むあなた自身が行います。コードがログインやカード情報の入力、何かのインストールを求めるなら、閉じて、すでに知っているサイトへ行ってください。",
+  "openedh": "すでに開いてしまったら",
+  "openedp": "ページを閉じます。パスワードを入力したなら、本物のサイトと、同じパスワードを使っていたすべての場所で変更します。カード情報を入力したなら、銀行に知らせます。何かをインストールしたなら、アンインストールし、端末にすでにあるセキュリティソフトでスキャンを実行します。それから、誤ってまた開かないように、そのコードを履歴から削除します。",
+  "callout": "Verdetto はすべてのリンクを開く前に表示し、オンライン検索がオンのときは短縮リンクとアフィリエイトリンクを展開し、上記のパターンをそれぞれ端末内で知らせます。無料で、広告がなく、使う人の支えで成り立っています。{home}。",
+  "callout_link": "できることを見る"
+ },
+ "zh-Hans": {
+  "title": "如何在打开前检查二维码链接",
+  "desc": "点开二维码链接前要看的六件事：域名、短链接、易混淆的名称、连接方式、下载，以及码出现的位置。",
+  "meta": "更新于 {DATE}。约四分钟读完。",
+  "inshort": "<strong>简而言之。</strong> 打开二维码里的链接之前：读域名，而不是整个地址；短链接在展开之前一律视为未知；留意易混淆的名称；确认是 <code>https</code> 且没有异常端口；绝不安装码交给你的任何东西；并问一问这个码为什么出现在这里。扫描器可以把这些都展示给你。它无法告诉你一个页面是安全的。",
+  "intro": "二维码只是一种替你输入链接的方式。麻烦在于，链接在被读取之前是看不见的，而许多扫描应用一读到就立刻打开。停车计费器、餐桌、海报乃至电子邮件里的假码，靠的正是这一点。解决办法很简单：打开前先看链接。以下是要看的内容，按顺序。",
+  "s1h": "1. 读域名，而不是整个链接",
+  "s1p": "域名是 <code>https://</code> 之后、第一个单斜杠之前的部分。在 <code>https://accounts.example.com/login?ref=qr</code> 中，域名是 <code>accounts.example.com</code>，最要紧的是最后两段，<code>example.com</code>。斜杠之后的内容可以随便写；决定你落在哪里的是域名。好的扫描器会用大字单独显示域名，你不必在长串字符里去找。",
+  "s2h": "2. 把短链接当作未知",
+  "s2p": "经 bit.ly、t.co、tinyurl 及类似服务的链接故意隐藏了去向。显示这类链接的码在展开之前不能告诉你任何事。要么先用能跟随短链接并显示最终去向的扫描器展开它，要么不要打开。",
+  "s3h": "3. 留意易混淆的名称",
+  "s3p": "最老的花招是一个读起来像熟悉名称的域名。留意用数字替代字母（<code>paypa1.com</code>）、多出的单词或连字符（<code>paypal-secure.com</code>）、被塞到错误位置的熟悉名称（<code>paypal.com.example.net</code>，其域名是 <code>example.net</code>），以及来自另一套字母、形状相同的字符。如果一个名称看起来几乎对了，在你亲自输入真正的名称之前，都把它当作错的。",
+  "s4h": "4. 检查连接方式和端口",
+  "s4p": "以 <code>http://</code> 而非 <code>https://</code> 开头的链接，会把你输入的一切明文发送。域名后带数字的链接，例如 <code>example.com:8080</code>，是在和普通网站以外的东西通信。两者都不能证明是诈骗，但两者都不该出现在要你登录或付款的码上。",
+  "s5h": "5. 不要安装码交给你的东西",
+  "s5p": "以 <code>.apk</code> 结尾的链接是一个 Android 程序，不是页面。应用来自应用商店，不是来自贴纸。同样适用于那些在你看到任何内容之前就要求安装“更新”或“查看器”的链接。",
+  "s6h": "6. 问一问这个码为什么在这里",
+  "s6p": "贴在另一个二维码上面的二维码、已有支付终端的停车计费器上的码、来自陌生号码的短信里的码、承诺退款或奖品的码：位置本身就是警告。骗子印贴纸，因为贴纸便宜。当一个码出现在本不该有码的地方，跳过它，直接使用官方应用或网站。",
+  "canh": "扫描器能告诉你什么，不能告诉你什么",
+  "canp": "扫描器可以完整显示链接、展开短链接、标出上述模式，并把地址与已知钓鱼和诈骗网站名单比对。它做不到的是替你打开页面并作出判断，而且没有哪份名单是完整的。这就是为什么 Verdetto 报告“未发现警告”而不是“安全”：它意味着它的检查都没有命中，而最后一道检查是由你读地址来完成的。如果一个码要你登录、输入银行卡信息或安装东西，关掉它，去你已经知道的那个网站。",
+  "openedh": "如果你已经打开了一个",
+  "openedp": "关闭页面。如果你输入了密码，去真正的网站以及所有用过同一密码的地方修改它。如果你输入了银行卡信息，告知你的银行。如果你安装了什么，卸载它，并用手机上已有的安全软件扫描一次。然后从历史记录里删除这个码，免得不小心再次打开。",
+  "callout": "Verdetto 在每个链接打开前显示它，在开启在线查询时展开短链接和联盟链接，并在你的手机上标出以上每一种模式。免费，无广告，由使用它的人付费。{home}。",
+  "callout_link": "看看它能做什么"
+ },
+ "ar": {
+  "title": "كيف تفحص رابط رمز QR قبل أن تفتحه",
+  "desc": "ستة أشياء تنظر إليها في رابط رمز QR قبل أن تنقر: النطاق، والروابط المختصرة، والأسماء المتشابهة، والاتصال، والتنزيلات، ومكان الرمز.",
+  "meta": "حُدّث في {DATE}. نحو أربع دقائق للقراءة.",
+  "inshort": "<strong>باختصار.</strong> قبل أن تفتح رابطًا من رمز QR: اقرأ النطاق لا العنوان كله؛ واعتبر الروابط المختصرة غير معروفة حتى تُفكّ؛ وابحث عن الأسماء المتشابهة؛ وتحقق من <code>https</code> ومن عدم وجود منفذ غير معتاد؛ ولا تثبّت أبدًا شيئًا يمدّه إليك رمز؛ واسأل لماذا الرمز في مكانه. يستطيع القارئ أن يعرض لك كل ذلك. ولا يستطيع أن يقول لك إن الصفحة آمنة.",
+  "intro": "رمز QR مجرد طريقة لكتابة رابط كي لا تكتبه أنت. والمشكلة أن الرابط غير مرئي حتى يقرأه شيء ما، وكثير من تطبيقات المسح تفتحه في اللحظة التي تقرؤه فيها. والرموز المزيفة على عدّادات مواقف السيارات وموائد المطاعم والملصقات وحتى في رسائل البريد تعتمد على ذلك تحديدًا. والحل بسيط: انظر إلى الرابط قبل أن تفتحه. وإليك ما تنظر إليه، بالترتيب.",
+  "s1h": "1. اقرأ النطاق لا الرابط كله",
+  "s1p": "النطاق هو الجزء بعد <code>https://</code> وقبل أول شرطة مائلة مفردة. في <code>https://accounts.example.com/login?ref=qr</code> النطاق هو <code>accounts.example.com</code>، والجزء الأهم هو آخر جزأين، <code>example.com</code>. وكل ما بعد الشرطة المائلة قد يقول أي شيء؛ فالنطاق هو الذي يقرر أين تصل. والقارئ الجيد يعرض النطاق وحده بخط كبير، فلا تضطر إلى البحث عنه في سلسلة طويلة.",
+  "s2h": "2. اعتبر الروابط المختصرة غير معروفة",
+  "s2p": "الروابط عبر bit.ly وt.co وtinyurl والخدمات المشابهة تخفي وجهتها عن قصد. والرمز الذي يعرض واحدًا منها لا يقول لك شيئًا حتى يُفكّ. إما أن تفكّه أولًا بقارئ يتبع الرابط المختصر ويعرض لك أين ينتهي، أو لا تفتحه.",
+  "s3h": "3. ابحث عن الأسماء المتشابهة",
+  "s3p": "أقدم حيلة هي نطاق يُقرأ كنطاق مألوف. انتبه إلى رقم يحل محل حرف (<code>paypa1.com</code>)، وكلمة أو شرطة زائدة (<code>paypal-secure.com</code>)، واسم مألوف في المكان الخطأ (<code>paypal.com.example.net</code>، حيث النطاق هو <code>example.net</code>)، وحروف من أبجدية أخرى ترسم الشكل نفسه. وإذا بدا الاسم صحيحًا تقريبًا، فاعتبره خطأ حتى تكتب الاسم الحقيقي بنفسك.",
+  "s4h": "4. تحقق من الاتصال والمنفذ",
+  "s4p": "الرابط الذي يبدأ بـ <code>http://</code> بدلًا من <code>https://</code> يرسل كل ما تكتبه مكشوفًا. والرابط الذي يحمل رقمًا بعد النطاق، مثل <code>example.com:8080</code>، يتحدث إلى شيء آخر غير موقع ويب عادي. ولا يثبت أي منهما احتيالًا، لكن لا مكان لأي منهما على رمز يطلب منك تسجيل الدخول أو الدفع.",
+  "s5h": "5. لا تثبّت ما يمدّه إليك رمز",
+  "s5p": "الرابط الذي ينتهي بـ <code>.apk</code> برنامج أندرويد لا صفحة. والتطبيقات تأتي من المتجر لا من الملصقات. وينطبق الأمر نفسه على الروابط التي تطلب الإذن بتثبيت «تحديث» أو «عارض» قبل أن ترى أي شيء.",
+  "s6h": "6. اسأل لماذا الرمز هنا",
+  "s6p": "رمز QR ملصق فوق رمز QR آخر، ورمز على عدّاد مواقف فيه محطة دفع أصلًا، ورمز في رسالة نصية من رقم لا تعرفه، ورمز يعدك باسترداد مال أو بجائزة: المكان هو التحذير. يطبع المحتالون الملصقات لأن الملصقات زهيدة. وعندما يظهر رمز حيث لا يكون رمز عادةً، فتجاوزه واستخدم التطبيق الرسمي أو الموقع الرسمي مباشرة.",
+  "canh": "ما يستطيع القارئ أن يقوله لك وما لا يستطيع",
+  "canp": "يستطيع القارئ أن يعرض لك الرابط كاملًا، ويفكّ الرابط المختصر، ويعلّم على الأنماط أعلاه، ويقارن العنوان بقوائم مواقع التصيّد والاحتيال المعروفة. وما لا يستطيعه هو أن يفتح الصفحة ويحكم عليها بدلًا منك، ولا توجد قائمة كاملة. ولهذا يقول Verdetto «لم يُعثر على تحذيرات» بدلًا من «آمن»: فذلك يعني أن أي فحص من فحوصاته لم يتطابق، والفحص الأخير هو الذي تجريه أنت بقراءة العنوان. وإذا طلب منك رمز تسجيل الدخول أو إدخال بيانات بطاقة أو تثبيت شيء، فأغلقه واذهب إلى الموقع الذي تعرفه أصلًا.",
+  "openedh": "إذا كنت قد فتحت واحدًا بالفعل",
+  "openedp": "أغلق الصفحة. وإن كتبت كلمة مرور، فغيّرها على الموقع الحقيقي وفي كل مكان آخر استخدمتها فيه. وإن أدخلت بيانات بطاقة، فأبلغ بنكك. وإن ثبّتت شيئًا، فأزله وشغّل فحصًا ببرنامج الحماية الموجود على الهاتف أصلًا. ثم احذف الرمز من سجلك كي لا تفتحه مرة أخرى عن طريق الخطأ.",
+  "callout": "يعرض Verdetto كل رابط قبل أن يُفتح، ويفكّ الروابط المختصرة وروابط الإحالة عند تفعيل البحث عبر الإنترنت، ويعلّم على كل نمط من الأنماط أعلاه على هاتفك. مجاني، بلا إعلانات، يدفع ثمنه من يستخدمونه. {home}.",
+  "callout_link": "شاهد ماذا يفعل"
+ }
+}
+
+
+def guide_body(t, code):
+    """The guide from its strings table, in the English page's structure; the callout links to the same-language home."""
+    home = f'<a href="{href(localized("index.html", code))}">{t["callout_link"]}</a>'
+    parts = [f'<div class="prose">', f'<h1>{t["title"]}</h1>', f'<p class="meta">{t["meta"].replace("{DATE}", DATE)}</p>', '',
+             f'<div class="card"><p>{t["inshort"]}</p></div>', '', f'<p>{t["intro"]}</p>']
+    for k in ("s1", "s2", "s3", "s4", "s5", "s6"):
+        parts += ['', f'<h2>{t[k + "h"]}</h2>', f'<p>{t[k + "p"]}</p>']
+    parts += ['', f'<h2>{t["canh"]}</h2>', f'<p>{t["canp"]}</p>', '', f'<h2>{t["openedh"]}</h2>', f'<p>{t["openedp"]}</p>', '',
+              f'<div class="card callout"><p>{t["callout"].replace("{home}", home)}</p></div>', '</div>']
+    return "\n" + "\n".join(parts) + "\n"
+
+
+def guide_ld(t, code):
+    return {"@type": "Article", "headline": t["title"], "description": t["desc"], "inLanguage": code, "datePublished": DATE, "dateModified": DATE,
+            "author": ORG, "publisher": ORG, "mainEntityOfPage": url(LOCAL["check-qr-code-link.html"][code]),
+            "image": SITE + "/og/" + LOCAL["check-qr-code-link.html"][code][:-5] + ".png"}
+
+
+LOCAL["check-qr-code-link.html"] = family_pages("check-qr-code-link.html")
 
 def not_found():
         return f"""
@@ -2275,6 +2548,12 @@ for _code in LANG_CODES[1:]:
     _pg = LOCAL["support-the-work.html"][_code]
     PAGES[_pg] = (_t["title"], support_work_desc(_t), support_work_body(_t, _code), support_work_ld(_t, _code))
     PAGE_LANG[_pg] = (_code, _code == "ar", alternates_for("support-the-work.html"))
+PAGE_LANG["check-qr-code-link.html"] = ("en", False, alternates_for("check-qr-code-link.html"))
+for _code in LANG_CODES[1:]:
+    _t = GUIDE_T[_code]
+    _pg = LOCAL["check-qr-code-link.html"][_code]
+    PAGES[_pg] = (_t["title"] + " - Verdetto", _t["desc"], guide_body(_t, _code), guide_ld(_t, _code))
+    PAGE_LANG[_pg] = (_code, _code == "ar", alternates_for("check-qr-code-link.html"))
 BENCH_PUBLISHED = False  # True once the benchmark page is cleared for the live site
 
 

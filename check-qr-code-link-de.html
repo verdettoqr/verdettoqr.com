@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; font-src 'self'; script-src 'sha256-z8dwWCc7kg+sZcasct5YZpH/Q227T57Ipuw74neSWhk='; frame-src https://docs.google.com; base-uri 'none'; form-action 'none'">
+<title>Wie du einen QR-Code-Link prüfst, bevor du ihn öffnest - Verdetto</title>
+<meta name="description" content="Sechs Dinge, die du beim Link eines QR-Codes prüfst, bevor du tippst: Domain, Kurzlinks, ähnliche Namen, Verbindung, Downloads und der Ort des Codes.">
+<link rel="canonical" href="https://verdettoqr.com/check-qr-code-link-de">
+<link rel="me" href="https://mastodon.social/@VerdettoQR">
+<link rel="alternate" hreflang="en" href="https://verdettoqr.com/check-qr-code-link">
+<link rel="alternate" hreflang="es" href="https://verdettoqr.com/check-qr-code-link-es">
+<link rel="alternate" hreflang="fr" href="https://verdettoqr.com/check-qr-code-link-fr">
+<link rel="alternate" hreflang="de" href="https://verdettoqr.com/check-qr-code-link-de">
+<link rel="alternate" hreflang="pt-BR" href="https://verdettoqr.com/check-qr-code-link-pt-br">
+<link rel="alternate" hreflang="ru" href="https://verdettoqr.com/check-qr-code-link-ru">
+<link rel="alternate" hreflang="id" href="https://verdettoqr.com/check-qr-code-link-id">
+<link rel="alternate" hreflang="ja" href="https://verdettoqr.com/check-qr-code-link-ja">
+<link rel="alternate" hreflang="zh-Hans" href="https://verdettoqr.com/check-qr-code-link-zh-hans">
+<link rel="alternate" hreflang="hi" href="https://verdettoqr.com/check-qr-code-link-hi">
+<link rel="alternate" hreflang="ar" href="https://verdettoqr.com/check-qr-code-link-ar">
+<link rel="alternate" hreflang="x-default" href="https://verdettoqr.com/check-qr-code-link">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#E9F5F1">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0F1312">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Verdetto">
+<meta property="og:title" content="Wie du einen QR-Code-Link prüfst, bevor du ihn öffnest - Verdetto">
+<meta property="og:description" content="Sechs Dinge, die du beim Link eines QR-Codes prüfst, bevor du tippst: Domain, Kurzlinks, ähnliche Namen, Verbindung, Downloads und der Ort des Codes.">
+<meta property="og:url" content="https://verdettoqr.com/check-qr-code-link-de">
+<meta property="og:image" content="https://verdettoqr.com/og/check-qr-code-link-de.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Verdetto: Wie du einen QR-Code-Link prüfst, bevor du ihn öffnest">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Wie du einen QR-Code-Link prüfst, bevor du ihn öffnest - Verdetto">
+<meta name="twitter:description" content="Sechs Dinge, die du beim Link eines QR-Codes prüfst, bevor du tippst: Domain, Kurzlinks, ähnliche Namen, Verbindung, Downloads und der Ort des Codes.">
+<meta name="twitter:image" content="https://verdettoqr.com/og/check-qr-code-link-de.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Wie du einen QR-Code-Link prüfst, bevor du ihn öffnest", "description": "Sechs Dinge, die du beim Link eines QR-Codes prüfst, bevor du tippst: Domain, Kurzlinks, ähnliche Namen, Verbindung, Downloads und der Ort des Codes.", "inLanguage": "de", "datePublished": "2026-09-04", "dateModified": "2026-09-04", "author": {"@type": "Organization", "name": "Verdetto", "url": "https://verdettoqr.com/", "email": "support@verdettoqr.com", "logo": "https://verdettoqr.com/icon-512.png", "sameAs": ["https://mastodon.social/@VerdettoQR", "https://www.reddit.com/user/VerdettoQR/", "https://github.com/verdettoqr"], "address": {"@type": "PostalAddress", "streetAddress": "1520 Belle View Blvd, Suite #5992", "addressLocality": "Alexandria", "addressRegion": "VA", "postalCode": "22307", "addressCountry": "US"}}, "publisher": {"@type": "Organization", "name": "Verdetto", "url": "https://verdettoqr.com/", "email": "support@verdettoqr.com", "logo": "https://verdettoqr.com/icon-512.png", "sameAs": ["https://mastodon.social/@VerdettoQR", "https://www.reddit.com/user/VerdettoQR/", "https://github.com/verdettoqr"], "address": {"@type": "PostalAddress", "streetAddress": "1520 Belle View Blvd, Suite #5992", "addressLocality": "Alexandria", "addressRegion": "VA", "postalCode": "22307", "addressCountry": "US"}}, "mainEntityOfPage": "https://verdettoqr.com/check-qr-code-link-de", "image": "https://verdettoqr.com/og/check-qr-code-link-de.png"}</script>
+<style>
+/* Material 3 color roles, copied from the app's Theme.kt so the site and the app are one palette. */
+:root{--mark-body:#003D35;--mark-accent:#B8650A;--surface:#E9F5F1;--on-surface:#191C1B;--on-surface-variant:#3F4946;--primary:#006B5E;--on-primary:#FFFFFF;--surface-container:#D5E8E3;--surface-container-high:#CFE2DC;--outline:#6F7977;--outline-variant:#B4CAC4;--tertiary:#8A5A00;--on-tertiary:#FFFFFF}
+@media (prefers-color-scheme:dark){:root{--mark-body:#FFFFFF;--mark-accent:#FFB95A;--surface:#0F1312;--on-surface:#DFE4E1;--on-surface-variant:#BEC9C5;--primary:#54DBC8;--on-primary:#003731;--surface-container:#1C201F;--surface-container-high:#262B29;--outline:#899390;--outline-variant:#3F4946;--tertiary:#FFB95A;--on-tertiary:#462A00}}
+/* M3 type scale (body-large 16/24, title-medium 16/24 500, title-large 22/28, headline-large 32/40, label-large 14/20 500),
+   shape scale (chips 8, cards 12, large containers 16), tonal surfaces instead of shadows. Roboto is the app's face: the
+   variable latin file under fonts/ (Apache 2.0, fonts/LICENSE.txt) serves every weight; the system stack stands in
+   while it loads and for other scripts. */
+@font-face{font-family:Roboto;font-style:normal;font-weight:100 900;font-display:swap;src:url(fonts/Roboto-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--on-surface);font:16px/1.5 Roboto,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif}
+a{color:var(--primary)}
+:focus-visible{outline:2px solid var(--primary);outline-offset:2px;border-radius:4px}
+.skip{position:absolute;inset-inline-start:0;top:0;transform:translateY(-150%);background:var(--primary);color:var(--on-primary);padding:.5rem 1rem;border-radius:0 0 8px 0;z-index:2}
+.skip:focus{transform:none}
+.wrap{max-width:44rem;margin:0 auto;padding:0 1rem}
+.draft{background:var(--tertiary);color:var(--on-tertiary);text-align:center;padding:.4rem;font-size:.875rem;line-height:1.25rem;font-weight:500;letter-spacing:.01em}
+header{border-bottom:1px solid var(--outline-variant)}
+header .wrap{display:flex;align-items:center;gap:.75rem;min-height:64px;padding-top:.5rem;padding-bottom:.5rem;flex-wrap:wrap}
+.brand{display:inline-flex;align-items:center;gap:.4rem;color:var(--on-surface);text-decoration:none;font-weight:500;font-size:1.375rem;line-height:1.75rem}
+.brand svg{width:.78em;height:.78em;flex:none}
+.lockup{white-space:nowrap}.lockup svg{width:.78em;height:.78em;vertical-align:-.04em;margin-inline-end:.3em}
+nav{margin-left:auto;display:flex;gap:.25rem;flex-wrap:wrap}
+nav a{color:var(--on-surface-variant);text-decoration:none;font-weight:500;font-size:.875rem;line-height:1.25rem;padding:.6rem .75rem;border-radius:20px}
+nav a:hover{background:var(--surface-container)}
+.lang{position:relative;margin-inline-start:.25rem}.lang summary{list-style:none;display:inline-flex;align-items:center;gap:.4rem;padding:.6rem .75rem;border-radius:20px;color:var(--on-surface-variant);font-weight:500;font-size:.875rem;line-height:1.25rem;cursor:pointer;position:relative}.lang summary::-webkit-details-marker{display:none}.lang summary::after{content:"";position:absolute;inset:-5px 0}.lang summary svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.lang summary:hover,.lang[open] summary{background:var(--surface-container)}.lang .menu{position:absolute;inset-inline-end:0;top:calc(100% + 4px);margin:0;padding:.5rem 0;list-style:none;min-width:12.5rem;background:var(--surface-container);border-radius:4px;box-shadow:0 1px 3px rgba(0,0,0,.3),0 4px 8px 3px rgba(0,0,0,.15);z-index:4}.lang .menu a{display:flex;align-items:center;min-height:48px;padding:0 .75rem;color:var(--on-surface);text-decoration:none;font-size:.875rem;line-height:1.25rem}.lang .menu a:hover{background:var(--surface-container-high)}.langs404{columns:2;column-gap:2rem;padding-inline-start:1.25rem}.langs404 li{margin:.25rem 0}.lang .menu a[aria-current]{color:var(--primary);font-weight:600}
+nav a[aria-current]{color:var(--primary);background:var(--surface-container-high)}
+main{padding:.5rem 0 2rem}
+h1{color:var(--on-surface);font-size:2rem;line-height:2.5rem;font-weight:500;margin:1.5rem 0 .5rem}
+h2{color:var(--primary);font-size:1.375rem;line-height:1.75rem;font-weight:500;margin:2rem 0 .5rem;padding-top:.75rem;border-top:1px solid var(--outline-variant)}
+h3{font-size:1rem;line-height:1.5rem;font-weight:500;margin:1.25rem 0 .25rem}
+p,li{margin:.5rem 0}
+.meta{color:var(--on-surface-variant);font-size:.875rem;line-height:1.25rem}
+.card{background:var(--surface-container);border-radius:12px;padding:1rem;margin:1rem 0}
+.hero{display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;padding:1.5rem 0 .5rem}
+.hero .mark{width:64px;height:64px;display:block;margin-bottom:.5rem}
+.hero h1{margin:.25rem 0 .5rem;font-size:2.25rem;line-height:2.75rem}
+.hero p{font-size:1.125rem;line-height:1.75rem;margin:0}
+.hero .label{display:inline-flex;align-items:center;gap:.4rem;margin-top:1rem;color:var(--on-surface-variant);font-weight:500;font-size:.875rem;line-height:1.25rem}
+.hero .label svg{width:18px;height:18px}.hero .support{margin:.75rem 0 0;font-size:.9375rem;line-height:1.375rem;color:var(--on-surface-variant)}
+.shot{width:250px;height:auto;border-radius:20px;border:1px solid var(--outline-variant);background:var(--surface-container);display:block}
+.grid{display:grid;grid-template-columns:1fr;gap:1rem;margin:1.25rem 0;align-items:stretch}
+.grid .card{margin:0;padding:1rem;background:var(--surface-container);border-radius:12px;display:grid;grid-template-columns:auto 1fr;gap:.75rem;align-items:start}
+.grid .card svg{width:24px;height:24px;color:var(--primary);margin-top:.15rem}
+.grid h3{margin:0 0 .25rem;color:var(--on-surface)}
+.grid p{margin:0;font-size:.875rem;line-height:1.25rem;color:var(--on-surface-variant)}
+.callout{background:var(--surface-container-high);border-left:4px solid var(--primary);border-radius:0 12px 12px 0;display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:center}.callout .shot.small{width:120px;margin:0}nav a,.more summary{position:relative}nav a::after,.more summary::after{content:"";position:absolute;inset:-5px 0}
+.faq p strong{color:var(--on-surface);font-weight:500}
+.prose ol,.prose ul{padding-left:1.4rem}
+.prose li{margin:.6rem 0}
+table{border-collapse:collapse;width:100%;font-size:.875rem;line-height:1.25rem;display:block;overflow-x:auto;margin:1rem 0}
+pre{background:var(--container);border-radius:.5rem;padding:.9rem 1rem;overflow-x:auto;font-size:.8125rem;line-height:1.35rem;margin:1rem 0}
+code{font-family:Consolas,'Cascadia Mono',Menlo,monospace;font-size:.92em}
+pre code{font-size:inherit}
+th,td{text-align:left;vertical-align:top;padding:.5rem .6rem;border-bottom:1px solid var(--outline-variant)}
+th{color:var(--on-surface-variant);font-weight:500;white-space:nowrap}
+td:first-child{min-width:12rem}
+p.langs{font-size:.8125rem;line-height:1.5;color:var(--on-surface-variant)}p.langs a[aria-current]{font-weight:600;text-decoration:none}
+details.more{margin:1rem 0}details.more summary{cursor:pointer;color:var(--primary);font-weight:500;font-size:.875rem;line-height:1.25rem;padding:.6rem .75rem;border-radius:20px;display:inline-block;background:var(--surface-container)}details.more[open] summary{margin-bottom:.5rem}
+footer{background:var(--surface-container);margin-top:2rem}
+footer .wrap{padding:1.5rem 1rem 2rem;color:var(--on-surface-variant);font-size:.875rem;line-height:1.25rem}
+footer a{color:var(--primary)}
+@media (min-width:640px){.grid{grid-template-columns:1fr 1fr}.grid.three{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:600px){.hero{grid-template-columns:1fr}.shot{width:220px;margin:0 auto}h1,.hero h1{font-size:1.75rem;line-height:2.25rem}nav{margin-left:0;width:100%;order:3}.lang{margin-inline-start:auto;order:2}.callout{grid-template-columns:1fr}.callout .shot.small{margin:0 auto}}
+@media print{.draft,.skip,nav,footer .links{display:none}body{background:#fff;color:#000;font-size:12pt}a{color:#000}h2{color:#000;border-top-color:#999}.card,.callout{background:#f2f2f2}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Zum Inhalt springen</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="logo" viewBox="0 0 108 108">
+  <g><rect width="108" height="108" rx="24" fill="#D5E8E3"/></g>
+  <g fill="#003D35" fill-rule="evenodd">
+    <path d="M72.37,20.00 h11.00 a4.63,4.63 0 0 1 4.63,4.63 v11.00 a4.63,4.63 0 0 1 -4.63,4.63 h-11.00 a4.63,4.63 0 0 1 -4.63,-4.63 v-11.00 a4.63,4.63 0 0 1 4.63,-4.63 z M74.69,24.63 h6.37 a2.31,2.31 0 0 1 2.31,2.31 v6.37 a2.31,2.31 0 0 1 -2.31,2.31 h-6.37 a2.31,2.31 0 0 1 -2.31,-2.31 v-6.37 a2.31,2.31 0 0 1 2.31,-2.31 z"/>
+    <path d="M75.85,26.22 h4.05 a1.88,1.88 0 0 1 1.88,1.88 v4.05 a1.88,1.88 0 0 1 -1.88,1.88 h-4.05 a1.88,1.88 0 0 1 -1.88,-1.88 v-4.05 a1.88,1.88 0 0 1 1.88,-1.88 z"/>
+    <path d="M24.63,67.74 h11.00 a4.63,4.63 0 0 1 4.63,4.63 v11.00 a4.63,4.63 0 0 1 -4.63,4.63 h-11.00 a4.63,4.63 0 0 1 -4.63,-4.63 v-11.00 a4.63,4.63 0 0 1 4.63,-4.63 z M26.94,72.37 h6.37 a2.31,2.31 0 0 1 2.31,2.31 v6.37 a2.31,2.31 0 0 1 -2.31,2.31 h-6.37 a2.31,2.31 0 0 1 -2.31,-2.31 v-6.37 a2.31,2.31 0 0 1 2.31,-2.31 z"/>
+    <path d="M28.10,73.97 h4.05 a1.88,1.88 0 0 1 1.88,1.88 v4.05 a1.88,1.88 0 0 1 -1.88,1.88 h-4.05 a1.88,1.88 0 0 1 -1.88,-1.88 v-4.05 a1.88,1.88 0 0 1 1.88,-1.88 z"/>
+    <path d="M22.03,45.46 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M22.03,51.69 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M28.25,45.46 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M28.25,57.91 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M34.47,45.46 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M34.47,57.91 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M40.69,45.46 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M40.69,51.69 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M40.69,57.91 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M46.91,20.58 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M46.91,33.02 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M46.91,39.24 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M46.91,64.13 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M46.91,76.57 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M53.13,26.80 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M53.13,33.02 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M53.13,39.24 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M53.13,45.46 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M53.13,57.91 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M53.13,76.57 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M59.35,26.80 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M59.35,33.02 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M59.35,39.24 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M59.35,51.69 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M59.35,57.91 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M59.35,70.35 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M59.35,76.57 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M65.57,57.91 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M71.80,51.69 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M71.80,64.13 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M71.80,70.35 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M78.02,45.46 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M78.02,57.91 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+  </g>
+  <g fill="#B8650A" fill-rule="evenodd">
+    <path d="M24.63,20.00 h11.00 a4.63,4.63 0 0 1 4.63,4.63 v11.00 a4.63,4.63 0 0 1 -4.63,4.63 h-11.00 a4.63,4.63 0 0 1 -4.63,-4.63 v-11.00 a4.63,4.63 0 0 1 4.63,-4.63 z M26.94,24.63 h6.37 a2.31,2.31 0 0 1 2.31,2.31 v6.37 a2.31,2.31 0 0 1 -2.31,2.31 h-6.37 a2.31,2.31 0 0 1 -2.31,-2.31 v-6.37 a2.31,2.31 0 0 1 2.31,-2.31 z"/>
+    <path d="M28.10,26.22 h4.05 a1.88,1.88 0 0 1 1.88,1.88 v4.05 a1.88,1.88 0 0 1 -1.88,1.88 h-4.05 a1.88,1.88 0 0 1 -1.88,-1.88 v-4.05 a1.88,1.88 0 0 1 1.88,-1.88 z"/>
+  </g>
+</symbol><symbol id="mark" viewBox="18 18 72 72"><g id="qr" fill="var(--mark-body,#003D35)" fill-rule="evenodd">
+    <path d="M72.37,20.00 h11.00 a4.63,4.63 0 0 1 4.63,4.63 v11.00 a4.63,4.63 0 0 1 -4.63,4.63 h-11.00 a4.63,4.63 0 0 1 -4.63,-4.63 v-11.00 a4.63,4.63 0 0 1 4.63,-4.63 z M74.69,24.63 h6.37 a2.31,2.31 0 0 1 2.31,2.31 v6.37 a2.31,2.31 0 0 1 -2.31,2.31 h-6.37 a2.31,2.31 0 0 1 -2.31,-2.31 v-6.37 a2.31,2.31 0 0 1 2.31,-2.31 z"/>
+    <path d="M75.85,26.22 h4.05 a1.88,1.88 0 0 1 1.88,1.88 v4.05 a1.88,1.88 0 0 1 -1.88,1.88 h-4.05 a1.88,1.88 0 0 1 -1.88,-1.88 v-4.05 a1.88,1.88 0 0 1 1.88,-1.88 z"/>
+    <path d="M24.63,67.74 h11.00 a4.63,4.63 0 0 1 4.63,4.63 v11.00 a4.63,4.63 0 0 1 -4.63,4.63 h-11.00 a4.63,4.63 0 0 1 -4.63,-4.63 v-11.00 a4.63,4.63 0 0 1 4.63,-4.63 z M26.94,72.37 h6.37 a2.31,2.31 0 0 1 2.31,2.31 v6.37 a2.31,2.31 0 0 1 -2.31,2.31 h-6.37 a2.31,2.31 0 0 1 -2.31,-2.31 v-6.37 a2.31,2.31 0 0 1 2.31,-2.31 z"/>
+    <path d="M28.10,73.97 h4.05 a1.88,1.88 0 0 1 1.88,1.88 v4.05 a1.88,1.88 0 0 1 -1.88,1.88 h-4.05 a1.88,1.88 0 0 1 -1.88,-1.88 v-4.05 a1.88,1.88 0 0 1 1.88,-1.88 z"/>
+    <path d="M22.03,45.46 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M22.03,51.69 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M28.25,45.46 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M28.25,57.91 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M34.47,45.46 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M34.47,57.91 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M40.69,45.46 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M40.69,51.69 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M40.69,57.91 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M46.91,20.58 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M46.91,33.02 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M46.91,39.24 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M46.91,64.13 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M46.91,76.57 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M53.13,26.80 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M53.13,33.02 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M53.13,39.24 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M53.13,45.46 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M53.13,57.91 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M53.13,76.57 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M59.35,26.80 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M59.35,33.02 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M59.35,39.24 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M59.35,51.69 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M59.35,57.91 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M59.35,70.35 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M59.35,76.57 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M65.57,57.91 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M71.80,51.69 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M71.80,64.13 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M71.80,70.35 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M78.02,45.46 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+    <path d="M78.02,57.91 h2.17 a1.45,1.45 0 0 1 1.45,1.45 v2.17 a1.45,1.45 0 0 1 -1.45,1.45 h-2.17 a1.45,1.45 0 0 1 -1.45,-1.45 v-2.17 a1.45,1.45 0 0 1 1.45,-1.45 z"/>
+  </g><g id="accent" fill="var(--mark-accent,#B8650A)" fill-rule="evenodd">
+    <path d="M24.63,20.00 h11.00 a4.63,4.63 0 0 1 4.63,4.63 v11.00 a4.63,4.63 0 0 1 -4.63,4.63 h-11.00 a4.63,4.63 0 0 1 -4.63,-4.63 v-11.00 a4.63,4.63 0 0 1 4.63,-4.63 z M26.94,24.63 h6.37 a2.31,2.31 0 0 1 2.31,2.31 v6.37 a2.31,2.31 0 0 1 -2.31,2.31 h-6.37 a2.31,2.31 0 0 1 -2.31,-2.31 v-6.37 a2.31,2.31 0 0 1 2.31,-2.31 z"/>
+    <path d="M28.10,26.22 h4.05 a1.88,1.88 0 0 1 1.88,1.88 v4.05 a1.88,1.88 0 0 1 -1.88,1.88 h-4.05 a1.88,1.88 0 0 1 -1.88,-1.88 v-4.05 a1.88,1.88 0 0 1 1.88,-1.88 z"/>
+  </g></symbol><symbol id="ic-scan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3"/><path fill="currentColor" stroke="none" d="M9 9h2v2H9zM13 9h2v2h-2zM9 13h2v2H9zM13 13h2v2h-2z"/></symbol><symbol id="ic-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol><symbol id="ic-warning" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l10 17H2z"/><path d="M12 9v5M12 17.2h.01"/></symbol><symbol id="ic-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6z"/><path d="M9 11h6M9 14h6"/></symbol><symbol id="ic-barcode" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" stroke="none" d="M3 5h2v14H3zM7 5h1v14H7zM10 5h3v14h-3zM15 5h1v14h-1zM18 5h3v14h-3z"/></symbol><symbol id="ic-history" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol><symbol id="ic-offline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 11.5 3.5 3.5 0 0 0 7 18z"/><path d="M4 4l16 16"/></symbol><symbol id="ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></symbol><symbol id="ic-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2.5 1.5"/></symbol><symbol id="ic-language" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 2.6 4.2 5.6 4.2 9s-1.4 6.4-4.2 9c-2.8-2.6-4.2-5.6-4.2-9S9.2 5.6 12 3z"/></symbol></svg>
+<header><div class="wrap">
+  <a class="brand" href="/de"><svg aria-hidden="true"><use href="#mark"/></svg>Verdetto</a>
+  <nav aria-label="Site"><a href="/support-de">Hilfe</a><a href="/check-qr-code-link-de" aria-current="page">Anleitung</a><a href="/support-the-work-de">Die Arbeit unterstützen</a></nav><details class="lang"><summary aria-label="Sprache: Deutsch"><svg aria-hidden="true"><use href="#ic-language"/></svg><span>Deutsch</span></summary><ul class="menu"><li><a href="/check-qr-code-link" lang="en" hreflang="en">English</a></li><li><a href="/check-qr-code-link-es" lang="es" hreflang="es">Español</a></li><li><a href="/check-qr-code-link-fr" lang="fr" hreflang="fr">Français</a></li><li><a href="/check-qr-code-link-de" lang="de" hreflang="de" aria-current="page">Deutsch</a></li><li><a href="/check-qr-code-link-pt-br" lang="pt-BR" hreflang="pt-BR">Português (Brasil)</a></li><li><a href="/check-qr-code-link-ru" lang="ru" hreflang="ru">Русский</a></li><li><a href="/check-qr-code-link-id" lang="id" hreflang="id">Bahasa Indonesia</a></li><li><a href="/check-qr-code-link-ja" lang="ja" hreflang="ja">日本語</a></li><li><a href="/check-qr-code-link-zh-hans" lang="zh-Hans" hreflang="zh-Hans">简体中文</a></li><li><a href="/check-qr-code-link-hi" lang="hi" hreflang="hi">हिन्दी</a></li><li><a href="/check-qr-code-link-ar" lang="ar" hreflang="ar">العربية</a></li></ul></details>
+</div></header>
+<main id="main"><div class="wrap">
+
+<div class="prose">
+<h1>Wie du einen QR-Code-Link prüfst, bevor du ihn öffnest</h1>
+<p class="meta">Aktualisiert am 2026-09-04. Etwa vier Minuten Lesezeit.</p>
+
+<div class="card"><p><strong>Kurz gesagt.</strong> Bevor du einen Link aus einem QR-Code öffnest: Lies die Domain, nicht die ganze Adresse; behandle Kurzlinks als unbekannt, bis sie aufgelöst sind; achte auf ähnlich aussehende Namen; prüfe auf <code>https</code> und keinen ungewöhnlichen Port; installiere nie etwas, das dir ein Code gibt; und frag dich, warum der Code dort ist. Ein Scanner kann dir all das zeigen. Er kann dir nicht sagen, dass eine Seite sicher ist.</p></div>
+
+<p>Ein QR-Code ist nur eine Art, einen Link zu tippen, damit du es nicht musst. Das Problem: Der Link ist unsichtbar, bis etwas ihn liest, und viele Scanner-Apps öffnen ihn in genau diesem Moment. Gefälschte Codes auf Parkautomaten, Restauranttischen, Plakaten und sogar in E-Mails setzen genau darauf. Die Lösung ist einfach: Sieh dir den Link an, bevor du ihn öffnest. Hier ist, worauf du achten solltest, in dieser Reihenfolge.</p>
+
+<h2>1. Lies die Domain, nicht den ganzen Link</h2>
+<p>Die Domain ist der Teil nach <code>https://</code> und vor dem ersten einzelnen Schrägstrich. In <code>https://accounts.example.com/login?ref=qr</code> ist die Domain <code>accounts.example.com</code>, und der wichtigste Teil sind die letzten beiden Glieder, <code>example.com</code>. Alles nach dem Schrägstrich kann irgendetwas behaupten; die Domain entscheidet, wo du landest. Ein guter Scanner zeigt die Domain groß und für sich, damit du sie nicht in einer langen Zeichenkette suchen musst.</p>
+
+<h2>2. Behandle Kurzlinks als unbekannt</h2>
+<p>Links über bit.ly, t.co, tinyurl und ähnliche Dienste verbergen ihr Ziel absichtlich. Ein Code, der einen davon zeigt, sagt dir nichts, bis er aufgelöst ist. Löse ihn zuerst auf, mit einem Scanner, der dem Kurzlink folgt und dir zeigt, wo er endet, oder öffne ihn nicht.</p>
+
+<h2>3. Achte auf ähnlich aussehende Namen</h2>
+<p>Der älteste Trick ist eine Domain, die sich wie eine bekannte liest. Achte auf eine Ziffer anstelle eines Buchstabens (<code>paypa1.com</code>), ein zusätzliches Wort oder einen Bindestrich (<code>paypal-secure.com</code>), einen bekannten Namen an der falschen Stelle (<code>paypal.com.example.net</code>, wo die Domain <code>example.net</code> ist) und Buchstaben aus einem anderen Alphabet mit derselben Form. Wenn ein Name fast richtig aussieht, behandle ihn als falsch, bis du den echten selbst getippt hast.</p>
+
+<h2>4. Prüfe die Verbindung und den Port</h2>
+<p>Ein Link, der mit <code>http://</code> statt <code>https://</code> beginnt, sendet alles, was du eingibst, offen. Ein Link mit einer Zahl nach der Domain, etwa <code>example.com:8080</code>, spricht mit etwas anderem als einer gewöhnlichen Website. Beides beweist keinen Betrug, aber beides gehört nicht auf einen Code, der dich zum Anmelden oder Bezahlen auffordert.</p>
+
+<h2>5. Installiere nicht, was dir ein Code gibt</h2>
+<p>Ein Link, der auf <code>.apk</code> endet, ist ein Android-Programm, keine Seite. Apps kommen aus dem Store, nicht von Aufklebern. Dasselbe gilt für Links, die um Erlaubnis bitten, „ein Update“ oder „einen Viewer“ zu installieren, bevor du etwas sehen kannst.</p>
+
+<h2>6. Frag dich, warum der Code dort ist</h2>
+<p>Ein QR-Code, der über einen anderen QR-Code geklebt ist, ein Code an einem Parkautomaten, der schon ein Zahlterminal hat, ein Code in einer SMS von einer unbekannten Nummer, ein Code, der eine Rückerstattung oder einen Preis verspricht: Der Ort ist die Warnung. Kriminelle drucken Aufkleber, weil Aufkleber billig sind. Wenn ein Code dort auftaucht, wo natürlicherweise keiner wäre, lass ihn aus und nutze direkt die offizielle App oder Website.</p>
+
+<h2>Was ein Scanner dir sagen kann und was nicht</h2>
+<p>Ein Scanner kann dir den Link vollständig zeigen, einen kurzen auflösen, die obigen Muster markieren und die Adresse mit Listen bekannter Phishing- und Betrugsseiten vergleichen. Was er nicht kann: die Seite öffnen und für dich beurteilen, und keine Liste ist vollständig. Deshalb meldet Verdetto „Keine Warnungen gefunden“ statt „sicher“: Es heißt, keine seiner Prüfungen hat angeschlagen, und die letzte Prüfung ist die, die du durch Lesen der Adresse machst. Wenn ein Code dich auffordert, dich anzumelden, Kartendaten einzugeben oder etwas zu installieren, schließ ihn und geh zu der Website, die du schon kennst.</p>
+
+<h2>Wenn du schon einen geöffnet hast</h2>
+<p>Schließ die Seite. Hast du ein Passwort eingegeben, ändere es auf der echten Website und überall sonst, wo du es benutzt hast. Hast du Kartendaten eingegeben, sag es deiner Bank. Hast du etwas installiert, deinstalliere es und lass die Sicherheitssoftware, die schon auf dem Handy ist, einen Scan laufen. Lösch den Code dann aus deinem Verlauf, damit du ihn nicht versehentlich noch einmal öffnest.</p>
+
+<div class="card callout"><p>Verdetto zeigt jeden Link, bevor er sich öffnet, löst gekürzte und Affiliate-Links auf, wenn Online-Abfragen eingeschaltet sind, und markiert jedes der obigen Muster auf deinem Handy. Kostenlos, ohne Werbung, bezahlt von den Menschen, die die App nutzen. <a href="/de">Sieh, was sie kann</a>.</p></div>
+</div>
+
+</div></main>
+<footer><div class="wrap">
+  <p>&copy; 2026 <span class="lockup"><svg aria-hidden="true"><use href="#mark"/></svg>Verdetto</span> &middot; <a href="mailto:support@verdettoqr.com">support@verdettoqr.com</a></p>
+  <p class="links"><a href="/privacy-de">Datenschutzerklärung</a> &middot; <a href="/terms-de">Nutzungsbedingungen</a> &middot; <a href="/support-de">Hilfe</a> &middot; <a href="/check-qr-code-link-de">Wie du einen QR-Code-Link prüfst</a> &middot; <a href="/support-the-work-de">Die Arbeit unterstützen</a> &middot; <a href="/report">Ein Problem melden</a> &middot; <a href="/safety-list">Die Sicherheitsliste diese Woche</a> &middot; <a href="/developers">Für Entwickler</a> &middot; <a href="/press">Pressematerial</a></p>
+  <p class="links">Hier findest du uns: <a href="https://mastodon.social/@VerdettoQR" rel="me">Mastodon</a> &middot; <a href="https://www.reddit.com/user/VerdettoQR/" rel="me">Reddit</a> &middot; <a href="https://github.com/verdettoqr" rel="me">GitHub</a></p>
+</div></footer>
+</body>
+</html>
