@@ -50,6 +50,7 @@ ICONS = {
     "offline": '<path d="M7 18h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 11.5 3.5 3.5 0 0 0 7 18z"/><path d="M4 4l16 16"/>',
     "heart": '<path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/>',
     "clock": '<circle cx="12" cy="12" r="9"/><path d="M12 8v4l2.5 1.5"/>',
+    "language": '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 2.6 4.2 5.6 4.2 9s-1.4 6.4-4.2 9c-2.8-2.6-4.2-5.6-4.2-9S9.2 5.6 12 3z"/>',
 }
 SYMBOLS = ('<svg width="0" height="0" style="position:absolute" aria-hidden="true">'
            f'<symbol id="logo" viewBox="0 0 108 108">{inner}</symbol>'
@@ -83,6 +84,7 @@ header .wrap{display:flex;align-items:center;gap:.75rem;min-height:64px;padding-
 nav{margin-left:auto;display:flex;gap:.25rem;flex-wrap:wrap}
 nav a{color:var(--on-surface-variant);text-decoration:none;font-weight:500;font-size:.875rem;line-height:1.25rem;padding:.6rem .75rem;border-radius:20px}
 nav a:hover{background:var(--surface-container)}
+.lang{position:relative;margin-inline-start:.25rem}.lang summary{list-style:none;display:inline-flex;align-items:center;gap:.4rem;padding:.6rem .75rem;border-radius:20px;color:var(--on-surface-variant);font-weight:500;font-size:.875rem;line-height:1.25rem;cursor:pointer;position:relative}.lang summary::-webkit-details-marker{display:none}.lang summary::after{content:"";position:absolute;inset:-5px 0}.lang summary svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.lang summary:hover,.lang[open] summary{background:var(--surface-container)}.lang .menu{position:absolute;inset-inline-end:0;top:calc(100% + 4px);margin:0;padding:.5rem 0;list-style:none;min-width:12.5rem;background:var(--surface-container);border-radius:4px;box-shadow:0 1px 3px rgba(0,0,0,.3),0 4px 8px 3px rgba(0,0,0,.15);z-index:4}.lang .menu a{display:flex;align-items:center;min-height:48px;padding:0 .75rem;color:var(--on-surface);text-decoration:none;font-size:.875rem;line-height:1.25rem}.lang .menu a:hover{background:var(--surface-container-high)}.lang .menu a[aria-current]{color:var(--primary);font-weight:600}
 nav a[aria-current]{color:var(--primary);background:var(--surface-container-high)}
 main{padding:.5rem 0 2rem}
 h1{color:var(--on-surface);font-size:2rem;line-height:2.5rem;font-weight:500;margin:1.5rem 0 .5rem}
@@ -120,7 +122,7 @@ footer{background:var(--surface-container);margin-top:2rem}
 footer .wrap{padding:1.5rem 1rem 2rem;color:var(--on-surface-variant);font-size:.875rem;line-height:1.25rem}
 footer a{color:var(--primary)}
 @media (min-width:640px){.grid{grid-template-columns:1fr 1fr}.grid.three{grid-template-columns:repeat(3,1fr)}}
-@media (max-width:600px){.hero{grid-template-columns:1fr}.shot{width:220px;margin:0 auto}h1,.hero h1{font-size:1.75rem;line-height:2.25rem}nav{margin-left:0;width:100%}.callout{grid-template-columns:1fr}.callout .shot.small{margin:0 auto}}
+@media (max-width:600px){.hero{grid-template-columns:1fr}.shot{width:220px;margin:0 auto}h1,.hero h1{font-size:1.75rem;line-height:2.25rem}nav{margin-left:0;width:100%;order:3}.lang{margin-inline-start:auto;order:2}.callout{grid-template-columns:1fr}.callout .shot.small{margin:0 auto}}
 @media print{.draft,.skip,nav,footer .links{display:none}body{background:#fff;color:#000;font-size:12pt}a{color:#000}h2{color:#000;border-top-color:#999}.card,.callout{background:#f2f2f2}}
 """
 
@@ -160,6 +162,7 @@ def og_image_for(name, title):
 
 def page(name, title, description, body, ld=None, og_type="website", nav_key=None, lang="en", rtl=False, alternates=None):
     nav = "".join(f'<a href="{href(h)}"{" aria-current=\"page\"" if h == name else ""}>{t}</a>' for h, t in NAV)
+    menu = lang_menu(alternates, lang) if alternates else ""
     og_image, og_alt = og_image_for(name, title)
     banner = '<div class="draft" role="status">Draft for review. Not published.</div>\n' if DRAFT else ""
     ld_tag = f'<script type="application/ld+json">{json.dumps({"@context": "https://schema.org", **ld}, ensure_ascii=False)}</script>\n' if ld else ""
@@ -200,7 +203,7 @@ def page(name, title, description, body, ld=None, og_type="website", nav_key=Non
 {banner}{SYMBOLS}
 <header><div class="wrap">
   <a class="brand" href="{href('index.html')}"><svg aria-hidden="true"><use href="#mark"/></svg>Verdetto</a>
-  <nav aria-label="Site">{nav}</nav>
+  <nav aria-label="Site">{nav}</nav>{menu}
 </div></header>
 <main id="main"><div class="wrap">
 {body}
@@ -261,6 +264,19 @@ def privacy_lang_row(current):
     return lang_row(PRIVACY_LANGS, current)
 
 
+LANG_LABELS = {code: label for code, label, _ in PRIVACY_LANGS}
+
+
+def lang_menu(alternates, current):
+    """The top app bar's language control: the current language behind a globe, opening a menu of the page's alternates.
+    A details element, so it needs no script; each item is a 48 px row; the current language is marked."""
+    items = "".join(
+        f'<li><a href="{href(page_name)}" lang="{code}" hreflang="{code}"{" aria-current=\"page\"" if code == current else ""}>{LANG_LABELS[code]}</a></li>'
+        for code, page_name in alternates if code != "x-default")
+    return (f'<details class="lang"><summary aria-label="Language: {LANG_LABELS[current]}">{ic("language")}<span>{LANG_LABELS[current]}</span></summary>'
+            f'<ul class="menu">{items}</ul></details>')
+
+
 def translation(folder, langs, code):
     """A translated legal page from <folder>/<code>.html: the first line is "<!-- title | description -->", and the
     body takes {ADDRESS}, {EMAIL}, {LANG_ROW}, {TERMS_HREF}, and {PRIVACY_HREF} (the privacy page in the same language)."""
@@ -269,7 +285,7 @@ def translation(folder, langs, code):
     m = re.match(r"<!--\s*(.*?)\s*\|\s*(.*?)\s*-->", first)
     title, desc = m.group(1), m.group(2)
     privacy_page = next(p for c, _, p in PRIVACY_LANGS if c == code)
-    body = (body.replace("{ADDRESS}", ADDRESS).replace("{EMAIL}", EMAIL).replace("{LANG_ROW}", lang_row(langs, code))
+    body = (body.replace("{ADDRESS}", ADDRESS).replace("{EMAIL}", EMAIL).replace("{LANG_ROW}", "")
             .replace("{TERMS_HREF}", href("terms.html")).replace("{PRIVACY_HREF}", href(privacy_page))
             .replace("{COMMUNITY_HREF}", href("community-license.html")))
     return title, desc, body
@@ -286,7 +302,6 @@ def terms_translation(code):
 PRIVACY = f"""
 <h1>Privacy policy</h1>
 <p class="meta">For Verdetto: QR &amp; Barcode Scanner, the Android app published by Verdetto. Effective date: September 5, 2026.</p>
-{privacy_lang_row("en")}
 
 <div class="card"><p><strong>In short.</strong> No accounts, no ads, no analytics. Scanning happens on your phone, and an ID or license scan never leaves it. With online lookups on, the default, only the address, domain, or number you scanned goes out, to the services in the table below, and it goes straight from your phone to them, never through us. Nothing else leaves the phone, apart from your phone's own backup, which you can turn off. The only thing we ever receive is an email you choose to send us. We do not collect, store, sell, or share any data about you. This website sets no cookies.</p></div>
 
@@ -369,7 +384,6 @@ PRIVACY = f"""
 TERMS = f"""
 <h1>Terms of use</h1>
 <p class="meta">For Verdetto: QR &amp; Barcode Scanner. Last updated: September 5, 2026.</p>
-{lang_row(TERMS_LANGS, "en")}
 
 <div class="card"><p><strong>In short.</strong> The app looks at what a code contains and tells you what it found. It never says anything is safe. Whether to open, join, dial, or act on scanned content is your decision. These are the same terms shown inside the app; if the two ever differ, the installed version applies.</p></div>
 
@@ -1056,7 +1070,6 @@ def home_body(t, code):
   </div>
   <img class="shot" src="screens/result-sheet-warning.webp" width="540" height="1140" alt="{t["alt_warn"]}">
 </div>
-{lang_row(HOME_LANGS, code)}
 
 <h2>{t["what"]}</h2>
 <div class="grid">
