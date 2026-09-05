@@ -381,7 +381,7 @@ TERMS = f"""
 <div class="card"><p><strong>In short.</strong> The app looks at what a code contains and tells you what it found. It never says anything is safe. Whether to open, join, dial, or act on scanned content is your decision. These are the same terms shown inside the app; if the two ever differ, the installed version applies.</p></div>
 
 <h2>The app</h2>
-<p>This app is free. Its safety list is open source today, and the app's own code is published under the GNU General Public License, version 3 or later. It is provided as is and as available, without warranty of any kind, express or implied, including fitness for a particular purpose. It is not security software and not a substitute for security advice.</p>
+<p>This app is free. Its safety list's pipeline is open source today, and the app's own code is published under the GNU General Public License, version 3 or later. It is provided as is and as available, without warranty of any kind, express or implied, including fitness for a particular purpose. It is not security software and not a substitute for security advice.</p>
 
 <h2>Who provides the app</h2>
 <p>Verdetto, {ADDRESS}, United States, a small business in Virginia. Contact: <a href="mailto:{EMAIL}">{EMAIL}</a>. Support requests and legal notices go to that address.</p>
@@ -411,7 +411,7 @@ TERMS = f"""
 <p>The lookup services and the shortening services the app can ask are run by others under their own terms and privacy policies. Their answers are shown as given; they may change or stop, and we are not responsible for them. NHTSA's recall and crash-test databases and the EPA fuel-economy database are among them; recall and rating information is for the model year and is not a statement about the individual vehicle.</p>
 
 <h2>Open source and trademarks</h2>
-<p>The safety list's pipeline is published under the MIT License, and the app's own code under the GNU General Public License, version 3 or later. Those licenses cover code. They do not cover the Verdetto name, icon, wordmark, splash screen, screenshots or store material, which are not licensed and stay ours; a fork must use its own name and artwork. The app also includes work by others under their own licenses, listed under About, Licenses; the safety list names its sources and their terms in its repository.</p>
+<p>The safety list's pipeline is published under the MIT License, and the app's own code under the GNU General Public License, version 3 or later. Those licenses cover code. They do not cover the Verdetto name, icon, wordmark, splash screen, screenshots or store material, which are not licensed and stay ours; a fork may not use that name or artwork as its own. The app also includes work by others under their own licenses, listed under About, Licenses; the safety list names its sources and their terms in its repository.</p>
 
 <h2>Governing law</h2>
 <p>These terms are governed by the laws of the Commonwealth of Virginia, United States. If you are a consumer in a country whose law protects you regardless of that choice, that protection applies, and you may bring a claim before the courts of your own country.</p>
