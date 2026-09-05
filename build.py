@@ -206,7 +206,7 @@ def page(name, title, description, body, ld=None, og_type="website", nav_key=Non
 {body}
 </div></main>
 <footer><div class="wrap">
-  <p>&copy; 2026 <span class="lockup"><svg aria-hidden="true"><use href="#mark"/></svg>Verdetto</span> &middot; {ADDRESS} &middot; <a href="mailto:{EMAIL}">{EMAIL}</a></p>
+  <p>&copy; 2026 <span class="lockup"><svg aria-hidden="true"><use href="#mark"/></svg>Verdetto</span> &middot; <a href="mailto:{EMAIL}">{EMAIL}</a></p>
   <p class="links"><a href="{href('privacy.html')}">Privacy policy</a> &middot; <a href="{href('terms.html')}">Terms of use</a> &middot; <a href="{href('support.html')}">Help</a> &middot; <a href="{href('check-qr-code-link.html')}">How to check a QR code link</a> &middot; <a href="{href('support-the-work.html')}">Support the work</a> &middot; <a href="{href('report.html')}">Report a problem</a> &middot; <a href="{href('safety-list.html')}">The safety list this week</a> &middot; <a href="{href('developers.html')}">For developers</a> &middot; <a href="{href('press.html')}">Press kit</a></p>
 </div></footer>
 </body>
@@ -832,7 +832,7 @@ def main():
         "> Verdetto is a free QR code and barcode scanner for Android with no ads and no fake buttons. It shows the link "
         "before it opens, is built to read damaged codes, and checks scanned content for warning signs on the phone. It never says "
         "anything is safe: \"No warnings found\" means none of its checks matched.\n\n"
-        f"Publisher: Verdetto, {ADDRESS}, United States. Contact: {EMAIL}. Store title: \"Verdetto: QR & Barcode Scanner\". "
+        f"Publisher: Verdetto, Virginia, United States. Contact: {EMAIL}. Store title: \"Verdetto: QR & Barcode Scanner\". "
         "Status: coming soon to Google Play.\n\n"
         "Official accounts: " + "; ".join(f"{k} {v}" for k, v in SOCIAL.items()) + ". Pronounced ver-DET-oh; Italian for verdict.\n\n"
         "## Pages\n\n"
