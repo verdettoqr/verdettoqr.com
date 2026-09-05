@@ -23,7 +23,10 @@ def play_link(source, medium="app", campaign=None):
     arguments are kept so callers read as before; they change nothing."""
     return f"https://play.google.com/store/apps/details?id={PLAY_ID}"
 
-DATE = "2026-09-04"  # lastmod for the sitemap and the article; update when copy changes
+DATE = "2026-09-05"  # lastmod for the sitemap and the article; update when copy changes
+# the formats the validation matrix of 2026-09-04 read (scanner-app SCAN-VALIDATION.md, 31 formats, all reads correct); the
+# page renders the count from this list so the number cannot drift from the evidence
+FORMATS_READ = ["EAN-13", "EAN-8", "UPC-A", "UPC-E", "ISBN", "GS1 DataBar", "DataBar Limited", "DataBar Stacked", "DataBar Stacked Omni", "DataBar Expanded", "DataBar Expanded Stacked", "Code 128", "Code 39", "Code 93", "Codabar", "ITF", "ITF-14", "Telepen", "MaxiCode", "PZN", "Code 32", "QR Code", "Micro QR", "rMQR", "Aztec", "Aztec Rune", "Data Matrix", "PDF417", "Compact PDF417", "MicroPDF417", "DX film edge"]
 ADDRESS = "1520 Belle View Blvd, Suite #5992, Alexandria, VA 22307"
 EMAIL = "support@verdettoqr.com"
 
@@ -1996,6 +1999,7 @@ def not_found():
     <p>The address may have changed, or the code that brought you here was wrong. Try one of these:</p>
     <ul>
       <li><a href="{href('index.html')}">Home</a></li>
+      <li><a href="{href('features.html')}">Everything it does</a></li>
       <li><a href="{href('privacy.html')}">Privacy policy</a></li>
       <li><a href="{href('terms.html')}">Terms of use</a></li>
       <li><a href="{href('support.html')}">Help</a></li>
@@ -2231,7 +2235,7 @@ PRESS = f"""
 <ul>
   <li>Platform: Android 8 and later. Price: free. Ads: none. Accounts: none. Analytics: none.</li>
   <li>Scanning and every built-in check run on the phone. Online lookups are on by default and can be turned off with one switch, and product lookups have a switch of their own.</li>
-  <li>Reads QR codes and barcodes including EAN, UPC, Code 128, Data Matrix, PDF417, and Aztec.</li>
+  <li>Reads {len(FORMATS_READ)} kinds of codes, measured on the September 4, 2026 validation run, including EAN, UPC, Code 128, Data Matrix, PDF417, and Aztec.</li>
   <li>The safety list is built in the open at <a href="https://github.com/verdettoqr/link-safety-list">github.com/verdettoqr/link-safety-list</a> and refreshed four times a day; the app verifies its signature before use.</li>
   <li>What the app never says: that a link, network, or product is safe. The wording is "No warnings found."</li>
   <li>Comparison basis: the ten most-installed free QR scanners on Google Play as of September 4, 2026, identified by install count that day; each listing's ads label and its most relevant reviews read the same day; 'fake button' is the reviewers' description, not ours; no scanner is named; the list and the notes are kept on file.</li>
@@ -2271,7 +2275,7 @@ PRESS_T = {
   "facts": [
    "Plattform: Android 8 und neuer. Preis: kostenlos. Werbung: keine. Konten: keine. Analysen: keine.",
    "Das Scannen und jede eingebaute Prüfung laufen auf dem Telefon. Online-Abfragen sind standardmäßig an und lassen sich mit einem Schalter abstellen; Produktabfragen haben einen eigenen Schalter.",
-   "Liest QR-Codes und Barcodes, darunter EAN, UPC, Code 128, Data Matrix, PDF417 und Aztec.",
+   "Liest {N} Arten von Codes, gemessen im Validierungslauf vom 4. September 2026, darunter EAN, UPC, Code 128, Data Matrix, PDF417 und Aztec.",
    "Die Sicherheitsliste entsteht offen unter <a href=\"https://github.com/verdettoqr/link-safety-list\">github.com/verdettoqr/link-safety-list</a> und wird viermal am Tag aktualisiert; die App prüft ihre Signatur vor der Verwendung.",
    "Was die App nie sagt: dass ein Link, ein Netzwerk oder ein Produkt sicher ist. Die Formulierung lautet „Keine Warnungen gefunden“.",
    "Vergleichsgrundlage: die zehn meistinstallierten kostenlosen QR-Scanner bei Google Play am 4. September 2026, bestimmt nach der Installationszahl an diesem Tag; das Werbe-Label jedes Eintrags und seine relevantesten Rezensionen am selben Tag gelesen; „falscher Button“ ist die Beschreibung der Rezensenten, nicht unsere; kein Scanner wird genannt; die Liste und die Notizen liegen bei uns vor.",
@@ -2303,7 +2307,7 @@ PRESS_T = {
   "facts": [
    "Plataforma: Android 8 y posteriores. Precio: gratis. Anuncios: ninguno. Cuentas: ninguna. Analíticas: ninguna.",
    "El escaneo y todas las comprobaciones integradas se ejecutan en el teléfono. Las consultas en línea están activadas por defecto y se apagan con un interruptor; las consultas de productos tienen su propio interruptor.",
-   "Lee códigos QR y de barras, incluidos EAN, UPC, Code 128, Data Matrix, PDF417 y Aztec.",
+   "Lee {N} tipos de códigos, medidos en la ejecución de validación del 4 de septiembre de 2026, incluidos EAN, UPC, Code 128, Data Matrix, PDF417 y Aztec.",
    "La lista de seguridad se construye de forma abierta en <a href=\"https://github.com/verdettoqr/link-safety-list\">github.com/verdettoqr/link-safety-list</a> y se actualiza cuatro veces al día; la aplicación verifica su firma antes de usarla.",
    "Lo que la aplicación nunca dice: que un enlace, una red o un producto sea seguro. La redacción es «No se encontraron avisos».",
    "Base de la comparación: los diez escáneres QR gratuitos más instalados en Google Play a 4 de septiembre de 2026, identificados por su número de instalaciones ese día; la etiqueta de anuncios de cada ficha y sus reseñas más relevantes, leídas el mismo día; «botón falso» es la descripción de quienes reseñan, no la nuestra; no se nombra ningún escáner; la lista y las notas quedan archivadas.",
@@ -2335,7 +2339,7 @@ PRESS_T = {
   "facts": [
    "Plateforme : Android 8 et versions ultérieures. Prix : gratuit. Publicité : aucune. Comptes : aucun. Analyse d'audience : aucune.",
    "Le scan et chaque vérification intégrée s'exécutent sur le téléphone. Les recherches en ligne sont activées par défaut et se coupent d'un seul interrupteur ; les recherches de produits ont le leur.",
-   "Lit les codes QR et les codes-barres, dont EAN, UPC, Code 128, Data Matrix, PDF417 et Aztec.",
+   "Lit {N} sortes de codes, mesurées lors de la validation du 4 septembre 2026, dont EAN, UPC, Code 128, Data Matrix, PDF417 et Aztec.",
    "La liste de sécurité est construite au grand jour sur <a href=\"https://github.com/verdettoqr/link-safety-list\">github.com/verdettoqr/link-safety-list</a> et rafraîchie quatre fois par jour ; l'application vérifie sa signature avant de l'utiliser.",
    "Ce que l'application ne dit jamais : qu'un lien, un réseau ou un produit est sûr. La formulation est « Aucune alerte trouvée ».",
    "Base de comparaison : les dix lecteurs QR gratuits les plus installés sur Google Play au 4 septembre 2026, identifiés par leur nombre d'installations ce jour-là ; l'étiquette « contient des publicités » de chaque fiche et ses avis les plus pertinents, lus le même jour ; « faux bouton » est la description des personnes qui ont laissé un avis, pas la nôtre ; aucun lecteur n'est nommé ; la liste et les notes sont conservées.",
@@ -2367,7 +2371,7 @@ PRESS_T = {
   "facts": [
    "Plataforma: Android 8 ou mais recente. Preço: grátis. Anúncios: nenhum. Contas: nenhuma. Análises de uso: nenhuma.",
    "A leitura e todas as verificações embutidas rodam no celular. As consultas online vêm ativadas e podem ser desligadas com um único botão; as consultas de produtos têm um botão próprio.",
-   "Lê códigos QR e de barras, incluindo EAN, UPC, Code 128, Data Matrix, PDF417 e Aztec.",
+   "Lê {N} tipos de código, medidos na rodada de validação de 4 de setembro de 2026, incluindo EAN, UPC, Code 128, Data Matrix, PDF417 e Aztec.",
    "A lista de segurança é construída abertamente em <a href=\"https://github.com/verdettoqr/link-safety-list\">github.com/verdettoqr/link-safety-list</a> e atualizada quatro vezes por dia; o aplicativo verifica a assinatura dela antes de usar.",
    "O que o aplicativo nunca diz: que um link, uma rede ou um produto é seguro. A frase é \"Nenhum alerta encontrado\".",
    "Base da comparação: os dez leitores de QR gratuitos mais instalados no Google Play em 4 de setembro de 2026, identificados pelo número de instalações naquele dia; o rótulo de anúncios de cada página e suas avaliações mais relevantes, lidos no mesmo dia; \"botão falso\" é a descrição de quem avaliou, não a nossa; nenhum leitor é nomeado; a lista e as anotações ficam arquivadas.",
@@ -2399,7 +2403,7 @@ PRESS_T = {
   "facts": [
    "Platform: Android 8 ke atas. Harga: gratis. Iklan: tidak ada. Akun: tidak ada. Analitik: tidak ada.",
    "Pemindaian dan setiap pemeriksaan bawaan berjalan di ponsel. Pencarian online aktif secara bawaan dan bisa dimatikan dengan satu sakelar; pencarian produk punya sakelar sendiri.",
-   "Membaca kode QR dan barcode termasuk EAN, UPC, Code 128, Data Matrix, PDF417, dan Aztec.",
+   "Membaca {N} jenis kode, diukur pada uji validasi 4 September 2026, termasuk EAN, UPC, Code 128, Data Matrix, PDF417, dan Aztec.",
    "Daftar keamanan dibangun secara terbuka di <a href=\"https://github.com/verdettoqr/link-safety-list\">github.com/verdettoqr/link-safety-list</a> dan diperbarui empat kali sehari; aplikasi memverifikasi tanda tangannya sebelum dipakai.",
    "Yang tidak pernah dikatakan aplikasi: bahwa sebuah tautan, jaringan, atau produk aman. Kata-katanya adalah \"Tidak ada peringatan ditemukan\".",
    "Dasar perbandingan: sepuluh pemindai QR gratis dengan pemasangan terbanyak di Google Play per 4 September 2026, ditentukan dari jumlah pemasangan hari itu; label iklan setiap halaman dan ulasan paling relevannya dibaca pada hari yang sama; \"tombol palsu\" adalah gambaran para pengulas, bukan kami; tidak ada pemindai yang disebut namanya; daftar dan catatannya kami simpan.",
@@ -2431,7 +2435,7 @@ PRESS_T = {
   "facts": [
    "Платформа: Android 8 и новее. Цена: бесплатно. Реклама: нет. Учётные записи: нет. Аналитика: нет.",
    "Сканирование и каждая встроенная проверка выполняются на телефоне. Онлайн-запросы включены по умолчанию и отключаются одним переключателем; у запросов о товарах свой переключатель.",
-   "Читает QR-коды и штрихкоды, включая EAN, UPC, Code 128, Data Matrix, PDF417 и Aztec.",
+   "Читает {N} вид кодов, измеренных в проверочном прогоне 4 сентября 2026 года, включая EAN, UPC, Code 128, Data Matrix, PDF417 и Aztec.",
    "Список безопасности собирается открыто на <a href=\"https://github.com/verdettoqr/link-safety-list\">github.com/verdettoqr/link-safety-list</a> и обновляется четыре раза в день; приложение проверяет его подпись перед использованием.",
    "Чего приложение никогда не говорит: что ссылка, сеть или товар безопасны. Формулировка: «Предупреждений не найдено».",
    "База сравнения: десять самых устанавливаемых бесплатных QR-сканеров в Google Play на 4 сентября 2026 года, определённые по числу установок в тот день; метка о рекламе у каждой страницы и её самые релевантные отзывы прочитаны в тот же день; «ложная кнопка» — описание авторов отзывов, а не наше; ни один сканер не назван; список и заметки хранятся у нас.",
@@ -2463,7 +2467,7 @@ PRESS_T = {
   "facts": [
    "प्लैटफ़ॉर्म: Android 8 और बाद के संस्करण। कीमत: मुफ़्त। विज्ञापन: कोई नहीं। खाते: कोई नहीं। एनालिटिक्स: कोई नहीं।",
    "स्कैनिंग और हर अंतर्निर्मित जाँच फ़ोन पर चलती है। ऑनलाइन खोज डिफ़ॉल्ट रूप से चालू है और एक स्विच से बंद की जा सकती है; उत्पाद खोज का अपना अलग स्विच है।",
-   "QR कोड और बारकोड पढ़ता है, जिनमें EAN, UPC, Code 128, Data Matrix, PDF417 और Aztec शामिल हैं।",
+   "{N} तरह के कोड पढ़ता है, 4 सितंबर 2026 के सत्यापन रन में मापे गए, जिनमें EAN, UPC, Code 128, Data Matrix, PDF417 और Aztec शामिल हैं।",
    "सुरक्षा सूची <a href=\"https://github.com/verdettoqr/link-safety-list\">github.com/verdettoqr/link-safety-list</a> पर खुले तौर पर बनाई जाती है और दिन में चार बार ताज़ा होती है; ऐप इस्तेमाल से पहले उसका हस्ताक्षर सत्यापित करता है।",
    "ऐप जो कभी नहीं कहता: कि कोई लिंक, नेटवर्क या उत्पाद सुरक्षित है। शब्द हैं \"कोई चेतावनी नहीं मिली\"।",
    "तुलना का आधार: 4 सितंबर 2026 तक Google Play पर सबसे अधिक इंस्टॉल किए गए दस मुफ़्त QR स्कैनर, उस दिन की इंस्टॉल संख्या से पहचाने गए; हर लिस्टिंग का विज्ञापन लेबल और उसकी सबसे प्रासंगिक समीक्षाएँ उसी दिन पढ़ी गईं; \"नकली बटन\" समीक्षकों का वर्णन है, हमारा नहीं; किसी स्कैनर का नाम नहीं लिया गया; सूची और नोट हमारे पास रखे हैं।",
@@ -2495,7 +2499,7 @@ PRESS_T = {
   "facts": [
    "プラットフォーム: Android 8 以降。価格: 無料。広告: なし。アカウント: なし。解析: なし。",
    "読み取りと内蔵の確認はすべて端末上で行われます。オンライン照会は初期状態でオンで、スイッチ一つで切れます。商品照会には専用のスイッチがあります。",
-   "EAN、UPC、Code 128、Data Matrix、PDF417、Aztec を含む QR コードとバーコードを読み取ります。",
+   "{N} 種類のコードを読み取ります（2026 年 9 月 4 日の検証で測定）。EAN、UPC、Code 128、Data Matrix、PDF417、Aztec を含みます。",
    "安全リストは <a href=\"https://github.com/verdettoqr/link-safety-list\">github.com/verdettoqr/link-safety-list</a> で公開の場で作られ、一日四回更新されます。アプリは使用前にその署名を検証します。",
    "アプリが決して言わないこと: リンク、ネットワーク、商品が安全だということ。表現は「警告は見つかりませんでした」です。",
    "比較の基準: 2026 年 9 月 4 日時点で Google Play のインストール数上位十本の無料 QR スキャナーを、その日のインストール数で特定。各掲載の広告表示と最も参考になるレビューを同じ日に確認。「偽のボタン」はレビュー投稿者の表現で、私たちのものではありません。スキャナー名は挙げません。一覧とメモは保管しています。",
@@ -2527,7 +2531,7 @@ PRESS_T = {
   "facts": [
    "平台：Android 8 及更高版本。价格：免费。广告：无。账户：无。分析统计：无。",
    "扫描和所有内置检查都在手机上运行。在线查询默认开启，一个开关即可关闭；商品查询有单独的开关。",
-   "读取二维码和条形码，包括 EAN、UPC、Code 128、Data Matrix、PDF417 和 Aztec。",
+   "读取 {N} 种码（在 2026 年 9 月 4 日的验证运行中测量），包括 EAN、UPC、Code 128、Data Matrix、PDF417 和 Aztec。",
    "安全列表在 <a href=\"https://github.com/verdettoqr/link-safety-list\">github.com/verdettoqr/link-safety-list</a> 公开构建，每天更新四次；应用在使用前校验其签名。",
    "应用从不说的话：某个链接、网络或商品是安全的。措辞是“未发现警告”。",
    "比较依据：截至 2026 年 9 月 4 日 Google Play 上安装量最高的十款免费二维码扫描器，按当日安装量确定；每个商店页面的广告标注及其最相关的评价于同日阅读；“假按钮”是评价者的说法，不是我们的；不点名任何扫描器；名单和记录留存备查。",
@@ -2559,7 +2563,7 @@ PRESS_T = {
   "facts": [
    "المنصة: Android 8 وما بعده. السعر: مجاني. الإعلانات: لا شيء. الحسابات: لا شيء. التحليلات: لا شيء.",
    "المسح وكل فحص مدمج يعملان على الهاتف. عمليات البحث عبر الإنترنت مفعّلة افتراضيًا ويمكن إيقافها بمفتاح واحد؛ ولبحث المنتجات مفتاح خاص به.",
-   "يقرأ رموز QR والباركود بما فيها EAN وUPC وCode 128 وData Matrix وPDF417 وAztec.",
+   "يقرأ {N} نوعًا من الرموز، قِيست في جولة التحقق بتاريخ 4 سبتمبر 2026، ومنها EAN وUPC وCode 128 وData Matrix وPDF417 وAztec.",
    "تُبنى قائمة الأمان بشكل مفتوح على <a href=\"https://github.com/verdettoqr/link-safety-list\">github.com/verdettoqr/link-safety-list</a> وتُحدَّث أربع مرات يوميًا؛ ويتحقق التطبيق من توقيعها قبل الاستخدام.",
    "ما لا يقوله التطبيق أبدًا: أن رابطًا أو شبكة أو منتجًا آمن. الصياغة هي «لم يُعثر على تحذيرات».",
    "أساس المقارنة: أكثر عشرة قارئات QR مجانية تثبيتًا على Google Play بتاريخ 4 سبتمبر 2026، حُددت بعدد التثبيتات في ذلك اليوم؛ وقُرئت في اليوم نفسه علامة الإعلانات لكل صفحة وأكثر مراجعاتها صلة؛ و«الزر الزائف» وصفُ المراجعين لا وصفنا؛ ولا يُسمّى أي قارئ؛ والقائمة والملاحظات محفوظة لدينا.",
@@ -2589,7 +2593,7 @@ def press_body(t, code):
         h = href(localized(base, code))
         return f'<a href="{h}">verdettoqr.com{h}</a>'
     priv, terms = policy("privacy.html"), policy("terms.html")
-    items = [x.replace("{PRIVACY_LINK}", priv).replace("{TERMS_LINK}", terms) for x in t["facts"]]
+    items = [x.replace("{PRIVACY_LINK}", priv).replace("{TERMS_LINK}", terms).replace("{N}", str(len(FORMATS_READ))) for x in t["facts"]]
     facts = "\n".join("  <li>" + x + "</li>" for x in items)
     assets = "\n".join("  <li>" + x + "</li>" for x in t["assets"])
     social = "".join(f'  <li>{k}: <a href="{v}">{v}</a></li>\n' for k, v in SOCIAL.items())
@@ -5107,9 +5111,6 @@ FEAT_T = {
  }
 }
 
-# the formats the validation matrix of 2026-09-04 read (scanner-app SCAN-VALIDATION.md, 31 formats, all reads correct); the
-# page renders the count from this list so the number cannot drift from the evidence
-FORMATS_READ = ["EAN-13", "EAN-8", "UPC-A", "UPC-E", "ISBN", "GS1 DataBar", "DataBar Limited", "DataBar Stacked", "DataBar Stacked Omni", "DataBar Expanded", "DataBar Expanded Stacked", "Code 128", "Code 39", "Code 93", "Codabar", "ITF", "ITF-14", "Telepen", "MaxiCode", "PZN", "Code 32", "QR Code", "Micro QR", "rMQR", "Aztec", "Aztec Rune", "Data Matrix", "PDF417", "Compact PDF417", "MicroPDF417", "DX film edge"]
 
 
 def features_body(t, code):
@@ -5435,6 +5436,7 @@ def home_body(t, code):
 <details class="more"><summary>{t["more"]}</summary>
 <div class="grid">
 {cards2}</div>
+<p class="meta"><a href="{href(localized("features.html", code))}">{chrome(code)["features"]}: {FEAT_T[code]["title"]}</a></p>
 </details>
 
 <h2>{t["why"]}</h2>
