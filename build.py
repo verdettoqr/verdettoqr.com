@@ -595,7 +595,8 @@ PRESS = f"""
   <li>Reads QR codes and barcodes including EAN, UPC, Code 128, Data Matrix, PDF417, and Aztec.</li>
   <li>The safety list is built in the open at <a href="https://github.com/verdettoqr/link-safety-list">github.com/verdettoqr/link-safety-list</a> and refreshed four times a day; the app verifies its signature before use.</li>
   <li>What the app never says: that a link, network, or product is safe. The wording is "No warnings found."</li>
-  <li>Privacy policy: <a href="{href('privacy.html')}">verdettoqr.com/privacy</a>. Terms: <a href="{href('terms.html')}">verdettoqr.com/terms</a>.</li>
+  <li>Privacy policy: <a href="{href('privacy.html')}">verdettoqr.com/privacy</a>.</li>
+  <li>Terms: <a href="{href('terms.html')}">verdettoqr.com/terms</a>.</li>
 </ul>
 
 <h2>Assets</h2>
