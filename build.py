@@ -162,7 +162,8 @@ def og_image_for(name, title):
 
 def page(name, title, description, body, ld=None, og_type="website", nav_key=None, lang="en", rtl=False, alternates=None):
     nav = "".join(f'<a href="{href(h)}"{" aria-current=\"page\"" if h == name else ""}>{t}</a>' for h, t in NAV)
-    menu = lang_menu(alternates, lang) if alternates else ""
+    # the language control is part of the top app bar on every page; a page without a translation offers the home pages
+    menu = lang_menu(alternates or HOME_ALTERNATES, lang)
     og_image, og_alt = og_image_for(name, title)
     banner = '<div class="draft" role="status">Draft for review. Not published.</div>\n' if DRAFT else ""
     ld_tag = f'<script type="application/ld+json">{json.dumps({"@context": "https://schema.org", **ld}, ensure_ascii=False)}</script>\n' if ld else ""
