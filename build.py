@@ -239,7 +239,7 @@ HOME = f"""
 </details>
 
 <h2>Why another QR scanner</h2>
-<p>Of the ten most-installed free scanners on Google Play, all ten carry ads, and reviews of seven describe a fake button in the ad. Many open a link the moment they read it. Verdetto does neither. It is made by one person in Alexandria, Virginia; write any time: <a href="mailto:{EMAIL}">{EMAIL}</a>.</p>
+<p>Of the ten most-installed free scanners on Google Play, all ten carry ads, and reviews of seven describe a fake button in the ad. Many open a link the moment they read it. Verdetto does neither. It is made by a solo developer in Virginia; write any time: <a href="mailto:{EMAIL}">{EMAIL}</a>.</p>
 
 <h2>What it will never tell you</h2>
 <div class="card callout"><p>That something is safe. "No warnings found" means none of its checks matched; opening is your call. <a href="{href('check-qr-code-link.html')}">How to check a link yourself</a>.</p></div>
@@ -591,7 +591,7 @@ PRESS = f"""
 <div class="card"><p><strong>In one sentence.</strong> Verdetto is a free QR code and barcode scanner for Android with no ads and no fake buttons. It shows the link before it opens, is built to read damaged codes, and checks scanned content for warning signs on the phone. It never says anything is safe: "No warnings found" means none of its checks matched.</p></div>
 
 <h2>Boilerplate</h2>
-<p>Verdetto: QR &amp; Barcode Scanner is a free Android app from Verdetto, a one-person software business in Alexandria, Virginia. It reads QR codes and barcodes, including damaged ones, shows the person exactly what a code contains before anything opens, and checks links, Wi-Fi networks, payment addresses, and phone numbers for known warning signs on the phone itself. Its list of known phishing and scam entries is compiled in the open from public feeds, and its signature is checked on the device. The app has no ads, no accounts, and no analytics; an optional one-time contribution supports development, and nothing is locked behind it. Verdetto is pronounced "ver-DET-oh" and is Italian for verdict.</p>
+<p>Verdetto: QR &amp; Barcode Scanner is a free Android app from Verdetto, a solo developer in Virginia. It reads QR codes and barcodes, including damaged ones, shows the person exactly what a code contains before anything opens, and checks links, Wi-Fi networks, payment addresses, and phone numbers for known warning signs on the phone itself. Its list of known phishing and scam entries is compiled in the open from public feeds, and its signature is checked on the device. The app has no ads, no accounts, and no analytics; an optional one-time contribution supports development, and nothing is locked behind it. Verdetto is pronounced "ver-DET-oh" and is Italian for verdict.</p>
 
 <h2>Facts you can check</h2>
 <ul>
