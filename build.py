@@ -524,7 +524,8 @@ NOT_FOUND = f"""
 # The report form: a Google Form owned by the Verdetto Google account. The page embeds it and passes the app's
 # prefill through, so the app and every link only ever point at this page; the form behind it can change.
 FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfjC-Acjlr82CUOF-f5j3dPTkjQjArNrwaRJujiPiPb-PLH4g/viewform"
-FORM_FIELDS = {"k": "entry.1094665394", "c": "entry.2112816314", "p": "entry.772072017", "w": "entry.734527309", "v": "entry.1296385476"}
+FORM_FIELDS = {"k": "entry.500397725", "c": "entry.140033470", "p": "entry.763672602", "w": "entry.937128776", "v": "entry.1720664752"}
+# These are the published form's field ids (from the live page's FB_PUBLIC_LOAD_DATA_); the editor's preview shows different ones.
 # k kind, c scanned text, p where found, w warnings shown, v versions; f (card format, from a license or ID scan) is folded into c
 FORM_KINDS = {"s": "A link, Wi-Fi network, payment address, or phone number that looks like a scam",
               "r": "The app read a code wrong, or could not read it",
