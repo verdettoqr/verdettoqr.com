@@ -3,30 +3,29 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; font-src 'self'; script-src 'sha256-z8dwWCc7kg+sZcasct5YZpH/Q227T57Ipuw74neSWhk='; frame-src https://docs.google.com; base-uri 'none'; form-action 'none'">
-<title>Verdetto: QR &amp; Barcode Scanner for Android</title>
-<meta name="description" content="See the link before it opens. Free, no ads, no tracking. Made for damaged codes.">
-<link rel="canonical" href="https://verdettoqr.com/">
-<link rel="me" href="https://mastodon.social/@VerdettoQR">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; font-src 'self'; base-uri 'none'; form-action 'none'">
+<title>How we test - Verdetto</title>
+<meta name="description" content="How Verdetto's barcode reader is measured: public photo sets, generated symbols, exact-text scoring, false reads counted, time at a one-second ceiling.">
+<link rel="canonical" href="https://verdettoqr.com/how-we-test">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#E9F5F1">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0F1312">
-<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="icon" href="/ico" type="image/svg+xml">
 <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:site_name" content="Verdetto">
-<meta property="og:title" content="Verdetto: QR &amp; Barcode Scanner for Android">
-<meta property="og:description" content="See the link before it opens. Free, no ads, no tracking. Made for damaged codes.">
-<meta property="og:url" content="https://verdettoqr.com/">
+<meta property="og:title" content="How we test - Verdetto">
+<meta property="og:description" content="How Verdetto's barcode reader is measured: public photo sets, generated symbols, exact-text scoring, false reads counted, time at a one-second ceiling.">
+<meta property="og:url" content="https://verdettoqr.com/how-we-test">
 <meta property="og:image" content="https://verdettoqr.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Verdetto icon with the words QR &amp; Barcode Scanner for Android, See the link before it opens.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Verdetto: QR &amp; Barcode Scanner for Android">
-<meta name="twitter:description" content="See the link before it opens. Free, no ads, no tracking. Made for damaged codes.">
+<meta name="twitter:title" content="How we test - Verdetto">
+<meta name="twitter:description" content="How Verdetto's barcode reader is measured: public photo sets, generated symbols, exact-text scoring, false reads counted, time at a one-second ceiling.">
 <meta name="twitter:image" content="https://verdettoqr.com/og-image.png">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Verdetto: QR & Barcode Scanner", "operatingSystem": "Android", "applicationCategory": "UtilitiesApplication", "url": "https://verdettoqr.com/", "image": "https://verdettoqr.com/icon-512.png", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "isAccessibleForFree": true, "publisher": {"@type": "Organization", "name": "Verdetto", "url": "https://verdettoqr.com/", "email": "support@verdettoqr.com", "logo": "https://verdettoqr.com/icon-512.png", "sameAs": ["https://mastodon.social/@VerdettoQR", "https://www.reddit.com/user/VerdettoQR/", "https://github.com/verdettoqr"], "address": {"@type": "PostalAddress", "streetAddress": "1520 Belle View Blvd, Suite #5992", "addressLocality": "Alexandria", "addressRegion": "VA", "postalCode": "22307", "addressCountry": "US"}}, "description": "See the link before it opens. Free, no ads, no tracking. Made for damaged codes."}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "How we test", "description": "How Verdetto's barcode reader is measured: public photo sets, generated symbols, exact-text scoring, false reads counted, time at a one-second ceiling.", "dateModified": "2026-09-04"}</script>
 <style>
 /* Material 3 color roles, copied from the app's Theme.kt so the site and the app are one palette. */
 :root{--surface:#E9F5F1;--on-surface:#191C1B;--on-surface-variant:#3F4946;--primary:#006B5E;--on-primary:#FFFFFF;--surface-container:#D5E8E3;--surface-container-high:#CFE2DC;--outline:#6F7977;--outline-variant:#B4CAC4;--tertiary:#8A5A00;--on-tertiary:#FFFFFF}
@@ -41,8 +40,8 @@ html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--surface);color:var(--on-surface);font:16px/1.5 Roboto,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif}
 a{color:var(--primary)}
 :focus-visible{outline:2px solid var(--primary);outline-offset:2px;border-radius:4px}
-.skip{position:absolute;inset-inline-start:0;top:0;transform:translateY(-150%);background:var(--primary);color:var(--on-primary);padding:.5rem 1rem;border-radius:0 0 8px 0;z-index:2}
-.skip:focus{transform:none}
+.skip{position:absolute;left:-999px;top:0;background:var(--primary);color:var(--on-primary);padding:.5rem 1rem;border-radius:0 0 8px 0;z-index:2}
+.skip:focus{left:0}
 .wrap{max-width:44rem;margin:0 auto;padding:0 1rem}
 .draft{background:var(--tertiary);color:var(--on-tertiary);text-align:center;padding:.4rem;font-size:.875rem;line-height:1.25rem;font-weight:500;letter-spacing:.01em}
 header{border-bottom:1px solid var(--outline-variant)}
@@ -65,7 +64,7 @@ p,li{margin:.5rem 0}
 .hero h1{margin:.25rem 0 .5rem}
 .hero p{font-size:1.125rem;line-height:1.75rem;margin:0}
 .hero .label{display:inline-flex;align-items:center;gap:.4rem;margin-top:1rem;color:var(--on-surface-variant);font-weight:500;font-size:.875rem;line-height:1.25rem}
-.hero .label svg{width:18px;height:18px}.hero .support{margin:.75rem 0 0;font-size:.9375rem;line-height:1.375rem;color:var(--on-surface-variant)}
+.hero .label svg{width:18px;height:18px}
 .shot{width:250px;height:auto;border-radius:20px;border:1px solid var(--outline-variant);background:var(--surface-container);display:block}
 .grid{display:grid;grid-template-columns:1fr;gap:.75rem;margin:1rem 0}
 .grid .card{margin:0;display:grid;grid-template-columns:auto 1fr;gap:.75rem;align-items:start}
@@ -80,8 +79,6 @@ table{border-collapse:collapse;width:100%;font-size:.875rem;line-height:1.25rem;
 th,td{text-align:left;vertical-align:top;padding:.5rem .6rem;border-bottom:1px solid var(--outline-variant)}
 th{color:var(--on-surface-variant);font-weight:500;white-space:nowrap}
 td:first-child{min-width:12rem}
-p.langs{font-size:.8125rem;line-height:1.5;color:var(--on-surface-variant)}p.langs a[aria-current]{font-weight:600;text-decoration:none}
-details.more{margin:1rem 0}details.more summary{cursor:pointer;color:var(--primary);font-weight:500;font-size:.875rem;line-height:1.25rem;padding:.6rem .75rem;border-radius:20px;display:inline-block;background:var(--surface-container)}details.more[open] summary{margin-bottom:.5rem}
 footer{background:var(--surface-container);margin-top:2rem}
 footer .wrap{padding:1.5rem 1rem 2rem;color:var(--on-surface-variant);font-size:.875rem;line-height:1.25rem}
 footer a{color:var(--primary)}
@@ -140,48 +137,48 @@ footer a{color:var(--primary)}
 </symbol><symbol id="ic-scan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3"/><path fill="currentColor" stroke="none" d="M9 9h2v2H9zM13 9h2v2h-2zM9 13h2v2H9zM13 13h2v2h-2z"/></symbol><symbol id="ic-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol><symbol id="ic-warning" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l10 17H2z"/><path d="M12 9v5M12 17.2h.01"/></symbol><symbol id="ic-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6z"/><path d="M9 11h6M9 14h6"/></symbol><symbol id="ic-barcode" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" stroke="none" d="M3 5h2v14H3zM7 5h1v14H7zM10 5h3v14h-3zM15 5h1v14h-1zM18 5h3v14h-3z"/></symbol><symbol id="ic-history" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol><symbol id="ic-offline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 11.5 3.5 3.5 0 0 0 7 18z"/><path d="M4 4l16 16"/></symbol><symbol id="ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></symbol><symbol id="ic-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2.5 1.5"/></symbol></svg>
 <header><div class="wrap">
   <a class="brand" href="/"><svg aria-hidden="true"><use href="#logo"/></svg>Verdetto</a>
-  <nav aria-label="Site"><a href="/support">Help</a><a href="/check-qr-code-link">Guide</a><a href="/support-the-work">Support the work</a></nav>
+  <nav aria-label="Site"><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/support">Support</a><a href="/check-qr-code-link">Guide</a></nav>
 </div></header>
 <main id="main"><div class="wrap">
 
-<div class="hero">
-  <div>
-    <svg class="mark" role="img" aria-label="Verdetto icon"><use href="#logo"/></svg>
-    <h1>See the link before it opens.</h1>
-    <p>A QR and barcode scanner for Android with no ads and no fake buttons. It shows what a code holds, checks it on your phone, and leaves the decision to you.</p>
-    <span class="label"><svg aria-hidden="true"><use href="#ic-clock"/></svg>Coming soon to Google Play</span>
-    <p class="support">Free and ad-free because the people who use it pay for it and pass it on. <a href="/support-the-work">How that works</a></p>
-  </div>
-  <img class="shot" src="screens/result-sheet.webp" width="540" height="1140" alt="The Verdetto result sheet showing a scanned QR code that leads to wikipedia.org, the No warnings found chip, and an Open button that names the site.">
-</div>
+<div class="prose">
+<h1>How we test</h1>
+<p class="meta">Numbers from the benchmark ledger as of 2026-09-04. Every row names the reader build it came from, as the first twelve characters of its code hash, and the day it ran.</p>
 
-<h2>What it does</h2>
-<div class="grid">
-  <div class="card"><svg aria-hidden="true"><use href="#ic-eye"/></svg><div><h3>Look before it opens</h3><p>Nothing opens by itself unless you turn that on. You see the link first, with the site name on the button.</p></div></div>
-  <div class="card"><svg aria-hidden="true"><use href="#ic-warning"/></svg><div><h3>Checked on your phone</h3><p>Hidden sign-ins, lookalike names, short links, downloads, open networks, numbers that charge you, and a warning list, all offline. The full list is in the <a href="/terms">Terms</a>.</p></div></div>
-  <div class="card"><svg aria-hidden="true"><use href="#ic-scan"/></svg><div><h3>Built for damaged codes</h3><p>Faded, torn, and badly printed QR, EAN, UPC, Code 128, Data Matrix, PDF417, Aztec, and more.</p></div></div>
-  <div class="card"><svg aria-hidden="true"><use href="#ic-heart"/></svg><div><h3>Free, no ads, nothing collected</h3><p>Nothing to sell and nothing collected. Every feature is free for everyone; the people who use it keep it that way.</p></div></div>
-</div>
-<details class="more"><summary>Everything it does</summary>
-<div class="grid">
-  <div class="card"><svg aria-hidden="true"><use href="#ic-shield"/></svg><div><h3>A warning list on the phone</h3><p>Links, sites, and wallet addresses are compared with known phishing, malware, scam, and sanctions entries, refreshed a few times a day when online lookups are on.</p></div></div>
-  <div class="card"><svg aria-hidden="true"><use href="#ic-barcode"/></svg><div><h3>Looks things up</h3><p>Product, book, medicine, music, magazine, and vehicle numbers go to the open database that covers each, only when product lookups are on (a switch under online lookups). The <a href="/privacy">privacy policy</a> names them. A vehicle number also brings recall campaigns, crash-test ratings, and fuel economy from NHTSA and the EPA.</p></div></div>
-  <div class="card"><svg aria-hidden="true"><use href="#ic-history"/></svg><div><h3>History that is yours</h3><p>On your phone, searchable, starrable, deletable with a swipe. Scans older than 90 days clear unless starred.</p></div></div>
-  <div class="card"><svg aria-hidden="true"><use href="#ic-offline"/></svg><div><h3>Works offline</h3><p>Every built-in check runs on the phone, and an ID or license scan never leaves it. One switch turns the online lookups off, and product lookups have a switch of their own.</p></div></div>
-  <div class="card"><svg aria-hidden="true"><use href="#ic-scan"/></svg><div><h3>Made for the hand</h3><p>Quick Settings tile, batch mode, left-handed layout, results read aloud, a boarding pass at the gate, your own codes. Eleven languages.</p></div></div>
-</div>
-</details>
+<div class="card"><p><strong>In short.</strong> We run the reader over public photo sets and over symbols we generate and degrade ourselves, and we publish what it read, what it got wrong, and how long it took, with the scoring rule beside every number. These are desktop measurements of the reader alone, not phone measurements of the app. Nothing here says we beat anyone: other readers' numbers appear only as their publishers reported them, under protocols that differ from ours.</p></div>
 
-<h2>Why another QR scanner</h2>
-<p>Of the ten most-installed free scanners on Google Play, all ten carry ads, and reviews of seven describe a fake button in the ad. Many open a link the moment they read it. Verdetto does neither. It is made by one person in Alexandria, Virginia; write any time: <a href="mailto:support@verdettoqr.com">support@verdettoqr.com</a>.</p>
+<h2>What the numbers mean</h2>
+<ul>
+  <li><strong>Read</strong> counts a barcode as read when its exact text appears among the reader's results for that photo, canonical text only: control characters stripped, UPC-A and EAN-13 treated as the one code they are, and mangled encodings of the truth strings tolerated. One read credits every physical copy of the same code in the frame; the Dynamsoft set has several such copies, so its read rate would be lower under per-copy localization scoring. Published numbers likely use localized matching, and we do not claim they are comparable.</li>
+  <li><strong>Wrong</strong> counts every result that matches no annotated code in the photo. It is the number we care about most, because a scanner that shows people links must not invent one. Annotation gaps in the public sets count against us here; we note suspected gaps rather than edit anyone's truth.</li>
+  <li><strong>Time</strong> is wall-clock time to the reader's answer. The <strong>1 s ceiling</strong> rows stop looking after one second per photo, which is the rule the app lives by; the <strong>no time limit</strong> rows show what the same reader recovers given as long as it wants.</li>
+  <li><strong>Machine.</strong> Windows-11-10.0.26100-SP0, Python 3.12.10, one process per chunk. Phone numbers replace these when the reader is wired to the camera.</li>
+</ul>
 
-<h2>What it will never tell you</h2>
-<div class="card callout"><p>That something is safe. "No warnings found" means none of its checks matched; opening is your call. <a href="/check-qr-code-link">How to check a link yourself</a>.</p></div>
+<h2>Public photo sets</h2>
+<table><thead><tr><th>Set</th><th>Size</th><th>Read</th><th>Wrong</th><th>Time</th><th>Reader</th><th>Date</th></tr></thead><tbody><tr><td>Dynamsoft difficult images, 1 s ceiling</td><td>68 images, 514 instances</td><td>91.6 (471/514)</td><td>0 false reads (100.0 precision)</td><td>16 s for the set</td><td>d11d7f1c4fa1</td><td>2026-09-04</td></tr><tr><td>Dynamsoft difficult images, no time limit</td><td>68 images, 514 instances</td><td>96.5 (496/514)</td><td>1 false reads (99.7 precision)</td><td>304 s for the set</td><td>81d568c76162</td><td>2026-09-03</td></tr><tr><td>Arte-Lab autofocus, first 40 images, 1 s ceiling</td><td>40 images</td><td>100.0 (40/40)</td><td>0 false reads</td><td>within 1 s each</td><td>81d568c76162</td><td>2026-09-03</td></tr><tr><td>Arte-Lab no autofocus, first 40 images, 1 s ceiling</td><td>40 images</td><td>45.0 (18/40)</td><td>0 false reads</td><td>within 1 s each</td><td>81d568c76162</td><td>2026-09-03</td></tr><tr><td>Arte-Lab autofocus, full split (earlier reader)</td><td>215 images</td><td>97.2 (209/215)</td><td>11 false reads</td><td>no time limit; 1454 ms per image</td><td>38357f95a005</td><td>2026-09-02</td></tr><tr><td>Arte-Lab no autofocus, full split (earlier reader)</td><td>215 images</td><td>64.7 (139/215)</td><td>4 false reads</td><td>no time limit; 2128 ms per image</td><td>38357f95a005</td><td>2026-09-02</td></tr><tr><td>Muenster BarcodeDB, 1 s ceiling, first run</td><td>1055 images</td><td>93.2 (983/1055)</td><td>14 false reads</td><td>median 28 ms, 95th percentile 942 ms, slowest 2493 ms</td><td>d11d7f1c4fa1</td><td>2026-09-04</td></tr></tbody></table>
+<p>On the 83 test-sheet images behind Dynamsoft's browser-SDK comparison, which publishes no ground truth, our reader returned 402 barcode reads (279 distinct payloads) at a 1 s ceiling, 276 ms per image on average and 69 ms median, slowest 992 ms (reader d11d7f1c4fa1, 2026-09-04). Without ground truth this counts detections, not correctness, and is listed for completeness only.</p>
+
+<h2>Generated symbols</h2>
+<p>Every symbology libzint can produce is generated, then passed through a camera model that adds the defects a phone adds: perspective, rotation, clutter, low contrast, toner dropout, defocus, motion, and low sampling. A symbol counts only when it comes back byte-exact. "Recognized" means the reader named the symbology and returned a payload; "byte-exact" means the payload matched to the byte.</p>
+<table><thead><tr><th>Battery</th><th>Size</th><th>Read</th><th>Wrong</th><th>Time</th><th>Reader</th><th>Date</th></tr></thead><tbody><tr><td>Coverage: every symbology libzint can generate, one clean symbol each</td><td>100 symbologies</td><td>100/100 read; 91 data-exact, 77 byte-exact through the product route</td><td>0 wrong</td><td>531 s for the set</td><td>5817e0d0391b</td><td>2026-09-02</td></tr><tr><td>Normal band: 9 capture conditions per symbology (phone reference, clutter, rotation, mild perspective, low contrast, toner dropout, mild defocus, short motion, 3 MP sampling)</td><td>100 symbologies</td><td>100/100 recognized in every condition; 81 byte-exact in every condition</td><td>0 wrong text</td><td>100/100 within 1 s in every condition</td><td>d11d7f1c4fa1</td><td>2026-09-04</td></tr><tr><td>Frame pairs: two or three consecutive frames of the same symbol with a pose change between them</td><td>200 sequences</td><td>200/200 confirmed correct</td><td>0 wrong</td><td>median 0.17 to 0.64 s across chunks, 95th percentile at most 1.06 s, 16 over 1 s, 0 over 2 s</td><td>d11d7f1c4fa1</td><td>2026-09-04</td></tr></tbody></table>
+
+<h2>As reported by others</h2>
+<p>Listed as their publishers reported them. Each comes from a different protocol, mostly a vendor measuring itself, and none has been rerun by us, so these are context, not a comparison.</p>
+<table><thead><tr><th>Set</th><th>Reader</th><th>Number</th><th>Source</th></tr></thead><tbody><tr><td>Dynamsoft difficult images</td><td>Dynamsoft Barcode Reader, Android</td><td>80.2 recall, 99.3 precision</td><td>vendor blog, own protocol</td></tr><tr><td>Arte-Lab, autofocus</td><td>Dynamsoft Barcode Reader</td><td>100</td><td>vendor comparison</td></tr><tr><td>Arte-Lab, autofocus</td><td>zxing</td><td>82.4</td><td>vendor comparison</td></tr><tr><td>Arte-Lab, no autofocus</td><td>Dynamsoft Barcode Reader</td><td>81.9</td><td>vendor comparison</td></tr><tr><td>Arte-Lab, no autofocus</td><td>Scandit</td><td>79.1</td><td>vendor comparison</td></tr><tr><td>Arte-Lab, no autofocus</td><td>zxing / ZBar</td><td>10.2 / 14.0</td><td>vendor comparison</td></tr></tbody></table>
+
+<h2>What we have not run</h2>
+<ul><li>BarBeR (8,748 images, the broadest public benchmark): the dataset sits behind a registration we have not completed.</li><li>Dynamsoft's adversarial QR set (536 images), its Data Matrix and direct-part-mark sets, and its difficult PDF417 set: not fetched yet.</li><li>The full Arte-Lab splits on the current reader: the rows below run the first 40 images of each split; the last full-split run predates the current reader.</li><li>Any phone. Every number here comes from a desktop; phone measurements replace them when the app's reader is wired to the camera.</li></ul>
+
+<h2>Reproduce it</h2>
+<ul><li><a href="https://github.com/Dynamsoft/datasets-from-dynamsoft">Dynamsoft difficult images</a>: 68 photographs, 514 barcode instances; low light, shadows, crumpled and poor prints, tiny and dense codes, several codes per frame; QR, Data Matrix, PDF417, EAN, UPC, Code 128, Code 39, ITF.</li><li><a href="https://artelab.dista.uninsubria.it/downloads.html">Arte-Lab 1D sets</a>: EAN-13 photographs from 2013-era phones, in matched autofocus and no-autofocus splits of 215 images each.</li><li><a href="https://www.uni-muenster.de/PRIA/en/forschung/index.shtml">Muenster BarcodeDB</a>: 1,055 EAN-13 and UPC-A photographs from a Nokia N95, 640x480 to 2592x1944.</li><li><a href="https://www.dynamsoft.com/barcode-test-sheet/">Dynamsoft test-sheet images</a>: the 83 sample images behind Dynamsoft's browser-SDK comparison; no ground truth is published, so only detections can be counted.</li></ul>
+<p>The scoring rules above are the ones the ledger enforces. Per-image read and miss lists exist for every row and will be published with the app's release; until then they are available on request at <a href="mailto:support@verdettoqr.com">support@verdettoqr.com</a>.</p>
+</div>
 
 </div></main>
 <footer><div class="wrap">
   <p>&copy; 2026 Verdetto &middot; 1520 Belle View Blvd, Suite #5992, Alexandria, VA 22307 &middot; <a href="mailto:support@verdettoqr.com">support@verdettoqr.com</a></p>
-  <p class="links"><a href="/privacy">Privacy policy</a> &middot; <a href="/terms">Terms of use</a> &middot; <a href="/support">Help</a> &middot; <a href="/check-qr-code-link">How to check a QR code link</a> &middot; <a href="/support-the-work">Support the work</a> &middot; <a href="/report">Report a problem</a> &middot; <a href="/press">Press kit</a></p>
+  <p class="links"><a href="/privacy">Privacy policy</a> &middot; <a href="/terms">Terms of use</a> &middot; <a href="/support">Support</a> &middot; <a href="/check-qr-code-link">How to check a QR code link</a></p>
 </div></footer>
 </body>
 </html>

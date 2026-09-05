@@ -1,0 +1,137 @@
+{
+ "ledger_rows": 282,
+ "legs": {
+  "dyn_budget": {
+   "recall": [
+    471,
+    514
+   ],
+   "precision": [
+    393,
+    393
+   ],
+   "wall_s": 15.6,
+   "images": 68,
+   "date": "2026-09-04",
+   "reader": "d11d7f1c4fa1",
+   "corpus": "dynamsoft-hard",
+   "recorded": "2026-09-04T02:00:14+00:00"
+  },
+  "dyn_unlimited": {
+   "recall": [
+    496,
+    514
+   ],
+   "precision": [
+    385,
+    386
+   ],
+   "wall_s": 303.9,
+   "images": 68,
+   "date": "2026-09-03",
+   "reader": "81d568c76162",
+   "corpus": "dynamsoft-hard",
+   "recorded": "2026-09-03T10:55:01+00:00"
+  },
+  "artelab_slice": {
+   "per_split": 40,
+   "autofocus_read": 40,
+   "autofocus_false": 0,
+   "nofocus_read": 18,
+   "nofocus_false": 0,
+   "date": "2026-09-03",
+   "reader": "81d568c76162",
+   "corpus": "artelab-medium slice (first 40 per split), budget 1 s, label budget1s-final7",
+   "recorded": "2026-09-03T11:12:42+00:00"
+  },
+  "artelab_full": {
+   "per_split": 215,
+   "autofocus_read": 209,
+   "autofocus_false": 11,
+   "autofocus_ms": 1454,
+   "nofocus_read": 139,
+   "nofocus_false": 4,
+   "nofocus_ms": 2128,
+   "date": "2026-09-02",
+   "reader": "38357f95a005",
+   "corpus": "artelab-medium (both splits)",
+   "recorded": "2026-09-02T19:48:17+00:00"
+  },
+  "zint_matrix": {
+   "symbologies": 100,
+   "read_by_any_route": 100,
+   "route_exact": 77,
+   "route_data_exact": 91,
+   "false": 0,
+   "unread": 0,
+   "wall_s": 531,
+   "date": "2026-09-02",
+   "reader": "5817e0d0391b",
+   "corpus": "zint-matrix-final-b",
+   "recorded": "2026-09-02T23:41:03+00:00"
+  },
+  "z2_normal": {
+   "symbologies": 100,
+   "recognized_every_run": 100,
+   "exact_every_run": 81,
+   "within_budget_every_run": 100,
+   "run": "full-v",
+   "chunks": 4,
+   "budget_s": 1.0,
+   "scenarios": 9,
+   "date": "2026-09-04",
+   "reader": "d11d7f1c4fa1",
+   "recorded": "2026-09-04T01:59:56+00:00"
+  },
+  "r8_pairs": {
+   "run": "t89-close-r8-band",
+   "chunks": 4,
+   "rows": 200,
+   "correct": 200,
+   "wrong": 0,
+   "over_1s": 16,
+   "over_2s": 0,
+   "p50_range": [
+    0.168,
+    0.642
+   ],
+   "p95_max": 1.061,
+   "wall_max": 1.814,
+   "date": "2026-09-04",
+   "reader": "d11d7f1c4fa1",
+   "recorded": "2026-09-04T02:02:34+00:00"
+  },
+  "muenster": {
+   "images": 1055,
+   "truth_codes": 1055,
+   "truth_read": 983,
+   "false_reads": 14,
+   "ms_p50": 28,
+   "ms_p95": 942,
+   "ms_max": 2493,
+   "budget_s": 1.0,
+   "date": "2026-09-04",
+   "reader": "d11d7f1c4fa1",
+   "corpus": "muenster",
+   "recorded": "2026-09-04T02:14:36+00:00"
+  },
+  "sheet_blog": {
+   "images": 83,
+   "total_barcodes": 402,
+   "unique_payloads": 279,
+   "avg_ms_per_image": 276,
+   "median_ms": 69,
+   "max_ms": 992,
+   "budget_s": 1.0,
+   "date": "2026-09-04",
+   "reader": "d11d7f1c4fa1",
+   "corpus": "dynamsoft-hard",
+   "recorded": "2026-09-04T02:00:23+00:00"
+  }
+ },
+ "host": {
+  "platform": "Windows-11-10.0.26100-SP0",
+  "python": "3.12.10"
+ },
+ "extracted": "2026-09-04"
+}
