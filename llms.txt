@@ -27,7 +27,7 @@ Official accounts: Mastodon https://mastodon.social/@VerdettoQR; Reddit https://
 - [गोपनीयता नीति](https://verdettoqr.com/privacy-hi): Verdetto: QR & Barcode Scanner की गोपनीयता नीति। कोई खाता नहीं, कोई विज्ञापन नहीं, कोई विश्लेषण नहीं। स्कैन आपके फ़ोन पर होता है।
 - [سياسة الخصوصية](https://verdettoqr.com/privacy-ar): سياسة الخصوصية لتطبيق Verdetto: QR & Barcode Scanner. بلا حسابات، بلا إعلانات، بلا تحليلات. المسح يتم على هاتفك.
 - [Términos de uso](https://verdettoqr.com/terms-es): Términos de uso de Verdetto: QR & Barcode Scanner. Qué son y qué no son las comprobaciones de seguridad; cada decisión sobre lo escaneado es tuya.
-- [Conditions d'utilisation](https://verdettoqr.com/terms-fr): Conditions d'utilisation de Verdetto : QR & Barcode Scanner. Ce que sont et ne sont pas les contrôles ; chaque décision sur le contenu scanné t'appartient.
+- [Conditions d'utilisation](https://verdettoqr.com/terms-fr): Conditions d'utilisation de Verdetto : QR & Barcode Scanner. Ce que sont et ne sont pas les contrôles de sécurité ; le contenu scanné reste ta décision.
 - [Nutzungsbedingungen](https://verdettoqr.com/terms-de): Nutzungsbedingungen für Verdetto: QR & Barcode Scanner. Was die Sicherheitsprüfungen sind und nicht sind; jede Entscheidung über gescannte Inhalte ist deine.
 - [Termos de uso](https://verdettoqr.com/terms-pt-br): Termos de uso do Verdetto: QR & Barcode Scanner. O que as verificações de segurança são e não são, e que toda decisão sobre o conteúdo lido é sua.
 - [Условия использования](https://verdettoqr.com/terms-ru): Условия использования Verdetto: QR & Barcode Scanner. Что такое проверки безопасности и чем они не являются; решение об отсканированном всегда за вами.
