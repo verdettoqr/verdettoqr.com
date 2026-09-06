@@ -150,7 +150,7 @@ def url(name):
 
 NAV = [("features.html", "features"), ("support.html", "help"), ("check-qr-code-link.html", "guide"), ("support-the-work.html", "support_work")]
 SPONSORS_LIVE = False  # True once the GitHub Sponsors profile is approved; the support page then links it
-LIBERAPAY_LIVE = False  # True once the operator has opened the Liberapay account; the support page then links it
+LIBERAPAY_LIVE = True  # the Liberapay profile accepts payments through Stripe (2026-09-06); the support page links it
 LIBERAPAY_URL = "https://liberapay.com/Verdetto"  # the account name the operator registers; fix here if it differs
 CARD_LIVE = True  # the Stripe Payment Link is active (2026-09-06); the support page links it
 CARD_URL = "https://buy.stripe.com/00w9ASdJ57Ficj745heME00"  # once, by card, from $2.99 or a typed amount  # the Payment Link address, from the operator
