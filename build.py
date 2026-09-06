@@ -5998,7 +5998,7 @@ def brand_body():
 <h2>The Verdetto code, and the voice</h2>
 <p>{img("verdetto-code-light-on-white.png", "The Verdetto code: rounded runs, rounded finder rings, the amber top-left eye", 200)}</p>
 <p>The app's own codes share one family: rounded runs, rounded finder rings, the amber top-left eye. It is Verdetto's signature on a card, a poster, the share screen. It is never offered to people as a style for their own codes, and the portrait mark, not a code, is the logo.</p>
-<p>Voice: plain, specific, unhurried. Say what happened, then what it means. The absolutes we state: no accounts, no ads, no analytics, no tracking by Verdetto, nothing about you kept by us. We never call a code, a site or a check safe; we show what was checked and what was found. We never claim that no data reaches us, never ask for money as a gift, never name a founder, never use a mascot.</p>
+<p>Voice: plain, specific, unhurried. Say what happened, then what it means. The absolutes we state: no accounts, no ads, no analytics, no tracking by Verdetto, nothing about you kept by us. We never call a code, a site or a check safe or verified; we show what was checked and what was found. We never claim that no data reaches us, never ask for money as a gift, never name a founder, never use a mascot.</p>
 
 <h2 id="badge">The "Built on Verdetto" badge</h2>
 <p>{img("brand/badge/badge-built-on-verdetto-light.png", "The Built on Verdetto badge for light grounds", 300)} {img("brand/badge/badge-built-on-verdetto-dark.png", "The Built on Verdetto badge for dark grounds", 300)}</p>
