@@ -24,6 +24,7 @@ def play_link(source, medium="app", campaign=None):
     return f"https://play.google.com/store/apps/details?id={PLAY_ID}"
 
 DATE = "2026-09-05"  # lastmod for the sitemap and the article; update when copy changes
+POLICY_DATE = "2026-09-05"  # effective date of the privacy policy and the Terms: the dated copies are named by it, not by the build date; bump it with the eleven date lines when the policy text changes
 # the formats the validation matrix of 2026-09-04 read (scanner-app SCAN-VALIDATION.md, 31 formats, all reads correct); the
 # page renders the count from this list so the number cannot drift from the evidence
 FORMATS_READ = ["EAN-13", "EAN-8", "UPC-A", "UPC-E", "ISBN", "GS1 DataBar", "DataBar Limited", "DataBar Stacked", "DataBar Stacked Omni", "DataBar Expanded", "DataBar Expanded Stacked", "Code 128", "Code 39", "Code 93", "Codabar", "ITF", "ITF-14", "Telepen", "MaxiCode", "PZN", "Code 32", "QR Code", "Micro QR", "rMQR", "Aztec", "Aztec Rune", "Data Matrix", "PDF417", "Compact PDF417", "MicroPDF417", "DX film edge"]
@@ -523,7 +524,7 @@ def lang_menu(alternates, current):
 
 def earlier_versions(stem):
     """Links to the dated copies of a policy page on disk, oldest first, excluding today's copy: the Changes sections list them."""
-    names = sorted(x.name for x in HERE.glob(f"{stem}-20??-??-??.html") if not x.name.endswith(f"-{DATE}.html"))
+    names = sorted(x.name for x in HERE.glob(f"{stem}-20??-??-??.html") if not x.name.endswith(f"-{POLICY_DATE}.html"))
     return ", ".join(f'<a href="{href(n)}">{n[len(stem) + 1:-5]}</a>' for n in names) or "none yet"
 
 
@@ -531,7 +532,7 @@ def dated_copy(name, html):
     """A policy page saved under its date, not indexed, canonical to the live page: the archive the Changes sections promise."""
     stem = name[:-5]
     copy = html.replace('<link rel="canonical"', '<meta name="robots" content="noindex">\n<link rel="canonical"', 1)
-    (HERE / f"{stem}-{DATE}.html").write_text(copy, encoding="utf-8", newline="\n")
+    (HERE / f"{stem}-{POLICY_DATE}.html").write_text(copy, encoding="utf-8", newline="\n")
 
 
 def translation(folder, langs, code):
@@ -3982,7 +3983,7 @@ FEAT_T = {
     "alt": "A Wi-Fi network read by Verdetto: the network name, a caution that it is open with no password, and a Join button.",
     "ps": [
      "A Wi-Fi code joins the network in one tap. A contact card adds to your contacts. A boarding pass shows itself at the gate, big and bright. Calendar events, sign-in codes, locations, payment addresses, product and medicine numbers, GS1 packs, vehicle numbers: each opens with the one action that fits, and nothing opens by itself.",
-     "Boarding passes and driver's licenses stay on the phone and are not saved unless you say so. The app never looks a person up."
+     "Boarding passes and driver's licenses are read on the phone, shown once, and never kept. The app never looks a person up."
     ]
    },
    {
@@ -4045,7 +4046,7 @@ FEAT_T = {
     "shot": None,
     "alt": "",
     "ps": [
-     "Every feature is free for everyone and stays free. No accounts, no analytics, no ads, so no fake buttons. Frames are scanned on the device and dropped. It is paid for and passed on by the people who use it: a one-time contribution from $0.99 keeps it going, and nothing is locked behind it. {SUPPORT}."
+     "Every feature is free for everyone and stays free. No accounts, no analytics, no ads, so no fake buttons. Frames are scanned on the device and dropped. It is paid for and passed on by the people who use it: a one-time contribution from $0.99 keeps it going, and nothing is locked behind it. Share the app from inside it: a code any camera reads, carrying the store link and nothing else. {SUPPORT}."
     ],
     "support": "How that works",
     "cta": True
@@ -4090,7 +4091,7 @@ FEAT_T = {
     "alt": "Ein von Verdetto gelesenes WLAN: der Netzwerkname, ein Hinweis, dass es offen und ohne Passwort ist, und ein Button „Verbinden“.",
     "ps": [
      "Ein WLAN-Code verbindet mit einem Tipp. Eine Kontaktkarte landet in deinen Kontakten. Eine Bordkarte zeigt sich am Gate, groß und hell. Kalendereinträge, Anmeldecodes, Orte, Zahlungsadressen, Produkt- und Arzneimittelnummern, GS1-Packungen, Fahrzeugnummern: Jeder öffnet sich mit der einen passenden Aktion, und nichts öffnet sich von selbst.",
-     "Bordkarten und Führerscheine bleiben auf dem Telefon und werden nur gespeichert, wenn du es sagst. Die App schlägt nie eine Person nach."
+     "Bordkarten und Führerscheine werden auf dem Telefon gelesen, einmal gezeigt und nie aufbewahrt. Die App schlägt nie eine Person nach."
     ]
    },
    {
@@ -4154,7 +4155,7 @@ FEAT_T = {
     "h2": "Kostenlos, ohne Werbung, ohne Datensammeln",
     "alt": "",
     "ps": [
-     "Jede Funktion ist für alle kostenlos und bleibt es. Keine Konten, keine Analysen, keine Werbung, also keine falschen Buttons. Bilder werden auf dem Gerät gescannt und verworfen. Bezahlt und weitergegeben von den Menschen, die die App nutzen: Ein einmaliger Beitrag ab 0,99 $ hält sie am Laufen, und nichts ist dahinter gesperrt. {SUPPORT}."
+     "Jede Funktion ist für alle kostenlos und bleibt es. Keine Konten, keine Analysen, keine Werbung, also keine falschen Buttons. Bilder werden auf dem Gerät gescannt und verworfen. Bezahlt und weitergegeben von den Menschen, die die App nutzen: Ein einmaliger Beitrag ab 0,99 $ hält sie am Laufen, und nichts ist dahinter gesperrt. Teile die App aus ihr heraus: ein Code, den jede Kamera liest, mit dem Store-Link und sonst nichts. {SUPPORT}."
     ],
     "support": "Wie das funktioniert"
    }
@@ -4198,7 +4199,7 @@ FEAT_T = {
     "alt": "Una red Wi-Fi leída por Verdetto: el nombre de la red, un aviso de que es abierta y sin contraseña, y un botón «Conectar».",
     "ps": [
      "Un código Wi-Fi conecta a la red con un toque. Una tarjeta de contacto se añade a tus contactos. Una tarjeta de embarque se muestra en la puerta, grande y brillante. Eventos de calendario, códigos de acceso, ubicaciones, direcciones de pago, números de productos y medicamentos, paquetes GS1, números de vehículo: cada uno se abre con la única acción que corresponde, y nada se abre solo.",
-     "Las tarjetas de embarque y los permisos de conducir se quedan en el teléfono y no se guardan a menos que tú lo digas. La app nunca busca a una persona."
+     "Las tarjetas de embarque y los permisos de conducir se leen en el teléfono, se muestran una vez y nunca se guardan. La app nunca busca a una persona."
     ]
    },
    {
@@ -4262,7 +4263,7 @@ FEAT_T = {
     "h2": "Gratis, sin anuncios, sin recopilar nada",
     "alt": "",
     "ps": [
-     "Todas las funciones son gratis para todos y lo seguirán siendo. Sin cuentas, sin analíticas, sin anuncios, así que sin botones falsos. Los fotogramas se escanean en el dispositivo y se descartan. Lo pagan y lo pasan a otros las personas que lo usan: una contribución única desde 0,99 $ lo mantiene en marcha, y nada queda bloqueado tras ella. {SUPPORT}."
+     "Todas las funciones son gratis para todos y lo seguirán siendo. Sin cuentas, sin analíticas, sin anuncios, así que sin botones falsos. Los fotogramas se escanean en el dispositivo y se descartan. Lo pagan y lo pasan a otros las personas que lo usan: una contribución única desde 0,99 $ lo mantiene en marcha, y nada queda bloqueado tras ella. Comparte la app desde dentro: un código que cualquier cámara lee, con el enlace de la tienda y nada más. {SUPPORT}."
     ],
     "support": "Cómo funciona"
    }
@@ -4306,7 +4307,7 @@ FEAT_T = {
     "alt": "Un réseau Wi-Fi lu par Verdetto : le nom du réseau, un avertissement qu'il est ouvert sans mot de passe, et un bouton « Rejoindre ».",
     "ps": [
      "Un code Wi-Fi rejoint le réseau d'un toucher. Une carte de contact s'ajoute à vos contacts. Une carte d'embarquement s'affiche à la porte, grande et lumineuse. Événements d'agenda, codes de connexion, lieux, adresses de paiement, numéros de produits et de médicaments, colis GS1, numéros de véhicule : chacun s'ouvre avec la seule action qui convient, et rien ne s'ouvre tout seul.",
-     "Les cartes d'embarquement et les permis de conduire restent sur le téléphone et ne sont pas enregistrés sauf si vous le demandez. L'application ne recherche jamais une personne."
+     "Les cartes d'embarquement et les permis de conduire sont lus sur le téléphone, affichés une fois et jamais conservés. L'application ne recherche jamais une personne."
     ]
    },
    {
@@ -4370,7 +4371,7 @@ FEAT_T = {
     "h2": "Gratuit, sans publicité, sans rien collecter",
     "alt": "",
     "ps": [
-     "Chaque fonction est gratuite pour tous et le reste. Pas de comptes, pas d'analyse d'audience, pas de publicité, donc pas de faux boutons. Les images sont analysées sur l'appareil puis jetées. Financée et transmise par les personnes qui l'utilisent : une contribution unique dès 0,99 $ la fait vivre, et rien n'est verrouillé derrière. {SUPPORT}."
+     "Chaque fonction est gratuite pour tous et le reste. Pas de comptes, pas d'analyse d'audience, pas de publicité, donc pas de faux boutons. Les images sont analysées sur l'appareil puis jetées. Financée et transmise par les personnes qui l'utilisent : une contribution unique dès 0,99 $ la fait vivre, et rien n'est verrouillé derrière. Partage l'application depuis l'application : un code que n'importe quel appareil photo lit, avec le lien de la boutique et rien d'autre. {SUPPORT}."
     ],
     "support": "Comment ça marche"
    }
@@ -4414,7 +4415,7 @@ FEAT_T = {
     "alt": "Uma rede Wi-Fi lida pelo Verdetto: o nome da rede, um aviso de que ela é aberta e sem senha, e um botão \"Conectar\".",
     "ps": [
      "Um código Wi-Fi conecta à rede em um toque. Um cartão de contato entra nos seus contatos. Um cartão de embarque se mostra no portão, grande e brilhante. Eventos de agenda, códigos de login, locais, endereços de pagamento, números de produtos e medicamentos, embalagens GS1, números de veículo: cada um abre com a única ação que cabe, e nada abre sozinho.",
-     "Cartões de embarque e carteiras de motorista ficam no celular e não são salvos a menos que você diga. O app nunca procura uma pessoa."
+     "Cartões de embarque e carteiras de motorista são lidos no celular, mostrados uma vez e nunca guardados. O app nunca procura uma pessoa."
     ]
    },
    {
@@ -4478,7 +4479,7 @@ FEAT_T = {
     "h2": "Grátis, sem anúncios, sem coletar nada",
     "alt": "",
     "ps": [
-     "Todo recurso é gratuito para todos e continua assim. Sem contas, sem análises de uso, sem anúncios, portanto sem botões falsos. Os quadros são lidos no aparelho e descartados. Pago e passado adiante pelas pessoas que o usam: uma contribuição única a partir de US$ 0,99 o mantém, e nada fica trancado atrás dela. {SUPPORT}."
+     "Todo recurso é gratuito para todos e continua assim. Sem contas, sem análises de uso, sem anúncios, portanto sem botões falsos. Os quadros são lidos no aparelho e descartados. Pago e passado adiante pelas pessoas que o usam: uma contribuição única a partir de US$ 0,99 o mantém, e nada fica trancado atrás dela. Compartilhe o app de dentro dele: um código que qualquer câmera lê, com o link da loja e nada mais. {SUPPORT}."
     ],
     "support": "Como isso funciona"
    }
@@ -4522,7 +4523,7 @@ FEAT_T = {
     "alt": "Jaringan Wi-Fi yang dibaca Verdetto: nama jaringan, peringatan bahwa jaringan terbuka tanpa kata sandi, dan tombol \"Gabung\".",
     "ps": [
      "Kode Wi-Fi menyambungkan ke jaringan dengan satu ketukan. Kartu kontak masuk ke kontak Anda. Boarding pass menampilkan dirinya di gerbang, besar dan terang. Acara kalender, kode masuk, lokasi, alamat pembayaran, nomor produk dan obat, kemasan GS1, nomor kendaraan: masing-masing terbuka dengan satu tindakan yang sesuai, dan tidak ada yang terbuka sendiri.",
-     "Boarding pass dan SIM tetap di ponsel dan tidak disimpan kecuali Anda memintanya. Aplikasi tidak pernah mencari data seseorang."
+     "Boarding pass dan SIM dibaca di ponsel, ditampilkan sekali, dan tidak pernah disimpan. Aplikasi tidak pernah mencari data seseorang."
     ]
    },
    {
@@ -4586,7 +4587,7 @@ FEAT_T = {
     "h2": "Gratis, tanpa iklan, tidak mengumpulkan apa pun",
     "alt": "",
     "ps": [
-     "Setiap fitur gratis untuk semua orang dan tetap gratis. Tanpa akun, tanpa analitik, tanpa iklan, jadi tanpa tombol palsu. Bingkai dipindai di perangkat lalu dibuang. Dibayar dan diteruskan oleh orang-orang yang memakainya: kontribusi sekali bayar mulai $0,99 menjaganya berjalan, dan tidak ada yang dikunci di baliknya. {SUPPORT}."
+     "Setiap fitur gratis untuk semua orang dan tetap gratis. Tanpa akun, tanpa analitik, tanpa iklan, jadi tanpa tombol palsu. Bingkai dipindai di perangkat lalu dibuang. Dibayar dan diteruskan oleh orang-orang yang memakainya: kontribusi sekali bayar mulai $0,99 menjaganya berjalan, dan tidak ada yang dikunci di baliknya. Bagikan aplikasi dari dalam aplikasi: kode yang dibaca kamera apa pun, berisi tautan toko dan tidak ada yang lain. {SUPPORT}."
     ],
     "support": "Bagaimana caranya"
    }
@@ -4630,7 +4631,7 @@ FEAT_T = {
     "alt": "Сеть Wi-Fi, прочитанная Verdetto: имя сети, предупреждение, что она открытая и без пароля, и кнопка «Подключиться».",
     "ps": [
      "Код Wi-Fi подключает к сети одним касанием. Визитка добавляется в контакты. Посадочный талон показывает себя у выхода на посадку, крупно и ярко. События календаря, коды входа, места, платёжные адреса, номера товаров и лекарств, упаковки GS1, номера автомобилей: каждый открывается одним подходящим действием, и ничто не открывается само.",
-     "Посадочные талоны и водительские права остаются на телефоне и не сохраняются, если вы этого не скажете. Приложение никогда не ищет сведения о человеке."
+     "Посадочные талоны и водительские права читаются на телефоне, показываются один раз и никогда не сохраняются. Приложение никогда не ищет сведения о человеке."
     ]
    },
    {
@@ -4694,7 +4695,7 @@ FEAT_T = {
     "h2": "Бесплатно, без рекламы, ничего не собирает",
     "alt": "",
     "ps": [
-     "Каждая возможность бесплатна для всех и такой останется. Никаких учётных записей, аналитики и рекламы, а значит, никаких ложных кнопок. Кадры обрабатываются на устройстве и отбрасываются. За него платят и его передают дальше те, кто им пользуется: разовый взнос от 0,99 $ поддерживает его, и ничто за ним не заперто. {SUPPORT}."
+     "Каждая возможность бесплатна для всех и такой останется. Никаких учётных записей, аналитики и рекламы, а значит, никаких ложных кнопок. Кадры обрабатываются на устройстве и отбрасываются. За него платят и его передают дальше те, кто им пользуется: разовый взнос от 0,99 $ поддерживает его, и ничто за ним не заперто. Делитесь приложением прямо из него: код, который читает любая камера, со ссылкой на магазин и ничем больше. {SUPPORT}."
     ],
     "support": "Как это устроено"
    }
@@ -4738,7 +4739,7 @@ FEAT_T = {
     "alt": "Verdetto द्वारा पढ़ा गया Wi-Fi नेटवर्क: नेटवर्क का नाम, चेतावनी कि यह खुला और बिना पासवर्ड है, और एक \"जुड़ें\" बटन।",
     "ps": [
      "Wi-Fi कोड एक टैप में नेटवर्क से जोड़ता है। संपर्क कार्ड आपके संपर्कों में जुड़ता है। बोर्डिंग पास गेट पर बड़ा और चमकदार दिखता है। कैलेंडर इवेंट, साइन-इन कोड, स्थान, भुगतान पते, उत्पाद और दवा नंबर, GS1 पैक, वाहन नंबर: हर एक उसी एक कार्रवाई से खुलता है जो उस पर बैठती है, और कुछ भी अपने आप नहीं खुलता।",
-     "बोर्डिंग पास और ड्राइविंग लाइसेंस फ़ोन पर रहते हैं और तब तक सहेजे नहीं जाते जब तक आप न कहें। ऐप कभी किसी व्यक्ति को खोजता नहीं।"
+     "बोर्डिंग पास और ड्राइविंग लाइसेंस फ़ोन पर पढ़े जाते हैं, एक बार दिखाए जाते हैं और कभी नहीं रखे जाते। ऐप कभी किसी व्यक्ति को खोजता नहीं।"
     ]
    },
    {
@@ -4802,7 +4803,7 @@ FEAT_T = {
     "h2": "मुफ़्त, बिना विज्ञापन, कुछ भी एकत्र नहीं",
     "alt": "",
     "ps": [
-     "हर सुविधा सबके लिए मुफ़्त है और रहेगी। न खाते, न एनालिटिक्स, न विज्ञापन, इसलिए न नकली बटन। फ़्रेम डिवाइस पर स्कैन होकर हटा दिए जाते हैं। इसका खर्च वे लोग उठाते हैं जो इसे इस्तेमाल करते हैं और आगे बढ़ाते हैं: $0.99 से एक बार का योगदान इसे चलाए रखता है, और उसके पीछे कुछ भी बंद नहीं है। {SUPPORT}।"
+     "हर सुविधा सबके लिए मुफ़्त है और रहेगी। न खाते, न एनालिटिक्स, न विज्ञापन, इसलिए न नकली बटन। फ़्रेम डिवाइस पर स्कैन होकर हटा दिए जाते हैं। इसका खर्च वे लोग उठाते हैं जो इसे इस्तेमाल करते हैं और आगे बढ़ाते हैं: $0.99 से एक बार का योगदान इसे चलाए रखता है, और उसके पीछे कुछ भी बंद नहीं है। ऐप को ऐप के भीतर से ही साझा करें: एक कोड जिसे कोई भी कैमरा पढ़ लेता है, जिसमें स्टोर लिंक है और कुछ नहीं। {SUPPORT}।"
     ],
     "support": "यह कैसे काम करता है"
    }
@@ -4846,7 +4847,7 @@ FEAT_T = {
     "alt": "Verdetto が読み取った Wi-Fi ネットワーク: ネットワーク名、パスワードのない開放ネットワークという注意、「接続」ボタン。",
     "ps": [
      "Wi-Fi のコードは一回のタップでネットワークに接続します。連絡先カードは連絡先に追加されます。搭乗券は搭乗口で大きく明るく表示されます。カレンダーの予定、ログインコード、位置情報、支払い先アドレス、商品や医薬品の番号、GS1 パック、車両番号。それぞれが、ふさわしい一つの動作で開き、勝手に開くものはありません。",
-     "搭乗券と運転免許証は端末に留まり、あなたが言わなければ保存されません。アプリが人物を照会することは決してありません。"
+     "搭乗券と運転免許証は端末上で読み取られ、一度表示されるだけで、決して保存されません。アプリが人物を照会することは決してありません。"
     ]
    },
    {
@@ -4910,7 +4911,7 @@ FEAT_T = {
     "h2": "無料、広告なし、何も収集しない",
     "alt": "",
     "ps": [
-     "すべての機能はすべての人に無料で、これからもそうです。アカウントも、解析も、広告もなく、だから偽のボタンもありません。フレームは端末上で読み取られ、捨てられます。使う人が支払い、伝えていく: 0.99 ドルからの一回限りの支援が続ける力になり、その先に何も隠されていません。{SUPPORT}。"
+     "すべての機能はすべての人に無料で、これからもそうです。アカウントも、解析も、広告もなく、だから偽のボタンもありません。フレームは端末上で読み取られ、捨てられます。使う人が支払い、伝えていく: 0.99 ドルからの一回限りの支援が続ける力になり、その先に何も隠されていません。アプリの中からアプリを共有できます。どのカメラでも読めるコードで、ストアのリンクだけを運びます。{SUPPORT}。"
     ],
     "support": "その仕組み"
    }
@@ -4954,7 +4955,7 @@ FEAT_T = {
     "alt": "Verdetto 读取的 Wi-Fi 网络：网络名称、提示该网络开放且无密码的注意标签，以及“加入”按钮。",
     "ps": [
      "Wi-Fi 码一键加入网络。联系人名片加入您的联系人。登机牌在登机口以大而亮的方式展示。日历事件、登录码、位置、付款地址、商品和药品编号、GS1 包装、车辆编号：每一种都以恰当的唯一动作打开，没有任何东西会自行打开。",
-     "登机牌和驾照留在手机上，除非您同意，否则不会保存。应用从不查询任何人。"
+     "登机牌和驾照在手机上读取，只显示一次，绝不保留。应用从不查询任何人。"
     ]
    },
    {
@@ -5018,7 +5019,7 @@ FEAT_T = {
     "h2": "免费、无广告、不收集任何信息",
     "alt": "",
     "ps": [
-     "每一项功能对所有人免费，并将一直免费。没有账户，没有分析统计，没有广告，因此也没有假按钮。画面在设备上扫描后即丢弃。由使用它的人付费并口口相传：一次性支持从 0.99 美元起，让它持续下去，没有任何东西被锁在后面。{SUPPORT}。"
+     "每一项功能对所有人免费，并将一直免费。没有账户，没有分析统计，没有广告，因此也没有假按钮。画面在设备上扫描后即丢弃。由使用它的人付费并口口相传：一次性支持从 0.99 美元起，让它持续下去，没有任何东西被锁在后面。从应用内分享应用：任何相机都能读的码，只带商店链接，别无其他。{SUPPORT}。"
     ],
     "support": "它是怎么运作的"
    }
@@ -5062,7 +5063,7 @@ FEAT_T = {
     "alt": "شبكة Wi-Fi قرأها Verdetto: اسم الشبكة، وتحذير من أنها مفتوحة بلا كلمة مرور، وزر «انضم».",
     "ps": [
      "رمز Wi-Fi ينضم إلى الشبكة بنقرة واحدة. بطاقة الاتصال تُضاف إلى جهات اتصالك. بطاقة الصعود تعرض نفسها عند البوابة كبيرة ومضيئة. أحداث التقويم، ورموز الدخول، والمواقع، وعناوين الدفع، وأرقام المنتجات والأدوية، وعبوات GS1، وأرقام المركبات: يُفتح كلٌّ منها بالفعل الوحيد المناسب، ولا يُفتح شيء من تلقاء نفسه.",
-     "بطاقات الصعود ورخص القيادة تبقى على الهاتف ولا تُحفظ إلا إذا قلت ذلك. ولا يبحث التطبيق عن شخص أبدًا."
+     "تُقرأ بطاقات الصعود ورخص القيادة على الهاتف، وتُعرض مرة واحدة، ولا تُحفظ أبدًا. ولا يبحث التطبيق عن شخص أبدًا."
     ]
    },
    {
@@ -5126,14 +5127,13 @@ FEAT_T = {
     "h2": "مجاني، بلا إعلانات، لا يجمع شيئًا",
     "alt": "",
     "ps": [
-     "كل ميزة مجانية للجميع وستبقى كذلك. لا حسابات ولا تحليلات ولا إعلانات، وبالتالي لا أزرار زائفة. تُمسح الإطارات على الجهاز ثم تُهمَل. يدفع ثمنه ويمرّره من يستخدمونه: مساهمة لمرة واحدة من 0.99 دولار تُبقيه مستمرًا، ولا شيء مقفل خلفها. {SUPPORT}."
+     "كل ميزة مجانية للجميع وستبقى كذلك. لا حسابات ولا تحليلات ولا إعلانات، وبالتالي لا أزرار زائفة. تُمسح الإطارات على الجهاز ثم تُهمَل. يدفع ثمنه ويمرّره من يستخدمونه: مساهمة لمرة واحدة من 0.99 دولار تُبقيه مستمرًا، ولا شيء مقفل خلفها. شارك التطبيق من داخله: رمز تقرأه أي كاميرا، يحمل رابط المتجر ولا شيء غيره. {SUPPORT}."
     ],
     "support": "كيف يعمل ذلك"
    }
   ]
  }
 }
-
 
 
 def features_body(t, code):
