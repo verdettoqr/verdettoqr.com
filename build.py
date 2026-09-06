@@ -753,6 +753,10 @@ SUPPORT_T = {
     "The app does not know, and it never says something is safe. \"No warnings found\" means none of its checks matched. Look at the address it shows you, and open it only if you would have opened it anyway."
    ],
    [
+    "Does Verdetto use Google Safe Browsing?",
+    "No, and nothing about a link is sent by Verdetto. Links open in a tab of your own browser, and most browsers check pages against a list of known dangerous sites as they open, if that setting is on: Chrome, Firefox and Samsung Internet use Google Safe Browsing, and Microsoft Edge uses Microsoft Defender SmartScreen. That check is the browser's, under its own privacy policy, and it happens beside Verdetto's own list, which is checked on the phone."
+   ],
+   [
     "Does it work offline?",
     "Yes. Scanning and every built-in check run on the phone. Online lookups add where a short link leads, how old a domain is, product details, and, for a vehicle, its recall campaigns, crash-test ratings, and fuel economy from NHTSA and the EPA. They need a connection and can be turned off in Settings."
    ],
@@ -797,6 +801,10 @@ SUPPORT_T = {
    [
     "Es stand „Keine Warnungen gefunden“. Ist der Link sicher?",
     "Die App weiß es nicht, und sie sagt nie, dass etwas sicher ist. „Keine Warnungen gefunden“ heißt: Keine ihrer Prüfungen hat angeschlagen. Sieh dir die Adresse an, die sie dir zeigt, und öffne sie nur, wenn du sie sowieso geöffnet hättest."
+   ],
+   [
+    "Nutzt Verdetto Google Safe Browsing?",
+    "Nein, und Verdetto sendet nichts über einen Link. Links öffnen sich in einem Tab deines eigenen Browsers, und die meisten Browser prüfen Seiten beim Öffnen gegen eine Liste bekannter gefährlicher Websites, wenn diese Einstellung an ist: Chrome, Firefox und Samsung Internet nutzen Google Safe Browsing, Microsoft Edge nutzt Microsoft Defender SmartScreen. Diese Prüfung ist die des Browsers, unter seiner eigenen Datenschutzerklärung, und sie findet neben Verdettos eigener Liste statt, die auf dem Telefon geprüft wird."
    ],
    [
     "Funktioniert sie offline?",
@@ -845,6 +853,10 @@ SUPPORT_T = {
     "La aplicación no lo sabe, y nunca dice que algo sea seguro. «No se encontraron avisos» significa que ninguna de sus comprobaciones coincidió. Mira la dirección que te muestra y ábrela solo si la habrías abierto de todos modos."
    ],
    [
+    "¿Verdetto usa Google Safe Browsing?",
+    "No, y Verdetto no envía nada sobre un enlace. Los enlaces se abren en una pestaña de tu propio navegador, y la mayoría de los navegadores comprueban las páginas al abrirlas contra una lista de sitios peligrosos conocidos, si ese ajuste está activado: Chrome, Firefox y Samsung Internet usan Google Safe Browsing, y Microsoft Edge usa Microsoft Defender SmartScreen. Esa comprobación es del navegador, bajo su propia política de privacidad, y se hace junto a la lista propia de Verdetto, que se comprueba en el teléfono."
+   ],
+   [
     "¿Funciona sin conexión?",
     "Sí. El escaneo y todas las comprobaciones integradas se hacen en el teléfono. Las consultas en línea añaden adónde lleva un enlace corto, la antigüedad de un dominio, detalles de productos y, para un vehículo, sus campañas de retirada, las valoraciones de pruebas de choque y el consumo de combustible de la NHTSA y la EPA. Necesitan conexión y se pueden desactivar en Ajustes."
    ],
@@ -889,6 +901,10 @@ SUPPORT_T = {
    [
     "Il a affiché « Aucune alerte trouvée ». Le lien est-il sûr ?",
     "L'application ne le sait pas, et elle ne dit jamais que quelque chose est sûr. « Aucune alerte trouvée » signifie qu'aucune de ses vérifications n'a réagi. Regarde l'adresse qu'elle te montre et ouvre-la seulement si tu l'aurais ouverte de toute façon."
+   ],
+   [
+    "Verdetto utilise-t-il Google Safe Browsing ?",
+    "Non, et Verdetto n'envoie rien au sujet d'un lien. Les liens s'ouvrent dans un onglet de ton propre navigateur, et la plupart des navigateurs vérifient les pages à l'ouverture contre une liste de sites dangereux connus, si ce réglage est activé : Chrome, Firefox et Samsung Internet utilisent Google Safe Browsing, et Microsoft Edge utilise Microsoft Defender SmartScreen. Cette vérification est celle du navigateur, sous sa propre politique de confidentialité, et elle s'ajoute à la liste propre de Verdetto, contrôlée sur le téléphone."
    ],
    [
     "Fonctionne-t-elle hors ligne ?",
@@ -937,6 +953,10 @@ SUPPORT_T = {
     "O app não sabe, e nunca diz que algo é seguro. \"Nenhum alerta encontrado\" significa que nenhuma das verificações bateu. Olhe o endereço que ele mostra e abra só se você o abriria de qualquer forma."
    ],
    [
+    "O Verdetto usa o Google Safe Browsing?",
+    "Não, e o Verdetto não envia nada sobre um link. Os links abrem em uma aba do seu próprio navegador, e a maioria dos navegadores confere as páginas ao abri-las com uma lista de sites perigosos conhecidos, se essa configuração estiver ativada: Chrome, Firefox e Samsung Internet usam o Google Safe Browsing, e o Microsoft Edge usa o Microsoft Defender SmartScreen. Essa verificação é do navegador, sob a política de privacidade dele, e acontece ao lado da lista própria do Verdetto, que é conferida no telefone."
+   ],
+   [
     "Funciona offline?",
     "Sim. A leitura e todas as verificações internas rodam no celular. As consultas online acrescentam para onde um link curto leva, a idade de um domínio, detalhes do produto e, para um veículo, seus recalls, notas de testes de colisão e consumo de combustível da NHTSA e da EPA. Elas precisam de conexão e podem ser desativadas nas Configurações."
    ],
@@ -981,6 +1001,10 @@ SUPPORT_T = {
    [
     "Katanya \"Tidak ada peringatan ditemukan\". Apakah tautannya aman?",
     "Aplikasi tidak tahu, dan ia tidak pernah mengatakan sesuatu itu aman. \"Tidak ada peringatan ditemukan\" berarti tak satu pun pemeriksaannya cocok. Lihat alamat yang ditampilkannya, dan buka hanya jika kamu memang akan membukanya."
+   ],
+   [
+    "Apakah Verdetto memakai Google Safe Browsing?",
+    "Tidak, dan Verdetto tidak mengirim apa pun tentang sebuah tautan. Tautan terbuka di tab peramban milikmu sendiri, dan kebanyakan peramban memeriksa halaman saat dibuka terhadap daftar situs berbahaya yang dikenal, jika pengaturan itu aktif: Chrome, Firefox, dan Samsung Internet memakai Google Safe Browsing, dan Microsoft Edge memakai Microsoft Defender SmartScreen. Pemeriksaan itu milik peramban, di bawah kebijakan privasinya sendiri, dan berjalan di samping daftar milik Verdetto, yang diperiksa di ponsel."
    ],
    [
     "Apakah bekerja offline?",
@@ -1029,6 +1053,10 @@ SUPPORT_T = {
     "Приложение этого не знает и никогда не говорит, что что-то безопасно. «Предупреждений не найдено» означает, что ни одна из его проверок не сработала. Посмотрите на адрес, который оно показывает, и открывайте только если открыли бы его и так."
    ],
    [
+    "Использует ли Verdetto Google Safe Browsing?",
+    "Нет, и Verdetto ничего не отправляет о ссылке. Ссылки открываются во вкладке вашего собственного браузера, и большинство браузеров при открытии сверяют страницы со списком известных опасных сайтов, если эта настройка включена: Chrome, Firefox и Samsung Internet используют Google Safe Browsing, а Microsoft Edge использует Microsoft Defender SmartScreen. Эта проверка принадлежит браузеру и идёт по его собственной политике конфиденциальности, рядом с собственным списком Verdetto, который проверяется на телефоне."
+   ],
+   [
     "Работает ли оно офлайн?",
     "Да. Сканирование и все встроенные проверки выполняются на телефоне. Онлайн-запросы добавляют, куда ведёт короткая ссылка, сколько лет домену, сведения о товаре, а для автомобиля его отзывные кампании, оценки краш-тестов и расход топлива от NHTSA и EPA. Им нужно соединение, и их можно отключить в настройках."
    ],
@@ -1073,6 +1101,10 @@ SUPPORT_T = {
    [
     "इसने \"कोई चेतावनी नहीं मिली\" कहा। क्या लिंक सुरक्षित है?",
     "ऐप को यह पता नहीं, और यह कभी नहीं कहता कि कुछ सुरक्षित है। \"कोई चेतावनी नहीं मिली\" का मतलब है कि इसकी कोई भी जाँच मेल नहीं खाई। जो पता यह दिखाता है उसे देखें, और उसे तभी खोलें जब आप उसे वैसे भी खोलते।"
+   ],
+   [
+    "क्या Verdetto Google Safe Browsing का उपयोग करता है?",
+    "नहीं, और Verdetto किसी लिंक के बारे में कुछ भी नहीं भेजता। लिंक आपके अपने ब्राउज़र के टैब में खुलते हैं, और ज़्यादातर ब्राउज़र पेज खुलते समय उसे ज्ञात ख़तरनाक साइटों की सूची से मिलाते हैं, अगर वह सेटिंग चालू हो: Chrome, Firefox और Samsung Internet Google Safe Browsing का उपयोग करते हैं, और Microsoft Edge Microsoft Defender SmartScreen का। वह जाँच ब्राउज़र की है, उसकी अपनी गोपनीयता नीति के तहत, और वह Verdetto की अपनी सूची के साथ-साथ होती है, जिसकी जाँच फ़ोन पर होती है।"
    ],
    [
     "क्या यह ऑफ़लाइन काम करता है?",
@@ -1121,6 +1153,10 @@ SUPPORT_T = {
     "アプリには分かりませんし、何かが安全だと言うことは決してありません。「警告は見つかりませんでした」は、どのチェックにも該当しなかったという意味です。表示されたアドレスを見て、どうせ開くつもりだった場合にだけ開いてください。"
    ],
    [
+    "Verdetto は Google Safe Browsing を使っていますか?",
+    "いいえ。Verdetto がリンクについて何かを送ることもありません。リンクはお使いのブラウザのタブで開き、多くのブラウザは、その設定がオンであれば、開くページを既知の危険なサイトの一覧と照らし合わせます。Chrome、Firefox、Samsung Internet は Google Safe Browsing を、Microsoft Edge は Microsoft Defender SmartScreen を使います。その確認はブラウザ自身のもので、ブラウザのプライバシーポリシーに従い、端末上で照合される Verdetto 自身のリストとは別に行われます。"
+   ],
+   [
     "オフラインで動きますか?",
     "はい。スキャンと内蔵のチェックはすべて端末内で行われます。オンライン検索は、短縮リンクの行き先、ドメインの古さ、製品の詳細、車両であれば NHTSA と EPA によるリコール、衝突試験評価、燃費を加えます。接続が必要で、設定でオフにできます。"
    ],
@@ -1167,6 +1203,10 @@ SUPPORT_T = {
     "应用不知道，它也从不说某样东西安全。“未发现警告”意味着它的检查都没有命中。看看它显示给你的地址，只有在你本来就会打开的情况下才打开。"
    ],
    [
+    "Verdetto 使用 Google Safe Browsing 吗？",
+    "不使用，Verdetto 也不会发送关于链接的任何信息。链接在你自己的浏览器标签页中打开，多数浏览器在打开页面时会将其与已知危险网站名单比对（如果该设置已开启）：Chrome、Firefox 和 Samsung Internet 使用 Google Safe Browsing，Microsoft Edge 使用 Microsoft Defender SmartScreen。那项检查属于浏览器，遵循浏览器自己的隐私政策，与 Verdetto 在手机上核对的自有名单并行。"
+   ],
+   [
     "离线可用吗？",
     "可以。扫描和每项内置检查都在手机上完成。在线查询会补充短链接的去向、域名的年龄、商品详情，以及车辆来自 NHTSA 和 EPA 的召回、碰撞测试评级和燃油经济性。它们需要网络连接，可在设置中关闭。"
    ],
@@ -1211,6 +1251,10 @@ SUPPORT_T = {
    [
     "ظهر «لم يُعثر على تحذيرات». هل الرابط آمن؟",
     "لا يعرف التطبيق ذلك، ولا يقول أبدًا إن شيئًا ما آمن. «لم يُعثر على تحذيرات» تعني أن أي فحص من فحوصاته لم يتطابق. انظر إلى العنوان الذي يعرضه لك، وافتحه فقط إن كنت ستفتحه على أي حال."
+   ],
+   [
+    "هل يستخدم Verdetto خدمة Google Safe Browsing؟",
+    "لا، ولا يرسل Verdetto أي شيء عن الرابط. تُفتح الروابط في تبويب داخل متصفحك أنت، ومعظم المتصفحات تفحص الصفحات عند فتحها مقابل قائمة بالمواقع الخطرة المعروفة إذا كان ذلك الإعداد مفعّلًا: يستخدم Chrome وFirefox وSamsung Internet خدمة Google Safe Browsing، ويستخدم Microsoft Edge خدمة Microsoft Defender SmartScreen. ذلك الفحص خاص بالمتصفح ويخضع لسياسة الخصوصية الخاصة به، ويجري إلى جانب قائمة Verdetto الخاصة التي تُراجَع على الهاتف."
    ],
    [
     "هل يعمل دون اتصال؟",
@@ -6002,7 +6046,7 @@ def brand_body():
 
 <h2 id="badge">The "Built on Verdetto" badge</h2>
 <p>{img("brand/badge/badge-built-on-verdetto-light.png", "The Built on Verdetto badge for light grounds", 300)} {img("brand/badge/badge-built-on-verdetto-dark.png", "The Built on Verdetto badge for dark grounds", 300)}</p>
-<p>This is the form the badge is shown in: the lockup unaltered with the words "Built on", at a legible size, linked to verdettoqr.com where the surface allows a link, never as the product's own name or icon, and never modified, recolored, animated or combined with another mark. Who may show it, and on what conditions, is set by the <a href="{cl}">Verdetto Community License</a>.</p>
+<p>This is the form the badge is shown in: the lockup unaltered with the words "Built on", at a legible size, linked to verdettoqr.com where the surface allows a link, never as the product's own name or icon, and never modified, recolored, animated or combined with another mark. Who may show it, and on what conditions, is set by the <a href="{cl}">Verdetto Community License</a>. The badge is for products approved under the Verdetto Community License; write to support@verdettoqr.com to ask. Using the engine under its Apache-2.0 license gives no right to the name, the icon or the badge.</p>
 
 <h2 id="approved-channels">Approved channels</h2>
 <p>The <a href="{cl}">Verdetto Community License</a> treats two kinds of build as approved without a separate request: a build made by a distribution service listed here, from Verdetto's own tagged release source unchanged, under the build recipe Verdetto submitted or accepted for it; and an unmodified copy of a release Verdetto itself signed, wherever it is redistributed. This list is the record of those approvals.</p>
