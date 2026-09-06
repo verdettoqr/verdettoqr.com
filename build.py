@@ -152,8 +152,8 @@ NAV = [("features.html", "features"), ("support.html", "help"), ("check-qr-code-
 SPONSORS_LIVE = False  # True once the GitHub Sponsors profile is approved; the support page then links it
 LIBERAPAY_LIVE = False  # True once the operator has opened the Liberapay account; the support page then links it
 LIBERAPAY_URL = "https://liberapay.com/Verdetto"  # the account name the operator registers; fix here if it differs
-CARD_LIVE = False  # True once the operator has activated the Stripe Payment Link; the support page then links it
-CARD_URL = ""  # the Payment Link address, from the operator
+CARD_LIVE = True  # the Stripe Payment Link is active (2026-09-06); the support page links it
+CARD_URL = "https://buy.stripe.com/00w9ASdJ57Ficj745heME00"  # once, by card, from $2.99 or a typed amount  # the Payment Link address, from the operator
 
 SOCIAL = {"Mastodon": "https://mastodon.social/@VerdettoQR", "Reddit": "https://www.reddit.com/user/VerdettoQR/", "GitHub": "https://github.com/verdettoqr"}
 SOCIAL_LINKS = " &middot; ".join(f'<a href="{v}" rel="me">{k}</a>' for k, v in SOCIAL.items())
@@ -1283,7 +1283,9 @@ SUPPORT_WORK_T = {
   "r_liberapay": "Any amount, weekly, monthly or yearly.",
   "r_card_h": "By card",
   "r_card": "Once, from $2.99 or an amount you type.",
-  "until_p": "Until a route opens, the app on Google Play is the way to give."
+  "until_p": "Until a route opens, the app on Google Play is the way to give.",
+  "browser_open": "The web routes are listed below with their status.",
+  "a_computer_some": "Yes. The routes open now are listed on this page under From F-Droid, GitHub or a computer."
  },
  "de": {
   "title": "Die Arbeit unterstützen - Verdetto",
@@ -1336,7 +1338,9 @@ SUPPORT_WORK_T = {
   "r_liberapay": "Jeder Betrag, wöchentlich, monatlich oder jährlich.",
   "r_card_h": "Per Karte",
   "r_card": "Einmal, ab 2,99 $ oder ein Betrag, den du eingibst.",
-  "until_p": "Bis ein Weg offen ist, ist die App bei Google Play der Weg zu geben."
+  "until_p": "Bis ein Weg offen ist, ist die App bei Google Play der Weg zu geben.",
+  "browser_open": "Die Web-Wege stehen unten mit ihrem Status.",
+  "a_computer_some": "Ja. Die jetzt offenen Wege stehen auf dieser Seite unter Über F-Droid, GitHub oder einen Computer."
  },
  "es": {
   "title": "Apoya el trabajo - Verdetto",
@@ -1389,7 +1393,9 @@ SUPPORT_WORK_T = {
   "r_liberapay": "Cualquier importe, cada semana, cada mes o cada año.",
   "r_card_h": "Con tarjeta",
   "r_card": "Una vez, desde 2,99 $ o un importe que escribes.",
-  "until_p": "Hasta que abra una vía, la aplicación en Google Play es la forma de dar."
+  "until_p": "Hasta que abra una vía, la aplicación en Google Play es la forma de dar.",
+  "browser_open": "Las vías web se listan abajo con su estado.",
+  "a_computer_some": "Sí. Las vías abiertas ahora se listan en esta página bajo Desde F-Droid, GitHub o un ordenador."
  },
  "fr": {
   "title": "Soutenir le travail - Verdetto",
@@ -1442,7 +1448,9 @@ SUPPORT_WORK_T = {
   "r_liberapay": "N'importe quel montant, chaque semaine, chaque mois ou chaque année.",
   "r_card_h": "Par carte",
   "r_card": "Une fois, dès 2,99 $ ou un montant que tu saisis.",
-  "until_p": "Tant qu'aucune voie n'est ouverte, l'application sur Google Play est le moyen de donner."
+  "until_p": "Tant qu'aucune voie n'est ouverte, l'application sur Google Play est le moyen de donner.",
+  "browser_open": "Les voies web sont listées ci-dessous avec leur état.",
+  "a_computer_some": "Oui. Les voies ouvertes en ce moment sont listées sur cette page sous Depuis F-Droid, GitHub ou un ordinateur."
  },
  "pt-BR": {
   "title": "Apoie o trabalho - Verdetto",
@@ -1495,7 +1503,9 @@ SUPPORT_WORK_T = {
   "r_liberapay": "Qualquer valor, toda semana, todo mês ou todo ano.",
   "r_card_h": "Com cartão",
   "r_card": "Uma vez, a partir de US$ 2,99 ou um valor que você digita.",
-  "until_p": "Até um caminho abrir, o app no Google Play é o jeito de contribuir."
+  "until_p": "Até um caminho abrir, o app no Google Play é o jeito de contribuir.",
+  "browser_open": "Os caminhos pela web estão listados abaixo com seu status.",
+  "a_computer_some": "Sim. Os caminhos abertos agora estão listados nesta página em Do F-Droid, GitHub ou de um computador."
  },
  "id": {
   "title": "Dukung pekerjaan ini - Verdetto",
@@ -1548,7 +1558,9 @@ SUPPORT_WORK_T = {
   "r_liberapay": "Berapa pun, mingguan, bulanan, atau tahunan.",
   "r_card_h": "Dengan kartu",
   "r_card": "Sekali, mulai $2,99 atau jumlah yang kamu ketik.",
-  "until_p": "Sampai ada jalur yang dibuka, aplikasi di Google Play adalah cara untuk memberi."
+  "until_p": "Sampai ada jalur yang dibuka, aplikasi di Google Play adalah cara untuk memberi.",
+  "browser_open": "Jalur web tercantum di bawah beserta statusnya.",
+  "a_computer_some": "Ya. Jalur yang sudah terbuka tercantum di halaman ini di bawah Dari F-Droid, GitHub, atau komputer."
  },
  "ru": {
   "title": "Поддержать работу - Verdetto",
@@ -1601,7 +1613,9 @@ SUPPORT_WORK_T = {
   "r_liberapay": "Любая сумма, еженедельно, ежемесячно или ежегодно.",
   "r_card_h": "Картой",
   "r_card": "Разово, от 2,99 $ или сумма, которую вы вводите.",
-  "until_p": "Пока ни один путь не открылся, приложение в Google Play остаётся способом поддержать."
+  "until_p": "Пока ни один путь не открылся, приложение в Google Play остаётся способом поддержать.",
+  "browser_open": "Веб-пути перечислены ниже с их состоянием.",
+  "a_computer_some": "Да. Открытые сейчас пути перечислены на этой странице в разделе Из F-Droid, GitHub или с компьютера."
  },
  "hi": {
   "title": "काम का समर्थन करें - Verdetto",
@@ -1654,7 +1668,9 @@ SUPPORT_WORK_T = {
   "r_liberapay": "कोई भी रकम, हर हफ़्ते, हर महीने या हर साल।",
   "r_card_h": "कार्ड से",
   "r_card": "एक बार, $2.99 से या आपकी लिखी कोई रकम।",
-  "until_p": "जब तक कोई रास्ता खुले, Google Play पर ऐप ही देने का तरीका है।"
+  "until_p": "जब तक कोई रास्ता खुले, Google Play पर ऐप ही देने का तरीका है।",
+  "browser_open": "वेब के रास्ते नीचे उनकी स्थिति के साथ सूचीबद्ध हैं।",
+  "a_computer_some": "हाँ। अभी खुले रास्ते इस पेज पर F-Droid, GitHub या कंप्यूटर से के नीचे सूचीबद्ध हैं।"
  },
  "ja": {
   "title": "活動を支援 - Verdetto",
@@ -1707,7 +1723,9 @@ SUPPORT_WORK_T = {
   "r_liberapay": "額は自由、毎週・毎月・毎年。",
   "r_card_h": "カードで",
   "r_card": "一度だけ、2.99 ドルから、または入力した額。",
-  "until_p": "経路が開くまでは、Google Play のアプリが支援の方法です。"
+  "until_p": "経路が開くまでは、Google Play のアプリが支援の方法です。",
+  "browser_open": "ウェブの経路は、状態とともに下に一覧があります。",
+  "a_computer_some": "はい。いま開いている経路は、このページの「F-Droid、GitHub、またはパソコンから」の下に一覧があります。"
  },
  "zh-Hans": {
   "title": "支持这项工作 - Verdetto",
@@ -1760,7 +1778,9 @@ SUPPORT_WORK_T = {
   "r_liberapay": "任意金额，每周、每月或每年。",
   "r_card_h": "用银行卡",
   "r_card": "一次，2.99 美元起或自行输入的金额。",
-  "until_p": "在有途径开放之前，Google Play 上的应用是支持的途径。"
+  "until_p": "在有途径开放之前，Google Play 上的应用是支持的途径。",
+  "browser_open": "网页途径及其状态列在下方。",
+  "a_computer_some": "可以。目前已开放的途径列在本页“从 F-Droid、GitHub 或电脑”之下。"
  },
  "ar": {
   "title": "ادعم العمل - Verdetto",
@@ -1813,7 +1833,9 @@ SUPPORT_WORK_T = {
   "r_liberapay": "أي مبلغ، أسبوعيًا أو شهريًا أو سنويًا.",
   "r_card_h": "بالبطاقة",
   "r_card": "مرة واحدة، من 2.99 دولار أو مبلغ تكتبه.",
-  "until_p": "حتى تُفتح إحدى الطرق، يبقى التطبيق على Google Play هو طريقة العطاء."
+  "until_p": "حتى تُفتح إحدى الطرق، يبقى التطبيق على Google Play هو طريقة العطاء.",
+  "browser_open": "طرق الويب مذكورة أدناه مع حالتها.",
+  "a_computer_some": "نعم. الطرق المفتوحة الآن مذكورة في هذه الصفحة تحت من F-Droid أو GitHub أو حاسوب."
  }
 }
 
@@ -1822,7 +1844,7 @@ def support_work_faq(t):
     return [(t["q_free"], t["a_free"]),
             (t["q_money"], t["a_money_base"] + (t["a_money_github"] if SPONSORS_LIVE else "") + t["a_money_tail"]),
             (t["q_unlock"], t["a_unlock"]), (t["q_gift"], t["a_gift"]), (t["q_ask"], t["a_ask"]),
-            (t["q_computer"], t["a_computer_live"] if SPONSORS_LIVE else t["a_computer_wait"])]
+            (t["q_computer"], (t["a_computer_live"] if (SPONSORS_LIVE and LIBERAPAY_LIVE and CARD_LIVE) else t["a_computer_some"] if (SPONSORS_LIVE or LIBERAPAY_LIVE or CARD_LIVE) else t["a_computer_wait"]))]
 
 
 def support_work_desc(t):
@@ -1835,8 +1857,11 @@ def support_work_ld(t, code):
 
 def support_work_body(t, code):
     """The Support-the-work page from its strings table: three cards, three sections, the questions."""
+    any_live = SPONSORS_LIVE or LIBERAPAY_LIVE or CARD_LIVE
     browser = (f'<div class="card">{ic("heart")}<div><h3>{t["browser_h"]}</h3><p>{t["browser_live"]} <a href="https://github.com/sponsors/verdettoqr">{t["browser_link"]}</a></p></div></div>'
                if SPONSORS_LIVE else
+               f'<div class="card">{ic("heart")}<div><h3>{t["browser_h"]}</h3><p>{t["browser_open"]}</p></div></div>'
+               if any_live else
                f'<div class="card soon">{ic("clock")}<div><p class="label">{t["soon"]}</p><h3>{t["browser_h"]}</h3><p>{t["browser_wait"]}</p></div></div>')
     faq_html = "\n".join(f"<h3>{q}</h3>\n<p>{a}</p>\n" for q, a in support_work_faq(t))
     not_p = t["not_base"] + (t["not_github"] if SPONSORS_LIVE else "") + t["not_tail"] + t["not_web"]
