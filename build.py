@@ -3952,7 +3952,7 @@ FEAT_T = {
  "en": {
   "title": "Everything it does",
   "desc": "Every feature of Verdetto, in the order people meet it: the link shown first, damaged codes, lookups you allow, codes you make, and no ads.",
-  "lede": "Verdetto reads QR codes and barcodes and shows you what is in them before you act. Free, no ads, nothing collected. Here is all of it, in the order most people meet it.",
+  "lede": "Verdetto reads QR codes and barcodes and shows you what is in them before you act. Free, no ads, no tracking by Verdetto. Here is all of it, in the order most people meet it.",
   "formats_line": "{N} kinds of codes, every one measured on the September 4, 2026 validation run:",
   "sections": [
    {
@@ -4046,11 +4046,11 @@ FEAT_T = {
    {
     "id": "free",
     "kicker": "The deal",
-    "h2": "Free, no ads, nothing collected",
+    "h2": "Free, no ads, no tracking by Verdetto",
     "shot": None,
     "alt": "",
     "ps": [
-     "Every feature is free for everyone and stays free. No accounts, no analytics, no ads, so no fake buttons. Frames are scanned on the device and dropped. It is paid for and passed on by the people who use it: a one-time contribution from $0.99 keeps it going, and nothing is locked behind it. Share the app from inside it: a code any camera reads, carrying the store link and nothing else. {SUPPORT}."
+     "Every feature is free for everyone and stays free. No accounts, no analytics, no ads, so no fake buttons. Frames are scanned on the device and dropped. Lookups go straight from your phone to public databases, and you can turn them off. It is paid for and passed on by the people who use it: a one-time contribution from $0.99 keeps it going, and nothing is locked behind it. Share the app from inside it: a code any camera reads, carrying the store link and nothing else. {SUPPORT}."
     ],
     "support": "How that works",
     "cta": True
@@ -4060,7 +4060,7 @@ FEAT_T = {
  "de": {
   "title": "Alles, was die App kann",
   "desc": "Jede Funktion von Verdetto in der Reihenfolge, in der man ihr begegnet: der Link zuerst, beschädigte Codes, erlaubte Abfragen, eigene Codes und keine Werbung.",
-  "lede": "Verdetto liest QR-Codes und Barcodes und zeigt dir, was darin steckt, bevor du handelst. Kostenlos, ohne Werbung, ohne Datensammeln. Hier ist alles, in der Reihenfolge, in der die meisten es erleben.",
+  "lede": "Verdetto liest QR-Codes und Barcodes und zeigt dir, was darin steckt, bevor du handelst. Kostenlos, ohne Werbung, kein Tracking durch Verdetto. Hier ist alles, in der Reihenfolge, in der die meisten es erleben.",
   "formats_line": "{N} Arten von Codes, jede gemessen im Validierungslauf vom 4. September 2026:",
   "sections": [
    {
@@ -4156,10 +4156,10 @@ FEAT_T = {
     "shot": None,
     "cta": True,
     "kicker": "Der Deal",
-    "h2": "Kostenlos, ohne Werbung, ohne Datensammeln",
+    "h2": "Kostenlos, ohne Werbung, kein Tracking durch Verdetto",
     "alt": "",
     "ps": [
-     "Jede Funktion ist für alle kostenlos und bleibt es. Keine Konten, keine Analysen, keine Werbung, also keine falschen Buttons. Bilder werden auf dem Gerät gescannt und verworfen. Bezahlt und weitergegeben von den Menschen, die die App nutzen: Ein einmaliger Beitrag ab 0,99 $ hält sie am Laufen, und nichts ist dahinter gesperrt. Teile die App aus ihr heraus: ein Code, den jede Kamera liest, mit dem Store-Link und sonst nichts. {SUPPORT}."
+     "Jede Funktion ist für alle kostenlos und bleibt es. Keine Konten, keine Analysen, keine Werbung, also keine falschen Buttons. Bilder werden auf dem Gerät gescannt und verworfen. Nachschlagen geht direkt von deinem Telefon an öffentliche Datenbanken, und du kannst es abschalten. Bezahlt und weitergegeben von den Menschen, die die App nutzen: Ein einmaliger Beitrag ab 0,99 $ hält sie am Laufen, und nichts ist dahinter gesperrt. Teile die App aus ihr heraus: ein Code, den jede Kamera liest, mit dem Store-Link und sonst nichts. {SUPPORT}."
     ],
     "support": "Wie das funktioniert"
    }
@@ -4168,7 +4168,7 @@ FEAT_T = {
  "es": {
   "title": "Todo lo que hace",
   "desc": "Cada función de Verdetto, en el orden en que la gente la encuentra: el enlace primero, códigos dañados, consultas que permites, códigos propios y sin anuncios.",
-  "lede": "Verdetto lee códigos QR y de barras y te muestra qué contienen antes de que actúes. Gratis, sin anuncios, sin recopilar nada. Aquí está todo, en el orden en que la mayoría lo encuentra.",
+  "lede": "Verdetto lee códigos QR y de barras y te muestra qué contienen antes de que actúes. Gratis, sin anuncios, sin rastreo por parte de Verdetto. Aquí está todo, en el orden en que la mayoría lo encuentra.",
   "formats_line": "{N} tipos de códigos, cada uno medido en la ejecución de validación del 4 de septiembre de 2026:",
   "sections": [
    {
@@ -4264,10 +4264,10 @@ FEAT_T = {
     "shot": None,
     "cta": True,
     "kicker": "El trato",
-    "h2": "Gratis, sin anuncios, sin recopilar nada",
+    "h2": "Gratis, sin anuncios, sin rastreo por parte de Verdetto",
     "alt": "",
     "ps": [
-     "Todas las funciones son gratis para todos y lo seguirán siendo. Sin cuentas, sin analíticas, sin anuncios, así que sin botones falsos. Los fotogramas se escanean en el dispositivo y se descartan. Lo pagan y lo pasan a otros las personas que lo usan: una contribución única desde 0,99 $ lo mantiene en marcha, y nada queda bloqueado tras ella. Comparte la app desde dentro: un código que cualquier cámara lee, con el enlace de la tienda y nada más. {SUPPORT}."
+     "Todas las funciones son gratis para todos y lo seguirán siendo. Sin cuentas, sin analíticas, sin anuncios, así que sin botones falsos. Los fotogramas se escanean en el dispositivo y se descartan. Las consultas van directamente de tu teléfono a bases de datos públicas, y puedes desactivarlas. Lo pagan y lo pasan a otros las personas que lo usan: una contribución única desde 0,99 $ lo mantiene en marcha, y nada queda bloqueado tras ella. Comparte la app desde dentro: un código que cualquier cámara lee, con el enlace de la tienda y nada más. {SUPPORT}."
     ],
     "support": "Cómo funciona"
    }
@@ -4276,7 +4276,7 @@ FEAT_T = {
  "fr": {
   "title": "Tout ce qu'elle fait",
   "desc": "Chaque fonction de Verdetto, dans l'ordre où on la rencontre : le lien d'abord, les codes abîmés, les recherches autorisées, vos codes, et pas de publicité.",
-  "lede": "Verdetto lit les codes QR et les codes-barres et vous montre ce qu'ils contiennent avant que vous n'agissiez. Gratuit, sans publicité, sans rien collecter. Voici tout, dans l'ordre où la plupart des gens le rencontrent.",
+  "lede": "Verdetto lit les codes QR et les codes-barres et vous montre ce qu'ils contiennent avant que vous n'agissiez. Gratuit, sans publicité, aucun pistage par Verdetto. Voici tout, dans l'ordre où la plupart des gens le rencontrent.",
   "formats_line": "{N} sortes de codes, chacune mesurée lors de la validation du 4 septembre 2026 :",
   "sections": [
    {
@@ -4372,10 +4372,10 @@ FEAT_T = {
     "shot": None,
     "cta": True,
     "kicker": "Le marché",
-    "h2": "Gratuit, sans publicité, sans rien collecter",
+    "h2": "Gratuit, sans publicité, aucun pistage par Verdetto",
     "alt": "",
     "ps": [
-     "Chaque fonction est gratuite pour tous et le reste. Pas de comptes, pas d'analyse d'audience, pas de publicité, donc pas de faux boutons. Les images sont analysées sur l'appareil puis jetées. Financée et transmise par les personnes qui l'utilisent : une contribution unique dès 0,99 $ la fait vivre, et rien n'est verrouillé derrière. Partage l'application depuis l'application : un code que n'importe quel appareil photo lit, avec le lien de la boutique et rien d'autre. {SUPPORT}."
+     "Chaque fonction est gratuite pour tous et le reste. Pas de comptes, pas d'analyse d'audience, pas de publicité, donc pas de faux boutons. Les images sont analysées sur l'appareil puis jetées. Les recherches vont directement de votre téléphone aux bases de données publiques, et vous pouvez les désactiver. Financée et transmise par les personnes qui l'utilisent : une contribution unique dès 0,99 $ la fait vivre, et rien n'est verrouillé derrière. Partage l'application depuis l'application : un code que n'importe quel appareil photo lit, avec le lien de la boutique et rien d'autre. {SUPPORT}."
     ],
     "support": "Comment ça marche"
    }
@@ -4384,7 +4384,7 @@ FEAT_T = {
  "pt-BR": {
   "title": "Tudo o que ele faz",
   "desc": "Cada recurso do Verdetto, na ordem em que as pessoas o encontram: o link primeiro, códigos danificados, consultas permitidas, códigos seus e sem anúncios.",
-  "lede": "O Verdetto lê códigos QR e de barras e mostra o que há neles antes que você aja. Grátis, sem anúncios, sem coletar nada. Aqui está tudo, na ordem em que a maioria encontra.",
+  "lede": "O Verdetto lê códigos QR e de barras e mostra o que há neles antes que você aja. Grátis, sem anúncios, sem rastreamento pelo Verdetto. Aqui está tudo, na ordem em que a maioria encontra.",
   "formats_line": "{N} tipos de código, cada um medido na rodada de validação de 4 de setembro de 2026:",
   "sections": [
    {
@@ -4480,10 +4480,10 @@ FEAT_T = {
     "shot": None,
     "cta": True,
     "kicker": "O acordo",
-    "h2": "Grátis, sem anúncios, sem coletar nada",
+    "h2": "Grátis, sem anúncios, sem rastreamento pelo Verdetto",
     "alt": "",
     "ps": [
-     "Todo recurso é gratuito para todos e continua assim. Sem contas, sem análises de uso, sem anúncios, portanto sem botões falsos. Os quadros são lidos no aparelho e descartados. Pago e passado adiante pelas pessoas que o usam: uma contribuição única a partir de US$ 0,99 o mantém, e nada fica trancado atrás dela. Compartilhe o app de dentro dele: um código que qualquer câmera lê, com o link da loja e nada mais. {SUPPORT}."
+     "Todo recurso é gratuito para todos e continua assim. Sem contas, sem análises de uso, sem anúncios, portanto sem botões falsos. Os quadros são lidos no aparelho e descartados. As consultas vão direto do seu celular para bancos de dados públicos, e você pode desativá-las. Pago e passado adiante pelas pessoas que o usam: uma contribuição única a partir de US$ 0,99 o mantém, e nada fica trancado atrás dela. Compartilhe o app de dentro dele: um código que qualquer câmera lê, com o link da loja e nada mais. {SUPPORT}."
     ],
     "support": "Como isso funciona"
    }
@@ -4492,7 +4492,7 @@ FEAT_T = {
  "id": {
   "title": "Semua yang bisa dilakukannya",
   "desc": "Setiap fitur Verdetto, dalam urutan orang menemuinya: tautan ditampilkan dulu, kode rusak, pencarian yang Anda izinkan, kode buatan Anda, dan tanpa iklan.",
-  "lede": "Verdetto membaca kode QR dan barcode dan menunjukkan isinya sebelum Anda bertindak. Gratis, tanpa iklan, tidak mengumpulkan apa pun. Inilah semuanya, dalam urutan kebanyakan orang menemuinya.",
+  "lede": "Verdetto membaca kode QR dan barcode dan menunjukkan isinya sebelum Anda bertindak. Gratis, tanpa iklan, tanpa pelacakan oleh Verdetto. Inilah semuanya, dalam urutan kebanyakan orang menemuinya.",
   "formats_line": "{N} jenis kode, masing-masing diukur pada uji validasi 4 September 2026:",
   "sections": [
    {
@@ -4588,10 +4588,10 @@ FEAT_T = {
     "shot": None,
     "cta": True,
     "kicker": "Kesepakatannya",
-    "h2": "Gratis, tanpa iklan, tidak mengumpulkan apa pun",
+    "h2": "Gratis, tanpa iklan, tanpa pelacakan oleh Verdetto",
     "alt": "",
     "ps": [
-     "Setiap fitur gratis untuk semua orang dan tetap gratis. Tanpa akun, tanpa analitik, tanpa iklan, jadi tanpa tombol palsu. Bingkai dipindai di perangkat lalu dibuang. Dibayar dan diteruskan oleh orang-orang yang memakainya: kontribusi sekali bayar mulai $0,99 menjaganya berjalan, dan tidak ada yang dikunci di baliknya. Bagikan aplikasi dari dalam aplikasi: kode yang dibaca kamera apa pun, berisi tautan toko dan tidak ada yang lain. {SUPPORT}."
+     "Setiap fitur gratis untuk semua orang dan tetap gratis. Tanpa akun, tanpa analitik, tanpa iklan, jadi tanpa tombol palsu. Bingkai dipindai di perangkat lalu dibuang. Pencarian berjalan langsung dari ponsel Anda ke basis data publik, dan Anda dapat mematikannya. Dibayar dan diteruskan oleh orang-orang yang memakainya: kontribusi sekali bayar mulai $0,99 menjaganya berjalan, dan tidak ada yang dikunci di baliknya. Bagikan aplikasi dari dalam aplikasi: kode yang dibaca kamera apa pun, berisi tautan toko dan tidak ada yang lain. {SUPPORT}."
     ],
     "support": "Bagaimana caranya"
    }
@@ -4600,7 +4600,7 @@ FEAT_T = {
  "ru": {
   "title": "Всё, что оно умеет",
   "desc": "Каждая возможность Verdetto по порядку: сначала ссылка, повреждённые коды, разрешённые вами запросы, ваши собственные коды и никакой рекламы.",
-  "lede": "Verdetto читает QR-коды и штрихкоды и показывает, что в них, прежде чем вы что-то сделаете. Бесплатно, без рекламы, ничего не собирает. Вот всё, в том порядке, в каком с этим встречается большинство.",
+  "lede": "Verdetto читает QR-коды и штрихкоды и показывает, что в них, прежде чем вы что-то сделаете. Бесплатно, без рекламы, без слежки со стороны Verdetto. Вот всё, в том порядке, в каком с этим встречается большинство.",
   "formats_line": "{N} вид кодов, каждый измерен в проверочном прогоне 4 сентября 2026 года:",
   "sections": [
    {
@@ -4696,10 +4696,10 @@ FEAT_T = {
     "shot": None,
     "cta": True,
     "kicker": "Условия",
-    "h2": "Бесплатно, без рекламы, ничего не собирает",
+    "h2": "Бесплатно, без рекламы, без слежки со стороны Verdetto",
     "alt": "",
     "ps": [
-     "Каждая возможность бесплатна для всех и такой останется. Никаких учётных записей, аналитики и рекламы, а значит, никаких ложных кнопок. Кадры обрабатываются на устройстве и отбрасываются. За него платят и его передают дальше те, кто им пользуется: разовый взнос от 0,99 $ поддерживает его, и ничто за ним не заперто. Делитесь приложением прямо из него: код, который читает любая камера, со ссылкой на магазин и ничем больше. {SUPPORT}."
+     "Каждая возможность бесплатна для всех и такой останется. Никаких учётных записей, аналитики и рекламы, а значит, никаких ложных кнопок. Кадры обрабатываются на устройстве и отбрасываются. Запросы идут напрямую с вашего телефона в открытые базы данных, и их можно отключить. За него платят и его передают дальше те, кто им пользуется: разовый взнос от 0,99 $ поддерживает его, и ничто за ним не заперто. Делитесь приложением прямо из него: код, который читает любая камера, со ссылкой на магазин и ничем больше. {SUPPORT}."
     ],
     "support": "Как это устроено"
    }
@@ -4708,7 +4708,7 @@ FEAT_T = {
  "hi": {
   "title": "यह जो कुछ करता है",
   "desc": "Verdetto की हर सुविधा, उसी क्रम में जिसमें लोग उससे मिलते हैं: पहले लिंक, क्षतिग्रस्त कोड, आपकी अनुमति से खोज, आपके अपने कोड, और कोई विज्ञापन नहीं।",
-  "lede": "Verdetto QR कोड और बारकोड पढ़ता है और आपके कुछ करने से पहले दिखाता है कि उनमें क्या है। मुफ़्त, बिना विज्ञापन, कुछ भी एकत्र नहीं। यहाँ सब कुछ है, उसी क्रम में जिसमें अधिकतर लोग इसे पाते हैं।",
+  "lede": "Verdetto QR कोड और बारकोड पढ़ता है और आपके कुछ करने से पहले दिखाता है कि उनमें क्या है। मुफ़्त, बिना विज्ञापन, Verdetto की ओर से कोई ट्रैकिंग नहीं। यहाँ सब कुछ है, उसी क्रम में जिसमें अधिकतर लोग इसे पाते हैं।",
   "formats_line": "{N} तरह के कोड, हर एक 4 सितंबर 2026 के सत्यापन रन में मापा गया:",
   "sections": [
    {
@@ -4804,10 +4804,10 @@ FEAT_T = {
     "shot": None,
     "cta": True,
     "kicker": "सौदा",
-    "h2": "मुफ़्त, बिना विज्ञापन, कुछ भी एकत्र नहीं",
+    "h2": "मुफ़्त, बिना विज्ञापन, Verdetto की ओर से कोई ट्रैकिंग नहीं",
     "alt": "",
     "ps": [
-     "हर सुविधा सबके लिए मुफ़्त है और रहेगी। न खाते, न एनालिटिक्स, न विज्ञापन, इसलिए न नकली बटन। फ़्रेम डिवाइस पर स्कैन होकर हटा दिए जाते हैं। इसका खर्च वे लोग उठाते हैं जो इसे इस्तेमाल करते हैं और आगे बढ़ाते हैं: $0.99 से एक बार का योगदान इसे चलाए रखता है, और उसके पीछे कुछ भी बंद नहीं है। ऐप को ऐप के भीतर से ही साझा करें: एक कोड जिसे कोई भी कैमरा पढ़ लेता है, जिसमें स्टोर लिंक है और कुछ नहीं। {SUPPORT}।"
+     "हर सुविधा सबके लिए मुफ़्त है और रहेगी। न खाते, न एनालिटिक्स, न विज्ञापन, इसलिए न नकली बटन। फ़्रेम डिवाइस पर स्कैन होकर हटा दिए जाते हैं। लुकअप सीधे आपके फ़ोन से सार्वजनिक डेटाबेस तक जाते हैं, और आप उन्हें बंद कर सकते हैं। इसका खर्च वे लोग उठाते हैं जो इसे इस्तेमाल करते हैं और आगे बढ़ाते हैं: $0.99 से एक बार का योगदान इसे चलाए रखता है, और उसके पीछे कुछ भी बंद नहीं है। ऐप को ऐप के भीतर से ही साझा करें: एक कोड जिसे कोई भी कैमरा पढ़ लेता है, जिसमें स्टोर लिंक है और कुछ नहीं। {SUPPORT}।"
     ],
     "support": "यह कैसे काम करता है"
    }
@@ -4816,7 +4816,7 @@ FEAT_T = {
  "ja": {
   "title": "できることのすべて",
   "desc": "Verdetto のすべての機能を、人が出会う順に: まずリンクを表示、傷んだコード、許可した照会、自分で作るコード、そして広告なし。",
-  "lede": "Verdetto は QR コードとバーコードを読み取り、行動する前に中身を見せます。無料、広告なし、何も収集しません。ほとんどの人が出会う順に、そのすべてを。",
+  "lede": "Verdetto は QR コードとバーコードを読み取り、行動する前に中身を見せます。無料、広告なし、Verdetto による追跡なし。ほとんどの人が出会う順に、そのすべてを。",
   "formats_line": "{N} 種類のコード。いずれも 2026 年 9 月 4 日の検証で測定済み:",
   "sections": [
    {
@@ -4912,10 +4912,10 @@ FEAT_T = {
     "shot": None,
     "cta": True,
     "kicker": "約束",
-    "h2": "無料、広告なし、何も収集しない",
+    "h2": "無料、広告なし、Verdetto による追跡なし",
     "alt": "",
     "ps": [
-     "すべての機能はすべての人に無料で、これからもそうです。アカウントも、解析も、広告もなく、だから偽のボタンもありません。フレームは端末上で読み取られ、捨てられます。使う人が支払い、伝えていく: 0.99 ドルからの一回限りの支援が続ける力になり、その先に何も隠されていません。アプリの中からアプリを共有できます。どのカメラでも読めるコードで、ストアのリンクだけを運びます。{SUPPORT}。"
+     "すべての機能はすべての人に無料で、これからもそうです。アカウントも、解析も、広告もなく、だから偽のボタンもありません。フレームは端末上で読み取られ、捨てられます。照会はあなたの端末から公開データベースへ直接行われ、オフにもできます。使う人が支払い、伝えていく: 0.99 ドルからの一回限りの支援が続ける力になり、その先に何も隠されていません。アプリの中からアプリを共有できます。どのカメラでも読めるコードで、ストアのリンクだけを運びます。{SUPPORT}。"
     ],
     "support": "その仕組み"
    }
@@ -4924,7 +4924,7 @@ FEAT_T = {
  "zh-Hans": {
   "title": "它能做的一切",
   "desc": "Verdetto 的每一项功能，按人们遇到的顺序：先看到链接、受损的码、经您允许的查询、您自己制作的码，以及没有广告。",
-  "lede": "Verdetto 读取二维码和条形码，并在您行动之前展示其中的内容。免费，无广告，不收集任何信息。这里是全部功能，按大多数人遇到的顺序排列。",
+  "lede": "Verdetto 读取二维码和条形码，并在您行动之前展示其中的内容。免费、无广告、Verdetto 不做跟踪。这里是全部功能，按大多数人遇到的顺序排列。",
   "formats_line": "{N} 种码，每一种都在 2026 年 9 月 4 日的验证运行中测量过：",
   "sections": [
    {
@@ -5020,10 +5020,10 @@ FEAT_T = {
     "shot": None,
     "cta": True,
     "kicker": "约定",
-    "h2": "免费、无广告、不收集任何信息",
+    "h2": "免费、无广告、Verdetto 不做跟踪",
     "alt": "",
     "ps": [
-     "每一项功能对所有人免费，并将一直免费。没有账户，没有分析统计，没有广告，因此也没有假按钮。画面在设备上扫描后即丢弃。由使用它的人付费并口口相传：一次性支持从 0.99 美元起，让它持续下去，没有任何东西被锁在后面。从应用内分享应用：任何相机都能读的码，只带商店链接，别无其他。{SUPPORT}。"
+     "每一项功能对所有人免费，并将一直免费。没有账户，没有分析统计，没有广告，因此也没有假按钮。画面在设备上扫描后即丢弃。查询直接从您的手机发往公共数据库，您也可以关闭它。由使用它的人付费并口口相传：一次性支持从 0.99 美元起，让它持续下去，没有任何东西被锁在后面。从应用内分享应用：任何相机都能读的码，只带商店链接，别无其他。{SUPPORT}。"
     ],
     "support": "它是怎么运作的"
    }
@@ -5032,7 +5032,7 @@ FEAT_T = {
  "ar": {
   "title": "كل ما يفعله",
   "desc": "كل ميزة في Verdetto، بالترتيب الذي يلقاها الناس به: الرابط أولًا، والرموز المتضررة، والبحث الذي تسمح به، ورموزك التي تصنعها، وبلا إعلانات.",
-  "lede": "يقرأ Verdetto رموز QR والباركود ويعرض لك ما فيها قبل أن تتصرف. مجاني، بلا إعلانات، لا يجمع شيئًا. هنا كل شيء، بالترتيب الذي يلقاه به معظم الناس.",
+  "lede": "يقرأ Verdetto رموز QR والباركود ويعرض لك ما فيها قبل أن تتصرف. مجاني، بلا إعلانات، بلا تتبّع من Verdetto. هنا كل شيء، بالترتيب الذي يلقاه به معظم الناس.",
   "formats_line": "{N} نوعًا من الرموز، قِيس كل منها في جولة التحقق بتاريخ 4 سبتمبر 2026:",
   "sections": [
    {
@@ -5128,10 +5128,10 @@ FEAT_T = {
     "shot": None,
     "cta": True,
     "kicker": "الاتفاق",
-    "h2": "مجاني، بلا إعلانات، لا يجمع شيئًا",
+    "h2": "مجاني، بلا إعلانات، بلا تتبّع من Verdetto",
     "alt": "",
     "ps": [
-     "كل ميزة مجانية للجميع وستبقى كذلك. لا حسابات ولا تحليلات ولا إعلانات، وبالتالي لا أزرار زائفة. تُمسح الإطارات على الجهاز ثم تُهمَل. يدفع ثمنه ويمرّره من يستخدمونه: مساهمة لمرة واحدة من 0.99 دولار تُبقيه مستمرًا، ولا شيء مقفل خلفها. شارك التطبيق من داخله: رمز تقرأه أي كاميرا، يحمل رابط المتجر ولا شيء غيره. {SUPPORT}."
+     "كل ميزة مجانية للجميع وستبقى كذلك. لا حسابات ولا تحليلات ولا إعلانات، وبالتالي لا أزرار زائفة. تُمسح الإطارات على الجهاز ثم تُهمَل. تذهب عمليات البحث مباشرة من هاتفك إلى قواعد بيانات عامة، ويمكنك إيقافها. يدفع ثمنه ويمرّره من يستخدمونه: مساهمة لمرة واحدة من 0.99 دولار تُبقيه مستمرًا، ولا شيء مقفل خلفها. شارك التطبيق من داخله: رمز تقرأه أي كاميرا، يحمل رابط المتجر ولا شيء غيره. {SUPPORT}."
     ],
     "support": "كيف يعمل ذلك"
    }
@@ -5178,7 +5178,7 @@ HOME_T = {
   cards=[("Look before it opens", "The link, the network name or the contact is shown before anything opens."),
          ("Checked on your phone", "Lookalike names, short links, hidden sign-ins and more, flagged in one line."),
          ("Reads the codes other apps give up on", "Faded, torn, tilted or inverted: it reads while you aim and keeps trying across frames. Several in view? You tap the one you meant. {features}."),
-         ("Free, no ads, nothing collected", "Every feature free for everyone, kept that way by the people who use it."),
+         ("Free, no ads, no tracking by Verdetto", "Every feature free for everyone, kept that way by the people who use it."),
          ("Works offline", "Every check runs on the phone. One switch turns online lookups off."),
          ("History that is yours", "Searchable, starrable, swipe to delete. Older than 90 days clears itself.")],
   more="Everything it does", reads_link="How it reads", press_link="How that was checked is in the press kit",
@@ -5201,7 +5201,7 @@ HOME_T = {
   cards=[("Mira antes de abrir", "El enlace, el nombre de la red o el contacto se muestra antes de que se abra nada."),
          ("Comprobado en tu teléfono", "Nombres parecidos, enlaces cortos, datos de acceso ocultos y más, señalados en una línea."),
          ("Lee los códigos que otras apps abandonan", "Descoloridos, rotos, inclinados o invertidos: lee mientras apuntas y sigue intentándolo fotograma tras fotograma. ¿Varios a la vista? Tocas el que querías. {features}."),
-         ("Gratis, sin anuncios, sin recopilar nada", "Todas las funciones gratis para todos, gracias a las personas que lo usan."),
+         ("Gratis, sin anuncios, sin rastreo por parte de Verdetto", "Todas las funciones gratis para todos, gracias a las personas que lo usan."),
          ("Funciona sin conexión", "Cada comprobación se hace en el teléfono. Un interruptor apaga las consultas en línea."),
          ("Un historial que es tuyo", "Con búsqueda, favoritos y borrado al deslizar. Lo de más de 90 días se borra solo.")],
   more="Todo lo que hace", reads_link="Cómo lee", press_link="Cómo se comprobó está en el kit de prensa",
@@ -5224,7 +5224,7 @@ HOME_T = {
   cards=[("Voir avant d'ouvrir", "Le lien, le nom du réseau ou le contact s'affiche avant que rien ne s'ouvre."),
          ("Vérifié sur ton téléphone", "Noms imitant une marque, liens courts, identifiants cachés et plus, signalés en une ligne."),
          ("Lit les codes que les autres applications abandonnent", "Délavés, déchirés, inclinés ou inversés : elle lit pendant que vous visez et continue image après image. Plusieurs dans le champ ? Vous touchez celui que vous vouliez. {features}."),
-         ("Gratuit, sans publicité, rien de collecté", "Toutes les fonctions gratuites pour tous, grâce aux personnes qui l'utilisent."),
+         ("Gratuit, sans publicité, aucun pistage par Verdetto", "Toutes les fonctions gratuites pour tous, grâce aux personnes qui l'utilisent."),
          ("Fonctionne hors ligne", "Chaque vérification se fait sur le téléphone. Un interrupteur coupe les recherches en ligne."),
          ("Un historique qui est le tien", "Recherche, favoris, suppression d'un glissement. Au-delà de 90 jours, il s'efface tout seul.")],
   more="Tout ce qu'il fait", reads_link="Comment elle lit", press_link="La méthode de vérification est dans le kit presse",
@@ -5247,7 +5247,7 @@ HOME_T = {
   cards=[("Erst sehen, dann öffnen", "Der Link, der Netzwerkname oder der Kontakt wird gezeigt, bevor sich etwas öffnet."),
          ("Geprüft auf deinem Handy", "Täuschend ähnliche Namen, Kurzlinks, versteckte Anmeldedaten und mehr, in einer Zeile markiert."),
          ("Liest die Codes, bei denen andere Apps aufgeben", "Verblasst, zerrissen, schräg oder invertiert: Verdetto liest, während du zielst, und versucht es Bild für Bild weiter. Mehrere im Bild? Du tippst auf den, den du meinst. {features}."),
-         ("Kostenlos, ohne Werbung, nichts gesammelt", "Jede Funktion kostenlos für alle, gehalten von den Menschen, die die App nutzen."),
+         ("Kostenlos, ohne Werbung, kein Tracking durch Verdetto", "Jede Funktion kostenlos für alle, gehalten von den Menschen, die die App nutzen."),
          ("Funktioniert offline", "Jede Prüfung läuft auf dem Handy. Ein Schalter stellt Online-Abfragen ab."),
          ("Ein Verlauf, der dir gehört", "Durchsuchbar, mit Sternen markierbar, zum Löschen wischen. Älter als 90 Tage löscht sich von selbst.")],
   more="Alles, was sie kann", reads_link="Wie sie liest", press_link="Wie das geprüft wurde, steht im Pressekit",
@@ -5270,7 +5270,7 @@ HOME_T = {
   cards=[("Veja antes de abrir", "O link, o nome da rede ou o contato aparece antes que qualquer coisa abra."),
          ("Verificado no seu celular", "Nomes parecidos, links curtos, dados de login escondidos e mais, sinalizados em uma linha."),
          ("Lê os códigos que outros apps desistem de ler", "Desbotados, rasgados, inclinados ou invertidos: ele lê enquanto você aponta e continua tentando quadro a quadro. Vários à vista? Você toca no que queria. {features}."),
-         ("Grátis, sem anúncios, nada coletado", "Todos os recursos grátis para todos, mantidos assim pelas pessoas que usam."),
+         ("Grátis, sem anúncios, sem rastreamento pelo Verdetto", "Todos os recursos grátis para todos, mantidos assim pelas pessoas que usam."),
          ("Funciona offline", "Toda verificação roda no celular. Uma chave desliga as consultas online."),
          ("Um histórico que é seu", "Com busca, favoritos e exclusão ao deslizar. O que tem mais de 90 dias se apaga sozinho.")],
   more="Tudo o que ele faz", reads_link="Como ele lê", press_link="Como isso foi verificado está no kit de imprensa",
@@ -5293,7 +5293,7 @@ HOME_T = {
   cards=[("Сначала посмотреть, потом открыть", "Ссылка, имя сети или контакт показываются до того, как что-либо откроется."),
          ("Проверено на вашем телефоне", "Имена-подделки, короткие ссылки, скрытые данные входа и не только, отмечены одной строкой."),
          ("Читает коды, на которых другие приложения сдаются", "Выцветшие, порванные, наклонённые или инвертированные: оно читает, пока вы наводите камеру, и пробует кадр за кадром. В кадре несколько? Вы касаетесь нужного. {features}."),
-         ("Бесплатно, без рекламы, ничего не собирается", "Все функции бесплатны для всех, и так остаётся благодаря людям, которые им пользуются."),
+         ("Бесплатно, без рекламы, без слежки со стороны Verdetto", "Все функции бесплатны для всех, и так остаётся благодаря людям, которые им пользуются."),
          ("Работает офлайн", "Каждая проверка выполняется на телефоне. Один переключатель отключает онлайн-запросы."),
          ("История, которая принадлежит вам", "Поиск, избранное, удаление свайпом. Записи старше 90 дней удаляются сами.")],
   more="Всё, что он умеет", reads_link="Как он читает", press_link="Как это проверялось, описано в пресс-ките",
@@ -5316,7 +5316,7 @@ HOME_T = {
   cards=[("Lihat sebelum membuka", "Tautan, nama jaringan, atau kontak ditampilkan sebelum apa pun terbuka."),
          ("Diperiksa di ponselmu", "Nama mirip, tautan pendek, data masuk tersembunyi, dan lainnya, ditandai dalam satu baris."),
          ("Membaca kode yang menyerah dibaca aplikasi lain", "Pudar, sobek, miring, atau terbalik warnanya: ia membaca sambil Anda mengarahkan dan terus mencoba dari bingkai ke bingkai. Beberapa terlihat sekaligus? Anda mengetuk yang Anda maksud. {features}."),
-         ("Gratis, tanpa iklan, tidak ada yang dikumpulkan", "Semua fitur gratis untuk semua orang, dijaga oleh orang-orang yang memakainya."),
+         ("Gratis, tanpa iklan, tanpa pelacakan oleh Verdetto", "Semua fitur gratis untuk semua orang, dijaga oleh orang-orang yang memakainya."),
          ("Bekerja offline", "Setiap pemeriksaan berjalan di ponsel. Satu sakelar mematikan pencarian online."),
          ("Riwayat milikmu", "Bisa dicari, diberi bintang, digeser untuk dihapus. Yang lebih dari 90 hari terhapus sendiri.")],
   more="Semua yang dilakukannya", reads_link="Cara membacanya", press_link="Cara pemeriksaannya ada di kit pers",
@@ -5339,7 +5339,7 @@ HOME_T = {
   cards=[("開く前に見る", "何かが開く前に、リンク、ネットワーク名、連絡先を表示します。"),
          ("端末内でチェック", "紛らわしい名前、短縮リンク、隠されたログイン情報などを一行で知らせます。"),
          ("他のアプリがあきらめるコードを読む", "色あせ、破れ、傾き、色の反転。狙っている間に読み取り、フレームをまたいで試し続けます。複数見えている？ 意図したものをタップします。{features}。"),
-         ("無料、広告なし、収集なし", "すべての機能が誰でも無料。使う人の支えで守られています。"),
+         ("無料、広告なし、Verdetto による追跡なし", "すべての機能が誰でも無料。使う人の支えで守られています。"),
          ("オフラインで動く", "すべてのチェックは端末内で行われます。スイッチひとつでオンライン検索を切れます。"),
          ("履歴はあなたのもの", "検索、スター、スワイプで削除。90 日を過ぎたものは自動で消えます。")],
   more="できることすべて", reads_link="読み取りの仕組み", press_link="確認方法はプレスキットに記載しています",
@@ -5362,7 +5362,7 @@ HOME_T = {
   cards=[("先看再打开", "在任何东西打开之前，先显示链接、网络名称或联系人。"),
          ("在你的手机上检查", "易混淆的名称、短链接、隐藏的登录信息等，一行标出。"),
          ("读取其他应用放弃的码", "褪色、撕裂、倾斜或反色：它在您对准时就读取，并跨帧持续尝试。视野里有多个？您点选想要的那个。{features}。"),
-         ("免费、无广告、不收集任何数据", "每项功能对所有人免费，由使用它的人共同维持。"),
+         ("免费、无广告、Verdetto 不做跟踪", "每项功能对所有人免费，由使用它的人共同维持。"),
          ("离线可用", "每项检查都在手机上完成。一个开关即可关闭在线查询。"),
          ("属于你的历史记录", "可搜索、可加星、滑动即删。超过 90 天的记录会自行清除。")],
   more="它能做的一切", reads_link="它如何读取", press_link="核查方法见新闻资料包",
@@ -5385,7 +5385,7 @@ HOME_T = {
   cards=[("खोलने से पहले देखें", "कुछ भी खुलने से पहले लिंक, नेटवर्क का नाम या संपर्क दिखाया जाता है।"),
          ("आपके फ़ोन पर जाँचा गया", "मिलते-जुलते नाम, छोटे लिंक, छिपी लॉगिन जानकारी और भी बहुत कुछ, एक पंक्ति में चिह्नित।"),
          ("वे कोड पढ़ता है जिन्हें दूसरे ऐप छोड़ देते हैं", "फीके, फटे, तिरछे या उलटे रंग वाले: यह निशाना लगाते हुए पढ़ता है और फ़्रेम-दर-फ़्रेम कोशिश करता रहता है। एक साथ कई दिख रहे हैं? आप उस पर टैप करते हैं जो आपका मतलब था। {features}।"),
-         ("मुफ़्त, बिना विज्ञापन, कुछ भी संग्रहित नहीं", "हर सुविधा सभी के लिए मुफ़्त, इसे इस्तेमाल करने वाले लोगों की बदौलत।"),
+         ("मुफ़्त, बिना विज्ञापन, Verdetto की ओर से कोई ट्रैकिंग नहीं", "हर सुविधा सभी के लिए मुफ़्त, इसे इस्तेमाल करने वाले लोगों की बदौलत।"),
          ("ऑफ़लाइन काम करता है", "हर जाँच फ़ोन पर होती है। एक स्विच ऑनलाइन लुकअप बंद कर देता है।"),
          ("इतिहास जो आपका है", "खोजने योग्य, स्टार लगाने योग्य, स्वाइप करके हटाएँ। 90 दिन से पुराना अपने आप साफ़ हो जाता है।")],
   more="यह सब कुछ जो यह करता है", reads_link="यह कैसे पढ़ता है", press_link="यह कैसे जाँचा गया, प्रेस किट में है",
@@ -5408,7 +5408,7 @@ HOME_T = {
   cards=[("انظر قبل أن تفتح", "يُعرض الرابط أو اسم الشبكة أو جهة الاتصال قبل أن يُفتح أي شيء."),
          ("مفحوص على هاتفك", "أسماء متشابهة، روابط مختصرة، بيانات تسجيل دخول مخفية وغيرها، مُعلَّمة في سطر واحد."),
          ("يقرأ الرموز التي تستسلم أمامها التطبيقات الأخرى", "باهتة أو ممزقة أو مائلة أو معكوسة الألوان: يقرأ وأنت توجّه الكاميرا ويواصل المحاولة عبر الإطارات. عدة رموز في المشهد؟ تنقر على ما قصدته. {features}."),
-         ("مجاني، بلا إعلانات، لا يجمع شيئًا", "كل ميزة مجانية للجميع، ويبقيها كذلك من يستخدمونه."),
+         ("مجاني، بلا إعلانات، بلا تتبّع من Verdetto", "كل ميزة مجانية للجميع، ويبقيها كذلك من يستخدمونه."),
          ("يعمل دون اتصال", "كل فحص يجري على الهاتف. مفتاح واحد يوقف عمليات البحث عبر الإنترنت."),
          ("سجلّ يخصّك أنت", "قابل للبحث والتمييز بنجمة والحذف بالسحب. ما يتجاوز 90 يومًا يُمحى من تلقاء نفسه.")],
   more="كل ما يفعله", reads_link="كيف يقرأ", press_link="طريقة التحقق موجودة في الملف الصحفي",
