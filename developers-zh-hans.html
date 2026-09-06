@@ -99,7 +99,7 @@ p,li{margin:.5rem 0}
 .prose ol,.prose ul{padding-left:1.4rem}
 .prose li{margin:.6rem 0}
 table{border-collapse:collapse;width:100%;font-size:.875rem;line-height:1.25rem;display:block;overflow-x:auto;margin:1rem 0}
-.prose table{display:table;table-layout:fixed}.prose th,.prose td{overflow-wrap:anywhere;vertical-align:top}.prose th:nth-child(1){width:27%}.prose th:nth-child(2){width:18%}.prose th:nth-child(3){width:37%}.prose th:nth-child(4){width:18%}.prose th{white-space:normal}.routes{list-style:none;padding:0;margin:1rem 0;display:grid;gap:.5rem}.routes li{display:grid;grid-template-columns:10rem 1fr;gap:.2rem .75rem;align-items:baseline;padding:.6rem .75rem;border:1px solid var(--outline-variant);border-radius:.5rem}.routes .name{font-weight:500}.routes .tag{grid-column:2;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant)}@media (max-width:600px){.routes li{grid-template-columns:1fr}.routes .tag{grid-column:1}table.stack,table.stack tbody,table.stack tr,table.stack td{display:block;width:auto}table.stack{table-layout:auto}table.stack thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}table.stack tr{border:1px solid var(--outline-variant);border-radius:.5rem;padding:.3rem .75rem;margin:0 0 .75rem}table.stack td{padding:.4rem 0;border:0;min-width:0}table.stack td+td{border-top:1px solid var(--outline-variant)}table.stack td::before{content:attr(data-label);display:block;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant);margin-bottom:.15rem}table.stack td:first-child{font-weight:500}}
+.prose table{display:table;table-layout:fixed}.prose th,.prose td{overflow-wrap:anywhere;vertical-align:top}.prose th:nth-child(1){width:27%}.prose th:nth-child(2){width:18%}.prose th:nth-child(3){width:37%}.prose th:nth-child(4){width:18%}.prose th{white-space:normal}.routes{list-style:none;padding:0;margin:1rem 0;display:grid;gap:.5rem}.routes li{display:grid;grid-template-columns:10rem 1fr;gap:.2rem .75rem;align-items:baseline;padding:.6rem .75rem;border:1px solid var(--outline-variant);border-radius:.5rem}.routes .name{font-weight:500}.tabs{position:relative;margin:1rem 0}.tabs>input{position:absolute;opacity:0;width:1px;height:1px;margin:0;pointer-events:none}.tabbar{display:inline-flex;gap:.2rem;padding:.2rem;border:1px solid var(--outline-variant);border-radius:999px;margin:0 0 .5rem}.tabbar label{padding:.35rem .9rem;border-radius:999px;cursor:pointer;font-weight:500;font-size:.875rem;line-height:1.25rem;color:var(--on-surface-variant)}.tabs .panel{display:none}.tabs .panel>pre{margin-top:0}#lang-kotlin:checked~.panel.kotlin,#lang-java:checked~.panel.java{display:block}#lang-kotlin:checked~.tabbar label[for=lang-kotlin],#lang-java:checked~.tabbar label[for=lang-java]{background:var(--primary);color:var(--on-primary)}#lang-kotlin:focus-visible~.tabbar label[for=lang-kotlin],#lang-java:focus-visible~.tabbar label[for=lang-java]{outline:2px solid var(--primary);outline-offset:2px}.tabs .panel::before{content:attr(data-lang);display:none;font-weight:500;margin:.5rem 0 .25rem}@media print{.tabs .panel{display:block}.tabs .panel::before{display:block}.tabbar{display:none}}.routes .tag{grid-column:2;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant)}@media (max-width:600px){.routes li{grid-template-columns:1fr}.routes .tag{grid-column:1}table.stack,table.stack tbody,table.stack tr,table.stack td{display:block;width:auto}table.stack{table-layout:auto}table.stack thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}table.stack tr{border:1px solid var(--outline-variant);border-radius:.5rem;padding:.3rem .75rem;margin:0 0 .75rem}table.stack td{padding:.4rem 0;border:0;min-width:0}table.stack td+td{border-top:1px solid var(--outline-variant)}table.stack td::before{content:attr(data-label);display:block;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant);margin-bottom:.15rem}table.stack td:first-child{font-weight:500}}
 pre{background:var(--container);border-radius:.5rem;padding:.9rem 1rem;overflow-x:auto;font-size:.8125rem;line-height:1.35rem;margin:1rem 0}
 code{font-family:Consolas,'Cascadia Mono',Menlo,monospace;font-size:.92em}
 pre code{font-size:inherit}
@@ -238,8 +238,12 @@ footer a{color:var(--primary)}
 </ul>
 <p>不会传递其他任何东西：没有图片、没有位置、没有历史记录。</p>
 
-<h2>Kotlin</h2>
-<pre><code>private val scan = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result -&gt;
+<h2>Kotlin 或 Java</h2>
+<div class="tabs">
+<input type="radio" name="lang" id="lang-kotlin" checked>
+<input type="radio" name="lang" id="lang-java">
+<div class="tabbar" aria-label="Sample language"><label for="lang-kotlin">Kotlin</label><label for="lang-java">Java</label></div>
+<div class="panel kotlin" data-lang="Kotlin"><pre><code>private val scan = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result -&gt;
     if (result.resultCode == Activity.RESULT_OK) {
         val text = result.data?.getStringExtra(&quot;SCAN_RESULT&quot;)
         val format = result.data?.getStringExtra(&quot;SCAN_RESULT_FORMAT&quot;)
@@ -256,17 +260,8 @@ fun startScan() {
 // the store page
 private const val GET_VERDETTO =
     &quot;https://play.google.com/store/apps/details?id=com.verdettoqr.scanner&quot;
-</code></pre>
-<p>在 Android 11 及更高版本上，把查询加入你的清单，这样 <code>resolveActivity</code> 才能看到该应用：</p>
-<pre><code>&lt;queries&gt;
-    &lt;intent&gt;
-        &lt;action android:name=&quot;app.scanner.action.SCAN&quot; /&gt;
-    &lt;/intent&gt;
-&lt;/queries&gt;
-</code></pre>
-
-<h2>Java</h2>
-<pre><code>private final ActivityResultLauncher&lt;Intent&gt; scan = registerForActivityResult(
+</code></pre></div>
+<div class="panel java" data-lang="Java"><pre><code>private final ActivityResultLauncher&lt;Intent&gt; scan = registerForActivityResult(
         new ActivityResultContracts.StartActivityForResult(), result -&gt; {
             if (result.getResultCode() == Activity.RESULT_OK &amp;&amp; result.getData() != null) {
                 String text = result.getData().getStringExtra(&quot;SCAN_RESULT&quot;);
@@ -280,6 +275,14 @@ void startScan() {
     if (intent.resolveActivity(getPackageManager()) != null) scan.launch(intent);
     else startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(GET_VERDETTO)));
 }
+</code></pre></div>
+</div>
+<p>在 Android 11 及更高版本上，把查询加入你的清单，这样 <code>resolveActivity</code> 才能看到该应用：</p>
+<pre><code>&lt;queries&gt;
+    &lt;intent&gt;
+        &lt;action android:name=&quot;app.scanner.action.SCAN&quot; /&gt;
+    &lt;/intent&gt;
+&lt;/queries&gt;
 </code></pre>
 
 <h2>ZXing action</h2>

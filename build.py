@@ -119,7 +119,7 @@ p,li{margin:.5rem 0}
 .prose ol,.prose ul{padding-left:1.4rem}
 .prose li{margin:.6rem 0}
 table{border-collapse:collapse;width:100%;font-size:.875rem;line-height:1.25rem;display:block;overflow-x:auto;margin:1rem 0}
-.prose table{display:table;table-layout:fixed}.prose th,.prose td{overflow-wrap:anywhere;vertical-align:top}.prose th:nth-child(1){width:27%}.prose th:nth-child(2){width:18%}.prose th:nth-child(3){width:37%}.prose th:nth-child(4){width:18%}.prose th{white-space:normal}.routes{list-style:none;padding:0;margin:1rem 0;display:grid;gap:.5rem}.routes li{display:grid;grid-template-columns:10rem 1fr;gap:.2rem .75rem;align-items:baseline;padding:.6rem .75rem;border:1px solid var(--outline-variant);border-radius:.5rem}.routes .name{font-weight:500}.routes .tag{grid-column:2;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant)}@media (max-width:600px){.routes li{grid-template-columns:1fr}.routes .tag{grid-column:1}table.stack,table.stack tbody,table.stack tr,table.stack td{display:block;width:auto}table.stack{table-layout:auto}table.stack thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}table.stack tr{border:1px solid var(--outline-variant);border-radius:.5rem;padding:.3rem .75rem;margin:0 0 .75rem}table.stack td{padding:.4rem 0;border:0;min-width:0}table.stack td+td{border-top:1px solid var(--outline-variant)}table.stack td::before{content:attr(data-label);display:block;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant);margin-bottom:.15rem}table.stack td:first-child{font-weight:500}}
+.prose table{display:table;table-layout:fixed}.prose th,.prose td{overflow-wrap:anywhere;vertical-align:top}.prose th:nth-child(1){width:27%}.prose th:nth-child(2){width:18%}.prose th:nth-child(3){width:37%}.prose th:nth-child(4){width:18%}.prose th{white-space:normal}.routes{list-style:none;padding:0;margin:1rem 0;display:grid;gap:.5rem}.routes li{display:grid;grid-template-columns:10rem 1fr;gap:.2rem .75rem;align-items:baseline;padding:.6rem .75rem;border:1px solid var(--outline-variant);border-radius:.5rem}.routes .name{font-weight:500}.tabs{position:relative;margin:1rem 0}.tabs>input{position:absolute;opacity:0;width:1px;height:1px;margin:0;pointer-events:none}.tabbar{display:inline-flex;gap:.2rem;padding:.2rem;border:1px solid var(--outline-variant);border-radius:999px;margin:0 0 .5rem}.tabbar label{padding:.35rem .9rem;border-radius:999px;cursor:pointer;font-weight:500;font-size:.875rem;line-height:1.25rem;color:var(--on-surface-variant)}.tabs .panel{display:none}.tabs .panel>pre{margin-top:0}#lang-kotlin:checked~.panel.kotlin,#lang-java:checked~.panel.java{display:block}#lang-kotlin:checked~.tabbar label[for=lang-kotlin],#lang-java:checked~.tabbar label[for=lang-java]{background:var(--primary);color:var(--on-primary)}#lang-kotlin:focus-visible~.tabbar label[for=lang-kotlin],#lang-java:focus-visible~.tabbar label[for=lang-java]{outline:2px solid var(--primary);outline-offset:2px}.tabs .panel::before{content:attr(data-lang);display:none;font-weight:500;margin:.5rem 0 .25rem}@media print{.tabs .panel{display:block}.tabs .panel::before{display:block}.tabbar{display:none}}.routes .tag{grid-column:2;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant)}@media (max-width:600px){.routes li{grid-template-columns:1fr}.routes .tag{grid-column:1}table.stack,table.stack tbody,table.stack tr,table.stack td{display:block;width:auto}table.stack{table-layout:auto}table.stack thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}table.stack tr{border:1px solid var(--outline-variant);border-radius:.5rem;padding:.3rem .75rem;margin:0 0 .75rem}table.stack td{padding:.4rem 0;border:0;min-width:0}table.stack td+td{border-top:1px solid var(--outline-variant)}table.stack td::before{content:attr(data-label);display:block;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant);margin-bottom:.15rem}table.stack td:first-child{font-weight:500}}
 pre{background:var(--container);border-radius:.5rem;padding:.9rem 1rem;overflow-x:auto;font-size:.8125rem;line-height:1.35rem;margin:1rem 0}
 code{font-family:Consolas,'Cascadia Mono',Menlo,monospace;font-size:.92em}
 pre code{font-size:inherit}
@@ -3525,6 +3525,18 @@ def code_block(text):
     return "<pre><code>" + html.escape(text) + "</code></pre>"
 
 
+def lang_tabs(kotlin_html, java_html):
+    """One script-free toggle between the Kotlin and Java samples: two radios, Kotlin checked, labels as the
+    segmented control, panels shown by the checked radio; both panels print, each under its name."""
+    return ('<div class="tabs">\n'
+            '<input type="radio" name="lang" id="lang-kotlin" checked>\n'
+            '<input type="radio" name="lang" id="lang-java">\n'
+            '<div class="tabbar" aria-label="Sample language"><label for="lang-kotlin">Kotlin</label><label for="lang-java">Java</label></div>\n'
+            f'<div class="panel kotlin" data-lang="Kotlin">{kotlin_html}</div>\n'
+            f'<div class="panel java" data-lang="Java">{java_html}</div>\n'
+            '</div>')
+
+
 def developers_page():
     """The developers page: the app's INTENT.md (verdetto-android f9f2927) as a web page. The name once per block, the
     domain never (the footer carries it), one link per block (operator, 2026-09-05)."""
@@ -3558,13 +3570,10 @@ def developers_page():
 </ul>
 <p>Nothing else travels: no image, no location, no history.</p>
 
-<h2>Kotlin</h2>
-{code_block(kotlin)}
+<h2>Kotlin or Java</h2>
+{lang_tabs(code_block(kotlin), code_block(JAVA_SAMPLE))}
 <p>On Android 11 and later, add the query to your manifest so <code>resolveActivity</code> can see the app:</p>
 {code_block(QUERIES_SAMPLE)}
-
-<h2>Java</h2>
-{code_block(JAVA_SAMPLE)}
 
 <h2>The ZXing action</h2>
 <p>Code written for the ZXing Barcode Scanner keeps working: send <code>com.google.zxing.client.android.SCAN</code> the same way and read the same two extras. If more than one scanner on the phone answers it, the system asks the person which to use; sending the intent to the package <code>com.verdettoqr.scanner</code> skips that.</p>
@@ -3628,7 +3637,8 @@ DEV_T = {
   "sees_h": "Was die Person sieht",
   "sees_p": "Der Scanner öffnet sich wie immer, mit seinen eigenen Prüfungen. Rastet ein Code ein, gibt die App ihn zurück und schließt sich; nichts von dir erscheint auf dem Bildschirm, und nichts von der Person (Historie, Einstellungen, Sicherheitsliste) wird durch den Aufruf berührt.",
   "card_lead": "Testen auf einem Telefon ohne die App.",
-  "card": "Die Store-Seite, dieselbe Adresse, die der Fallback in den Beispielen öffnet: <a href=\"{play}\">Bei Google Play holen</a>. Die Quelle dieser Seite ist die INTENT.md der App selbst; weichen beide voneinander ab, hat das App-Repository recht und diese Seite hinkt hinterher."
+  "card": "Die Store-Seite, dieselbe Adresse, die der Fallback in den Beispielen öffnet: <a href=\"{play}\">Bei Google Play holen</a>. Die Quelle dieser Seite ist die INTENT.md der App selbst; weichen beide voneinander ab, hat das App-Repository recht und diese Seite hinkt hinterher.",
+  "code_h": "Kotlin oder Java"
  },
  "es": {
   "title": "Para desarrolladores",
@@ -3680,7 +3690,8 @@ DEV_T = {
   "sees_h": "Lo que ve la persona",
   "sees_p": "El escáner se abre como siempre, con sus propias comprobaciones. Cuando un código se fija, la app lo devuelve y se cierra; nada tuyo aparece en la pantalla, y nada suyo (historial, ajustes, lista de seguridad) se toca con la llamada.",
   "card_lead": "Probar en un teléfono sin la app.",
-  "card": "La página de la tienda, la misma dirección que abre el fallback de los ejemplos: <a href=\"{play}\">Descárgala en Google Play</a>. La fuente de esta página es el INTENT.md de la propia app; cuando los dos difieren, el repositorio de la app tiene razón y esta página va por detrás."
+  "card": "La página de la tienda, la misma dirección que abre el fallback de los ejemplos: <a href=\"{play}\">Descárgala en Google Play</a>. La fuente de esta página es el INTENT.md de la propia app; cuando los dos difieren, el repositorio de la app tiene razón y esta página va por detrás.",
+  "code_h": "Kotlin o Java"
  },
  "fr": {
   "title": "Pour les développeurs",
@@ -3732,7 +3743,8 @@ DEV_T = {
   "sees_h": "Ce que voit la personne",
   "sees_p": "Le scanner s'ouvre comme toujours, avec ses propres vérifications. Quand un code se verrouille, l'application le renvoie et se ferme ; rien de vous n'apparaît à l'écran, et rien d'elle (historique, réglages, liste de sécurité) n'est touché par l'appel.",
   "card_lead": "Tester sur un téléphone sans l'application.",
-  "card": "La page du magasin, la même adresse que le repli des exemples ouvre : <a href=\"{play}\">Disponible sur Google Play</a>. La source de cette page est le fichier INTENT.md de l'application ; quand les deux divergent, le dépôt de l'application a raison et cette page est en retard."
+  "card": "La page du magasin, la même adresse que le repli des exemples ouvre : <a href=\"{play}\">Disponible sur Google Play</a>. La source de cette page est le fichier INTENT.md de l'application ; quand les deux divergent, le dépôt de l'application a raison et cette page est en retard.",
+  "code_h": "Kotlin ou Java"
  },
  "pt-BR": {
   "title": "Para desenvolvedores",
@@ -3784,7 +3796,8 @@ DEV_T = {
   "sees_h": "O que a pessoa vê",
   "sees_p": "O leitor abre como sempre, com suas próprias verificações. Quando um código é fixado, o app o devolve e fecha; nada seu aparece na tela, e nada dela (histórico, configurações, lista de segurança) é tocado pela chamada.",
   "card_lead": "Testar em um celular sem o app.",
-  "card": "A página da loja, o mesmo endereço que o fallback dos exemplos abre: <a href=\"{play}\">Disponível no Google Play</a>. A fonte desta página é o INTENT.md do próprio app; quando os dois divergem, o repositório do app está certo e esta página está atrasada."
+  "card": "A página da loja, o mesmo endereço que o fallback dos exemplos abre: <a href=\"{play}\">Disponível no Google Play</a>. A fonte desta página é o INTENT.md do próprio app; quando os dois divergem, o repositório do app está certo e esta página está atrasada.",
+  "code_h": "Kotlin ou Java"
  },
  "id": {
   "title": "Untuk pengembang",
@@ -3836,7 +3849,8 @@ DEV_T = {
   "sees_h": "Yang dilihat pengguna",
   "sees_p": "Pemindai terbuka seperti biasa, dengan pemeriksaannya sendiri. Saat kode terkunci, aplikasi mengembalikannya dan menutup; tidak ada milik Anda yang muncul di layar, dan tidak ada milik orang itu (riwayat, pengaturan, daftar keamanan) yang tersentuh panggilan tersebut.",
   "card_lead": "Menguji di ponsel tanpa aplikasi.",
-  "card": "Halaman toko, alamat yang sama yang dibuka fallback dalam contoh: <a href=\"{play}\">Dapatkan di Google Play</a>. Sumber halaman ini adalah INTENT.md aplikasi sendiri; bila keduanya berbeda, repositori aplikasi yang benar dan halaman ini yang tertinggal."
+  "card": "Halaman toko, alamat yang sama yang dibuka fallback dalam contoh: <a href=\"{play}\">Dapatkan di Google Play</a>. Sumber halaman ini adalah INTENT.md aplikasi sendiri; bila keduanya berbeda, repositori aplikasi yang benar dan halaman ini yang tertinggal.",
+  "code_h": "Kotlin atau Java"
  },
  "ru": {
   "title": "Разработчикам",
@@ -3888,7 +3902,8 @@ DEV_T = {
   "sees_h": "Что видит человек",
   "sees_p": "Сканер открывается как всегда, со своими проверками. Когда код фиксируется, приложение возвращает его и закрывается; ничего вашего на экране не появляется, и ничего его (история, настройки, список безопасности) вызов не затрагивает.",
   "card_lead": "Проверка на телефоне без приложения.",
-  "card": "Страница магазина, тот же адрес, который открывает запасной вариант в примерах: <a href=\"{play}\">Скачать в Google Play</a>. Источник этой страницы — собственный INTENT.md приложения; если они расходятся, прав репозиторий приложения, а эта страница отстаёт."
+  "card": "Страница магазина, тот же адрес, который открывает запасной вариант в примерах: <a href=\"{play}\">Скачать в Google Play</a>. Источник этой страницы — собственный INTENT.md приложения; если они расходятся, прав репозиторий приложения, а эта страница отстаёт.",
+  "code_h": "Kotlin или Java"
  },
  "hi": {
   "title": "डेवलपरों के लिए",
@@ -3940,7 +3955,8 @@ DEV_T = {
   "sees_h": "व्यक्ति क्या देखता है",
   "sees_p": "स्कैनर हमेशा की तरह खुलता है, अपनी जाँचों के साथ। कोड लॉक होने पर ऐप उसे वापस देता है और बंद हो जाता है; स्क्रीन पर आपका कुछ नहीं दिखता, और उसका कुछ भी (इतिहास, सेटिंग, सुरक्षा सूची) इस कॉल से नहीं छुआ जाता।",
   "card_lead": "बिना ऐप वाले फ़ोन पर परीक्षण।",
-  "card": "स्टोर पेज, वही पता जो उदाहरणों का फ़ॉलबैक खोलता है: <a href=\"{play}\">Google Play पर पाएँ</a>। इस पेज का स्रोत ऐप की अपनी INTENT.md है; दोनों में अंतर हो तो ऐप रिपॉज़िटरी सही है और यह पेज पीछे है।"
+  "card": "स्टोर पेज, वही पता जो उदाहरणों का फ़ॉलबैक खोलता है: <a href=\"{play}\">Google Play पर पाएँ</a>। इस पेज का स्रोत ऐप की अपनी INTENT.md है; दोनों में अंतर हो तो ऐप रिपॉज़िटरी सही है और यह पेज पीछे है।",
+  "code_h": "Kotlin या Java"
  },
  "ja": {
   "title": "開発者向け",
@@ -3992,7 +4008,8 @@ DEV_T = {
   "sees_h": "利用者に見えるもの",
   "sees_p": "スキャナーはいつも通り、自身の確認とともに開きます。コードがロックされるとアプリはそれを返して閉じます。あなたのものは画面に何も現れず、利用者のもの（履歴、設定、安全リスト）にこの呼び出しが触れることもありません。",
   "card_lead": "アプリのない端末での確認。",
-  "card": "ストアページで、サンプルのフォールバックが開くのと同じアドレスです: <a href=\"{play}\">Google Play で手に入れよう</a>。このページの出典はアプリ自身の INTENT.md で、両者が異なる場合はアプリのリポジトリが正しく、このページが遅れています。"
+  "card": "ストアページで、サンプルのフォールバックが開くのと同じアドレスです: <a href=\"{play}\">Google Play で手に入れよう</a>。このページの出典はアプリ自身の INTENT.md で、両者が異なる場合はアプリのリポジトリが正しく、このページが遅れています。",
+  "code_h": "Kotlin または Java"
  },
  "zh-Hans": {
   "title": "面向开发者",
@@ -4044,7 +4061,8 @@ DEV_T = {
   "sees_h": "用户看到的内容",
   "sees_p": "扫描器照常打开，带着它自己的检查。码锁定后，应用把它返回并关闭；屏幕上不会出现任何属于你的内容，用户的任何内容（历史记录、设置、安全列表）也不会被这次调用触及。",
   "card_lead": "在没有安装应用的手机上测试。",
-  "card": "商店页面，也就是示例中回退所打开的地址：<a href=\"{play}\">在 Google Play 获取</a>。本页面的来源是应用自身的 INTENT.md；两者不一致时，以应用仓库为准，本页面滞后。"
+  "card": "商店页面，也就是示例中回退所打开的地址：<a href=\"{play}\">在 Google Play 获取</a>。本页面的来源是应用自身的 INTENT.md；两者不一致时，以应用仓库为准，本页面滞后。",
+  "code_h": "Kotlin 或 Java"
  },
  "ar": {
   "title": "للمطوّرين",
@@ -4096,7 +4114,8 @@ DEV_T = {
   "sees_h": "ما يراه الشخص",
   "sees_p": "يفتح الماسح كالمعتاد، بفحوصه الخاصة. وعندما يثبت رمز، يعيده التطبيق ويُغلَق؛ لا يظهر شيء من عندك على الشاشة، ولا يمسّ الاستدعاء شيئًا من عند الشخص (السجل، الإعدادات، قائمة الأمان).",
   "card_lead": "الاختبار على هاتف بلا التطبيق.",
-  "card": "صفحة المتجر، وهي العنوان نفسه الذي يفتحه البديل في الأمثلة: <a href=\"{play}\">احصل عليه من Google Play</a>. مصدر هذه الصفحة هو ملف INTENT.md الخاص بالتطبيق؛ وعند اختلافهما فمستودع التطبيق هو الصحيح وهذه الصفحة متأخرة."
+  "card": "صفحة المتجر، وهي العنوان نفسه الذي يفتحه البديل في الأمثلة: <a href=\"{play}\">احصل عليه من Google Play</a>. مصدر هذه الصفحة هو ملف INTENT.md الخاص بالتطبيق؛ وعند اختلافهما فمستودع التطبيق هو الصحيح وهذه الصفحة متأخرة.",
+  "code_h": "Kotlin أو Java"
  }
 }
 
@@ -4112,8 +4131,7 @@ def dev_body(t, code):
             f'<h2>{t["intents_h"]}</h2>\n<table>\n<thead><tr>{th}</tr></thead>\n<tbody>\n{rows}\n</tbody>\n</table>\n\n'
             f'<p>{t["p_handback"]}</p>\n\n<p>{t["p_extras"]}</p>\n\n'
             f'<h2>{t["result_h"]}</h2>\n<ul>\n  <li>{t["li_text"]}</li>\n  <li>{t["li_format"].replace("{formats}", formats)}</li>\n</ul>\n<p>{t["p_nothing"]}</p>\n\n'
-            f'<h2>Kotlin</h2>\n{code_block(kotlin)}\n<p>{t["p_query"]}</p>\n{code_block(QUERIES_SAMPLE)}\n\n'
-            f'<h2>Java</h2>\n{code_block(JAVA_SAMPLE)}\n\n'
+            f'<h2>{t["code_h"]}</h2>\n{lang_tabs(code_block(kotlin), code_block(JAVA_SAMPLE))}\n<p>{t["p_query"]}</p>\n{code_block(QUERIES_SAMPLE)}\n\n'
             f'<h2>{t["zxing_h"]}</h2>\n<p>{t["zxing_p"]}</p>\n\n'
             f'<h2>{t["sees_h"]}</h2>\n<p>{t["sees_p"]}</p>\n\n'
             f'<div class="card"><p><strong>{t["card_lead"]}</strong> {t["card"].replace("{play}", play)}</p></div>\n</div>\n')
