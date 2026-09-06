@@ -186,7 +186,7 @@ def footer_links(lang):
 
 
 # Text pages read at a 36rem measure (about 74 characters); pages with side-by-side layouts or wide tables keep 44rem.
-NARROW = ("privacy", "terms", "support", "check-qr-code-link", "press", "report", "community-license", "safety-list")
+NARROW = ("privacy", "terms", "support", "check-qr-code-link", "press", "report", "community-license", "safety-list", "brand")
 
 
 def stack_tables(doc):
@@ -2508,6 +2508,11 @@ PRESS = f"""
 <h2>Boilerplate</h2>
 <p>Verdetto: QR &amp; Barcode Scanner is a free Android app from Verdetto, a solo developer in Virginia. It reads QR codes and barcodes, including damaged ones, shows the person exactly what a code contains before anything opens, and checks links, Wi-Fi networks, payment addresses, and phone numbers for known warning signs on the phone itself. Its list of known phishing and scam entries is compiled in the open from public feeds, and its signature is checked on the device. The app has no ads, no accounts, and no analytics; an optional contribution, once or monthly, supports development, and nothing is locked behind it. Verdetto is pronounced "ver-DET-oh" and is Italian for verdict.</p>
 
+<h3>In 25, 50 and 100 words</h3>
+<p>Verdetto is a free QR and barcode scanner for Android: no ads, no accounts, no tracking by Verdetto. It shows what a code contains before anything opens.</p>
+<p>Verdetto is a free QR and barcode scanner for Android with no ads, no accounts, no analytics and no tracking by Verdetto. Every scan shows what the code contains and the checks on it before anything opens, the safety list's signature is checked on the phone, and it reads the damaged codes other apps give up on.</p>
+<p>Verdetto is a free QR and barcode scanner for Android: no ads, no accounts, no analytics, no tracking by Verdetto. Every scan shows what a code contains and the checks on it before anything opens: a listed link, a lookalike address, a premium number, an open network, a payment address. The wording is never "safe"; the no-finding line is "No warnings found." The safety list is a signed bundle checked on the phone, and nothing about a scan leaves it unless a person turns the lookups on. It reads the damaged codes other apps give up on, creates codes in a person's own colors, and comes in eleven languages on Google Play, F-Droid and GitHub.</p>
+
 <h2>Facts you can check</h2>
 <ul>
   <li>Platform: Android 8 and later. Price: free. Ads: none. Accounts: none. Analytics: none.</li>
@@ -2525,6 +2530,11 @@ PRESS = f"""
 <ul>
   <li><a href="icon-512.png">App icon, 512 px PNG</a> and <a href="logo.svg">the icon as SVG</a>. Mint ground, deep teal QR mark, one amber finder.</li>
   <li><a href="lockup-teal-amber.png">Lockup, mark and name, transparent PNG</a> for light grounds (teal body, amber accent) and <a href="lockup-white-amber.png">the same with a white body</a> for dark grounds; the mark keeps its colors and sits at the cap height of the name.</li>
+  <li><a href="brand/verdetto-brand-kit.zip">The brand kit in one ZIP</a>: logo files, lockups, avatars, the brand guide and the fact sheet, 2.5 MB.</li>
+  <li>Logo files: the mark on the <a href="brand/logo/icon-mint-1024.png">mint tile</a>, the <a href="brand/logo/icon-deep-tile-1024.png">deep teal tile</a> and the <a href="brand/logo/icon-black-tile-1024.png">black tile</a>, 1024 px; the mark alone, transparent, <a href="brand/logo/mark-teal-amber-transparent-1024.png">for light grounds</a> and <a href="brand/logo/mark-white-amber-transparent-1024.png">for dark grounds</a>; the <a href="brand/logo/clear-space-and-minimum-size.png">clear-space and minimum-size sheet</a>. The single-color mark in the ZIP is for engraving and one-color print only.</li>
+  <li>Lockups in Roboto Medium, transparent PNG: horizontal for <a href="brand/lockup/lockup-light-transparent.png">light</a>, <a href="brand/lockup/lockup-dark-transparent.png">dark</a> and <a href="brand/lockup/lockup-black-transparent.png">black</a> grounds; stacked for <a href="brand/lockup/stacked-light-transparent.png">light</a>, <a href="brand/lockup/stacked-dark-transparent.png">dark</a> and <a href="brand/lockup/stacked-black-transparent.png">black</a>; the wordmark alone in <a href="brand/lockup/wordmark-teal-transparent.png">teal</a> and <a href="brand/lockup/wordmark-white-transparent.png">white</a>. Each also comes on its own ground in the ZIP.</li>
+  <li>Avatars, 512 px: <a href="brand/avatars/avatar-mint-512.png">mint</a>, <a href="brand/avatars/avatar-deep-512.png">deep teal</a> and <a href="brand/avatars/avatar-black-512.png">black</a>; 400 px in the ZIP.</li>
+  <li><a href="brand/verdetto-brand-guide.pdf">Brand guide, PDF</a>, seven pages, also on the <a href="{href('brand.html')}">brand page</a>; the fact sheet as <a href="brand/verdetto-fact-sheet-letter.pdf">Letter</a> and <a href="brand/verdetto-fact-sheet-a4.pdf">A4</a> PDF.</li>
   <li><a href="og-image.png">Share image, 1200 by 630</a> and <a href="play-header-4096x2304.jpg">wide banner, 4096 by 2304</a>.</li>
   <li><a href="screens/result-sheet.webp">Result sheet screenshot</a>: a scanned link shown before it opens, with the "No warnings found" chip.</li>
   <li><a href="screens/result-sheet-warning.webp">Result sheet, warning state</a>: a lookalike address (paypa1.com) flagged as imitating paypal.com before anything opens.</li>
@@ -2565,6 +2575,11 @@ PRESS_T = {
   "assets": [
    "<a href=\"icon-512.png\">App-Symbol, 512 px PNG</a> und <a href=\"logo.svg\">das Symbol als SVG</a>. Mintfarbener Grund, tief-türkises QR-Zeichen, ein amberfarbenes Suchmuster.",
    "<a href=\"lockup-teal-amber.png\">Wort-Bild-Marke, Zeichen und Name, transparentes PNG</a> für helle Gründe (türkiser Körper, Amber-Akzent) und <a href=\"lockup-white-amber.png\">dieselbe mit weißem Körper</a> für dunkle Gründe; das Zeichen behält seine Farben und sitzt auf der Versalhöhe des Namens.",
+   "<a href=\"brand/verdetto-brand-kit.zip\">Das Markenpaket als ein ZIP</a>: Logodateien, Wort-Bild-Marken, Avatare, der Markenleitfaden und das Faktenblatt, 2,5 MB.",
+   "Logodateien: das Zeichen auf der <a href=\"brand/logo/icon-mint-1024.png\">Mint-Kachel</a>, der <a href=\"brand/logo/icon-deep-tile-1024.png\">tief-türkisen Kachel</a> und der <a href=\"brand/logo/icon-black-tile-1024.png\">schwarzen Kachel</a>, 1024 px; das Zeichen allein, transparent, <a href=\"brand/logo/mark-teal-amber-transparent-1024.png\">für helle Gründe</a> und <a href=\"brand/logo/mark-white-amber-transparent-1024.png\">für dunkle Gründe</a>; das <a href=\"brand/logo/clear-space-and-minimum-size.png\">Blatt zu Freiraum und Mindestgröße</a>. Das einfarbige Zeichen im ZIP ist nur für Gravur und einfarbigen Druck.",
+   "Wort-Bild-Marken in Roboto Medium, transparentes PNG: waagerecht für <a href=\"brand/lockup/lockup-light-transparent.png\">helle</a>, <a href=\"brand/lockup/lockup-dark-transparent.png\">dunkle</a> und <a href=\"brand/lockup/lockup-black-transparent.png\">schwarze</a> Gründe; gestapelt für <a href=\"brand/lockup/stacked-light-transparent.png\">helle</a>, <a href=\"brand/lockup/stacked-dark-transparent.png\">dunkle</a> und <a href=\"brand/lockup/stacked-black-transparent.png\">schwarze</a>; die Wortmarke allein in <a href=\"brand/lockup/wordmark-teal-transparent.png\">Türkis</a> und <a href=\"brand/lockup/wordmark-white-transparent.png\">Weiß</a>. Jede liegt im ZIP auch auf ihrem eigenen Grund vor.",
+   "Avatare, 512 px: <a href=\"brand/avatars/avatar-mint-512.png\">Mint</a>, <a href=\"brand/avatars/avatar-deep-512.png\">Tief-Türkis</a> und <a href=\"brand/avatars/avatar-black-512.png\">Schwarz</a>; 400 px im ZIP.",
+   "<a href=\"brand/verdetto-brand-guide.pdf\">Markenleitfaden, PDF</a>, sieben Seiten, auch auf der <a href=\"{BRAND}\">Markenseite</a>; das Faktenblatt als <a href=\"brand/verdetto-fact-sheet-letter.pdf\">Letter</a>- und <a href=\"brand/verdetto-fact-sheet-a4.pdf\">A4</a>-PDF.",
    "<a href=\"og-image.png\">Vorschaubild, 1200 × 630</a> und <a href=\"play-header-4096x2304.jpg\">breites Banner, 4096 × 2304</a>.",
    "<a href=\"screens/result-sheet.webp\">Screenshot des Ergebnisblatts</a>: ein gescannter Link, gezeigt, bevor er sich öffnet, mit dem Chip „Keine Warnungen gefunden“.",
    "<a href=\"screens/result-sheet-warning.webp\">Ergebnisblatt im Warnzustand</a>: eine ähnlich aussehende Adresse (paypa1.com), markiert als Imitation von paypal.com, bevor sich etwas öffnet.",
@@ -2572,7 +2587,11 @@ PRESS_T = {
   ],
   "no_alter": "Bitte verändere die Farben des Symbols nicht und füge keine Effekte hinzu; das Zeichen ist die Marke.",
   "trademark": "Verdetto und das Verdetto-QR-Zeichen sind Marken; eine Anmeldung für VERDETTO in den Vereinigten Staaten ist anhängig (Seriennummer 50092495).",
-  "contact": "Kontakt"
+  "contact": "Kontakt",
+  "words_h": "In 25, 50 und 100 Wörtern",
+  "w25": "Verdetto ist ein kostenloser QR- und Barcode-Scanner für Android: keine Werbung, keine Konten, kein Tracking durch Verdetto. Er zeigt, was ein Code enthält, bevor sich etwas öffnet.",
+  "w50": "Verdetto ist ein kostenloser QR- und Barcode-Scanner für Android ohne Werbung, ohne Konten, ohne Analysen und ohne Tracking durch Verdetto. Jeder Scan zeigt, was der Code enthält und welche Prüfungen er durchlaufen hat, bevor sich etwas öffnet; die Signatur der Sicherheitsliste wird auf dem Telefon geprüft, und er liest die beschädigten Codes, bei denen andere Apps aufgeben.",
+  "w100": "Verdetto ist ein kostenloser QR- und Barcode-Scanner für Android: keine Werbung, keine Konten, keine Analysen, kein Tracking durch Verdetto. Jeder Scan zeigt, was ein Code enthält und welche Prüfungen er durchlaufen hat, bevor sich etwas öffnet: ein gelisteter Link, eine ähnlich aussehende Adresse, eine Sonderrufnummer, ein offenes Netzwerk, eine Zahlungsadresse. Das Wort „sicher“ fällt nie; der Satz ohne Befund lautet „Keine Warnungen gefunden“. Die Sicherheitsliste ist ein signiertes Paket, das auf dem Telefon geprüft wird, und nichts über einen Scan verlässt es, es sei denn, eine Person schaltet die Abfragen ein. Er liest die beschädigten Codes, bei denen andere Apps aufgeben, erstellt Codes in den eigenen Farben und gibt es in elf Sprachen bei Google Play, F-Droid und GitHub."
  },
  "es": {
   "title": "Kit de prensa",
@@ -2598,6 +2617,11 @@ PRESS_T = {
   "assets": [
    "<a href=\"icon-512.png\">Icono de la app, PNG de 512 px</a> y <a href=\"logo.svg\">el icono en SVG</a>. Fondo menta, símbolo QR verde azulado oscuro, un patrón de localización ámbar.",
    "<a href=\"lockup-teal-amber.png\">Logotipo, símbolo y nombre, PNG transparente</a> para fondos claros (cuerpo verde azulado, acento ámbar) y <a href=\"lockup-white-amber.png\">el mismo con cuerpo blanco</a> para fondos oscuros; el símbolo conserva sus colores y se alinea con la altura de las mayúsculas del nombre.",
+   "<a href=\"brand/verdetto-brand-kit.zip\">El kit de marca en un solo ZIP</a>: archivos del logotipo, logotipos compuestos, avatares, la guía de marca y la hoja de datos, 2,5 MB.",
+   "Archivos del logotipo: el símbolo sobre la <a href=\"brand/logo/icon-mint-1024.png\">baldosa menta</a>, la <a href=\"brand/logo/icon-deep-tile-1024.png\">baldosa verde azulado oscuro</a> y la <a href=\"brand/logo/icon-black-tile-1024.png\">baldosa negra</a>, 1024 px; el símbolo solo, transparente, <a href=\"brand/logo/mark-teal-amber-transparent-1024.png\">para fondos claros</a> y <a href=\"brand/logo/mark-white-amber-transparent-1024.png\">para fondos oscuros</a>; la <a href=\"brand/logo/clear-space-and-minimum-size.png\">hoja de espacio libre y tamaño mínimo</a>. El símbolo monocolor del ZIP es solo para grabado e impresión a un color.",
+   "Logotipos compuestos en Roboto Medium, PNG transparente: horizontal para fondos <a href=\"brand/lockup/lockup-light-transparent.png\">claros</a>, <a href=\"brand/lockup/lockup-dark-transparent.png\">oscuros</a> y <a href=\"brand/lockup/lockup-black-transparent.png\">negros</a>; apilado para fondos <a href=\"brand/lockup/stacked-light-transparent.png\">claros</a>, <a href=\"brand/lockup/stacked-dark-transparent.png\">oscuros</a> y <a href=\"brand/lockup/stacked-black-transparent.png\">negros</a>; la marca denominativa sola en <a href=\"brand/lockup/wordmark-teal-transparent.png\">verde azulado</a> y <a href=\"brand/lockup/wordmark-white-transparent.png\">blanco</a>. Cada uno viene también sobre su propio fondo en el ZIP.",
+   "Avatares, 512 px: <a href=\"brand/avatars/avatar-mint-512.png\">menta</a>, <a href=\"brand/avatars/avatar-deep-512.png\">verde azulado oscuro</a> y <a href=\"brand/avatars/avatar-black-512.png\">negro</a>; 400 px en el ZIP.",
+   "<a href=\"brand/verdetto-brand-guide.pdf\">Guía de marca, PDF</a>, siete páginas, también en la <a href=\"{BRAND}\">página de marca</a>; la hoja de datos en PDF <a href=\"brand/verdetto-fact-sheet-letter.pdf\">Carta</a> y <a href=\"brand/verdetto-fact-sheet-a4.pdf\">A4</a>.",
    "<a href=\"og-image.png\">Imagen para compartir, 1200 × 630</a> y <a href=\"play-header-4096x2304.jpg\">banner ancho, 4096 × 2304</a>.",
    "<a href=\"screens/result-sheet.webp\">Captura de la hoja de resultados</a>: un enlace escaneado que se muestra antes de abrirse, con el chip «No se encontraron avisos».",
    "<a href=\"screens/result-sheet-warning.webp\">Hoja de resultados, estado de aviso</a>: una dirección parecida (paypa1.com) señalada como imitación de paypal.com antes de que se abra nada.",
@@ -2605,7 +2629,11 @@ PRESS_T = {
   ],
   "no_alter": "Por favor, no alteres los colores del icono ni añadas efectos; el símbolo es la marca.",
   "trademark": "Verdetto y el símbolo QR de Verdetto son marcas; hay una solicitud pendiente en Estados Unidos para VERDETTO (n.º de serie 50092495).",
-  "contact": "Contacto"
+  "contact": "Contacto",
+  "words_h": "En 25, 50 y 100 palabras",
+  "w25": "Verdetto es un escáner de códigos QR y de barras gratuito para Android: sin anuncios, sin cuentas, sin rastreo por parte de Verdetto. Muestra lo que contiene un código antes de que se abra nada.",
+  "w50": "Verdetto es un escáner de códigos QR y de barras gratuito para Android, sin anuncios, sin cuentas, sin analíticas y sin rastreo por parte de Verdetto. Cada escaneo muestra lo que contiene el código y las comprobaciones hechas antes de que se abra nada, la firma de la lista de seguridad se comprueba en el teléfono, y lee los códigos dañados que otras aplicaciones no consiguen leer.",
+  "w100": "Verdetto es un escáner de códigos QR y de barras gratuito para Android: sin anuncios, sin cuentas, sin analíticas, sin rastreo por parte de Verdetto. Cada escaneo muestra lo que contiene un código y las comprobaciones hechas antes de que se abra nada: un enlace listado, una dirección parecida a otra, un número de tarificación especial, una red abierta, una dirección de pago. Nunca usa la palabra «seguro»; la frase sin hallazgos es «No se encontraron avisos». La lista de seguridad es un paquete firmado que se comprueba en el teléfono, y nada sobre un escaneo sale de él salvo que una persona active las consultas. Lee los códigos dañados que otras aplicaciones no consiguen leer, crea códigos con los colores de cada persona y está en once idiomas en Google Play, F-Droid y GitHub."
  },
  "fr": {
   "title": "Kit presse",
@@ -2631,6 +2659,11 @@ PRESS_T = {
   "assets": [
    "<a href=\"icon-512.png\">Icône de l'application, PNG 512 px</a> et <a href=\"logo.svg\">l'icône en SVG</a>. Fond menthe, symbole QR bleu sarcelle profond, un motif de repérage ambre.",
    "<a href=\"lockup-teal-amber.png\">Logotype, symbole et nom, PNG transparent</a> pour fonds clairs (corps sarcelle, accent ambre) et <a href=\"lockup-white-amber.png\">le même avec un corps blanc</a> pour fonds sombres ; le symbole garde ses couleurs et s'aligne sur la hauteur des capitales du nom.",
+   "<a href=\"brand/verdetto-brand-kit.zip\">Le kit de marque en un seul ZIP</a> : fichiers du logo, blocs-marque, avatars, le guide de marque et la fiche d'information, 2,5 Mo.",
+   "Fichiers du logo : le symbole sur la <a href=\"brand/logo/icon-mint-1024.png\">tuile menthe</a>, la <a href=\"brand/logo/icon-deep-tile-1024.png\">tuile sarcelle profond</a> et la <a href=\"brand/logo/icon-black-tile-1024.png\">tuile noire</a>, 1024 px ; le symbole seul, transparent, <a href=\"brand/logo/mark-teal-amber-transparent-1024.png\">pour fonds clairs</a> et <a href=\"brand/logo/mark-white-amber-transparent-1024.png\">pour fonds sombres</a> ; la <a href=\"brand/logo/clear-space-and-minimum-size.png\">planche d'espace de protection et de taille minimale</a>. Le symbole monochrome du ZIP sert uniquement à la gravure et à l'impression en une couleur.",
+   "Blocs-marque en Roboto Medium, PNG transparent : horizontal pour fonds <a href=\"brand/lockup/lockup-light-transparent.png\">clairs</a>, <a href=\"brand/lockup/lockup-dark-transparent.png\">sombres</a> et <a href=\"brand/lockup/lockup-black-transparent.png\">noirs</a> ; empilé pour fonds <a href=\"brand/lockup/stacked-light-transparent.png\">clairs</a>, <a href=\"brand/lockup/stacked-dark-transparent.png\">sombres</a> et <a href=\"brand/lockup/stacked-black-transparent.png\">noirs</a> ; le logotype seul en <a href=\"brand/lockup/wordmark-teal-transparent.png\">sarcelle</a> et en <a href=\"brand/lockup/wordmark-white-transparent.png\">blanc</a>. Chacun existe aussi sur son propre fond dans le ZIP.",
+   "Avatars, 512 px : <a href=\"brand/avatars/avatar-mint-512.png\">menthe</a>, <a href=\"brand/avatars/avatar-deep-512.png\">sarcelle profond</a> et <a href=\"brand/avatars/avatar-black-512.png\">noir</a> ; 400 px dans le ZIP.",
+   "<a href=\"brand/verdetto-brand-guide.pdf\">Guide de marque, PDF</a>, sept pages, aussi sur la <a href=\"{BRAND}\">page de marque</a> ; la fiche d'information en PDF <a href=\"brand/verdetto-fact-sheet-letter.pdf\">Letter</a> et <a href=\"brand/verdetto-fact-sheet-a4.pdf\">A4</a>.",
    "<a href=\"og-image.png\">Image de partage, 1200 × 630</a> et <a href=\"play-header-4096x2304.jpg\">bannière large, 4096 × 2304</a>.",
    "<a href=\"screens/result-sheet.webp\">Capture de la feuille de résultat</a> : un lien scanné, affiché avant de s'ouvrir, avec la puce « Aucune alerte trouvée ».",
    "<a href=\"screens/result-sheet-warning.webp\">Feuille de résultat, état d'alerte</a> : une adresse imitée (paypa1.com) signalée comme imitation de paypal.com avant que quoi que ce soit ne s'ouvre.",
@@ -2638,7 +2671,11 @@ PRESS_T = {
   ],
   "no_alter": "Merci de ne pas modifier les couleurs de l'icône ni d'ajouter d'effets ; le symbole est la marque.",
   "trademark": "Verdetto et le symbole QR Verdetto sont des marques ; une demande d'enregistrement de VERDETTO est en cours aux États-Unis (numéro de série 50092495).",
-  "contact": "Contact"
+  "contact": "Contact",
+  "words_h": "En 25, 50 et 100 mots",
+  "w25": "Verdetto est un lecteur de codes QR et de codes-barres gratuit pour Android : sans publicité, sans compte, sans suivi par Verdetto. Il montre ce qu'un code contient avant que quoi que ce soit ne s'ouvre.",
+  "w50": "Verdetto est un lecteur de codes QR et de codes-barres gratuit pour Android, sans publicité, sans compte, sans analyse d'audience et sans suivi par Verdetto. Chaque lecture montre ce que le code contient et les vérifications faites avant que quoi que ce soit ne s'ouvre, la signature de la liste de sécurité est contrôlée sur le téléphone, et il lit les codes abîmés que d'autres applications abandonnent.",
+  "w100": "Verdetto est un lecteur de codes QR et de codes-barres gratuit pour Android : sans publicité, sans compte, sans analyse d'audience, sans suivi par Verdetto. Chaque lecture montre ce qu'un code contient et les vérifications faites avant que quoi que ce soit ne s'ouvre : un lien répertorié, une adresse imitée, un numéro surtaxé, un réseau ouvert, une adresse de paiement. Le mot « sûr » n'est jamais employé ; la phrase sans constat est « Aucune alerte trouvée ». La liste de sécurité est un lot signé, contrôlé sur le téléphone, et rien d'une lecture n'en sort sauf si une personne active les recherches en ligne. Il lit les codes abîmés que d'autres applications abandonnent, crée des codes aux couleurs de chacun et existe en onze langues sur Google Play, F-Droid et GitHub."
  },
  "pt-BR": {
   "title": "Kit de imprensa",
@@ -2664,6 +2701,11 @@ PRESS_T = {
   "assets": [
    "<a href=\"icon-512.png\">Ícone do app, PNG de 512 px</a> e <a href=\"logo.svg\">o ícone em SVG</a>. Fundo menta, símbolo QR em verde-azulado escuro, um padrão localizador âmbar.",
    "<a href=\"lockup-teal-amber.png\">Assinatura visual, símbolo e nome, PNG transparente</a> para fundos claros (corpo verde-azulado, destaque âmbar) e <a href=\"lockup-white-amber.png\">a mesma com corpo branco</a> para fundos escuros; o símbolo mantém suas cores e fica na altura das maiúsculas do nome.",
+   "<a href=\"brand/verdetto-brand-kit.zip\">O kit de marca em um único ZIP</a>: arquivos do logotipo, assinaturas visuais, avatares, o guia de marca e a ficha de fatos, 2,5 MB.",
+   "Arquivos do logotipo: o símbolo sobre o <a href=\"brand/logo/icon-mint-1024.png\">bloco menta</a>, o <a href=\"brand/logo/icon-deep-tile-1024.png\">bloco verde-azulado escuro</a> e o <a href=\"brand/logo/icon-black-tile-1024.png\">bloco preto</a>, 1024 px; o símbolo sozinho, transparente, <a href=\"brand/logo/mark-teal-amber-transparent-1024.png\">para fundos claros</a> e <a href=\"brand/logo/mark-white-amber-transparent-1024.png\">para fundos escuros</a>; a <a href=\"brand/logo/clear-space-and-minimum-size.png\">folha de área de respiro e tamanho mínimo</a>. O símbolo monocromático do ZIP serve só para gravação e impressão em uma cor.",
+   "Assinaturas visuais em Roboto Medium, PNG transparente: horizontal para fundos <a href=\"brand/lockup/lockup-light-transparent.png\">claros</a>, <a href=\"brand/lockup/lockup-dark-transparent.png\">escuros</a> e <a href=\"brand/lockup/lockup-black-transparent.png\">pretos</a>; empilhada para fundos <a href=\"brand/lockup/stacked-light-transparent.png\">claros</a>, <a href=\"brand/lockup/stacked-dark-transparent.png\">escuros</a> e <a href=\"brand/lockup/stacked-black-transparent.png\">pretos</a>; só o nome em <a href=\"brand/lockup/wordmark-teal-transparent.png\">verde-azulado</a> e em <a href=\"brand/lockup/wordmark-white-transparent.png\">branco</a>. Cada uma também vem sobre o próprio fundo no ZIP.",
+   "Avatares, 512 px: <a href=\"brand/avatars/avatar-mint-512.png\">menta</a>, <a href=\"brand/avatars/avatar-deep-512.png\">verde-azulado escuro</a> e <a href=\"brand/avatars/avatar-black-512.png\">preto</a>; 400 px no ZIP.",
+   "<a href=\"brand/verdetto-brand-guide.pdf\">Guia de marca, PDF</a>, sete páginas, também na <a href=\"{BRAND}\">página da marca</a>; a ficha de fatos em PDF <a href=\"brand/verdetto-fact-sheet-letter.pdf\">Carta</a> e <a href=\"brand/verdetto-fact-sheet-a4.pdf\">A4</a>.",
    "<a href=\"og-image.png\">Imagem de compartilhamento, 1200 × 630</a> e <a href=\"play-header-4096x2304.jpg\">banner largo, 4096 × 2304</a>.",
    "<a href=\"screens/result-sheet.webp\">Captura da folha de resultado</a>: um link escaneado mostrado antes de abrir, com o chip \"Nenhum alerta encontrado\".",
    "<a href=\"screens/result-sheet-warning.webp\">Folha de resultado, estado de alerta</a>: um endereço parecido (paypa1.com) marcado como imitação de paypal.com antes que qualquer coisa abra.",
@@ -2671,7 +2713,11 @@ PRESS_T = {
   ],
   "no_alter": "Por favor, não altere as cores do ícone nem adicione efeitos; o símbolo é a marca.",
   "trademark": "Verdetto e o símbolo QR do Verdetto são marcas; um pedido de registro de VERDETTO está pendente nos Estados Unidos (nº de série 50092495).",
-  "contact": "Contato"
+  "contact": "Contato",
+  "words_h": "Em 25, 50 e 100 palavras",
+  "w25": "O Verdetto é um leitor gratuito de códigos QR e de barras para Android: sem anúncios, sem contas, sem rastreamento pelo Verdetto. Ele mostra o que um código contém antes que qualquer coisa abra.",
+  "w50": "O Verdetto é um leitor gratuito de códigos QR e de barras para Android, sem anúncios, sem contas, sem análise de uso e sem rastreamento pelo Verdetto. Cada leitura mostra o que o código contém e as verificações feitas antes que qualquer coisa abra, a assinatura da lista de segurança é conferida no telefone, e ele lê os códigos danificados que outros apps não conseguem ler.",
+  "w100": "O Verdetto é um leitor gratuito de códigos QR e de barras para Android: sem anúncios, sem contas, sem análise de uso, sem rastreamento pelo Verdetto. Cada leitura mostra o que um código contém e as verificações feitas antes que qualquer coisa abra: um link listado, um endereço parecido com outro, um número de tarifa especial, uma rede aberta, um endereço de pagamento. A palavra “seguro” nunca é usada; a frase sem ocorrências é “Nenhum alerta encontrado”. A lista de segurança é um pacote assinado, conferido no telefone, e nada sobre uma leitura sai dele a menos que a pessoa ative as consultas. Ele lê os códigos danificados que outros apps não conseguem ler, cria códigos nas cores da própria pessoa e está em onze idiomas no Google Play, no F-Droid e no GitHub."
  },
  "id": {
   "title": "Kit pers",
@@ -2697,6 +2743,11 @@ PRESS_T = {
   "assets": [
    "<a href=\"icon-512.png\">Ikon aplikasi, PNG 512 px</a> dan <a href=\"logo.svg\">ikon dalam SVG</a>. Latar mint, simbol QR teal gelap, satu pola pencari berwarna amber.",
    "<a href=\"lockup-teal-amber.png\">Lockup, simbol dan nama, PNG transparan</a> untuk latar terang (badan teal, aksen amber) dan <a href=\"lockup-white-amber.png\">versi yang sama dengan badan putih</a> untuk latar gelap; simbol mempertahankan warnanya dan sejajar dengan tinggi huruf kapital nama.",
+   "<a href=\"brand/verdetto-brand-kit.zip\">Kit merek dalam satu ZIP</a>: berkas logo, lockup, avatar, panduan merek, dan lembar fakta, 2,5 MB.",
+   "Berkas logo: tanda pada <a href=\"brand/logo/icon-mint-1024.png\">ubin mint</a>, <a href=\"brand/logo/icon-deep-tile-1024.png\">ubin teal gelap</a>, dan <a href=\"brand/logo/icon-black-tile-1024.png\">ubin hitam</a>, 1024 px; tanda saja, transparan, <a href=\"brand/logo/mark-teal-amber-transparent-1024.png\">untuk latar terang</a> dan <a href=\"brand/logo/mark-white-amber-transparent-1024.png\">untuk latar gelap</a>; <a href=\"brand/logo/clear-space-and-minimum-size.png\">lembar ruang bebas dan ukuran minimum</a>. Tanda satu warna di dalam ZIP hanya untuk ukiran dan cetak satu warna.",
+   "Lockup dalam Roboto Medium, PNG transparan: mendatar untuk latar <a href=\"brand/lockup/lockup-light-transparent.png\">terang</a>, <a href=\"brand/lockup/lockup-dark-transparent.png\">gelap</a>, dan <a href=\"brand/lockup/lockup-black-transparent.png\">hitam</a>; bertumpuk untuk latar <a href=\"brand/lockup/stacked-light-transparent.png\">terang</a>, <a href=\"brand/lockup/stacked-dark-transparent.png\">gelap</a>, dan <a href=\"brand/lockup/stacked-black-transparent.png\">hitam</a>; wordmark saja dalam <a href=\"brand/lockup/wordmark-teal-transparent.png\">teal</a> dan <a href=\"brand/lockup/wordmark-white-transparent.png\">putih</a>. Masing-masing juga tersedia di atas latarnya sendiri di dalam ZIP.",
+   "Avatar, 512 px: <a href=\"brand/avatars/avatar-mint-512.png\">mint</a>, <a href=\"brand/avatars/avatar-deep-512.png\">teal gelap</a>, dan <a href=\"brand/avatars/avatar-black-512.png\">hitam</a>; 400 px di dalam ZIP.",
+   "<a href=\"brand/verdetto-brand-guide.pdf\">Panduan merek, PDF</a>, tujuh halaman, juga di <a href=\"{BRAND}\">halaman merek</a>; lembar fakta dalam PDF <a href=\"brand/verdetto-fact-sheet-letter.pdf\">Letter</a> dan <a href=\"brand/verdetto-fact-sheet-a4.pdf\">A4</a>.",
    "<a href=\"og-image.png\">Gambar berbagi, 1200 × 630</a> dan <a href=\"play-header-4096x2304.jpg\">banner lebar, 4096 × 2304</a>.",
    "<a href=\"screens/result-sheet.webp\">Tangkapan layar lembar hasil</a>: tautan hasil pindaian yang ditampilkan sebelum dibuka, dengan chip \"Tidak ada peringatan ditemukan\".",
    "<a href=\"screens/result-sheet-warning.webp\">Lembar hasil, keadaan peringatan</a>: alamat yang mirip (paypa1.com) ditandai sebagai tiruan paypal.com sebelum apa pun terbuka.",
@@ -2704,7 +2755,11 @@ PRESS_T = {
   ],
   "no_alter": "Mohon jangan mengubah warna ikon atau menambahkan efek; simbol itu adalah mereknya.",
   "trademark": "Verdetto dan simbol QR Verdetto adalah merek dagang; permohonan pendaftaran VERDETTO sedang diproses di Amerika Serikat (nomor seri 50092495).",
-  "contact": "Kontak"
+  "contact": "Kontak",
+  "words_h": "Dalam 25, 50, dan 100 kata",
+  "w25": "Verdetto adalah pemindai kode QR dan barcode gratis untuk Android: tanpa iklan, tanpa akun, tanpa pelacakan oleh Verdetto. Ia menampilkan isi kode sebelum apa pun terbuka.",
+  "w50": "Verdetto adalah pemindai kode QR dan barcode gratis untuk Android tanpa iklan, tanpa akun, tanpa analitik, dan tanpa pelacakan oleh Verdetto. Setiap pemindaian menampilkan isi kode dan pemeriksaan atasnya sebelum apa pun terbuka, tanda tangan daftar keamanan diperiksa di ponsel, dan ia membaca kode rusak yang aplikasi lain menyerah membacanya.",
+  "w100": "Verdetto adalah pemindai kode QR dan barcode gratis untuk Android: tanpa iklan, tanpa akun, tanpa analitik, tanpa pelacakan oleh Verdetto. Setiap pemindaian menampilkan isi kode dan pemeriksaan atasnya sebelum apa pun terbuka: tautan yang terdaftar, alamat yang mirip alamat lain, nomor bertarif premium, jaringan terbuka, alamat pembayaran. Kata \"aman\" tidak pernah dipakai; kalimat tanpa temuan adalah \"Tidak ada peringatan ditemukan\". Daftar keamanan adalah paket bertanda tangan yang diperiksa di ponsel, dan tidak ada apa pun tentang pemindaian yang keluar darinya kecuali seseorang mengaktifkan pencarian daring. Ia membaca kode rusak yang aplikasi lain menyerah membacanya, membuat kode dengan warna pilihan sendiri, dan tersedia dalam sebelas bahasa di Google Play, F-Droid, dan GitHub."
  },
  "ru": {
   "title": "Пресс-кит",
@@ -2730,6 +2785,11 @@ PRESS_T = {
   "assets": [
    "<a href=\"icon-512.png\">Значок приложения, PNG 512 px</a> и <a href=\"logo.svg\">значок в SVG</a>. Мятный фон, тёмно-бирюзовый знак QR, один янтарный поисковый узор.",
    "<a href=\"lockup-teal-amber.png\">Логоблок, знак и имя, прозрачный PNG</a> для светлых фонов (бирюзовое тело, янтарный акцент) и <a href=\"lockup-white-amber.png\">тот же с белым телом</a> для тёмных фонов; знак сохраняет свои цвета и стоит на высоте прописных букв имени.",
+   "<a href=\"brand/verdetto-brand-kit.zip\">Фирменный набор одним ZIP</a>: файлы логотипа, логоблоки, аватары, руководство по бренду и информационный лист, 2,5 МБ.",
+   "Файлы логотипа: знак на <a href=\"brand/logo/icon-mint-1024.png\">мятной плитке</a>, <a href=\"brand/logo/icon-deep-tile-1024.png\">тёмно-бирюзовой плитке</a> и <a href=\"brand/logo/icon-black-tile-1024.png\">чёрной плитке</a>, 1024 px; знак отдельно, на прозрачном фоне, <a href=\"brand/logo/mark-teal-amber-transparent-1024.png\">для светлых фонов</a> и <a href=\"brand/logo/mark-white-amber-transparent-1024.png\">для тёмных фонов</a>; <a href=\"brand/logo/clear-space-and-minimum-size.png\">лист охранного поля и минимального размера</a>. Одноцветный знак в ZIP только для гравировки и одноцветной печати.",
+   "Логоблоки в Roboto Medium, прозрачный PNG: горизонтальные для <a href=\"brand/lockup/lockup-light-transparent.png\">светлых</a>, <a href=\"brand/lockup/lockup-dark-transparent.png\">тёмных</a> и <a href=\"brand/lockup/lockup-black-transparent.png\">чёрных</a> фонов; вертикальные для <a href=\"brand/lockup/stacked-light-transparent.png\">светлых</a>, <a href=\"brand/lockup/stacked-dark-transparent.png\">тёмных</a> и <a href=\"brand/lockup/stacked-black-transparent.png\">чёрных</a>; словесный знак отдельно, <a href=\"brand/lockup/wordmark-teal-transparent.png\">бирюзовый</a> и <a href=\"brand/lockup/wordmark-white-transparent.png\">белый</a>. Каждый есть в ZIP и на своём фоне.",
+   "Аватары, 512 px: <a href=\"brand/avatars/avatar-mint-512.png\">мятный</a>, <a href=\"brand/avatars/avatar-deep-512.png\">тёмно-бирюзовый</a> и <a href=\"brand/avatars/avatar-black-512.png\">чёрный</a>; 400 px в ZIP.",
+   "<a href=\"brand/verdetto-brand-guide.pdf\">Руководство по бренду, PDF</a>, семь страниц, также на <a href=\"{BRAND}\">странице бренда</a>; информационный лист в PDF <a href=\"brand/verdetto-fact-sheet-letter.pdf\">Letter</a> и <a href=\"brand/verdetto-fact-sheet-a4.pdf\">A4</a>.",
    "<a href=\"og-image.png\">Изображение для ссылок, 1200 × 630</a> и <a href=\"play-header-4096x2304.jpg\">широкий баннер, 4096 × 2304</a>.",
    "<a href=\"screens/result-sheet.webp\">Снимок листа результата</a>: отсканированная ссылка показана до открытия, с чипом «Предупреждений не найдено».",
    "<a href=\"screens/result-sheet-warning.webp\">Лист результата в состоянии предупреждения</a>: похожий адрес (paypa1.com) помечен как имитация paypal.com до того, как что-либо откроется.",
@@ -2737,7 +2797,11 @@ PRESS_T = {
   ],
   "no_alter": "Пожалуйста, не меняйте цвета значка и не добавляйте эффекты; знак и есть бренд.",
   "trademark": "Verdetto и знак Verdetto QR являются товарными знаками; заявка на VERDETTO в США находится на рассмотрении (серийный номер 50092495).",
-  "contact": "Контакт"
+  "contact": "Контакт",
+  "words_h": "В 25, 50 и 100 словах",
+  "w25": "Verdetto — бесплатный сканер QR-кодов и штрихкодов для Android: без рекламы, без аккаунтов, без слежки со стороны Verdetto. Он показывает, что содержит код, прежде чем что-либо откроется.",
+  "w50": "Verdetto — бесплатный сканер QR-кодов и штрихкодов для Android без рекламы, без аккаунтов, без аналитики и без слежки со стороны Verdetto. Каждое сканирование показывает, что содержит код и какие проверки он прошёл, прежде чем что-либо откроется; подпись списка безопасности проверяется на телефоне, и он читает повреждённые коды, на которых другие приложения сдаются.",
+  "w100": "Verdetto — бесплатный сканер QR-кодов и штрихкодов для Android: без рекламы, без аккаунтов, без аналитики, без слежки со стороны Verdetto. Каждое сканирование показывает, что содержит код и какие проверки он прошёл, прежде чем что-либо откроется: ссылка из списка, адрес-двойник, платный номер, открытая сеть, платёжный адрес. Слово «безопасно» не звучит никогда; фраза без находок — «Предупреждений не найдено». Список безопасности — подписанный пакет, который проверяется на телефоне, и ничего о сканировании не покидает его, пока человек не включит онлайн-запросы. Он читает повреждённые коды, на которых другие приложения сдаются, создаёт коды в ваших цветах и доступен на одиннадцати языках в Google Play, F-Droid и GitHub."
  },
  "hi": {
   "title": "प्रेस किट",
@@ -2763,6 +2827,11 @@ PRESS_T = {
   "assets": [
    "<a href=\"icon-512.png\">ऐप आइकन, 512 px PNG</a> और <a href=\"logo.svg\">SVG में आइकन</a>। पुदीना रंग की पृष्ठभूमि, गहरा टील QR चिह्न, एक एम्बर फ़ाइंडर पैटर्न।",
    "<a href=\"lockup-teal-amber.png\">लॉकअप, चिह्न और नाम, पारदर्शी PNG</a> हल्की पृष्ठभूमि के लिए (टील बॉडी, एम्बर एक्सेंट) और <a href=\"lockup-white-amber.png\">वही सफ़ेद बॉडी के साथ</a> गहरी पृष्ठभूमि के लिए; चिह्न अपने रंग बनाए रखता है और नाम की कैप ऊँचाई पर बैठता है।",
+   "<a href=\"brand/verdetto-brand-kit.zip\">ब्रांड किट, एक ZIP में</a>: लोगो फ़ाइलें, लॉकअप, अवतार, ब्रांड गाइड और फ़ैक्ट शीट, 2.5 MB।",
+   "लोगो फ़ाइलें: <a href=\"brand/logo/icon-mint-1024.png\">मिंट टाइल</a>, <a href=\"brand/logo/icon-deep-tile-1024.png\">गहरी टील टाइल</a> और <a href=\"brand/logo/icon-black-tile-1024.png\">काली टाइल</a> पर चिह्न, 1024 px; अकेला चिह्न, पारदर्शी, <a href=\"brand/logo/mark-teal-amber-transparent-1024.png\">हल्की पृष्ठभूमि के लिए</a> और <a href=\"brand/logo/mark-white-amber-transparent-1024.png\">गहरी पृष्ठभूमि के लिए</a>; <a href=\"brand/logo/clear-space-and-minimum-size.png\">क्लियर स्पेस और न्यूनतम आकार की शीट</a>। ZIP में एक-रंग का चिह्न केवल उत्कीर्णन और एक-रंग की छपाई के लिए है।",
+   "Roboto Medium में लॉकअप, पारदर्शी PNG: क्षैतिज, <a href=\"brand/lockup/lockup-light-transparent.png\">हल्की</a>, <a href=\"brand/lockup/lockup-dark-transparent.png\">गहरी</a> और <a href=\"brand/lockup/lockup-black-transparent.png\">काली</a> पृष्ठभूमि के लिए; स्टैक्ड, <a href=\"brand/lockup/stacked-light-transparent.png\">हल्की</a>, <a href=\"brand/lockup/stacked-dark-transparent.png\">गहरी</a> और <a href=\"brand/lockup/stacked-black-transparent.png\">काली</a> के लिए; अकेला वर्डमार्क <a href=\"brand/lockup/wordmark-teal-transparent.png\">टील</a> और <a href=\"brand/lockup/wordmark-white-transparent.png\">सफ़ेद</a> में। ZIP में हर एक अपनी पृष्ठभूमि पर भी है।",
+   "अवतार, 512 px: <a href=\"brand/avatars/avatar-mint-512.png\">मिंट</a>, <a href=\"brand/avatars/avatar-deep-512.png\">गहरा टील</a> और <a href=\"brand/avatars/avatar-black-512.png\">काला</a>; ZIP में 400 px।",
+   "<a href=\"brand/verdetto-brand-guide.pdf\">ब्रांड गाइड, PDF</a>, सात पेज, <a href=\"{BRAND}\">ब्रांड पेज</a> पर भी; फ़ैक्ट शीट PDF में, <a href=\"brand/verdetto-fact-sheet-letter.pdf\">Letter</a> और <a href=\"brand/verdetto-fact-sheet-a4.pdf\">A4</a>।",
    "<a href=\"og-image.png\">शेयर इमेज, 1200 × 630</a> और <a href=\"play-header-4096x2304.jpg\">चौड़ा बैनर, 4096 × 2304</a>।",
    "<a href=\"screens/result-sheet.webp\">परिणाम शीट का स्क्रीनशॉट</a>: एक स्कैन किया गया लिंक खुलने से पहले दिखाया गया, \"कोई चेतावनी नहीं मिली\" चिप के साथ।",
    "<a href=\"screens/result-sheet-warning.webp\">परिणाम शीट, चेतावनी अवस्था</a>: एक मिलता-जुलता पता (paypa1.com) कुछ भी खुलने से पहले paypal.com की नक़ल के रूप में चिह्नित।",
@@ -2770,7 +2839,11 @@ PRESS_T = {
   ],
   "no_alter": "कृपया आइकन के रंग न बदलें और कोई प्रभाव न जोड़ें; चिह्न ही ब्रांड है।",
   "trademark": "Verdetto और Verdetto QR चिह्न ट्रेडमार्क हैं; VERDETTO के लिए संयुक्त राज्य अमेरिका में एक आवेदन लंबित है (क्रम संख्या 50092495)।",
-  "contact": "संपर्क"
+  "contact": "संपर्क",
+  "words_h": "25, 50 और 100 शब्दों में",
+  "w25": "Verdetto Android के लिए एक मुफ़्त QR और बारकोड स्कैनर है: कोई विज्ञापन नहीं, कोई खाता नहीं, Verdetto की ओर से कोई ट्रैकिंग नहीं। कुछ भी खुलने से पहले यह दिखाता है कि कोड में क्या है।",
+  "w50": "Verdetto Android के लिए एक मुफ़्त QR और बारकोड स्कैनर है, जिसमें कोई विज्ञापन, कोई खाता, कोई एनालिटिक्स और Verdetto की ओर से कोई ट्रैकिंग नहीं है। हर स्कैन कुछ भी खुलने से पहले दिखाता है कि कोड में क्या है और उस पर कौन-सी जाँचें हुईं; सुरक्षा सूची के हस्ताक्षर की जाँच फ़ोन पर होती है; और यह वे क्षतिग्रस्त कोड पढ़ता है जिन्हें दूसरे ऐप छोड़ देते हैं।",
+  "w100": "Verdetto Android के लिए एक मुफ़्त QR और बारकोड स्कैनर है: कोई विज्ञापन नहीं, कोई खाता नहीं, कोई एनालिटिक्स नहीं, Verdetto की ओर से कोई ट्रैकिंग नहीं। हर स्कैन कुछ भी खुलने से पहले दिखाता है कि कोड में क्या है और उस पर कौन-सी जाँचें हुईं: सूचीबद्ध लिंक, मिलता-जुलता पता, प्रीमियम नंबर, खुला नेटवर्क, भुगतान पता। \"सुरक्षित\" शब्द कभी नहीं कहा जाता; बिना किसी नतीजे की पंक्ति है \"कोई चेतावनी नहीं मिली\"। सुरक्षा सूची एक हस्ताक्षरित बंडल है जिसकी जाँच फ़ोन पर होती है, और किसी स्कैन के बारे में कुछ भी फ़ोन से बाहर नहीं जाता जब तक कोई व्यक्ति लुकअप चालू न करे। यह वे क्षतिग्रस्त कोड पढ़ता है जिन्हें दूसरे ऐप छोड़ देते हैं, आपके अपने रंगों में कोड बनाता है, और Google Play, F-Droid और GitHub पर ग्यारह भाषाओं में उपलब्ध है।"
  },
  "ja": {
   "title": "プレスキット",
@@ -2796,6 +2869,11 @@ PRESS_T = {
   "assets": [
    "<a href=\"icon-512.png\">アプリアイコン、512 px PNG</a> と <a href=\"logo.svg\">SVG 版のアイコン</a>。ミントの地、濃いティールの QR マーク、一つの琥珀色のファインダー。",
    "明るい地向けの <a href=\"lockup-teal-amber.png\">ロックアップ（マークと名前）、透過 PNG</a>（ティールの本体、琥珀のアクセント）と、暗い地向けの <a href=\"lockup-white-amber.png\">本体が白の同じもの</a>。マークは色を保ち、名前のキャップハイトに揃います。",
+   "<a href=\"brand/verdetto-brand-kit.zip\">ブランドキット一式の ZIP</a>：ロゴファイル、ロックアップ、アバター、ブランドガイド、ファクトシート。2.5 MB。",
+   "ロゴファイル：<a href=\"brand/logo/icon-mint-1024.png\">ミントのタイル</a>、<a href=\"brand/logo/icon-deep-tile-1024.png\">濃いティールのタイル</a>、<a href=\"brand/logo/icon-black-tile-1024.png\">黒のタイル</a>の上のマーク（1024 px）。マーク単体の透過版は<a href=\"brand/logo/mark-teal-amber-transparent-1024.png\">明るい地向け</a>と<a href=\"brand/logo/mark-white-amber-transparent-1024.png\">暗い地向け</a>。<a href=\"brand/logo/clear-space-and-minimum-size.png\">余白と最小サイズのシート</a>。ZIP 内の単色マークは彫刻と一色印刷専用です。",
+   "Roboto Medium のロックアップ、透過 PNG：横組みは<a href=\"brand/lockup/lockup-light-transparent.png\">明るい地</a>、<a href=\"brand/lockup/lockup-dark-transparent.png\">暗い地</a>、<a href=\"brand/lockup/lockup-black-transparent.png\">黒地</a>向け。縦組みは<a href=\"brand/lockup/stacked-light-transparent.png\">明るい地</a>、<a href=\"brand/lockup/stacked-dark-transparent.png\">暗い地</a>、<a href=\"brand/lockup/stacked-black-transparent.png\">黒地</a>向け。ワードマーク単体は<a href=\"brand/lockup/wordmark-teal-transparent.png\">ティール</a>と<a href=\"brand/lockup/wordmark-white-transparent.png\">白</a>。ZIP には各自の地色に載せた版もあります。",
+   "アバター（512 px）：<a href=\"brand/avatars/avatar-mint-512.png\">ミント</a>、<a href=\"brand/avatars/avatar-deep-512.png\">濃いティール</a>、<a href=\"brand/avatars/avatar-black-512.png\">黒</a>。ZIP には 400 px 版もあります。",
+   "<a href=\"brand/verdetto-brand-guide.pdf\">ブランドガイド（PDF、7 ページ）</a>。<a href=\"{BRAND}\">ブランドページ</a>でも読めます。ファクトシートは PDF で <a href=\"brand/verdetto-fact-sheet-letter.pdf\">レター</a>と <a href=\"brand/verdetto-fact-sheet-a4.pdf\">A4</a>。",
    "<a href=\"og-image.png\">シェア画像、1200 × 630</a> と <a href=\"play-header-4096x2304.jpg\">横長バナー、4096 × 2304</a>。",
    "<a href=\"screens/result-sheet.webp\">結果シートのスクリーンショット</a>: 読み取ったリンクを開く前に表示し、「警告は見つかりませんでした」のチップ付き。",
    "<a href=\"screens/result-sheet-warning.webp\">結果シート、警告の状態</a>: 見間違えやすいアドレス（paypa1.com）を、何かが開く前に paypal.com の模倣として警告。",
@@ -2803,7 +2881,11 @@ PRESS_T = {
   ],
   "no_alter": "アイコンの色を変えたり、効果を加えたりしないでください。マークがブランドです。",
   "trademark": "Verdetto と Verdetto QR マークは商標です。VERDETTO の米国出願が審査中です（シリアル番号 50092495）。",
-  "contact": "連絡先"
+  "contact": "連絡先",
+  "words_h": "25語、50語、100語で",
+  "w25": "Verdetto は Android 向けの無料の QR コード・バーコードスキャナーです。広告なし、アカウントなし、Verdetto によるトラッキングなし。何かが開く前に、コードの中身を表示します。",
+  "w50": "Verdetto は Android 向けの無料の QR コード・バーコードスキャナーで、広告もアカウントもアナリティクスも、Verdetto によるトラッキングもありません。スキャンのたびに、何かが開く前にコードの中身とそのチェック結果を表示し、安全リストの署名は端末上で照合され、ほかのアプリがあきらめる傷んだコードも読み取ります。",
+  "w100": "Verdetto は Android 向けの無料の QR コード・バーコードスキャナーです。広告なし、アカウントなし、アナリティクスなし、Verdetto によるトラッキングなし。スキャンのたびに、何かが開く前にコードの中身とそのチェック結果を表示します。リストに載ったリンク、似せたアドレス、有料番号、開放ネットワーク、支払いアドレス。「安全」という言葉は決して使わず、何も見つからなかったときの文は「警告は見つかりませんでした」です。安全リストは署名付きのバンドルで端末上で照合され、本人がルックアップをオンにしない限り、スキャンに関する情報は端末から出ません。ほかのアプリがあきらめる傷んだコードを読み取り、自分の色でコードを作成でき、Google Play、F-Droid、GitHub で 11 言語に対応しています。"
  },
  "zh-Hans": {
   "title": "媒体资料",
@@ -2829,6 +2911,11 @@ PRESS_T = {
   "assets": [
    "<a href=\"icon-512.png\">应用图标，512 px PNG</a> 和 <a href=\"logo.svg\">SVG 格式的图标</a>。薄荷色底，深青色二维码标志，一个琥珀色定位图案。",
    "用于浅色背景的 <a href=\"lockup-teal-amber.png\">标志组合（标志加名称），透明 PNG</a>（青色主体，琥珀色点缀），以及用于深色背景的 <a href=\"lockup-white-amber.png\">白色主体的同一版本</a>；标志保持原色，与名称的大写字母高度对齐。",
+   "<a href=\"brand/verdetto-brand-kit.zip\">整套品牌资料包，一个 ZIP</a>：标志文件、组合标志、头像、品牌指南和资料表，2.5 MB。",
+   "标志文件：<a href=\"brand/logo/icon-mint-1024.png\">薄荷色方块</a>、<a href=\"brand/logo/icon-deep-tile-1024.png\">深青色方块</a>和<a href=\"brand/logo/icon-black-tile-1024.png\">黑色方块</a>上的标志，1024 px；单独的透明标志，<a href=\"brand/logo/mark-teal-amber-transparent-1024.png\">用于浅色背景</a>和<a href=\"brand/logo/mark-white-amber-transparent-1024.png\">用于深色背景</a>；<a href=\"brand/logo/clear-space-and-minimum-size.png\">留白与最小尺寸说明图</a>。ZIP 中的单色标志仅用于雕刻和单色印刷。",
+   "Roboto Medium 组合标志，透明 PNG：横排版用于<a href=\"brand/lockup/lockup-light-transparent.png\">浅色</a>、<a href=\"brand/lockup/lockup-dark-transparent.png\">深色</a>和<a href=\"brand/lockup/lockup-black-transparent.png\">黑色</a>背景；竖排版用于<a href=\"brand/lockup/stacked-light-transparent.png\">浅色</a>、<a href=\"brand/lockup/stacked-dark-transparent.png\">深色</a>和<a href=\"brand/lockup/stacked-black-transparent.png\">黑色</a>背景；单独的文字标志有<a href=\"brand/lockup/wordmark-teal-transparent.png\">青色</a>和<a href=\"brand/lockup/wordmark-white-transparent.png\">白色</a>。ZIP 中每一款还附带自带背景的版本。",
+   "头像，512 px：<a href=\"brand/avatars/avatar-mint-512.png\">薄荷色</a>、<a href=\"brand/avatars/avatar-deep-512.png\">深青色</a>和<a href=\"brand/avatars/avatar-black-512.png\">黑色</a>；ZIP 中有 400 px 版本。",
+   "<a href=\"brand/verdetto-brand-guide.pdf\">品牌指南，PDF</a>，七页，也见<a href=\"{BRAND}\">品牌页面</a>；资料表 PDF 有 <a href=\"brand/verdetto-fact-sheet-letter.pdf\">Letter</a> 和 <a href=\"brand/verdetto-fact-sheet-a4.pdf\">A4</a> 两种。",
    "<a href=\"og-image.png\">分享图，1200 × 630</a> 和 <a href=\"play-header-4096x2304.jpg\">宽幅横幅，4096 × 2304</a>。",
    "<a href=\"screens/result-sheet.webp\">结果面板截图</a>：扫描到的链接在打开前显示，带有“未发现警告”标签。",
    "<a href=\"screens/result-sheet-warning.webp\">结果面板，警告状态</a>：一个仿冒地址（paypa1.com）在任何内容打开前被标记为模仿 paypal.com。",
@@ -2836,7 +2923,11 @@ PRESS_T = {
   ],
   "no_alter": "请不要更改图标的颜色或添加效果；这个标志就是品牌。",
   "trademark": "Verdetto 和 Verdetto 二维码标志是商标；VERDETTO 的美国商标申请正在审查中（序列号 50092495）。",
-  "contact": "联系方式"
+  "contact": "联系方式",
+  "words_h": "25、50、100 词三个版本",
+  "w25": "Verdetto 是一款免费的 Android QR 码和条形码扫描器：无广告，无账号，Verdetto 不做任何跟踪。在任何内容打开之前，它先显示码里有什么。",
+  "w50": "Verdetto 是一款免费的 Android QR 码和条形码扫描器，无广告、无账号、无分析统计，Verdetto 也不做任何跟踪。每次扫描都会在任何内容打开之前显示码的内容和对它的检查结果；安全名单的签名在手机上核对；它还能读取其他应用放弃的受损码。",
+  "w100": "Verdetto 是一款免费的 Android QR 码和条形码扫描器：无广告，无账号，无分析统计，Verdetto 不做任何跟踪。每次扫描都会在任何内容打开之前显示码的内容和对它的检查结果：名单上的链接、仿冒地址、高收费号码、开放网络、付款地址。它从不使用“安全”一词；没有发现问题时的表述是“未发现警告”。安全名单是经签名的数据包，在手机上核对；除非本人打开在线查询，否则扫描的任何信息都不会离开手机。它能读取其他应用放弃的受损码，能用你自己的颜色生成码，并以十一种语言在 Google Play、F-Droid 和 GitHub 上提供。"
  },
  "ar": {
   "title": "ملف الصحافة",
@@ -2862,6 +2953,11 @@ PRESS_T = {
   "assets": [
    "<a href=\"icon-512.png\">أيقونة التطبيق، PNG بحجم 512 بكسل</a> و<a href=\"logo.svg\">الأيقونة بصيغة SVG</a>. أرضية بلون النعناع، علامة QR بلون أزرق مخضرّ داكن، ونمط تحديد واحد بلون كهرماني.",
    "<a href=\"lockup-teal-amber.png\">الشعار المركّب، العلامة والاسم، PNG شفاف</a> للأرضيات الفاتحة (جسم أزرق مخضرّ، لمسة كهرمانية) و<a href=\"lockup-white-amber.png\">النسخة نفسها بجسم أبيض</a> للأرضيات الداكنة؛ تحتفظ العلامة بألوانها وتقف على ارتفاع الأحرف الكبيرة في الاسم.",
+   "<a href=\"brand/verdetto-brand-kit.zip\">حزمة العلامة في ملف ZIP واحد</a>: ملفات الشعار، والتراكيب، والصور الرمزية، ودليل العلامة، وورقة الحقائق، 2.5 ميغابايت.",
+   "ملفات الشعار: العلامة على <a href=\"brand/logo/icon-mint-1024.png\">بلاطة النعناع</a> و<a href=\"brand/logo/icon-deep-tile-1024.png\">بلاطة الأزرق المخضر الداكن</a> و<a href=\"brand/logo/icon-black-tile-1024.png\">البلاطة السوداء</a>، 1024 بكسل؛ العلامة وحدها بخلفية شفافة <a href=\"brand/logo/mark-teal-amber-transparent-1024.png\">للخلفيات الفاتحة</a> و<a href=\"brand/logo/mark-white-amber-transparent-1024.png\">للخلفيات الداكنة</a>؛ <a href=\"brand/logo/clear-space-and-minimum-size.png\">ورقة المساحة الخالية والحجم الأدنى</a>. العلامة أحادية اللون في ملف ZIP للنقش والطباعة بلون واحد فقط.",
+   "التراكيب بخط Roboto Medium، PNG شفاف: أفقية للخلفيات <a href=\"brand/lockup/lockup-light-transparent.png\">الفاتحة</a> و<a href=\"brand/lockup/lockup-dark-transparent.png\">الداكنة</a> و<a href=\"brand/lockup/lockup-black-transparent.png\">السوداء</a>؛ ورأسية للخلفيات <a href=\"brand/lockup/stacked-light-transparent.png\">الفاتحة</a> و<a href=\"brand/lockup/stacked-dark-transparent.png\">الداكنة</a> و<a href=\"brand/lockup/stacked-black-transparent.png\">السوداء</a>؛ والعلامة الكلمية وحدها <a href=\"brand/lockup/wordmark-teal-transparent.png\">بالأزرق المخضر</a> و<a href=\"brand/lockup/wordmark-white-transparent.png\">بالأبيض</a>. كل منها موجود في ملف ZIP أيضًا على خلفيته الخاصة.",
+   "الصور الرمزية، 512 بكسل: <a href=\"brand/avatars/avatar-mint-512.png\">نعناعية</a> و<a href=\"brand/avatars/avatar-deep-512.png\">أزرق مخضر داكن</a> و<a href=\"brand/avatars/avatar-black-512.png\">سوداء</a>؛ و400 بكسل في ملف ZIP.",
+   "<a href=\"brand/verdetto-brand-guide.pdf\">دليل العلامة، PDF</a>، سبع صفحات، وهو أيضًا على <a href=\"{BRAND}\">صفحة العلامة</a>؛ وورقة الحقائق بصيغة PDF بمقاسي <a href=\"brand/verdetto-fact-sheet-letter.pdf\">Letter</a> و<a href=\"brand/verdetto-fact-sheet-a4.pdf\">A4</a>.",
    "<a href=\"og-image.png\">صورة المشاركة، 1200 × 630</a> و<a href=\"play-header-4096x2304.jpg\">لافتة عريضة، 4096 × 2304</a>.",
    "<a href=\"screens/result-sheet.webp\">لقطة شاشة لورقة النتيجة</a>: رابط ممسوح يُعرض قبل أن يُفتح، مع شارة «لم يُعثر على تحذيرات».",
    "<a href=\"screens/result-sheet-warning.webp\">ورقة النتيجة في حالة التحذير</a>: عنوان مشابه (paypa1.com) مُعلَّم بوصفه تقليدًا لـ paypal.com قبل أن يُفتح أي شيء.",
@@ -2869,7 +2965,11 @@ PRESS_T = {
   ],
   "no_alter": "يُرجى عدم تغيير ألوان الأيقونة أو إضافة تأثيرات؛ فالعلامة هي الهوية.",
   "trademark": "Verdetto وعلامة Verdetto QR علامتان تجاريتان؛ وهناك طلب تسجيل لـ VERDETTO قيد النظر في الولايات المتحدة (الرقم التسلسلي 50092495).",
-  "contact": "للتواصل"
+  "contact": "للتواصل",
+  "words_h": "في 25 و50 و100 كلمة",
+  "w25": "Verdetto ماسح مجاني لرموز QR والباركود على Android: بلا إعلانات، بلا حسابات، بلا تتبّع من Verdetto. يعرض ما يحتويه الرمز قبل أن يُفتح أي شيء.",
+  "w50": "Verdetto ماسح مجاني لرموز QR والباركود على Android بلا إعلانات ولا حسابات ولا تحليلات ولا تتبّع من Verdetto. يعرض كل مسح ما يحتويه الرمز والفحوص التي أُجريت عليه قبل أن يُفتح أي شيء، ويُراجَع توقيع قائمة الأمان على الهاتف، ويقرأ الرموز التالفة التي تعجز عنها التطبيقات الأخرى.",
+  "w100": "Verdetto ماسح مجاني لرموز QR والباركود على Android: بلا إعلانات، بلا حسابات، بلا تحليلات، بلا تتبّع من Verdetto. يعرض كل مسح ما يحتويه الرمز والفحوص التي أُجريت عليه قبل أن يُفتح أي شيء: رابط مُدرج، عنوان مُقلَّد، رقم بتعرفة إضافية، شبكة مفتوحة، عنوان دفع. لا تُستخدم كلمة «آمن» أبدًا؛ وعبارة عدم وجود نتائج هي «لم يُعثر على تحذيرات». قائمة الأمان حزمة موقّعة تُراجَع على الهاتف، ولا يغادر الهاتف أي شيء عن المسح ما لم يُفعّل الشخص عمليات البحث. يقرأ الرموز التالفة التي تعجز عنها التطبيقات الأخرى، ويُنشئ رموزًا بألوانك، وهو متاح بإحدى عشرة لغة على Google Play وF-Droid وGitHub."
  }
 }
 
@@ -2884,12 +2984,13 @@ def press_body(t, code):
     items = [x.replace("{PRIVACY_LINK}", priv).replace("{TERMS_LINK}", terms).replace("{N}", str(len(FORMATS_READ))) for x in t["facts"]]
     # item 5 is the comparison basis of the ten-scanner finding; the home page's why paragraph links to it
     facts = "\n".join(("  <li id=\"comparison-basis\">" if k == 5 else "  <li>") + x + "</li>" for k, x in enumerate(items))
-    assets = "\n".join("  <li>" + x + "</li>" for x in t["assets"])
+    assets = "\n".join("  <li>" + x.replace("{BRAND}", href("brand.html")) + "</li>" for x in t["assets"])
     social = "".join(f'  <li>{k}: <a href="{v}">{v}</a></li>\n' for k, v in SOCIAL.items())
     where = chrome(code)["where"].rstrip(":\uff1a")
     return (f'\n<div class="prose">\n<h1>{t["title"]}</h1>\n<p class="meta">{t["meta"]}</p>\n\n'
             f'<div class="card"><p><strong>{t["lead"]}</strong> {t["sentence"]}</p></div>\n\n'
             f'<h2>{t["boiler_h"]}</h2>\n<p>{t["boiler"]}</p>\n\n'
+            f'<h3>{t["words_h"]}</h3>\n<p>{t["w25"]}</p>\n<p>{t["w50"]}</p>\n<p>{t["w100"]}</p>\n\n'
             f'<h2>{t["facts_h"]}</h2>\n<ul>\n{facts}\n</ul>\n\n'
             f'<h2>{t["assets_h"]}</h2>\n<ul>\n{assets}\n</ul>\n<p>{t["no_alter"]}</p>\n<p>{t["trademark"]}</p>\n\n'
             f'<h2>{where}</h2>\n<ul>\n{social}  <li>{t["contact"]}: <a href="mailto:{EMAIL}">{EMAIL}</a></li>\n</ul>\n</div>\n')
@@ -5852,6 +5953,84 @@ for _code in LANG_CODES[1:]:
         PAGE_LANG[_pg] = (_code, _code == "ar", alternates_for("features.html"))
 if len(FEAT_T) > 1:
     PAGE_LANG["features.html"] = ("en", False, alternates_for("features.html"))
+def brand_body():
+    """The brand page: the guide's seven pages as text with the files beside them, the badge form the Community License
+    points to, and the approved-channels record (Counsel's section 3a, 2026-09-05). English only; the files are the same
+    in every language."""
+    cl = href("community-license.html")
+    sw = lambda hexv: (f'<span aria-hidden="true" style="display:inline-block;width:1.1em;height:1.1em;border-radius:.25em;'
+                       f'vertical-align:-.15em;margin-right:.45em;border:1px solid rgba(0,0,0,.18);background:{hexv}"></span>')
+    palette = [("Mint page", "#E9F5F1", "the light surface"), ("Mint icon ground", "#D5E8E3", "the icon's own ground; never the page"),
+               ("Deep teal", "#003D35", "the mark's body on light; the dark brand ground"), ("Teal, light primary", "#006B5E", "links and actions on light"),
+               ("Teal, dark primary", "#54DBC8", "links and actions on dark"), ("Amber on light", "#B8650A", "the mark's accent on light grounds"),
+               ("Amber on dark", "#FFB95A", "the mark's accent on dark grounds"), ("Ink", "#191C1B", "text on light"),
+               ("Ink variant", "#3F4946", "secondary text on light"), ("Dark surface", "#0F1312", "the app's dark surface"),
+               ("Pure black", "#000000", "the black theme"), ("White", "#FFFFFF", "text on dark")]
+    rows = "\n".join(f"  <tr><td>{sw(hx)}{n}</td><td><code>{hx}</code></td><td>{r}</td></tr>" for n, hx, r in palette)
+    img = lambda src, alt, w: f'<img src="{src}" alt="{alt}" width="{w}" loading="lazy" style="max-width:100%;height:auto">'
+    return f"""
+<div class="prose">
+<h1>Brand</h1>
+<p class="meta">The Verdetto mark, the lockups, the palette, the type and the voice, with the files to download, the form of the "Built on Verdetto" badge, and the record of approved channels the <a href="{cl}">Verdetto Community License</a> refers to.</p>
+
+<h2>The mark keeps its colors</h2>
+<p>{img("brand/logo/icon-mint-512.png", "The Verdetto mark on the mint tile", 160)} {img("brand/logo/icon-deep-tile-512.png", "The Verdetto mark on the deep teal tile", 160)} {img("brand/logo/icon-black-tile-512.png", "The Verdetto mark on the black tile", 160)}</p>
+<p>On light grounds the body is deep teal (#003D35) and the accent amber (#B8650A). On dark grounds the body is white and the accent the lighter amber (#FFB95A). On black, the same as on dark.</p>
+<p>Never tinted, never inverted, never recolored by a theme or a season, never given effects. The single-color mark exists only for engraving and one-color print.</p>
+<p>Clear space: a quarter of the mark's height on every side, with nothing inside it. Minimum size: 24 px tall on screen, 8 mm tall in print.</p>
+<p>{img("brand/logo/clear-space-and-minimum-size.png", "The clear space around the mark and its minimum size", 640)}</p>
+
+<h2>Palette</h2>
+<table>
+  <tr><th>Name</th><th>Hex</th><th>Role</th></tr>
+{rows}
+</table>
+<p>Warning colors, red for danger and amber fills for caution, belong to the app's verdicts and never to the brand. Never red, pink or gold as a brand accent.</p>
+
+<h2>Typography</h2>
+<p>Roboto, the app's own face: the wordmark and headlines in Roboto Medium, body text in Roboto Regular, emphasis, sparingly, in Roboto Bold. Apache-2.0, embeddable in print and on the web. Sentence case everywhere; American English; numbers as figures. The copy diet: what happened, then what it means, one idea per line.</p>
+
+<h2>Lockups</h2>
+<p>{img("brand/lockup/lockup-light-on-ground.png", "The horizontal lockup on the light ground", 420)} {img("brand/lockup/lockup-dark-on-ground.png", "The horizontal lockup on the dark ground", 420)}</p>
+<p>{img("brand/lockup/stacked-light-on-ground.png", "The stacked lockup on the light ground", 280)} {img("brand/lockup/stacked-dark-on-ground.png", "The stacked lockup on the dark ground", 280)}</p>
+<p>The mark stands at the wordmark's cap height with a gap of a third of it; stacked, the mark is two and a half caps tall. The wordmark never appears without the mark on a first use. Horizontal and stacked lockups exist for light, dark and black grounds; the wordmark alone in teal and white. All of them are in the ZIP below.</p>
+
+<h2>The Verdetto code, and the voice</h2>
+<p>{img("verdetto-code-light-on-white.png", "The Verdetto code: rounded runs, rounded finder rings, the amber top-left eye", 200)}</p>
+<p>The app's own codes share one family: rounded runs, rounded finder rings, the amber top-left eye. It is Verdetto's signature on a card, a poster, the share screen. It is never offered to people as a style for their own codes, and the portrait mark, not a code, is the logo.</p>
+<p>Voice: plain, specific, unhurried. Say what happened, then what it means. The absolutes we state: no accounts, no ads, no analytics, no tracking by Verdetto, nothing about you kept by us. We never call a code, a site or a check safe; we show what was checked and what was found. We never claim that no data reaches us, never ask for money as a gift, never name a founder, never use a mascot.</p>
+
+<h2 id="badge">The "Built on Verdetto" badge</h2>
+<p>{img("brand/badge/badge-built-on-verdetto-light.png", "The Built on Verdetto badge for light grounds", 300)} {img("brand/badge/badge-built-on-verdetto-dark.png", "The Built on Verdetto badge for dark grounds", 300)}</p>
+<p>This is the form the badge is shown in: the lockup unaltered with the words "Built on", at a legible size, linked to verdettoqr.com where the surface allows a link, never as the product's own name or icon, and never modified, recolored, animated or combined with another mark. Who may show it, and on what conditions, is set by the <a href="{cl}">Verdetto Community License</a>.</p>
+
+<h2 id="approved-channels">Approved channels</h2>
+<p>The <a href="{cl}">Verdetto Community License</a> treats two kinds of build as approved without a separate request: a build made by a distribution service listed here, from Verdetto's own tagged release source unchanged, under the build recipe Verdetto submitted or accepted for it; and an unmodified copy of a release Verdetto itself signed, wherever it is redistributed. This list is the record of those approvals.</p>
+<ul>
+  <li>Builds from Verdetto's source: F-Droid, under the recipe Verdetto submits to fdroiddata. A build F-Droid verifies as reproducing Verdetto's own release is Verdetto's build.</li>
+  <li>Unmodified copies of releases Verdetto signed: IzzyOnDroid, GitHub releases, and the clients that install from them.</li>
+</ul>
+<p>Changes to this list are dated in the site's public source history.</p>
+
+<h2>Contact block and trademark</h2>
+<p>Verdetto<br>support@verdettoqr.com<br>1520 Belle View Blvd<br>Suite #5992<br>Alexandria, VA 22307 US</p>
+<p>Verdetto and the Verdetto QR mark are trademarks. A United States application for VERDETTO is pending (serial no. 50092495). Use TM where a symbol is wanted; never the registered symbol before the certificate. The Verdetto Community License governs use of the name and the mark by others.</p>
+
+<h2>Downloads</h2>
+<ul>
+  <li><a href="brand/verdetto-brand-kit.zip">The brand kit in one ZIP</a>: logo files, lockups, avatars, the brand guide and the fact sheet, 2.5 MB.</li>
+  <li><a href="brand/verdetto-brand-guide.pdf">The brand guide, PDF</a>, seven pages.</li>
+  <li>The fact sheet as <a href="brand/verdetto-fact-sheet-letter.pdf">Letter</a> and <a href="brand/verdetto-fact-sheet-a4.pdf">A4</a> PDF.</li>
+  <li>Screenshots, the share image and the one-sentence description are on the <a href="{href("press.html")}">press page</a>.</li>
+</ul>
+<p>Please do not alter the mark's colors or add effects; the mark is the brand.</p>
+</div>
+"""
+
+
+PAGES["brand.html"] = ("Brand - Verdetto", "The Verdetto mark, lockups, palette, type and voice, the badge form, the record of approved channels, and the brand files to download.", brand_body(),
+                       {"@type": "WebPage", "name": "Brand", "publisher": ORG})
+
 BENCH_PUBLISHED = False  # True once the benchmark page is cleared for the live site
 
 

@@ -140,6 +140,7 @@ Official accounts: Mastodon https://mastodon.social/@VerdettoQR; Reddit https://
 - [它能做的一切](https://verdettoqr.com/features-zh-hans): Verdetto 的每一项功能，按人们遇到的顺序：先看到链接、受损的码、经您允许的查询、您自己制作的码，以及没有广告。
 - [यह जो कुछ करता है](https://verdettoqr.com/features-hi): Verdetto की हर सुविधा, उसी क्रम में जिसमें लोग उससे मिलते हैं: पहले लिंक, क्षतिग्रस्त कोड, आपकी अनुमति से खोज, आपके अपने कोड, और कोई विज्ञापन नहीं।
 - [كل ما يفعله](https://verdettoqr.com/features-ar): كل ميزة في Verdetto، بالترتيب الذي يلقاها الناس به: الرابط أولًا، والرموز المتضررة، والبحث الذي تسمح به، ورموزك التي تصنعها، وبلا إعلانات.
+- [Brand](https://verdettoqr.com/brand): The Verdetto mark, lockups, palette, type and voice, the badge form, the record of approved channels, and the brand files to download.
 
 ## Facts
 
