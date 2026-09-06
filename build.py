@@ -775,6 +775,10 @@ SUPPORT_T = {
    [
     "What does the contribution unlock?",
     "Nothing you need; everything stays free. Supporters get a badge you can hide, and a few small extras are planned."
+   ],
+   [
+    "Can I change how the app looks?",
+    "Light, dark or pure black, with the accent you choose: teal, a quiet seasonal color around the holidays where you live, your wallpaper's colors on Android 12 and later, or one of the five seasonal sets kept all year. Warnings keep their colors."
    ]
   ],
   "closing": "Not sure what to look for in a link? Read {guide}. Want to keep the app free for everyone? {support}.",
@@ -817,6 +821,10 @@ SUPPORT_T = {
    [
     "Was schaltet der Beitrag frei?",
     "Nichts, was du brauchst; alles bleibt kostenlos. Unterstützer bekommen ein Abzeichen, das du ausblenden kannst, und ein paar kleine Extras sind geplant."
+   ],
+   [
+    "Kann ich das Aussehen der App ändern?",
+    "Hell, dunkel oder reines Schwarz, mit dem Akzent, den du wählst: Teal, eine leise saisonale Farbe rund um die Feiertage dort, wo du lebst, die Farben deines Hintergrundbilds ab Android 12 oder eines der fünf saisonalen Sets das ganze Jahr über. Warnungen behalten ihre Farben."
    ]
   ],
   "closing": "Nicht sicher, worauf du bei einem Link achten sollst? Lies, {guide}. Möchtest du die App für alle kostenlos halten? {support}.",
@@ -859,6 +867,10 @@ SUPPORT_T = {
    [
     "¿Qué desbloquea la contribución?",
     "Nada que necesites; todo sigue siendo gratis. Quienes apoyan reciben una insignia que puedes ocultar, y hay previstos algunos pequeños extras."
+   ],
+   [
+    "¿Puedo cambiar el aspecto de la aplicación?",
+    "Claro, oscuro o negro puro, con el acento que elijas: verde azulado, un color estacional discreto alrededor de las fiestas de donde vives, los colores de tu fondo de pantalla en Android 12 y posteriores, o uno de los cinco juegos estacionales todo el año. Las advertencias conservan sus colores."
    ]
   ],
   "closing": "¿No sabes qué mirar en un enlace? Lee {guide}. ¿Quieres que la aplicación siga siendo gratis para todos? {support}.",
@@ -901,6 +913,10 @@ SUPPORT_T = {
    [
     "Que débloque la contribution ?",
     "Rien dont tu aies besoin ; tout reste gratuit. Les soutiens reçoivent un badge que tu peux masquer, et quelques petits extras sont prévus."
+   ],
+   [
+    "Puis-je changer l'apparence de l'application ?",
+    "Clair, sombre ou noir pur, avec l'accent de ton choix : sarcelle, une couleur saisonnière discrète autour des fêtes là où tu vis, les couleurs de ton fond d'écran sur Android 12 et plus, ou l'un des cinq jeux saisonniers gardés toute l'année. Les avertissements gardent leurs couleurs."
    ]
   ],
   "closing": "Tu ne sais pas quoi regarder dans un lien ? Lis {guide}. Tu veux garder l'application gratuite pour tous ? {support}.",
@@ -943,6 +959,10 @@ SUPPORT_T = {
    [
     "O que a contribuição desbloqueia?",
     "Nada de que você precise; tudo continua grátis. Quem apoia ganha um selo que você pode ocultar, e alguns pequenos extras estão planejados."
+   ],
+   [
+    "Posso mudar a aparência do app?",
+    "Claro, escuro ou preto puro, com o destaque que você escolhe: verde-azulado, uma cor sazonal discreta perto dos feriados de onde você mora, as cores do seu papel de parede no Android 12 ou mais recente, ou um dos cinco conjuntos sazonais o ano todo. Os avisos mantêm suas cores."
    ]
   ],
   "closing": "Não sabe o que olhar em um link? Leia {guide}. Quer manter o app grátis para todos? {support}.",
@@ -985,6 +1005,10 @@ SUPPORT_T = {
    [
     "Apa yang dibuka oleh kontribusi?",
     "Tidak ada yang kamu butuhkan; semuanya tetap gratis. Pendukung mendapat lencana yang bisa disembunyikan, dan beberapa tambahan kecil direncanakan."
+   ],
+   [
+    "Bisakah saya mengubah tampilan aplikasi?",
+    "Terang, gelap, atau hitam pekat, dengan aksen pilihanmu: teal, warna musiman yang tenang di sekitar hari raya di tempat tinggalmu, warna wallpaper-mu di Android 12 ke atas, atau salah satu dari lima set musiman sepanjang tahun. Peringatan tetap dengan warnanya."
    ]
   ],
   "closing": "Tidak yakin apa yang harus dilihat pada tautan? Baca {guide}. Ingin menjaga aplikasi gratis untuk semua? {support}.",
@@ -1027,6 +1051,10 @@ SUPPORT_T = {
    [
     "Что открывает взнос?",
     "Ничего необходимого; всё остаётся бесплатным. Поддержавшие получают значок, который можно скрыть, и планируется несколько небольших дополнений."
+   ],
+   [
+    "Можно ли изменить внешний вид приложения?",
+    "Светлая, тёмная или чисто чёрная тема с акцентом на ваш выбор: бирюзовый, спокойный сезонный цвет к праздникам там, где вы живёте, цвета ваших обоев на Android 12 и новее или один из пяти сезонных наборов на весь год. Предупреждения сохраняют свои цвета."
    ]
   ],
   "closing": "Не знаете, на что смотреть в ссылке? Прочитайте, {guide}. Хотите, чтобы приложение оставалось бесплатным для всех? {support}.",
@@ -1069,6 +1097,10 @@ SUPPORT_T = {
    [
     "योगदान से क्या मिलता है?",
     "ऐसा कुछ नहीं जिसकी आपको ज़रूरत हो; सब कुछ मुफ़्त रहता है। समर्थकों को एक बैज मिलता है जिसे आप छिपा सकते हैं, और कुछ छोटे अतिरिक्त की योजना है।"
+   ],
+   [
+    "क्या ऐप का रूप बदला जा सकता है?",
+    "हल्का, गहरा या शुद्ध काला, आपकी पसंद के एक्सेंट के साथ: टील, आपके इलाक़े के त्योहारों के आसपास एक हल्का मौसमी रंग, Android 12 और बाद में आपके वॉलपेपर के रंग, या साल भर रखे जाने वाले पाँच मौसमी सेटों में से एक। चेतावनियाँ अपने रंग रखती हैं।"
    ]
   ],
   "closing": "पता नहीं लिंक में क्या देखें? पढ़ें {guide}। ऐप को सभी के लिए मुफ़्त रखना चाहते हैं? {support}।",
@@ -1111,6 +1143,10 @@ SUPPORT_T = {
    [
     "寄付で何が解放されますか?",
     "必要なものは何もなく、すべて無料のままです。支援者には非表示にできるバッジと、いくつかの小さな特典が予定されています。"
+   ],
+   [
+    "アプリの見た目は変えられますか?",
+    "ライト、ダーク、または純黒のテーマに、選べるアクセント。ティール、お住まいの地域の祝祭日に合わせた控えめな季節の色、Android 12 以降では壁紙の色、または一年中使える五つの季節セットのいずれか。警告の色は変わりません。"
    ]
   ],
   "closing": "リンクの何を見ればよいか分からないときは、{guide}をお読みください。アプリを誰にとっても無料のままにしたいなら、{support}。",
@@ -1153,6 +1189,10 @@ SUPPORT_T = {
    [
     "支持款项能解锁什么？",
     "没有你需要的东西；一切保持免费。支持者会获得一枚可隐藏的徽章，还计划有几项小额外内容。"
+   ],
+   [
+    "可以更改应用的外观吗？",
+    "浅色、深色或纯黑主题，强调色由你选择：青色、你所在地区节日前后的淡雅季节色、Android 12 及更高版本上的壁纸色，或五套全年可用的季节色之一。警告保持原有颜色。"
    ]
   ],
   "closing": "不确定该看链接的哪些地方？请阅读{guide}。想让应用对所有人保持免费？{support}。",
@@ -1195,6 +1235,10 @@ SUPPORT_T = {
    [
     "ما الذي تفتحه المساهمة؟",
     "لا شيء تحتاجه؛ يبقى كل شيء مجانيًا. يحصل الداعمون على شارة يمكنك إخفاؤها، وهناك إضافات صغيرة قليلة مخطط لها."
+   ],
+   [
+    "هل يمكنني تغيير مظهر التطبيق؟",
+    "فاتح أو داكن أو أسود خالص، مع اللون المميز الذي تختاره: أزرق مخضر، أو لون موسمي هادئ حول الأعياد حيث تعيش، أو ألوان خلفية شاشتك على Android 12 والأحدث، أو إحدى المجموعات الموسمية الخمس طوال العام. تحتفظ التحذيرات بألوانها."
    ]
   ],
   "closing": "لست متأكدًا مما تنظر إليه في الرابط؟ اقرأ {guide}. تريد أن يبقى التطبيق مجانيًا للجميع؟ {support}.",
@@ -2469,6 +2513,7 @@ PRESS = f"""
   <li>Platform: Android 8 and later. Price: free. Ads: none. Accounts: none. Analytics: none.</li>
   <li>Scanning and every built-in check run on the phone. Online lookups are on by default and can be turned off with one switch, and product lookups have a switch of their own.</li>
   <li>Reads {len(FORMATS_READ)} kinds of codes, measured on the September 4, 2026 validation run, including EAN, UPC, Code 128, Data Matrix, PDF417, and Aztec.</li>
+  <li>Light, dark or pure black, with the accent you choose: teal, a quiet seasonal color around the holidays where you live, your wallpaper's colors on Android 12 and later, or one of the five seasonal sets kept all year. Warnings keep their colors.</li>
   <li>The safety list is built in the open at <a href="https://github.com/verdettoqr/link-safety-list">github.com/verdettoqr/link-safety-list</a> and refreshed four times a day; the app verifies its signature before use.</li>
   <li>What the app never says: that a link, network, or product is safe. The wording is "No warnings found."</li>
   <li id="comparison-basis">Comparison basis: the ten most-installed free QR scanners on Google Play as of September 4, 2026, identified by install count that day; each listing's ads label and its most relevant reviews read the same day; 'fake button' is the reviewers' description, not ours; no scanner is named; the list and the notes are kept on file.</li>
@@ -2509,6 +2554,7 @@ PRESS_T = {
    "Plattform: Android 8 und neuer. Preis: kostenlos. Werbung: keine. Konten: keine. Analysen: keine.",
    "Das Scannen und jede eingebaute Prüfung laufen auf dem Telefon. Online-Abfragen sind standardmäßig an und lassen sich mit einem Schalter abstellen; Produktabfragen haben einen eigenen Schalter.",
    "Liest {N} Arten von Codes, gemessen im Validierungslauf vom 4. September 2026, darunter EAN, UPC, Code 128, Data Matrix, PDF417 und Aztec.",
+   "Hell, dunkel oder reines Schwarz, mit dem Akzent, den du wählst: Teal, eine leise saisonale Farbe rund um die Feiertage dort, wo du lebst, die Farben deines Hintergrundbilds ab Android 12 oder eines der fünf saisonalen Sets das ganze Jahr über. Warnungen behalten ihre Farben.",
    "Die Sicherheitsliste entsteht offen unter <a href=\"https://github.com/verdettoqr/link-safety-list\">github.com/verdettoqr/link-safety-list</a> und wird viermal am Tag aktualisiert; die App prüft ihre Signatur vor der Verwendung.",
    "Was die App nie sagt: dass ein Link, ein Netzwerk oder ein Produkt sicher ist. Die Formulierung lautet „Keine Warnungen gefunden“.",
    "Vergleichsgrundlage: die zehn meistinstallierten kostenlosen QR-Scanner bei Google Play am 4. September 2026, bestimmt nach der Installationszahl an diesem Tag; das Werbe-Label jedes Eintrags und seine relevantesten Rezensionen am selben Tag gelesen; „falscher Button“ ist die Beschreibung der Rezensenten, nicht unsere; kein Scanner wird genannt; die Liste und die Notizen liegen bei uns vor.",
@@ -2541,6 +2587,7 @@ PRESS_T = {
    "Plataforma: Android 8 y posteriores. Precio: gratis. Anuncios: ninguno. Cuentas: ninguna. Analíticas: ninguna.",
    "El escaneo y todas las comprobaciones integradas se ejecutan en el teléfono. Las consultas en línea están activadas por defecto y se apagan con un interruptor; las consultas de productos tienen su propio interruptor.",
    "Lee {N} tipos de códigos, medidos en la ejecución de validación del 4 de septiembre de 2026, incluidos EAN, UPC, Code 128, Data Matrix, PDF417 y Aztec.",
+   "Claro, oscuro o negro puro, con el acento que elijas: verde azulado, un color estacional discreto alrededor de las fiestas de donde vives, los colores de tu fondo de pantalla en Android 12 y posteriores, o uno de los cinco juegos estacionales todo el año. Las advertencias conservan sus colores.",
    "La lista de seguridad se construye de forma abierta en <a href=\"https://github.com/verdettoqr/link-safety-list\">github.com/verdettoqr/link-safety-list</a> y se actualiza cuatro veces al día; la aplicación verifica su firma antes de usarla.",
    "Lo que la aplicación nunca dice: que un enlace, una red o un producto sea seguro. La redacción es «No se encontraron avisos».",
    "Base de la comparación: los diez escáneres QR gratuitos más instalados en Google Play a 4 de septiembre de 2026, identificados por su número de instalaciones ese día; la etiqueta de anuncios de cada ficha y sus reseñas más relevantes, leídas el mismo día; «botón falso» es la descripción de quienes reseñan, no la nuestra; no se nombra ningún escáner; la lista y las notas quedan archivadas.",
@@ -2573,6 +2620,7 @@ PRESS_T = {
    "Plateforme : Android 8 et versions ultérieures. Prix : gratuit. Publicité : aucune. Comptes : aucun. Analyse d'audience : aucune.",
    "Le scan et chaque vérification intégrée s'exécutent sur le téléphone. Les recherches en ligne sont activées par défaut et se coupent d'un seul interrupteur ; les recherches de produits ont le leur.",
    "Lit {N} sortes de codes, mesurées lors de la validation du 4 septembre 2026, dont EAN, UPC, Code 128, Data Matrix, PDF417 et Aztec.",
+   "Clair, sombre ou noir pur, avec l'accent de ton choix : sarcelle, une couleur saisonnière discrète autour des fêtes là où tu vis, les couleurs de ton fond d'écran sur Android 12 et plus, ou l'un des cinq jeux saisonniers gardés toute l'année. Les avertissements gardent leurs couleurs.",
    "La liste de sécurité est construite au grand jour sur <a href=\"https://github.com/verdettoqr/link-safety-list\">github.com/verdettoqr/link-safety-list</a> et rafraîchie quatre fois par jour ; l'application vérifie sa signature avant de l'utiliser.",
    "Ce que l'application ne dit jamais : qu'un lien, un réseau ou un produit est sûr. La formulation est « Aucune alerte trouvée ».",
    "Base de comparaison : les dix lecteurs QR gratuits les plus installés sur Google Play au 4 septembre 2026, identifiés par leur nombre d'installations ce jour-là ; l'étiquette « contient des publicités » de chaque fiche et ses avis les plus pertinents, lus le même jour ; « faux bouton » est la description des personnes qui ont laissé un avis, pas la nôtre ; aucun lecteur n'est nommé ; la liste et les notes sont conservées.",
@@ -2605,6 +2653,7 @@ PRESS_T = {
    "Plataforma: Android 8 ou mais recente. Preço: grátis. Anúncios: nenhum. Contas: nenhuma. Análises de uso: nenhuma.",
    "A leitura e todas as verificações embutidas rodam no celular. As consultas online vêm ativadas e podem ser desligadas com um único botão; as consultas de produtos têm um botão próprio.",
    "Lê {N} tipos de código, medidos na rodada de validação de 4 de setembro de 2026, incluindo EAN, UPC, Code 128, Data Matrix, PDF417 e Aztec.",
+   "Claro, escuro ou preto puro, com o destaque que você escolhe: verde-azulado, uma cor sazonal discreta perto dos feriados de onde você mora, as cores do seu papel de parede no Android 12 ou mais recente, ou um dos cinco conjuntos sazonais o ano todo. Os avisos mantêm suas cores.",
    "A lista de segurança é construída abertamente em <a href=\"https://github.com/verdettoqr/link-safety-list\">github.com/verdettoqr/link-safety-list</a> e atualizada quatro vezes por dia; o aplicativo verifica a assinatura dela antes de usar.",
    "O que o aplicativo nunca diz: que um link, uma rede ou um produto é seguro. A frase é \"Nenhum alerta encontrado\".",
    "Base da comparação: os dez leitores de QR gratuitos mais instalados no Google Play em 4 de setembro de 2026, identificados pelo número de instalações naquele dia; o rótulo de anúncios de cada página e suas avaliações mais relevantes, lidos no mesmo dia; \"botão falso\" é a descrição de quem avaliou, não a nossa; nenhum leitor é nomeado; a lista e as anotações ficam arquivadas.",
@@ -2637,6 +2686,7 @@ PRESS_T = {
    "Platform: Android 8 ke atas. Harga: gratis. Iklan: tidak ada. Akun: tidak ada. Analitik: tidak ada.",
    "Pemindaian dan setiap pemeriksaan bawaan berjalan di ponsel. Pencarian online aktif secara bawaan dan bisa dimatikan dengan satu sakelar; pencarian produk punya sakelar sendiri.",
    "Membaca {N} jenis kode, diukur pada uji validasi 4 September 2026, termasuk EAN, UPC, Code 128, Data Matrix, PDF417, dan Aztec.",
+   "Terang, gelap, atau hitam pekat, dengan aksen pilihanmu: teal, warna musiman yang tenang di sekitar hari raya di tempat tinggalmu, warna wallpaper-mu di Android 12 ke atas, atau salah satu dari lima set musiman sepanjang tahun. Peringatan tetap dengan warnanya.",
    "Daftar keamanan dibangun secara terbuka di <a href=\"https://github.com/verdettoqr/link-safety-list\">github.com/verdettoqr/link-safety-list</a> dan diperbarui empat kali sehari; aplikasi memverifikasi tanda tangannya sebelum dipakai.",
    "Yang tidak pernah dikatakan aplikasi: bahwa sebuah tautan, jaringan, atau produk aman. Kata-katanya adalah \"Tidak ada peringatan ditemukan\".",
    "Dasar perbandingan: sepuluh pemindai QR gratis dengan pemasangan terbanyak di Google Play per 4 September 2026, ditentukan dari jumlah pemasangan hari itu; label iklan setiap halaman dan ulasan paling relevannya dibaca pada hari yang sama; \"tombol palsu\" adalah gambaran para pengulas, bukan kami; tidak ada pemindai yang disebut namanya; daftar dan catatannya kami simpan.",
@@ -2669,6 +2719,7 @@ PRESS_T = {
    "Платформа: Android 8 и новее. Цена: бесплатно. Реклама: нет. Учётные записи: нет. Аналитика: нет.",
    "Сканирование и каждая встроенная проверка выполняются на телефоне. Онлайн-запросы включены по умолчанию и отключаются одним переключателем; у запросов о товарах свой переключатель.",
    "Читает {N} вид кодов, измеренных в проверочном прогоне 4 сентября 2026 года, включая EAN, UPC, Code 128, Data Matrix, PDF417 и Aztec.",
+   "Светлая, тёмная или чисто чёрная тема с акцентом на ваш выбор: бирюзовый, спокойный сезонный цвет к праздникам там, где вы живёте, цвета ваших обоев на Android 12 и новее или один из пяти сезонных наборов на весь год. Предупреждения сохраняют свои цвета.",
    "Список безопасности собирается открыто на <a href=\"https://github.com/verdettoqr/link-safety-list\">github.com/verdettoqr/link-safety-list</a> и обновляется четыре раза в день; приложение проверяет его подпись перед использованием.",
    "Чего приложение никогда не говорит: что ссылка, сеть или товар безопасны. Формулировка: «Предупреждений не найдено».",
    "База сравнения: десять самых устанавливаемых бесплатных QR-сканеров в Google Play на 4 сентября 2026 года, определённые по числу установок в тот день; метка о рекламе у каждой страницы и её самые релевантные отзывы прочитаны в тот же день; «ложная кнопка» — описание авторов отзывов, а не наше; ни один сканер не назван; список и заметки хранятся у нас.",
@@ -2701,6 +2752,7 @@ PRESS_T = {
    "प्लैटफ़ॉर्म: Android 8 और बाद के संस्करण। कीमत: मुफ़्त। विज्ञापन: कोई नहीं। खाते: कोई नहीं। एनालिटिक्स: कोई नहीं।",
    "स्कैनिंग और हर अंतर्निर्मित जाँच फ़ोन पर चलती है। ऑनलाइन खोज डिफ़ॉल्ट रूप से चालू है और एक स्विच से बंद की जा सकती है; उत्पाद खोज का अपना अलग स्विच है।",
    "{N} तरह के कोड पढ़ता है, 4 सितंबर 2026 के सत्यापन रन में मापे गए, जिनमें EAN, UPC, Code 128, Data Matrix, PDF417 और Aztec शामिल हैं।",
+   "हल्का, गहरा या शुद्ध काला, आपकी पसंद के एक्सेंट के साथ: टील, आपके इलाक़े के त्योहारों के आसपास एक हल्का मौसमी रंग, Android 12 और बाद में आपके वॉलपेपर के रंग, या साल भर रखे जाने वाले पाँच मौसमी सेटों में से एक। चेतावनियाँ अपने रंग रखती हैं।",
    "सुरक्षा सूची <a href=\"https://github.com/verdettoqr/link-safety-list\">github.com/verdettoqr/link-safety-list</a> पर खुले तौर पर बनाई जाती है और दिन में चार बार ताज़ा होती है; ऐप इस्तेमाल से पहले उसका हस्ताक्षर सत्यापित करता है।",
    "ऐप जो कभी नहीं कहता: कि कोई लिंक, नेटवर्क या उत्पाद सुरक्षित है। शब्द हैं \"कोई चेतावनी नहीं मिली\"।",
    "तुलना का आधार: 4 सितंबर 2026 तक Google Play पर सबसे अधिक इंस्टॉल किए गए दस मुफ़्त QR स्कैनर, उस दिन की इंस्टॉल संख्या से पहचाने गए; हर लिस्टिंग का विज्ञापन लेबल और उसकी सबसे प्रासंगिक समीक्षाएँ उसी दिन पढ़ी गईं; \"नकली बटन\" समीक्षकों का वर्णन है, हमारा नहीं; किसी स्कैनर का नाम नहीं लिया गया; सूची और नोट हमारे पास रखे हैं।",
@@ -2733,6 +2785,7 @@ PRESS_T = {
    "プラットフォーム: Android 8 以降。価格: 無料。広告: なし。アカウント: なし。解析: なし。",
    "読み取りと内蔵の確認はすべて端末上で行われます。オンライン照会は初期状態でオンで、スイッチ一つで切れます。商品照会には専用のスイッチがあります。",
    "{N} 種類のコードを読み取ります（2026 年 9 月 4 日の検証で測定）。EAN、UPC、Code 128、Data Matrix、PDF417、Aztec を含みます。",
+   "ライト、ダーク、または純黒のテーマに、選べるアクセント。ティール、お住まいの地域の祝祭日に合わせた控えめな季節の色、Android 12 以降では壁紙の色、または一年中使える五つの季節セットのいずれか。警告の色は変わりません。",
    "安全リストは <a href=\"https://github.com/verdettoqr/link-safety-list\">github.com/verdettoqr/link-safety-list</a> で公開の場で作られ、一日四回更新されます。アプリは使用前にその署名を検証します。",
    "アプリが決して言わないこと: リンク、ネットワーク、商品が安全だということ。表現は「警告は見つかりませんでした」です。",
    "比較の基準: 2026 年 9 月 4 日時点で Google Play のインストール数上位十本の無料 QR スキャナーを、その日のインストール数で特定。各掲載の広告表示と最も参考になるレビューを同じ日に確認。「偽のボタン」はレビュー投稿者の表現で、私たちのものではありません。スキャナー名は挙げません。一覧とメモは保管しています。",
@@ -2765,6 +2818,7 @@ PRESS_T = {
    "平台：Android 8 及更高版本。价格：免费。广告：无。账户：无。分析统计：无。",
    "扫描和所有内置检查都在手机上运行。在线查询默认开启，一个开关即可关闭；商品查询有单独的开关。",
    "读取 {N} 种码（在 2026 年 9 月 4 日的验证运行中测量），包括 EAN、UPC、Code 128、Data Matrix、PDF417 和 Aztec。",
+   "浅色、深色或纯黑主题，强调色由你选择：青色、你所在地区节日前后的淡雅季节色、Android 12 及更高版本上的壁纸色，或五套全年可用的季节色之一。警告保持原有颜色。",
    "安全列表在 <a href=\"https://github.com/verdettoqr/link-safety-list\">github.com/verdettoqr/link-safety-list</a> 公开构建，每天更新四次；应用在使用前校验其签名。",
    "应用从不说的话：某个链接、网络或商品是安全的。措辞是“未发现警告”。",
    "比较依据：截至 2026 年 9 月 4 日 Google Play 上安装量最高的十款免费二维码扫描器，按当日安装量确定；每个商店页面的广告标注及其最相关的评价于同日阅读；“假按钮”是评价者的说法，不是我们的；不点名任何扫描器；名单和记录留存备查。",
@@ -2797,6 +2851,7 @@ PRESS_T = {
    "المنصة: Android 8 وما بعده. السعر: مجاني. الإعلانات: لا شيء. الحسابات: لا شيء. التحليلات: لا شيء.",
    "المسح وكل فحص مدمج يعملان على الهاتف. عمليات البحث عبر الإنترنت مفعّلة افتراضيًا ويمكن إيقافها بمفتاح واحد؛ ولبحث المنتجات مفتاح خاص به.",
    "يقرأ {N} نوعًا من الرموز، قِيست في جولة التحقق بتاريخ 4 سبتمبر 2026، ومنها EAN وUPC وCode 128 وData Matrix وPDF417 وAztec.",
+   "فاتح أو داكن أو أسود خالص، مع اللون المميز الذي تختاره: أزرق مخضر، أو لون موسمي هادئ حول الأعياد حيث تعيش، أو ألوان خلفية شاشتك على Android 12 والأحدث، أو إحدى المجموعات الموسمية الخمس طوال العام. تحتفظ التحذيرات بألوانها.",
    "تُبنى قائمة الأمان بشكل مفتوح على <a href=\"https://github.com/verdettoqr/link-safety-list\">github.com/verdettoqr/link-safety-list</a> وتُحدَّث أربع مرات يوميًا؛ ويتحقق التطبيق من توقيعها قبل الاستخدام.",
    "ما لا يقوله التطبيق أبدًا: أن رابطًا أو شبكة أو منتجًا آمن. الصياغة هي «لم يُعثر على تحذيرات».",
    "أساس المقارنة: أكثر عشرة قارئات QR مجانية تثبيتًا على Google Play بتاريخ 4 سبتمبر 2026، حُددت بعدد التثبيتات في ذلك اليوم؛ وقُرئت في اليوم نفسه علامة الإعلانات لكل صفحة وأكثر مراجعاتها صلة؛ و«الزر الزائف» وصفُ المراجعين لا وصفنا؛ ولا يُسمّى أي قارئ؛ والقائمة والملاحظات محفوظة لدينا.",
@@ -4243,7 +4298,8 @@ FEAT_T = {
     "shot": "camera-left.webp",
     "alt": "The Verdetto camera screen in the left-handed layout, its controls on the left.",
     "ps": [
-     "A Quick Settings tile opens the camera from the shade. Tap to focus, pinch to zoom, a torch when the light is low. A left-handed layout puts every control within reach. Results can be read aloud. Sound and vibration on read, if you want them. Eleven languages. Android 8 and later."
+     "A Quick Settings tile opens the camera from the shade. Tap to focus, pinch to zoom, a torch when the light is low. A left-handed layout puts every control within reach. Results can be read aloud. Sound and vibration on read, if you want them. Eleven languages. Android 8 and later.",
+     "Light, dark or pure black, with the accent you choose: teal, a quiet seasonal color around the holidays where you live, your wallpaper's colors on Android 12 and later, or one of the five seasonal sets kept all year. Warnings keep their colors."
     ]
    },
    {
@@ -4351,7 +4407,8 @@ FEAT_T = {
     "h2": "Für die Hand gemacht",
     "alt": "Der Verdetto-Kamerabildschirm im Linkshänder-Layout, die Bedienelemente links.",
     "ps": [
-     "Eine Schnelleinstellungen-Kachel öffnet die Kamera aus der Leiste. Tippen zum Fokussieren, Ziehen zum Zoomen, eine Taschenlampe bei wenig Licht. Ein Linkshänder-Layout bringt jedes Bedienelement in Reichweite. Ergebnisse können vorgelesen werden. Ton und Vibration beim Lesen, wenn du willst. Elf Sprachen. Android 8 und neuer."
+     "Eine Schnelleinstellungen-Kachel öffnet die Kamera aus der Leiste. Tippen zum Fokussieren, Ziehen zum Zoomen, eine Taschenlampe bei wenig Licht. Ein Linkshänder-Layout bringt jedes Bedienelement in Reichweite. Ergebnisse können vorgelesen werden. Ton und Vibration beim Lesen, wenn du willst. Elf Sprachen. Android 8 und neuer.",
+     "Hell, dunkel oder reines Schwarz, mit dem Akzent, den du wählst: Teal, eine leise saisonale Farbe rund um die Feiertage dort, wo du lebst, die Farben deines Hintergrundbilds ab Android 12 oder eines der fünf saisonalen Sets das ganze Jahr über. Warnungen behalten ihre Farben."
     ]
    },
    {
@@ -4459,7 +4516,8 @@ FEAT_T = {
     "h2": "Hecho para la mano",
     "alt": "La pantalla de cámara de Verdetto con el diseño para zurdos, con los controles a la izquierda.",
     "ps": [
-     "Un mosaico de ajustes rápidos abre la cámara desde el panel. Toca para enfocar, pellizca para acercar, linterna cuando hay poca luz. Un diseño para zurdos pone cada control al alcance. Los resultados se pueden leer en voz alta. Sonido y vibración al leer, si los quieres. Once idiomas. Android 8 y posteriores."
+     "Un mosaico de ajustes rápidos abre la cámara desde el panel. Toca para enfocar, pellizca para acercar, linterna cuando hay poca luz. Un diseño para zurdos pone cada control al alcance. Los resultados se pueden leer en voz alta. Sonido y vibración al leer, si los quieres. Once idiomas. Android 8 y posteriores.",
+     "Claro, oscuro o negro puro, con el acento que elijas: verde azulado, un color estacional discreto alrededor de las fiestas de donde vives, los colores de tu fondo de pantalla en Android 12 y posteriores, o uno de los cinco juegos estacionales todo el año. Las advertencias conservan sus colores."
     ]
    },
    {
@@ -4567,7 +4625,8 @@ FEAT_T = {
     "h2": "Fait pour la main",
     "alt": "L'écran caméra de Verdetto en disposition pour gauchers, les commandes à gauche.",
     "ps": [
-     "Une tuile de réglages rapides ouvre la caméra depuis le volet. Touchez pour faire la mise au point, pincez pour zoomer, une lampe quand la lumière manque. Une disposition pour gauchers met chaque commande à portée. Les résultats peuvent être lus à voix haute. Son et vibration à la lecture, si vous le souhaitez. Onze langues. Android 8 et versions ultérieures."
+     "Une tuile de réglages rapides ouvre la caméra depuis le volet. Touchez pour faire la mise au point, pincez pour zoomer, une lampe quand la lumière manque. Une disposition pour gauchers met chaque commande à portée. Les résultats peuvent être lus à voix haute. Son et vibration à la lecture, si vous le souhaitez. Onze langues. Android 8 et versions ultérieures.",
+     "Clair, sombre ou noir pur, avec l'accent de ton choix : sarcelle, une couleur saisonnière discrète autour des fêtes là où tu vis, les couleurs de ton fond d'écran sur Android 12 et plus, ou l'un des cinq jeux saisonniers gardés toute l'année. Les avertissements gardent leurs couleurs."
     ]
    },
    {
@@ -4675,7 +4734,8 @@ FEAT_T = {
     "h2": "Feito para a mão",
     "alt": "A tela da câmera do Verdetto no layout para canhotos, com os controles à esquerda.",
     "ps": [
-     "Um bloco de Configurações rápidas abre a câmera pela barra. Toque para focar, belisque para aproximar, lanterna quando a luz é pouca. Um layout para canhotos põe cada controle ao alcance. Os resultados podem ser lidos em voz alta. Som e vibração na leitura, se você quiser. Onze idiomas. Android 8 ou mais recente."
+     "Um bloco de Configurações rápidas abre a câmera pela barra. Toque para focar, belisque para aproximar, lanterna quando a luz é pouca. Um layout para canhotos põe cada controle ao alcance. Os resultados podem ser lidos em voz alta. Som e vibração na leitura, se você quiser. Onze idiomas. Android 8 ou mais recente.",
+     "Claro, escuro ou preto puro, com o destaque que você escolhe: verde-azulado, uma cor sazonal discreta perto dos feriados de onde você mora, as cores do seu papel de parede no Android 12 ou mais recente, ou um dos cinco conjuntos sazonais o ano todo. Os avisos mantêm suas cores."
     ]
    },
    {
@@ -4783,7 +4843,8 @@ FEAT_T = {
     "h2": "Dibuat untuk tangan",
     "alt": "Layar kamera Verdetto dalam tata letak kidal, kontrolnya di sebelah kiri.",
     "ps": [
-     "Ubin Setelan Cepat membuka kamera dari panel. Ketuk untuk fokus, cubit untuk memperbesar, senter saat cahaya redup. Tata letak kidal menaruh setiap kontrol dalam jangkauan. Hasil bisa dibacakan. Suara dan getaran saat membaca, jika Anda mau. Sebelas bahasa. Android 8 ke atas."
+     "Ubin Setelan Cepat membuka kamera dari panel. Ketuk untuk fokus, cubit untuk memperbesar, senter saat cahaya redup. Tata letak kidal menaruh setiap kontrol dalam jangkauan. Hasil bisa dibacakan. Suara dan getaran saat membaca, jika Anda mau. Sebelas bahasa. Android 8 ke atas.",
+     "Terang, gelap, atau hitam pekat, dengan aksen pilihanmu: teal, warna musiman yang tenang di sekitar hari raya di tempat tinggalmu, warna wallpaper-mu di Android 12 ke atas, atau salah satu dari lima set musiman sepanjang tahun. Peringatan tetap dengan warnanya."
     ]
    },
    {
@@ -4891,7 +4952,8 @@ FEAT_T = {
     "h2": "Сделано для руки",
     "alt": "Экран камеры Verdetto в раскладке для левой руки, элементы управления слева.",
     "ps": [
-     "Плитка быстрых настроек открывает камеру из шторки. Касание для фокуса, щипок для зума, фонарик при слабом свете. Раскладка для левой руки держит каждый элемент управления под рукой. Результаты можно озвучить. Звук и вибрация при чтении, если хотите. Одиннадцать языков. Android 8 и новее."
+     "Плитка быстрых настроек открывает камеру из шторки. Касание для фокуса, щипок для зума, фонарик при слабом свете. Раскладка для левой руки держит каждый элемент управления под рукой. Результаты можно озвучить. Звук и вибрация при чтении, если хотите. Одиннадцать языков. Android 8 и новее.",
+     "Светлая, тёмная или чисто чёрная тема с акцентом на ваш выбор: бирюзовый, спокойный сезонный цвет к праздникам там, где вы живёте, цвета ваших обоев на Android 12 и новее или один из пяти сезонных наборов на весь год. Предупреждения сохраняют свои цвета."
     ]
    },
    {
@@ -4999,7 +5061,8 @@ FEAT_T = {
     "h2": "हाथ के लिए बना",
     "alt": "बाएँ हाथ के लेआउट में Verdetto की कैमरा स्क्रीन, नियंत्रण बाईं ओर।",
     "ps": [
-     "क्विक सेटिंग्स टाइल शेड से कैमरा खोलती है। फ़ोकस के लिए टैप, ज़ूम के लिए पिंच, कम रोशनी में टॉर्च। बाएँ हाथ का लेआउट हर नियंत्रण को पहुँच में रखता है। परिणाम ज़ोर से पढ़े जा सकते हैं। पढ़ने पर ध्वनि और कंपन, अगर आप चाहें। ग्यारह भाषाएँ। Android 8 और बाद के।"
+     "क्विक सेटिंग्स टाइल शेड से कैमरा खोलती है। फ़ोकस के लिए टैप, ज़ूम के लिए पिंच, कम रोशनी में टॉर्च। बाएँ हाथ का लेआउट हर नियंत्रण को पहुँच में रखता है। परिणाम ज़ोर से पढ़े जा सकते हैं। पढ़ने पर ध्वनि और कंपन, अगर आप चाहें। ग्यारह भाषाएँ। Android 8 और बाद के।",
+     "हल्का, गहरा या शुद्ध काला, आपकी पसंद के एक्सेंट के साथ: टील, आपके इलाक़े के त्योहारों के आसपास एक हल्का मौसमी रंग, Android 12 और बाद में आपके वॉलपेपर के रंग, या साल भर रखे जाने वाले पाँच मौसमी सेटों में से एक। चेतावनियाँ अपने रंग रखती हैं।"
     ]
    },
    {
@@ -5107,7 +5170,8 @@ FEAT_T = {
     "h2": "手のために作られた",
     "alt": "左手用レイアウトの Verdetto カメラ画面。操作部は左側。",
     "ps": [
-     "クイック設定タイルがシェードからカメラを開きます。タップでピント、ピンチでズーム、暗いときはライト。左手用レイアウトはすべての操作部を手の届く場所に置きます。結果は読み上げられます。読み取り時の音と振動は好みで。十一の言語。Android 8 以降。"
+     "クイック設定タイルがシェードからカメラを開きます。タップでピント、ピンチでズーム、暗いときはライト。左手用レイアウトはすべての操作部を手の届く場所に置きます。結果は読み上げられます。読み取り時の音と振動は好みで。十一の言語。Android 8 以降。",
+     "ライト、ダーク、または純黒のテーマに、選べるアクセント。ティール、お住まいの地域の祝祭日に合わせた控えめな季節の色、Android 12 以降では壁紙の色、または一年中使える五つの季節セットのいずれか。警告の色は変わりません。"
     ]
    },
    {
@@ -5215,7 +5279,8 @@ FEAT_T = {
     "h2": "为手而造",
     "alt": "左手布局下的 Verdetto 相机界面，控件在左侧。",
     "ps": [
-     "快捷设置磁贴可从通知栏打开相机。点按对焦，双指缩放，光线不足时有手电。左手布局让每个控件都触手可及。结果可以朗读。读取时的声音和振动，随您选择。十一种语言。Android 8 及更高版本。"
+     "快捷设置磁贴可从通知栏打开相机。点按对焦，双指缩放，光线不足时有手电。左手布局让每个控件都触手可及。结果可以朗读。读取时的声音和振动，随您选择。十一种语言。Android 8 及更高版本。",
+     "浅色、深色或纯黑主题，强调色由你选择：青色、你所在地区节日前后的淡雅季节色、Android 12 及更高版本上的壁纸色，或五套全年可用的季节色之一。警告保持原有颜色。"
     ]
    },
    {
@@ -5323,7 +5388,8 @@ FEAT_T = {
     "h2": "مصنوع لليد",
     "alt": "شاشة كاميرا Verdetto في تخطيط اليد اليسرى، وعناصر التحكم على اليسار.",
     "ps": [
-     "بلاطة في الإعدادات السريعة تفتح الكاميرا من الظِّل. انقر للتركيز، وقرّب بإصبعين، ومصباح حين يخفت الضوء. تخطيط لليد اليسرى يضع كل عنصر تحكم في المتناول. يمكن قراءة النتائج بصوت عالٍ. صوت واهتزاز عند القراءة إن أردت. إحدى عشرة لغة. Android 8 وما بعده."
+     "بلاطة في الإعدادات السريعة تفتح الكاميرا من الظِّل. انقر للتركيز، وقرّب بإصبعين، ومصباح حين يخفت الضوء. تخطيط لليد اليسرى يضع كل عنصر تحكم في المتناول. يمكن قراءة النتائج بصوت عالٍ. صوت واهتزاز عند القراءة إن أردت. إحدى عشرة لغة. Android 8 وما بعده.",
+     "فاتح أو داكن أو أسود خالص، مع اللون المميز الذي تختاره: أزرق مخضر، أو لون موسمي هادئ حول الأعياد حيث تعيش، أو ألوان خلفية شاشتك على Android 12 والأحدث، أو إحدى المجموعات الموسمية الخمس طوال العام. تحتفظ التحذيرات بألوانها."
     ]
    },
    {
@@ -5827,6 +5893,7 @@ def main():
         "domain age, and product, book, medicine, music, journal, device, and vehicle details from Open Food Facts, Open Library, the German and "
         "French national libraries, openFDA, DailyMed and RxNav, Spain's medicines agency AEMPS, the European Commission's EUDAMED, the US Consumer Product Safety Commission's recalls, MusicBrainz, Crossref, Wikidata, the NHTSA vehicle, recall, and crash-test databases, and the EPA fuel-economy database) are on by default and can be turned off.\n"
         "- Reads QR codes and barcodes including EAN, UPC, Code 128, Data Matrix, PDF417, and Aztec, and is built to read damaged ones.\n"
+        "- Looks: Light, dark or pure black, with the accent you choose: teal, a quiet seasonal color around the holidays where you live, your wallpaper's colors on Android 12 and later, or one of the five seasonal sets kept all year. Warnings keep their colors.\n"
         "- Scan history stays on the phone (and in the phone's own backup unless that is turned off); scans older than 90 days clear unless starred; any entry can be deleted.\n"
         "- Permissions: the camera to scan; contacts only if the person fills their own card from the phone's profile.\n"
         "- Funding: no ads, no data sales, no paid tier; paid for and passed on by the people who use it. An optional in-app contribution, once or monthly, from $0.99 ($2.99 suggested) through Google Play, supports development"
