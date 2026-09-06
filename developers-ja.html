@@ -99,7 +99,7 @@ p,li{margin:.5rem 0}
 .prose ol,.prose ul{padding-left:1.4rem}
 .prose li{margin:.6rem 0}
 table{border-collapse:collapse;width:100%;font-size:.875rem;line-height:1.25rem;display:block;overflow-x:auto;margin:1rem 0}
-.prose table{display:table;table-layout:fixed}.prose th,.prose td{overflow-wrap:anywhere;vertical-align:top}.prose th:nth-child(1){width:27%}.prose th:nth-child(2){width:18%}.prose th:nth-child(3){width:37%}.prose th:nth-child(4){width:18%}
+.prose table{display:table;table-layout:fixed}.prose th,.prose td{overflow-wrap:anywhere;vertical-align:top}.prose th:nth-child(1){width:27%}.prose th:nth-child(2){width:18%}.prose th:nth-child(3){width:37%}.prose th:nth-child(4){width:18%}.prose th{white-space:normal}.routes{list-style:none;padding:0;margin:1rem 0;display:grid;gap:.5rem}.routes li{display:grid;grid-template-columns:10rem 1fr;gap:.2rem .75rem;align-items:baseline;padding:.6rem .75rem;border:1px solid var(--outline-variant);border-radius:.5rem}.routes .name{font-weight:500}.routes .tag{grid-column:2;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant)}@media (max-width:600px){.routes li{grid-template-columns:1fr}.routes .tag{grid-column:1}table.stack,table.stack tbody,table.stack tr,table.stack td{display:block;width:auto}table.stack{table-layout:auto}table.stack thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}table.stack tr{border:1px solid var(--outline-variant);border-radius:.5rem;padding:.3rem .75rem;margin:0 0 .75rem}table.stack td{padding:.4rem 0;border:0;min-width:0}table.stack td+td{border-top:1px solid var(--outline-variant)}table.stack td::before{content:attr(data-label);display:block;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant);margin-bottom:.15rem}table.stack td:first-child{font-weight:500}}
 pre{background:var(--container);border-radius:.5rem;padding:.9rem 1rem;overflow-x:auto;font-size:.8125rem;line-height:1.35rem;margin:1rem 0}
 code{font-family:Consolas,'Cascadia Mono',Menlo,monospace;font-size:.92em}
 pre code{font-size:inherit}
@@ -217,13 +217,13 @@ footer a{color:var(--primary)}
 <p class="meta">Verdetto は三つのインテントと一つの共有に応えます。権限もライブラリもキーも要りません。利用者はアプリのすべての安全確認と設定をそのまま保ち、あなたのアプリは利用者が確認した瞬間にコードのテキストを受け取ります。</p>
 
 <h2>インテント</h2>
-<table>
+<table class="stack">
 <thead><tr><th>Action</th><th>マニフェストのフィルター</th><th>何が起きるか</th><th>結果</th></tr></thead>
 <tbody>
-<tr><td><code>com.google.zxing.client.android.SCAN</code></td><td>はい。暗黙的インテントが使えます。</td><td>スキャナーを開きます。利用者が最初にロックしたコードが、ZXing Barcode Scanner と同じように返されます。</td><td><code>RESULT_OK</code> と <code>SCAN_RESULT</code>、<code>SCAN_RESULT_FORMAT</code></td></tr>
-<tr><td><code>app.scanner.action.SCAN</code></td><td>はい。</td><td>スキャナーを開きます。結果を求めて起動した場合（result launcher または <code>startActivityForResult</code>）は同じ方法でコードを返し、そのまま起動した場合はアプリをスキャナー画面で開くだけです。</td><td>結果を求めて起動した場合、二つのエクストラ付きの <code>RESULT_OK</code></td></tr>
-<tr><td><code>app.scanner.action.CARD</code></td><td>フィルターなし: パッケージ <code>com.verdettoqr.scanner</code> を指定した明示的インテントのみ。</td><td>利用者自身の連絡先カードの編集画面、つまり自分の連絡先を共有するために見せるコードを開きます。アプリ自身のウィジェットとショートカット向けで、他のアプリから呼べますが、何も返りません。</td><td>なし</td></tr>
-<tr><td><code>android.intent.action.SEND</code> と <code>image/*</code></td><td>はい。</td><td>画像を解読します。アプリはその中のコードについて結果シートを表示します。</td><td>なし</td></tr>
+<tr><td data-label="Action"><code>com.google.zxing.client.android.SCAN</code></td><td data-label="マニフェストのフィルター">はい。暗黙的インテントが使えます。</td><td data-label="何が起きるか">スキャナーを開きます。利用者が最初にロックしたコードが、ZXing Barcode Scanner と同じように返されます。</td><td data-label="結果"><code>RESULT_OK</code> と <code>SCAN_RESULT</code>、<code>SCAN_RESULT_FORMAT</code></td></tr>
+<tr><td data-label="Action"><code>app.scanner.action.SCAN</code></td><td data-label="マニフェストのフィルター">はい。</td><td data-label="何が起きるか">スキャナーを開きます。結果を求めて起動した場合（result launcher または <code>startActivityForResult</code>）は同じ方法でコードを返し、そのまま起動した場合はアプリをスキャナー画面で開くだけです。</td><td data-label="結果">結果を求めて起動した場合、二つのエクストラ付きの <code>RESULT_OK</code></td></tr>
+<tr><td data-label="Action"><code>app.scanner.action.CARD</code></td><td data-label="マニフェストのフィルター">フィルターなし: パッケージ <code>com.verdettoqr.scanner</code> を指定した明示的インテントのみ。</td><td data-label="何が起きるか">利用者自身の連絡先カードの編集画面、つまり自分の連絡先を共有するために見せるコードを開きます。アプリ自身のウィジェットとショートカット向けで、他のアプリから呼べますが、何も返りません。</td><td data-label="結果">なし</td></tr>
+<tr><td data-label="Action"><code>android.intent.action.SEND</code> と <code>image/*</code></td><td data-label="マニフェストのフィルター">はい。</td><td data-label="何が起きるか">画像を解読します。アプリはその中のコードについて結果シートを表示します。</td><td data-label="結果">なし</td></tr>
 </tbody>
 </table>
 

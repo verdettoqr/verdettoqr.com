@@ -99,7 +99,7 @@ p,li{margin:.5rem 0}
 .prose ol,.prose ul{padding-left:1.4rem}
 .prose li{margin:.6rem 0}
 table{border-collapse:collapse;width:100%;font-size:.875rem;line-height:1.25rem;display:block;overflow-x:auto;margin:1rem 0}
-.prose table{display:table;table-layout:fixed}.prose th,.prose td{overflow-wrap:anywhere;vertical-align:top}.prose th:nth-child(1){width:27%}.prose th:nth-child(2){width:18%}.prose th:nth-child(3){width:37%}.prose th:nth-child(4){width:18%}
+.prose table{display:table;table-layout:fixed}.prose th,.prose td{overflow-wrap:anywhere;vertical-align:top}.prose th:nth-child(1){width:27%}.prose th:nth-child(2){width:18%}.prose th:nth-child(3){width:37%}.prose th:nth-child(4){width:18%}.prose th{white-space:normal}.routes{list-style:none;padding:0;margin:1rem 0;display:grid;gap:.5rem}.routes li{display:grid;grid-template-columns:10rem 1fr;gap:.2rem .75rem;align-items:baseline;padding:.6rem .75rem;border:1px solid var(--outline-variant);border-radius:.5rem}.routes .name{font-weight:500}.routes .tag{grid-column:2;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant)}@media (max-width:600px){.routes li{grid-template-columns:1fr}.routes .tag{grid-column:1}table.stack,table.stack tbody,table.stack tr,table.stack td{display:block;width:auto}table.stack{table-layout:auto}table.stack thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}table.stack tr{border:1px solid var(--outline-variant);border-radius:.5rem;padding:.3rem .75rem;margin:0 0 .75rem}table.stack td{padding:.4rem 0;border:0;min-width:0}table.stack td+td{border-top:1px solid var(--outline-variant)}table.stack td::before{content:attr(data-label);display:block;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant);margin-bottom:.15rem}table.stack td:first-child{font-weight:500}}
 pre{background:var(--container);border-radius:.5rem;padding:.9rem 1rem;overflow-x:auto;font-size:.8125rem;line-height:1.35rem;margin:1rem 0}
 code{font-family:Consolas,'Cascadia Mono',Menlo,monospace;font-size:.92em}
 pre code{font-size:inherit}
@@ -217,13 +217,13 @@ footer a{color:var(--primary)}
 <p class="meta">Verdetto answers three intents and one share. Nothing here needs a permission, a library, or a key. The person keeps every safety check and every setting of the app; your app receives the text of the code the moment they confirm it.</p>
 
 <h2>The intents</h2>
-<table>
+<table class="stack">
 <thead><tr><th>Action</th><th>Filter in the manifest</th><th>What happens</th><th>Result</th></tr></thead>
 <tbody>
-<tr><td><code>com.google.zxing.client.android.SCAN</code></td><td>Yes, implicit intents work.</td><td>Opens the scanner. The first code the person locks on is handed back, as the ZXing Barcode Scanner did it.</td><td><code>RESULT_OK</code> with <code>SCAN_RESULT</code> and <code>SCAN_RESULT_FORMAT</code></td></tr>
-<tr><td><code>app.scanner.action.SCAN</code></td><td>Yes.</td><td>Opens the scanner. Started for a result (a result launcher or <code>startActivityForResult</code>) it hands the code back the same way; started plainly it just opens the app on the scanner.</td><td><code>RESULT_OK</code> with the two extras when started for a result</td></tr>
-<tr><td><code>app.scanner.action.CARD</code></td><td>No filter: an explicit intent with the package <code>com.verdettoqr.scanner</code> only.</td><td>Opens the person's own contact card editor, the code they show to share their details. Meant for the app's own widgets and shortcuts; another app may call it, but nothing comes back.</td><td>None</td></tr>
-<tr><td><code>android.intent.action.SEND</code> with <code>image/*</code></td><td>Yes.</td><td>Decodes a picture: the app shows the result sheet for the codes in it.</td><td>None</td></tr>
+<tr><td data-label="Action"><code>com.google.zxing.client.android.SCAN</code></td><td data-label="Filter in the manifest">Yes, implicit intents work.</td><td data-label="What happens">Opens the scanner. The first code the person locks on is handed back, as the ZXing Barcode Scanner did it.</td><td data-label="Result"><code>RESULT_OK</code> with <code>SCAN_RESULT</code> and <code>SCAN_RESULT_FORMAT</code></td></tr>
+<tr><td data-label="Action"><code>app.scanner.action.SCAN</code></td><td data-label="Filter in the manifest">Yes.</td><td data-label="What happens">Opens the scanner. Started for a result (a result launcher or <code>startActivityForResult</code>) it hands the code back the same way; started plainly it just opens the app on the scanner.</td><td data-label="Result"><code>RESULT_OK</code> with the two extras when started for a result</td></tr>
+<tr><td data-label="Action"><code>app.scanner.action.CARD</code></td><td data-label="Filter in the manifest">No filter: an explicit intent with the package <code>com.verdettoqr.scanner</code> only.</td><td data-label="What happens">Opens the person's own contact card editor, the code they show to share their details. Meant for the app's own widgets and shortcuts; another app may call it, but nothing comes back.</td><td data-label="Result">None</td></tr>
+<tr><td data-label="Action"><code>android.intent.action.SEND</code> with <code>image/*</code></td><td data-label="Filter in the manifest">Yes.</td><td data-label="What happens">Decodes a picture: the app shows the result sheet for the codes in it.</td><td data-label="Result">None</td></tr>
 </tbody>
 </table>
 

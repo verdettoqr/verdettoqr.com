@@ -99,7 +99,7 @@ p,li{margin:.5rem 0}
 .prose ol,.prose ul{padding-left:1.4rem}
 .prose li{margin:.6rem 0}
 table{border-collapse:collapse;width:100%;font-size:.875rem;line-height:1.25rem;display:block;overflow-x:auto;margin:1rem 0}
-.prose table{display:table;table-layout:fixed}.prose th,.prose td{overflow-wrap:anywhere;vertical-align:top}.prose th:nth-child(1){width:27%}.prose th:nth-child(2){width:18%}.prose th:nth-child(3){width:37%}.prose th:nth-child(4){width:18%}
+.prose table{display:table;table-layout:fixed}.prose th,.prose td{overflow-wrap:anywhere;vertical-align:top}.prose th:nth-child(1){width:27%}.prose th:nth-child(2){width:18%}.prose th:nth-child(3){width:37%}.prose th:nth-child(4){width:18%}.prose th{white-space:normal}.routes{list-style:none;padding:0;margin:1rem 0;display:grid;gap:.5rem}.routes li{display:grid;grid-template-columns:10rem 1fr;gap:.2rem .75rem;align-items:baseline;padding:.6rem .75rem;border:1px solid var(--outline-variant);border-radius:.5rem}.routes .name{font-weight:500}.routes .tag{grid-column:2;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant)}@media (max-width:600px){.routes li{grid-template-columns:1fr}.routes .tag{grid-column:1}table.stack,table.stack tbody,table.stack tr,table.stack td{display:block;width:auto}table.stack{table-layout:auto}table.stack thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}table.stack tr{border:1px solid var(--outline-variant);border-radius:.5rem;padding:.3rem .75rem;margin:0 0 .75rem}table.stack td{padding:.4rem 0;border:0;min-width:0}table.stack td+td{border-top:1px solid var(--outline-variant)}table.stack td::before{content:attr(data-label);display:block;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant);margin-bottom:.15rem}table.stack td:first-child{font-weight:500}}
 pre{background:var(--container);border-radius:.5rem;padding:.9rem 1rem;overflow-x:auto;font-size:.8125rem;line-height:1.35rem;margin:1rem 0}
 code{font-family:Consolas,'Cascadia Mono',Menlo,monospace;font-size:.92em}
 pre code{font-size:inherit}
@@ -215,13 +215,13 @@ footer a{color:var(--primary)}
 <h1>Список безопасности за неделю</h1>
 <p class="meta">С 24 по 30 августа 2026 года. Обновлено 2026-09-05 из публичного репозитория; следующее обновление в ближайший понедельник.</p>
 <p>Это цифры собственной части Verdetto в списке предупреждений: о чём сообщали люди, что проверил человек и что изменилось в списке. Они берутся из публичных дел и файлов списка в репозитории и больше ниоткуда. Никакой телеметрии, никаких данных по сканированиям, ничего с чьего-либо телефона; приложение никогда не сообщает, что оно отсканировало, и эта страница не смогла бы это показать, даже если бы сообщало.</p>
-<div class="tablewrap"><table><thead><tr><th>Показатель</th><th>За неделю</th><th>Что считается</th></tr></thead><tbody>
-<tr><td>Получено сообщений</td><td>0</td><td>Сообщения, дошедшие до списка через форму или приложение, каждое учтено один раз.</td></tr>
-<tr><td>Открыто дел</td><td>0</td><td>Сообщения, которые человек взял на проверку как публичное дело.</td></tr>
-<tr><td>Закрыто дел</td><td>0</td><td>Дела, решённые за неделю: внесено, внесено по ошибке или не фишинг.</td></tr>
-<tr><td>Добавлено записей</td><td>0 ссылок, 0 хостов, 0 адресов кошельков</td><td>Адреса или хосты, добавленные в список после того, как человек проверил сообщение.</td></tr>
-<tr><td>Удалено после проверки</td><td>0</td><td>Записи, убранные из списка после подтверждения сообщения об ошибочном внесении.</td></tr>
-<tr><td>Сейчас в списке</td><td>0 ссылок, 0 хостов, 0 адресов кошельков; 0 разрешено</td><td>Собственные записи Verdetto, о которых сообщили люди и которые подтвердил человек; публичные источники, которые список тоже включает, считаются в репозитории.</td></tr>
+<div class="tablewrap"><table class="stack"><thead><tr><th>Показатель</th><th>За неделю</th><th>Что считается</th></tr></thead><tbody>
+<tr><td data-label="Показатель">Получено сообщений</td><td data-label="За неделю">0</td><td data-label="Что считается">Сообщения, дошедшие до списка через форму или приложение, каждое учтено один раз.</td></tr>
+<tr><td data-label="Показатель">Открыто дел</td><td data-label="За неделю">0</td><td data-label="Что считается">Сообщения, которые человек взял на проверку как публичное дело.</td></tr>
+<tr><td data-label="Показатель">Закрыто дел</td><td data-label="За неделю">0</td><td data-label="Что считается">Дела, решённые за неделю: внесено, внесено по ошибке или не фишинг.</td></tr>
+<tr><td data-label="Показатель">Добавлено записей</td><td data-label="За неделю">0 ссылок, 0 хостов, 0 адресов кошельков</td><td data-label="Что считается">Адреса или хосты, добавленные в список после того, как человек проверил сообщение.</td></tr>
+<tr><td data-label="Показатель">Удалено после проверки</td><td data-label="За неделю">0</td><td data-label="Что считается">Записи, убранные из списка после подтверждения сообщения об ошибочном внесении.</td></tr>
+<tr><td data-label="Показатель">Сейчас в списке</td><td data-label="За неделю">0 ссылок, 0 хостов, 0 адресов кошельков; 0 разрешено</td><td data-label="Что считается">Собственные записи Verdetto, о которых сообщили люди и которые подтвердил человек; публичные источники, которые список тоже включает, считаются в репозитории.</td></tr>
 </tbody></table></div>
 <p>Каждое дело — публичный issue, каждое внесение несёт вызвавшее его дело, и каждая запись истекает, если человек её не продлит: <a href="https://github.com/verdettoqr/link-safety-list">github.com/verdettoqr/link-safety-list</a>. Считаете, что что-то внесено по ошибке? <a href="/report-ru?k=m">Сообщите</a>; человек перепроверит, и удаление появится здесь.</p>
 <p class="meta">Недельные цифры — небольшой файл, который этот сайт отдаёт сам, копируя его из репозитория раз в неделю; ваш браузер не делает запросов к третьим сторонам для этой страницы.</p>

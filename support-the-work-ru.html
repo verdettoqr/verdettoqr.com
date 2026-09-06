@@ -99,7 +99,7 @@ p,li{margin:.5rem 0}
 .prose ol,.prose ul{padding-left:1.4rem}
 .prose li{margin:.6rem 0}
 table{border-collapse:collapse;width:100%;font-size:.875rem;line-height:1.25rem;display:block;overflow-x:auto;margin:1rem 0}
-.prose table{display:table;table-layout:fixed}.prose th,.prose td{overflow-wrap:anywhere;vertical-align:top}.prose th:nth-child(1){width:27%}.prose th:nth-child(2){width:18%}.prose th:nth-child(3){width:37%}.prose th:nth-child(4){width:18%}
+.prose table{display:table;table-layout:fixed}.prose th,.prose td{overflow-wrap:anywhere;vertical-align:top}.prose th:nth-child(1){width:27%}.prose th:nth-child(2){width:18%}.prose th:nth-child(3){width:37%}.prose th:nth-child(4){width:18%}.prose th{white-space:normal}.routes{list-style:none;padding:0;margin:1rem 0;display:grid;gap:.5rem}.routes li{display:grid;grid-template-columns:10rem 1fr;gap:.2rem .75rem;align-items:baseline;padding:.6rem .75rem;border:1px solid var(--outline-variant);border-radius:.5rem}.routes .name{font-weight:500}.routes .tag{grid-column:2;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant)}@media (max-width:600px){.routes li{grid-template-columns:1fr}.routes .tag{grid-column:1}table.stack,table.stack tbody,table.stack tr,table.stack td{display:block;width:auto}table.stack{table-layout:auto}table.stack thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}table.stack tr{border:1px solid var(--outline-variant);border-radius:.5rem;padding:.3rem .75rem;margin:0 0 .75rem}table.stack td{padding:.4rem 0;border:0;min-width:0}table.stack td+td{border-top:1px solid var(--outline-variant)}table.stack td::before{content:attr(data-label);display:block;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant);margin-bottom:.15rem}table.stack td:first-child{font-weight:500}}
 pre{background:var(--container);border-radius:.5rem;padding:.9rem 1rem;overflow-x:auto;font-size:.8125rem;line-height:1.35rem;margin:1rem 0}
 code{font-family:Consolas,'Cascadia Mono',Menlo,monospace;font-size:.92em}
 pre code{font-size:inherit}
@@ -217,16 +217,18 @@ footer a{color:var(--primary)}
 <div class="grid three">
   <div class="card"><svg aria-hidden="true"><use href="#ic-heart"/></svg><div><h3>На вашем телефоне</h3><p>Настройки, затем «Поддержать разработку». От 0,99 $, один раз или ежемесячно, рекомендуется 2,99 $, через Google Play. Приложение никогда не видит вашу карту.</p></div></div>
   <div class="card"><svg aria-hidden="true"><use href="#ic-scan"/></svg><div><h3>Расскажите другим</h3><p>Бесплатно, потому что люди делятся им. Отправьте другу verdettoqr.com или откройте «Поделиться» в приложении и дайте ему отсканировать код. Поделиться ничего никуда не отправляет.</p></div></div>
-  <div class="card soon"><svg aria-hidden="true"><use href="#ic-clock"/></svg><div><p class="label">Скоро</p><h3>Из браузера</h3><p>GitHub Sponsors, Liberapay и ссылка для оплаты картой ещё настраиваются. Пока они не открылись, приложение остаётся способом поддержать. Ссылки появятся здесь, когда они откроются.</p></div></div>
+  <div class="card soon"><svg aria-hidden="true"><use href="#ic-clock"/></svg><div><p class="label">Скоро</p><h3>Из браузера</h3><p>Три пути ещё настраиваются, они перечислены ниже. Пока один из них не открылся, приложение остаётся способом поддержать.</p></div></div>
 </div>
 
 <h2 id="routes">Из F-Droid, с GitHub или с компьютера</h2>
-<p>Приложение из Google Play принимает поддержку внутри приложения. Любая другая сборка открывает эту страницу. GitHub Sponsors, Liberapay и ссылка для оплаты картой ещё настраиваются; пока каждый из них не открылся, приложение в Google Play остаётся способом поддержать, и эта страница сообщит, когда они откроются.</p>
-<h3 id="fdroid">Если вы установили из F-Droid</h3>
-<p>В таком порядке: Liberapay (любая сумма, еженедельно, ежемесячно или ежегодно), ссылка для оплаты картой (разово, картой, от 2,99 $ или сумма, которую вы вводите), GitHub Sponsors (от 1 $ разово или ежемесячно на тех же ступенях, что и в приложении).</p>
-<h3 id="github">Если вы установили с GitHub</h3>
-<p>В таком порядке: GitHub Sponsors (от 1 $ разово или ежемесячно на тех же ступенях, что и в приложении), ссылка для оплаты картой (разово, картой, от 2,99 $ или сумма, которую вы вводите), Liberapay (любая сумма, еженедельно, ежемесячно или ежегодно).</p>
-<p>За взнос через сайт ничего не предоставляется: ни уровня, ни дополнений, и то, что входит в покупку в Play, не является его частью. Он оплачивает работу и ничего не открывает. В приложении есть переключатель для тех, кто его поддержал. Он верит вам на слово.</p>
+<p>В Google Play поддержка происходит внутри приложения. Любая другая сборка направляет вас сюда.</p>
+<ul class="routes">
+<li><span class="name">GitHub Sponsors</span><span class="what">Разово или ежемесячно, от 1 $.</span><span class="tag">Скоро</span></li>
+<li><span class="name">Liberapay</span><span class="what">Любая сумма, еженедельно, ежемесячно или ежегодно.</span><span class="tag">Скоро</span></li>
+<li><span class="name">Картой</span><span class="what">Разово, от 2,99 $ или сумма, которую вы вводите.</span><span class="tag">Скоро</span></li>
+</ul>
+<p>Пока ни один путь не открылся, приложение в Google Play остаётся способом поддержать.</p>
+<p>Взнос через сайт оплачивает работу и ничего не открывает: ни уровня, ни дополнений, ничего из того, что входит в покупку в Play. В приложении есть переключатель для тех, кто его поддержал. Он верит вам на слово.</p>
 <h3 id="key">Один ключ подписи</h3>
 <p>Один и тот же ключ подписывает сборки для Google Play, F-Droid и GitHub, так что вы можете свободно переходить между тремя. Отпечаток появится здесь, когда будет подписан первый выпуск.</p>
 

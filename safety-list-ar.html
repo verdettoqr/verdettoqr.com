@@ -99,7 +99,7 @@ p,li{margin:.5rem 0}
 .prose ol,.prose ul{padding-left:1.4rem}
 .prose li{margin:.6rem 0}
 table{border-collapse:collapse;width:100%;font-size:.875rem;line-height:1.25rem;display:block;overflow-x:auto;margin:1rem 0}
-.prose table{display:table;table-layout:fixed}.prose th,.prose td{overflow-wrap:anywhere;vertical-align:top}.prose th:nth-child(1){width:27%}.prose th:nth-child(2){width:18%}.prose th:nth-child(3){width:37%}.prose th:nth-child(4){width:18%}
+.prose table{display:table;table-layout:fixed}.prose th,.prose td{overflow-wrap:anywhere;vertical-align:top}.prose th:nth-child(1){width:27%}.prose th:nth-child(2){width:18%}.prose th:nth-child(3){width:37%}.prose th:nth-child(4){width:18%}.prose th{white-space:normal}.routes{list-style:none;padding:0;margin:1rem 0;display:grid;gap:.5rem}.routes li{display:grid;grid-template-columns:10rem 1fr;gap:.2rem .75rem;align-items:baseline;padding:.6rem .75rem;border:1px solid var(--outline-variant);border-radius:.5rem}.routes .name{font-weight:500}.routes .tag{grid-column:2;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant)}@media (max-width:600px){.routes li{grid-template-columns:1fr}.routes .tag{grid-column:1}table.stack,table.stack tbody,table.stack tr,table.stack td{display:block;width:auto}table.stack{table-layout:auto}table.stack thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}table.stack tr{border:1px solid var(--outline-variant);border-radius:.5rem;padding:.3rem .75rem;margin:0 0 .75rem}table.stack td{padding:.4rem 0;border:0;min-width:0}table.stack td+td{border-top:1px solid var(--outline-variant)}table.stack td::before{content:attr(data-label);display:block;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant);margin-bottom:.15rem}table.stack td:first-child{font-weight:500}}
 pre{background:var(--container);border-radius:.5rem;padding:.9rem 1rem;overflow-x:auto;font-size:.8125rem;line-height:1.35rem;margin:1rem 0}
 code{font-family:Consolas,'Cascadia Mono',Menlo,monospace;font-size:.92em}
 pre code{font-size:inherit}
@@ -215,13 +215,13 @@ footer a{color:var(--primary)}
 <h1>قائمة الأمان هذا الأسبوع</h1>
 <p class="meta">من 24 إلى 30 أغسطس 2026. حُدِّث في 2026-09-05 من المستودع العام؛ التحديث التالي يوم الاثنين المقبل.</p>
 <p>هذه هي الأرقام خلف جزء Verdetto الخاص من قائمة التحذير: ما أبلغ عنه الناس، وما راجعه شخص، وما تغيّر في القائمة. تأتي من قضايا الحالات العامة وملفات القائمة في المستودع، لا من شيء آخر. لا قياس عن بُعد، ولا بيانات لكل مسح، ولا شيء من هاتف أحد؛ فالتطبيق لا يبلّغ أبدًا عمّا مسحه، ولا تستطيع هذه الصفحة إظهاره حتى لو فعل.</p>
-<div class="tablewrap"><table><thead><tr><th>الرقم</th><th>هذا الأسبوع</th><th>ما الذي يعدّه</th></tr></thead><tbody>
-<tr><td>البلاغات الواردة</td><td>0</td><td>البلاغات التي وصلت إلى القائمة عبر نموذج البلاغ أو التطبيق، ويُعدّ كل منها مرة واحدة.</td></tr>
-<tr><td>الحالات المفتوحة</td><td>0</td><td>بلاغات تولّى شخصٌ مراجعتها كحالة عامة.</td></tr>
-<tr><td>الحالات المغلقة</td><td>0</td><td>حالات قُرِّرت هذا الأسبوع: مُدرَج، أو مُدرَج خطأً، أو ليس تصيّدًا.</td></tr>
-<tr><td>المدخلات المضافة</td><td>0 روابط، 0 مضيفات، 0 عناوين محافظ</td><td>عناوين أو مضيفات أُضيفت إلى القائمة بعد أن راجع شخصٌ بلاغًا.</td></tr>
-<tr><td>المحذوفة بعد المراجعة</td><td>0</td><td>مدخلات أُزيلت من القائمة بعد أن ثبتت صحة بلاغ عن إدراج خاطئ.</td></tr>
-<tr><td>في القائمة الآن</td><td>0 روابط، 0 مضيفات، 0 عناوين محافظ؛ 0 مسموح بها</td><td>مدخلات Verdetto الخاصة، التي أبلغ عنها الناس وأكّدها شخص؛ أما المصادر العامة التي تحملها القائمة أيضًا فتُعدّ في المستودع.</td></tr>
+<div class="tablewrap"><table class="stack"><thead><tr><th>الرقم</th><th>هذا الأسبوع</th><th>ما الذي يعدّه</th></tr></thead><tbody>
+<tr><td data-label="الرقم">البلاغات الواردة</td><td data-label="هذا الأسبوع">0</td><td data-label="ما الذي يعدّه">البلاغات التي وصلت إلى القائمة عبر نموذج البلاغ أو التطبيق، ويُعدّ كل منها مرة واحدة.</td></tr>
+<tr><td data-label="الرقم">الحالات المفتوحة</td><td data-label="هذا الأسبوع">0</td><td data-label="ما الذي يعدّه">بلاغات تولّى شخصٌ مراجعتها كحالة عامة.</td></tr>
+<tr><td data-label="الرقم">الحالات المغلقة</td><td data-label="هذا الأسبوع">0</td><td data-label="ما الذي يعدّه">حالات قُرِّرت هذا الأسبوع: مُدرَج، أو مُدرَج خطأً، أو ليس تصيّدًا.</td></tr>
+<tr><td data-label="الرقم">المدخلات المضافة</td><td data-label="هذا الأسبوع">0 روابط، 0 مضيفات، 0 عناوين محافظ</td><td data-label="ما الذي يعدّه">عناوين أو مضيفات أُضيفت إلى القائمة بعد أن راجع شخصٌ بلاغًا.</td></tr>
+<tr><td data-label="الرقم">المحذوفة بعد المراجعة</td><td data-label="هذا الأسبوع">0</td><td data-label="ما الذي يعدّه">مدخلات أُزيلت من القائمة بعد أن ثبتت صحة بلاغ عن إدراج خاطئ.</td></tr>
+<tr><td data-label="الرقم">في القائمة الآن</td><td data-label="هذا الأسبوع">0 روابط، 0 مضيفات، 0 عناوين محافظ؛ 0 مسموح بها</td><td data-label="ما الذي يعدّه">مدخلات Verdetto الخاصة، التي أبلغ عنها الناس وأكّدها شخص؛ أما المصادر العامة التي تحملها القائمة أيضًا فتُعدّ في المستودع.</td></tr>
 </tbody></table></div>
 <p>كل حالة قضية عامة، وكل إدراج يحمل الحالة التي سبّبته، وكل مدخل ينتهي ما لم يجدّده شخص: <a href="https://github.com/verdettoqr/link-safety-list">github.com/verdettoqr/link-safety-list</a>. تظن أن شيئًا أُدرج خطأً؟ <a href="/report-ar?k=m">أبلغ عنه</a>؛ يعيد شخصٌ التحقق منه ويظهر الحذف هنا.</p>
 <p class="meta">الأرقام الأسبوعية ملف صغير يقدّمه هذا الموقع بنفسه، يُنسَخ من المستودع مرة في الأسبوع؛ ولا يرسل متصفحك أي طلب إلى طرف ثالث من أجل هذه الصفحة.</p>

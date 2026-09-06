@@ -119,7 +119,7 @@ p,li{margin:.5rem 0}
 .prose ol,.prose ul{padding-left:1.4rem}
 .prose li{margin:.6rem 0}
 table{border-collapse:collapse;width:100%;font-size:.875rem;line-height:1.25rem;display:block;overflow-x:auto;margin:1rem 0}
-.prose table{display:table;table-layout:fixed}.prose th,.prose td{overflow-wrap:anywhere;vertical-align:top}.prose th:nth-child(1){width:27%}.prose th:nth-child(2){width:18%}.prose th:nth-child(3){width:37%}.prose th:nth-child(4){width:18%}
+.prose table{display:table;table-layout:fixed}.prose th,.prose td{overflow-wrap:anywhere;vertical-align:top}.prose th:nth-child(1){width:27%}.prose th:nth-child(2){width:18%}.prose th:nth-child(3){width:37%}.prose th:nth-child(4){width:18%}.prose th{white-space:normal}.routes{list-style:none;padding:0;margin:1rem 0;display:grid;gap:.5rem}.routes li{display:grid;grid-template-columns:10rem 1fr;gap:.2rem .75rem;align-items:baseline;padding:.6rem .75rem;border:1px solid var(--outline-variant);border-radius:.5rem}.routes .name{font-weight:500}.routes .tag{grid-column:2;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant)}@media (max-width:600px){.routes li{grid-template-columns:1fr}.routes .tag{grid-column:1}table.stack,table.stack tbody,table.stack tr,table.stack td{display:block;width:auto}table.stack{table-layout:auto}table.stack thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}table.stack tr{border:1px solid var(--outline-variant);border-radius:.5rem;padding:.3rem .75rem;margin:0 0 .75rem}table.stack td{padding:.4rem 0;border:0;min-width:0}table.stack td+td{border-top:1px solid var(--outline-variant)}table.stack td::before{content:attr(data-label);display:block;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant);margin-bottom:.15rem}table.stack td:first-child{font-weight:500}}
 pre{background:var(--container);border-radius:.5rem;padding:.9rem 1rem;overflow-x:auto;font-size:.8125rem;line-height:1.35rem;margin:1rem 0}
 code{font-family:Consolas,'Cascadia Mono',Menlo,monospace;font-size:.92em}
 pre code{font-size:inherit}
@@ -189,8 +189,35 @@ def footer_links(lang):
 NARROW = ("privacy", "terms", "support", "check-qr-code-link", "press", "report", "community-license", "safety-list")
 
 
+def stack_tables(doc):
+    """Every table gets class "stack" and each body cell a data-label carrying its column header, so the phone
+    layout can stack a row into a labeled block (operator, 2026-09-06: the intents table from a phone)."""
+    def one(m):
+        table = m.group(0)
+        labels = [re.sub(r"<[^>]+>", "", x).strip().replace('"', "&quot;")
+                  for x in re.findall(r"<th\b[^>]*>(.*?)</th>", table, flags=re.S)]
+        if not labels:
+            return table
+        def row(rm):
+            r = rm.group(0)
+            if "<th" in r:
+                return r
+            count = iter(range(1000))
+            def cell(cm):
+                k = next(count)
+                return f'<td data-label="{labels[k] if k < len(labels) else ""}"' + cm.group(1)
+            return re.sub(r"<td\b([^>]*)", cell, r)
+        table = re.sub(r"<tr\b.*?</tr>", row, table, flags=re.S)
+        def open_tag(tm):
+            attrs = tm.group(1)
+            return "<table" + (attrs.replace('class="', 'class="stack ', 1) if 'class="' in attrs else ' class="stack"' + attrs) + ">"
+        return re.sub(r"<table\b([^>]*)>", open_tag, table, count=1)
+    return re.sub(r"<table\b.*?</table>", one, doc, flags=re.S)
+
+
 def page(name, title, description, body, ld=None, og_type="website", nav_key=None, lang="en", rtl=False, alternates=None):
     t = chrome(lang)
+    body = stack_tables(body)
     nav = "".join(f'<a href="{href(localized(h, lang))}"{" aria-current=\"page\"" if localized(h, lang) == name else ""}>{t.get(key, CHROME["en"].get(key, key))}</a>' for h, key in NAV)
     # the language control is part of the top app bar on every page; a page without a translation offers the home pages
     menu = lang_menu(alternates or HOME_ALTERNATES, lang)
@@ -1215,7 +1242,7 @@ SUPPORT_WORK_T = {
   "phone_h": "On your phone",
   "phone_p": "Settings, then Support development. From $0.99, once or monthly, $2.99 suggested, through Google Play. The app never sees your card.",
   "browser_h": "From a browser",
-  "browser_wait": "GitHub Sponsors, Liberapay and a card link are being set up. Until they open, the app is the way to give. The links appear here when they do.",
+  "browser_wait": "Three routes are being set up, listed below. Until one opens, the app is the way to give.",
   "browser_live": "GitHub Sponsors, monthly ($2 or $5) or once ($3 or $10), through GitHub. It reaches the same place.",
   "browser_link": "Sponsor on GitHub",
   "pass_h": "Pass it on",
@@ -1246,18 +1273,17 @@ SUPPORT_WORK_T = {
   "a_computer_wait": "Not yet. GitHub Sponsors, Liberapay and a card link are being set up; this page will say when each opens.",
   "soon": "Coming soon",
   "routes_h": "From F-Droid, GitHub or a computer",
-  "routes_intro": "The Google Play app takes support inside the app. Every other build opens this page. GitHub Sponsors, Liberapay and a card link are being set up; until each opens, the app on Google Play is the way to give, and this page says when they open.",
-  "routes_intro_live": "The Google Play app takes support inside the app. Every other build opens this page, where three routes are open.",
-  "fdroid_h": "If you installed from F-Droid",
-  "fdroid_p": "In this order: {LIBERAPAY} (any amount, weekly, monthly or yearly), {CARD} (once, by card, from $2.99 or an amount you type), {SPONSORS} (from $1 once, or monthly at the same stops as the app).",
-  "github_h": "If you installed from GitHub",
-  "github_p": "In this order: {SPONSORS} (from $1 once, or monthly at the same stops as the app), {CARD} (once, by card, from $2.99 or an amount you type), {LIBERAPAY} (any amount, weekly, monthly or yearly).",
-  "card_l": "the card link",
-  "nothing_p": "Nothing is delivered for a web contribution: no tier, no extra, and the items the Play purchase includes are not part of it. It pays for the work and unlocks nothing.",
+  "nothing_p": "A web contribution pays for the work and unlocks nothing: no tier, no extra, none of the items the Play purchase includes.",
   "honor_p": "The app has a switch for people who have supported it. It takes your word.",
   "key_h": "One signing key",
   "key_p": "The same key signs the Google Play, F-Droid and GitHub builds, so you can move between the three freely. The fingerprint appears here when the first release is signed.",
-  "not_web": " For a web contribution, write within fourteen days and we refund it."
+  "not_web": " For a web contribution, write within fourteen days and we refund it.",
+  "routes_p": "On Google Play, support happens inside the app. Every other build sends you here.",
+  "r_sponsors": "Once or monthly, from $1.",
+  "r_liberapay": "Any amount, weekly, monthly or yearly.",
+  "r_card_h": "By card",
+  "r_card": "Once, from $2.99 or an amount you type.",
+  "until_p": "Until a route opens, the app on Google Play is the way to give."
  },
  "de": {
   "title": "Die Arbeit unterstützen - Verdetto",
@@ -1269,7 +1295,7 @@ SUPPORT_WORK_T = {
   "phone_h": "Auf deinem Handy",
   "phone_p": "Einstellungen, dann „Entwicklung unterstützen“. Ab 0,99 $, einmal oder monatlich, 2,99 $ vorgeschlagen, über Google Play. Die App sieht deine Karte nie.",
   "browser_h": "Im Browser",
-  "browser_wait": "GitHub Sponsors, Liberapay und ein Kartenlink werden gerade eingerichtet. Bis sie öffnen, ist die App der Weg zu geben. Die Links erscheinen hier, sobald es so weit ist.",
+  "browser_wait": "Drei Wege werden gerade eingerichtet, unten aufgeführt. Bis einer öffnet, ist die App der Weg zu geben.",
   "browser_live": "GitHub Sponsors, monatlich (2 $ oder 5 $) oder einmalig (3 $ oder 10 $), über GitHub. Es kommt am selben Ort an.",
   "browser_link": "Auf GitHub sponsern",
   "pass_h": "Weitersagen",
@@ -1300,18 +1326,17 @@ SUPPORT_WORK_T = {
   "a_computer_wait": "Noch nicht. GitHub Sponsors, Liberapay und ein Kartenlink werden gerade eingerichtet; diese Seite sagt es, wenn sie öffnen.",
   "soon": "Bald verfügbar",
   "routes_h": "Von F-Droid, GitHub oder einem Computer",
-  "routes_intro": "Die Google-Play-App nimmt Unterstützung in der App entgegen. Jeder andere Build öffnet diese Seite. GitHub Sponsors, Liberapay und ein Kartenlink werden gerade eingerichtet; bis sie öffnen, ist die App bei Google Play der Weg zu geben, und diese Seite sagt, wann sie öffnen.",
-  "routes_intro_live": "Die Google-Play-App nimmt Unterstützung in der App entgegen. Jeder andere Build öffnet diese Seite, auf der drei Wege offen sind.",
-  "fdroid_h": "Wenn du über F-Droid installiert hast",
-  "fdroid_p": "In dieser Reihenfolge: {LIBERAPAY} (jeder Betrag, wöchentlich, monatlich oder jährlich), {CARD} (einmal, per Karte, ab 2,99 $ oder ein Betrag, den du eingibst), {SPONSORS} (ab 1 $ einmal oder monatlich zu denselben Stufen wie in der App).",
-  "github_h": "Wenn du über GitHub installiert hast",
-  "github_p": "In dieser Reihenfolge: {SPONSORS} (ab 1 $ einmal oder monatlich zu denselben Stufen wie in der App), {CARD} (einmal, per Karte, ab 2,99 $ oder ein Betrag, den du eingibst), {LIBERAPAY} (jeder Betrag, wöchentlich, monatlich oder jährlich).",
-  "card_l": "der Kartenlink",
-  "nothing_p": "Für einen Web-Beitrag wird nichts geliefert: keine Stufe, kein Extra, und die Dinge, die der Play-Kauf einschließt, gehören nicht dazu. Er bezahlt die Arbeit und schaltet nichts frei.",
+  "nothing_p": "Ein Web-Beitrag bezahlt die Arbeit und schaltet nichts frei: keine Stufe, kein Extra, nichts von dem, was der Play-Kauf einschließt.",
   "honor_p": "Die App hat einen Schalter für Menschen, die sie unterstützt haben. Er nimmt dich beim Wort.",
   "key_h": "Ein Signaturschlüssel",
   "key_p": "Derselbe Schlüssel signiert die Builds für Google Play, F-Droid und GitHub, du kannst also frei zwischen den dreien wechseln. Der Fingerabdruck erscheint hier, sobald das erste Release signiert ist.",
-  "not_web": " Bei einem Web-Beitrag schreib uns innerhalb von vierzehn Tagen, und wir erstatten ihn."
+  "not_web": " Bei einem Web-Beitrag schreib uns innerhalb von vierzehn Tagen, und wir erstatten ihn.",
+  "routes_p": "Bei Google Play läuft die Unterstützung in der App. Jeder andere Build schickt dich hierher.",
+  "r_sponsors": "Einmal oder monatlich, ab 1 $.",
+  "r_liberapay": "Jeder Betrag, wöchentlich, monatlich oder jährlich.",
+  "r_card_h": "Per Karte",
+  "r_card": "Einmal, ab 2,99 $ oder ein Betrag, den du eingibst.",
+  "until_p": "Bis ein Weg offen ist, ist die App bei Google Play der Weg zu geben."
  },
  "es": {
   "title": "Apoya el trabajo - Verdetto",
@@ -1323,7 +1348,7 @@ SUPPORT_WORK_T = {
   "phone_h": "En tu teléfono",
   "phone_p": "Ajustes y después «Apoyar el desarrollo». Desde 0,99 $, una vez o cada mes, 2,99 $ sugeridos, a través de Google Play. La aplicación nunca ve tu tarjeta.",
   "browser_h": "Desde un navegador",
-  "browser_wait": "GitHub Sponsors, Liberapay y un enlace de tarjeta se están configurando. Hasta que abran, la aplicación es la forma de dar. Los enlaces aparecerán aquí cuando lo hagan.",
+  "browser_wait": "Se están configurando tres vías, listadas abajo. Hasta que abra una, la aplicación es la forma de dar.",
   "browser_live": "GitHub Sponsors, mensual (2 $ o 5 $) o una vez (3 $ o 10 $), a través de GitHub. Llega al mismo sitio.",
   "browser_link": "Patrocinar en GitHub",
   "pass_h": "Pásalo",
@@ -1354,18 +1379,17 @@ SUPPORT_WORK_T = {
   "a_computer_wait": "Todavía no. GitHub Sponsors, Liberapay y un enlace de tarjeta se están configurando; esta página lo dirá cuando abran.",
   "soon": "Próximamente",
   "routes_h": "Desde F-Droid, GitHub o un ordenador",
-  "routes_intro": "La aplicación de Google Play recibe el apoyo dentro de la aplicación. Cualquier otra versión abre esta página. GitHub Sponsors, Liberapay y un enlace de tarjeta se están configurando; hasta que abran, la aplicación en Google Play es la forma de dar, y esta página dirá cuándo abren.",
-  "routes_intro_live": "La aplicación de Google Play recibe el apoyo dentro de la aplicación. Cualquier otra versión abre esta página, donde hay tres vías abiertas.",
-  "fdroid_h": "Si instalaste desde F-Droid",
-  "fdroid_p": "En este orden: {LIBERAPAY} (cualquier importe, cada semana, cada mes o cada año), {CARD} (una vez, con tarjeta, desde 2,99 $ o un importe que escribes), {SPONSORS} (desde 1 $ una vez, o cada mes en los mismos tramos que la aplicación).",
-  "github_h": "Si instalaste desde GitHub",
-  "github_p": "En este orden: {SPONSORS} (desde 1 $ una vez, o cada mes en los mismos tramos que la aplicación), {CARD} (una vez, con tarjeta, desde 2,99 $ o un importe que escribes), {LIBERAPAY} (cualquier importe, cada semana, cada mes o cada año).",
-  "card_l": "el enlace de tarjeta",
-  "nothing_p": "Por una contribución web no se entrega nada: ni nivel, ni extra, y lo que incluye la compra de Play no forma parte de ella. Paga el trabajo y no desbloquea nada.",
+  "nothing_p": "Una contribución web paga el trabajo y no desbloquea nada: ni nivel, ni extra, ni nada de lo que incluye la compra de Play.",
   "honor_p": "La aplicación tiene un interruptor para quienes la han apoyado. Se fía de tu palabra.",
   "key_h": "Una sola clave de firma",
   "key_p": "La misma clave firma las versiones de Google Play, F-Droid y GitHub, así que puedes moverte entre las tres libremente. La huella aparecerá aquí cuando se firme la primera versión.",
-  "not_web": " Por una contribución web, escríbenos en un plazo de catorce días y la reembolsamos."
+  "not_web": " Por una contribución web, escríbenos en un plazo de catorce días y la reembolsamos.",
+  "routes_p": "En Google Play, el apoyo se hace dentro de la aplicación. Cualquier otra versión te manda aquí.",
+  "r_sponsors": "Una vez o cada mes, desde 1 $.",
+  "r_liberapay": "Cualquier importe, cada semana, cada mes o cada año.",
+  "r_card_h": "Con tarjeta",
+  "r_card": "Una vez, desde 2,99 $ o un importe que escribes.",
+  "until_p": "Hasta que abra una vía, la aplicación en Google Play es la forma de dar."
  },
  "fr": {
   "title": "Soutenir le travail - Verdetto",
@@ -1377,7 +1401,7 @@ SUPPORT_WORK_T = {
   "phone_h": "Sur ton téléphone",
   "phone_p": "Réglages, puis « Soutenir le développement ». Dès 0,99 $, une fois ou chaque mois, 2,99 $ suggérés, via Google Play. L'application ne voit jamais ta carte.",
   "browser_h": "Depuis un navigateur",
-  "browser_wait": "GitHub Sponsors, Liberapay et un lien de paiement par carte sont en cours d'ouverture. Jusque-là, l'application est le moyen de donner. Les liens apparaîtront ici dès l'ouverture.",
+  "browser_wait": "Trois voies sont en cours d'ouverture, listées ci-dessous. Jusque-là, l'application est le moyen de donner.",
   "browser_live": "GitHub Sponsors, mensuel (2 $ ou 5 $) ou une fois (3 $ ou 10 $), via GitHub. Cela arrive au même endroit.",
   "browser_link": "Sponsoriser sur GitHub",
   "pass_h": "Fais-le connaître",
@@ -1408,18 +1432,17 @@ SUPPORT_WORK_T = {
   "a_computer_wait": "Pas encore. GitHub Sponsors, Liberapay et un lien de paiement par carte sont en cours d'ouverture ; cette page le dira quand ce sera le cas.",
   "soon": "Bientôt disponible",
   "routes_h": "Depuis F-Droid, GitHub ou un ordinateur",
-  "routes_intro": "L'application Google Play reçoit le soutien dans l'application. Toute autre version ouvre cette page. GitHub Sponsors, Liberapay et un lien de paiement par carte sont en cours d'ouverture ; jusque-là, l'application sur Google Play est le moyen de donner, et cette page dira quand ils ouvrent.",
-  "routes_intro_live": "L'application Google Play reçoit le soutien dans l'application. Toute autre version ouvre cette page, où trois voies sont ouvertes.",
-  "fdroid_h": "Si tu as installé depuis F-Droid",
-  "fdroid_p": "Dans cet ordre : {LIBERAPAY} (n'importe quel montant, chaque semaine, chaque mois ou chaque année), {CARD} (une fois, par carte, dès 2,99 $ ou un montant que tu saisis), {SPONSORS} (dès 1 $ une fois, ou chaque mois aux mêmes paliers que l'application).",
-  "github_h": "Si tu as installé depuis GitHub",
-  "github_p": "Dans cet ordre : {SPONSORS} (dès 1 $ une fois, ou chaque mois aux mêmes paliers que l'application), {CARD} (une fois, par carte, dès 2,99 $ ou un montant que tu saisis), {LIBERAPAY} (n'importe quel montant, chaque semaine, chaque mois ou chaque année).",
-  "card_l": "le lien de paiement par carte",
-  "nothing_p": "Rien n'est fourni pour une contribution web : ni palier, ni extra, et ce que l'achat Play inclut n'en fait pas partie. Elle paie le travail et ne débloque rien.",
+  "nothing_p": "Une contribution web paie le travail et ne débloque rien : ni palier, ni extra, rien de ce que l'achat Play inclut.",
   "honor_p": "L'application a un interrupteur pour celles et ceux qui l'ont soutenue. Elle te croit sur parole.",
   "key_h": "Une seule clé de signature",
   "key_p": "La même clé signe les versions Google Play, F-Droid et GitHub, tu peux donc passer librement de l'une à l'autre. L'empreinte apparaîtra ici quand la première version sera signée.",
-  "not_web": " Pour une contribution web, écris-nous sous quatorze jours et nous la remboursons."
+  "not_web": " Pour une contribution web, écris-nous sous quatorze jours et nous la remboursons.",
+  "routes_p": "Sur Google Play, le soutien se fait dans l'application. Toute autre version t'envoie ici.",
+  "r_sponsors": "Une fois ou chaque mois, dès 1 $.",
+  "r_liberapay": "N'importe quel montant, chaque semaine, chaque mois ou chaque année.",
+  "r_card_h": "Par carte",
+  "r_card": "Une fois, dès 2,99 $ ou un montant que tu saisis.",
+  "until_p": "Tant qu'aucune voie n'est ouverte, l'application sur Google Play est le moyen de donner."
  },
  "pt-BR": {
   "title": "Apoie o trabalho - Verdetto",
@@ -1431,7 +1454,7 @@ SUPPORT_WORK_T = {
   "phone_h": "No seu celular",
   "phone_p": "Configurações, depois \"Apoiar o desenvolvimento\". A partir de US$ 0,99, uma vez ou todo mês, US$ 2,99 sugerido, pelo Google Play. O app nunca vê seu cartão.",
   "browser_h": "Pelo navegador",
-  "browser_wait": "O GitHub Sponsors, o Liberapay e um link de cartão estão sendo configurados. Até abrirem, o app é o jeito de contribuir. Os links aparecem aqui quando isso acontecer.",
+  "browser_wait": "Três caminhos estão sendo configurados, listados abaixo. Até um abrir, o app é o jeito de contribuir.",
   "browser_live": "GitHub Sponsors, mensal (US$ 2 ou US$ 5) ou uma vez (US$ 3 ou US$ 10), pelo GitHub. Chega ao mesmo lugar.",
   "browser_link": "Apoiar no GitHub",
   "pass_h": "Passe adiante",
@@ -1462,18 +1485,17 @@ SUPPORT_WORK_T = {
   "a_computer_wait": "Ainda não. O GitHub Sponsors, o Liberapay e um link de cartão estão sendo configurados; esta página avisará quando abrirem.",
   "soon": "Em breve",
   "routes_h": "Pelo F-Droid, pelo GitHub ou por um computador",
-  "routes_intro": "O app do Google Play recebe o apoio dentro do app. Qualquer outra versão abre esta página. O GitHub Sponsors, o Liberapay e um link de cartão estão sendo configurados; até abrirem, o app no Google Play é o jeito de contribuir, e esta página dirá quando abrirem.",
-  "routes_intro_live": "O app do Google Play recebe o apoio dentro do app. Qualquer outra versão abre esta página, onde três caminhos estão abertos.",
-  "fdroid_h": "Se você instalou pelo F-Droid",
-  "fdroid_p": "Nesta ordem: {LIBERAPAY} (qualquer valor, toda semana, todo mês ou todo ano), {CARD} (uma vez, com cartão, a partir de US$ 2,99 ou um valor que você digita), {SPONSORS} (a partir de US$ 1 uma vez, ou todo mês nos mesmos valores do app).",
-  "github_h": "Se você instalou pelo GitHub",
-  "github_p": "Nesta ordem: {SPONSORS} (a partir de US$ 1 uma vez, ou todo mês nos mesmos valores do app), {CARD} (uma vez, com cartão, a partir de US$ 2,99 ou um valor que você digita), {LIBERAPAY} (qualquer valor, toda semana, todo mês ou todo ano).",
-  "card_l": "o link de cartão",
-  "nothing_p": "Nada é entregue por uma contribuição pela web: nenhum nível, nenhum extra, e o que a compra no Play inclui não faz parte dela. Ela paga o trabalho e não desbloqueia nada.",
+  "nothing_p": "Uma contribuição pela web paga o trabalho e não desbloqueia nada: nenhum nível, nenhum extra, nada do que a compra no Play inclui.",
   "honor_p": "O app tem um interruptor para quem o apoiou. Ele confia na sua palavra.",
   "key_h": "Uma só chave de assinatura",
   "key_p": "A mesma chave assina as versões do Google Play, do F-Droid e do GitHub, então você pode passar de uma para outra livremente. A impressão digital aparece aqui quando a primeira versão for assinada.",
-  "not_web": " Por uma contribuição pela web, escreva em até catorze dias e nós a reembolsamos."
+  "not_web": " Por uma contribuição pela web, escreva em até catorze dias e nós a reembolsamos.",
+  "routes_p": "No Google Play, o apoio acontece dentro do app. Qualquer outra versão manda você para cá.",
+  "r_sponsors": "Uma vez ou todo mês, a partir de US$ 1.",
+  "r_liberapay": "Qualquer valor, toda semana, todo mês ou todo ano.",
+  "r_card_h": "Com cartão",
+  "r_card": "Uma vez, a partir de US$ 2,99 ou um valor que você digita.",
+  "until_p": "Até um caminho abrir, o app no Google Play é o jeito de contribuir."
  },
  "id": {
   "title": "Dukung pekerjaan ini - Verdetto",
@@ -1485,7 +1507,7 @@ SUPPORT_WORK_T = {
   "phone_h": "Di ponselmu",
   "phone_p": "Setelan, lalu \"Dukung pengembangan\". Mulai $0,99, sekali atau bulanan, $2,99 disarankan, melalui Google Play. Aplikasi tidak pernah melihat kartumu.",
   "browser_h": "Dari peramban",
-  "browser_wait": "GitHub Sponsors, Liberapay, dan tautan kartu sedang disiapkan. Sampai dibuka, aplikasi adalah cara untuk memberi. Tautannya muncul di sini saat sudah siap.",
+  "browser_wait": "Tiga jalur sedang disiapkan, tercantum di bawah. Sampai ada yang dibuka, aplikasi adalah cara untuk memberi.",
   "browser_live": "GitHub Sponsors, bulanan ($2 atau $5) atau sekali ($3 atau $10), melalui GitHub. Sampainya ke tempat yang sama.",
   "browser_link": "Dukung di GitHub",
   "pass_h": "Teruskan",
@@ -1516,18 +1538,17 @@ SUPPORT_WORK_T = {
   "a_computer_wait": "Belum. GitHub Sponsors, Liberapay, dan tautan kartu sedang disiapkan; halaman ini akan memberi tahu saat masing-masing dibuka.",
   "soon": "Segera hadir",
   "routes_h": "Dari F-Droid, GitHub, atau komputer",
-  "routes_intro": "Aplikasi Google Play menerima dukungan di dalam aplikasi. Build lain membuka halaman ini. GitHub Sponsors, Liberapay, dan tautan kartu sedang disiapkan; sampai masing-masing dibuka, aplikasi di Google Play adalah cara untuk memberi, dan halaman ini akan memberi tahu saat dibuka.",
-  "routes_intro_live": "Aplikasi Google Play menerima dukungan di dalam aplikasi. Build lain membuka halaman ini, tempat tiga jalur sudah terbuka.",
-  "fdroid_h": "Jika kamu memasang dari F-Droid",
-  "fdroid_p": "Dalam urutan ini: {LIBERAPAY} (berapa pun, mingguan, bulanan, atau tahunan), {CARD} (sekali, dengan kartu, mulai $2,99 atau jumlah yang kamu ketik), {SPONSORS} (mulai $1 sekali, atau bulanan pada tingkatan yang sama dengan aplikasi).",
-  "github_h": "Jika kamu memasang dari GitHub",
-  "github_p": "Dalam urutan ini: {SPONSORS} (mulai $1 sekali, atau bulanan pada tingkatan yang sama dengan aplikasi), {CARD} (sekali, dengan kartu, mulai $2,99 atau jumlah yang kamu ketik), {LIBERAPAY} (berapa pun, mingguan, bulanan, atau tahunan).",
-  "card_l": "tautan kartu",
-  "nothing_p": "Tidak ada yang diberikan untuk kontribusi lewat web: tanpa tingkatan, tanpa tambahan, dan yang termasuk dalam pembelian Play bukan bagian darinya. Kontribusi itu membayar pekerjaan ini dan tidak membuka apa pun.",
+  "nothing_p": "Kontribusi lewat web membayar pekerjaan ini dan tidak membuka apa pun: tanpa tingkatan, tanpa tambahan, dan tanpa apa pun yang termasuk dalam pembelian Play.",
   "honor_p": "Aplikasi punya sakelar untuk orang yang telah mendukungnya. Sakelar itu memercayai kata-katamu.",
   "key_h": "Satu kunci penandatanganan",
   "key_p": "Kunci yang sama menandatangani build Google Play, F-Droid, dan GitHub, jadi kamu bisa berpindah di antara ketiganya dengan bebas. Sidik jarinya muncul di sini saat rilis pertama ditandatangani.",
-  "not_web": " Untuk kontribusi lewat web, tulis dalam empat belas hari dan kami mengembalikannya."
+  "not_web": " Untuk kontribusi lewat web, tulis dalam empat belas hari dan kami mengembalikannya.",
+  "routes_p": "Di Google Play, dukungan diberikan di dalam aplikasi. Build lain mengarahkanmu ke sini.",
+  "r_sponsors": "Sekali atau bulanan, mulai $1.",
+  "r_liberapay": "Berapa pun, mingguan, bulanan, atau tahunan.",
+  "r_card_h": "Dengan kartu",
+  "r_card": "Sekali, mulai $2,99 atau jumlah yang kamu ketik.",
+  "until_p": "Sampai ada jalur yang dibuka, aplikasi di Google Play adalah cara untuk memberi."
  },
  "ru": {
   "title": "Поддержать работу - Verdetto",
@@ -1539,7 +1560,7 @@ SUPPORT_WORK_T = {
   "phone_h": "На вашем телефоне",
   "phone_p": "Настройки, затем «Поддержать разработку». От 0,99 $, один раз или ежемесячно, рекомендуется 2,99 $, через Google Play. Приложение никогда не видит вашу карту.",
   "browser_h": "Из браузера",
-  "browser_wait": "GitHub Sponsors, Liberapay и ссылка для оплаты картой ещё настраиваются. Пока они не открылись, приложение остаётся способом поддержать. Ссылки появятся здесь, когда они откроются.",
+  "browser_wait": "Три пути ещё настраиваются, они перечислены ниже. Пока один из них не открылся, приложение остаётся способом поддержать.",
   "browser_live": "GitHub Sponsors, ежемесячно (2 $ или 5 $) или один раз (3 $ или 10 $), через GitHub. Деньги приходят туда же.",
   "browser_link": "Поддержать на GitHub",
   "pass_h": "Расскажите другим",
@@ -1570,18 +1591,17 @@ SUPPORT_WORK_T = {
   "a_computer_wait": "Пока нет. GitHub Sponsors, Liberapay и ссылка для оплаты картой ещё настраиваются; эта страница сообщит, когда каждый из них откроется.",
   "soon": "Скоро",
   "routes_h": "Из F-Droid, с GitHub или с компьютера",
-  "routes_intro": "Приложение из Google Play принимает поддержку внутри приложения. Любая другая сборка открывает эту страницу. GitHub Sponsors, Liberapay и ссылка для оплаты картой ещё настраиваются; пока каждый из них не открылся, приложение в Google Play остаётся способом поддержать, и эта страница сообщит, когда они откроются.",
-  "routes_intro_live": "Приложение из Google Play принимает поддержку внутри приложения. Любая другая сборка открывает эту страницу, где открыты три пути.",
-  "fdroid_h": "Если вы установили из F-Droid",
-  "fdroid_p": "В таком порядке: {LIBERAPAY} (любая сумма, еженедельно, ежемесячно или ежегодно), {CARD} (разово, картой, от 2,99 $ или сумма, которую вы вводите), {SPONSORS} (от 1 $ разово или ежемесячно на тех же ступенях, что и в приложении).",
-  "github_h": "Если вы установили с GitHub",
-  "github_p": "В таком порядке: {SPONSORS} (от 1 $ разово или ежемесячно на тех же ступенях, что и в приложении), {CARD} (разово, картой, от 2,99 $ или сумма, которую вы вводите), {LIBERAPAY} (любая сумма, еженедельно, ежемесячно или ежегодно).",
-  "card_l": "ссылка для оплаты картой",
-  "nothing_p": "За взнос через сайт ничего не предоставляется: ни уровня, ни дополнений, и то, что входит в покупку в Play, не является его частью. Он оплачивает работу и ничего не открывает.",
+  "nothing_p": "Взнос через сайт оплачивает работу и ничего не открывает: ни уровня, ни дополнений, ничего из того, что входит в покупку в Play.",
   "honor_p": "В приложении есть переключатель для тех, кто его поддержал. Он верит вам на слово.",
   "key_h": "Один ключ подписи",
   "key_p": "Один и тот же ключ подписывает сборки для Google Play, F-Droid и GitHub, так что вы можете свободно переходить между тремя. Отпечаток появится здесь, когда будет подписан первый выпуск.",
-  "not_web": " За взнос через сайт напишите нам в течение четырнадцати дней, и мы его вернём."
+  "not_web": " За взнос через сайт напишите нам в течение четырнадцати дней, и мы его вернём.",
+  "routes_p": "В Google Play поддержка происходит внутри приложения. Любая другая сборка направляет вас сюда.",
+  "r_sponsors": "Разово или ежемесячно, от 1 $.",
+  "r_liberapay": "Любая сумма, еженедельно, ежемесячно или ежегодно.",
+  "r_card_h": "Картой",
+  "r_card": "Разово, от 2,99 $ или сумма, которую вы вводите.",
+  "until_p": "Пока ни один путь не открылся, приложение в Google Play остаётся способом поддержать."
  },
  "hi": {
   "title": "काम का समर्थन करें - Verdetto",
@@ -1593,7 +1613,7 @@ SUPPORT_WORK_T = {
   "phone_h": "आपके फ़ोन पर",
   "phone_p": "सेटिंग्स, फिर \"विकास का समर्थन करें\"। $0.99 से, एक बार या हर महीने, $2.99 सुझाया गया, Google Play के ज़रिए। ऐप आपका कार्ड कभी नहीं देखता।",
   "browser_h": "ब्राउज़र से",
-  "browser_wait": "GitHub Sponsors, Liberapay और एक कार्ड लिंक तैयार किए जा रहे हैं। जब तक वे खुलें, ऐप ही देने का तरीका है। खुलने पर लिंक यहाँ दिखेंगे।",
+  "browser_wait": "तीन रास्ते तैयार किए जा रहे हैं, नीचे सूचीबद्ध हैं। जब तक कोई खुले, ऐप ही देने का तरीका है।",
   "browser_live": "GitHub Sponsors, मासिक ($2 या $5) या एक बार ($3 या $10), GitHub के ज़रिए। यह उसी जगह पहुँचता है।",
   "browser_link": "GitHub पर स्पॉन्सर करें",
   "pass_h": "आगे बढ़ाएँ",
@@ -1624,18 +1644,17 @@ SUPPORT_WORK_T = {
   "a_computer_wait": "अभी नहीं। GitHub Sponsors, Liberapay और एक कार्ड लिंक तैयार किए जा रहे हैं; हर एक के खुलने पर यह पृष्ठ बताएगा।",
   "soon": "जल्द आ रहा है",
   "routes_h": "F-Droid, GitHub या कंप्यूटर से",
-  "routes_intro": "Google Play वाला ऐप सहयोग ऐप के भीतर लेता है। हर दूसरा बिल्ड यह पेज खोलता है। GitHub Sponsors, Liberapay और एक कार्ड लिंक तैयार किए जा रहे हैं; जब तक हर एक खुले, Google Play पर ऐप ही देने का तरीका है, और यह पेज बताएगा कि वे कब खुलते हैं।",
-  "routes_intro_live": "Google Play वाला ऐप सहयोग ऐप के भीतर लेता है। हर दूसरा बिल्ड यह पेज खोलता है, जहाँ तीन रास्ते खुले हैं।",
-  "fdroid_h": "यदि आपने F-Droid से इंस्टॉल किया है",
-  "fdroid_p": "इस क्रम में: {LIBERAPAY} (कोई भी रकम, हर हफ़्ते, हर महीने या हर साल), {CARD} (एक बार, कार्ड से, $2.99 से या आपकी लिखी कोई रकम), {SPONSORS} ($1 से एक बार, या ऐप के समान स्तरों पर हर महीने)।",
-  "github_h": "यदि आपने GitHub से इंस्टॉल किया है",
-  "github_p": "इस क्रम में: {SPONSORS} ($1 से एक बार, या ऐप के समान स्तरों पर हर महीने), {CARD} (एक बार, कार्ड से, $2.99 से या आपकी लिखी कोई रकम), {LIBERAPAY} (कोई भी रकम, हर हफ़्ते, हर महीने या हर साल)।",
-  "card_l": "कार्ड लिंक",
-  "nothing_p": "वेब योगदान के बदले कुछ नहीं दिया जाता: न कोई स्तर, न कोई अतिरिक्त, और Play खरीद में शामिल चीज़ें उसका हिस्सा नहीं हैं। यह काम का भुगतान करता है और कुछ भी अनलॉक नहीं करता।",
+  "nothing_p": "वेब योगदान काम का भुगतान करता है और कुछ भी अनलॉक नहीं करता: न कोई स्तर, न कोई अतिरिक्त, न Play खरीद में शामिल कोई चीज़।",
   "honor_p": "ऐप में उन लोगों के लिए एक स्विच है जिन्होंने इसका सहयोग किया है। यह आपकी बात पर भरोसा करता है।",
   "key_h": "एक ही साइनिंग कुंजी",
   "key_p": "वही कुंजी Google Play, F-Droid और GitHub के बिल्ड पर हस्ताक्षर करती है, इसलिए आप तीनों के बीच स्वतंत्र रूप से आ-जा सकते हैं। पहली रिलीज़ पर हस्ताक्षर होते ही फ़िंगरप्रिंट यहाँ दिखेगा।",
-  "not_web": " वेब योगदान के लिए, चौदह दिनों के भीतर लिखें और हम उसे रिफ़ंड कर देंगे।"
+  "not_web": " वेब योगदान के लिए, चौदह दिनों के भीतर लिखें और हम उसे रिफ़ंड कर देंगे।",
+  "routes_p": "Google Play पर सहयोग ऐप के भीतर होता है। हर दूसरा बिल्ड आपको यहाँ भेजता है।",
+  "r_sponsors": "एक बार या हर महीने, $1 से।",
+  "r_liberapay": "कोई भी रकम, हर हफ़्ते, हर महीने या हर साल।",
+  "r_card_h": "कार्ड से",
+  "r_card": "एक बार, $2.99 से या आपकी लिखी कोई रकम।",
+  "until_p": "जब तक कोई रास्ता खुले, Google Play पर ऐप ही देने का तरीका है।"
  },
  "ja": {
   "title": "活動を支援 - Verdetto",
@@ -1647,7 +1666,7 @@ SUPPORT_WORK_T = {
   "phone_h": "端末で",
   "phone_p": "設定の「開発を支援」から。$0.99 から、一度だけでも毎月でも、$2.99 が目安、Google Play 経由です。アプリがあなたのカードを見ることはありません。",
   "browser_h": "ブラウザーから",
-  "browser_wait": "GitHub Sponsors、Liberapay、カード決済のリンクは準備中です。開くまでは、アプリが支援の方法です。開いたらここにリンクが表示されます。",
+  "browser_wait": "三つの経路を準備中です。下に一覧があります。開くまでは、アプリが支援の方法です。",
   "browser_live": "GitHub Sponsors、毎月（$2 または $5）または一回限り（$3 または $10）、GitHub 経由。届く先は同じです。",
   "browser_link": "GitHub で支援する",
   "pass_h": "人に伝える",
@@ -1678,18 +1697,17 @@ SUPPORT_WORK_T = {
   "a_computer_wait": "まだです。GitHub Sponsors、Liberapay、カード決済のリンクは準備中で、それぞれ開いたらこのページでお知らせします。",
   "soon": "近日公開",
   "routes_h": "F-Droid、GitHub、またはパソコンから",
-  "routes_intro": "Google Play 版のアプリは、支援をアプリの中で受け付けます。それ以外のビルドはこのページを開きます。GitHub Sponsors、Liberapay、カード決済のリンクは準備中です。それぞれが開くまでは Google Play のアプリが支援の方法で、開いたらこのページでお知らせします。",
-  "routes_intro_live": "Google Play 版のアプリは、支援をアプリの中で受け付けます。それ以外のビルドはこのページを開き、ここに三つの経路があります。",
-  "fdroid_h": "F-Droid からインストールした場合",
-  "fdroid_p": "この順で: {LIBERAPAY}(額は自由、毎週・毎月・毎年)、{CARD}(一度だけ、カードで、2.99 ドルから、または入力した額)、{SPONSORS}(1 ドルから一度だけ、または毎月アプリと同じ段階で)。",
-  "github_h": "GitHub からインストールした場合",
-  "github_p": "この順で: {SPONSORS}(1 ドルから一度だけ、または毎月アプリと同じ段階で)、{CARD}(一度だけ、カードで、2.99 ドルから、または入力した額)、{LIBERAPAY}(額は自由、毎週・毎月・毎年)。",
-  "card_l": "カード決済のリンク",
-  "nothing_p": "ウェブでの支援に対して提供されるものはありません。段階も特典もなく、Play での購入に含まれるものは対象外です。支援は開発の費用にあてられ、何も解放しません。",
+  "nothing_p": "ウェブでの支援は開発の費用にあてられ、何も解放しません。段階も特典もなく、Play での購入に含まれるものも対象外です。",
   "honor_p": "アプリには、支援した人のためのスイッチがあります。あなたの言葉をそのまま信じます。",
   "key_h": "署名鍵は一つ",
   "key_p": "同じ鍵が Google Play、F-Droid、GitHub のビルドに署名するので、三つの間を自由に移れます。最初のリリースに署名したら、フィンガープリントをここに掲載します。",
-  "not_web": "ウェブでの支援は、14 日以内にご連絡いただければ返金します。"
+  "not_web": "ウェブでの支援は、14 日以内にご連絡いただければ返金します。",
+  "routes_p": "Google Play では、支援はアプリの中で行います。それ以外のビルドはこのページに案内します。",
+  "r_sponsors": "一度だけでも毎月でも、1 ドルから。",
+  "r_liberapay": "額は自由、毎週・毎月・毎年。",
+  "r_card_h": "カードで",
+  "r_card": "一度だけ、2.99 ドルから、または入力した額。",
+  "until_p": "経路が開くまでは、Google Play のアプリが支援の方法です。"
  },
  "zh-Hans": {
   "title": "支持这项工作 - Verdetto",
@@ -1701,7 +1719,7 @@ SUPPORT_WORK_T = {
   "phone_h": "在你的手机上",
   "phone_p": "设置，然后“支持开发”。$0.99 起，一次或每月，建议 $2.99，通过 Google Play。应用永远看不到你的银行卡。",
   "browser_h": "通过浏览器",
-  "browser_wait": "GitHub Sponsors、Liberapay 和银行卡链接正在设置中。在它们开放之前，应用是支持的途径。开放后链接会出现在这里。",
+  "browser_wait": "三条途径正在设置中，见下方列表。在其中一条开放之前，应用是支持的途径。",
   "browser_live": "GitHub Sponsors，每月（$2 或 $5）或一次性（$3 或 $10），通过 GitHub。到达的是同一个地方。",
   "browser_link": "在 GitHub 上赞助",
   "pass_h": "传给别人",
@@ -1732,18 +1750,17 @@ SUPPORT_WORK_T = {
   "a_computer_wait": "还不行。GitHub Sponsors、Liberapay 和银行卡链接正在设置中；各自开放时本页会说明。",
   "soon": "即将推出",
   "routes_h": "通过 F-Droid、GitHub 或电脑",
-  "routes_intro": "Google Play 版本的应用在应用内接受支持。其他任何版本都会打开本页。GitHub Sponsors、Liberapay 和银行卡链接正在设置中；在各自开放之前，Google Play 上的应用是支持的途径，开放时本页会说明。",
-  "routes_intro_live": "Google Play 版本的应用在应用内接受支持。其他任何版本都会打开本页，这里有三条已开放的途径。",
-  "fdroid_h": "如果你从 F-Droid 安装",
-  "fdroid_p": "按此顺序：{LIBERAPAY}（任意金额，每周、每月或每年）、{CARD}（一次，用银行卡，2.99 美元起或自行输入的金额）、{SPONSORS}（1 美元起一次，或按与应用相同的档位每月支持）。",
-  "github_h": "如果你从 GitHub 安装",
-  "github_p": "按此顺序：{SPONSORS}（1 美元起一次，或按与应用相同的档位每月支持）、{CARD}（一次，用银行卡，2.99 美元起或自行输入的金额）、{LIBERAPAY}（任意金额，每周、每月或每年）。",
-  "card_l": "银行卡链接",
-  "nothing_p": "网页支持不提供任何回报：没有档位、没有额外内容，Play 购买所包含的内容也不属于它。它用于支付开发工作，不解锁任何东西。",
+  "nothing_p": "网页支持用于支付开发工作，不解锁任何东西：没有档位、没有额外内容，也不包括 Play 购买所含的任何内容。",
   "honor_p": "应用为支持过它的人准备了一个开关。它相信你的话。",
   "key_h": "同一把签名密钥",
   "key_p": "同一把密钥为 Google Play、F-Droid 和 GitHub 版本签名，所以你可以在三者之间自由切换。第一个发布版本签名后，指纹会出现在这里。",
-  "not_web": "网页支持在十四天内来信即可退款。"
+  "not_web": "网页支持在十四天内来信即可退款。",
+  "routes_p": "在 Google Play 上，支持在应用内完成。其他任何版本都会把你带到这里。",
+  "r_sponsors": "一次或每月，1 美元起。",
+  "r_liberapay": "任意金额，每周、每月或每年。",
+  "r_card_h": "用银行卡",
+  "r_card": "一次，2.99 美元起或自行输入的金额。",
+  "until_p": "在有途径开放之前，Google Play 上的应用是支持的途径。"
  },
  "ar": {
   "title": "ادعم العمل - Verdetto",
@@ -1755,7 +1772,7 @@ SUPPORT_WORK_T = {
   "phone_h": "على هاتفك",
   "phone_p": "الإعدادات، ثم «ادعم التطوير». من 0.99 دولار، مرة واحدة أو شهريًا، والمقترح 2.99 دولار، عبر Google Play. لا يرى التطبيق بطاقتك أبدًا.",
   "browser_h": "من المتصفح",
-  "browser_wait": "يجري إعداد GitHub Sponsors وLiberapay ورابط للدفع بالبطاقة. وحتى تُفتح، يبقى التطبيق هو طريقة العطاء. وستظهر الروابط هنا عندما تُفتح.",
+  "browser_wait": "يجري إعداد ثلاث طرق، مذكورة أدناه. وحتى تُفتح إحداها، يبقى التطبيق هو طريقة العطاء.",
   "browser_live": "GitHub Sponsors، شهريًا (2 أو 5 دولارات) أو مرة واحدة (3 أو 10 دولارات)، عبر GitHub. يصل إلى المكان نفسه.",
   "browser_link": "ادعم على GitHub",
   "pass_h": "مرّره لغيرك",
@@ -1786,18 +1803,17 @@ SUPPORT_WORK_T = {
   "a_computer_wait": "ليس بعد. يجري إعداد GitHub Sponsors وLiberapay ورابط للدفع بالبطاقة؛ وستذكر هذه الصفحة موعد افتتاح كل منها.",
   "soon": "قريبًا",
   "routes_h": "من F-Droid أو GitHub أو من حاسوب",
-  "routes_intro": "يتلقى تطبيق Google Play الدعم داخل التطبيق. وكل إصدار آخر يفتح هذه الصفحة. يجري إعداد GitHub Sponsors وLiberapay ورابط للدفع بالبطاقة؛ وحتى يُفتح كل منها، يبقى التطبيق على Google Play هو طريقة العطاء، وستذكر هذه الصفحة موعد افتتاحها.",
-  "routes_intro_live": "يتلقى تطبيق Google Play الدعم داخل التطبيق. وكل إصدار آخر يفتح هذه الصفحة، حيث تتوفر ثلاث طرق.",
-  "fdroid_h": "إذا ثبّت التطبيق من F-Droid",
-  "fdroid_p": "بهذا الترتيب: {LIBERAPAY} (أي مبلغ، أسبوعيًا أو شهريًا أو سنويًا)، {CARD} (مرة واحدة، بالبطاقة، من 2.99 دولار أو مبلغ تكتبه)، {SPONSORS} (من دولار واحد مرة واحدة، أو شهريًا بنفس درجات التطبيق).",
-  "github_h": "إذا ثبّت التطبيق من GitHub",
-  "github_p": "بهذا الترتيب: {SPONSORS} (من دولار واحد مرة واحدة، أو شهريًا بنفس درجات التطبيق)، {CARD} (مرة واحدة، بالبطاقة، من 2.99 دولار أو مبلغ تكتبه)، {LIBERAPAY} (أي مبلغ، أسبوعيًا أو شهريًا أو سنويًا).",
-  "card_l": "رابط الدفع بالبطاقة",
-  "nothing_p": "لا يُقدَّم شيء مقابل المساهمة عبر الويب: لا درجة ولا إضافة، وما يشمله شراء Play ليس جزءًا منها. فهي تدفع ثمن العمل ولا تفتح شيئًا.",
+  "nothing_p": "المساهمة عبر الويب تدفع ثمن العمل ولا تفتح شيئًا: لا درجة ولا إضافة ولا شيئًا مما يشمله شراء Play.",
   "honor_p": "في التطبيق مفتاح لمن دعموه. وهو يصدّق كلمتك.",
   "key_h": "مفتاح توقيع واحد",
   "key_p": "المفتاح نفسه يوقّع إصدارات Google Play وF-Droid وGitHub، فيمكنك الانتقال بين الثلاثة بحرية. وستظهر البصمة هنا عند توقيع أول إصدار.",
-  "not_web": " وللمساهمة عبر الويب، اكتب إلينا خلال أربعة عشر يومًا ونردّها."
+  "not_web": " وللمساهمة عبر الويب، اكتب إلينا خلال أربعة عشر يومًا ونردّها.",
+  "routes_p": "على Google Play، يتم الدعم داخل التطبيق. وكل إصدار آخر يرسلك إلى هنا.",
+  "r_sponsors": "مرة واحدة أو شهريًا، من دولار واحد.",
+  "r_liberapay": "أي مبلغ، أسبوعيًا أو شهريًا أو سنويًا.",
+  "r_card_h": "بالبطاقة",
+  "r_card": "مرة واحدة، من 2.99 دولار أو مبلغ تكتبه.",
+  "until_p": "حتى تُفتح إحدى الطرق، يبقى التطبيق على Google Play هو طريقة العطاء."
  }
 }
 
@@ -1826,17 +1842,16 @@ def support_work_body(t, code):
     not_p = t["not_base"] + (t["not_github"] if SPONSORS_LIVE else "") + t["not_tail"] + t["not_web"]
     def route(flag, url, label):
         return f'<a href="{url}">{label}</a>' if flag and url else label
-    fills = {"{LIBERAPAY}": route(LIBERAPAY_LIVE, LIBERAPAY_URL, "Liberapay"), "{CARD}": route(CARD_LIVE, CARD_URL, t["card_l"]),
-             "{SPONSORS}": route(SPONSORS_LIVE, "https://github.com/sponsors/verdettoqr", "GitHub Sponsors")}
-    def fill(x):
-        for k, v in fills.items():
-            x = x.replace(k, v)
-        return x
+    def row(flag, url, name, what):
+        tag = "" if flag and url else f'<span class="tag">{t["soon"]}</span>'
+        return f'<li><span class="name">{route(flag, url, name)}</span><span class="what">{what}</span>{tag}</li>'
+    rows = (row(SPONSORS_LIVE, "https://github.com/sponsors/verdettoqr", "GitHub Sponsors", t["r_sponsors"]) + "\n"
+            + row(LIBERAPAY_LIVE, LIBERAPAY_URL, "Liberapay", t["r_liberapay"]) + "\n"
+            + row(CARD_LIVE, CARD_URL, t["r_card_h"], t["r_card"]))
     all_live = SPONSORS_LIVE and LIBERAPAY_LIVE and CARD_LIVE
-    routes = (f'<h2 id="routes">{t["routes_h"]}</h2>\n<p>{t["routes_intro_live"] if all_live else t["routes_intro"]}</p>\n'
-              f'<h3 id="fdroid">{t["fdroid_h"]}</h3>\n<p>{fill(t["fdroid_p"])}</p>\n'
-              f'<h3 id="github">{t["github_h"]}</h3>\n<p>{fill(t["github_p"])}</p>\n'
-              f'<p>{t["nothing_p"]} {t["honor_p"]}</p>\n'
+    routes = (f'<h2 id="routes">{t["routes_h"]}</h2>\n<p>{t["routes_p"]}</p>\n<ul class="routes">\n{rows}\n</ul>\n'
+              + ("" if all_live else f'<p>{t["until_p"]}</p>\n')
+              + f'<p>{t["nothing_p"]} {t["honor_p"]}</p>\n'
               f'<h3 id="key">{t["key_h"]}</h3>\n<p>{t["key_p"]}</p>\n')
     return f"""
 <h1>{t["h1"]}</h1>

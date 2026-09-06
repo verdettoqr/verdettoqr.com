@@ -99,7 +99,7 @@ p,li{margin:.5rem 0}
 .prose ol,.prose ul{padding-left:1.4rem}
 .prose li{margin:.6rem 0}
 table{border-collapse:collapse;width:100%;font-size:.875rem;line-height:1.25rem;display:block;overflow-x:auto;margin:1rem 0}
-.prose table{display:table;table-layout:fixed}.prose th,.prose td{overflow-wrap:anywhere;vertical-align:top}.prose th:nth-child(1){width:27%}.prose th:nth-child(2){width:18%}.prose th:nth-child(3){width:37%}.prose th:nth-child(4){width:18%}
+.prose table{display:table;table-layout:fixed}.prose th,.prose td{overflow-wrap:anywhere;vertical-align:top}.prose th:nth-child(1){width:27%}.prose th:nth-child(2){width:18%}.prose th:nth-child(3){width:37%}.prose th:nth-child(4){width:18%}.prose th{white-space:normal}.routes{list-style:none;padding:0;margin:1rem 0;display:grid;gap:.5rem}.routes li{display:grid;grid-template-columns:10rem 1fr;gap:.2rem .75rem;align-items:baseline;padding:.6rem .75rem;border:1px solid var(--outline-variant);border-radius:.5rem}.routes .name{font-weight:500}.routes .tag{grid-column:2;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant)}@media (max-width:600px){.routes li{grid-template-columns:1fr}.routes .tag{grid-column:1}table.stack,table.stack tbody,table.stack tr,table.stack td{display:block;width:auto}table.stack{table-layout:auto}table.stack thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}table.stack tr{border:1px solid var(--outline-variant);border-radius:.5rem;padding:.3rem .75rem;margin:0 0 .75rem}table.stack td{padding:.4rem 0;border:0;min-width:0}table.stack td+td{border-top:1px solid var(--outline-variant)}table.stack td::before{content:attr(data-label);display:block;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant);margin-bottom:.15rem}table.stack td:first-child{font-weight:500}}
 pre{background:var(--container);border-radius:.5rem;padding:.9rem 1rem;overflow-x:auto;font-size:.8125rem;line-height:1.35rem;margin:1rem 0}
 code{font-family:Consolas,'Cascadia Mono',Menlo,monospace;font-size:.92em}
 pre code{font-size:inherit}
@@ -217,13 +217,13 @@ footer a{color:var(--primary)}
 <p class="meta">Verdetto menjawab tiga intent dan satu berbagi. Tidak ada yang memerlukan izin, pustaka, atau kunci. Orang itu tetap mendapat setiap pemeriksaan keamanan dan setiap pengaturan aplikasi; aplikasi Anda menerima teks kode pada saat ia mengonfirmasinya.</p>
 
 <h2>Intent-nya</h2>
-<table>
+<table class="stack">
 <thead><tr><th>Action</th><th>Filter di manifes</th><th>Yang terjadi</th><th>Hasil</th></tr></thead>
 <tbody>
-<tr><td><code>com.google.zxing.client.android.SCAN</code></td><td>Ya, intent implisit berfungsi.</td><td>Membuka pemindai. Kode pertama yang dikunci orang itu dikembalikan, seperti yang dilakukan ZXing Barcode Scanner.</td><td><code>RESULT_OK</code> dengan <code>SCAN_RESULT</code> dan <code>SCAN_RESULT_FORMAT</code></td></tr>
-<tr><td><code>app.scanner.action.SCAN</code></td><td>Ya.</td><td>Membuka pemindai. Dimulai untuk hasil (result launcher atau <code>startActivityForResult</code>) ia mengembalikan kode dengan cara yang sama; dimulai biasa, ia hanya membuka aplikasi di pemindai.</td><td><code>RESULT_OK</code> dengan dua ekstra itu bila dimulai untuk hasil</td></tr>
-<tr><td><code>app.scanner.action.CARD</code></td><td>Tanpa filter: hanya intent eksplisit dengan paket <code>com.verdettoqr.scanner</code>.</td><td>Membuka editor kartu kontak milik orang itu, kode yang ia tunjukkan untuk berbagi datanya. Dimaksudkan untuk widget dan pintasan aplikasi sendiri; aplikasi lain boleh memanggilnya, tetapi tidak ada yang kembali.</td><td>Tidak ada</td></tr>
-<tr><td><code>android.intent.action.SEND</code> dengan <code>image/*</code></td><td>Ya.</td><td>Mendekode gambar: aplikasi menampilkan lembar hasil untuk kode di dalamnya.</td><td>Tidak ada</td></tr>
+<tr><td data-label="Action"><code>com.google.zxing.client.android.SCAN</code></td><td data-label="Filter di manifes">Ya, intent implisit berfungsi.</td><td data-label="Yang terjadi">Membuka pemindai. Kode pertama yang dikunci orang itu dikembalikan, seperti yang dilakukan ZXing Barcode Scanner.</td><td data-label="Hasil"><code>RESULT_OK</code> dengan <code>SCAN_RESULT</code> dan <code>SCAN_RESULT_FORMAT</code></td></tr>
+<tr><td data-label="Action"><code>app.scanner.action.SCAN</code></td><td data-label="Filter di manifes">Ya.</td><td data-label="Yang terjadi">Membuka pemindai. Dimulai untuk hasil (result launcher atau <code>startActivityForResult</code>) ia mengembalikan kode dengan cara yang sama; dimulai biasa, ia hanya membuka aplikasi di pemindai.</td><td data-label="Hasil"><code>RESULT_OK</code> dengan dua ekstra itu bila dimulai untuk hasil</td></tr>
+<tr><td data-label="Action"><code>app.scanner.action.CARD</code></td><td data-label="Filter di manifes">Tanpa filter: hanya intent eksplisit dengan paket <code>com.verdettoqr.scanner</code>.</td><td data-label="Yang terjadi">Membuka editor kartu kontak milik orang itu, kode yang ia tunjukkan untuk berbagi datanya. Dimaksudkan untuk widget dan pintasan aplikasi sendiri; aplikasi lain boleh memanggilnya, tetapi tidak ada yang kembali.</td><td data-label="Hasil">Tidak ada</td></tr>
+<tr><td data-label="Action"><code>android.intent.action.SEND</code> dengan <code>image/*</code></td><td data-label="Filter di manifes">Ya.</td><td data-label="Yang terjadi">Mendekode gambar: aplikasi menampilkan lembar hasil untuk kode di dalamnya.</td><td data-label="Hasil">Tidak ada</td></tr>
 </tbody>
 </table>
 

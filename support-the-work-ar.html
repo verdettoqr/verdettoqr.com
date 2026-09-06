@@ -99,7 +99,7 @@ p,li{margin:.5rem 0}
 .prose ol,.prose ul{padding-left:1.4rem}
 .prose li{margin:.6rem 0}
 table{border-collapse:collapse;width:100%;font-size:.875rem;line-height:1.25rem;display:block;overflow-x:auto;margin:1rem 0}
-.prose table{display:table;table-layout:fixed}.prose th,.prose td{overflow-wrap:anywhere;vertical-align:top}.prose th:nth-child(1){width:27%}.prose th:nth-child(2){width:18%}.prose th:nth-child(3){width:37%}.prose th:nth-child(4){width:18%}
+.prose table{display:table;table-layout:fixed}.prose th,.prose td{overflow-wrap:anywhere;vertical-align:top}.prose th:nth-child(1){width:27%}.prose th:nth-child(2){width:18%}.prose th:nth-child(3){width:37%}.prose th:nth-child(4){width:18%}.prose th{white-space:normal}.routes{list-style:none;padding:0;margin:1rem 0;display:grid;gap:.5rem}.routes li{display:grid;grid-template-columns:10rem 1fr;gap:.2rem .75rem;align-items:baseline;padding:.6rem .75rem;border:1px solid var(--outline-variant);border-radius:.5rem}.routes .name{font-weight:500}.routes .tag{grid-column:2;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant)}@media (max-width:600px){.routes li{grid-template-columns:1fr}.routes .tag{grid-column:1}table.stack,table.stack tbody,table.stack tr,table.stack td{display:block;width:auto}table.stack{table-layout:auto}table.stack thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}table.stack tr{border:1px solid var(--outline-variant);border-radius:.5rem;padding:.3rem .75rem;margin:0 0 .75rem}table.stack td{padding:.4rem 0;border:0;min-width:0}table.stack td+td{border-top:1px solid var(--outline-variant)}table.stack td::before{content:attr(data-label);display:block;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant);margin-bottom:.15rem}table.stack td:first-child{font-weight:500}}
 pre{background:var(--container);border-radius:.5rem;padding:.9rem 1rem;overflow-x:auto;font-size:.8125rem;line-height:1.35rem;margin:1rem 0}
 code{font-family:Consolas,'Cascadia Mono',Menlo,monospace;font-size:.92em}
 pre code{font-size:inherit}
@@ -217,16 +217,18 @@ footer a{color:var(--primary)}
 <div class="grid three">
   <div class="card"><svg aria-hidden="true"><use href="#ic-heart"/></svg><div><h3>على هاتفك</h3><p>الإعدادات، ثم «ادعم التطوير». من 0.99 دولار، مرة واحدة أو شهريًا، والمقترح 2.99 دولار، عبر Google Play. لا يرى التطبيق بطاقتك أبدًا.</p></div></div>
   <div class="card"><svg aria-hidden="true"><use href="#ic-scan"/></svg><div><h3>مرّره لغيرك</h3><p>مجاني لأن الناس يتشاركونه. أرسل verdettoqr.com إلى صديق، أو افتح «مشاركة» في التطبيق ودعه يمسح الرمز. والمشاركة لا ترسل شيئًا إلى أي مكان.</p></div></div>
-  <div class="card soon"><svg aria-hidden="true"><use href="#ic-clock"/></svg><div><p class="label">قريبًا</p><h3>من المتصفح</h3><p>يجري إعداد GitHub Sponsors وLiberapay ورابط للدفع بالبطاقة. وحتى تُفتح، يبقى التطبيق هو طريقة العطاء. وستظهر الروابط هنا عندما تُفتح.</p></div></div>
+  <div class="card soon"><svg aria-hidden="true"><use href="#ic-clock"/></svg><div><p class="label">قريبًا</p><h3>من المتصفح</h3><p>يجري إعداد ثلاث طرق، مذكورة أدناه. وحتى تُفتح إحداها، يبقى التطبيق هو طريقة العطاء.</p></div></div>
 </div>
 
 <h2 id="routes">من F-Droid أو GitHub أو من حاسوب</h2>
-<p>يتلقى تطبيق Google Play الدعم داخل التطبيق. وكل إصدار آخر يفتح هذه الصفحة. يجري إعداد GitHub Sponsors وLiberapay ورابط للدفع بالبطاقة؛ وحتى يُفتح كل منها، يبقى التطبيق على Google Play هو طريقة العطاء، وستذكر هذه الصفحة موعد افتتاحها.</p>
-<h3 id="fdroid">إذا ثبّت التطبيق من F-Droid</h3>
-<p>بهذا الترتيب: Liberapay (أي مبلغ، أسبوعيًا أو شهريًا أو سنويًا)، رابط الدفع بالبطاقة (مرة واحدة، بالبطاقة، من 2.99 دولار أو مبلغ تكتبه)، GitHub Sponsors (من دولار واحد مرة واحدة، أو شهريًا بنفس درجات التطبيق).</p>
-<h3 id="github">إذا ثبّت التطبيق من GitHub</h3>
-<p>بهذا الترتيب: GitHub Sponsors (من دولار واحد مرة واحدة، أو شهريًا بنفس درجات التطبيق)، رابط الدفع بالبطاقة (مرة واحدة، بالبطاقة، من 2.99 دولار أو مبلغ تكتبه)، Liberapay (أي مبلغ، أسبوعيًا أو شهريًا أو سنويًا).</p>
-<p>لا يُقدَّم شيء مقابل المساهمة عبر الويب: لا درجة ولا إضافة، وما يشمله شراء Play ليس جزءًا منها. فهي تدفع ثمن العمل ولا تفتح شيئًا. في التطبيق مفتاح لمن دعموه. وهو يصدّق كلمتك.</p>
+<p>على Google Play، يتم الدعم داخل التطبيق. وكل إصدار آخر يرسلك إلى هنا.</p>
+<ul class="routes">
+<li><span class="name">GitHub Sponsors</span><span class="what">مرة واحدة أو شهريًا، من دولار واحد.</span><span class="tag">قريبًا</span></li>
+<li><span class="name">Liberapay</span><span class="what">أي مبلغ، أسبوعيًا أو شهريًا أو سنويًا.</span><span class="tag">قريبًا</span></li>
+<li><span class="name">بالبطاقة</span><span class="what">مرة واحدة، من 2.99 دولار أو مبلغ تكتبه.</span><span class="tag">قريبًا</span></li>
+</ul>
+<p>حتى تُفتح إحدى الطرق، يبقى التطبيق على Google Play هو طريقة العطاء.</p>
+<p>المساهمة عبر الويب تدفع ثمن العمل ولا تفتح شيئًا: لا درجة ولا إضافة ولا شيئًا مما يشمله شراء Play. في التطبيق مفتاح لمن دعموه. وهو يصدّق كلمتك.</p>
 <h3 id="key">مفتاح توقيع واحد</h3>
 <p>المفتاح نفسه يوقّع إصدارات Google Play وF-Droid وGitHub، فيمكنك الانتقال بين الثلاثة بحرية. وستظهر البصمة هنا عند توقيع أول إصدار.</p>
 

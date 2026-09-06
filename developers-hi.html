@@ -99,7 +99,7 @@ p,li{margin:.5rem 0}
 .prose ol,.prose ul{padding-left:1.4rem}
 .prose li{margin:.6rem 0}
 table{border-collapse:collapse;width:100%;font-size:.875rem;line-height:1.25rem;display:block;overflow-x:auto;margin:1rem 0}
-.prose table{display:table;table-layout:fixed}.prose th,.prose td{overflow-wrap:anywhere;vertical-align:top}.prose th:nth-child(1){width:27%}.prose th:nth-child(2){width:18%}.prose th:nth-child(3){width:37%}.prose th:nth-child(4){width:18%}
+.prose table{display:table;table-layout:fixed}.prose th,.prose td{overflow-wrap:anywhere;vertical-align:top}.prose th:nth-child(1){width:27%}.prose th:nth-child(2){width:18%}.prose th:nth-child(3){width:37%}.prose th:nth-child(4){width:18%}.prose th{white-space:normal}.routes{list-style:none;padding:0;margin:1rem 0;display:grid;gap:.5rem}.routes li{display:grid;grid-template-columns:10rem 1fr;gap:.2rem .75rem;align-items:baseline;padding:.6rem .75rem;border:1px solid var(--outline-variant);border-radius:.5rem}.routes .name{font-weight:500}.routes .tag{grid-column:2;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant)}@media (max-width:600px){.routes li{grid-template-columns:1fr}.routes .tag{grid-column:1}table.stack,table.stack tbody,table.stack tr,table.stack td{display:block;width:auto}table.stack{table-layout:auto}table.stack thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}table.stack tr{border:1px solid var(--outline-variant);border-radius:.5rem;padding:.3rem .75rem;margin:0 0 .75rem}table.stack td{padding:.4rem 0;border:0;min-width:0}table.stack td+td{border-top:1px solid var(--outline-variant)}table.stack td::before{content:attr(data-label);display:block;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant);margin-bottom:.15rem}table.stack td:first-child{font-weight:500}}
 pre{background:var(--container);border-radius:.5rem;padding:.9rem 1rem;overflow-x:auto;font-size:.8125rem;line-height:1.35rem;margin:1rem 0}
 code{font-family:Consolas,'Cascadia Mono',Menlo,monospace;font-size:.92em}
 pre code{font-size:inherit}
@@ -217,13 +217,13 @@ footer a{color:var(--primary)}
 <p class="meta">Verdetto तीन इंटेंट और एक शेयर का जवाब देता है। यहाँ किसी चीज़ को अनुमति, लाइब्रेरी या कुंजी की ज़रूरत नहीं। व्यक्ति के पास ऐप की हर सुरक्षा जाँच और हर सेटिंग बनी रहती है; आपके ऐप को कोड का टेक्स्ट उसी क्षण मिलता है जब वह उसकी पुष्टि करता है।</p>
 
 <h2>इंटेंट</h2>
-<table>
+<table class="stack">
 <thead><tr><th>Action</th><th>मैनिफ़ेस्ट में फ़िल्टर</th><th>क्या होता है</th><th>परिणाम</th></tr></thead>
 <tbody>
-<tr><td><code>com.google.zxing.client.android.SCAN</code></td><td>हाँ, इम्प्लिसिट इंटेंट काम करते हैं।</td><td>स्कैनर खोलता है। व्यक्ति जो पहला कोड लॉक करता है वह वापस दिया जाता है, जैसा ZXing Barcode Scanner करता था।</td><td><code>RESULT_OK</code> के साथ <code>SCAN_RESULT</code> और <code>SCAN_RESULT_FORMAT</code></td></tr>
-<tr><td><code>app.scanner.action.SCAN</code></td><td>हाँ।</td><td>स्कैनर खोलता है। परिणाम के लिए शुरू किया गया (result launcher या <code>startActivityForResult</code>) तो कोड उसी तरह वापस देता है; सादे तौर पर शुरू किया गया तो बस ऐप को स्कैनर पर खोलता है।</td><td>परिणाम के लिए शुरू होने पर दोनों एक्स्ट्रा के साथ <code>RESULT_OK</code></td></tr>
-<tr><td><code>app.scanner.action.CARD</code></td><td>कोई फ़िल्टर नहीं: केवल पैकेज <code>com.verdettoqr.scanner</code> के साथ एक्सप्लिसिट इंटेंट।</td><td>व्यक्ति के अपने संपर्क कार्ड का एडिटर खोलता है, वह कोड जो वह अपनी जानकारी साझा करने के लिए दिखाता है। ऐप के अपने विजेट और शॉर्टकट के लिए बना है; कोई दूसरा ऐप इसे कॉल कर सकता है, पर कुछ वापस नहीं आता।</td><td>कुछ नहीं</td></tr>
-<tr><td><code>android.intent.action.SEND</code> के साथ <code>image/*</code></td><td>हाँ।</td><td>एक चित्र को डिकोड करता है: ऐप उसमें मौजूद कोड के लिए परिणाम शीट दिखाता है।</td><td>कुछ नहीं</td></tr>
+<tr><td data-label="Action"><code>com.google.zxing.client.android.SCAN</code></td><td data-label="मैनिफ़ेस्ट में फ़िल्टर">हाँ, इम्प्लिसिट इंटेंट काम करते हैं।</td><td data-label="क्या होता है">स्कैनर खोलता है। व्यक्ति जो पहला कोड लॉक करता है वह वापस दिया जाता है, जैसा ZXing Barcode Scanner करता था।</td><td data-label="परिणाम"><code>RESULT_OK</code> के साथ <code>SCAN_RESULT</code> और <code>SCAN_RESULT_FORMAT</code></td></tr>
+<tr><td data-label="Action"><code>app.scanner.action.SCAN</code></td><td data-label="मैनिफ़ेस्ट में फ़िल्टर">हाँ।</td><td data-label="क्या होता है">स्कैनर खोलता है। परिणाम के लिए शुरू किया गया (result launcher या <code>startActivityForResult</code>) तो कोड उसी तरह वापस देता है; सादे तौर पर शुरू किया गया तो बस ऐप को स्कैनर पर खोलता है।</td><td data-label="परिणाम">परिणाम के लिए शुरू होने पर दोनों एक्स्ट्रा के साथ <code>RESULT_OK</code></td></tr>
+<tr><td data-label="Action"><code>app.scanner.action.CARD</code></td><td data-label="मैनिफ़ेस्ट में फ़िल्टर">कोई फ़िल्टर नहीं: केवल पैकेज <code>com.verdettoqr.scanner</code> के साथ एक्सप्लिसिट इंटेंट।</td><td data-label="क्या होता है">व्यक्ति के अपने संपर्क कार्ड का एडिटर खोलता है, वह कोड जो वह अपनी जानकारी साझा करने के लिए दिखाता है। ऐप के अपने विजेट और शॉर्टकट के लिए बना है; कोई दूसरा ऐप इसे कॉल कर सकता है, पर कुछ वापस नहीं आता।</td><td data-label="परिणाम">कुछ नहीं</td></tr>
+<tr><td data-label="Action"><code>android.intent.action.SEND</code> के साथ <code>image/*</code></td><td data-label="मैनिफ़ेस्ट में फ़िल्टर">हाँ।</td><td data-label="क्या होता है">एक चित्र को डिकोड करता है: ऐप उसमें मौजूद कोड के लिए परिणाम शीट दिखाता है।</td><td data-label="परिणाम">कुछ नहीं</td></tr>
 </tbody>
 </table>
 

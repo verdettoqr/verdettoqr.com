@@ -99,7 +99,7 @@ p,li{margin:.5rem 0}
 .prose ol,.prose ul{padding-left:1.4rem}
 .prose li{margin:.6rem 0}
 table{border-collapse:collapse;width:100%;font-size:.875rem;line-height:1.25rem;display:block;overflow-x:auto;margin:1rem 0}
-.prose table{display:table;table-layout:fixed}.prose th,.prose td{overflow-wrap:anywhere;vertical-align:top}.prose th:nth-child(1){width:27%}.prose th:nth-child(2){width:18%}.prose th:nth-child(3){width:37%}.prose th:nth-child(4){width:18%}
+.prose table{display:table;table-layout:fixed}.prose th,.prose td{overflow-wrap:anywhere;vertical-align:top}.prose th:nth-child(1){width:27%}.prose th:nth-child(2){width:18%}.prose th:nth-child(3){width:37%}.prose th:nth-child(4){width:18%}.prose th{white-space:normal}.routes{list-style:none;padding:0;margin:1rem 0;display:grid;gap:.5rem}.routes li{display:grid;grid-template-columns:10rem 1fr;gap:.2rem .75rem;align-items:baseline;padding:.6rem .75rem;border:1px solid var(--outline-variant);border-radius:.5rem}.routes .name{font-weight:500}.routes .tag{grid-column:2;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant)}@media (max-width:600px){.routes li{grid-template-columns:1fr}.routes .tag{grid-column:1}table.stack,table.stack tbody,table.stack tr,table.stack td{display:block;width:auto}table.stack{table-layout:auto}table.stack thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}table.stack tr{border:1px solid var(--outline-variant);border-radius:.5rem;padding:.3rem .75rem;margin:0 0 .75rem}table.stack td{padding:.4rem 0;border:0;min-width:0}table.stack td+td{border-top:1px solid var(--outline-variant)}table.stack td::before{content:attr(data-label);display:block;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant);margin-bottom:.15rem}table.stack td:first-child{font-weight:500}}
 pre{background:var(--container);border-radius:.5rem;padding:.9rem 1rem;overflow-x:auto;font-size:.8125rem;line-height:1.35rem;margin:1rem 0}
 code{font-family:Consolas,'Cascadia Mono',Menlo,monospace;font-size:.92em}
 pre code{font-size:inherit}
@@ -217,13 +217,13 @@ footer a{color:var(--primary)}
 <p class="meta">O Verdetto responde a três intents e a um compartilhamento. Nada aqui precisa de permissão, biblioteca ou chave. A pessoa mantém todas as verificações de segurança e todas as configurações do app; seu app recebe o texto do código no momento em que ela o confirma.</p>
 
 <h2>Os intents</h2>
-<table>
+<table class="stack">
 <thead><tr><th>Ação</th><th>Filtro no manifesto</th><th>O que acontece</th><th>Resultado</th></tr></thead>
 <tbody>
-<tr><td><code>com.google.zxing.client.android.SCAN</code></td><td>Sim, intents implícitos funcionam.</td><td>Abre o leitor. O primeiro código que a pessoa fixa é devolvido, como o ZXing Barcode Scanner fazia.</td><td><code>RESULT_OK</code> com <code>SCAN_RESULT</code> e <code>SCAN_RESULT_FORMAT</code></td></tr>
-<tr><td><code>app.scanner.action.SCAN</code></td><td>Sim.</td><td>Abre o leitor. Iniciado para um resultado (um result launcher ou <code>startActivityForResult</code>), devolve o código do mesmo jeito; iniciado sem mais, só abre o app no leitor.</td><td><code>RESULT_OK</code> com os dois extras quando iniciado para um resultado</td></tr>
-<tr><td><code>app.scanner.action.CARD</code></td><td>Sem filtro: apenas um intent explícito com o pacote <code>com.verdettoqr.scanner</code>.</td><td>Abre o editor do cartão de contato da própria pessoa, o código que ela mostra para compartilhar seus dados. Feito para os widgets e atalhos do próprio app; outro app pode chamá-lo, mas nada volta.</td><td>Nenhum</td></tr>
-<tr><td><code>android.intent.action.SEND</code> com <code>image/*</code></td><td>Sim.</td><td>Decodifica uma imagem: o app mostra a folha de resultado com os códigos que ela contém.</td><td>Nenhum</td></tr>
+<tr><td data-label="Ação"><code>com.google.zxing.client.android.SCAN</code></td><td data-label="Filtro no manifesto">Sim, intents implícitos funcionam.</td><td data-label="O que acontece">Abre o leitor. O primeiro código que a pessoa fixa é devolvido, como o ZXing Barcode Scanner fazia.</td><td data-label="Resultado"><code>RESULT_OK</code> com <code>SCAN_RESULT</code> e <code>SCAN_RESULT_FORMAT</code></td></tr>
+<tr><td data-label="Ação"><code>app.scanner.action.SCAN</code></td><td data-label="Filtro no manifesto">Sim.</td><td data-label="O que acontece">Abre o leitor. Iniciado para um resultado (um result launcher ou <code>startActivityForResult</code>), devolve o código do mesmo jeito; iniciado sem mais, só abre o app no leitor.</td><td data-label="Resultado"><code>RESULT_OK</code> com os dois extras quando iniciado para um resultado</td></tr>
+<tr><td data-label="Ação"><code>app.scanner.action.CARD</code></td><td data-label="Filtro no manifesto">Sem filtro: apenas um intent explícito com o pacote <code>com.verdettoqr.scanner</code>.</td><td data-label="O que acontece">Abre o editor do cartão de contato da própria pessoa, o código que ela mostra para compartilhar seus dados. Feito para os widgets e atalhos do próprio app; outro app pode chamá-lo, mas nada volta.</td><td data-label="Resultado">Nenhum</td></tr>
+<tr><td data-label="Ação"><code>android.intent.action.SEND</code> com <code>image/*</code></td><td data-label="Filtro no manifesto">Sim.</td><td data-label="O que acontece">Decodifica uma imagem: o app mostra a folha de resultado com os códigos que ela contém.</td><td data-label="Resultado">Nenhum</td></tr>
 </tbody>
 </table>
 

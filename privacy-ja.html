@@ -99,7 +99,7 @@ p,li{margin:.5rem 0}
 .prose ol,.prose ul{padding-left:1.4rem}
 .prose li{margin:.6rem 0}
 table{border-collapse:collapse;width:100%;font-size:.875rem;line-height:1.25rem;display:block;overflow-x:auto;margin:1rem 0}
-.prose table{display:table;table-layout:fixed}.prose th,.prose td{overflow-wrap:anywhere;vertical-align:top}.prose th:nth-child(1){width:27%}.prose th:nth-child(2){width:18%}.prose th:nth-child(3){width:37%}.prose th:nth-child(4){width:18%}
+.prose table{display:table;table-layout:fixed}.prose th,.prose td{overflow-wrap:anywhere;vertical-align:top}.prose th:nth-child(1){width:27%}.prose th:nth-child(2){width:18%}.prose th:nth-child(3){width:37%}.prose th:nth-child(4){width:18%}.prose th{white-space:normal}.routes{list-style:none;padding:0;margin:1rem 0;display:grid;gap:.5rem}.routes li{display:grid;grid-template-columns:10rem 1fr;gap:.2rem .75rem;align-items:baseline;padding:.6rem .75rem;border:1px solid var(--outline-variant);border-radius:.5rem}.routes .name{font-weight:500}.routes .tag{grid-column:2;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant)}@media (max-width:600px){.routes li{grid-template-columns:1fr}.routes .tag{grid-column:1}table.stack,table.stack tbody,table.stack tr,table.stack td{display:block;width:auto}table.stack{table-layout:auto}table.stack thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}table.stack tr{border:1px solid var(--outline-variant);border-radius:.5rem;padding:.3rem .75rem;margin:0 0 .75rem}table.stack td{padding:.4rem 0;border:0;min-width:0}table.stack td+td{border-top:1px solid var(--outline-variant)}table.stack td::before{content:attr(data-label);display:block;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant);margin-bottom:.15rem}table.stack td:first-child{font-weight:500}}
 pre{background:var(--container);border-radius:.5rem;padding:.9rem 1rem;overflow-x:auto;font-size:.8125rem;line-height:1.35rem;margin:1rem 0}
 code{font-family:Consolas,'Cascadia Mono',Menlo,monospace;font-size:.92em}
 pre code{font-size:inherit}
@@ -232,11 +232,11 @@ footer a{color:var(--primary)}
 
 <h2>スマートフォンから出るものと、その時点</h2>
 <p>オンライン検索は初期設定でオンになっており、設定でオフにできます。製品の検索にはその下に独自のスイッチがあります。オンの間、アプリは次の要求を行うことがあります。各要求が運ぶのは、記載された内容、アプリの名前とバージョン、当方のサポート用アドレス、そしてあらゆるインターネット要求が運ぶ端末のインターネットアドレスだけです。各要求はあなたの指示により端末自身が名前を挙げたサービスへ直接行い、当方は関与せず、受け取ることも、中継することも、見ることもありません。運転免許証や身分証のスキャンが端末を離れることはなく、アプリが人物を照会することもありません。</p>
-<table><thead><tr><th>送られるもの</th><th>時点</th><th>見る相手</th></tr></thead><tbody>
-<tr><td>新しい警告リストの要求</td><td>1 日に数回</td><td>当方が公開先とする GitHub</td></tr>
-<tr><td>短縮リンク</td><td>短縮リンクをスキャンしたとき</td><td>短縮サービスと、そのリンク先のサイト</td></tr>
-<tr><td>ドメイン名</td><td>リンクの登録年数を調べるとき</td><td>rdap.org、次にそのドメインのレジストリ</td></tr>
-<tr><td>製品、本、医薬品、雑誌、機器、音楽、または車両の番号</td><td>それをスキャンしたとき</td><td>それを扱う唯一のデータベース（下記）</td></tr>
+<table class="stack"><thead><tr><th>送られるもの</th><th>時点</th><th>見る相手</th></tr></thead><tbody>
+<tr><td data-label="送られるもの">新しい警告リストの要求</td><td data-label="時点">1 日に数回</td><td data-label="見る相手">当方が公開先とする GitHub</td></tr>
+<tr><td data-label="送られるもの">短縮リンク</td><td data-label="時点">短縮リンクをスキャンしたとき</td><td data-label="見る相手">短縮サービスと、そのリンク先のサイト</td></tr>
+<tr><td data-label="送られるもの">ドメイン名</td><td data-label="時点">リンクの登録年数を調べるとき</td><td data-label="見る相手">rdap.org、次にそのドメインのレジストリ</td></tr>
+<tr><td data-label="送られるもの">製品、本、医薬品、雑誌、機器、音楽、または車両の番号</td><td data-label="時点">それをスキャンしたとき</td><td data-label="見る相手">それを扱う唯一のデータベース（下記）</td></tr>
 </tbody></table>
 <ul>
   <li><strong>警告リストの更新。</strong> アプリは 1 日に数回、当方が公開している GitHub（github.com/verdettoqr/link-safety-list）から警告リストの新しい版を取得します。GitHub はこの要求を他のダウンロードと同じように扱います。同じダウンロードで、郵便番号、イタリアとフランスの医薬品、ドイツの銀行コード、航空会社名と空港名の参照表、およびドメイン登録機関の一覧（IANA の RDAP ブートストラップファイル）も届きます。要求にスキャンした内容は含まれず、アプリはリストを使う前に署名を検証します。</li>

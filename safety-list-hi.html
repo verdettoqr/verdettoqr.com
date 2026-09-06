@@ -99,7 +99,7 @@ p,li{margin:.5rem 0}
 .prose ol,.prose ul{padding-left:1.4rem}
 .prose li{margin:.6rem 0}
 table{border-collapse:collapse;width:100%;font-size:.875rem;line-height:1.25rem;display:block;overflow-x:auto;margin:1rem 0}
-.prose table{display:table;table-layout:fixed}.prose th,.prose td{overflow-wrap:anywhere;vertical-align:top}.prose th:nth-child(1){width:27%}.prose th:nth-child(2){width:18%}.prose th:nth-child(3){width:37%}.prose th:nth-child(4){width:18%}
+.prose table{display:table;table-layout:fixed}.prose th,.prose td{overflow-wrap:anywhere;vertical-align:top}.prose th:nth-child(1){width:27%}.prose th:nth-child(2){width:18%}.prose th:nth-child(3){width:37%}.prose th:nth-child(4){width:18%}.prose th{white-space:normal}.routes{list-style:none;padding:0;margin:1rem 0;display:grid;gap:.5rem}.routes li{display:grid;grid-template-columns:10rem 1fr;gap:.2rem .75rem;align-items:baseline;padding:.6rem .75rem;border:1px solid var(--outline-variant);border-radius:.5rem}.routes .name{font-weight:500}.routes .tag{grid-column:2;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant)}@media (max-width:600px){.routes li{grid-template-columns:1fr}.routes .tag{grid-column:1}table.stack,table.stack tbody,table.stack tr,table.stack td{display:block;width:auto}table.stack{table-layout:auto}table.stack thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}table.stack tr{border:1px solid var(--outline-variant);border-radius:.5rem;padding:.3rem .75rem;margin:0 0 .75rem}table.stack td{padding:.4rem 0;border:0;min-width:0}table.stack td+td{border-top:1px solid var(--outline-variant)}table.stack td::before{content:attr(data-label);display:block;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant);margin-bottom:.15rem}table.stack td:first-child{font-weight:500}}
 pre{background:var(--container);border-radius:.5rem;padding:.9rem 1rem;overflow-x:auto;font-size:.8125rem;line-height:1.35rem;margin:1rem 0}
 code{font-family:Consolas,'Cascadia Mono',Menlo,monospace;font-size:.92em}
 pre code{font-size:inherit}
@@ -215,13 +215,13 @@ footer a{color:var(--primary)}
 <h1>इस सप्ताह की सुरक्षा सूची</h1>
 <p class="meta">24 से 30 अगस्त 2026। सार्वजनिक रिपॉज़िटरी से 2026-09-05 को अपडेट किया गया; अगला अपडेट आने वाले सोमवार को।</p>
 <p>ये चेतावनी सूची में Verdetto के अपने हिस्से के पीछे के आँकड़े हैं: लोगों ने क्या रिपोर्ट किया, एक व्यक्ति ने क्या समीक्षा की, और सूची में क्या बदला। ये सार्वजनिक केस इश्यू और रिपॉज़िटरी की सूची फ़ाइलों से आते हैं, और कहीं से नहीं। कोई टेलीमेट्री नहीं, प्रति-स्कैन कोई डेटा नहीं, किसी के फ़ोन से कुछ नहीं; ऐप कभी नहीं बताता कि उसने क्या स्कैन किया, और अगर बताता भी, तो यह पेज उसे दिखा नहीं सकता।</p>
-<div class="tablewrap"><table><thead><tr><th>आँकड़ा</th><th>इस सप्ताह</th><th>यह क्या गिनता है</th></tr></thead><tbody>
-<tr><td>प्राप्त रिपोर्ट</td><td>0</td><td>रिपोर्ट फ़ॉर्म या ऐप से सूची तक पहुँची रिपोर्टें, हर एक एक बार गिनी गई।</td></tr>
-<tr><td>खोले गए केस</td><td>0</td><td>रिपोर्टें जिन्हें एक व्यक्ति ने सार्वजनिक केस के रूप में समीक्षा के लिए लिया।</td></tr>
-<tr><td>बंद किए गए केस</td><td>0</td><td>इस सप्ताह तय किए गए केस: सूचीबद्ध, गलती से सूचीबद्ध, या फ़िशिंग नहीं।</td></tr>
-<tr><td>जोड़ी गई प्रविष्टियाँ</td><td>0 लिंक, 0 होस्ट, 0 वॉलेट पते</td><td>एक व्यक्ति द्वारा रिपोर्ट की समीक्षा के बाद सूची में जोड़े गए पते या होस्ट।</td></tr>
-<tr><td>समीक्षा के बाद हटाई गई</td><td>0</td><td>गलती से सूचीबद्ध होने की रिपोर्ट सही निकलने पर सूची से हटाई गई प्रविष्टियाँ।</td></tr>
-<tr><td>अब सूची में</td><td>0 लिंक, 0 होस्ट, 0 वॉलेट पते; 0 अनुमत</td><td>Verdetto की अपनी प्रविष्टियाँ, जिन्हें लोगों ने रिपोर्ट किया और एक व्यक्ति ने पुष्टि की; सूची में शामिल सार्वजनिक फ़ीड रिपॉज़िटरी में गिनी जाती हैं।</td></tr>
+<div class="tablewrap"><table class="stack"><thead><tr><th>आँकड़ा</th><th>इस सप्ताह</th><th>यह क्या गिनता है</th></tr></thead><tbody>
+<tr><td data-label="आँकड़ा">प्राप्त रिपोर्ट</td><td data-label="इस सप्ताह">0</td><td data-label="यह क्या गिनता है">रिपोर्ट फ़ॉर्म या ऐप से सूची तक पहुँची रिपोर्टें, हर एक एक बार गिनी गई।</td></tr>
+<tr><td data-label="आँकड़ा">खोले गए केस</td><td data-label="इस सप्ताह">0</td><td data-label="यह क्या गिनता है">रिपोर्टें जिन्हें एक व्यक्ति ने सार्वजनिक केस के रूप में समीक्षा के लिए लिया।</td></tr>
+<tr><td data-label="आँकड़ा">बंद किए गए केस</td><td data-label="इस सप्ताह">0</td><td data-label="यह क्या गिनता है">इस सप्ताह तय किए गए केस: सूचीबद्ध, गलती से सूचीबद्ध, या फ़िशिंग नहीं।</td></tr>
+<tr><td data-label="आँकड़ा">जोड़ी गई प्रविष्टियाँ</td><td data-label="इस सप्ताह">0 लिंक, 0 होस्ट, 0 वॉलेट पते</td><td data-label="यह क्या गिनता है">एक व्यक्ति द्वारा रिपोर्ट की समीक्षा के बाद सूची में जोड़े गए पते या होस्ट।</td></tr>
+<tr><td data-label="आँकड़ा">समीक्षा के बाद हटाई गई</td><td data-label="इस सप्ताह">0</td><td data-label="यह क्या गिनता है">गलती से सूचीबद्ध होने की रिपोर्ट सही निकलने पर सूची से हटाई गई प्रविष्टियाँ।</td></tr>
+<tr><td data-label="आँकड़ा">अब सूची में</td><td data-label="इस सप्ताह">0 लिंक, 0 होस्ट, 0 वॉलेट पते; 0 अनुमत</td><td data-label="यह क्या गिनता है">Verdetto की अपनी प्रविष्टियाँ, जिन्हें लोगों ने रिपोर्ट किया और एक व्यक्ति ने पुष्टि की; सूची में शामिल सार्वजनिक फ़ीड रिपॉज़िटरी में गिनी जाती हैं।</td></tr>
 </tbody></table></div>
 <p>हर केस एक सार्वजनिक इश्यू है, हर सूचीबद्धता उस केस को साथ रखती है जिसने उसे बनाया, और हर प्रविष्टि समाप्त हो जाती है जब तक कोई व्यक्ति उसे नवीनीकृत न करे: <a href="https://github.com/verdettoqr/link-safety-list">github.com/verdettoqr/link-safety-list</a>। लगता है कुछ गलती से सूचीबद्ध है? <a href="/report-hi?k=m">रिपोर्ट करें</a>; एक व्यक्ति उसे फिर जाँचता है और हटाना यहाँ दिखता है।</p>
 <p class="meta">साप्ताहिक आँकड़े एक छोटी फ़ाइल हैं जो यह साइट खुद परोसती है, सप्ताह में एक बार रिपॉज़िटरी से कॉपी की गई; इस पेज के लिए आपका ब्राउज़र किसी तीसरे पक्ष से कोई अनुरोध नहीं करता।</p>

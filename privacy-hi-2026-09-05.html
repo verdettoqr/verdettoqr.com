@@ -100,7 +100,7 @@ p,li{margin:.5rem 0}
 .prose ol,.prose ul{padding-left:1.4rem}
 .prose li{margin:.6rem 0}
 table{border-collapse:collapse;width:100%;font-size:.875rem;line-height:1.25rem;display:block;overflow-x:auto;margin:1rem 0}
-.prose table{display:table;table-layout:fixed}.prose th,.prose td{overflow-wrap:anywhere;vertical-align:top}.prose th:nth-child(1){width:27%}.prose th:nth-child(2){width:18%}.prose th:nth-child(3){width:37%}.prose th:nth-child(4){width:18%}
+.prose table{display:table;table-layout:fixed}.prose th,.prose td{overflow-wrap:anywhere;vertical-align:top}.prose th:nth-child(1){width:27%}.prose th:nth-child(2){width:18%}.prose th:nth-child(3){width:37%}.prose th:nth-child(4){width:18%}.prose th{white-space:normal}.routes{list-style:none;padding:0;margin:1rem 0;display:grid;gap:.5rem}.routes li{display:grid;grid-template-columns:10rem 1fr;gap:.2rem .75rem;align-items:baseline;padding:.6rem .75rem;border:1px solid var(--outline-variant);border-radius:.5rem}.routes .name{font-weight:500}.routes .tag{grid-column:2;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant)}@media (max-width:600px){.routes li{grid-template-columns:1fr}.routes .tag{grid-column:1}table.stack,table.stack tbody,table.stack tr,table.stack td{display:block;width:auto}table.stack{table-layout:auto}table.stack thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}table.stack tr{border:1px solid var(--outline-variant);border-radius:.5rem;padding:.3rem .75rem;margin:0 0 .75rem}table.stack td{padding:.4rem 0;border:0;min-width:0}table.stack td+td{border-top:1px solid var(--outline-variant)}table.stack td::before{content:attr(data-label);display:block;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant);margin-bottom:.15rem}table.stack td:first-child{font-weight:500}}
 pre{background:var(--container);border-radius:.5rem;padding:.9rem 1rem;overflow-x:auto;font-size:.8125rem;line-height:1.35rem;margin:1rem 0}
 code{font-family:Consolas,'Cascadia Mono',Menlo,monospace;font-size:.92em}
 pre code{font-size:inherit}
@@ -233,11 +233,11 @@ footer a{color:var(--primary)}
 
 <h2>फ़ोन से क्या जाता है, और कब</h2>
 <p>ऑनलाइन लुकअप डिफ़ॉल्ट रूप से चालू हैं और सेटिंग्स में बंद किए जा सकते हैं। उत्पाद लुकअप का अपना स्विच उसके नीचे है। जब वे चालू हों, ऐप ये अनुरोध कर सकता है। हर अनुरोध केवल वही ले जाता है जो सूचीबद्ध है, ऐप का नाम और संस्करण, हमारा सहायता पता, और आपके फ़ोन का इंटरनेट पता, जो हर इंटरनेट अनुरोध ले जाता है। आपका फ़ोन हर अनुरोध स्वयं करता है, आपके निर्देश पर, नामित सेवा को; हम उसका हिस्सा नहीं हैं और उसे न प्राप्त करते हैं, न आगे भेजते हैं, न देखते हैं। लाइसेंस या पहचान पत्र का स्कैन कभी फ़ोन से बाहर नहीं जाता, और ऐप कभी किसी व्यक्ति को नहीं खोजता।</p>
-<table><thead><tr><th>क्या भेजा जाता है</th><th>कब</th><th>कौन देखता है</th></tr></thead><tbody>
-<tr><td>नई चेतावनी सूची का अनुरोध</td><td>दिन में कुछ बार</td><td>GitHub, जहाँ हम इसे प्रकाशित करते हैं</td></tr>
-<tr><td>एक छोटा किया गया लिंक</td><td>जब आप ऐसा लिंक स्कैन करते हैं</td><td>लिंक छोटा करने वाली सेवा और वे साइटें जिनकी ओर वह इशारा करती है</td></tr>
-<tr><td>एक डोमेन नाम</td><td>जब किसी लिंक की आयु जाँची जाती है</td><td>rdap.org, फिर डोमेन की रजिस्ट्री</td></tr>
-<tr><td>किसी उत्पाद, किताब, दवा, पत्रिका, उपकरण, संगीत या वाहन का नंबर</td><td>जब आप एक स्कैन करते हैं</td><td>वह एक डेटाबेस जो उसे कवर करता है, नीचे नामित</td></tr>
+<table class="stack"><thead><tr><th>क्या भेजा जाता है</th><th>कब</th><th>कौन देखता है</th></tr></thead><tbody>
+<tr><td data-label="क्या भेजा जाता है">नई चेतावनी सूची का अनुरोध</td><td data-label="कब">दिन में कुछ बार</td><td data-label="कौन देखता है">GitHub, जहाँ हम इसे प्रकाशित करते हैं</td></tr>
+<tr><td data-label="क्या भेजा जाता है">एक छोटा किया गया लिंक</td><td data-label="कब">जब आप ऐसा लिंक स्कैन करते हैं</td><td data-label="कौन देखता है">लिंक छोटा करने वाली सेवा और वे साइटें जिनकी ओर वह इशारा करती है</td></tr>
+<tr><td data-label="क्या भेजा जाता है">एक डोमेन नाम</td><td data-label="कब">जब किसी लिंक की आयु जाँची जाती है</td><td data-label="कौन देखता है">rdap.org, फिर डोमेन की रजिस्ट्री</td></tr>
+<tr><td data-label="क्या भेजा जाता है">किसी उत्पाद, किताब, दवा, पत्रिका, उपकरण, संगीत या वाहन का नंबर</td><td data-label="कब">जब आप एक स्कैन करते हैं</td><td data-label="कौन देखता है">वह एक डेटाबेस जो उसे कवर करता है, नीचे नामित</td></tr>
 </tbody></table>
 <ul>
   <li><strong>चेतावनी सूची के अपडेट।</strong> ऐप दिन में कुछ बार GitHub से चेतावनी सूची की नई प्रति डाउनलोड करता है, जहाँ हम उसे प्रकाशित करते हैं (github.com/verdettoqr/link-safety-list)। GitHub इस अनुरोध को वैसे ही देखता है जैसे किसी भी डाउनलोड को। वही डाउनलोड डाक कोड, इतालवी और फ़्रांसीसी दवाओं, जर्मन बैंक कोड, एयरलाइन और हवाई अड्डों के नामों की लुकअप तालिकाएँ और डोमेन रजिस्ट्रियों की निर्देशिका (IANA की RDAP बूटस्ट्रैप फ़ाइल) लाता है। अनुरोध में कोई स्कैन की गई सामग्री नहीं होती, और ऐप सूची का उपयोग करने से पहले उसके हस्ताक्षर की जाँच करता है।</li>

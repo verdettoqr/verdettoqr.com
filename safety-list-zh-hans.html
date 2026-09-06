@@ -99,7 +99,7 @@ p,li{margin:.5rem 0}
 .prose ol,.prose ul{padding-left:1.4rem}
 .prose li{margin:.6rem 0}
 table{border-collapse:collapse;width:100%;font-size:.875rem;line-height:1.25rem;display:block;overflow-x:auto;margin:1rem 0}
-.prose table{display:table;table-layout:fixed}.prose th,.prose td{overflow-wrap:anywhere;vertical-align:top}.prose th:nth-child(1){width:27%}.prose th:nth-child(2){width:18%}.prose th:nth-child(3){width:37%}.prose th:nth-child(4){width:18%}
+.prose table{display:table;table-layout:fixed}.prose th,.prose td{overflow-wrap:anywhere;vertical-align:top}.prose th:nth-child(1){width:27%}.prose th:nth-child(2){width:18%}.prose th:nth-child(3){width:37%}.prose th:nth-child(4){width:18%}.prose th{white-space:normal}.routes{list-style:none;padding:0;margin:1rem 0;display:grid;gap:.5rem}.routes li{display:grid;grid-template-columns:10rem 1fr;gap:.2rem .75rem;align-items:baseline;padding:.6rem .75rem;border:1px solid var(--outline-variant);border-radius:.5rem}.routes .name{font-weight:500}.routes .tag{grid-column:2;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant)}@media (max-width:600px){.routes li{grid-template-columns:1fr}.routes .tag{grid-column:1}table.stack,table.stack tbody,table.stack tr,table.stack td{display:block;width:auto}table.stack{table-layout:auto}table.stack thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}table.stack tr{border:1px solid var(--outline-variant);border-radius:.5rem;padding:.3rem .75rem;margin:0 0 .75rem}table.stack td{padding:.4rem 0;border:0;min-width:0}table.stack td+td{border-top:1px solid var(--outline-variant)}table.stack td::before{content:attr(data-label);display:block;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant);margin-bottom:.15rem}table.stack td:first-child{font-weight:500}}
 pre{background:var(--container);border-radius:.5rem;padding:.9rem 1rem;overflow-x:auto;font-size:.8125rem;line-height:1.35rem;margin:1rem 0}
 code{font-family:Consolas,'Cascadia Mono',Menlo,monospace;font-size:.92em}
 pre code{font-size:inherit}
@@ -215,13 +215,13 @@ footer a{color:var(--primary)}
 <h1>本周的安全列表</h1>
 <p class="meta">2026年8月24日至30日。于 2026-09-05 从公开仓库更新；下次更新在下周一。</p>
 <p>这些是警告列表中 Verdetto 自有部分背后的数字：人们报告了什么、由人审核了什么、列表发生了什么变化。它们只来自公开的案例议题和仓库中的列表文件，别无其他。没有遥测，没有逐次扫描的数据，没有任何来自任何人手机的信息；应用从不报告它扫描了什么，即使报告，这个页面也无法显示。</p>
-<div class="tablewrap"><table><thead><tr><th>数字</th><th>本周</th><th>它统计什么</th></tr></thead><tbody>
-<tr><td>收到的报告</td><td>0</td><td>通过报告表单或应用到达列表的报告，每份只计一次。</td></tr>
-<tr><td>开启的案例</td><td>0</td><td>由人接手、作为公开案例审核的报告。</td></tr>
-<tr><td>结束的案例</td><td>0</td><td>本周裁定的案例：已列入、误列，或并非钓鱼。</td></tr>
-<tr><td>新增的条目</td><td>0 个链接、0 个主机、0 个钱包地址</td><td>由人审核报告后加入列表的地址或主机。</td></tr>
-<tr><td>审核后移除</td><td>0</td><td>误列报告核实后从列表中移除的条目。</td></tr>
-<tr><td>当前在列表中</td><td>0 个链接、0 个主机、0 个钱包地址；0 个放行</td><td>Verdetto 自有的条目，由人们报告并经人确认；列表同时收录的公开源在仓库中统计。</td></tr>
+<div class="tablewrap"><table class="stack"><thead><tr><th>数字</th><th>本周</th><th>它统计什么</th></tr></thead><tbody>
+<tr><td data-label="数字">收到的报告</td><td data-label="本周">0</td><td data-label="它统计什么">通过报告表单或应用到达列表的报告，每份只计一次。</td></tr>
+<tr><td data-label="数字">开启的案例</td><td data-label="本周">0</td><td data-label="它统计什么">由人接手、作为公开案例审核的报告。</td></tr>
+<tr><td data-label="数字">结束的案例</td><td data-label="本周">0</td><td data-label="它统计什么">本周裁定的案例：已列入、误列，或并非钓鱼。</td></tr>
+<tr><td data-label="数字">新增的条目</td><td data-label="本周">0 个链接、0 个主机、0 个钱包地址</td><td data-label="它统计什么">由人审核报告后加入列表的地址或主机。</td></tr>
+<tr><td data-label="数字">审核后移除</td><td data-label="本周">0</td><td data-label="它统计什么">误列报告核实后从列表中移除的条目。</td></tr>
+<tr><td data-label="数字">当前在列表中</td><td data-label="本周">0 个链接、0 个主机、0 个钱包地址；0 个放行</td><td data-label="它统计什么">Verdetto 自有的条目，由人们报告并经人确认；列表同时收录的公开源在仓库中统计。</td></tr>
 </tbody></table></div>
 <p>每个案例都是公开议题，每条列入都附带导致它的案例，每个条目如无人续期都会过期：<a href="https://github.com/verdettoqr/link-safety-list">github.com/verdettoqr/link-safety-list</a>。觉得有什么被误列了？<a href="/report-zh-hans?k=m">报告它</a>；由人重新核查，移除结果会显示在这里。</p>
 <p class="meta">每周数字是本站自行提供的一个小文件，每周从仓库复制一次；浏览器不会为此页面向任何第三方发出请求。</p>

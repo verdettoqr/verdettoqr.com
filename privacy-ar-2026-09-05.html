@@ -100,7 +100,7 @@ p,li{margin:.5rem 0}
 .prose ol,.prose ul{padding-left:1.4rem}
 .prose li{margin:.6rem 0}
 table{border-collapse:collapse;width:100%;font-size:.875rem;line-height:1.25rem;display:block;overflow-x:auto;margin:1rem 0}
-.prose table{display:table;table-layout:fixed}.prose th,.prose td{overflow-wrap:anywhere;vertical-align:top}.prose th:nth-child(1){width:27%}.prose th:nth-child(2){width:18%}.prose th:nth-child(3){width:37%}.prose th:nth-child(4){width:18%}
+.prose table{display:table;table-layout:fixed}.prose th,.prose td{overflow-wrap:anywhere;vertical-align:top}.prose th:nth-child(1){width:27%}.prose th:nth-child(2){width:18%}.prose th:nth-child(3){width:37%}.prose th:nth-child(4){width:18%}.prose th{white-space:normal}.routes{list-style:none;padding:0;margin:1rem 0;display:grid;gap:.5rem}.routes li{display:grid;grid-template-columns:10rem 1fr;gap:.2rem .75rem;align-items:baseline;padding:.6rem .75rem;border:1px solid var(--outline-variant);border-radius:.5rem}.routes .name{font-weight:500}.routes .tag{grid-column:2;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant)}@media (max-width:600px){.routes li{grid-template-columns:1fr}.routes .tag{grid-column:1}table.stack,table.stack tbody,table.stack tr,table.stack td{display:block;width:auto}table.stack{table-layout:auto}table.stack thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}table.stack tr{border:1px solid var(--outline-variant);border-radius:.5rem;padding:.3rem .75rem;margin:0 0 .75rem}table.stack td{padding:.4rem 0;border:0;min-width:0}table.stack td+td{border-top:1px solid var(--outline-variant)}table.stack td::before{content:attr(data-label);display:block;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant);margin-bottom:.15rem}table.stack td:first-child{font-weight:500}}
 pre{background:var(--container);border-radius:.5rem;padding:.9rem 1rem;overflow-x:auto;font-size:.8125rem;line-height:1.35rem;margin:1rem 0}
 code{font-family:Consolas,'Cascadia Mono',Menlo,monospace;font-size:.92em}
 pre code{font-size:inherit}
@@ -233,11 +233,11 @@ footer a{color:var(--primary)}
 
 <h2>ما يغادر الهاتف، ومتى</h2>
 <p>عمليات البحث عبر الإنترنت مفعّلة افتراضيًا ويمكن إيقافها من الإعدادات. ولعمليات البحث عن المنتجات مفتاح خاص بها تحتها. وأثناء تفعيلها قد يرسل التطبيق الطلبات التالية. ولا يحمل كل طلب إلا ما هو مذكور، واسم التطبيق ونسخته، وعنوان الدعم الخاص بنا، وعنوان الإنترنت لهاتفك الذي يحمله كل طلب عبر الإنترنت. هاتفك هو الذي يرسل كل طلب بنفسه، بتوجيهك، إلى الخدمة المسماة؛ ولسنا طرفًا فيه ولا نستلمه ولا ننقله ولا نراه. ولا يغادر مسح رخصة القيادة أو بطاقة الهوية الهاتف أبدًا، ولا يبحث التطبيق أبدًا عن شخص.</p>
-<table><thead><tr><th>ما يُرسَل</th><th>متى</th><th>من يراه</th></tr></thead><tbody>
-<tr><td>طلب قائمة تحذير أحدث</td><td>بضع مرات في اليوم</td><td>GitHub، حيث ننشرها</td></tr>
-<tr><td>رابط مختصر</td><td>عندما تمسح واحدًا</td><td>خدمة اختصار الروابط والمواقع التي تشير إليها</td></tr>
-<tr><td>اسم نطاق</td><td>عند التحقق من عمر الرابط</td><td>rdap.org، ثم سجل النطاق</td></tr>
-<tr><td>رقم منتج أو كتاب أو دواء أو مجلة أو جهاز أو موسيقى أو مركبة</td><td>عندما تمسح واحدًا</td><td>قاعدة البيانات الوحيدة التي تغطيه، المسماة أدناه</td></tr>
+<table class="stack"><thead><tr><th>ما يُرسَل</th><th>متى</th><th>من يراه</th></tr></thead><tbody>
+<tr><td data-label="ما يُرسَل">طلب قائمة تحذير أحدث</td><td data-label="متى">بضع مرات في اليوم</td><td data-label="من يراه">GitHub، حيث ننشرها</td></tr>
+<tr><td data-label="ما يُرسَل">رابط مختصر</td><td data-label="متى">عندما تمسح واحدًا</td><td data-label="من يراه">خدمة اختصار الروابط والمواقع التي تشير إليها</td></tr>
+<tr><td data-label="ما يُرسَل">اسم نطاق</td><td data-label="متى">عند التحقق من عمر الرابط</td><td data-label="من يراه">rdap.org، ثم سجل النطاق</td></tr>
+<tr><td data-label="ما يُرسَل">رقم منتج أو كتاب أو دواء أو مجلة أو جهاز أو موسيقى أو مركبة</td><td data-label="متى">عندما تمسح واحدًا</td><td data-label="من يراه">قاعدة البيانات الوحيدة التي تغطيه، المسماة أدناه</td></tr>
 </tbody></table>
 <ul>
   <li><strong>تحديثات قائمة التحذيرات.</strong> يحمّل التطبيق نسخة أحدث من قائمة التحذيرات بضع مرات يوميًا من GitHub حيث ننشرها (github.com/verdettoqr/link-safety-list). ويرى GitHub الطلب كما يرى أي تنزيل. ويجلب التنزيل نفسه جداول البحث للرموز البريدية والأدوية الإيطالية والفرنسية ورموز البنوك الألمانية وأسماء شركات الطيران والمطارات، ودليل سجلات النطاقات (ملف التمهيد RDAP الصادر عن IANA). ولا يحمل الطلب أي محتوى ممسوح، ويتحقق التطبيق من توقيع القائمة قبل استخدامها.</li>

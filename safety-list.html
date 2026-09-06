@@ -99,7 +99,7 @@ p,li{margin:.5rem 0}
 .prose ol,.prose ul{padding-left:1.4rem}
 .prose li{margin:.6rem 0}
 table{border-collapse:collapse;width:100%;font-size:.875rem;line-height:1.25rem;display:block;overflow-x:auto;margin:1rem 0}
-.prose table{display:table;table-layout:fixed}.prose th,.prose td{overflow-wrap:anywhere;vertical-align:top}.prose th:nth-child(1){width:27%}.prose th:nth-child(2){width:18%}.prose th:nth-child(3){width:37%}.prose th:nth-child(4){width:18%}
+.prose table{display:table;table-layout:fixed}.prose th,.prose td{overflow-wrap:anywhere;vertical-align:top}.prose th:nth-child(1){width:27%}.prose th:nth-child(2){width:18%}.prose th:nth-child(3){width:37%}.prose th:nth-child(4){width:18%}.prose th{white-space:normal}.routes{list-style:none;padding:0;margin:1rem 0;display:grid;gap:.5rem}.routes li{display:grid;grid-template-columns:10rem 1fr;gap:.2rem .75rem;align-items:baseline;padding:.6rem .75rem;border:1px solid var(--outline-variant);border-radius:.5rem}.routes .name{font-weight:500}.routes .tag{grid-column:2;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant)}@media (max-width:600px){.routes li{grid-template-columns:1fr}.routes .tag{grid-column:1}table.stack,table.stack tbody,table.stack tr,table.stack td{display:block;width:auto}table.stack{table-layout:auto}table.stack thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}table.stack tr{border:1px solid var(--outline-variant);border-radius:.5rem;padding:.3rem .75rem;margin:0 0 .75rem}table.stack td{padding:.4rem 0;border:0;min-width:0}table.stack td+td{border-top:1px solid var(--outline-variant)}table.stack td::before{content:attr(data-label);display:block;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant);margin-bottom:.15rem}table.stack td:first-child{font-weight:500}}
 pre{background:var(--container);border-radius:.5rem;padding:.9rem 1rem;overflow-x:auto;font-size:.8125rem;line-height:1.35rem;margin:1rem 0}
 code{font-family:Consolas,'Cascadia Mono',Menlo,monospace;font-size:.92em}
 pre code{font-size:inherit}
@@ -215,13 +215,13 @@ footer a{color:var(--primary)}
 <h1>The safety list this week</h1>
 <p class="meta">August 24 to 30, 2026. Updated 2026-09-05 from the public repository; the next update is the coming Monday.</p>
 <p>These are the numbers behind Verdetto's own part of the warning list: what people reported, what a person reviewed, and what changed on the list. They come from the public case issues and the list files in the repository, nothing else. No telemetry, no per-scan data, nothing from anyone's phone; the app never reports what it scanned, and this page could not show it if it did.</p>
-<div class="tablewrap"><table><thead><tr><th>Number</th><th>This week</th><th>What it counts</th></tr></thead><tbody>
-<tr><td>Reports received</td><td>0</td><td>Reports that reached the list through the report form or the app, counted once each.</td></tr>
-<tr><td>Cases opened</td><td>0</td><td>Reports a person took up for review as a public case.</td></tr>
-<tr><td>Cases closed</td><td>0</td><td>Cases decided this week: listed, listed by mistake, or not a phish.</td></tr>
-<tr><td>Entries added</td><td>0 links, 0 hosts, 0 wallet addresses</td><td>Addresses or hosts added to the list after a person reviewed a report.</td></tr>
-<tr><td>Removed after review</td><td>0</td><td>Entries taken off the list after a listed-by-mistake report checked out.</td></tr>
-<tr><td>On the list now</td><td>0 links, 0 hosts, 0 wallet addresses; 0 allowed</td><td>Verdetto's own entries, the ones people reported and a person confirmed; the public feeds the list also carries are counted on the repository.</td></tr>
+<div class="tablewrap"><table class="stack"><thead><tr><th>Number</th><th>This week</th><th>What it counts</th></tr></thead><tbody>
+<tr><td data-label="Number">Reports received</td><td data-label="This week">0</td><td data-label="What it counts">Reports that reached the list through the report form or the app, counted once each.</td></tr>
+<tr><td data-label="Number">Cases opened</td><td data-label="This week">0</td><td data-label="What it counts">Reports a person took up for review as a public case.</td></tr>
+<tr><td data-label="Number">Cases closed</td><td data-label="This week">0</td><td data-label="What it counts">Cases decided this week: listed, listed by mistake, or not a phish.</td></tr>
+<tr><td data-label="Number">Entries added</td><td data-label="This week">0 links, 0 hosts, 0 wallet addresses</td><td data-label="What it counts">Addresses or hosts added to the list after a person reviewed a report.</td></tr>
+<tr><td data-label="Number">Removed after review</td><td data-label="This week">0</td><td data-label="What it counts">Entries taken off the list after a listed-by-mistake report checked out.</td></tr>
+<tr><td data-label="Number">On the list now</td><td data-label="This week">0 links, 0 hosts, 0 wallet addresses; 0 allowed</td><td data-label="What it counts">Verdetto's own entries, the ones people reported and a person confirmed; the public feeds the list also carries are counted on the repository.</td></tr>
 </tbody></table></div>
 <p>Every case is a public issue, every listing carries the case that caused it, and every entry expires unless a person renews it: <a href="https://github.com/verdettoqr/link-safety-list">github.com/verdettoqr/link-safety-list</a>. Think something is listed by mistake? <a href="/report?k=m">Report it</a>; a person re-checks it and the removal shows up here.</p>
 <p class="meta">The weekly numbers are a small file this site serves itself, copied from the repository once a week; your browser makes no request to any third party for this page.</p>

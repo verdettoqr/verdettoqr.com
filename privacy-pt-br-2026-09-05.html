@@ -100,7 +100,7 @@ p,li{margin:.5rem 0}
 .prose ol,.prose ul{padding-left:1.4rem}
 .prose li{margin:.6rem 0}
 table{border-collapse:collapse;width:100%;font-size:.875rem;line-height:1.25rem;display:block;overflow-x:auto;margin:1rem 0}
-.prose table{display:table;table-layout:fixed}.prose th,.prose td{overflow-wrap:anywhere;vertical-align:top}.prose th:nth-child(1){width:27%}.prose th:nth-child(2){width:18%}.prose th:nth-child(3){width:37%}.prose th:nth-child(4){width:18%}
+.prose table{display:table;table-layout:fixed}.prose th,.prose td{overflow-wrap:anywhere;vertical-align:top}.prose th:nth-child(1){width:27%}.prose th:nth-child(2){width:18%}.prose th:nth-child(3){width:37%}.prose th:nth-child(4){width:18%}.prose th{white-space:normal}.routes{list-style:none;padding:0;margin:1rem 0;display:grid;gap:.5rem}.routes li{display:grid;grid-template-columns:10rem 1fr;gap:.2rem .75rem;align-items:baseline;padding:.6rem .75rem;border:1px solid var(--outline-variant);border-radius:.5rem}.routes .name{font-weight:500}.routes .tag{grid-column:2;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant)}@media (max-width:600px){.routes li{grid-template-columns:1fr}.routes .tag{grid-column:1}table.stack,table.stack tbody,table.stack tr,table.stack td{display:block;width:auto}table.stack{table-layout:auto}table.stack thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}table.stack tr{border:1px solid var(--outline-variant);border-radius:.5rem;padding:.3rem .75rem;margin:0 0 .75rem}table.stack td{padding:.4rem 0;border:0;min-width:0}table.stack td+td{border-top:1px solid var(--outline-variant)}table.stack td::before{content:attr(data-label);display:block;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant);margin-bottom:.15rem}table.stack td:first-child{font-weight:500}}
 pre{background:var(--container);border-radius:.5rem;padding:.9rem 1rem;overflow-x:auto;font-size:.8125rem;line-height:1.35rem;margin:1rem 0}
 code{font-family:Consolas,'Cascadia Mono',Menlo,monospace;font-size:.92em}
 pre code{font-size:inherit}
@@ -233,11 +233,11 @@ footer a{color:var(--primary)}
 
 <h2>O que sai do telefone, e quando</h2>
 <p>As consultas online vêm ativadas por padrão e podem ser desativadas nas Configurações. As consultas de produtos têm uma chave própria logo abaixo. Enquanto estão ativadas, o app pode fazer estas solicitações. Cada uma leva só o que está listado, o nome e a versão do app, nosso endereço de suporte e o endereço de internet do seu celular, que toda solicitação de internet leva. Seu celular faz cada solicitação por conta própria, a seu pedido, ao serviço nomeado; nós não participamos e não a recebemos, retransmitimos nem vemos. A leitura de uma carteira de habilitação ou de um documento de identidade nunca sai do celular, e o app nunca procura uma pessoa.</p>
-<table><thead><tr><th>O que é enviado</th><th>Quando</th><th>Quem vê</th></tr></thead><tbody>
-<tr><td>Um pedido de uma lista de alertas mais nova</td><td>Algumas vezes por dia</td><td>GitHub, onde a publicamos</td></tr>
-<tr><td>Um link encurtado</td><td>Quando você lê um</td><td>O serviço de encurtamento e os sites para os quais ele aponta</td></tr>
-<tr><td>Um nome de domínio</td><td>Quando a idade de um link é verificada</td><td>rdap.org e, depois, o registro do domínio</td></tr>
-<tr><td>Um número de produto, livro, medicamento, revista, dispositivo, música ou veículo</td><td>Quando você lê um</td><td>A única base de dados que o cobre, nomeada abaixo</td></tr>
+<table class="stack"><thead><tr><th>O que é enviado</th><th>Quando</th><th>Quem vê</th></tr></thead><tbody>
+<tr><td data-label="O que é enviado">Um pedido de uma lista de alertas mais nova</td><td data-label="Quando">Algumas vezes por dia</td><td data-label="Quem vê">GitHub, onde a publicamos</td></tr>
+<tr><td data-label="O que é enviado">Um link encurtado</td><td data-label="Quando">Quando você lê um</td><td data-label="Quem vê">O serviço de encurtamento e os sites para os quais ele aponta</td></tr>
+<tr><td data-label="O que é enviado">Um nome de domínio</td><td data-label="Quando">Quando a idade de um link é verificada</td><td data-label="Quem vê">rdap.org e, depois, o registro do domínio</td></tr>
+<tr><td data-label="O que é enviado">Um número de produto, livro, medicamento, revista, dispositivo, música ou veículo</td><td data-label="Quando">Quando você lê um</td><td data-label="Quem vê">A única base de dados que o cobre, nomeada abaixo</td></tr>
 </tbody></table>
 <ul>
   <li><strong>Atualizações da lista de alertas.</strong> O app baixa uma cópia mais recente da lista de alertas, algumas vezes por dia, do GitHub, onde a publicamos (github.com/verdettoqr/link-safety-list). O GitHub vê a solicitação como vê qualquer download. O mesmo download traz as tabelas de consulta de códigos postais, medicamentos italianos e franceses, códigos bancários alemães, nomes de companhias aéreas e aeroportos, e o diretório de registros de domínios (o arquivo de inicialização RDAP da IANA). A solicitação não leva conteúdo lido, e o app verifica a assinatura da lista antes de usá-la.</li>

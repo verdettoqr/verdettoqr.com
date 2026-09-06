@@ -99,7 +99,7 @@ p,li{margin:.5rem 0}
 .prose ol,.prose ul{padding-left:1.4rem}
 .prose li{margin:.6rem 0}
 table{border-collapse:collapse;width:100%;font-size:.875rem;line-height:1.25rem;display:block;overflow-x:auto;margin:1rem 0}
-.prose table{display:table;table-layout:fixed}.prose th,.prose td{overflow-wrap:anywhere;vertical-align:top}.prose th:nth-child(1){width:27%}.prose th:nth-child(2){width:18%}.prose th:nth-child(3){width:37%}.prose th:nth-child(4){width:18%}
+.prose table{display:table;table-layout:fixed}.prose th,.prose td{overflow-wrap:anywhere;vertical-align:top}.prose th:nth-child(1){width:27%}.prose th:nth-child(2){width:18%}.prose th:nth-child(3){width:37%}.prose th:nth-child(4){width:18%}.prose th{white-space:normal}.routes{list-style:none;padding:0;margin:1rem 0;display:grid;gap:.5rem}.routes li{display:grid;grid-template-columns:10rem 1fr;gap:.2rem .75rem;align-items:baseline;padding:.6rem .75rem;border:1px solid var(--outline-variant);border-radius:.5rem}.routes .name{font-weight:500}.routes .tag{grid-column:2;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant)}@media (max-width:600px){.routes li{grid-template-columns:1fr}.routes .tag{grid-column:1}table.stack,table.stack tbody,table.stack tr,table.stack td{display:block;width:auto}table.stack{table-layout:auto}table.stack thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}table.stack tr{border:1px solid var(--outline-variant);border-radius:.5rem;padding:.3rem .75rem;margin:0 0 .75rem}table.stack td{padding:.4rem 0;border:0;min-width:0}table.stack td+td{border-top:1px solid var(--outline-variant)}table.stack td::before{content:attr(data-label);display:block;font-size:.75rem;line-height:1rem;font-weight:500;letter-spacing:.03em;color:var(--on-surface-variant);margin-bottom:.15rem}table.stack td:first-child{font-weight:500}}
 pre{background:var(--container);border-radius:.5rem;padding:.9rem 1rem;overflow-x:auto;font-size:.8125rem;line-height:1.35rem;margin:1rem 0}
 code{font-family:Consolas,'Cascadia Mono',Menlo,monospace;font-size:.92em}
 pre code{font-size:inherit}
@@ -215,13 +215,13 @@ footer a{color:var(--primary)}
 <h1>今週の安全リスト</h1>
 <p class="meta">2026年8月24日～30日。2026-09-05 に公開リポジトリから更新。次の更新は次の月曜日です。</p>
 <p>これは警告リストのうち Verdetto 自身の部分の数字です。人々が何を報告し、人が何を確認し、リストで何が変わったか。出典は公開の案件と、リポジトリ内のリストのファイルだけです。テレメトリーも、読み取りごとのデータも、誰かの端末からの情報もありません。アプリは何を読み取ったかを決して報告せず、仮に報告したとしてもこのページには表示できません。</p>
-<div class="tablewrap"><table><thead><tr><th>項目</th><th>今週</th><th>数えているもの</th></tr></thead><tbody>
-<tr><td>受け取った報告</td><td>0</td><td>報告フォームまたはアプリからリストに届いた報告。それぞれ一回だけ数えます。</td></tr>
-<tr><td>開いた案件</td><td>0</td><td>人が公開の案件として確認に取り上げた報告。</td></tr>
-<tr><td>閉じた案件</td><td>0</td><td>今週判断された案件: 登録、誤登録、またはフィッシングではない。</td></tr>
-<tr><td>追加した項目</td><td>リンク 0、ホスト 0、ウォレットアドレス 0</td><td>人が報告を確認したあとにリストへ追加したアドレスやホスト。</td></tr>
-<tr><td>確認後に削除</td><td>0</td><td>誤登録の報告が正しいと分かり、リストから外した項目。</td></tr>
-<tr><td>現在リストにあるもの</td><td>リンク 0、ホスト 0、ウォレットアドレス 0。許可 0</td><td>人々が報告し人が確認した Verdetto 自身の項目。リストが併載する公開フィードはリポジトリ側で数えています。</td></tr>
+<div class="tablewrap"><table class="stack"><thead><tr><th>項目</th><th>今週</th><th>数えているもの</th></tr></thead><tbody>
+<tr><td data-label="項目">受け取った報告</td><td data-label="今週">0</td><td data-label="数えているもの">報告フォームまたはアプリからリストに届いた報告。それぞれ一回だけ数えます。</td></tr>
+<tr><td data-label="項目">開いた案件</td><td data-label="今週">0</td><td data-label="数えているもの">人が公開の案件として確認に取り上げた報告。</td></tr>
+<tr><td data-label="項目">閉じた案件</td><td data-label="今週">0</td><td data-label="数えているもの">今週判断された案件: 登録、誤登録、またはフィッシングではない。</td></tr>
+<tr><td data-label="項目">追加した項目</td><td data-label="今週">リンク 0、ホスト 0、ウォレットアドレス 0</td><td data-label="数えているもの">人が報告を確認したあとにリストへ追加したアドレスやホスト。</td></tr>
+<tr><td data-label="項目">確認後に削除</td><td data-label="今週">0</td><td data-label="数えているもの">誤登録の報告が正しいと分かり、リストから外した項目。</td></tr>
+<tr><td data-label="項目">現在リストにあるもの</td><td data-label="今週">リンク 0、ホスト 0、ウォレットアドレス 0。許可 0</td><td data-label="数えているもの">人々が報告し人が確認した Verdetto 自身の項目。リストが併載する公開フィードはリポジトリ側で数えています。</td></tr>
 </tbody></table></div>
 <p>すべての案件は公開の issue で、すべての登録はその原因となった案件を伴い、すべての項目は人が更新しなければ失効します: <a href="https://github.com/verdettoqr/link-safety-list">github.com/verdettoqr/link-safety-list</a>。誤登録だと思われるものがありますか? <a href="/report-ja?k=m">報告してください</a>。人が再確認し、削除はここに表れます。</p>
 <p class="meta">週間の数字は、このサイト自身が配信する小さなファイルで、週に一度リポジトリからコピーされます。このページのためにブラウザが第三者へ要求を送ることはありません。</p>
