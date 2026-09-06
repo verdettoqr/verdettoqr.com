@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; font-src 'self'; script-src 'sha256-z8dwWCc7kg+sZcasct5YZpH/Q227T57Ipuw74neSWhk='; frame-src https://docs.google.com; base-uri 'none'; form-action 'none'">
 <title>Verdetto: قارئ رموز QR والباركود لنظام Android</title>
-<meta name="description" content="شاهد الرابط قبل أن يُفتح. مجاني، بلا إعلانات، بلا تتبّع. مصمَّم للرموز المتضررة.">
+<meta name="description" content="شاهد الرابط قبل أن يُفتح. مجاني، بلا إعلانات، بلا تتبّع. يقرأ الرموز التي تستسلم أمامها التطبيقات الأخرى.">
 <link rel="canonical" href="https://verdettoqr.com/ar">
 <link rel="me" href="https://mastodon.social/@VerdettoQR">
 <link rel="alternate" hreflang="en" href="https://verdettoqr.com/">
@@ -31,7 +31,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Verdetto">
 <meta property="og:title" content="Verdetto: قارئ رموز QR والباركود لنظام Android">
-<meta property="og:description" content="شاهد الرابط قبل أن يُفتح. مجاني، بلا إعلانات، بلا تتبّع. مصمَّم للرموز المتضررة.">
+<meta property="og:description" content="شاهد الرابط قبل أن يُفتح. مجاني، بلا إعلانات، بلا تتبّع. يقرأ الرموز التي تستسلم أمامها التطبيقات الأخرى.">
 <meta property="og:url" content="https://verdettoqr.com/ar">
 <meta property="og:image" content="https://verdettoqr.com/og/ar.png">
 <meta property="og:image:width" content="1200">
@@ -39,9 +39,9 @@
 <meta property="og:image:alt" content="Verdetto: Verdetto: قارئ رموز QR والباركود لنظام Android">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Verdetto: قارئ رموز QR والباركود لنظام Android">
-<meta name="twitter:description" content="شاهد الرابط قبل أن يُفتح. مجاني، بلا إعلانات، بلا تتبّع. مصمَّم للرموز المتضررة.">
+<meta name="twitter:description" content="شاهد الرابط قبل أن يُفتح. مجاني، بلا إعلانات، بلا تتبّع. يقرأ الرموز التي تستسلم أمامها التطبيقات الأخرى.">
 <meta name="twitter:image" content="https://verdettoqr.com/og/ar.png">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Verdetto: QR & Barcode Scanner", "operatingSystem": "Android", "applicationCategory": "UtilitiesApplication", "url": "https://verdettoqr.com/", "image": "https://verdettoqr.com/icon-512.png", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "isAccessibleForFree": true, "publisher": {"@type": "Organization", "name": "Verdetto", "url": "https://verdettoqr.com/", "email": "support@verdettoqr.com", "logo": "https://verdettoqr.com/icon-512.png", "sameAs": ["https://mastodon.social/@VerdettoQR", "https://www.reddit.com/user/VerdettoQR/", "https://github.com/verdettoqr"], "address": {"@type": "PostalAddress", "streetAddress": "1520 Belle View Blvd, Suite #5992", "addressLocality": "Alexandria", "addressRegion": "VA", "postalCode": "22307", "addressCountry": "US"}}, "description": "See the link before it opens. Free, no ads, no tracking. Made for damaged codes.", "inLanguage": "ar"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Verdetto: QR & Barcode Scanner", "operatingSystem": "Android", "applicationCategory": "UtilitiesApplication", "url": "https://verdettoqr.com/", "image": "https://verdettoqr.com/icon-512.png", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "isAccessibleForFree": true, "publisher": {"@type": "Organization", "name": "Verdetto", "url": "https://verdettoqr.com/", "email": "support@verdettoqr.com", "logo": "https://verdettoqr.com/icon-512.png", "sameAs": ["https://mastodon.social/@VerdettoQR", "https://www.reddit.com/user/VerdettoQR/", "https://github.com/verdettoqr"], "address": {"@type": "PostalAddress", "streetAddress": "1520 Belle View Blvd, Suite #5992", "addressLocality": "Alexandria", "addressRegion": "VA", "postalCode": "22307", "addressCountry": "US"}}, "description": "See the link before it opens. Free, no ads, no tracking. Reads the codes other apps give up on.", "inLanguage": "ar"}</script>
 <style>
 /* Material 3 color roles, copied from the app's Theme.kt so the site and the app are one palette. */
 :root{--mark-body:#003D35;--mark-accent:#B8650A;--surface:#E9F5F1;--on-surface:#191C1B;--on-surface-variant:#3F4946;--primary:#006B5E;--on-primary:#FFFFFF;--surface-container:#D5E8E3;--surface-container-high:#CFE2DC;--primary-container:#74F8E4;--on-primary-container:#00201C;--outline:#6F7977;--outline-variant:#B4CAC4;--tertiary:#8A5A00;--on-tertiary:#FFFFFF}
@@ -227,7 +227,7 @@ footer a{color:var(--primary)}
 <div class="grid">
   <div class="card"><svg aria-hidden="true"><use href="#ic-eye"/></svg><div><h3>انظر قبل أن تفتح</h3><p>يُعرض الرابط أو اسم الشبكة أو جهة الاتصال قبل أن يُفتح أي شيء.</p></div></div>
   <div class="card"><svg aria-hidden="true"><use href="#ic-warning"/></svg><div><h3>مفحوص على هاتفك</h3><p>أسماء متشابهة، روابط مختصرة، بيانات تسجيل دخول مخفية وغيرها، مُعلَّمة في سطر واحد.</p></div></div>
-  <div class="card"><svg aria-hidden="true"><use href="#ic-scan"/></svg><div><h3>مصمَّم للرموز المتضررة</h3><p>رموز QR وباركود باهتة أو ممزقة أو سيئة الطباعة.</p></div></div>
+  <div class="card"><svg aria-hidden="true"><use href="#ic-scan"/></svg><div><h3>يقرأ الرموز التي تستسلم أمامها التطبيقات الأخرى</h3><p>باهتة أو ممزقة أو مائلة أو معكوسة الألوان: يقرأ وأنت توجّه الكاميرا ويواصل المحاولة عبر الإطارات. عدة رموز في المشهد؟ تنقر على ما قصدته. <a href="/features-ar#reads">كيف يقرأ</a>.</p></div></div>
   <div class="card"><svg aria-hidden="true"><use href="#ic-heart"/></svg><div><h3>مجاني، بلا إعلانات، لا يجمع شيئًا</h3><p>كل ميزة مجانية للجميع، ويبقيها كذلك من يستخدمونه.</p></div></div>
   <div class="card"><svg aria-hidden="true"><use href="#ic-offline"/></svg><div><h3>يعمل دون اتصال</h3><p>كل فحص يجري على الهاتف. مفتاح واحد يوقف عمليات البحث عبر الإنترنت.</p></div></div>
   <div class="card"><svg aria-hidden="true"><use href="#ic-history"/></svg><div><h3>سجلّ يخصّك أنت</h3><p>قابل للبحث والتمييز بنجمة والحذف بالسحب. ما يتجاوز 90 يومًا يُمحى من تلقاء نفسه.</p></div></div>
@@ -243,7 +243,7 @@ footer a{color:var(--primary)}
 </details>
 
 <h2>لماذا قارئ QR آخر</h2>
-<p>من بين أكثر عشرة قارئات مجانية تثبيتًا على Google Play، والتي فُحصت في 4 سبتمبر 2026، تحمل العشرة كلها إعلانات، وتصف مراجعات سبعة منها زرًا زائفًا داخل الإعلان. وكثير منها يفتح الرابط لحظة قراءته. Verdetto لا يفعل أيًّا من الأمرين. يصنعه مطوّر مستقل في فرجينيا؛ اكتب في أي وقت: <a href="mailto:support@verdettoqr.com">support@verdettoqr.com</a>.</p>
+<p>من بين أكثر عشرة قارئات مجانية تثبيتًا على Google Play، والتي فُحصت في 4 سبتمبر 2026، تحمل العشرة كلها إعلانات، وتصف مراجعات سبعة منها زرًا زائفًا داخل الإعلان. وكثير منها يفتح الرابط لحظة قراءته. Verdetto لا يفعل أيًّا من الأمرين. <a href="/press-ar#comparison-basis">طريقة التحقق موجودة في الملف الصحفي</a>. يصنعه مطوّر مستقل في فرجينيا؛ اكتب في أي وقت: <a href="mailto:support@verdettoqr.com">support@verdettoqr.com</a>.</p>
 
 <h2>ما لن يقوله لك أبدًا</h2>
 <div class="card callout"><div><p>إن شيئًا ما آمن. "لم يُعثر على تحذيرات" تعني أن أي فحص من فحوصاته لم يتطابق؛ والفتح قرارك أنت. <a href="/check-qr-code-link-ar">كيف تفحص رابطًا بنفسك</a>.</p></div><img class="shot small" src="screens/result-sheet.webp" width="540" height="1140" alt="ورقة نتيجة Verdetto لرمز QR ممسوح يقود إلى wikipedia.org، مع شارة لم يُعثر على تحذيرات وزر افتح الذي يسمّي الموقع."></div>

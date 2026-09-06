@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; font-src 'self'; script-src 'sha256-z8dwWCc7kg+sZcasct5YZpH/Q227T57Ipuw74neSWhk='; frame-src https://docs.google.com; base-uri 'none'; form-action 'none'">
 <title>Verdetto: scanner de codes QR et codes-barres pour Android</title>
-<meta name="description" content="Vois le lien avant qu'il ne s'ouvre. Gratuit, sans publicité, sans pistage. Conçu pour les codes abîmés.">
+<meta name="description" content="Vois le lien avant qu'il ne s'ouvre. Gratuit, sans publicité, sans pistage. Lit les codes que les autres applications abandonnent.">
 <link rel="canonical" href="https://verdettoqr.com/fr">
 <link rel="me" href="https://mastodon.social/@VerdettoQR">
 <link rel="alternate" hreflang="en" href="https://verdettoqr.com/">
@@ -31,7 +31,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Verdetto">
 <meta property="og:title" content="Verdetto: scanner de codes QR et codes-barres pour Android">
-<meta property="og:description" content="Vois le lien avant qu'il ne s'ouvre. Gratuit, sans publicité, sans pistage. Conçu pour les codes abîmés.">
+<meta property="og:description" content="Vois le lien avant qu'il ne s'ouvre. Gratuit, sans publicité, sans pistage. Lit les codes que les autres applications abandonnent.">
 <meta property="og:url" content="https://verdettoqr.com/fr">
 <meta property="og:image" content="https://verdettoqr.com/og/fr.png">
 <meta property="og:image:width" content="1200">
@@ -39,9 +39,9 @@
 <meta property="og:image:alt" content="Verdetto: Verdetto: scanner de codes QR et codes-barres pour Android">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Verdetto: scanner de codes QR et codes-barres pour Android">
-<meta name="twitter:description" content="Vois le lien avant qu'il ne s'ouvre. Gratuit, sans publicité, sans pistage. Conçu pour les codes abîmés.">
+<meta name="twitter:description" content="Vois le lien avant qu'il ne s'ouvre. Gratuit, sans publicité, sans pistage. Lit les codes que les autres applications abandonnent.">
 <meta name="twitter:image" content="https://verdettoqr.com/og/fr.png">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Verdetto: QR & Barcode Scanner", "operatingSystem": "Android", "applicationCategory": "UtilitiesApplication", "url": "https://verdettoqr.com/", "image": "https://verdettoqr.com/icon-512.png", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "isAccessibleForFree": true, "publisher": {"@type": "Organization", "name": "Verdetto", "url": "https://verdettoqr.com/", "email": "support@verdettoqr.com", "logo": "https://verdettoqr.com/icon-512.png", "sameAs": ["https://mastodon.social/@VerdettoQR", "https://www.reddit.com/user/VerdettoQR/", "https://github.com/verdettoqr"], "address": {"@type": "PostalAddress", "streetAddress": "1520 Belle View Blvd, Suite #5992", "addressLocality": "Alexandria", "addressRegion": "VA", "postalCode": "22307", "addressCountry": "US"}}, "description": "See the link before it opens. Free, no ads, no tracking. Made for damaged codes.", "inLanguage": "fr"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Verdetto: QR & Barcode Scanner", "operatingSystem": "Android", "applicationCategory": "UtilitiesApplication", "url": "https://verdettoqr.com/", "image": "https://verdettoqr.com/icon-512.png", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "isAccessibleForFree": true, "publisher": {"@type": "Organization", "name": "Verdetto", "url": "https://verdettoqr.com/", "email": "support@verdettoqr.com", "logo": "https://verdettoqr.com/icon-512.png", "sameAs": ["https://mastodon.social/@VerdettoQR", "https://www.reddit.com/user/VerdettoQR/", "https://github.com/verdettoqr"], "address": {"@type": "PostalAddress", "streetAddress": "1520 Belle View Blvd, Suite #5992", "addressLocality": "Alexandria", "addressRegion": "VA", "postalCode": "22307", "addressCountry": "US"}}, "description": "See the link before it opens. Free, no ads, no tracking. Reads the codes other apps give up on.", "inLanguage": "fr"}</script>
 <style>
 /* Material 3 color roles, copied from the app's Theme.kt so the site and the app are one palette. */
 :root{--mark-body:#003D35;--mark-accent:#B8650A;--surface:#E9F5F1;--on-surface:#191C1B;--on-surface-variant:#3F4946;--primary:#006B5E;--on-primary:#FFFFFF;--surface-container:#D5E8E3;--surface-container-high:#CFE2DC;--primary-container:#74F8E4;--on-primary-container:#00201C;--outline:#6F7977;--outline-variant:#B4CAC4;--tertiary:#8A5A00;--on-tertiary:#FFFFFF}
@@ -227,7 +227,7 @@ footer a{color:var(--primary)}
 <div class="grid">
   <div class="card"><svg aria-hidden="true"><use href="#ic-eye"/></svg><div><h3>Voir avant d'ouvrir</h3><p>Le lien, le nom du réseau ou le contact s'affiche avant que rien ne s'ouvre.</p></div></div>
   <div class="card"><svg aria-hidden="true"><use href="#ic-warning"/></svg><div><h3>Vérifié sur ton téléphone</h3><p>Noms imitant une marque, liens courts, identifiants cachés et plus, signalés en une ligne.</p></div></div>
-  <div class="card"><svg aria-hidden="true"><use href="#ic-scan"/></svg><div><h3>Conçu pour les codes abîmés</h3><p>Codes QR et codes-barres délavés, déchirés ou mal imprimés.</p></div></div>
+  <div class="card"><svg aria-hidden="true"><use href="#ic-scan"/></svg><div><h3>Lit les codes que les autres applications abandonnent</h3><p>Délavés, déchirés, inclinés ou inversés : elle lit pendant que vous visez et continue image après image. Plusieurs dans le champ ? Vous touchez celui que vous vouliez. <a href="/features-fr#reads">Comment elle lit</a>.</p></div></div>
   <div class="card"><svg aria-hidden="true"><use href="#ic-heart"/></svg><div><h3>Gratuit, sans publicité, rien de collecté</h3><p>Toutes les fonctions gratuites pour tous, grâce aux personnes qui l'utilisent.</p></div></div>
   <div class="card"><svg aria-hidden="true"><use href="#ic-offline"/></svg><div><h3>Fonctionne hors ligne</h3><p>Chaque vérification se fait sur le téléphone. Un interrupteur coupe les recherches en ligne.</p></div></div>
   <div class="card"><svg aria-hidden="true"><use href="#ic-history"/></svg><div><h3>Un historique qui est le tien</h3><p>Recherche, favoris, suppression d'un glissement. Au-delà de 90 jours, il s'efface tout seul.</p></div></div>
@@ -243,7 +243,7 @@ footer a{color:var(--primary)}
 </details>
 
 <h2>Pourquoi un scanner QR de plus</h2>
-<p>Sur les dix scanners gratuits les plus installés sur Google Play, vérifiés le 4 septembre 2026, les dix contiennent de la publicité, et les avis de sept d'entre eux décrivent un faux bouton dans la publicité. Beaucoup ouvrent un lien dès qu'ils l'ont lu. Verdetto ne fait ni l'un ni l'autre. Il est fait par un développeur indépendant en Virginie ; écris quand tu veux : <a href="mailto:support@verdettoqr.com">support@verdettoqr.com</a>.</p>
+<p>Sur les dix scanners gratuits les plus installés sur Google Play, vérifiés le 4 septembre 2026, les dix contiennent de la publicité, et les avis de sept d'entre eux décrivent un faux bouton dans la publicité. Beaucoup ouvrent un lien dès qu'ils l'ont lu. Verdetto ne fait ni l'un ni l'autre. <a href="/press-fr#comparison-basis">La méthode de vérification est dans le kit presse</a>. Il est fait par un développeur indépendant en Virginie ; écris quand tu veux : <a href="mailto:support@verdettoqr.com">support@verdettoqr.com</a>.</p>
 
 <h2>Ce qu'il ne te dira jamais</h2>
 <div class="card callout"><div><p>Que quelque chose est sûr. « Aucune alerte trouvée » signifie qu'aucune de ses vérifications n'a réagi ; ouvrir ou non, c'est ta décision. <a href="/check-qr-code-link-fr">Comment vérifier un lien toi-même</a>.</p></div><img class="shot small" src="screens/result-sheet.webp" width="540" height="1140" alt="La fiche de résultat Verdetto avec un code QR scanné qui mène à wikipedia.org, la puce « Aucune alerte trouvée » et un bouton Ouvrir qui nomme le site."></div>

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; font-src 'self'; script-src 'sha256-z8dwWCc7kg+sZcasct5YZpH/Q227T57Ipuw74neSWhk='; frame-src https://docs.google.com; base-uri 'none'; form-action 'none'">
 <title>Verdetto: сканер QR-кодов и штрихкодов для Android</title>
-<meta name="description" content="Увидьте ссылку до того, как она откроется. Бесплатно, без рекламы, без слежки. Создан для повреждённых кодов.">
+<meta name="description" content="Увидьте ссылку до того, как она откроется. Бесплатно, без рекламы, без слежки. Читает коды, на которых другие приложения сдаются.">
 <link rel="canonical" href="https://verdettoqr.com/ru">
 <link rel="me" href="https://mastodon.social/@VerdettoQR">
 <link rel="alternate" hreflang="en" href="https://verdettoqr.com/">
@@ -31,7 +31,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Verdetto">
 <meta property="og:title" content="Verdetto: сканер QR-кодов и штрихкодов для Android">
-<meta property="og:description" content="Увидьте ссылку до того, как она откроется. Бесплатно, без рекламы, без слежки. Создан для повреждённых кодов.">
+<meta property="og:description" content="Увидьте ссылку до того, как она откроется. Бесплатно, без рекламы, без слежки. Читает коды, на которых другие приложения сдаются.">
 <meta property="og:url" content="https://verdettoqr.com/ru">
 <meta property="og:image" content="https://verdettoqr.com/og/ru.png">
 <meta property="og:image:width" content="1200">
@@ -39,9 +39,9 @@
 <meta property="og:image:alt" content="Verdetto: Verdetto: сканер QR-кодов и штрихкодов для Android">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Verdetto: сканер QR-кодов и штрихкодов для Android">
-<meta name="twitter:description" content="Увидьте ссылку до того, как она откроется. Бесплатно, без рекламы, без слежки. Создан для повреждённых кодов.">
+<meta name="twitter:description" content="Увидьте ссылку до того, как она откроется. Бесплатно, без рекламы, без слежки. Читает коды, на которых другие приложения сдаются.">
 <meta name="twitter:image" content="https://verdettoqr.com/og/ru.png">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Verdetto: QR & Barcode Scanner", "operatingSystem": "Android", "applicationCategory": "UtilitiesApplication", "url": "https://verdettoqr.com/", "image": "https://verdettoqr.com/icon-512.png", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "isAccessibleForFree": true, "publisher": {"@type": "Organization", "name": "Verdetto", "url": "https://verdettoqr.com/", "email": "support@verdettoqr.com", "logo": "https://verdettoqr.com/icon-512.png", "sameAs": ["https://mastodon.social/@VerdettoQR", "https://www.reddit.com/user/VerdettoQR/", "https://github.com/verdettoqr"], "address": {"@type": "PostalAddress", "streetAddress": "1520 Belle View Blvd, Suite #5992", "addressLocality": "Alexandria", "addressRegion": "VA", "postalCode": "22307", "addressCountry": "US"}}, "description": "See the link before it opens. Free, no ads, no tracking. Made for damaged codes.", "inLanguage": "ru"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Verdetto: QR & Barcode Scanner", "operatingSystem": "Android", "applicationCategory": "UtilitiesApplication", "url": "https://verdettoqr.com/", "image": "https://verdettoqr.com/icon-512.png", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "isAccessibleForFree": true, "publisher": {"@type": "Organization", "name": "Verdetto", "url": "https://verdettoqr.com/", "email": "support@verdettoqr.com", "logo": "https://verdettoqr.com/icon-512.png", "sameAs": ["https://mastodon.social/@VerdettoQR", "https://www.reddit.com/user/VerdettoQR/", "https://github.com/verdettoqr"], "address": {"@type": "PostalAddress", "streetAddress": "1520 Belle View Blvd, Suite #5992", "addressLocality": "Alexandria", "addressRegion": "VA", "postalCode": "22307", "addressCountry": "US"}}, "description": "See the link before it opens. Free, no ads, no tracking. Reads the codes other apps give up on.", "inLanguage": "ru"}</script>
 <style>
 /* Material 3 color roles, copied from the app's Theme.kt so the site and the app are one palette. */
 :root{--mark-body:#003D35;--mark-accent:#B8650A;--surface:#E9F5F1;--on-surface:#191C1B;--on-surface-variant:#3F4946;--primary:#006B5E;--on-primary:#FFFFFF;--surface-container:#D5E8E3;--surface-container-high:#CFE2DC;--primary-container:#74F8E4;--on-primary-container:#00201C;--outline:#6F7977;--outline-variant:#B4CAC4;--tertiary:#8A5A00;--on-tertiary:#FFFFFF}
@@ -227,7 +227,7 @@ footer a{color:var(--primary)}
 <div class="grid">
   <div class="card"><svg aria-hidden="true"><use href="#ic-eye"/></svg><div><h3>Сначала посмотреть, потом открыть</h3><p>Ссылка, имя сети или контакт показываются до того, как что-либо откроется.</p></div></div>
   <div class="card"><svg aria-hidden="true"><use href="#ic-warning"/></svg><div><h3>Проверено на вашем телефоне</h3><p>Имена-подделки, короткие ссылки, скрытые данные входа и не только, отмечены одной строкой.</p></div></div>
-  <div class="card"><svg aria-hidden="true"><use href="#ic-scan"/></svg><div><h3>Создан для повреждённых кодов</h3><p>Выцветшие, порванные и плохо напечатанные QR-коды и штрихкоды.</p></div></div>
+  <div class="card"><svg aria-hidden="true"><use href="#ic-scan"/></svg><div><h3>Читает коды, на которых другие приложения сдаются</h3><p>Выцветшие, порванные, наклонённые или инвертированные: оно читает, пока вы наводите камеру, и пробует кадр за кадром. В кадре несколько? Вы касаетесь нужного. <a href="/features-ru#reads">Как он читает</a>.</p></div></div>
   <div class="card"><svg aria-hidden="true"><use href="#ic-heart"/></svg><div><h3>Бесплатно, без рекламы, ничего не собирается</h3><p>Все функции бесплатны для всех, и так остаётся благодаря людям, которые им пользуются.</p></div></div>
   <div class="card"><svg aria-hidden="true"><use href="#ic-offline"/></svg><div><h3>Работает офлайн</h3><p>Каждая проверка выполняется на телефоне. Один переключатель отключает онлайн-запросы.</p></div></div>
   <div class="card"><svg aria-hidden="true"><use href="#ic-history"/></svg><div><h3>История, которая принадлежит вам</h3><p>Поиск, избранное, удаление свайпом. Записи старше 90 дней удаляются сами.</p></div></div>
@@ -243,7 +243,7 @@ footer a{color:var(--primary)}
 </details>
 
 <h2>Зачем ещё один сканер QR</h2>
-<p>Из десяти самых устанавливаемых бесплатных сканеров в Google Play, проверенных 4 сентября 2026 года, все десять содержат рекламу, а отзывы на семь из них описывают поддельную кнопку в рекламе. Многие открывают ссылку, едва прочитав её. Verdetto не делает ни того, ни другого. Его делает независимый разработчик из Виргинии; пишите в любое время: <a href="mailto:support@verdettoqr.com">support@verdettoqr.com</a>.</p>
+<p>Из десяти самых устанавливаемых бесплатных сканеров в Google Play, проверенных 4 сентября 2026 года, все десять содержат рекламу, а отзывы на семь из них описывают поддельную кнопку в рекламе. Многие открывают ссылку, едва прочитав её. Verdetto не делает ни того, ни другого. <a href="/press-ru#comparison-basis">Как это проверялось, описано в пресс-ките</a>. Его делает независимый разработчик из Виргинии; пишите в любое время: <a href="mailto:support@verdettoqr.com">support@verdettoqr.com</a>.</p>
 
 <h2>Чего он никогда вам не скажет</h2>
 <div class="card callout"><div><p>Что что-то безопасно. «Предупреждений не найдено» означает, что ни одна из его проверок не сработала; открывать или нет, решаете вы. <a href="/check-qr-code-link-ru">Как проверить ссылку самостоятельно</a>.</p></div><img class="shot small" src="screens/result-sheet.webp" width="540" height="1140" alt="Карточка результата Verdetto с отсканированным QR-кодом, ведущим на wikipedia.org, чипом «Предупреждений не найдено» и кнопкой «Открыть», называющей сайт."></div>

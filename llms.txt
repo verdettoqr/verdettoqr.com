@@ -8,7 +8,7 @@ Official accounts: Mastodon https://mastodon.social/@VerdettoQR; Reddit https://
 
 ## Pages
 
-- [Verdetto: QR & Barcode Scanner for Android](https://verdettoqr.com/): See the link before it opens. Free, no ads, no tracking. Made for damaged codes.
+- [Verdetto: QR & Barcode Scanner for Android](https://verdettoqr.com/): See the link before it opens. Free, no ads, no tracking. Reads the codes other apps give up on.
 - [Privacy policy](https://verdettoqr.com/privacy): Privacy policy for Verdetto: QR & Barcode Scanner. No accounts, no ads, no analytics. Scanning happens on your phone.
 - [Terms of use](https://verdettoqr.com/terms): Terms of use for Verdetto: QR & Barcode Scanner. What the safety checks are and are not, and that every decision on scanned content is yours.
 - [Help](https://verdettoqr.com/support): Help for Verdetto: QR & Barcode Scanner. How to reach us and answers to common questions.
@@ -49,16 +49,16 @@ Official accounts: Mastodon https://mastodon.social/@VerdettoQR; Reddit https://
 - [Verdetto Community License](https://verdettoqr.com/community-license-zh-hans): 这是一份商标许可，不是代码许可：构建版本何时可以使用 Verdetto 的名称、图标或徽章，以及必须坚持的标准和价值。
 - [Verdetto Community License](https://verdettoqr.com/community-license-hi): ट्रेडमार्क लाइसेंस, कोड लाइसेंस नहीं: कोई बिल्ड Verdetto का नाम, आइकन या बैज कब ले सकता है, और उसे कौन-से मानक और मूल्य बनाए रखने होंगे।
 - [Verdetto Community License](https://verdettoqr.com/community-license-ar): رخصة علامة تجارية لا رخصة كود: متى يجوز لبناء أن يحمل اسم Verdetto أو أيقونته أو شارته، والمعايير والقيم التي يجب أن يحافظ عليها.
-- [Verdetto: escáner de códigos QR y de barras para Android](https://verdettoqr.com/es): Mira el enlace antes de que se abra. Gratis, sin anuncios, sin rastreo. Hecho para códigos dañados.
-- [Verdetto: scanner de codes QR et codes-barres pour Android](https://verdettoqr.com/fr): Vois le lien avant qu'il ne s'ouvre. Gratuit, sans publicité, sans pistage. Conçu pour les codes abîmés.
-- [Verdetto: QR- und Barcode-Scanner für Android](https://verdettoqr.com/de): Sieh den Link, bevor er sich öffnet. Kostenlos, ohne Werbung, ohne Tracking. Gemacht für beschädigte Codes.
-- [Verdetto: leitor de QR e código de barras para Android](https://verdettoqr.com/pt-br): Veja o link antes de abrir. Grátis, sem anúncios, sem rastreamento. Feito para códigos danificados.
-- [Verdetto: сканер QR-кодов и штрихкодов для Android](https://verdettoqr.com/ru): Увидьте ссылку до того, как она откроется. Бесплатно, без рекламы, без слежки. Создан для повреждённых кодов.
-- [Verdetto: pemindai QR dan barcode untuk Android](https://verdettoqr.com/id): Lihat tautannya sebelum terbuka. Gratis, tanpa iklan, tanpa pelacakan. Dibuat untuk kode yang rusak.
-- [Verdetto: Android 向け QR・バーコードスキャナー](https://verdettoqr.com/ja): 開く前にリンクを見る。無料、広告なし、追跡なし。傷んだコードのために作られました。
-- [Verdetto: Android 的二维码和条形码扫描器](https://verdettoqr.com/zh-hans): 在链接打开前先看清它。免费、无广告、无跟踪。为破损的码而生。
-- [Verdetto: Android के लिए QR और बारकोड स्कैनर](https://verdettoqr.com/hi): लिंक खुलने से पहले देखें। मुफ़्त, बिना विज्ञापन, बिना ट्रैकिंग। क्षतिग्रस्त कोड के लिए बना।
-- [Verdetto: قارئ رموز QR والباركود لنظام Android](https://verdettoqr.com/ar): شاهد الرابط قبل أن يُفتح. مجاني، بلا إعلانات، بلا تتبّع. مصمَّم للرموز المتضررة.
+- [Verdetto: escáner de códigos QR y de barras para Android](https://verdettoqr.com/es): Mira el enlace antes de que se abra. Gratis, sin anuncios, sin rastreo. Lee los códigos que otras apps abandonan.
+- [Verdetto: scanner de codes QR et codes-barres pour Android](https://verdettoqr.com/fr): Vois le lien avant qu'il ne s'ouvre. Gratuit, sans publicité, sans pistage. Lit les codes que les autres applications abandonnent.
+- [Verdetto: QR- und Barcode-Scanner für Android](https://verdettoqr.com/de): Sieh den Link, bevor er sich öffnet. Kostenlos, ohne Werbung, ohne Tracking. Liest die Codes, bei denen andere Apps aufgeben.
+- [Verdetto: leitor de QR e código de barras para Android](https://verdettoqr.com/pt-br): Veja o link antes de abrir. Grátis, sem anúncios, sem rastreamento. Lê os códigos que outros apps desistem de ler.
+- [Verdetto: сканер QR-кодов и штрихкодов для Android](https://verdettoqr.com/ru): Увидьте ссылку до того, как она откроется. Бесплатно, без рекламы, без слежки. Читает коды, на которых другие приложения сдаются.
+- [Verdetto: pemindai QR dan barcode untuk Android](https://verdettoqr.com/id): Lihat tautannya sebelum terbuka. Gratis, tanpa iklan, tanpa pelacakan. Membaca kode yang menyerah dibaca aplikasi lain.
+- [Verdetto: Android 向け QR・バーコードスキャナー](https://verdettoqr.com/ja): 開く前にリンクを見る。無料、広告なし、追跡なし。他のアプリがあきらめるコードを読みます。
+- [Verdetto: Android 的二维码和条形码扫描器](https://verdettoqr.com/zh-hans): 在链接打开前先看清它。免费、无广告、无跟踪。读取其他应用放弃的码。
+- [Verdetto: Android के लिए QR और बारकोड स्कैनर](https://verdettoqr.com/hi): लिंक खुलने से पहले देखें। मुफ़्त, बिना विज्ञापन, बिना ट्रैकिंग। वे कोड पढ़ता है जिन्हें दूसरे ऐप छोड़ देते हैं।
+- [Verdetto: قارئ رموز QR والباركود لنظام Android](https://verdettoqr.com/ar): شاهد الرابط قبل أن يُفتح. مجاني، بلا إعلانات، بلا تتبّع. يقرأ الرموز التي تستسلم أمامها التطبيقات الأخرى.
 - [Ayuda](https://verdettoqr.com/support-es): Ayuda para Verdetto: QR & Barcode Scanner. Cómo contactarnos y respuestas a preguntas frecuentes.
 - [Aide](https://verdettoqr.com/support-fr): Aide pour Verdetto: QR & Barcode Scanner. Comment nous joindre et les réponses aux questions fréquentes.
 - [Hilfe](https://verdettoqr.com/support-de): Hilfe zu Verdetto: QR & Barcode Scanner. Wie du uns erreichst und Antworten auf häufige Fragen.

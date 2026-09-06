@@ -90,7 +90,7 @@ og = Image.new("RGB", (1200, 630), MINT)
 lockup(og, 90, 120, "Verdetto", font("seguisb.ttf", 92), INK, DEEP)
 d = ImageDraw.Draw(og)
 d.text((90, 262), "QR & Barcode Scanner for Android", font=font("segoeui.ttf", 40), fill=TEAL)
-for i, line in enumerate(("See the link before it opens.", "No ads. No fake buttons.", "Made for damaged codes.")):
+for i, line in enumerate(("See the link before it opens.", "No ads. No fake buttons.", "Reads the codes other apps give up on.")):
     d.text((90, 350 + 46 * i), line, font=font("segoeui.ttf", 34), fill=VARIANT)
 d.text((90, 548), "verdettoqr.com", font=font("segoeui.ttf", 28), fill=TEAL)
 og.save(HERE / "og-image.png", optimize=True)

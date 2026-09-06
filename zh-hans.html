@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; font-src 'self'; script-src 'sha256-z8dwWCc7kg+sZcasct5YZpH/Q227T57Ipuw74neSWhk='; frame-src https://docs.google.com; base-uri 'none'; form-action 'none'">
 <title>Verdetto: Android 的二维码和条形码扫描器</title>
-<meta name="description" content="在链接打开前先看清它。免费、无广告、无跟踪。为破损的码而生。">
+<meta name="description" content="在链接打开前先看清它。免费、无广告、无跟踪。读取其他应用放弃的码。">
 <link rel="canonical" href="https://verdettoqr.com/zh-hans">
 <link rel="me" href="https://mastodon.social/@VerdettoQR">
 <link rel="alternate" hreflang="en" href="https://verdettoqr.com/">
@@ -31,7 +31,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Verdetto">
 <meta property="og:title" content="Verdetto: Android 的二维码和条形码扫描器">
-<meta property="og:description" content="在链接打开前先看清它。免费、无广告、无跟踪。为破损的码而生。">
+<meta property="og:description" content="在链接打开前先看清它。免费、无广告、无跟踪。读取其他应用放弃的码。">
 <meta property="og:url" content="https://verdettoqr.com/zh-hans">
 <meta property="og:image" content="https://verdettoqr.com/og/zh-hans.png">
 <meta property="og:image:width" content="1200">
@@ -39,9 +39,9 @@
 <meta property="og:image:alt" content="Verdetto: Verdetto: Android 的二维码和条形码扫描器">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Verdetto: Android 的二维码和条形码扫描器">
-<meta name="twitter:description" content="在链接打开前先看清它。免费、无广告、无跟踪。为破损的码而生。">
+<meta name="twitter:description" content="在链接打开前先看清它。免费、无广告、无跟踪。读取其他应用放弃的码。">
 <meta name="twitter:image" content="https://verdettoqr.com/og/zh-hans.png">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Verdetto: QR & Barcode Scanner", "operatingSystem": "Android", "applicationCategory": "UtilitiesApplication", "url": "https://verdettoqr.com/", "image": "https://verdettoqr.com/icon-512.png", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "isAccessibleForFree": true, "publisher": {"@type": "Organization", "name": "Verdetto", "url": "https://verdettoqr.com/", "email": "support@verdettoqr.com", "logo": "https://verdettoqr.com/icon-512.png", "sameAs": ["https://mastodon.social/@VerdettoQR", "https://www.reddit.com/user/VerdettoQR/", "https://github.com/verdettoqr"], "address": {"@type": "PostalAddress", "streetAddress": "1520 Belle View Blvd, Suite #5992", "addressLocality": "Alexandria", "addressRegion": "VA", "postalCode": "22307", "addressCountry": "US"}}, "description": "See the link before it opens. Free, no ads, no tracking. Made for damaged codes.", "inLanguage": "zh-Hans"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Verdetto: QR & Barcode Scanner", "operatingSystem": "Android", "applicationCategory": "UtilitiesApplication", "url": "https://verdettoqr.com/", "image": "https://verdettoqr.com/icon-512.png", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "isAccessibleForFree": true, "publisher": {"@type": "Organization", "name": "Verdetto", "url": "https://verdettoqr.com/", "email": "support@verdettoqr.com", "logo": "https://verdettoqr.com/icon-512.png", "sameAs": ["https://mastodon.social/@VerdettoQR", "https://www.reddit.com/user/VerdettoQR/", "https://github.com/verdettoqr"], "address": {"@type": "PostalAddress", "streetAddress": "1520 Belle View Blvd, Suite #5992", "addressLocality": "Alexandria", "addressRegion": "VA", "postalCode": "22307", "addressCountry": "US"}}, "description": "See the link before it opens. Free, no ads, no tracking. Reads the codes other apps give up on.", "inLanguage": "zh-Hans"}</script>
 <style>
 /* Material 3 color roles, copied from the app's Theme.kt so the site and the app are one palette. */
 :root{--mark-body:#003D35;--mark-accent:#B8650A;--surface:#E9F5F1;--on-surface:#191C1B;--on-surface-variant:#3F4946;--primary:#006B5E;--on-primary:#FFFFFF;--surface-container:#D5E8E3;--surface-container-high:#CFE2DC;--primary-container:#74F8E4;--on-primary-container:#00201C;--outline:#6F7977;--outline-variant:#B4CAC4;--tertiary:#8A5A00;--on-tertiary:#FFFFFF}
@@ -227,7 +227,7 @@ footer a{color:var(--primary)}
 <div class="grid">
   <div class="card"><svg aria-hidden="true"><use href="#ic-eye"/></svg><div><h3>先看再打开</h3><p>在任何东西打开之前，先显示链接、网络名称或联系人。</p></div></div>
   <div class="card"><svg aria-hidden="true"><use href="#ic-warning"/></svg><div><h3>在你的手机上检查</h3><p>易混淆的名称、短链接、隐藏的登录信息等，一行标出。</p></div></div>
-  <div class="card"><svg aria-hidden="true"><use href="#ic-scan"/></svg><div><h3>为破损的码而生</h3><p>褪色、撕破和印刷不良的二维码和条形码。</p></div></div>
+  <div class="card"><svg aria-hidden="true"><use href="#ic-scan"/></svg><div><h3>读取其他应用放弃的码</h3><p>褪色、撕裂、倾斜或反色：它在您对准时就读取，并跨帧持续尝试。视野里有多个？您点选想要的那个。<a href="/features-zh-hans#reads">它如何读取</a>。</p></div></div>
   <div class="card"><svg aria-hidden="true"><use href="#ic-heart"/></svg><div><h3>免费、无广告、不收集任何数据</h3><p>每项功能对所有人免费，由使用它的人共同维持。</p></div></div>
   <div class="card"><svg aria-hidden="true"><use href="#ic-offline"/></svg><div><h3>离线可用</h3><p>每项检查都在手机上完成。一个开关即可关闭在线查询。</p></div></div>
   <div class="card"><svg aria-hidden="true"><use href="#ic-history"/></svg><div><h3>属于你的历史记录</h3><p>可搜索、可加星、滑动即删。超过 90 天的记录会自行清除。</p></div></div>
@@ -243,7 +243,7 @@ footer a{color:var(--primary)}
 </details>
 
 <h2>为什么还要一个二维码扫描器</h2>
-<p>在 Google Play 安装量最高的十款免费扫描器中（2026 年 9 月 4 日核查），十款全部带广告，其中七款的评价描述了广告里的假按钮。许多会在读取到链接的瞬间就打开它。Verdetto 两者都不做。它由弗吉尼亚州的一位独立开发者制作；随时来信：<a href="mailto:support@verdettoqr.com">support@verdettoqr.com</a>。</p>
+<p>在 Google Play 安装量最高的十款免费扫描器中（2026 年 9 月 4 日核查），十款全部带广告，其中七款的评价描述了广告里的假按钮。许多会在读取到链接的瞬间就打开它。Verdetto 两者都不做。 <a href="/press-zh-hans#comparison-basis">核查方法见新闻资料包</a>。它由弗吉尼亚州的一位独立开发者制作；随时来信：<a href="mailto:support@verdettoqr.com">support@verdettoqr.com</a>。</p>
 
 <h2>它永远不会告诉你的事</h2>
 <div class="card callout"><div><p>说某样东西安全。“未发现警告”意味着它的检查都没有命中；是否打开，由你决定。<a href="/check-qr-code-link-zh-hans">如何自己检查一个链接</a>。</p></div><img class="shot small" src="screens/result-sheet.webp" width="540" height="1140" alt="Verdetto 对一个指向 wikipedia.org 的已扫描二维码的结果页，带有“未发现警告”标签和写明网站名称的“打开”按钮。"></div>
