@@ -23,7 +23,7 @@ def play_link(source, medium="app", campaign=None):
     arguments are kept so callers read as before; they change nothing."""
     return f"https://play.google.com/store/apps/details?id={PLAY_ID}"
 
-DATE = "2026-09-05"  # lastmod for the sitemap and the article; update when copy changes
+DATE = "2026-09-06"  # lastmod for the sitemap and the article; update when copy changes
 POLICY_DATE = "2026-09-05"  # effective date of the privacy policy and the Terms: the dated copies are named by it, not by the build date; bump it with the eleven date lines when the policy text changes
 # the formats the validation matrix of 2026-09-04 read (scanner-app SCAN-VALIDATION.md, 31 formats, all reads correct); the
 # page renders the count from this list so the number cannot drift from the evidence
