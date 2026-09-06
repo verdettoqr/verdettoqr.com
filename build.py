@@ -207,9 +207,12 @@ def page(name, title, description, body, ld=None, og_type="website", nav_key=Non
 <link rel="me" href="https://mastodon.social/@VerdettoQR">
 {alt_tags}<meta name="theme-color" media="(prefers-color-scheme: light)" content="#E9F5F1">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0F1312">
-<link rel="icon" href="icon.svg" type="image/svg+xml">
-<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-48.png" sizes="48x48" type="image/png">
+<link rel="icon" href="/favicon-96.png" sizes="96x96" type="image/png">
+<link rel="icon" href="/icon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta property="og:type" content="{og_type}">
 <meta property="og:site_name" content="Verdetto">
 <meta property="og:title" content="{title}">
