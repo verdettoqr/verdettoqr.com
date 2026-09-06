@@ -575,7 +575,7 @@ PRIVACY = f"""
 <ul>
   <li><strong>Camera.</strong> Camera frames are read on the phone to find and decode codes. They are not stored and not uploaded.</li>
   <li><strong>Images you choose.</strong> If you pick an image from your photos, it is read on the phone the same way and is not uploaded.</li>
-  <li><strong>Scan history.</strong> Decoded content is kept in a history on your phone so you can find it again. Scans older than 90 days are cleared on their own unless you star them; Settings lets you choose 30, 90, or 365 days, or forever. You can delete any entry with a swipe, or clear the whole history, in the app. Driver's licenses and boarding passes are shown and not saved to history unless you turn that on in Settings.</li>
+  <li><strong>Scan history.</strong> Decoded content is kept in a history on your phone so you can find it again. Scans older than 90 days are cleared on their own unless you star them; Settings lets you choose 30, 90, or 365 days, or forever. You can delete any entry with a swipe, or clear the whole history, in the app. Driver's licenses, boarding passes, and health certificates are read on the phone, shown once, and never kept.</li>
   <li><strong>Safety checks.</strong> The app inspects scanned content on the phone for warning signs and compares links, sites, and wallet addresses with a list of known phishing, malware, scam, and sanctions entries that is stored on the phone. The comparison never sends what you scanned anywhere.</li>
   <li><strong>Settings.</strong> Your preferences are stored on the phone.</li>
 </ul>
@@ -3983,7 +3983,7 @@ FEAT_T = {
     "alt": "A Wi-Fi network read by Verdetto: the network name, a caution that it is open with no password, and a Join button.",
     "ps": [
      "A Wi-Fi code joins the network in one tap. A contact card adds to your contacts. A boarding pass shows itself at the gate, big and bright. Calendar events, sign-in codes, locations, payment addresses, product and medicine numbers, GS1 packs, vehicle numbers: each opens with the one action that fits, and nothing opens by itself.",
-     "Boarding passes and driver's licenses are read on the phone, shown once, and never kept. The app never looks a person up."
+     "Boarding passes, driver's licenses, and health certificates are read on the phone, shown once, and never kept. The app never looks a person up."
     ]
    },
    {
@@ -4091,7 +4091,7 @@ FEAT_T = {
     "alt": "Ein von Verdetto gelesenes WLAN: der Netzwerkname, ein Hinweis, dass es offen und ohne Passwort ist, und ein Button „Verbinden“.",
     "ps": [
      "Ein WLAN-Code verbindet mit einem Tipp. Eine Kontaktkarte landet in deinen Kontakten. Eine Bordkarte zeigt sich am Gate, groß und hell. Kalendereinträge, Anmeldecodes, Orte, Zahlungsadressen, Produkt- und Arzneimittelnummern, GS1-Packungen, Fahrzeugnummern: Jeder öffnet sich mit der einen passenden Aktion, und nichts öffnet sich von selbst.",
-     "Bordkarten und Führerscheine werden auf dem Telefon gelesen, einmal gezeigt und nie aufbewahrt. Die App schlägt nie eine Person nach."
+     "Bordkarten, Führerscheine und Gesundheitszertifikate werden auf dem Telefon gelesen, einmal gezeigt und nie aufbewahrt. Die App schlägt nie eine Person nach."
     ]
    },
    {
@@ -4199,7 +4199,7 @@ FEAT_T = {
     "alt": "Una red Wi-Fi leída por Verdetto: el nombre de la red, un aviso de que es abierta y sin contraseña, y un botón «Conectar».",
     "ps": [
      "Un código Wi-Fi conecta a la red con un toque. Una tarjeta de contacto se añade a tus contactos. Una tarjeta de embarque se muestra en la puerta, grande y brillante. Eventos de calendario, códigos de acceso, ubicaciones, direcciones de pago, números de productos y medicamentos, paquetes GS1, números de vehículo: cada uno se abre con la única acción que corresponde, y nada se abre solo.",
-     "Las tarjetas de embarque y los permisos de conducir se leen en el teléfono, se muestran una vez y nunca se guardan. La app nunca busca a una persona."
+     "Las tarjetas de embarque, los permisos de conducir y los certificados sanitarios se leen en el teléfono, se muestran una vez y nunca se guardan. La app nunca busca a una persona."
     ]
    },
    {
@@ -4307,7 +4307,7 @@ FEAT_T = {
     "alt": "Un réseau Wi-Fi lu par Verdetto : le nom du réseau, un avertissement qu'il est ouvert sans mot de passe, et un bouton « Rejoindre ».",
     "ps": [
      "Un code Wi-Fi rejoint le réseau d'un toucher. Une carte de contact s'ajoute à vos contacts. Une carte d'embarquement s'affiche à la porte, grande et lumineuse. Événements d'agenda, codes de connexion, lieux, adresses de paiement, numéros de produits et de médicaments, colis GS1, numéros de véhicule : chacun s'ouvre avec la seule action qui convient, et rien ne s'ouvre tout seul.",
-     "Les cartes d'embarquement et les permis de conduire sont lus sur le téléphone, affichés une fois et jamais conservés. L'application ne recherche jamais une personne."
+     "Les cartes d'embarquement, les permis de conduire et les certificats sanitaires sont lus sur le téléphone, affichés une fois et jamais conservés. L'application ne recherche jamais une personne."
     ]
    },
    {
@@ -4415,7 +4415,7 @@ FEAT_T = {
     "alt": "Uma rede Wi-Fi lida pelo Verdetto: o nome da rede, um aviso de que ela é aberta e sem senha, e um botão \"Conectar\".",
     "ps": [
      "Um código Wi-Fi conecta à rede em um toque. Um cartão de contato entra nos seus contatos. Um cartão de embarque se mostra no portão, grande e brilhante. Eventos de agenda, códigos de login, locais, endereços de pagamento, números de produtos e medicamentos, embalagens GS1, números de veículo: cada um abre com a única ação que cabe, e nada abre sozinho.",
-     "Cartões de embarque e carteiras de motorista são lidos no celular, mostrados uma vez e nunca guardados. O app nunca procura uma pessoa."
+     "Cartões de embarque, carteiras de motorista e certificados de saúde são lidos no celular, mostrados uma vez e nunca guardados. O app nunca procura uma pessoa."
     ]
    },
    {
@@ -4523,7 +4523,7 @@ FEAT_T = {
     "alt": "Jaringan Wi-Fi yang dibaca Verdetto: nama jaringan, peringatan bahwa jaringan terbuka tanpa kata sandi, dan tombol \"Gabung\".",
     "ps": [
      "Kode Wi-Fi menyambungkan ke jaringan dengan satu ketukan. Kartu kontak masuk ke kontak Anda. Boarding pass menampilkan dirinya di gerbang, besar dan terang. Acara kalender, kode masuk, lokasi, alamat pembayaran, nomor produk dan obat, kemasan GS1, nomor kendaraan: masing-masing terbuka dengan satu tindakan yang sesuai, dan tidak ada yang terbuka sendiri.",
-     "Boarding pass dan SIM dibaca di ponsel, ditampilkan sekali, dan tidak pernah disimpan. Aplikasi tidak pernah mencari data seseorang."
+     "Boarding pass, SIM, dan sertifikat kesehatan dibaca di ponsel, ditampilkan sekali, dan tidak pernah disimpan. Aplikasi tidak pernah mencari data seseorang."
     ]
    },
    {
@@ -4631,7 +4631,7 @@ FEAT_T = {
     "alt": "Сеть Wi-Fi, прочитанная Verdetto: имя сети, предупреждение, что она открытая и без пароля, и кнопка «Подключиться».",
     "ps": [
      "Код Wi-Fi подключает к сети одним касанием. Визитка добавляется в контакты. Посадочный талон показывает себя у выхода на посадку, крупно и ярко. События календаря, коды входа, места, платёжные адреса, номера товаров и лекарств, упаковки GS1, номера автомобилей: каждый открывается одним подходящим действием, и ничто не открывается само.",
-     "Посадочные талоны и водительские права читаются на телефоне, показываются один раз и никогда не сохраняются. Приложение никогда не ищет сведения о человеке."
+     "Посадочные талоны, водительские права и медицинские сертификаты читаются на телефоне, показываются один раз и никогда не сохраняются. Приложение никогда не ищет сведения о человеке."
     ]
    },
    {
@@ -4739,7 +4739,7 @@ FEAT_T = {
     "alt": "Verdetto द्वारा पढ़ा गया Wi-Fi नेटवर्क: नेटवर्क का नाम, चेतावनी कि यह खुला और बिना पासवर्ड है, और एक \"जुड़ें\" बटन।",
     "ps": [
      "Wi-Fi कोड एक टैप में नेटवर्क से जोड़ता है। संपर्क कार्ड आपके संपर्कों में जुड़ता है। बोर्डिंग पास गेट पर बड़ा और चमकदार दिखता है। कैलेंडर इवेंट, साइन-इन कोड, स्थान, भुगतान पते, उत्पाद और दवा नंबर, GS1 पैक, वाहन नंबर: हर एक उसी एक कार्रवाई से खुलता है जो उस पर बैठती है, और कुछ भी अपने आप नहीं खुलता।",
-     "बोर्डिंग पास और ड्राइविंग लाइसेंस फ़ोन पर पढ़े जाते हैं, एक बार दिखाए जाते हैं और कभी नहीं रखे जाते। ऐप कभी किसी व्यक्ति को खोजता नहीं।"
+     "बोर्डिंग पास, ड्राइविंग लाइसेंस और स्वास्थ्य प्रमाणपत्र फ़ोन पर पढ़े जाते हैं, एक बार दिखाए जाते हैं और कभी नहीं रखे जाते। ऐप कभी किसी व्यक्ति को खोजता नहीं।"
     ]
    },
    {
@@ -4847,7 +4847,7 @@ FEAT_T = {
     "alt": "Verdetto が読み取った Wi-Fi ネットワーク: ネットワーク名、パスワードのない開放ネットワークという注意、「接続」ボタン。",
     "ps": [
      "Wi-Fi のコードは一回のタップでネットワークに接続します。連絡先カードは連絡先に追加されます。搭乗券は搭乗口で大きく明るく表示されます。カレンダーの予定、ログインコード、位置情報、支払い先アドレス、商品や医薬品の番号、GS1 パック、車両番号。それぞれが、ふさわしい一つの動作で開き、勝手に開くものはありません。",
-     "搭乗券と運転免許証は端末上で読み取られ、一度表示されるだけで、決して保存されません。アプリが人物を照会することは決してありません。"
+     "搭乗券、運転免許証、健康証明書は端末上で読み取られ、一度表示されるだけで、決して保存されません。アプリが人物を照会することは決してありません。"
     ]
    },
    {
@@ -4955,7 +4955,7 @@ FEAT_T = {
     "alt": "Verdetto 读取的 Wi-Fi 网络：网络名称、提示该网络开放且无密码的注意标签，以及“加入”按钮。",
     "ps": [
      "Wi-Fi 码一键加入网络。联系人名片加入您的联系人。登机牌在登机口以大而亮的方式展示。日历事件、登录码、位置、付款地址、商品和药品编号、GS1 包装、车辆编号：每一种都以恰当的唯一动作打开，没有任何东西会自行打开。",
-     "登机牌和驾照在手机上读取，只显示一次，绝不保留。应用从不查询任何人。"
+     "登机牌、驾照和健康证明在手机上读取，只显示一次，绝不保留。应用从不查询任何人。"
     ]
    },
    {
@@ -5063,7 +5063,7 @@ FEAT_T = {
     "alt": "شبكة Wi-Fi قرأها Verdetto: اسم الشبكة، وتحذير من أنها مفتوحة بلا كلمة مرور، وزر «انضم».",
     "ps": [
      "رمز Wi-Fi ينضم إلى الشبكة بنقرة واحدة. بطاقة الاتصال تُضاف إلى جهات اتصالك. بطاقة الصعود تعرض نفسها عند البوابة كبيرة ومضيئة. أحداث التقويم، ورموز الدخول، والمواقع، وعناوين الدفع، وأرقام المنتجات والأدوية، وعبوات GS1، وأرقام المركبات: يُفتح كلٌّ منها بالفعل الوحيد المناسب، ولا يُفتح شيء من تلقاء نفسه.",
-     "تُقرأ بطاقات الصعود ورخص القيادة على الهاتف، وتُعرض مرة واحدة، ولا تُحفظ أبدًا. ولا يبحث التطبيق عن شخص أبدًا."
+     "تُقرأ بطاقات الصعود ورخص القيادة والشهادات الصحية على الهاتف، وتُعرض مرة واحدة، ولا تُحفظ أبدًا. ولا يبحث التطبيق عن شخص أبدًا."
     ]
    },
    {
