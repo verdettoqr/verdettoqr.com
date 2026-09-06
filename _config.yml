@@ -1,0 +1,4 @@
+# GitHub Pages runs Jekyll over this repository; the pages are prebuilt HTML, and Jekyll's only job here is to serve the
+# well-known directory (security.txt per RFC 9116) that it would otherwise skip as a dotfolder.
+include:
+  - ".well-known"
