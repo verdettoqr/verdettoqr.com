@@ -611,7 +611,7 @@ PRIVACY = f"""
 <p>The app asks for the camera, which it needs to scan, and for contacts access only if you fill your own card from your phone's profile. It uses the network only for the lookups described above, vibration for the buzz on scan, and, on Android 10 and older, the Wi-Fi setting needed to join a network you scanned. Joining a Wi-Fi network, adding a contact, or saving an event goes through the standard Android prompt for that action, and only when you choose it. The contribution goes through Google Play's own billing.</p>
 
 <h2>Purchases</h2>
-<p>The optional contribution inside the app is sold through Google Play. Google processes the payment under <a href="https://policies.google.com/privacy">its own privacy policy</a>; we never see your name, email address, or payment details. Google's billing code inside the app also reports to Google how its own steps went, such as whether a connection or a purchase succeeded or failed, which Google uses to improve that code and its support for errors. Those reports go to Google, not to us, under the same policy, and only when the app talks to Google Play for the contribution. Google shows us, in its developer console and its sales reports, an order record for refunds and tax: at most an order number, the item, the amount and currency, the phone's model, and the country, state, city and postal code the purchase was made from; where Google itself is the seller, in the EEA and the UK, only the country. The app itself keeps only a note on your phone that a contribution was made, for the thank-you badge.</p>
+<p>The optional contribution inside the app is sold through Google Play. Google processes the payment under <a href="https://policies.google.com/privacy">its own privacy policy</a>; we never see your name, email address, or payment details. Google's billing code inside the app also reports to Google how its own steps went, such as whether a connection or a purchase succeeded or failed, which Google uses to improve that code and its support for errors. Those reports go to Google, not to us, under the same policy, when the app talks to Google Play for the contribution, and each time the app starts, when it asks Google Play whether a monthly support is active. Google shows us, in its developer console and its sales reports, an order record for refunds and tax: at most an order number, the item, the amount and currency, the phone's model, and the country, state, city and postal code the purchase was made from; where Google itself is the seller, in the EEA and the UK, only the country. Google Play answers that question with the state of the purchase only: which item, whether it still renews, and since when; never your name, email address or card. The answer stays on your phone. The app itself keeps only a note that a contribution was made, and whether a monthly support is active, for the thank-you badge and the monthly status line.</p>
 <p><strong>Google Play's counts.</strong> Google Play shows us, in its developer console, counts of installs, uninstalls, ratings, and crashes, by country and by the site or store page that led to the store page. Google records that when the store page opens, under its own privacy policy; the app does not request it from Google and never sends it anywhere. The counts are grouped and rounded by Google, and we cannot see anyone in them.</p>
 
 <h2>Reports you send</h2>
@@ -684,7 +684,8 @@ TERMS = f"""
 <p>Online lookups are on by default and can be turned off in Settings. Product lookups have a switch of their own under it. While on, only the address, domain, or the product, book, medicine, device, journal, or vehicle number goes, with the app's name and our support address, to the named services (Open Food Facts and its sisters, the US Consumer Product Safety Commission's recall database, Open Library, the German and French national libraries, openFDA, DailyMed and RxNav, Spain's medicines agency AEMPS and the European Commission's EUDAMED database for medicines and medical devices, MusicBrainz, Crossref, Wikidata, and the NHTSA vehicle database); with them off, nothing leaves the phone. There are no ads, no analytics, and no accounts. The <a href="{href('privacy.html')}">privacy policy</a> has the details. For a vehicle, the year, make, and model also go to NHTSA's recall and crash-test databases and to the EPA fuel-economy database (fueleconomy.gov).</p>
 
 <h2>Contributions</h2>
-<p>The app is free and complete: every check and every decode is free for everyone, and nothing is locked. It offers one optional contribution, paid once and not a subscription (you can give again if you like), sold as an in-app item through Google Play from US$0.99 or the local equivalent, which pays for the work and earns a thank-you badge and the small extras listed on the Support screen as they arrive. The price in the purchase flow is the price you pay, including any tax Google Play charges. In the European Economic Area and the United Kingdom, Google is the merchant of record for the purchase; everywhere else, Verdetto is the seller and Google Play handles the payment. Refunds follow Google Play's refund policy and the consumer law of your country; if something went wrong, write to <a href="mailto:{EMAIL}">{EMAIL}</a> and we will help. Where Google Play's billing is unavailable, the contribution is not offered. What you get is what the Support screen marks as available when you buy; items marked planned or soon are our intentions, not part of the purchase. A contribution buys no protection and no promise of future features. Verdetto is a small business; a contribution is a purchase, not a gift, and it brings no tax benefit.</p>
+<p>The app is free and complete: every check and every decode is free for everyone, and nothing is locked. It offers one optional contribution, once or monthly, sold as an in-app item through Google Play from US$0.99 a month or the local equivalent. A contribution pays for the work and earns a thank-you badge and the small extras listed on the Support screen as they arrive. Monthly support is the same contribution paid every month: it renews each month through Google Play at the price shown until you cancel it in Google Play's subscription center, which the Support screen and Settings link to, and while it runs the app shows you as a monthly supporter. Cancelling stops the next charge; the month you have paid for runs to its end, and the badge and everything you had when you paid stay yours. Uninstalling the app does not cancel a monthly support. The price in the purchase flow is the price you pay, including any tax Google Play charges. In the European Economic Area and the United Kingdom, Google is the seller: you can withdraw from a monthly support within fourteen days of the first payment through Google Play for a refund, and after that a cancellation takes effect from the next payment period. Everywhere else, Verdetto is the seller and Google Play handles the payment; refunds follow Google Play's refund policy and the consumer law of your country. If something went wrong, including a monthly support you did not mean to start, write to <a href="mailto:{EMAIL}">{EMAIL}</a> and we will help. On a Google Play build where Play's billing is unavailable, the contribution is not offered. What you get is what the Support screen marks as available when you buy; items marked planned or soon are our intentions, not part of the purchase. A contribution buys no protection and no promise of future features. Verdetto is a small business; on Google Play the contribution is a purchase, and on every route it is income to Verdetto and brings you no tax benefit.</p>
+<p>Builds from F-Droid or GitHub have no Google Play billing. On those builds the Support screen opens our website, where you can contribute once or monthly through GitHub Sponsors. A monthly sponsorship renews on your GitHub billing date until you cancel it on GitHub, where the cancellation takes effect at your next billing date; GitHub itself gives no refunds. The company named on that page takes the payment under its own terms and sends the receipt; Google Play is not involved and there is no Play order. A web contribution pays for the work and unlocks nothing: the supporter badge on those builds is a switch you turn on yourself, on your word, and nothing checks it. The items the Play purchase includes are not part of a web contribution. If you change your mind within fourteen days of any payment, write to <a href="mailto:{EMAIL}">{EMAIL}</a> and we will refund that payment or arrange the refund with the platform.</p>
 
 <h2>Third-party services</h2>
 <p>The lookup services and the shortening services the app can ask are run by others under their own terms and privacy policies. Their answers are shown as given; they may change or stop, and we are not responsible for them. NHTSA's recall and crash-test databases and the EPA fuel-economy database are among them; recall and rating information is for the model year and is not a statement about the individual vehicle.</p>
@@ -702,7 +703,7 @@ TERMS = f"""
 <p>These terms are written in English and offered in ten other languages. The English text is the reference, except where the law of your country says otherwise.</p>
 
 <h2>Changes</h2>
-<p>These terms may change with a new version of the app, for a reason: a new feature or lookup, a change in the law, or clearer wording. The date at the top and the release notes say when. The text in the installed version is the one that applies. A change never takes away anything you have already bought. Earlier versions: {earlier_versions('terms')}.</p>
+<p>These terms may change with a new version of the app, for a reason: a new feature or lookup, a change in the law, or clearer wording. The date at the top and the release notes say when. The text in the installed version is the one that applies. A change never takes away anything you have already bought. Ending a monthly support, by you or by us, takes away nothing you had; it only ends the monthly status and the next charge. Earlier versions: {earlier_versions('terms')}.</p>
 """
 
 SUPPORT_T = {
@@ -1201,13 +1202,13 @@ LOCAL["support.html"] = family_pages("support.html")
 SUPPORT_WORK_T = {
  "en": {
   "title": "Support the work - Verdetto",
-  "desc_base": "How Verdetto stays free with no ads and no tracking: one-time contributions from the people who use it, from $0.99 on Google Play",
+  "desc_base": "How Verdetto stays free with no ads and no tracking: contributions from the people who use it, once or monthly, from $0.99 on Google Play",
   "desc_github": " or through GitHub Sponsors",
   "desc_tail": ". Nothing is locked.",
   "h1": "Support the work",
   "lede": "Verdetto has no ads and nothing to sell, so the people who use it pay for it and pass it on. Every check and every decode is free for everyone. The app never nags: no ads, no pop-ups, no rating prompts. After it does something for you, it may say thank you and mention that the people who use it pay for it, at most once a month, and a switch in Settings turns that off.",
   "phone_h": "On your phone",
-  "phone_p": "Settings, then Support development. From $0.99, once, $2.99 suggested, through Google Play. The app never sees your card.",
+  "phone_p": "Settings, then Support development. From $0.99, once or monthly, $2.99 suggested, through Google Play. The app never sees your card.",
   "browser_h": "From a browser",
   "browser_wait": "GitHub Sponsors is being set up. Until it opens, the app is the way to give. The link appears here when it does.",
   "browser_live": "GitHub Sponsors, monthly ($2 or $5) or once ($3 or $10), through GitHub. It reaches the same place.",
@@ -1226,7 +1227,7 @@ SUPPORT_WORK_T = {
   "q_free": "Is Verdetto really free?",
   "a_free": "Yes. Every feature, every check, and every decode is free for everyone, with no ads and no tracking: nothing about you or your scans goes to us, and the only code in the app that reports to anyone else is Google's own billing code, which reports to Google about the purchase. A contribution is optional and changes nothing you can do.",
   "q_money": "How does Verdetto make money?",
-  "a_money_base": "From one-time contributions by the people who use it: from $0.99 in the app through Google Play",
+  "a_money_base": "From contributions by the people who use it, once or monthly: from $0.99 in the app through Google Play",
   "a_money_github": ", or through GitHub Sponsors from a browser",
   "a_money_tail": ". There are no ads, no data sales, and no paid tier.",
   "q_unlock": "What does a contribution unlock?",
@@ -1242,13 +1243,13 @@ SUPPORT_WORK_T = {
  },
  "de": {
   "title": "Die Arbeit unterstützen - Verdetto",
-  "desc_base": "Wie Verdetto ohne Werbung und Tracking kostenlos bleibt: einmalige Beiträge der Menschen, die es nutzen, ab 0,99 $ bei Google Play",
+  "desc_base": "Wie Verdetto ohne Werbung und Tracking kostenlos bleibt: Beiträge der Nutzer, einmal oder monatlich, ab 0,99 $ bei Google Play",
   "desc_github": " oder über GitHub Sponsors",
   "desc_tail": ". Nichts ist gesperrt.",
   "h1": "Die Arbeit unterstützen",
   "lede": "Verdetto hat keine Werbung und nichts zu verkaufen; deshalb bezahlen die Menschen, die die App nutzen, dafür und geben sie weiter. Jede Prüfung und jedes Decodieren ist für alle kostenlos. Die App nervt nie: keine Werbung, keine Pop-ups, keine Bewertungsaufforderungen. Nachdem sie etwas für dich getan hat, sagt sie vielleicht danke und erwähnt, dass die Menschen, die sie nutzen, dafür bezahlen, höchstens einmal im Monat, und ein Schalter in den Einstellungen stellt das ab.",
   "phone_h": "Auf deinem Handy",
-  "phone_p": "Einstellungen, dann „Entwicklung unterstützen“. Ab 0,99 $, einmalig, 2,99 $ vorgeschlagen, über Google Play. Die App sieht deine Karte nie.",
+  "phone_p": "Einstellungen, dann „Entwicklung unterstützen“. Ab 0,99 $, einmal oder monatlich, 2,99 $ vorgeschlagen, über Google Play. Die App sieht deine Karte nie.",
   "browser_h": "Im Browser",
   "browser_wait": "GitHub Sponsors wird gerade eingerichtet. Bis es öffnet, ist die App der Weg zu geben. Der Link erscheint hier, sobald es so weit ist.",
   "browser_live": "GitHub Sponsors, monatlich (2 $ oder 5 $) oder einmalig (3 $ oder 10 $), über GitHub. Es kommt am selben Ort an.",
@@ -1267,7 +1268,7 @@ SUPPORT_WORK_T = {
   "q_free": "Ist Verdetto wirklich kostenlos?",
   "a_free": "Ja. Jede Funktion, jede Prüfung und jedes Decodieren ist für alle kostenlos, ohne Werbung und ohne Tracking: Nichts über dich oder deine Scans geht an uns, und der einzige Code in der App, der an irgendjemanden berichtet, ist Googles eigener Abrechnungscode, der Google über den Kauf berichtet. Ein Beitrag ist freiwillig und ändert nichts an dem, was du tun kannst.",
   "q_money": "Wie verdient Verdetto Geld?",
-  "a_money_base": "Durch einmalige Beiträge der Menschen, die die App nutzen: ab 0,99 $ in der App über Google Play",
+  "a_money_base": "Durch Beiträge der Menschen, die die App nutzen, einmal oder monatlich: ab 0,99 $ in der App über Google Play",
   "a_money_github": " oder über GitHub Sponsors im Browser",
   "a_money_tail": ". Es gibt keine Werbung, keinen Datenverkauf und keine Bezahlstufe.",
   "q_unlock": "Was schaltet ein Beitrag frei?",
@@ -1283,13 +1284,13 @@ SUPPORT_WORK_T = {
  },
  "es": {
   "title": "Apoya el trabajo - Verdetto",
-  "desc_base": "Cómo Verdetto sigue siendo gratis sin anuncios ni rastreo: contribuciones únicas de las personas que lo usan, desde 0,99 $ en Google Play",
+  "desc_base": "Cómo Verdetto sigue gratis sin anuncios ni rastreo: contribuciones de quienes lo usan, una vez o cada mes, desde 0,99 $ en Google Play",
   "desc_github": " o a través de GitHub Sponsors",
   "desc_tail": ". Nada está bloqueado.",
   "h1": "Apoya el trabajo",
   "lede": "Verdetto no tiene anuncios ni nada que vender, así que las personas que lo usan lo pagan y lo pasan a otros. Cada comprobación y cada decodificación es gratis para todos. La aplicación nunca insiste: sin anuncios, sin ventanas emergentes, sin peticiones de valoración. Después de hacer algo por ti, puede dar las gracias y mencionar que las personas que la usan la pagan, como máximo una vez al mes, y un interruptor en Ajustes lo desactiva.",
   "phone_h": "En tu teléfono",
-  "phone_p": "Ajustes y después «Apoyar el desarrollo». Desde 0,99 $, una vez, 2,99 $ sugeridos, a través de Google Play. La aplicación nunca ve tu tarjeta.",
+  "phone_p": "Ajustes y después «Apoyar el desarrollo». Desde 0,99 $, una vez o cada mes, 2,99 $ sugeridos, a través de Google Play. La aplicación nunca ve tu tarjeta.",
   "browser_h": "Desde un navegador",
   "browser_wait": "GitHub Sponsors se está configurando. Hasta que abra, la aplicación es la forma de dar. El enlace aparecerá aquí cuando lo haga.",
   "browser_live": "GitHub Sponsors, mensual (2 $ o 5 $) o una vez (3 $ o 10 $), a través de GitHub. Llega al mismo sitio.",
@@ -1308,7 +1309,7 @@ SUPPORT_WORK_T = {
   "q_free": "¿Verdetto es gratis de verdad?",
   "a_free": "Sí. Todas las funciones, todas las comprobaciones y todas las decodificaciones son gratis para todos, sin anuncios y sin rastreo: nada sobre ti o tus escaneos nos llega, y el único código de la aplicación que informa a alguien es el propio código de facturación de Google, que informa a Google sobre la compra. Una contribución es opcional y no cambia nada de lo que puedes hacer.",
   "q_money": "¿Cómo gana dinero Verdetto?",
-  "a_money_base": "Con contribuciones únicas de las personas que lo usan: desde 0,99 $ en la aplicación a través de Google Play",
+  "a_money_base": "Con contribuciones de las personas que lo usan, una vez o cada mes: desde 0,99 $ en la aplicación a través de Google Play",
   "a_money_github": ", o a través de GitHub Sponsors desde un navegador",
   "a_money_tail": ". No hay anuncios, ni venta de datos, ni nivel de pago.",
   "q_unlock": "¿Qué desbloquea una contribución?",
@@ -1324,13 +1325,13 @@ SUPPORT_WORK_T = {
  },
  "fr": {
   "title": "Soutenir le travail - Verdetto",
-  "desc_base": "Comment Verdetto reste gratuit, sans publicité ni pistage : des contributions ponctuelles, dès 0,99 $ sur Google Play",
+  "desc_base": "Comment Verdetto reste gratuit, sans publicité ni pistage : des contributions, une fois ou chaque mois, dès 0,99 $ sur Google Play",
   "desc_github": " ou via GitHub Sponsors",
   "desc_tail": ". Rien n'est verrouillé.",
   "h1": "Soutenir le travail",
   "lede": "Verdetto n'a ni publicité ni rien à vendre : ce sont les personnes qui l'utilisent qui le financent et le font connaître. Chaque vérification et chaque décodage sont gratuits pour tous. L'application n'insiste jamais : pas de publicité, pas de fenêtres, pas de demandes de notation. Après avoir fait quelque chose pour toi, elle peut dire merci et rappeler que les personnes qui l'utilisent la financent, au plus une fois par mois, et un interrupteur dans les Réglages désactive cela.",
   "phone_h": "Sur ton téléphone",
-  "phone_p": "Réglages, puis « Soutenir le développement ». Dès 0,99 $, une fois, 2,99 $ suggérés, via Google Play. L'application ne voit jamais ta carte.",
+  "phone_p": "Réglages, puis « Soutenir le développement ». Dès 0,99 $, une fois ou chaque mois, 2,99 $ suggérés, via Google Play. L'application ne voit jamais ta carte.",
   "browser_h": "Depuis un navigateur",
   "browser_wait": "GitHub Sponsors est en cours d'ouverture. Jusque-là, l'application est le moyen de donner. Le lien apparaîtra ici dès l'ouverture.",
   "browser_live": "GitHub Sponsors, mensuel (2 $ ou 5 $) ou une fois (3 $ ou 10 $), via GitHub. Cela arrive au même endroit.",
@@ -1349,7 +1350,7 @@ SUPPORT_WORK_T = {
   "q_free": "Verdetto est-il vraiment gratuit ?",
   "a_free": "Oui. Chaque fonction, chaque vérification et chaque décodage sont gratuits pour tous, sans publicité et sans pistage : rien sur toi ou tes scans ne nous parvient, et le seul code de l'application qui rend compte à quelqu'un est le code de facturation de Google, qui informe Google de l'achat. Une contribution est facultative et ne change rien à ce que tu peux faire.",
   "q_money": "Comment Verdetto gagne-t-il de l'argent ?",
-  "a_money_base": "Par des contributions ponctuelles des personnes qui l'utilisent : dès 0,99 $ dans l'application via Google Play",
+  "a_money_base": "Par des contributions des personnes qui l'utilisent, une fois ou chaque mois : dès 0,99 $ dans l'application via Google Play",
   "a_money_github": ", ou via GitHub Sponsors depuis un navigateur",
   "a_money_tail": ". Pas de publicité, pas de vente de données, pas de version payante.",
   "q_unlock": "Que débloque une contribution ?",
@@ -1365,13 +1366,13 @@ SUPPORT_WORK_T = {
  },
  "pt-BR": {
   "title": "Apoie o trabalho - Verdetto",
-  "desc_base": "Como o Verdetto continua grátis, sem anúncios e rastreamento: contribuições únicas de quem o usa, a partir de US$ 0,99 no Google Play",
+  "desc_base": "Como o Verdetto segue grátis, sem anúncios e rastreamento: contribuições de quem o usa, uma vez ou todo mês, desde US$ 0,99 no Google Play",
   "desc_github": " ou pelo GitHub Sponsors",
   "desc_tail": ". Nada fica bloqueado.",
   "h1": "Apoie o trabalho",
   "lede": "O Verdetto não tem anúncios nem nada para vender, então as pessoas que o usam pagam por ele e passam adiante. Toda verificação e toda leitura é grátis para todos. O app nunca insiste: sem anúncios, sem pop-ups, sem pedidos de avaliação. Depois de fazer algo por você, ele pode agradecer e mencionar que as pessoas que o usam pagam por ele, no máximo uma vez por mês, e uma chave nas Configurações desliga isso.",
   "phone_h": "No seu celular",
-  "phone_p": "Configurações, depois \"Apoiar o desenvolvimento\". A partir de US$ 0,99, uma vez, US$ 2,99 sugerido, pelo Google Play. O app nunca vê seu cartão.",
+  "phone_p": "Configurações, depois \"Apoiar o desenvolvimento\". A partir de US$ 0,99, uma vez ou todo mês, US$ 2,99 sugerido, pelo Google Play. O app nunca vê seu cartão.",
   "browser_h": "Pelo navegador",
   "browser_wait": "O GitHub Sponsors está sendo configurado. Até abrir, o app é o jeito de contribuir. O link aparece aqui quando isso acontecer.",
   "browser_live": "GitHub Sponsors, mensal (US$ 2 ou US$ 5) ou uma vez (US$ 3 ou US$ 10), pelo GitHub. Chega ao mesmo lugar.",
@@ -1390,7 +1391,7 @@ SUPPORT_WORK_T = {
   "q_free": "O Verdetto é grátis mesmo?",
   "a_free": "Sim. Todo recurso, toda verificação e toda leitura são grátis para todos, sem anúncios e sem rastreamento: nada sobre você ou suas leituras chega até nós, e o único código no app que relata algo a alguém é o código de cobrança do próprio Google, que informa o Google sobre a compra. Uma contribuição é opcional e não muda nada do que você pode fazer.",
   "q_money": "Como o Verdetto ganha dinheiro?",
-  "a_money_base": "Com contribuições únicas das pessoas que o usam: a partir de US$ 0,99 no app pelo Google Play",
+  "a_money_base": "Com contribuições das pessoas que o usam, uma vez ou todo mês: a partir de US$ 0,99 no app pelo Google Play",
   "a_money_github": ", ou pelo GitHub Sponsors em um navegador",
   "a_money_tail": ". Não há anúncios, nem venda de dados, nem versão paga.",
   "q_unlock": "O que uma contribuição desbloqueia?",
@@ -1406,13 +1407,13 @@ SUPPORT_WORK_T = {
  },
  "id": {
   "title": "Dukung pekerjaan ini - Verdetto",
-  "desc_base": "Bagaimana Verdetto tetap gratis tanpa iklan dan pelacakan: kontribusi sekali bayar dari para pemakainya, mulai $0,99 di Google Play",
+  "desc_base": "Cara Verdetto tetap gratis tanpa iklan dan pelacakan: kontribusi para pemakainya, sekali atau bulanan, mulai $0,99 di Google Play",
   "desc_github": " atau melalui GitHub Sponsors",
   "desc_tail": ". Tidak ada yang dikunci.",
   "h1": "Dukung pekerjaan ini",
   "lede": "Verdetto tidak punya iklan dan tidak menjual apa pun, jadi orang-orang yang memakainya membayarnya dan meneruskannya. Setiap pemeriksaan dan setiap pemindaian gratis untuk semua orang. Aplikasi tidak pernah mendesak: tanpa iklan, tanpa pop-up, tanpa permintaan penilaian. Setelah melakukan sesuatu untukmu, ia mungkin mengucapkan terima kasih dan menyebut bahwa orang-orang yang memakainya membayarnya, paling banyak sekali sebulan, dan sebuah sakelar di Setelan mematikannya.",
   "phone_h": "Di ponselmu",
-  "phone_p": "Setelan, lalu \"Dukung pengembangan\". Mulai $0,99, sekali, $2,99 disarankan, melalui Google Play. Aplikasi tidak pernah melihat kartumu.",
+  "phone_p": "Setelan, lalu \"Dukung pengembangan\". Mulai $0,99, sekali atau bulanan, $2,99 disarankan, melalui Google Play. Aplikasi tidak pernah melihat kartumu.",
   "browser_h": "Dari peramban",
   "browser_wait": "GitHub Sponsors sedang disiapkan. Sampai dibuka, aplikasi adalah cara untuk memberi. Tautannya muncul di sini saat sudah siap.",
   "browser_live": "GitHub Sponsors, bulanan ($2 atau $5) atau sekali ($3 atau $10), melalui GitHub. Sampainya ke tempat yang sama.",
@@ -1431,7 +1432,7 @@ SUPPORT_WORK_T = {
   "q_free": "Apakah Verdetto benar-benar gratis?",
   "a_free": "Ya. Setiap fitur, setiap pemeriksaan, dan setiap pemindaian gratis untuk semua orang, tanpa iklan dan tanpa pelacakan: tidak ada apa pun tentangmu atau pindaianmu yang sampai ke kami, dan satu-satunya kode di aplikasi yang melapor kepada pihak lain adalah kode penagihan Google sendiri, yang melapor kepada Google tentang pembelian. Kontribusi bersifat opsional dan tidak mengubah apa pun yang bisa kamu lakukan.",
   "q_money": "Bagaimana Verdetto menghasilkan uang?",
-  "a_money_base": "Dari kontribusi sekali bayar orang-orang yang memakainya: mulai $0,99 di aplikasi melalui Google Play",
+  "a_money_base": "Dari kontribusi orang-orang yang memakainya, sekali atau bulanan: mulai $0,99 di aplikasi melalui Google Play",
   "a_money_github": ", atau melalui GitHub Sponsors dari peramban",
   "a_money_tail": ". Tidak ada iklan, tidak ada penjualan data, dan tidak ada tingkat berbayar.",
   "q_unlock": "Apa yang dibuka oleh kontribusi?",
@@ -1447,13 +1448,13 @@ SUPPORT_WORK_T = {
  },
  "ru": {
   "title": "Поддержать работу - Verdetto",
-  "desc_base": "Как Verdetto остаётся бесплатным без рекламы и слежки: разовые взносы людей, которые им пользуются, от 0,99 $ в Google Play",
+  "desc_base": "Как Verdetto остаётся бесплатным без рекламы и слежки: взносы пользователей, разовые или ежемесячные, от 0,99 $ в Google Play",
   "desc_github": " или через GitHub Sponsors",
   "desc_tail": ". Ничего не заблокировано.",
   "h1": "Поддержать работу",
   "lede": "У Verdetto нет рекламы и нечего продавать, поэтому люди, которые им пользуются, платят за него и рассказывают другим. Каждая проверка и каждое сканирование бесплатны для всех. Приложение никогда не надоедает: без рекламы, без всплывающих окон, без просьб оценить. Сделав что-то для вас, оно может сказать спасибо и упомянуть, что за него платят люди, которые им пользуются, не чаще раза в месяц, и переключатель в настройках это отключает.",
   "phone_h": "На вашем телефоне",
-  "phone_p": "Настройки, затем «Поддержать разработку». От 0,99 $, один раз, рекомендуется 2,99 $, через Google Play. Приложение никогда не видит вашу карту.",
+  "phone_p": "Настройки, затем «Поддержать разработку». От 0,99 $, один раз или ежемесячно, рекомендуется 2,99 $, через Google Play. Приложение никогда не видит вашу карту.",
   "browser_h": "Из браузера",
   "browser_wait": "GitHub Sponsors ещё настраивается. Пока он не открылся, приложение остаётся способом поддержать. Ссылка появится здесь, когда он откроется.",
   "browser_live": "GitHub Sponsors, ежемесячно (2 $ или 5 $) или один раз (3 $ или 10 $), через GitHub. Деньги приходят туда же.",
@@ -1472,7 +1473,7 @@ SUPPORT_WORK_T = {
   "q_free": "Verdetto действительно бесплатен?",
   "a_free": "Да. Каждая функция, каждая проверка и каждое сканирование бесплатны для всех, без рекламы и без слежки: ничего о вас или ваших сканах к нам не попадает, а единственный код в приложении, который что-либо кому-либо сообщает, это собственный платёжный код Google, сообщающий Google о покупке. Взнос необязателен и ничего не меняет в том, что вы можете делать.",
   "q_money": "Как Verdetto зарабатывает?",
-  "a_money_base": "Разовыми взносами людей, которые им пользуются: от 0,99 $ в приложении через Google Play",
+  "a_money_base": "Взносами людей, которые им пользуются, разовыми или ежемесячными: от 0,99 $ в приложении через Google Play",
   "a_money_github": " или через GitHub Sponsors из браузера",
   "a_money_tail": ". Нет ни рекламы, ни продажи данных, ни платного уровня.",
   "q_unlock": "Что открывает взнос?",
@@ -1488,13 +1489,13 @@ SUPPORT_WORK_T = {
  },
  "hi": {
   "title": "काम का समर्थन करें - Verdetto",
-  "desc_base": "Verdetto बिना विज्ञापन और बिना ट्रैकिंग मुफ़्त कैसे रहता है: इसे इस्तेमाल करने वाले लोगों के एकमुश्त योगदान, Google Play पर $0.99 से",
+  "desc_base": "Verdetto बिना विज्ञापन और ट्रैकिंग के मुफ़्त कैसे रहता है: उपयोगकर्ताओं के योगदान, एक बार या हर महीने, Google Play पर $0.99 से",
   "desc_github": " या GitHub Sponsors के ज़रिए",
   "desc_tail": "। कुछ भी बंद नहीं है।",
   "h1": "काम का समर्थन करें",
   "lede": "Verdetto में कोई विज्ञापन नहीं है और बेचने के लिए कुछ नहीं, इसलिए इसे इस्तेमाल करने वाले लोग इसका खर्च उठाते हैं और इसे आगे बढ़ाते हैं। हर जाँच और हर डिकोड सभी के लिए मुफ़्त है। ऐप कभी परेशान नहीं करता: न विज्ञापन, न पॉप-अप, न रेटिंग की माँग। आपके लिए कुछ करने के बाद यह धन्यवाद कह सकता है और बता सकता है कि इसे इस्तेमाल करने वाले लोग इसका खर्च उठाते हैं, महीने में अधिकतम एक बार, और सेटिंग्स का एक स्विच इसे बंद कर देता है।",
   "phone_h": "आपके फ़ोन पर",
-  "phone_p": "सेटिंग्स, फिर \"विकास का समर्थन करें\"। $0.99 से, एक बार, $2.99 सुझाया गया, Google Play के ज़रिए। ऐप आपका कार्ड कभी नहीं देखता।",
+  "phone_p": "सेटिंग्स, फिर \"विकास का समर्थन करें\"। $0.99 से, एक बार या हर महीने, $2.99 सुझाया गया, Google Play के ज़रिए। ऐप आपका कार्ड कभी नहीं देखता।",
   "browser_h": "ब्राउज़र से",
   "browser_wait": "GitHub Sponsors तैयार किया जा रहा है। जब तक यह खुले, ऐप ही देने का तरीका है। खुलने पर लिंक यहाँ दिखेगा।",
   "browser_live": "GitHub Sponsors, मासिक ($2 या $5) या एक बार ($3 या $10), GitHub के ज़रिए। यह उसी जगह पहुँचता है।",
@@ -1513,7 +1514,7 @@ SUPPORT_WORK_T = {
   "q_free": "क्या Verdetto सचमुच मुफ़्त है?",
   "a_free": "हाँ। हर सुविधा, हर जाँच और हर डिकोड सभी के लिए मुफ़्त है, बिना विज्ञापन और बिना ट्रैकिंग: आपके या आपके स्कैन के बारे में कुछ भी हम तक नहीं आता, और ऐप में किसी और को रिपोर्ट करने वाला एकमात्र कोड Google का अपना बिलिंग कोड है, जो ख़रीद के बारे में Google को बताता है। योगदान वैकल्पिक है और आप जो कर सकते हैं उसमें कुछ नहीं बदलता।",
   "q_money": "Verdetto पैसे कैसे कमाता है?",
-  "a_money_base": "इसे इस्तेमाल करने वाले लोगों के एकमुश्त योगदान से: ऐप में Google Play के ज़रिए $0.99 से",
+  "a_money_base": "इसे इस्तेमाल करने वाले लोगों के योगदान से, एक बार या हर महीने: ऐप में Google Play के ज़रिए $0.99 से",
   "a_money_github": ", या ब्राउज़र से GitHub Sponsors के ज़रिए",
   "a_money_tail": "। कोई विज्ञापन नहीं, कोई डेटा बिक्री नहीं, और कोई पेड स्तर नहीं।",
   "q_unlock": "योगदान से क्या मिलता है?",
@@ -1529,13 +1530,13 @@ SUPPORT_WORK_T = {
  },
  "ja": {
   "title": "活動を支援 - Verdetto",
-  "desc_base": "Verdetto が広告も追跡もなしに無料であり続ける仕組み: 使う人からの一回限りの寄付、Google Play で $0.99 から",
+  "desc_base": "Verdetto が広告も追跡もなしに無料であり続ける仕組み: 使う人からの寄付、一度だけでも毎月でも、Google Play で $0.99 から",
   "desc_github": "、または GitHub Sponsors 経由",
   "desc_tail": "。何もロックされません。",
   "h1": "活動を支援",
   "lede": "Verdetto には広告がなく、売るものもありません。だから使う人が支え、人に伝えてくれます。すべてのチェックとすべての読み取りは誰にとっても無料です。アプリがしつこくすることはありません: 広告なし、ポップアップなし、評価のお願いなし。何かをした後に、お礼を言い、使う人の支えで成り立っていると触れることがあります。多くても月に一度で、設定のスイッチでオフにできます。",
   "phone_h": "端末で",
-  "phone_p": "設定の「開発を支援」から。$0.99 から一回限り、$2.99 が目安、Google Play 経由です。アプリがあなたのカードを見ることはありません。",
+  "phone_p": "設定の「開発を支援」から。$0.99 から、一度だけでも毎月でも、$2.99 が目安、Google Play 経由です。アプリがあなたのカードを見ることはありません。",
   "browser_h": "ブラウザーから",
   "browser_wait": "GitHub Sponsors は準備中です。開くまでは、アプリが支援の方法です。開いたらここにリンクが表示されます。",
   "browser_live": "GitHub Sponsors、毎月（$2 または $5）または一回限り（$3 または $10）、GitHub 経由。届く先は同じです。",
@@ -1554,7 +1555,7 @@ SUPPORT_WORK_T = {
   "q_free": "Verdetto は本当に無料ですか?",
   "a_free": "はい。すべての機能、すべてのチェック、すべての読み取りが誰にとっても無料で、広告も追跡もありません。あなたやスキャンに関する情報が当方に届くことはなく、アプリ内で第三者に報告する唯一のコードは Google 自身の課金コードで、購入について Google に報告します。寄付は任意で、できることは何も変わりません。",
   "q_money": "Verdetto はどう収入を得ていますか?",
-  "a_money_base": "使う人からの一回限りの寄付です。アプリ内で Google Play を通じて $0.99 から",
+  "a_money_base": "使う人からの寄付です。一度だけでも毎月でも、アプリ内で Google Play を通じて $0.99 から",
   "a_money_github": "、またはブラウザーから GitHub Sponsors を通じて",
   "a_money_tail": "。広告も、データの販売も、有料プランもありません。",
   "q_unlock": "寄付で何が解放されますか?",
@@ -1570,13 +1571,13 @@ SUPPORT_WORK_T = {
  },
  "zh-Hans": {
   "title": "支持这项工作 - Verdetto",
-  "desc_base": "Verdetto 如何在没有广告、没有跟踪的情况下保持免费：来自使用者的一次性支持款，在 Google Play 上 $0.99 起",
+  "desc_base": "Verdetto 如何在没有广告、没有跟踪的情况下保持免费：来自使用者的支持款，一次或每月，在 Google Play 上 $0.99 起",
   "desc_github": "，或通过 GitHub Sponsors",
   "desc_tail": "。没有任何功能被锁定。",
   "h1": "支持这项工作",
   "lede": "Verdetto 没有广告，也没有可卖的东西，所以使用它的人为它付费并把它传给别人。每项检查和每次解码对所有人免费。应用从不纠缠你：没有广告，没有弹窗，没有评分请求。在为你做了些什么之后，它可能会说声谢谢，并提到使用它的人在为它付费，每月最多一次，设置中的一个开关可以关闭它。",
   "phone_h": "在你的手机上",
-  "phone_p": "设置，然后“支持开发”。$0.99 起，一次性，建议 $2.99，通过 Google Play。应用永远看不到你的银行卡。",
+  "phone_p": "设置，然后“支持开发”。$0.99 起，一次或每月，建议 $2.99，通过 Google Play。应用永远看不到你的银行卡。",
   "browser_h": "通过浏览器",
   "browser_wait": "GitHub Sponsors 正在设置中。在它开放之前，应用是支持的途径。开放后链接会出现在这里。",
   "browser_live": "GitHub Sponsors，每月（$2 或 $5）或一次性（$3 或 $10），通过 GitHub。到达的是同一个地方。",
@@ -1595,7 +1596,7 @@ SUPPORT_WORK_T = {
   "q_free": "Verdetto 真的免费吗？",
   "a_free": "是的。每项功能、每项检查、每次解码对所有人免费，没有广告，也没有跟踪：关于你或你的扫描的任何信息都不会到我们这里，而应用中唯一向他人报告的代码是 Google 自己的结算代码，它就购买事项向 Google 报告。支持款是可选的，不改变你能做的任何事。",
   "q_money": "Verdetto 如何赚钱？",
-  "a_money_base": "来自使用者的一次性支持款：在应用内通过 Google Play $0.99 起",
+  "a_money_base": "来自使用者的支持款，一次或每月：在应用内通过 Google Play $0.99 起",
   "a_money_github": "，或通过浏览器上的 GitHub Sponsors",
   "a_money_tail": "。没有广告，没有数据销售，没有付费档。",
   "q_unlock": "支持款能解锁什么？",
@@ -1611,13 +1612,13 @@ SUPPORT_WORK_T = {
  },
  "ar": {
   "title": "ادعم العمل - Verdetto",
-  "desc_base": "كيف يبقى Verdetto مجانيًا بلا إعلانات وبلا تتبّع: مساهمات لمرة واحدة من الأشخاص الذين يستخدمونه، من 0.99 دولار على Google Play",
+  "desc_base": "كيف يبقى Verdetto مجانيًا بلا إعلانات وبلا تتبّع: مساهمات من الأشخاص الذين يستخدمونه، مرة واحدة أو شهريًا، من 0.99 دولار على Google Play",
   "desc_github": " أو عبر GitHub Sponsors",
   "desc_tail": ". لا شيء مغلق.",
   "h1": "ادعم العمل",
   "lede": "ليس لدى Verdetto إعلانات ولا شيء يبيعه، لذا يدفع ثمنه من يستخدمونه ويمرّرونه لغيرهم. كل فحص وكل قراءة مجانية للجميع. ولا يلحّ التطبيق أبدًا: لا إعلانات ولا نوافذ منبثقة ولا طلبات تقييم. وبعد أن يفعل شيئًا من أجلك قد يشكرك ويذكر أن من يستخدمونه يدفعون ثمنه، مرة واحدة في الشهر على الأكثر، ويوقف ذلك مفتاح في الإعدادات.",
   "phone_h": "على هاتفك",
-  "phone_p": "الإعدادات، ثم «ادعم التطوير». من 0.99 دولار، مرة واحدة، والمقترح 2.99 دولار، عبر Google Play. لا يرى التطبيق بطاقتك أبدًا.",
+  "phone_p": "الإعدادات، ثم «ادعم التطوير». من 0.99 دولار، مرة واحدة أو شهريًا، والمقترح 2.99 دولار، عبر Google Play. لا يرى التطبيق بطاقتك أبدًا.",
   "browser_h": "من المتصفح",
   "browser_wait": "يجري إعداد GitHub Sponsors. وحتى يُفتح، يبقى التطبيق هو طريقة العطاء. وسيظهر الرابط هنا عندما يُفتح.",
   "browser_live": "GitHub Sponsors، شهريًا (2 أو 5 دولارات) أو مرة واحدة (3 أو 10 دولارات)، عبر GitHub. يصل إلى المكان نفسه.",
@@ -1636,7 +1637,7 @@ SUPPORT_WORK_T = {
   "q_free": "هل Verdetto مجاني فعلًا؟",
   "a_free": "نعم. كل ميزة وكل فحص وكل قراءة مجانية للجميع، بلا إعلانات وبلا تتبّع: لا يصل إلينا شيء عنك أو عن عمليات المسح لديك، والكود الوحيد في التطبيق الذي يبلّغ أي طرف آخر هو كود الفوترة الخاص بـ Google نفسها، وهو يبلّغ Google عن عملية الشراء. المساهمة اختيارية ولا تغيّر شيئًا مما يمكنك فعله.",
   "q_money": "كيف يكسب Verdetto المال؟",
-  "a_money_base": "من مساهمات لمرة واحدة من الأشخاص الذين يستخدمونه: من 0.99 دولار داخل التطبيق عبر Google Play",
+  "a_money_base": "من مساهمات الأشخاص الذين يستخدمونه، مرة واحدة أو شهريًا: من 0.99 دولار داخل التطبيق عبر Google Play",
   "a_money_github": "، أو عبر GitHub Sponsors من المتصفح",
   "a_money_tail": ". لا إعلانات ولا بيع للبيانات ولا مستوى مدفوع.",
   "q_unlock": "ما الذي تفتحه المساهمة؟",
@@ -2256,7 +2257,7 @@ PRESS = f"""
 <div class="card"><p><strong>In one sentence.</strong> Verdetto is a free QR code and barcode scanner for Android with no ads and no fake buttons. It shows the link before it opens, is built to read damaged codes, and checks scanned content for warning signs on the phone. It never says anything is safe: "No warnings found" means none of its checks matched.</p></div>
 
 <h2>Boilerplate</h2>
-<p>Verdetto: QR &amp; Barcode Scanner is a free Android app from Verdetto, a solo developer in Virginia. It reads QR codes and barcodes, including damaged ones, shows the person exactly what a code contains before anything opens, and checks links, Wi-Fi networks, payment addresses, and phone numbers for known warning signs on the phone itself. Its list of known phishing and scam entries is compiled in the open from public feeds, and its signature is checked on the device. The app has no ads, no accounts, and no analytics; an optional one-time contribution supports development, and nothing is locked behind it. Verdetto is pronounced "ver-DET-oh" and is Italian for verdict.</p>
+<p>Verdetto: QR &amp; Barcode Scanner is a free Android app from Verdetto, a solo developer in Virginia. It reads QR codes and barcodes, including damaged ones, shows the person exactly what a code contains before anything opens, and checks links, Wi-Fi networks, payment addresses, and phone numbers for known warning signs on the phone itself. Its list of known phishing and scam entries is compiled in the open from public feeds, and its signature is checked on the device. The app has no ads, no accounts, and no analytics; an optional contribution, once or monthly, supports development, and nothing is locked behind it. Verdetto is pronounced "ver-DET-oh" and is Italian for verdict.</p>
 
 <h2>Facts you can check</h2>
 <ul>
@@ -2297,7 +2298,7 @@ PRESS_T = {
   "lead": "In einem Satz.",
   "sentence": "Verdetto ist ein kostenloser QR-Code- und Barcode-Scanner für Android ohne Werbung und ohne falsche Buttons. Er zeigt den Link, bevor er sich öffnet, ist dafür gebaut, beschädigte Codes zu lesen, und prüft gescannte Inhalte auf dem Telefon auf Warnzeichen. Er sagt nie, dass etwas sicher ist: „Keine Warnungen gefunden“ heißt, dass keine seiner Prüfungen angeschlagen hat.",
   "boiler_h": "Standardtext",
-  "boiler": "Verdetto: QR &amp; Barcode Scanner ist eine kostenlose Android-App von Verdetto, einem einzelnen Entwickler in Virginia. Sie liest QR-Codes und Barcodes, auch beschädigte, zeigt der Person genau, was ein Code enthält, bevor sich etwas öffnet, und prüft Links, WLAN-Netzwerke, Zahlungsadressen und Telefonnummern direkt auf dem Telefon auf bekannte Warnzeichen. Ihre Liste bekannter Phishing- und Betrugseinträge wird offen aus öffentlichen Quellen zusammengestellt, und ihre Signatur wird auf dem Gerät geprüft. Die App hat keine Werbung, keine Konten und keine Analysen; ein optionaler einmaliger Beitrag unterstützt die Entwicklung, und nichts ist dahinter gesperrt. Verdetto wird „wer-DET-o“ ausgesprochen und ist Italienisch für Urteil.",
+  "boiler": "Verdetto: QR &amp; Barcode Scanner ist eine kostenlose Android-App von Verdetto, einem einzelnen Entwickler in Virginia. Sie liest QR-Codes und Barcodes, auch beschädigte, zeigt der Person genau, was ein Code enthält, bevor sich etwas öffnet, und prüft Links, WLAN-Netzwerke, Zahlungsadressen und Telefonnummern direkt auf dem Telefon auf bekannte Warnzeichen. Ihre Liste bekannter Phishing- und Betrugseinträge wird offen aus öffentlichen Quellen zusammengestellt, und ihre Signatur wird auf dem Gerät geprüft. Die App hat keine Werbung, keine Konten und keine Analysen; ein optionaler Beitrag, einmal oder monatlich, unterstützt die Entwicklung, und nichts ist dahinter gesperrt. Verdetto wird „wer-DET-o“ ausgesprochen und ist Italienisch für Urteil.",
   "facts_h": "Fakten zum Nachprüfen",
   "facts": [
    "Plattform: Android 8 und neuer. Preis: kostenlos. Werbung: keine. Konten: keine. Analysen: keine.",
@@ -2329,7 +2330,7 @@ PRESS_T = {
   "lead": "En una frase.",
   "sentence": "Verdetto es un escáner de códigos QR y de barras gratuito para Android, sin anuncios y sin botones falsos. Muestra el enlace antes de abrirlo, está hecho para leer códigos dañados y revisa el contenido escaneado en busca de señales de alerta en el propio teléfono. Nunca dice que algo sea seguro: «No se encontraron avisos» significa que ninguna de sus comprobaciones coincidió.",
   "boiler_h": "Texto estándar",
-  "boiler": "Verdetto: QR &amp; Barcode Scanner es una aplicación gratuita para Android de Verdetto, un desarrollador independiente en Virginia. Lee códigos QR y de barras, incluidos los dañados, muestra a la persona exactamente lo que contiene un código antes de que se abra nada, y revisa enlaces, redes Wi-Fi, direcciones de pago y números de teléfono en busca de señales de alerta conocidas en el propio teléfono. Su lista de entradas conocidas de phishing y estafas se compila de forma abierta a partir de fuentes públicas, y su firma se comprueba en el dispositivo. La aplicación no tiene anuncios, ni cuentas, ni analíticas; una contribución única y opcional apoya el desarrollo, y nada queda bloqueado tras ella. Verdetto se pronuncia «ver-DET-o» y significa veredicto en italiano.",
+  "boiler": "Verdetto: QR &amp; Barcode Scanner es una aplicación gratuita para Android de Verdetto, un desarrollador independiente en Virginia. Lee códigos QR y de barras, incluidos los dañados, muestra a la persona exactamente lo que contiene un código antes de que se abra nada, y revisa enlaces, redes Wi-Fi, direcciones de pago y números de teléfono en busca de señales de alerta conocidas en el propio teléfono. Su lista de entradas conocidas de phishing y estafas se compila de forma abierta a partir de fuentes públicas, y su firma se comprueba en el dispositivo. La aplicación no tiene anuncios, ni cuentas, ni analíticas; una contribución opcional, una vez o cada mes, apoya el desarrollo, y nada queda bloqueado tras ella. Verdetto se pronuncia «ver-DET-o» y significa veredicto en italiano.",
   "facts_h": "Datos que puedes comprobar",
   "facts": [
    "Plataforma: Android 8 y posteriores. Precio: gratis. Anuncios: ninguno. Cuentas: ninguna. Analíticas: ninguna.",
@@ -2361,7 +2362,7 @@ PRESS_T = {
   "lead": "En une phrase.",
   "sentence": "Verdetto est un lecteur de codes QR et de codes-barres gratuit pour Android, sans publicité et sans faux boutons. Il montre le lien avant de l'ouvrir, est conçu pour lire les codes abîmés et vérifie le contenu scanné à la recherche de signaux d'alerte, sur le téléphone. Il ne dit jamais que quelque chose est sûr : « Aucune alerte trouvée » signifie qu'aucune de ses vérifications n'a réagi.",
   "boiler_h": "Texte de présentation",
-  "boiler": "Verdetto: QR &amp; Barcode Scanner est une application Android gratuite de Verdetto, un développeur indépendant en Virginie. Elle lit les codes QR et les codes-barres, y compris abîmés, montre à la personne exactement ce que contient un code avant que quoi que ce soit ne s'ouvre, et vérifie les liens, les réseaux Wi-Fi, les adresses de paiement et les numéros de téléphone à la recherche de signaux d'alerte connus, sur le téléphone lui-même. Sa liste d'entrées connues de phishing et d'arnaques est constituée au grand jour à partir de flux publics, et sa signature est vérifiée sur l'appareil. L'application n'a ni publicité, ni comptes, ni outils d'analyse ; une contribution unique et facultative soutient le développement, et rien n'est verrouillé derrière. Verdetto se prononce « ver-DET-o » et signifie verdict en italien.",
+  "boiler": "Verdetto: QR &amp; Barcode Scanner est une application Android gratuite de Verdetto, un développeur indépendant en Virginie. Elle lit les codes QR et les codes-barres, y compris abîmés, montre à la personne exactement ce que contient un code avant que quoi que ce soit ne s'ouvre, et vérifie les liens, les réseaux Wi-Fi, les adresses de paiement et les numéros de téléphone à la recherche de signaux d'alerte connus, sur le téléphone lui-même. Sa liste d'entrées connues de phishing et d'arnaques est constituée au grand jour à partir de flux publics, et sa signature est vérifiée sur l'appareil. L'application n'a ni publicité, ni comptes, ni outils d'analyse ; une contribution facultative, une fois ou chaque mois, soutient le développement, et rien n'est verrouillé derrière. Verdetto se prononce « ver-DET-o » et signifie verdict en italien.",
   "facts_h": "Des faits que vous pouvez vérifier",
   "facts": [
    "Plateforme : Android 8 et versions ultérieures. Prix : gratuit. Publicité : aucune. Comptes : aucun. Analyse d'audience : aucune.",
@@ -2393,7 +2394,7 @@ PRESS_T = {
   "lead": "Em uma frase.",
   "sentence": "O Verdetto é um leitor de códigos QR e de barras gratuito para Android, sem anúncios e sem botões falsos. Ele mostra o link antes de abrir, foi feito para ler códigos danificados e verifica o conteúdo escaneado em busca de sinais de alerta, no próprio celular. Ele nunca diz que algo é seguro: \"Nenhum alerta encontrado\" significa que nenhuma das suas verificações bateu.",
   "boiler_h": "Texto padrão",
-  "boiler": "Verdetto: QR &amp; Barcode Scanner é um aplicativo gratuito para Android do Verdetto, um desenvolvedor independente na Virgínia. Ele lê códigos QR e de barras, inclusive danificados, mostra à pessoa exatamente o que um código contém antes que qualquer coisa abra, e verifica links, redes Wi-Fi, endereços de pagamento e números de telefone em busca de sinais de alerta conhecidos, no próprio celular. Sua lista de entradas conhecidas de phishing e golpes é montada abertamente a partir de fontes públicas, e sua assinatura é conferida no aparelho. O aplicativo não tem anúncios, contas nem análises de uso; uma contribuição única e opcional apoia o desenvolvimento, e nada fica trancado atrás dela. Verdetto se pronuncia \"ver-DET-o\" e é veredicto em italiano.",
+  "boiler": "Verdetto: QR &amp; Barcode Scanner é um aplicativo gratuito para Android do Verdetto, um desenvolvedor independente na Virgínia. Ele lê códigos QR e de barras, inclusive danificados, mostra à pessoa exatamente o que um código contém antes que qualquer coisa abra, e verifica links, redes Wi-Fi, endereços de pagamento e números de telefone em busca de sinais de alerta conhecidos, no próprio celular. Sua lista de entradas conhecidas de phishing e golpes é montada abertamente a partir de fontes públicas, e sua assinatura é conferida no aparelho. O aplicativo não tem anúncios, contas nem análises de uso; uma contribuição opcional, uma vez ou todo mês, apoia o desenvolvimento, e nada fica trancado atrás dela. Verdetto se pronuncia \"ver-DET-o\" e é veredicto em italiano.",
   "facts_h": "Fatos que você pode conferir",
   "facts": [
    "Plataforma: Android 8 ou mais recente. Preço: grátis. Anúncios: nenhum. Contas: nenhuma. Análises de uso: nenhuma.",
@@ -2425,7 +2426,7 @@ PRESS_T = {
   "lead": "Dalam satu kalimat.",
   "sentence": "Verdetto adalah pemindai kode QR dan barcode gratis untuk Android tanpa iklan dan tanpa tombol palsu. Ia menampilkan tautan sebelum dibuka, dibuat untuk membaca kode yang rusak, dan memeriksa konten hasil pindaian untuk tanda-tanda peringatan di ponsel. Ia tidak pernah mengatakan sesuatu aman: \"Tidak ada peringatan ditemukan\" berarti tidak satu pun pemeriksaannya cocok.",
   "boiler_h": "Teks baku",
-  "boiler": "Verdetto: QR &amp; Barcode Scanner adalah aplikasi Android gratis dari Verdetto, seorang pengembang independen di Virginia. Ia membaca kode QR dan barcode, termasuk yang rusak, menunjukkan kepada orang persis apa isi sebuah kode sebelum apa pun terbuka, dan memeriksa tautan, jaringan Wi-Fi, alamat pembayaran, dan nomor telepon untuk tanda-tanda peringatan yang dikenal, di ponsel itu sendiri. Daftar entri phishing dan penipuan yang dikenalnya disusun secara terbuka dari sumber publik, dan tanda tangannya diperiksa di perangkat. Aplikasi ini tanpa iklan, tanpa akun, dan tanpa analitik; kontribusi sekali bayar yang opsional mendukung pengembangan, dan tidak ada yang dikunci di baliknya. Verdetto diucapkan \"ver-DET-o\" dan berarti putusan dalam bahasa Italia.",
+  "boiler": "Verdetto: QR &amp; Barcode Scanner adalah aplikasi Android gratis dari Verdetto, seorang pengembang independen di Virginia. Ia membaca kode QR dan barcode, termasuk yang rusak, menunjukkan kepada orang persis apa isi sebuah kode sebelum apa pun terbuka, dan memeriksa tautan, jaringan Wi-Fi, alamat pembayaran, dan nomor telepon untuk tanda-tanda peringatan yang dikenal, di ponsel itu sendiri. Daftar entri phishing dan penipuan yang dikenalnya disusun secara terbuka dari sumber publik, dan tanda tangannya diperiksa di perangkat. Aplikasi ini tanpa iklan, tanpa akun, dan tanpa analitik; kontribusi opsional, sekali atau bulanan, mendukung pengembangan, dan tidak ada yang dikunci di baliknya. Verdetto diucapkan \"ver-DET-o\" dan berarti putusan dalam bahasa Italia.",
   "facts_h": "Fakta yang bisa Anda periksa",
   "facts": [
    "Platform: Android 8 ke atas. Harga: gratis. Iklan: tidak ada. Akun: tidak ada. Analitik: tidak ada.",
@@ -2457,7 +2458,7 @@ PRESS_T = {
   "lead": "В одном предложении.",
   "sentence": "Verdetto — бесплатный сканер QR-кодов и штрихкодов для Android без рекламы и без ложных кнопок. Он показывает ссылку до того, как она откроется, создан для чтения повреждённых кодов и проверяет отсканированное на признаки опасности прямо на телефоне. Он никогда не говорит, что что-то безопасно: «Предупреждений не найдено» означает, что ни одна из его проверок не сработала.",
   "boiler_h": "Стандартный текст",
-  "boiler": "Verdetto: QR &amp; Barcode Scanner — бесплатное приложение для Android от Verdetto, независимого разработчика из Вирджинии. Оно читает QR-коды и штрихкоды, в том числе повреждённые, показывает человеку, что именно содержит код, до того как что-либо откроется, и проверяет ссылки, сети Wi-Fi, платёжные адреса и номера телефонов на известные признаки опасности прямо на телефоне. Его список известных фишинговых и мошеннических записей собирается открыто из публичных источников, а подпись списка проверяется на устройстве. В приложении нет рекламы, учётных записей и аналитики; необязательный разовый взнос поддерживает разработку, и ничто за ним не заперто. Verdetto произносится «вер-ДЕТ-то» и по-итальянски означает «вердикт».",
+  "boiler": "Verdetto: QR &amp; Barcode Scanner — бесплатное приложение для Android от Verdetto, независимого разработчика из Вирджинии. Оно читает QR-коды и штрихкоды, в том числе повреждённые, показывает человеку, что именно содержит код, до того как что-либо откроется, и проверяет ссылки, сети Wi-Fi, платёжные адреса и номера телефонов на известные признаки опасности прямо на телефоне. Его список известных фишинговых и мошеннических записей собирается открыто из публичных источников, а подпись списка проверяется на устройстве. В приложении нет рекламы, учётных записей и аналитики; необязательный взнос, разовый или ежемесячный, поддерживает разработку, и ничто за ним не заперто. Verdetto произносится «вер-ДЕТ-то» и по-итальянски означает «вердикт».",
   "facts_h": "Факты, которые можно проверить",
   "facts": [
    "Платформа: Android 8 и новее. Цена: бесплатно. Реклама: нет. Учётные записи: нет. Аналитика: нет.",
@@ -2489,7 +2490,7 @@ PRESS_T = {
   "lead": "एक वाक्य में।",
   "sentence": "Verdetto Android के लिए एक मुफ़्त QR कोड और बारकोड स्कैनर है, जिसमें न विज्ञापन हैं, न नकली बटन। यह लिंक खुलने से पहले उसे दिखाता है, क्षतिग्रस्त कोड पढ़ने के लिए बनाया गया है, और स्कैन की गई सामग्री में चेतावनी के संकेत फ़ोन पर ही जाँचता है। यह कभी नहीं कहता कि कुछ सुरक्षित है: \"कोई चेतावनी नहीं मिली\" का मतलब है कि इसकी कोई जाँच मेल नहीं खाई।",
   "boiler_h": "मानक पाठ",
-  "boiler": "Verdetto: QR &amp; Barcode Scanner Verdetto का एक मुफ़्त Android ऐप है, जिसे वर्जीनिया में एक स्वतंत्र डेवलपर बनाता है। यह QR कोड और बारकोड पढ़ता है, क्षतिग्रस्त कोड भी, कुछ भी खुलने से पहले व्यक्ति को ठीक-ठीक दिखाता है कि कोड में क्या है, और लिंक, Wi-Fi नेटवर्क, भुगतान पते और फ़ोन नंबरों को ज्ञात चेतावनी संकेतों के लिए फ़ोन पर ही जाँचता है। ज्ञात फ़िशिंग और धोखाधड़ी प्रविष्टियों की इसकी सूची सार्वजनिक स्रोतों से खुले तौर पर बनाई जाती है, और उसका हस्ताक्षर डिवाइस पर जाँचा जाता है। ऐप में न विज्ञापन हैं, न खाते, न एनालिटिक्स; एक वैकल्पिक एक बार का योगदान विकास में मदद करता है, और उसके पीछे कुछ भी बंद नहीं है। Verdetto का उच्चारण \"वेर-डेट-ओ\" है और इतालवी में इसका अर्थ है फ़ैसला।",
+  "boiler": "Verdetto: QR &amp; Barcode Scanner Verdetto का एक मुफ़्त Android ऐप है, जिसे वर्जीनिया में एक स्वतंत्र डेवलपर बनाता है। यह QR कोड और बारकोड पढ़ता है, क्षतिग्रस्त कोड भी, कुछ भी खुलने से पहले व्यक्ति को ठीक-ठीक दिखाता है कि कोड में क्या है, और लिंक, Wi-Fi नेटवर्क, भुगतान पते और फ़ोन नंबरों को ज्ञात चेतावनी संकेतों के लिए फ़ोन पर ही जाँचता है। ज्ञात फ़िशिंग और धोखाधड़ी प्रविष्टियों की इसकी सूची सार्वजनिक स्रोतों से खुले तौर पर बनाई जाती है, और उसका हस्ताक्षर डिवाइस पर जाँचा जाता है। ऐप में न विज्ञापन हैं, न खाते, न एनालिटिक्स; एक वैकल्पिक योगदान, एक बार या हर महीने, विकास में मदद करता है, और उसके पीछे कुछ भी बंद नहीं है। Verdetto का उच्चारण \"वेर-डेट-ओ\" है और इतालवी में इसका अर्थ है फ़ैसला।",
   "facts_h": "तथ्य जो आप जाँच सकते हैं",
   "facts": [
    "प्लैटफ़ॉर्म: Android 8 और बाद के संस्करण। कीमत: मुफ़्त। विज्ञापन: कोई नहीं। खाते: कोई नहीं। एनालिटिक्स: कोई नहीं।",
@@ -2521,7 +2522,7 @@ PRESS_T = {
   "lead": "一文で。",
   "sentence": "Verdetto は、広告も偽のボタンもない、Android 向けの無料 QR コード・バーコードスキャナーです。リンクを開く前に表示し、傷んだコードを読めるように作られ、読み取った内容に警告のサインがないかを端末上で確認します。何かが安全だとは決して言いません。「警告は見つかりませんでした」は、どの確認にも該当しなかったという意味です。",
   "boiler_h": "定型文",
-  "boiler": "Verdetto: QR &amp; Barcode Scanner は、バージニア州の個人開発者 Verdetto による無料の Android アプリです。傷んだものを含む QR コードとバーコードを読み取り、何かが開く前にコードの中身をそのまま表示し、リンク、Wi-Fi ネットワーク、支払い先アドレス、電話番号に既知の警告サインがないかを端末上で確認します。既知のフィッシングや詐欺の一覧は公開されたフィードから公開の場で作られ、その署名は端末上で検証されます。アプリには広告もアカウントも解析もありません。任意の一回限りの支援が開発を支え、その先に何かが隠されていることはありません。Verdetto は「ヴェル・デット」と読み、イタリア語で「判決」を意味します。",
+  "boiler": "Verdetto: QR &amp; Barcode Scanner は、バージニア州の個人開発者 Verdetto による無料の Android アプリです。傷んだものを含む QR コードとバーコードを読み取り、何かが開く前にコードの中身をそのまま表示し、リンク、Wi-Fi ネットワーク、支払い先アドレス、電話番号に既知の警告サインがないかを端末上で確認します。既知のフィッシングや詐欺の一覧は公開されたフィードから公開の場で作られ、その署名は端末上で検証されます。アプリには広告もアカウントも解析もありません。任意の支援が、一度だけでも毎月でも、開発を支え、その先に何かが隠されていることはありません。Verdetto は「ヴェル・デット」と読み、イタリア語で「判決」を意味します。",
   "facts_h": "確認できる事実",
   "facts": [
    "プラットフォーム: Android 8 以降。価格: 無料。広告: なし。アカウント: なし。解析: なし。",
@@ -2553,7 +2554,7 @@ PRESS_T = {
   "lead": "一句话。",
   "sentence": "Verdetto 是一款面向 Android 的免费二维码和条形码扫描器，没有广告，也没有假按钮。它在链接打开前先显示链接，专为读取受损的码而设计，并在手机上检查扫描内容是否有警告迹象。它从不说任何东西是安全的：“未发现警告”表示它的各项检查均未命中。",
   "boiler_h": "标准介绍",
-  "boiler": "Verdetto: QR &amp; Barcode Scanner 是 Verdetto 出品的免费 Android 应用，开发者是弗吉尼亚州的一位独立开发者。它读取二维码和条形码（包括受损的码），在任何内容打开之前向用户完整显示码中的内容，并在手机本地检查链接、Wi-Fi 网络、付款地址和电话号码是否带有已知的警告迹象。它的已知钓鱼与诈骗条目列表由公开来源公开编制，签名在设备上校验。应用没有广告、没有账户、没有分析统计；可选的一次性支持用于开发，没有任何功能被锁在其后。Verdetto 读作“ver-DET-oh”，在意大利语中意为“判决”。",
+  "boiler": "Verdetto: QR &amp; Barcode Scanner 是 Verdetto 出品的免费 Android 应用，开发者是弗吉尼亚州的一位独立开发者。它读取二维码和条形码（包括受损的码），在任何内容打开之前向用户完整显示码中的内容，并在手机本地检查链接、Wi-Fi 网络、付款地址和电话号码是否带有已知的警告迹象。它的已知钓鱼与诈骗条目列表由公开来源公开编制，签名在设备上校验。应用没有广告、没有账户、没有分析统计；可选的支持，一次或每月，用于开发，没有任何功能被锁在其后。Verdetto 读作“ver-DET-oh”，在意大利语中意为“判决”。",
   "facts_h": "可核实的事实",
   "facts": [
    "平台：Android 8 及更高版本。价格：免费。广告：无。账户：无。分析统计：无。",
@@ -2585,7 +2586,7 @@ PRESS_T = {
   "lead": "في جملة واحدة.",
   "sentence": "Verdetto قارئ مجاني لرموز QR والباركود على Android، بلا إعلانات وبلا أزرار زائفة. يعرض الرابط قبل أن يُفتح، ومصمَّم لقراءة الرموز المتضررة، ويفحص المحتوى الممسوح بحثًا عن علامات تحذير على الهاتف نفسه. لا يقول أبدًا إن شيئًا ما آمن: «لم يُعثر على تحذيرات» تعني أن أيًا من فحوصه لم يطابق.",
   "boiler_h": "النص المعياري",
-  "boiler": "Verdetto: QR &amp; Barcode Scanner تطبيق Android مجاني من Verdetto، مطوّر مستقل في فرجينيا. يقرأ رموز QR والباركود، بما فيها المتضررة، ويُظهر للشخص بالضبط ما يحتويه الرمز قبل أن يُفتح أي شيء، ويفحص الروابط وشبكات Wi-Fi وعناوين الدفع وأرقام الهواتف بحثًا عن علامات تحذير معروفة على الهاتف نفسه. قائمته بمدخلات التصيّد والاحتيال المعروفة تُجمَع بشكل مفتوح من مصادر عامة، ويُتحقَّق من توقيعها على الجهاز. لا إعلانات في التطبيق ولا حسابات ولا تحليلات؛ مساهمة اختيارية لمرة واحدة تدعم التطوير، ولا شيء مقفل خلفها. يُلفَظ Verdetto «فير-دِت-و» ويعني «الحُكم» بالإيطالية.",
+  "boiler": "Verdetto: QR &amp; Barcode Scanner تطبيق Android مجاني من Verdetto، مطوّر مستقل في فرجينيا. يقرأ رموز QR والباركود، بما فيها المتضررة، ويُظهر للشخص بالضبط ما يحتويه الرمز قبل أن يُفتح أي شيء، ويفحص الروابط وشبكات Wi-Fi وعناوين الدفع وأرقام الهواتف بحثًا عن علامات تحذير معروفة على الهاتف نفسه. قائمته بمدخلات التصيّد والاحتيال المعروفة تُجمَع بشكل مفتوح من مصادر عامة، ويُتحقَّق من توقيعها على الجهاز. لا إعلانات في التطبيق ولا حسابات ولا تحليلات؛ مساهمة اختيارية، مرة واحدة أو شهريًا، تدعم التطوير، ولا شيء مقفل خلفها. يُلفَظ Verdetto «فير-دِت-و» ويعني «الحُكم» بالإيطالية.",
   "facts_h": "حقائق يمكنك التحقق منها",
   "facts": [
    "المنصة: Android 8 وما بعده. السعر: مجاني. الإعلانات: لا شيء. الحسابات: لا شيء. التحليلات: لا شيء.",
@@ -4050,7 +4051,7 @@ FEAT_T = {
     "shot": None,
     "alt": "",
     "ps": [
-     "Every feature is free for everyone and stays free. No accounts, no analytics, no ads, so no fake buttons. Frames are scanned on the device and dropped. Lookups go straight from your phone to public databases, and you can turn them off. It is paid for and passed on by the people who use it: a one-time contribution from $0.99 keeps it going, and nothing is locked behind it. Share the app from inside it: a code any camera reads, carrying the store link and nothing else. {SUPPORT}."
+     "Every feature is free for everyone and stays free. No accounts, no analytics, no ads, so no fake buttons. Frames are scanned on the device and dropped. Lookups go straight from your phone to public databases, and you can turn them off. It is paid for and passed on by the people who use it: a contribution from $0.99, once or monthly, keeps it going, and nothing is locked behind it. Share the app from inside it: a code any camera reads, carrying the store link and nothing else. {SUPPORT}."
     ],
     "support": "How that works",
     "cta": True
@@ -4159,7 +4160,7 @@ FEAT_T = {
     "h2": "Kostenlos, ohne Werbung, kein Tracking durch Verdetto",
     "alt": "",
     "ps": [
-     "Jede Funktion ist für alle kostenlos und bleibt es. Keine Konten, keine Analysen, keine Werbung, also keine falschen Buttons. Bilder werden auf dem Gerät gescannt und verworfen. Nachschlagen geht direkt von deinem Telefon an öffentliche Datenbanken, und du kannst es abschalten. Bezahlt und weitergegeben von den Menschen, die die App nutzen: Ein einmaliger Beitrag ab 0,99 $ hält sie am Laufen, und nichts ist dahinter gesperrt. Teile die App aus ihr heraus: ein Code, den jede Kamera liest, mit dem Store-Link und sonst nichts. {SUPPORT}."
+     "Jede Funktion ist für alle kostenlos und bleibt es. Keine Konten, keine Analysen, keine Werbung, also keine falschen Buttons. Bilder werden auf dem Gerät gescannt und verworfen. Nachschlagen geht direkt von deinem Telefon an öffentliche Datenbanken, und du kannst es abschalten. Bezahlt und weitergegeben von den Menschen, die die App nutzen: Ein Beitrag ab 0,99 $, einmal oder monatlich, hält sie am Laufen, und nichts ist dahinter gesperrt. Teile die App aus ihr heraus: ein Code, den jede Kamera liest, mit dem Store-Link und sonst nichts. {SUPPORT}."
     ],
     "support": "Wie das funktioniert"
    }
@@ -4267,7 +4268,7 @@ FEAT_T = {
     "h2": "Gratis, sin anuncios, sin rastreo por parte de Verdetto",
     "alt": "",
     "ps": [
-     "Todas las funciones son gratis para todos y lo seguirán siendo. Sin cuentas, sin analíticas, sin anuncios, así que sin botones falsos. Los fotogramas se escanean en el dispositivo y se descartan. Las consultas van directamente de tu teléfono a bases de datos públicas, y puedes desactivarlas. Lo pagan y lo pasan a otros las personas que lo usan: una contribución única desde 0,99 $ lo mantiene en marcha, y nada queda bloqueado tras ella. Comparte la app desde dentro: un código que cualquier cámara lee, con el enlace de la tienda y nada más. {SUPPORT}."
+     "Todas las funciones son gratis para todos y lo seguirán siendo. Sin cuentas, sin analíticas, sin anuncios, así que sin botones falsos. Los fotogramas se escanean en el dispositivo y se descartan. Las consultas van directamente de tu teléfono a bases de datos públicas, y puedes desactivarlas. Lo pagan y lo pasan a otros las personas que lo usan: una contribución desde 0,99 $, una vez o cada mes, lo mantiene en marcha, y nada queda bloqueado tras ella. Comparte la app desde dentro: un código que cualquier cámara lee, con el enlace de la tienda y nada más. {SUPPORT}."
     ],
     "support": "Cómo funciona"
    }
@@ -4375,7 +4376,7 @@ FEAT_T = {
     "h2": "Gratuit, sans publicité, aucun pistage par Verdetto",
     "alt": "",
     "ps": [
-     "Chaque fonction est gratuite pour tous et le reste. Pas de comptes, pas d'analyse d'audience, pas de publicité, donc pas de faux boutons. Les images sont analysées sur l'appareil puis jetées. Les recherches vont directement de votre téléphone aux bases de données publiques, et vous pouvez les désactiver. Financée et transmise par les personnes qui l'utilisent : une contribution unique dès 0,99 $ la fait vivre, et rien n'est verrouillé derrière. Partage l'application depuis l'application : un code que n'importe quel appareil photo lit, avec le lien de la boutique et rien d'autre. {SUPPORT}."
+     "Chaque fonction est gratuite pour tous et le reste. Pas de comptes, pas d'analyse d'audience, pas de publicité, donc pas de faux boutons. Les images sont analysées sur l'appareil puis jetées. Les recherches vont directement de votre téléphone aux bases de données publiques, et vous pouvez les désactiver. Financée et transmise par les personnes qui l'utilisent : une contribution dès 0,99 $, une fois ou chaque mois, la fait vivre, et rien n'est verrouillé derrière. Partage l'application depuis l'application : un code que n'importe quel appareil photo lit, avec le lien de la boutique et rien d'autre. {SUPPORT}."
     ],
     "support": "Comment ça marche"
    }
@@ -4483,7 +4484,7 @@ FEAT_T = {
     "h2": "Grátis, sem anúncios, sem rastreamento pelo Verdetto",
     "alt": "",
     "ps": [
-     "Todo recurso é gratuito para todos e continua assim. Sem contas, sem análises de uso, sem anúncios, portanto sem botões falsos. Os quadros são lidos no aparelho e descartados. As consultas vão direto do seu celular para bancos de dados públicos, e você pode desativá-las. Pago e passado adiante pelas pessoas que o usam: uma contribuição única a partir de US$ 0,99 o mantém, e nada fica trancado atrás dela. Compartilhe o app de dentro dele: um código que qualquer câmera lê, com o link da loja e nada mais. {SUPPORT}."
+     "Todo recurso é gratuito para todos e continua assim. Sem contas, sem análises de uso, sem anúncios, portanto sem botões falsos. Os quadros são lidos no aparelho e descartados. As consultas vão direto do seu celular para bancos de dados públicos, e você pode desativá-las. Pago e passado adiante pelas pessoas que o usam: uma contribuição a partir de US$ 0,99, uma vez ou todo mês, o mantém, e nada fica trancado atrás dela. Compartilhe o app de dentro dele: um código que qualquer câmera lê, com o link da loja e nada mais. {SUPPORT}."
     ],
     "support": "Como isso funciona"
    }
@@ -4591,7 +4592,7 @@ FEAT_T = {
     "h2": "Gratis, tanpa iklan, tanpa pelacakan oleh Verdetto",
     "alt": "",
     "ps": [
-     "Setiap fitur gratis untuk semua orang dan tetap gratis. Tanpa akun, tanpa analitik, tanpa iklan, jadi tanpa tombol palsu. Bingkai dipindai di perangkat lalu dibuang. Pencarian berjalan langsung dari ponsel Anda ke basis data publik, dan Anda dapat mematikannya. Dibayar dan diteruskan oleh orang-orang yang memakainya: kontribusi sekali bayar mulai $0,99 menjaganya berjalan, dan tidak ada yang dikunci di baliknya. Bagikan aplikasi dari dalam aplikasi: kode yang dibaca kamera apa pun, berisi tautan toko dan tidak ada yang lain. {SUPPORT}."
+     "Setiap fitur gratis untuk semua orang dan tetap gratis. Tanpa akun, tanpa analitik, tanpa iklan, jadi tanpa tombol palsu. Bingkai dipindai di perangkat lalu dibuang. Pencarian berjalan langsung dari ponsel Anda ke basis data publik, dan Anda dapat mematikannya. Dibayar dan diteruskan oleh orang-orang yang memakainya: kontribusi mulai $0,99, sekali atau bulanan, menjaganya berjalan, dan tidak ada yang dikunci di baliknya. Bagikan aplikasi dari dalam aplikasi: kode yang dibaca kamera apa pun, berisi tautan toko dan tidak ada yang lain. {SUPPORT}."
     ],
     "support": "Bagaimana caranya"
    }
@@ -4699,7 +4700,7 @@ FEAT_T = {
     "h2": "Бесплатно, без рекламы, без слежки со стороны Verdetto",
     "alt": "",
     "ps": [
-     "Каждая возможность бесплатна для всех и такой останется. Никаких учётных записей, аналитики и рекламы, а значит, никаких ложных кнопок. Кадры обрабатываются на устройстве и отбрасываются. Запросы идут напрямую с вашего телефона в открытые базы данных, и их можно отключить. За него платят и его передают дальше те, кто им пользуется: разовый взнос от 0,99 $ поддерживает его, и ничто за ним не заперто. Делитесь приложением прямо из него: код, который читает любая камера, со ссылкой на магазин и ничем больше. {SUPPORT}."
+     "Каждая возможность бесплатна для всех и такой останется. Никаких учётных записей, аналитики и рекламы, а значит, никаких ложных кнопок. Кадры обрабатываются на устройстве и отбрасываются. Запросы идут напрямую с вашего телефона в открытые базы данных, и их можно отключить. За него платят и его передают дальше те, кто им пользуется: взнос от 0,99 $, разовый или ежемесячный, поддерживает его, и ничто за ним не заперто. Делитесь приложением прямо из него: код, который читает любая камера, со ссылкой на магазин и ничем больше. {SUPPORT}."
     ],
     "support": "Как это устроено"
    }
@@ -4807,7 +4808,7 @@ FEAT_T = {
     "h2": "मुफ़्त, बिना विज्ञापन, Verdetto की ओर से कोई ट्रैकिंग नहीं",
     "alt": "",
     "ps": [
-     "हर सुविधा सबके लिए मुफ़्त है और रहेगी। न खाते, न एनालिटिक्स, न विज्ञापन, इसलिए न नकली बटन। फ़्रेम डिवाइस पर स्कैन होकर हटा दिए जाते हैं। लुकअप सीधे आपके फ़ोन से सार्वजनिक डेटाबेस तक जाते हैं, और आप उन्हें बंद कर सकते हैं। इसका खर्च वे लोग उठाते हैं जो इसे इस्तेमाल करते हैं और आगे बढ़ाते हैं: $0.99 से एक बार का योगदान इसे चलाए रखता है, और उसके पीछे कुछ भी बंद नहीं है। ऐप को ऐप के भीतर से ही साझा करें: एक कोड जिसे कोई भी कैमरा पढ़ लेता है, जिसमें स्टोर लिंक है और कुछ नहीं। {SUPPORT}।"
+     "हर सुविधा सबके लिए मुफ़्त है और रहेगी। न खाते, न एनालिटिक्स, न विज्ञापन, इसलिए न नकली बटन। फ़्रेम डिवाइस पर स्कैन होकर हटा दिए जाते हैं। लुकअप सीधे आपके फ़ोन से सार्वजनिक डेटाबेस तक जाते हैं, और आप उन्हें बंद कर सकते हैं। इसका खर्च वे लोग उठाते हैं जो इसे इस्तेमाल करते हैं और आगे बढ़ाते हैं: $0.99 से योगदान, एक बार या हर महीने, इसे चलाए रखता है, और उसके पीछे कुछ भी बंद नहीं है। ऐप को ऐप के भीतर से ही साझा करें: एक कोड जिसे कोई भी कैमरा पढ़ लेता है, जिसमें स्टोर लिंक है और कुछ नहीं। {SUPPORT}।"
     ],
     "support": "यह कैसे काम करता है"
    }
@@ -4915,7 +4916,7 @@ FEAT_T = {
     "h2": "無料、広告なし、Verdetto による追跡なし",
     "alt": "",
     "ps": [
-     "すべての機能はすべての人に無料で、これからもそうです。アカウントも、解析も、広告もなく、だから偽のボタンもありません。フレームは端末上で読み取られ、捨てられます。照会はあなたの端末から公開データベースへ直接行われ、オフにもできます。使う人が支払い、伝えていく: 0.99 ドルからの一回限りの支援が続ける力になり、その先に何も隠されていません。アプリの中からアプリを共有できます。どのカメラでも読めるコードで、ストアのリンクだけを運びます。{SUPPORT}。"
+     "すべての機能はすべての人に無料で、これからもそうです。アカウントも、解析も、広告もなく、だから偽のボタンもありません。フレームは端末上で読み取られ、捨てられます。照会はあなたの端末から公開データベースへ直接行われ、オフにもできます。使う人が支払い、伝えていく: 0.99 ドルからの支援が、一度だけでも毎月でも、続ける力になり、その先に何も隠されていません。アプリの中からアプリを共有できます。どのカメラでも読めるコードで、ストアのリンクだけを運びます。{SUPPORT}。"
     ],
     "support": "その仕組み"
    }
@@ -5023,7 +5024,7 @@ FEAT_T = {
     "h2": "免费、无广告、Verdetto 不做跟踪",
     "alt": "",
     "ps": [
-     "每一项功能对所有人免费，并将一直免费。没有账户，没有分析统计，没有广告，因此也没有假按钮。画面在设备上扫描后即丢弃。查询直接从您的手机发往公共数据库，您也可以关闭它。由使用它的人付费并口口相传：一次性支持从 0.99 美元起，让它持续下去，没有任何东西被锁在后面。从应用内分享应用：任何相机都能读的码，只带商店链接，别无其他。{SUPPORT}。"
+     "每一项功能对所有人免费，并将一直免费。没有账户，没有分析统计，没有广告，因此也没有假按钮。画面在设备上扫描后即丢弃。查询直接从您的手机发往公共数据库，您也可以关闭它。由使用它的人付费并口口相传：一次或每月的支持从 0.99 美元起，让它持续下去，没有任何东西被锁在后面。从应用内分享应用：任何相机都能读的码，只带商店链接，别无其他。{SUPPORT}。"
     ],
     "support": "它是怎么运作的"
    }
@@ -5131,7 +5132,7 @@ FEAT_T = {
     "h2": "مجاني، بلا إعلانات، بلا تتبّع من Verdetto",
     "alt": "",
     "ps": [
-     "كل ميزة مجانية للجميع وستبقى كذلك. لا حسابات ولا تحليلات ولا إعلانات، وبالتالي لا أزرار زائفة. تُمسح الإطارات على الجهاز ثم تُهمَل. تذهب عمليات البحث مباشرة من هاتفك إلى قواعد بيانات عامة، ويمكنك إيقافها. يدفع ثمنه ويمرّره من يستخدمونه: مساهمة لمرة واحدة من 0.99 دولار تُبقيه مستمرًا، ولا شيء مقفل خلفها. شارك التطبيق من داخله: رمز تقرأه أي كاميرا، يحمل رابط المتجر ولا شيء غيره. {SUPPORT}."
+     "كل ميزة مجانية للجميع وستبقى كذلك. لا حسابات ولا تحليلات ولا إعلانات، وبالتالي لا أزرار زائفة. تُمسح الإطارات على الجهاز ثم تُهمَل. تذهب عمليات البحث مباشرة من هاتفك إلى قواعد بيانات عامة، ويمكنك إيقافها. يدفع ثمنه ويمرّره من يستخدمونه: مساهمة من 0.99 دولار، مرة واحدة أو شهريًا، تُبقيه مستمرًا، ولا شيء مقفل خلفها. شارك التطبيق من داخله: رمز تقرأه أي كاميرا، يحمل رابط المتجر ولا شيء غيره. {SUPPORT}."
     ],
     "support": "كيف يعمل ذلك"
    }
@@ -5605,7 +5606,7 @@ def main():
         "- Reads QR codes and barcodes including EAN, UPC, Code 128, Data Matrix, PDF417, and Aztec, and is built to read damaged ones.\n"
         "- Scan history stays on the phone (and in the phone's own backup unless that is turned off); scans older than 90 days clear unless starred; any entry can be deleted.\n"
         "- Permissions: the camera to scan; contacts only if the person fills their own card from the phone's profile.\n"
-        "- Funding: no ads, no data sales, no paid tier; paid for and passed on by the people who use it. An optional one-time in-app contribution, from $0.99 ($2.99 suggested) through Google Play, supports development"
+        "- Funding: no ads, no data sales, no paid tier; paid for and passed on by the people who use it. An optional in-app contribution, once or monthly, from $0.99 ($2.99 suggested) through Google Play, supports development"
         + (", and GitHub Sponsors (https://github.com/sponsors/verdettoqr) is the browser route" if SPONSORS_LIVE else "")
         + "; nothing is locked behind it. The app never nags; after it does something for you it may say thank you, at most once a month, and a switch turns that off. Verdetto is a small business; a contribution is a purchase, not a gift, and brings no tax benefit.\n",
         encoding="utf-8", newline="\n")
